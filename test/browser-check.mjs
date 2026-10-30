@@ -7,12 +7,20 @@
 
 import { mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
 const ORIGINAL = readFileSync(new URL("../data/o_szd.1222.tei.xml", import.meta.url), "utf8");
+const INDEX = JSON.parse(readFileSync(new URL("../data/index.json", import.meta.url), "utf8"));
+const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
+const REICHNER = ALL_DOCS.find((d) => d.objectId === "o_szd.1750");
+const REICHNER_TEXT = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
+const lf = (text) => text.replace(/\r\n/g, "\n");
 const results = [];
-const check = (name, ok, detail = "") => results.push(`${ok ? "PASS" : "FAIL"} ${name}${detail ? ` (${detail})` : ""}`);
+// A run that throws still shows the checks it reached.
+process.on("exit", (code) => code && !results.printed && console.log(results.join("\n")));
+const check =(name, ok, detail = "") => results.push(`${ok ? "PASS" : "FAIL"} ${name}${detail ? ` (${detail})` : ""}`);
 const label = (page, sel) => page.textContent(sel).then((s) => s.trim());
 
 // Screenshots of the changed states are written only when SHOTS_DIR is set.
@@ -37,18 +45,25 @@ const shot = (page, name) => SHOTS_DIR && page.screenshot({ path: join(SHOTS_DIR
   check("data/index.json is in step with the files (node tools/build-document-index.mjs)", (await buildIndex()) === stored);
 }
 
-// Acceptance into an empty revisionDesc, which the browser runs cannot load
-// because such a document is not valid TEI.
-{
-  const { acceptanceEdits } = await import("../js/state.js");
-  const text = '<TEI>\n  <teiHeader>\n    <revisionDesc status="draft"/>\n  </teiHeader>\n</TEI>';
-  const [edit, more] = acceptanceEdits(text, { date: "2026-10-30", note: "ok" });
-  const result = `${text.slice(0, edit.from)}${edit.insert}${text.slice(edit.to)}`;
-  const ok = !more && result === '<TEI>\n  <teiHeader>\n    <revisionDesc status="approved">\n      <change when="2026-10-30" status="approved">ok</change>\n    </revisionDesc>\n  </teiHeader>\n</TEI>';
-  check("acceptance fills an empty revisionDesc", ok, ok ? "" : JSON.stringify(result));
-}
+// Acceptance edits on header variants the browser runs cannot load, and the
+// other pure functions, are asserted in test/unit/ (node --test).
 
 const browser = await chromium.launch();
+
+// The editor's text as saving would write it, read from the CodeMirror view.
+const editorText = (page) =>
+  page.evaluate(async () => {
+    const { EditorView } = await import("./vendor/codemirror/codemirror.js");
+    return EditorView.findFromDOM(document.querySelector(".cm-editor")).state.sliceDoc();
+  });
+// A paste as the clipboard delivers it, through CodeMirror's own paste handling.
+const paste = (page, text) =>
+  page.evaluate((t) => {
+    const data = new DataTransfer();
+    data.setData("text/plain", t);
+    document.querySelector(".cm-content").dispatchEvent(new ClipboardEvent("paste", { clipboardData: data, bubbles: true, cancelable: true }));
+  }, text);
+const bareLf = (text) => (text.match(/(^|[^\r])\n/g) ?? []).length;
 
 async function open(contextOptions, initScript, initArg) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true, ...contextOptions });
@@ -99,7 +114,11 @@ async function shotAll(page, name, scheme) {
 // into the rendered viewport (CodeMirror renders only visible lines).
 async function doubleClickWord(page, lineText, word) {
   const line = page.locator(".cm-line", { hasText: lineText }).first();
+  // A scroll still pending from the last edit would undo the reset below, and
+  // CodeMirror renders the new viewport only after the scroll event.
+  await page.waitForTimeout(150);
   await page.evaluate(() => (document.querySelector(".cm-scroller").scrollTop = 0));
+  await page.waitForTimeout(150);
   for (let i = 0; i < 40 && !(await line.count()); i++) {
     await page.evaluate(() => (document.querySelector(".cm-scroller").scrollTop += 300));
     await page.waitForTimeout(50);
@@ -258,15 +277,55 @@ const LOBID_FIXTURE = {
     'Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName>',
   );
   check("saved file is the original plus exactly the two annotations", saved === expected);
-  check("saving clears the unsaved mark and the dot", (await label(page, "#save-state")) === "" && !(await unsavedDot(page)));
+  // The browser may still ask where to put the download or cancel it, so the
+  // text stays unsaved and says why.
+  check(
+    "a download keeps the unsaved dot and says arrival is not confirmed",
+    (await label(page, "#save-state")) === "Als Download übergeben, Ankunft nicht bestätigt" &&
+      (await unsavedDot(page)) &&
+      (await label(page, "#xml-status")).startsWith("o_szd.1222.tei.xml wurde dem Browser als Download übergeben."),
+    await label(page, "#save-state"),
+  );
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
   await page.keyboard.type(" ");
   await page.waitForTimeout(400);
   check("an edit after validating asks to validate again", (await label(page, "#valid-label")) === "Neu validieren");
+  check("an edit after a download is unsaved work again", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
   const [again] = await Promise.all([page.waitForEvent("download"), page.keyboard.press("Control+s")]);
-  check("Ctrl+S saves", (await again.suggestedFilename()) === "o_szd.1222.tei.xml" && (await label(page, "#save-state")) === "");
+  check("Ctrl+S saves", (await again.suggestedFilename()) === "o_szd.1222.tei.xml" && (await label(page, "#save-state")) === "Als Download übergeben, Ankunft nicht bestätigt");
   await page.keyboard.press("Backspace");
+
+  // The menu checks the selection again when an action runs, since it may
+  // have changed after the menu opened.
+  await doubleClickWord(page, "Liebe Frau Meingast", "Meingast");
+  await page.keyboard.press("Control+.");
+  const beforeMenu = await editorText(page);
+  await page.evaluate(async () => {
+    const { EditorView } = await import("./vendor/codemirror/codemirror.js");
+    const view = EditorView.findFromDOM(document.querySelector(".cm-editor"));
+    const { head } = view.state.selection.main;
+    view.dispatch({ selection: { anchor: view.state.doc.lineAt(head).from, head } });
+  });
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(300);
+  check(
+    "an action on a selection that gained markup is refused",
+    !(await page.isVisible("#person-dialog")) && (await editorText(page)) === beforeMenu && (await label(page, "#xml-status")).startsWith("Die Markierung enthält Markup"),
+    await label(page, "#xml-status"),
+  );
+
+  // A second question while one is open is answered as dismissed and leaves the first in place.
+  const second = await page.evaluate(async () => {
+    const { ask } = await import("./js/ui.js");
+    ask({ title: "Erste Frage", text: "", choices: [{ value: "", label: "Abbrechen" }] });
+    // Bounded, so a second question that never resolves fails instead of hanging the run.
+    const answer = await Promise.race([ask({ title: "Zweite Frage", text: "", choices: [{ value: "x", label: "X" }] }), new Promise((resolve) => setTimeout(() => resolve("pending"), 1000))]);
+    const title = document.getElementById("ask-title").textContent;
+    document.getElementById("ask-dialog").close();
+    return { answer, title };
+  });
+  check("ask is not reentrant", second.answer === "" && second.title === "Erste Frage", JSON.stringify(second));
 
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
@@ -293,6 +352,12 @@ const LOBID_FIXTURE = {
   check("dragging the split to the edge hides the facsimile", !(await page.isVisible("#image-pane")) && (await page.isVisible("#facs-show")));
   await page.click("#facs-show");
   check("edge button brings it back", await page.isVisible("#image-pane"));
+
+  // The fallback file input is cleared after each choice, so choosing the same file again opens it again.
+  const reichner = new URL(`../${REICHNER.path}`, import.meta.url);
+  await page.setInputFiles("#tei-file", fileURLToPath(reichner));
+  await page.waitForFunction(() => document.getElementById("doc-meta").textContent.startsWith("o_szd.1750.tei.xml"), null, { timeout: 10000 });
+  check("the file input is cleared after opening", (await page.inputValue("#tei-file")) === "");
   check("no console errors (download run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
@@ -523,12 +588,6 @@ const LOBID_FIXTURE = {
   check("no console errors (conflict run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
-const INDEX = JSON.parse(readFileSync(new URL("../data/index.json", import.meta.url), "utf8"));
-const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
-const REICHNER = ALL_DOCS.find((d) => d.objectId === "o_szd.1750");
-const REICHNER_TEXT = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
-const lf = (text) => text.replace(/\r\n/g, "\n");
-
 /** Opens a document from the list by its object id; the list closes on the way. */
 async function chooseDocument(page, objectId) {
   await page.click("#docs-button");
@@ -627,9 +686,52 @@ async function chooseDocument(page, objectId) {
     await docState(page),
   );
   await shotAll(page, "ready", "dark");
+
+  // An edit inside the check's debounce interval must not be accepted on the
+  // strength of the validation of the earlier text: here an element TEI does
+  // not know, inserted and accepted at once.
+  const validText = await editorText(page);
+  await page.evaluate(async () => {
+    const { EditorView } = await import("./vendor/codemirror/codemirror.js");
+    const view = EditorView.findFromDOM(document.querySelector(".cm-editor"));
+    const at = view.state.doc.toString().indexOf("<p>") + 3;
+    view.dispatch({ changes: { from: at, insert: "<unbekannt/>" } });
+    document.getElementById("accept").click();
+  });
+  await page.waitForTimeout(400);
+  check(
+    "acceptance inside the debounce interval is refused",
+    (await docState(page)) === "In Bearbeitung | noch nicht validiert" && !(await editorText(page)).includes('status="approved"') && (await label(page, "#xml-status")).startsWith("Nicht abgenommen"),
+    `${await docState(page)}: ${await label(page, "#xml-status")}`,
+  );
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(400);
+  check(
+    "undoing back to the validated text restores its validation",
+    (await editorText(page)) === validText && (await label(page, "#valid-label")) === "TEI-konform" && (await docState(page)) === "Bereit zur Abnahme",
+    `${await label(page, "#valid-label")}, ${await docState(page)}`,
+  );
+  // Validating right after typing: the pending check must not discard the
+  // result. A space after the root element keeps the document valid.
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.click("#valid-button");
+  await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
+  await page.waitForTimeout(1000);
+  check("a validation right after typing stays shown", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#valid-label"));
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(400);
+  check("the restored text needs validating again", (await editorText(page)) === validText && (await validate(page)) === "TEI-konform" && (await docState(page)) === "Bereit zur Abnahme", await docState(page));
+
   await page.click("#accept");
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() => document.getElementById("valid-label").textContent === "TEI-konform", null, { timeout: 60000 }).catch(() => {});
   check("acceptance shows Abgenommen", (await docState(page)) === "Abgenommen" && (await page.isHidden("#accept")), await docState(page));
+  check(
+    "acceptance validates the accepted text again",
+    (await label(page, "#valid-label")) === "TEI-konform" && (await label(page, "#xml-status")).startsWith("Abgenommen und gültig gegen TEI All"),
+    `${await label(page, "#valid-label")}: ${await label(page, "#xml-status")}`,
+  );
   const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
   const accepted = lf(readFileSync(await download.path(), "utf8"));
   const block = /[ \t]*<revisionDesc status="approved">\n[ \t]*<change when="\d{4}-\d{2}-\d{2}" status="approved">[^<]+<\/change>\n[ \t]*<\/revisionDesc>\n/;
@@ -702,6 +804,233 @@ async function chooseDocument(page, objectId) {
   check("no console errors (revisionDesc run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
+// Data safety run: saving while another document is chosen, undo across a
+// switch, the permission and overwrite order, a failing write, encodings, line
+// endings, and state that must not survive a document switch. Stubbed file
+// handles serve the files below and log every disk access.
+{
+  const raw = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8");
+  const approved = REICHNER_TEXT.replace(/\n([ \t]*)<\/teiHeader>/, (_, indent) =>
+    `\n${indent}  <revisionDesc status="approved">\n${indent}    <change when="2026-10-01" status="approved">ok</change>\n${indent}  </revisionDesc>\n${indent}</teiHeader>`,
+  );
+  // CRLF throughout except the first five breaks, and a bare & that the parser reports.
+  const lines = ORIGINAL.split("\n");
+  const badLine = lines.findIndex((l) => l.includes("Herr Reichner"));
+  lines[badLine] = lines[badLine].replace("Herr Reichner", "Herr & Reichner");
+  const mixed = lines.map((l, i) => (i === lines.length - 1 ? l : `${l}${i < 5 ? "\n" : "\r\n"}`)).join("");
+  const files = {
+    a: { name: "A.tei.xml", text: ORIGINAL },
+    bom: { name: "bom.tei.xml", bytes: [0xef, 0xbb, 0xbf, ...Buffer.from(raw, "utf8")] },
+    latin: { name: "latin.tei.xml", bytes: [...Buffer.from(ORIGINAL, "latin1")] },
+    approved: { name: "approved.tei.xml", text: approved },
+    broken: { name: "kaputt.tei.xml", text: ORIGINAL.replace("</TEI>", "") },
+    crlf: { name: "crlf.tei.xml", text: REICHNER_TEXT.replace(/\n/g, "\r\n") },
+    mixed: { name: "mixed.tei.xml", text: mixed },
+  };
+  const { page, errors } = await open(
+    { colorScheme: "dark" },
+    (served) => {
+      Object.assign(window, { __writes: [], __log: [], __mtime: 1761800000000, __next: "a", __hold: false, __changeOnCreate: false, __failWrite: false, __granted: false });
+      const make = (key) => ({
+        name: served[key].name,
+        queryPermission: async () => (window.__log.push("query"), window.__granted ? "granted" : "prompt"),
+        requestPermission: async () => (window.__log.push("request"), (window.__granted = true), "granted"),
+        getFile: async () => {
+          window.__log.push("getFile");
+          const f = served[key];
+          return new File([f.bytes ? new Uint8Array(f.bytes) : f.text], f.name, { lastModified: window.__mtime });
+        },
+        createWritable: async () => {
+          window.__log.push("create");
+          if (window.__hold) await new Promise((resolve) => (window.__release = resolve));
+          // Another program writes the file while the stream is being opened.
+          if (window.__changeOnCreate) {
+            window.__changeOnCreate = false;
+            window.__mtime += 5000;
+          }
+          return {
+            write: async (data) => {
+              if (window.__failWrite) throw new Error("Datenträger voll");
+              window.__writes.push({ key, data });
+            },
+            close: async () => (window.__log.push("close"), (window.__mtime += 1000)),
+            abort: async () => window.__log.push("abort"),
+          };
+        },
+      });
+      const handles = Object.fromEntries(Object.keys(served).map((k) => [k, make(k)]));
+      window.showOpenFilePicker = async () => [handles[window.__next]];
+      window.showSaveFilePicker = async () => handles[window.__next];
+    },
+    files,
+  );
+  const openFile = async (key) => {
+    await page.evaluate((k) => (window.__next = k), key);
+    await page.click("#tei-open");
+    await page.waitForTimeout(600);
+  };
+  const writes = () => page.evaluate(() => window.__writes);
+
+  // A save waiting for the disk keeps its document: choosing another one is refused.
+  await openFile("a");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.evaluate(() => Object.assign(window, { __hold: true, __log: [] }));
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(200);
+  await chooseDocument(page, "o_szd.1750");
+  await page.waitForTimeout(300);
+  check(
+    "choosing a document while saving is refused",
+    !(await page.isVisible("#ask-dialog")) && (await label(page, "#doc-meta")).startsWith("A.tei.xml") && (await label(page, "#xml-status")).startsWith("A.tei.xml wird gerade gespeichert"),
+    await label(page, "#xml-status"),
+  );
+  await page.evaluate(() => {
+    window.__hold = false;
+    window.__release();
+  });
+  await page.waitForTimeout(400);
+  const first = await writes();
+  check(
+    "the held save completes into its own file",
+    first.length === 1 && first[0].key === "a" && first[0].data === `${ORIGINAL} ` && (await label(page, "#xml-status")) === "Gespeichert in A.tei.xml." && (await label(page, "#save-state")) === "",
+    await label(page, "#xml-status"),
+  );
+  const log = await page.evaluate(() => window.__log);
+  check("permission comes before the disk comparison, which comes before writing", log.slice(0, 5).join(",") === "query,request,getFile,create,getFile", log.join(","));
+
+  // Undo after switching documents cannot bring back the previous document.
+  await chooseDocument(page, "o_szd.1750");
+  await page.waitForFunction(() => document.getElementById("doc-meta").textContent.startsWith("o_szd.1750"), null, { timeout: 10000 });
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(400);
+  check("undo after a switch keeps the new document", (await editorText(page)) === raw && (await label(page, "#save-state")) === "" && (await label(page, "#doc-title")) === REICHNER.title);
+  await page.keyboard.type("x");
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(400);
+  check("undo still works within the new document", (await editorText(page)) === raw && (await label(page, "#save-state")) === "");
+
+  // The file changes while the stream is opened: nothing is written, and the user is asked.
+  await openFile("a");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.evaluate(() => Object.assign(window, { __changeOnCreate: true, __log: [] }));
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  check(
+    "a change between comparison and writing aborts the stream and asks",
+    (await page.isVisible("#ask-dialog")) && (await label(page, "#ask-title")) === "Datei auf der Festplatte geändert" && (await page.evaluate(() => window.__log.includes("abort"))) && (await writes()).length === 1,
+    (await page.evaluate(() => window.__log)).join(","),
+  );
+  await page.click("#ask-actions button[value='overwrite']");
+  await page.waitForTimeout(400);
+  check("overwriting then writes the editor text", (await writes()).length === 2 && (await label(page, "#save-state")) === "");
+
+  // A failing write aborts the stream and keeps the work unsaved.
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.evaluate(() => Object.assign(window, { __failWrite: true, __log: [] }));
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  check(
+    "a failing write aborts the stream and keeps the text unsaved",
+    (await page.evaluate(() => window.__log.includes("abort"))) && (await label(page, "#xml-status")).startsWith("Speichern fehlgeschlagen") && (await label(page, "#save-state")) === "Ungespeicherte Änderungen",
+    await label(page, "#xml-status"),
+  );
+  await page.evaluate(() => (window.__failWrite = false));
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+
+  // A byte order mark is kept and only UTF-8 opens.
+  await openFile("bom");
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  const bomWrite = (await writes()).at(-1);
+  check("a file with a byte order mark is saved byte-exact", bomWrite.key === "bom" && bomWrite.data === `﻿${raw}` && (await editorText(page)) === raw);
+  await openFile("latin");
+  check(
+    "a file that is not UTF-8 is refused and the open document stays",
+    (await label(page, "#xml-status")).startsWith("Nicht geöffnet: latin.tei.xml ist kein gültiges UTF-8") && (await label(page, "#doc-meta")).startsWith("bom.tei.xml"),
+    await label(page, "#xml-status"),
+  );
+
+  // Title and state of an accepted document do not survive a malformed one.
+  await openFile("approved");
+  check("the approved fixture opens as accepted", (await docState(page)) === "Abgenommen", await docState(page));
+  await openFile("broken");
+  check(
+    "a malformed document after an accepted one shows its own name and state",
+    (await label(page, "#doc-title")) === "kaputt.tei.xml" && (await docState(page)) === "In Bearbeitung | nicht wohlgeformt",
+    `${await label(page, "#doc-title")}, ${await docState(page)}`,
+  );
+  check(
+    "nor does the facsimile of the previous document",
+    (await page.inputValue("#iiif-url")) === "" && (await label(page, "#page-label")) === "" && (await page.isDisabled("#page-next")),
+    await label(page, "#page-label"),
+  );
+  await shot(page, "broken-dark");
+
+  // CRLF: acceptance and a multi-line paste insert CRLF, never a bare LF.
+  await openFile("crlf");
+  check("the CRLF letter is valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+  await page.click("#accept");
+  await page.waitForFunction(() => document.getElementById("valid-label").textContent === "TEI-konform", null, { timeout: 60000 }).catch(() => {});
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await paste(page, "\neins\nzwei\ndrei");
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  const crlfWrite = (await writes()).at(-1)?.data ?? "";
+  check(
+    "acceptance and a pasted block keep CRLF throughout",
+    bareLf(crlfWrite) === 0 && crlfWrite.includes('<revisionDesc status="approved">\r\n') && crlfWrite.endsWith("\r\neins\r\nzwei\r\ndrei"),
+    `${bareLf(crlfWrite)} bare LF`,
+  );
+
+  // Mixed line endings: named on opening, error lines counted as the parser counts them, saved unchanged.
+  await openFile("mixed");
+  check("mixed line endings are named on opening", (await label(page, "#xml-status")).startsWith("mixed.tei.xml mischt Zeilenenden: "), await label(page, "#xml-status"));
+  check("the error line is the parser's line", (await label(page, "#wf-label")) === `Fehler Zeile ${badLine + 1}`, await label(page, "#wf-label"));
+  await page.click("#wf-button");
+  await page.waitForTimeout(200);
+  check("the error jump lands on that line", (await page.locator(".cm-activeLine").textContent()).includes("Herr & Reichner"), await page.locator(".cm-activeLine").textContent());
+  await shot(page, "mixed-dark");
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  check("an unedited file with mixed line endings is saved byte-identical", (await writes()).at(-1)?.data === mixed);
+
+  // Open work without an encoding rule: counted, selected by F8, named in the menu, and Enter does nothing.
+  const gaps = ALL_DOCS.find((d) => d.objectId === "o_szd.1267");
+  await chooseDocument(page, gaps.objectId);
+  await page.waitForFunction(() => document.getElementById("doc-meta").textContent.startsWith("o_szd.1267"), null, { timeout: 10000 });
+  check("gaps count as open work", (await label(page, "#work-label")) === `${gaps.open} offene Stellen` && gaps.open > 0, await label(page, "#work-label"));
+  check("the counter names every kind of open work", (await page.getAttribute("#work-button", "data-tip")).includes("Lücke, HTR-Kommentar"), await page.getAttribute("#work-button", "data-tip"));
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+Home");
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(300);
+  const before = await editorText(page);
+  check(
+    "F8 selects a gap and the menu says its rule is open",
+    (await label(page, "#actions-quote")).startsWith("„[...") &&
+      (await page.isVisible("#actions-note")) &&
+      (await label(page, "#actions-note")).startsWith("Lücke: Die Kodierungsregel ist noch offen") &&
+      (await page.locator("#actions [data-suggested]").count()) === 0 &&
+      (await page.evaluate(() => document.activeElement?.id === "actions")),
+    await label(page, "#actions-note"),
+  );
+  await shot(page, "gap-note-dark");
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(200);
+  check("Enter on a kind without action changes nothing", (await editorText(page)) === before && !(await page.isVisible("#person-dialog")));
+  await page.keyboard.press("Escape");
+  check("no console errors (data safety run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
 // Run 8: every document of the working set loads from the list, well-formed
 // and without console errors. Load time runs from the click to the first frame
 // after the checked text is shown; typing time covers ten keystrokes.
@@ -738,6 +1067,7 @@ const timings = [];
 }
 
 console.log(results.join("\n"));
+results.printed = true;
 await browser.close();
 const largest = [...timings].sort((a, b) => b.kb - a.kb).slice(0, 5);
 console.log(`\nLoad and typing times, largest documents: ${largest.map((t) => `${t.id} ${t.kb} KB ${t.load}/${t.typing} ms`).join(", ")}`);

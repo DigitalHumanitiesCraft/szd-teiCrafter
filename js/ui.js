@@ -32,13 +32,16 @@ export function arrowNavigation(container, itemSelector, field) {
 
 /**
  * Asks a question in a modal dialog and resolves to the value of the chosen
- * button, or "" when it is dismissed with Escape. The first choice is the
- * safe one and receives the focus.
+ * button, or "" when it is dismissed with Escape or while another question is
+ * open. The first choice is the safe one and receives the focus.
  * @param {{ title: string, text: string, choices: { value: string, label: string, primary?: boolean }[] }} question
  * @returns {Promise<string>}
  */
 export function ask({ title, text, choices }) {
   const box = /** @type {HTMLDialogElement} */ ($("ask-dialog"));
+  // One question at a time: a second one while the first is open would replace
+  // its buttons, so it is answered as dismissed, the safe answer.
+  if (box.open) return Promise.resolve("");
   $("ask-title").textContent = title;
   $("ask-text").textContent = text;
   $("ask-actions").replaceChildren(

@@ -46,14 +46,18 @@ function isImageService(json) {
   return ctx.includes("iiif.io/api/image") || json.protocol === "http://iiif.io/api/image";
 }
 
-/** @param {any} value */
-function text(value) {
+/**
+ * A label from the forms manifests use: string, language map, @value object
+ * or a list of them. The depth limit stops a self-nesting or hostile manifest.
+ * @param {any} value @param {number} [depth]
+ */
+export function labelText(value, depth = 0) {
   if (typeof value === "string") return value;
-  if (Array.isArray(value)) return text(value[0]);
+  if (depth > 8) return "";
+  if (Array.isArray(value)) return labelText(value[0], depth + 1);
   if (value && typeof value === "object") {
     if ("@value" in value) return String(value["@value"]);
-    const first = Object.values(value)[0];
-    return text(first);
+    return labelText(Object.values(value)[0], depth + 1);
   }
   return "";
 }
@@ -71,16 +75,16 @@ function fromManifestV2(manifest) {
   const canvases = manifest.sequences[0]?.canvases ?? [];
   const pages = canvases.map((/** @type {any} */ canvas, /** @type {number} */ i) => {
     const res = canvas.images?.[0]?.resource ?? {};
-    return { label: text(canvas.label) || String(i + 1), tileSource: tileSourceFor(res.service, res["@id"]) };
+    return { label: labelText(canvas.label) || String(i + 1), tileSource: tileSourceFor(res.service, res["@id"]) };
   });
-  return { label: text(manifest.label), pages };
+  return { label: labelText(manifest.label), pages };
 }
 
 /** @param {any} manifest @returns {Resolved} */
 function fromManifestV3(manifest) {
   const pages = manifest.items.map((/** @type {any} */ canvas, /** @type {number} */ i) => {
     const body = [canvas.items?.[0]?.items?.[0]?.body].flat()[0] ?? {};
-    return { label: text(canvas.label) || String(i + 1), tileSource: tileSourceFor(body.service, body.id) };
+    return { label: labelText(canvas.label) || String(i + 1), tileSource: tileSourceFor(body.service, body.id) };
   });
-  return { label: text(manifest.label), pages };
+  return { label: labelText(manifest.label), pages };
 }

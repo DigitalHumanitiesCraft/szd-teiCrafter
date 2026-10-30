@@ -43,6 +43,12 @@ export function createViewer(element, onPage) {
       current = -1;
       this.show(0);
     },
+    /** Shows no image, for a document without a facsimile. */
+    clear() {
+      pages = [];
+      current = -1;
+      viewer.close();
+    },
     /** @param {number} index */
     show(index) {
       if (!pages.length) return;

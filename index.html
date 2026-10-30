@@ -148,8 +148,9 @@
     </button>
   </main>
 
-  <div id="actions" class="actions" role="menu" aria-label="Annotieren" hidden>
+  <div id="actions" class="actions" role="menu" aria-label="Annotieren" tabindex="-1" hidden>
     <div id="actions-quote" class="actions-quote" aria-live="polite"></div>
+    <p id="actions-note" class="actions-note" aria-live="polite" hidden></p>
     <button type="button" role="menuitem" data-action="person"><svg class="icon"><use href="#i-person"/></svg>Person</button>
     <button type="button" role="menuitem" data-action="del">Streichung</button>
     <button type="button" role="menuitem" data-action="unclear">Unsicher</button>

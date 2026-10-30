@@ -85,17 +85,28 @@ export function hunks(lines, context = 2) {
 }
 
 /**
- * Lines that start with a Git conflict marker, in document order.
+ * Git conflict marker lines, in document order. Start and end take Git's form,
+ * seven signs followed by a space and a label or by the line end, and count on
+ * their own, so a marker left over from a partial resolution is still found.
+ * A separator line "=======" counts only inside an open conflict, since such a
+ * line is ordinary text elsewhere.
  * @param {string} text
  * @returns {{ line: number, kind: "start" | "middle" | "end" }[]}
  */
 export function conflictMarkers(text) {
   /** @type {{ line: number, kind: "start" | "middle" | "end" }[]} */
   const found = [];
-  text.split(/\r?\n/).forEach((l, i) => {
-    if (l.startsWith("<<<<<<<")) found.push({ line: i + 1, kind: "start" });
-    else if (l.startsWith("=======")) found.push({ line: i + 1, kind: "middle" });
-    else if (l.startsWith(">>>>>>>")) found.push({ line: i + 1, kind: "end" });
+  let inside = false;
+  text.split(/\r\n|\r|\n/).forEach((l, i) => {
+    if (/^<{7}(?: |$)/.test(l)) {
+      found.push({ line: i + 1, kind: "start" });
+      inside = true;
+    } else if (inside && /^={7}$/.test(l)) {
+      found.push({ line: i + 1, kind: "middle" });
+    } else if (/^>{7}(?: |$)/.test(l)) {
+      found.push({ line: i + 1, kind: "end" });
+      inside = false;
+    }
   });
   return found;
 }

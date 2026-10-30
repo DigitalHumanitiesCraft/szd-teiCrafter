@@ -39,5 +39,5 @@ export async function searchPersons(query) {
     }));
 }
 
-/** GND identifiers: digits with an optional check character or hyphenated form. */
-export const isGndId = (/** @type {string} */ value) => /^[0-9X-]{6,12}$/i.test(value.trim());
+/** GND identifiers: digits with an optional check character, plain or after a hyphen. */
+export const isGndId = (/** @type {string} */ value) => /^\d{6,11}(?:-?[\dX])?$/i.test(value.trim());

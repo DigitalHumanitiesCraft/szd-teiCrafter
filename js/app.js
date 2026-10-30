@@ -24,14 +24,21 @@ const wfButton = $("wf-button");
 const validButton = $("valid-button");
 const workButton = $("work-button");
 // The counter names what this edition counts as open work.
-workButton.dataset.tip = `${source.openWork}: ${source.wraps.map((w) => w.label).join(", ")}. F8 springt zur nächsten.`;
+workButton.dataset.tip = `${source.openWorkName}: ${source.openWork.map((d) => d.label).join(", ")}. F8 springt zur nächsten.`;
 
 /** @type {string[]} */
 let pageLabels = [];
 /** @type {import("./tei.js").XmlError | null} */
 let xmlError = null;
 let checkTimer = 0;
-let validatedOnce = false;
+/**
+ * The last schema validation with the exact text it ran on.
+ * @type {{ text: string, problems: { message: string, line: number, column: number }[] } | null}
+ */
+let validation = null;
+/** Counts opened documents, so a validation finishing later is not applied to another one. */
+let opened = 0;
+const VALID_SUMMARY = "Gültig gegen TEI All (P5 4.11.0).";
 /** revisionDesc/@status of the last well-formed parse (ADR-011). */
 let docStatus = "";
 /** The text at acceptance, so a later edit shows as a change after acceptance. */
@@ -104,7 +111,7 @@ const menu = createActionMenu({
 
 createDocumentList({
   index: source.documents,
-  current: () => ({ path: files.path, open: openSpots(editor.docText(), source.wraps).length, status: docStatus }),
+  current: () => ({ path: files.path, open: openSpots(editor.docText(), source.openWork).length, status: docStatus }),
   async choose(path) {
     if (await files.mayDiscard()) files.load(path);
   },
@@ -130,13 +137,24 @@ function showMeta() {
   $("doc-meta").textContent = [files.name, source.name].filter(Boolean).join(" | ");
 }
 
-/** Re-reads the source after each edit; facts update only while well-formed. */
+/** Whether the last validation ran on exactly the text in the editor. */
+const validated = () => validation !== null && validation.text === editor.text;
+
+/**
+ * Re-reads the source after each edit; facts update only while well-formed.
+ * A validation result applies to the exact text it ran on: an edit makes it
+ * stale, and undoing back to that text brings it back.
+ */
 function checkSource() {
   const { doc, error } = parseXml(editor.text);
   xmlError = error;
-  // Any edit makes an earlier validation result stale, and the label says so.
-  setCheck(validButton, "stale", validatedOnce ? "Neu validieren" : "Validieren", "#i-validate");
-  validButton.toggleAttribute("data-was-checked", validatedOnce);
+  if (validation && validated()) {
+    const count = validation.problems.length;
+    setCheck(validButton, count ? "error" : "ok", count ? `${count} Schemafehler` : "TEI-konform");
+  } else {
+    setCheck(validButton, "stale", validation ? "Neu validieren" : "Validieren", "#i-validate");
+  }
+  validButton.toggleAttribute("data-was-checked", !!validation && !validated());
   updateOpenWork();
   showMeta();
   const conflicts = conflictMarkers(editor.text);
@@ -154,10 +172,15 @@ function checkSource() {
     return null;
   }
   setCheck(wfButton, "ok", "Wohlgeformt");
-  showMessages([]);
-  editor.setProblems([]);
+  if (validation && validated()) {
+    showMessages(validation.problems, validation.problems.length ? "" : VALID_SUMMARY);
+    editor.setProblems(validation.problems);
+  } else {
+    showMessages([]);
+    editor.setProblems([]);
+  }
   const facts = documentFacts(doc);
-  $("doc-title").textContent = facts.title || source.product;
+  $("doc-title").textContent = facts.title || files.name;
   docStatus = doc.getElementsByTagNameNS("*", "revisionDesc")[0]?.getAttribute("status") ?? "";
   updateDocState();
   return facts;
@@ -217,54 +240,67 @@ wfButton.addEventListener("click", () => {
   if (xmlError?.line) editor.jumpTo(xmlError.line, xmlError.column);
 });
 
-validButton.addEventListener("click", async () => {
+/**
+ * Validates the text against TEI All and records the result with the exact
+ * text it ran on, so checkSource can show it for as long as the text is that.
+ * @returns {Promise<boolean>} whether the editor text is now known to be valid
+ */
+async function runValidation() {
+  clearTimeout(checkTimer);
   if (!checkSource()) {
     setCheck(validButton, "error", "Nicht prüfbar");
-    return;
+    return false;
   }
   const text = editor.text;
+  const openedAt = opened;
   setCheck(validButton, "busy", "Prüfe …", "#i-validate");
   validButton.disabled = true;
   try {
     const problems = await validateTeiAll(text);
-    if (editor.text !== text) return; // edited meanwhile; result no longer applies
-    validatedOnce = true;
-    validButton.removeAttribute("data-was-checked");
-    if (problems.length) {
-      setCheck(validButton, "error", `${problems.length} Schemafehler`);
-      showMessages(problems);
-      editor.setProblems(problems);
-    } else {
-      setCheck(validButton, "ok", "TEI-konform");
-      showMessages([], "Gültig gegen TEI All (P5 4.11.0).");
-    }
-    updateDocState();
+    // A result for a document opened meanwhile would only coincide by text.
+    if (openedAt === opened) validation = { text, problems };
   } catch (err) {
     setCheck(validButton, "error", "Prüfung fehlgeschlagen");
     showMessages([{ message: err instanceof Error ? err.message : String(err), line: 0, column: 0 }]);
+    return false;
   } finally {
     validButton.disabled = false;
   }
-});
+  clearTimeout(checkTimer);
+  checkSource();
+  return validated() && !validation?.problems.length;
+}
+
+validButton.addEventListener("click", runValidation);
 
 // Working state and acceptance. Saving stays possible in every state (ADR-008).
 
 function updateDocState() {
-  const { state, label, detail } = workingState({
+  const facts = workingState({
     wellFormed: !xmlError,
-    valid: validButton.dataset.state === "ok",
-    open: openSpots(editor.docText(), source.wraps).length,
+    valid: validated() && !validation?.problems.length,
+    open: openSpots(editor.docText(), source.openWork).length,
     status: docStatus,
     changedSinceAcceptance: acceptedText !== null && editor.text !== acceptedText,
   });
-  $("doc-state").dataset.state = state;
-  $("doc-state-label").textContent = label;
-  $("doc-state-detail").textContent = detail;
-  $("accept").hidden = state !== "ready";
+  $("doc-state").dataset.state = facts.state;
+  $("doc-state-label").textContent = facts.label;
+  $("doc-state-detail").textContent = facts.detail;
+  $("accept").hidden = facts.state !== "ready";
+  return facts;
 }
 
 // Who accepted is left to the editorial rules of S4.
-$("accept").addEventListener("click", () => {
+$("accept").addEventListener("click", async () => {
+  // The pending check runs first: an edit inside the debounce interval must
+  // not be accepted on the strength of a validation of the earlier text.
+  clearTimeout(checkTimer);
+  checkSource();
+  const before = updateDocState();
+  if (before.state !== "ready") {
+    report("error", `Nicht abgenommen: ${before.label}${before.detail ? `, ${before.detail}` : ""}.`);
+    return;
+  }
   const edits = acceptanceEdits(editor.docText(), { date: new Date().toISOString().slice(0, 10), note: `Abgenommen im ${source.product}.` });
   if (!edits.length) {
     report("error", "Nicht abgenommen: Das Dokument hat keinen teiHeader, in dem die Abnahme stehen könnte.");
@@ -273,22 +309,32 @@ $("accept").addEventListener("click", () => {
   for (const e of edits) editor.replace(e.from, e.to, e.insert);
   clearTimeout(checkTimer);
   checkSource();
+  // The edits count only if the parsed document now carries the status.
+  if (docStatus !== "approved") {
+    report("error", "Die Abnahme ist im revisionDesc nicht angekommen. Bitte den teiHeader prüfen; Strg+Z nimmt die Änderung zurück.");
+    return;
+  }
   acceptedText = editor.text;
   updateDocState();
   report("ok", "Abgenommen. Speichern hält die Abnahme in der Datei fest.");
+  // Only the header changed; validating again shows the accepted text as valid.
+  if (await runValidation()) report("ok", "Abgenommen und gültig gegen TEI All. Speichern hält die Abnahme in der Datei fest.");
 });
 
-// Open work: the HTR markers still in the text, worked through with F8.
+// Open work: what the detectors of the source configuration find, worked through with F8.
 
 function updateOpenWork() {
-  const count = openSpots(editor.docText(), source.wraps).length;
+  const count = openSpots(editor.docText(), source.openWork).length;
   if (count) setCheck(workButton, "stale", count === 1 ? "1 offene Stelle" : `${count} offene Stellen`, "#i-task");
   else setCheck(workButton, "ok", "Keine offenen Stellen");
 }
 
-/** Selects the next marker after the caret, wrapping around, and offers its action. */
+/**
+ * Selects the next open spot after the caret, wrapping around, and offers its
+ * action; a kind without one is named in the menu instead.
+ */
 function nextOpenSpot() {
-  const spots = openSpots(editor.docText(), source.wraps);
+  const spots = openSpots(editor.docText(), source.openWork);
   if (!spots.length) {
     report("ok", "Keine offenen Stellen mehr.");
     return true;
@@ -296,9 +342,11 @@ function nextOpenSpot() {
   const { from } = editor.selection();
   const next = spots.find((s) => s.from > from) ?? spots[0];
   editor.select(next.from, next.to);
-  menu.open(true);
+  const kind = source.openWork.find((d) => d.key === next.key);
+  menu.open(true, kind?.action ? "" : `${kind?.label}: Die Kodierungsregel ist noch offen, daher gibt es hier noch keine Aktion. F8 springt weiter.`);
   return true;
 }
+
 
 workButton.addEventListener("click", nextOpenSpot);
 document.addEventListener("keydown", (e) => {
@@ -313,7 +361,12 @@ document.addEventListener("keydown", (e) => {
 function documentOpened() {
   // The check below covers the new text; the one the edit scheduled is redundant.
   clearTimeout(checkTimer);
-  validatedOnce = false;
+  opened++;
+  validation = null;
+  // Title and state of the previous document must not survive a new one that
+  // is not well-formed; the parse below sets them when it can.
+  docStatus = "";
+  $("doc-title").textContent = files.name;
   acceptedText = null;
   const facts = checkSource();
   if (docStatus === "approved") {
@@ -330,6 +383,13 @@ function documentOpened() {
     iiifInput.value = manifest;
     loadImages(manifest);
   } else {
+    // The facsimile of the previous document must not stand beside this one.
+    pageLabels = [];
+    viewer.clear();
+    iiifInput.value = "";
+    $("page-label").replaceChildren();
+    $("page-prev").disabled = true;
+    $("page-next").disabled = true;
     toggleSource(true);
   }
 }

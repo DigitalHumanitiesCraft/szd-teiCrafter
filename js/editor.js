@@ -20,6 +20,7 @@ import {
   highlightActiveLine,
   highlightActiveLineGutter,
   highlightSelectionMatches,
+  highlightSpecialChars,
   history,
   historyKeymap,
   indentOnInput,
@@ -138,6 +139,44 @@ const germanPhrases = EditorState.phrases.of({
 
 const ZOOM_STEPS = [70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 
+// CodeMirror splits inserted text only at the configured separator, so an LF
+// pasted into a CRLF document, or a CR into an LF one, would stay inside a line
+// as a bare character and be saved that way. Inserted line breaks therefore
+// take the document's separator. Undo and redo restore earlier text as it was,
+// including the line ends of a file opened with mixed endings.
+export const sameLineBreaks = EditorState.transactionFilter.of((tr) => {
+  if (!tr.docChanged || tr.isUserEvent("undo") || tr.isUserEvent("redo")) return tr;
+  const separator = tr.startState.lineBreak;
+  /** @type {{ from: number, to: number, insert: string }[]} */
+  const fixes = [];
+  tr.changes.iterChanges((_fromA, _toA, fromB, _toB, inserted) => {
+    const lines = [...inserted.iterLines()];
+    let pos = fromB;
+    lines.forEach((line, i) => {
+      for (const m of line.matchAll(/\r\n|\r|\n/g)) {
+        const at = pos + (m.index ?? 0);
+        // In an LF document a CR before a real break is the rest of a CRLF.
+        const trailing = separator === "\n" && m[0] === "\r" && at + 1 === pos + line.length && i < lines.length - 1;
+        fixes.push({ from: at, to: at + m[0].length, insert: trailing ? "" : separator });
+      }
+      pos += line.length + 1;
+    });
+  });
+  return fixes.length ? [tr, { changes: fixes, sequential: true }] : tr;
+});
+
+/**
+ * Line endings of a text: the separator the editor uses is the majority, and
+ * the counts tell whether the file mixes them.
+ * @param {string} text
+ */
+export function lineEndings(text) {
+  const crlf = text.match(/\r\n/g)?.length ?? 0;
+  const lf = (text.match(/\n/g)?.length ?? 0) - crlf;
+  const cr = text.match(/\r(?!\n)/g)?.length ?? 0;
+  return { separator: crlf > lf ? "\r\n" : "\n", crlf, lf, cr, mixed: [crlf, lf, cr].filter(Boolean).length > 1 };
+}
+
 /**
  * @typedef {{ message: string, line: number, column: number, severity?: "error" | "warning" }} Problem
  * @param {HTMLElement} parent
@@ -146,9 +185,6 @@ const ZOOM_STEPS = [70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll, onPointerSelect }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
-  // The document keeps the line endings of the opened file, so saving changes
-  // no byte the user did not edit, whatever platform the file came from.
-  const lineEnding = new Compartment();
   let zoom = 100;
   // Letters are prose, so long lines wrap by default and nothing hides at the right edge.
   let wrapped = true;
@@ -156,10 +192,14 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
   const sizeTheme = (/** @type {number} */ percent) =>
     EditorView.theme({ "&": { fontSize: `${(0.9 * percent) / 100}rem` } });
 
-  const view = new EditorView({
-    parent,
-    state: EditorState.create({
-      doc: "",
+  /**
+   * A fresh state per document, so undo history and diagnostics never reach
+   * across documents; the view settings carry over.
+   * @param {string} doc @param {string} separator
+   */
+  const stateFor = (doc, separator) =>
+    EditorState.create({
+      doc,
       extensions: [
         lineNumbers(),
         foldGutter(),
@@ -179,8 +219,14 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         germanPhrases,
         xml({ elements, autoCloseTags: true }),
         EditorState.tabSize.of(2),
-        lineEnding.of(EditorState.lineSeparator.of("\n")),
-        wrapping.of(EditorView.lineWrapping),
+        // The document keeps the line endings of the opened file, so saving changes
+        // no byte the user did not edit, whatever platform the file came from.
+        EditorState.lineSeparator.of(separator),
+        sameLineBreaks,
+        // A line break of the minority kind in a mixed file stays inside a
+        // line; it is drawn as a marked placeholder instead of breaking it.
+        highlightSpecialChars({ specialChars: /[\r\n]/g }),
+        wrapping.of(wrapped ? EditorView.lineWrapping : []),
         fontSize.of(sizeTheme(zoom)),
         // Application commands first, so they win over defaults with the same key.
         keymap.of(keys),
@@ -214,17 +260,32 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
           },
         }),
       ],
-    }),
-  });
+    });
+
+  const view = new EditorView({ parent, state: stateFor("", "\n") });
 
   // Scroll events do not bubble, so they are taken from the scroll container.
   view.scrollDOM.addEventListener("scroll", onScroll, { passive: true });
 
-  /** @param {number} line @param {number} column */
-  const posOf =(line, column) => {
-    const doc = view.state.doc;
-    const l = doc.line(Math.min(Math.max(line, 1), doc.lines));
-    return Math.min(l.to, l.from + Math.max(column - 1, 0));
+  /**
+   * Maps the line and column of a parser or the conflict scan to a document
+   * position. Both count CRLF, CR and LF each as one break, while a break of
+   * the minority kind in a mixed file sits inside an editor line, so lines are
+   * counted in the text rather than taken from the editor.
+   * @param {number} line @param {number} column @param {number[]} [starts] from lineStarts()
+   */
+  const posOf = (line, column, starts = lineStarts()) => {
+    const i = Math.min(Math.max(line, 1), starts.length) - 1;
+    const end = i + 1 < starts.length ? starts[i + 1] : view.state.doc.length;
+    const text = view.state.doc.sliceString(starts[i], end);
+    const breakLength = /(\r\n|\r|\n)$/.exec(text)?.[0].length ?? 0;
+    return Math.min(end - breakLength, starts[i] + Math.max(column - 1, 0));
+  };
+  /** Document positions where each line begins, counted as XML counts lines. */
+  const lineStarts = () => {
+    const starts = [0];
+    for (const m of view.state.doc.toString().matchAll(/\r\n|\r|\n/g)) starts.push((m.index ?? 0) + m[0].length);
+    return starts;
   };
 
   const api = {
@@ -258,19 +319,26 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
       if (!start || start.bottom < box.top || start.top > box.bottom) return null;
       return { left: start.left, top: start.top, bottom: end.bottom };
     },
-    /** @param {string} text */
+    /**
+     * Shows another document in a fresh state: undo cannot bring back the
+     * previous document under the new one's name. The separator is the
+     * majority line ending, and every line ending stays as it is in the text.
+     * @param {string} text
+     * @returns {ReturnType<typeof lineEndings>}
+     */
     setText(text) {
-      const separator = text.includes("\r\n") ? "\r\n" : "\n";
-      view.dispatch({ effects: lineEnding.reconfigure(EditorState.lineSeparator.of(separator)) });
-      view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text }, selection: { anchor: 0 } });
+      const endings = lineEndings(text);
+      view.setState(stateFor(text, endings.separator));
       view.scrollDOM.scrollTop = 0;
+      return endings;
     },
     /** @param {Problem[]} problems */
     setProblems(problems) {
+      const starts = lineStarts();
       const diagnostics = problems
         .filter((p) => p.line > 0)
         .map((p) => {
-          const from = posOf(p.line, p.column);
+          const from = posOf(p.line, p.column, starts);
           const line = view.state.doc.lineAt(from);
           // Underline to the end of the line when the position is a point.
           const to = from < line.to ? line.to : Math.min(from + 1, view.state.doc.length);

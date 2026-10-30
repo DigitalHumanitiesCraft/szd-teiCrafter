@@ -178,6 +178,13 @@
     & button:hover { background: color-mix(in oklch, var(--blue) 12%, transparent); }
     & button[data-suggested] { border-color: var(--orange); font-weight: 600; }
   }
+  .actions:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .actions-note {
+    flex-basis: 100%;
+    margin: 0;
+    padding: 2px 6px;
+    font-size: 0.85rem;
+  }
   .actions-quote {
     flex-basis: 100%;
     padding: 2px 6px;

@@ -1,11 +1,12 @@
 {
   "name": "szd-teicrafter-tests",
   "private": true,
-  "description": "Browser checks only; the app itself needs no Node toolchain. See knowledge/testing.md.",
+  "description": "Unit and browser checks only; the app itself needs no Node toolchain. See knowledge/testing.md.",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "check": "node browser-check.mjs"
+    "unit": "node --test \"unit/*.test.mjs\"",
+    "check": "node --test \"unit/*.test.mjs\" && node browser-check.mjs"
   },
   "devDependencies": {
     "playwright": "^1.56.0"

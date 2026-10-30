@@ -43,8 +43,15 @@ export function createActionMenu({ editor, wraps, onPerson, onNext, report }) {
     menu.style.top = `${below + menu.offsetHeight < window.innerHeight - 8 ? below : Math.max(8, at.top - menu.offsetHeight - 6)}px`;
   }
 
-  /** @param {boolean} withFocus true when opened from the keyboard */
-  function open(withFocus) {
+  /**
+   * @param {boolean} withFocus true when opened from the keyboard
+   * @param {string} [note] for open work without an action: what the menu
+   *   says instead of suggesting one, and the focus rests on the menu itself
+   */
+  function open(withFocus, note = "") {
+    // A late pointer event must not reopen a menu the keyboard is working in,
+    // which would drop its note and suggestion.
+    if (!withFocus && !menu.hidden && menu.contains(document.activeElement)) return true;
     const problem = selectionProblem();
     if (problem === "empty" || (problem && !withFocus)) {
       if (!menu.contains(document.activeElement)) menu.hidden = true;
@@ -55,15 +62,19 @@ export function createActionMenu({ editor, wraps, onPerson, onNext, report }) {
       report(problem);
       return true;
     }
-    const suggested = suggestedAction();
+    const suggested = note ? null : suggestedAction();
     // The marked text is quoted in the menu, so the judgement is made on what is
     // actually selected even where the menu covers part of the line.
     const { text } = editor.selection();
     $("actions-quote").textContent = `„${text.length > 90 ? `${text.slice(0, 87)}…` : text}“`;
+    $("actions-note").textContent = note;
+    $("actions-note").hidden = !note;
     for (const b of items) b.toggleAttribute("data-suggested", b.dataset.action === suggested);
     menu.hidden = false;
     position();
-    if (withFocus) (items.find((b) => b.dataset.action === suggested) ?? items[0]).focus();
+    // Without a suggestion Enter must not apply an arbitrary action, so the
+    // menu itself takes the focus; the arrow keys still reach every item.
+    if (withFocus) (note ? menu : (items.find((b) => b.dataset.action === suggested) ?? items[0])).focus();
     return true;
   }
 
@@ -74,6 +85,14 @@ export function createActionMenu({ editor, wraps, onPerson, onNext, report }) {
 
   /** @param {string} action */
   function run(action) {
+    // The selection may have changed since the menu opened (typing, undo), so
+    // the rule that kept markup out of an annotation is applied again here.
+    const problem = selectionProblem();
+    if (problem) {
+      close();
+      if (problem !== "empty") report(problem);
+      return;
+    }
     const sel = editor.selection();
     close(action !== "person");
     if (action === "person") {

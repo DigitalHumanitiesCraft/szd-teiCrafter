@@ -1,6 +1,8 @@
 // Source-specific configuration for Stefan Zweig Digital. A derivation for
 // another edition replaces this file; the generic modules stay untouched.
 
+import { matchesOf } from "./state.js";
+
 // Reference forms of the Stefan Zweig Digital holdings: persons point to the
 // entry of the person index with a fragment, because a reference without it
 // never reaches the person view; GND URIs use http as in the holdings.
@@ -65,11 +67,8 @@ export const source = {
     markup: (text, ref) => `<persName ref="${ref}">${text}</persName>`,
   },
 
-  /**
-   * What counts as open work in this edition. Each derivation defines its own
-   * queue; here it is the HTR markers the wraps below resolve.
-   */
-  openWork: "Nicht aufgelöste HTR-Marker",
+  /** Name of the open work counter, followed by the labels of the detectors below. */
+  openWorkName: "Offene HTR-Stellen",
 
   /**
    * Wrapping actions on a selection. The szd-htr transcription writes open
@@ -102,3 +101,33 @@ export const source = {
     },
   ],
 };
+
+/**
+ * What counts as open work in this edition: the HTR output of szd-htr still
+ * in the text. The wraps resolve their markers; the other kinds have no
+ * encoding rule yet (S4 in knowledge/plan.md), so F8 selects them without an
+ * action. Brackets count only standing apart from words, so a supplied
+ * "G[ro]d" or a numbered "[3500]" is left alone, and the header is not searched.
+ * @type {import("./state.js").Detector[]}
+ */
+source.openWork = [
+  ...source.wraps.map((w) => ({ key: w.key, label: w.label, find: matchesOf(w.marker), action: w.key })),
+  {
+    // [?] or [?3?] on its own, not attached to a word as the Unsicher marker is.
+    key: "unsure",
+    label: "Unsicher ohne Wort",
+    find: matchesOf(/(?<![^\s<>[\]{}])\[\?(?:\d+\?)?\]/g),
+  },
+  {
+    // [...] and [...5...]: an illegible passage, with the estimated number of characters.
+    key: "gap",
+    label: "Lücke",
+    find: matchesOf(/\[\.\.\.(?:\d+\.\.\.)?\]/g),
+  },
+  {
+    // A remark of the transcription such as [Randnotiz links:] or [Unterschrift unleserlich].
+    key: "remark",
+    label: "HTR-Kommentar",
+    find: matchesOf(/(?<![\p{L}\p{N}])\[\p{L}[^[\]<>\n]{2,}\](?![\p{L}\p{N}])/gu),
+  },
+];
