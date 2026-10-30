@@ -42,6 +42,11 @@ The editor serves one task chain, opening a document of the Stefan Zweig Digital
 - FR-11: The changes since the document was opened or last saved can be shown as a line comparison before a commit. Acceptance criterion: after one annotation the view lists exactly one removed and one added line with their old and new line numbers, a line link returns to the text, and after saving the view reports no changes.
 - FR-12: Git conflict markers (lines starting with `<<<<<<<`, `=======` or `>>>>>>>`) are recognised when a file is opened and while editing, and explained as two versions of one passage. Acceptance criterion: the check button and the status name the first marker line, each marker line is listed with a link and underlined, and deleting one version with its markers leaves a well-formed document.
 - FR-13: Saving in place never overwrites a file that changed on disk since it was opened or last saved without asking. Acceptance criterion: after the file's modification time changes, saving asks with the choices cancel, save as a new file and overwrite. Cancelling writes nothing and keeps the editor's text, overwriting writes it, and the next save writes without asking again.
+- FR-14: A document list opened from the header offers the documents of the repository by collection, each with title, object id, pages, open spots and working state, searchable by title, signature and object id and filterable by collection and by state (with open spots, in progress, accepted). Acceptance criterion: typing part of a signature narrows the list to the matching documents, each collection heading names how many of its documents are accepted, the open document is marked, and choosing another document over unsaved work asks first.
+- FR-15: The working state of the open document is shown in the header as a badge, namely in progress with its reason (not well-formed, the number of open spots, not yet validated), ready for acceptance, accepted, or accepted and changed since (ADR-006, ADR-008). Acceptance criterion: the badge follows every edit and validation, and its words name the state without relying on colour.
+- FR-16: A document that is well-formed, free of open spots and valid against TEI All can be accepted. Acceptance writes `revisionDesc/@status="approved"` and a dated `change` into the TEI, creating `revisionDesc` where it is missing (ADR-011). Acceptance criterion: the accept action appears only in the ready state, after accepting, the comparison lists only the `revisionDesc` lines, and saving keeps the acceptance in the file.
+- FR-17: An opened document starts with the caret at its first page break, or at the start of the body where it has none. Acceptance criterion: after opening, the text pane shows the first `pb` and the facsimile its first page.
+- FR-18: With line wrapping on, a wrapped line continues under the start of its own content plus a small hang. Acceptance criterion: a long indented line in the body wraps with its continuation indented beyond its first character.
 
 ### Non-functional requirements
 
@@ -72,7 +77,7 @@ Derivation:
 Validation: operator, 2026-10-30.
 
 Derivation:
-- Requirements FR-02, FR-03, FR-07
+- Requirements FR-02, FR-03, FR-07, FR-15, FR-16
 - Decisions [ADR-006](#adr-006-definition-of-done-and-two-working-states), [ADR-008](#adr-008-saving-is-always-possible-and-the-state-is-visible)
 
 ### Epic 2: working with the team through Git
@@ -84,7 +89,7 @@ Derivation:
 Validation: assumption (proxy: operator), stated as a requirement on 2026-10-30.
 
 Derivation:
-- Requirements FR-07, NFR-01, NFR-03
+- Requirements FR-07, FR-14, NFR-01, NFR-03
 - Decision [ADR-004](#adr-004-git-repository-as-backend)
 
 ## Scope of functions
@@ -95,9 +100,19 @@ Purpose. Editing the TEI source.
 
 Data. The opened TEI file, see [data](data.md).
 
-Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, line wrapping on by default, check buttons for well-formedness and validation, the open-spot counter with F8, the action menu at a pointer selection or with Ctrl+., the comparison with the text as opened or last saved, and saving with Ctrl+S. Questions before discarding or overwriting work appear in a modal dialog whose first, focused choice is the safe one.
+Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, line wrapping on by default with a hanging indent, the caret placed at the first page break on opening, check buttons for well-formedness and validation, the open-spot counter with F8, the action menu at a pointer selection or with Ctrl+., the comparison with the text as opened or last saved, and saving with Ctrl+S. Questions before discarding or overwriting work appear in a modal dialog whose first, focused choice is the safe one.
 
 Limits. Suggestions cover the element set of the source configuration. Schema-driven suggestions for all of TEI are not implemented. The comparison is line-based and compares with the text as opened or last saved in this session, not with a Git revision. Git conflicts appear in the problem list rather than the F8 queue, because they make the document malformed and are resolved by deleting lines, not by an annotation action. Overwrite protection compares the file's modification time, so it covers changes made on disk but not a file replaced with identical bytes and an earlier time.
+
+### Document list
+
+Purpose. Finding the next document to work on and seeing how far each collection is.
+
+Data. `data/index.json`, generated from the working set and the files, see [data](data.md#sources).
+
+Interaction. A button in the header opens a modal list grouped by collection. A search field takes title, signature or object id and is focused on opening, collection chips and a state selector narrow the list, arrow keys move between the search field and the entries, and choosing an entry opens the document. Each entry shows title, object id, pages, open spots and a state tag, and each collection heading counts its accepted documents.
+
+Limits. The list reflects the index as last built. Only the entry of the open document is updated from the editor, so the state of other documents changes in the list after the index is rebuilt. A document loaded from the list is saved by download or to a chosen file, and in-place saving needs the document opened from the local clone with the open action.
 
 ### Facsimile pane
 
@@ -183,7 +198,7 @@ Choice. Operator, 2026-10-30: „Ein Brief ist fertig, wenn er formal wohlgeform
 
 Rationale. Two states reflect the working status without a workflow engine, and the machine conditions let the editor offer acceptance only when they hold.
 
-Effect. Where the state is encoded and who may accept are open in [plan](plan.md#open-decisions-and-dependencies).
+Effect. ADR-011 places the state in `revisionDesc`, and the editor offers acceptance only when the machine conditions hold (FR-16). Who may accept is open in [plan](plan.md#open-decisions-and-dependencies).
 
 ### ADR-007 The person index of Stefan Zweig Digital as the person source
 
@@ -213,7 +228,7 @@ Choice. Operator, 2026-10-30: the SZD editor is developed as the real editor for
 
 Rationale. One source configuration per edition keeps ADR-002 intact, and the differing TEI profiles of the holdings already test the collection model.
 
-Effect. The scope of the first import is open in [plan](plan.md#open-decisions-and-dependencies).
+Effect. Each collection is one folder under `data/` (`korrespondenzen`, `lebensdokumente`, `werke`, `aufsatzablage`), and the document list groups by it. The example letter `o_szd.1222` stays at the root of `data/` as the start document, and the working set records it under correspondence.
 
 ### ADR-010 This repository holds the corrected TEI, starting from a working set
 
@@ -223,7 +238,7 @@ Choice. Taken by the session as a reversible default on 2026-10-30, after the op
 
 Rationale. One authoritative place avoids duplicate versions that drift apart. A working set is enough to settle the editorial rules on cases before the whole holdings are imported.
 
-Effect. The import tool records the szd-htr commit it read from. Delivery to GAMS stays open until S5.
+Effect. `tools/import-working-set.mjs` imports the selection of `tools/working-set.json` and records per document in `data/IMPORT.md` the szd-htr commit, whether the file is tracked there and the SHA-256 of the copied bytes. The hash matters because most szd-htr results are gitignored, so the commit alone does not identify the source. A rerun keeps files corrected here instead of overwriting them. Delivery to GAMS stays open until S5.
 
 ### ADR-011 The working state lives in revisionDesc
 
@@ -233,4 +248,4 @@ Choice. Taken by the session as a reversible default on 2026-10-30, open to the 
 
 Rationale. The state travels with the file, and Git shows an acceptance as a diff of the document itself, so no second list has to be kept in step.
 
-Effect. Who may accept is part of the editorial rules of S4.
+Effect. Built with FR-16, where a missing `revisionDesc` counts as `draft` and acceptance creates it. The built `change` records the date only and leaves the person out, because who may accept and how that person is named are part of the editorial rules of S4. The document index reads the status, so the list shows accepted documents without opening them.

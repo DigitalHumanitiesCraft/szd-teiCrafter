@@ -11,7 +11,7 @@ Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, t
 | Task | Read first |
 |---|---|
 | Requirements, decisions | `knowledge/specification.md` |
-| Letter, facsimile, GND | `knowledge/data.md` |
+| Documents, working set, facsimile, persons | `knowledge/data.md` |
 | Interface | `knowledge/design.md` |
 | Checks | `knowledge/testing.md` |
 | Next steps | `knowledge/plan.md` |
@@ -54,6 +54,8 @@ Check available tools, runtimes and network access before dependent steps, and n
 - Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour.
 - CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
 - Person index: `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from GAMS.
+- Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `data/IMPORT.md`. It keeps files corrected here.
+- Document index: `node tools/build-document-index.mjs` rebuilds `data/index.json` after an import or a commit that changes a document's state.
 
 ### Conventions
 

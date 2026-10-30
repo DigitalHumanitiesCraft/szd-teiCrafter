@@ -27,34 +27,25 @@ The tests prove the editing task end to end in a real browser, because the risks
 ## Test strategy
 
 - Syntax: `node --check` on every module catches broken scripts before the browser is involved.
-- Browser path: `test/browser-check.mjs` drives Chromium through annotation, validation and saving and catches broken interaction, wrong markup and lost bytes.
+- Unit assertions: pure functions such as the line comparison and the conflict-marker detection are asserted in Node at the start of the browser check, without a page.
+- Browser path: `test/browser-check.mjs` drives Chromium in several runs, namely the download path, in-place saving through a stubbed file handle, a file with CRLF line endings, working through every HTR marker, and a file with Git conflict markers. Each run also fails on console errors.
 - Visual review: screenshots of the changed states, read by the implementer and finally by the operator, catch layout and legibility problems no assertion describes.
 
 ## What is guaranteed
 
-| Claim | Check |
-|---|---|
-| A marked name with a chosen GND hit or a typed id becomes the expected `persName` | browser check, preview text and editor content |
-| The saved file equals the original plus exactly the inserted annotations | browser check, byte comparison after download |
-| In-place saving writes once into the opened file and confirms it | browser check with a stubbed file handle |
-| A file with CRLF line endings is saved with them unchanged | browser check with a stubbed CRLF file |
-| The action menu appears at a selection and works by mouse and by Ctrl+. | browser check |
-| F8 and Enter resolve every HTR marker, and the saved file equals the original transformed by the marker rules in `js/source.js` | browser check, byte comparison |
-| Both pane toolbars stay on one row at half width, and the image source opens and closes on demand | browser check |
-| The page fits the viewport, unsaved work is marked until saved, Ctrl+S saves, an edit after validation asks to validate again | browser check |
-| A marker selected by F8 is fully visible and quoted in the menu | browser check |
-| Malformed input is underlined and named on the check button | browser check |
-| The annotated letter is valid against TEI All | browser check |
-| Code zoom, element suggestions, the facsimile split and its edge button work | browser check |
-| The narrow view has no horizontal page scroll | browser check at 390 px |
-| The drawn selection is the theme's blue mix and selected element names keep their colour, in dark and light | browser check, computed styles of the selection layer and of `::selection` |
-| A capitalised selection without markers suggests Person | browser check |
-| The person dialog's request for a hit disappears once a valid identifier is typed | browser check |
-| GND hits are limited to the best name matches | browser check against a fixed lobid answer routed by Playwright |
-| The line comparison finds replaced, removed and added lines, and the view shows the annotated line before and after | Node assertions on `js/diff.js` and browser check |
-| Unsaved work is not discarded by opening another file without a question | browser check |
-| A file changed on disk is not overwritten without a question, cancelling writes nothing and keeps the text | browser check with a stubbed handle whose modification time changes |
-| Git conflict markers are named, linked and underlined, and resolving them yields the chosen version byte for byte | browser check with a stubbed conflicted file |
+The browser check covers these categories, each with real pointer and keyboard actions and visible outcomes.
+
+- Byte fidelity. The saved file equals the original plus exactly the inserted annotations, a CRLF file keeps its line endings, and working through the markers yields the original transformed by the marker rules of the source configuration, each by byte comparison.
+- Annotation. A marked name with an index hit, a GND hit or a typed id becomes the expected `persName` in the form of the holdings, forms of address leave the query, a capitalised selection suggests Person, and GND hits are limited to the best name matches against a lobid answer fixed by Playwright routing.
+- HTR markers. The open spots are counted, F8 selects a marker fully visible and quoted in the menu, Enter applies the suggested action, and the document stays well-formed and valid.
+- Checks. Malformed input is underlined and named on the check button, the annotated letter is valid against TEI All, and an edit after validation asks to validate again.
+- Saving and protection. In-place saving writes once and confirms it, Ctrl+S saves, unsaved work is marked until saved, opening another file and overwriting a file changed on disk both ask first, and cancelling writes nothing.
+- Comparison and conflicts. The line comparison shows an annotated line before and after and returns to the text by a line link, and conflict markers are named, linked and underlined, with the resolved file keeping exactly the chosen version.
+- Layout and theme. The page fits the viewport, both pane toolbars stay on one row at half width, the narrow view at 390 px has no horizontal scroll, code zoom, element suggestions and the facsimile split with its edge button work, and the drawn selection carries the theme's blue mix in dark and light while selected element names keep their colour.
+
+## Gaps
+
+At commit `faa8fbd` the document list, the working-state badge, acceptance into `revisionDesc`, the start at the first page break and the hanging indent had no browser case, nor had saving a malformed document. The refactoring of the interface code that follows adds checks, and this list is brought into step with what it covers.
 
 ## Acceptance
 
@@ -67,7 +58,7 @@ The tests prove the editing task end to end in a real browser, because the risks
 - The real file dialog of the File System Access API cannot be automated. The stubbed handle covers the code path, and the operator's acceptance covers the real dialog.
 - Firefox and Safari are not driven. Their save path is the download, which run 1 covers in Chromium.
 - 200 percent page zoom is not automated and belongs to the manual review.
-- Ranking of the live lobid service is not asserted beyond the presence of the expected identity; the ranking rule itself runs against the fixed answer.
+- Ranking of the live lobid service is not asserted beyond the presence of the expected identity, and the ranking rule itself runs against the fixed answer.
 
 ## How to run
 

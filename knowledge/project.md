@@ -64,7 +64,8 @@ The editor is a static web page without a build step. Generic modules handle the
 - A facsimile that follows the caret from page break to page break.
 - Person annotation against the Stefan Zweig Digital person index, with the GND as fallback.
 - Checks for well-formedness and validity against TEI All.
-- Saving back into the opened file.
+- Saving back into the opened file in every state, with protection against overwriting and a comparison before a commit.
+- A document list per collection with search, filters and the working state of each document, and acceptance recorded in the TEI.
 
 The detailed requirements are in [specification](specification.md).
 

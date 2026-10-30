@@ -24,6 +24,13 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Knowledge base brought to the working set, document list and working state
+
+- Trigger: brief from the coordinating session to curate the knowledge base after the commits since `8c9aa15`, which had added the hanging indent, the working-set import, the document list, the working state and acceptance without updating the documents.
+- Found: the raw TEI has no `persName` in any body, works almost always carry `standOff` persons and correspondence never. A fourth HTR marker `[...]`, also as `[...n...]`, stands for illegible passages and is not counted as an open spot. The GAMS manifests of `o_szd.67` and `o_szd.174` are invalid JSON because of unescaped quotation marks in range labels, the manifest of `o_szd.2934` has a sixth canvas after its five TEI pages, four life documents in szd-htr carry `language/@ident="deu"`, and the szd-htr result `o_szd.2780` is not well-formed. ADR-011 promised that acceptance names who accepted, while the built `change` records the date only, and the save confirmation does not yet name the state as ADR-008 asks.
+- Changed: data with the working set, the import provenance, the document index, the corrected subject, the fourth marker and the limits. Specification with FR-14 to FR-18, a document list section and the effects of ADR-006, ADR-009, ADR-010 and ADR-011. Design with the patterns for the list, the badge, acceptance, the unsaved dot, the selection and the start at the first page break. Plan with S2 and S3 built and open, the gap marker in S4, a Later section and the reading view as an open decision. Testing by category with a gaps section. README, CLAUDE.md commands and the terms Working set and Document index.
+- Evidence: scans of the files under `data/` for `standOff`, `persName`, marker forms, languages and page counts, the GAMS manifests fetched and parsed on 2026-10-30, `o_szd.2780` parsed in the szd-htr clone at `fd9f924`, and the code of `8f382a5` and `faa8fbd` read for the described behaviour.
+
 ### 2026-10-30 Safe round trip, first part of S2
 
 - Trigger: brief from the coordinating session to secure the fixes of `e4c227f` by regression checks and to build the S2 parts that need no further decision.

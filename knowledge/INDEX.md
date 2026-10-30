@@ -43,7 +43,8 @@ The action layer is [CLAUDE.md](../CLAUDE.md) in the repository root.
 ## Storage zones
 
 - `knowledge/` holds these documents.
-- `data/` holds the research data, the TEI files edited with the tool, each third-party object with a `NOTICE.md`.
+- `data/` holds the research data, the TEI files edited with the tool in one folder per collection, with their provenance in `data/IMPORT.md`, the generated document index and the person index, each third-party object with a `NOTICE.md`.
+- `tools/` holds the Node scripts that import the working set and build the document and person indexes.
 - `vendor/` and `schemas/` hold vendored third-party code and the TEI schema, each with its `NOTICE.md`.
 - `test/` holds the browser check and its only dependency.
 
@@ -67,6 +68,10 @@ A group of documents of the Stefan Zweig Digital holdings with a common TEI prof
 
 An editor built for one edition from the generic teiCrafter modules plus a source configuration. teiCrafter SZD and the Wenzelsbibel editor are derivations.
 
+### Document index
+
+The generated list `data/index.json` of the documents per collection with title, pages, open spots and working state, from which the editor builds its document list without reading every file. `tools/build-document-index.mjs` rebuilds it, see [data](data.md#sources).
+
 ### GAMS
 
 Geisteswissenschaftliches Asset Management System of the University of Graz, the repository that publishes Stefan Zweig Digital objects, their images and their IIIF manifests.
@@ -87,6 +92,10 @@ The file `js/source.js`. It holds everything specific to one edition, such as wh
 
 Stefan Zweig Digital, the digital edition of the Literaturarchiv Salzburg whose collections this editor works on.
 
+### Working set
+
+The selection of documents imported from szd-htr into this repository, about ten per collection chosen for the variety of their TEI profiles, listed with reasons in `tools/working-set.json` and with provenance in `data/IMPORT.md`. From the import on, this repository holds their authoritative copy, see ADR-010 in the specification.
+
 ### Working state
 
-Where a document stands on the way to finished, from not well-formed through well-formed, valid and free of open spots to accepted. Saving is possible in every state, and the state is shown, see ADR-006 and ADR-008 in the specification.
+Where a document stands on the way to finished, from not well-formed through well-formed, valid and free of open spots to accepted. Saving is possible in every state, and the state is shown. Only in progress and accepted are stored, in `revisionDesc/@status`, and the steps between are computed by the editor, see ADR-006, ADR-008 and ADR-011 in the specification.

@@ -77,9 +77,9 @@ Open: operator acceptance with a real save into the clone of this repository.
 - Git conflict markers recognised and explained as two versions of one passage.
 - Accepting a document, possible only when the machine conditions hold, written into the TEI.
 
-Built on 2026-10-30: changes since opening as a line comparison, Git conflict markers explained in the problem list, overwrite protection with a question dialog that also replaced the browser's confirm before discarding unsaved work, each with browser cases.
+Built on 2026-10-30: changes since opening as a line comparison, Git conflict markers explained in the problem list, overwrite protection with a question dialog that also replaced the browser's confirm before discarding unsaved work, each with browser cases. Later the same day the state ladder as a badge in the header (FR-15), acceptance into `revisionDesc` offered only in the ready state (FR-16, ADR-011), and unsaved work marked on the save button.
 
-Open: the state ladder, acceptance into `revisionDesc` (ADR-011), and a browser case for saving a malformed document.
+Open: the save confirmation does not yet name the state, as ADR-008 asks. Browser cases for the badge, for acceptance and for saving a malformed document are outstanding unless the current refactoring of the interface code adds them, see [testing](testing.md#gaps). Independent review and operator acceptance of the milestone.
 
 Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
 
@@ -90,9 +90,14 @@ Verification adds browser cases for a file changed on disk, a file with conflict
 - Collection-specific element suggestions where the TEI profiles differ, and existing `standOff` persons shown and checked against the index.
 - A link to the version history of the open file on the Git platform and a short partner guide in the README.
 
+Built on 2026-10-30: the working set of about ten documents per collection in one folder per collection, imported byte-exact with provenance by `tools/import-working-set.mjs` (ADR-009, ADR-010), and the document list (FR-14) over the generated `data/index.json` with search, collection and state filters, per-document pages, open spots and state tag, and the accepted count per collection. Opening starts at the first page break (FR-17), and wrapped lines hang under their own indentation (FR-18).
+
+Open: the signature as a field of its own in the index (it is part of the title now), rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, the version-history link, the partner guide, and browser cases for the list, see [testing](testing.md#gaps).
+
 ### S4 Editorial rule layer
 
 - A project rule set that reports remaining HTR markers and person references outside the index as open work, in the editing and review phases the Wenzelsbibel derivation uses.
+- The gap marker `[...]` and `[...n...]` of the HTR output counted as an open spot with an action that writes `gap`, see [data](data.md#model).
 - German framing for parser and schema messages.
 
 ### S5 Publication and partner trial
@@ -104,22 +109,31 @@ Verification adds browser cases for a file changed on disk, a file with conflict
 
 - `knowledge/derivation.md` in the teiCrafter base with the two observed derivation forms, the inherited invariants, the integration traps and the checks every derivation runs, as requested in the base handoff.
 
+## Later
+
+These items are accepted as direction and not yet placed in a milestone.
+
+- Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
+- A reading view without visible XML. Options are hiding tags inside the code editor through decorations, a separate rendered annotation view, and a full structured editor. The session recommends hiding tags in the code editor first, because it keeps one text, one undo history and byte-exact saving. The operator wants to work this out step by step.
+- Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
+
 ## Status tracker
 
 | Milestone | Status | Notes |
 |---|---|---|
 | S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
-| S2 Visible state and safe round trip | in progress | comparison, conflict markers and overwrite protection built; state ladder and acceptance open |
-| S3 Collections and project page | pending | import scope open |
+| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge and acceptance built, while the state in the save confirmation, browser cases, review and acceptance are open |
+| S3 Collections and project page | in progress | working set imported, document list with search and filters built, while collection-specific suggestions, standOff persons and the partner guide are open |
 | S4 Editorial rule layer | pending | |
 | S5 Publication and partner trial | pending | operator action |
 | S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |
 
 ## Open decisions and dependencies
 
-- The import scope and the authoritative place (ADR-010) and the place of the working state (ADR-011) are set as reversible defaults awaiting the operator's confirmation. Who may accept belongs to S4.
-- The editorial rules, for example whether a title such as „Dr.“ stands inside `persName` and how hand and reason are given on `add`, `del` and `unclear`, are settled with the project partners on example letters, before S4.
+- The import scope and the authoritative place (ADR-010) and the place of the working state (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
+- The editorial rules, for example whether a title such as „Dr.“ stands inside `persName` how hand and reason are given on `add`, `del` and `unclear`, and how `gap` records the extent of a passage, are settled with the project partners on example letters, before S4.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
 - Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.
+- How the reading view without visible XML is built, worked out with the operator step by step, see [Later](#later).
 - Whether derivations stay build-free with vendored bundles or move to the Vite stack of the base, before S6. ADR-003 keeps both open.
