@@ -1,9 +1,10 @@
 // Re-exports the CodeMirror 6 surface teiCrafter SZD uses, bundled into one ES
 // module so the app runs without a build step. Rebuild: see README.md here.
-export { EditorState, Compartment, EditorSelection, RangeSetBuilder } from "@codemirror/state";
+export { EditorState, Compartment, EditorSelection, RangeSetBuilder, RangeSet, StateField, StateEffect, Prec } from "@codemirror/state";
 export {
   EditorView,
   Decoration,
+  WidgetType,
   ViewPlugin,
   keymap,
   lineNumbers,

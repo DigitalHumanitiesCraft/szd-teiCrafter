@@ -8,16 +8,25 @@ import { cleanQuery, searchRegister } from "./register.js";
 import { $, arrowNavigation, setStatus } from "./ui.js";
 
 /**
- * @param {{ editor: ReturnType<typeof import("./editor.js").createEditor>, person: typeof import("./source.js").source.person, onStale: (message: string) => void }} options
- * `onStale` reports that the marked text changed while the dialog was open.
- * @returns {(sel: { from: number, to: number, text: string }) => void} opens the dialog for a selection
+ * @param {{
+ *   editor: ReturnType<typeof import("./editor.js").createEditor>,
+ *   person: typeof import("./source.js").source.person,
+ *   markup: (text: string, ref: string) => string,
+ *   onStale: (message: string) => void,
+ * }} options `markup` writes the element of the person action, `onStale`
+ * reports that the marked text changed while the dialog was open.
+ * @returns {(sel: { from: number, to: number, text: string }, apply?: (ref: string) => void) => void}
+ * opens the dialog for a selection; with `apply` it changes an existing
+ * reference instead of wrapping the selection
  */
-export function createPersonDialog({ editor, person, onStale }) {
+export function createPersonDialog({ editor, person, markup, onStale }) {
   const dialog = /** @type {HTMLDialogElement} */ ($("person-dialog"));
   const refInput = /** @type {HTMLInputElement} */ ($("person-gnd"));
   const query = /** @type {HTMLInputElement} */ ($("person-query"));
   const status = $("person-status");
   let pending = { from: 0, to: 0, text: "" };
+  /** @type {((ref: string) => void) | null} */
+  let change = null;
   let registerTimer = 0;
 
   /** The reference the typed or chosen identifier stands for, or "". */
@@ -32,7 +41,7 @@ export function createPersonDialog({ editor, person, onStale }) {
     const ref = chosenRef();
     // A valid choice answers an earlier "please choose" message.
     if (ref && status.dataset.state === "error") setStatus(status, "", "");
-    $("person-preview").textContent = ref ? person.markup(pending.text, ref) : "";
+    $("person-preview").textContent = ref ? markup(pending.text, ref) : "";
   }
 
   /** @param {HTMLElement} list @param {{ id: string, title: string, meta: string }[]} items */
@@ -110,18 +119,24 @@ export function createPersonDialog({ editor, person, onStale }) {
       setStatus(status, "error", `Bitte einen Treffer wählen oder eine Kennung eingeben, etwa ${person.idExample} oder eine GND-ID.`);
       return;
     }
+    if (change) {
+      change(ref);
+      return;
+    }
     // The document may have changed while the dialog was open; only apply if the
     // marked text is still where it was.
     if (editor.slice(pending.from, pending.to) !== pending.text) {
       onStale("Der markierte Text hat sich verändert; bitte erneut markieren.");
       return;
     }
-    editor.replace(pending.from, pending.to, person.markup(pending.text, ref));
+    editor.replace(pending.from, pending.to, markup(pending.text, ref));
   });
   dialog.addEventListener("close", () => editor.focus());
 
-  return (sel) => {
+  return (sel, apply) => {
     pending = sel;
+    change = apply ?? null;
+    $("person-apply").textContent = apply ? "Ändern" : "Annotieren";
     $("person-text").textContent = sel.text;
     // Marker syntax and forms of address are no part of a name.
     const name = person.nameOf(sel.text);

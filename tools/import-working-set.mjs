@@ -16,12 +16,14 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { source } from "../js/source.js";
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = resolve(process.argv[2] ?? join(REPO, "..", "szd-htr"));
 const LIST = join(REPO, "tools", "working-set.json");
 const RECORD = join(REPO, "data", "IMPORT.md");
-const COLLECTIONS = new Set(["korrespondenzen", "lebensdokumente", "werke", "aufsatzablage"]);
+// The collections are the folders js/source.js names.
+const COLLECTIONS = new Set(source.collections.map((c) => c.key));
 const OBJECT_ID = /^o_szd\.\d+$/;
 
 const git = (...args) =>

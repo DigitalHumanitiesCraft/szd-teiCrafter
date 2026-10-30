@@ -1,0 +1,198 @@
+{
+  "$comment": "Annotation actions of teiCrafter SZD, read by js/actions.js. Patterns are regular expressions written as strings; the first group of a marker is the content kept on wrapping. Edited in the editor under Aktionen or by hand.",
+  "actions": [
+    {
+      "id": "person",
+      "label": "Person",
+      "key": "p",
+      "icon": "person",
+      "element": "persName",
+      "attributes": [
+        {
+          "name": "ref",
+          "required": true
+        }
+      ],
+      "dialog": "person",
+      "lookup": {
+        "register": true,
+        "gnd": "Person"
+      },
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": "^\\p{Lu}",
+      "resolves": null,
+      "enabled": true
+    },
+    {
+      "id": "place",
+      "label": "Ort",
+      "key": "o",
+      "icon": "place",
+      "element": "placeName",
+      "attributes": [
+        {
+          "name": "ref",
+          "required": false
+        }
+      ],
+      "dialog": "place",
+      "lookup": {
+        "gnd": "PlaceOrGeographicName"
+      },
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": null,
+      "enabled": true
+    },
+    {
+      "id": "date",
+      "label": "Datum",
+      "key": "d",
+      "icon": "date",
+      "element": "date",
+      "attributes": [
+        {
+          "name": "when",
+          "required": false
+        },
+        {
+          "name": "from",
+          "required": false
+        },
+        {
+          "name": "to",
+          "required": false
+        },
+        {
+          "name": "notBefore",
+          "required": false
+        },
+        {
+          "name": "notAfter",
+          "required": false
+        }
+      ],
+      "dialog": "date",
+      "lookup": null,
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": null,
+      "enabled": true
+    },
+    {
+      "id": "del",
+      "label": "Streichung",
+      "key": "s",
+      "icon": null,
+      "element": "del",
+      "attributes": [
+        {
+          "name": "rend",
+          "required": false,
+          "values": [
+            "strikethrough",
+            "overwritten",
+            "erased"
+          ]
+        },
+        {
+          "name": "hand",
+          "required": false
+        }
+      ],
+      "dialog": "none",
+      "lookup": null,
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": {
+        "kind": "del",
+        "label": "Streichung",
+        "marker": "~~([^~\\n<>]+?)~~"
+      },
+      "enabled": true
+    },
+    {
+      "id": "unclear",
+      "label": "Unsicher",
+      "key": "u",
+      "icon": null,
+      "element": "unclear",
+      "attributes": [
+        {
+          "name": "reason",
+          "required": false,
+          "values": [
+            "illegible",
+            "faded",
+            "damage"
+          ]
+        },
+        {
+          "name": "cert",
+          "required": false
+        }
+      ],
+      "dialog": "none",
+      "lookup": null,
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": {
+        "kind": "unclear",
+        "label": "Unsicher",
+        "marker": "([^\\s<>[\\]{}]+)\\[\\?\\]"
+      },
+      "enabled": true
+    },
+    {
+      "id": "add",
+      "label": "Ergänzung",
+      "key": "e",
+      "icon": null,
+      "element": "add",
+      "attributes": [
+        {
+          "name": "place",
+          "required": false,
+          "values": [
+            "above",
+            "below",
+            "margin",
+            "inline"
+          ]
+        },
+        {
+          "name": "hand",
+          "required": false
+        }
+      ],
+      "dialog": "none",
+      "lookup": null,
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": {
+        "kind": "add",
+        "label": "Ergänzung",
+        "marker": "\\{([^{}\\n<>]+)\\}"
+      },
+      "enabled": true
+    }
+  ]
+}

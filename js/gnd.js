@@ -1,15 +1,24 @@
 import { fold } from "./register.js";
 
-// Person search in the GND through lobid-gnd (keyless, CORS-enabled). The
-// lookup is user-triggered while editing; nothing is fetched on page load.
+// GND search through lobid-gnd (keyless, CORS-enabled) for persons and
+// places. The lookup is user-triggered while editing; nothing is fetched on
+// page load.
 
 /**
  * @typedef {{ id: string, name: string, dates: string, info: string }} GndPerson
  * @param {string} query
  * @returns {Promise<GndPerson[]>}
  */
-export async function searchPersons(query) {
-  const url = `https://lobid.org/gnd/search?q=${encodeURIComponent(query)}&filter=type:Person&format=json&size=20`;
+export const searchPersons = (query) => searchGnd(query, "Person");
+
+/**
+ * @param {string} query
+ * @param {string} type a lobid-gnd entity type such as Person or PlaceOrGeographicName
+ * @returns {Promise<GndPerson[]>}
+ */
+export async function searchGnd(query, type) {
+  if (!/^[A-Za-z]+$/.test(type)) throw new Error(`Unbekannter GND-Typ ${type}.`);
+  const url = `https://lobid.org/gnd/search?q=${encodeURIComponent(query)}&filter=type:${type}&format=json&size=20`;
   let response;
   try {
     response = await fetch(url);
@@ -33,7 +42,7 @@ export async function searchPersons(query) {
       id: String(m.gndIdentifier ?? ""),
       name: String(m.preferredName ?? ""),
       dates: [m.dateOfBirth?.[0], m.dateOfDeath?.[0]].filter(Boolean).join("–"),
-      info: [m.biographicalOrHistoricalInformation?.[0], m.professionOrOccupation?.[0]?.label]
+      info: [m.biographicalOrHistoricalInformation?.[0], m.professionOrOccupation?.[0]?.label ?? m.geographicAreaCode?.[0]?.label]
         .filter(Boolean)
         .join(" | "),
     }));

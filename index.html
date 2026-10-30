@@ -30,6 +30,12 @@
     <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
     <symbol id="i-diff" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 9.5h6M12 6.5v6M9 16.5h6"/></symbol>
     <symbol id="i-docs" viewBox="0 0 24 24"><path d="M8 3h9l3 3v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M4 7v13a1 1 0 0 0 1 1h11"/><path d="M10 9h7M10 13h7"/></symbol>
+    <symbol id="i-place" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-date" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+    <symbol id="i-draft" viewBox="0 0 24 24"><path d="m4 20 1-4L16 5l3 3L8 19z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+    <symbol id="i-lines" viewBox="0 0 24 24"><path d="M5 6h12M5 10h9M5 14h13M5 18h7"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h9"/></symbol>
     <symbol id="i-show" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
   </svg>
 
@@ -39,13 +45,16 @@
       <p id="doc-meta" class="doc-meta"></p>
     </div>
     <div class="doc-work">
-      <p id="doc-state" class="doc-state" role="status"><span id="doc-state-label"></span><span id="doc-state-detail" class="doc-state-detail"></span></p>
+      <p id="doc-state" class="doc-state" role="status" tabindex="0"><span id="doc-state-label"></span><span id="doc-state-detail" class="doc-state-detail"></span></p>
       <button id="accept" type="button" class="primary" hidden>Abnehmen</button>
       <p id="save-state" class="visually-hidden" role="status"></p>
     </div>
     <div class="toolbar header-tools">
       <button id="docs-button" type="button" aria-haspopup="dialog">
         <svg class="icon"><use href="#i-docs"/></svg>Dokumente
+      </button>
+      <button id="actions-button" class="icon-button" type="button" aria-haspopup="dialog" aria-label="Aktionen">
+        <svg class="icon"><use href="#i-settings"/></svg>
       </button>
       <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
         <svg class="icon"><use href="#i-open"/></svg>
@@ -61,6 +70,10 @@
     <section class="pane pane-text" aria-labelledby="text-heading">
       <h2 id="text-heading" class="visually-hidden">TEI-Quelltext</h2>
       <div class="toolbar">
+        <div id="view-switch" class="segmented" role="group" aria-label="Ansicht">
+          <button id="view-xml" type="button" aria-pressed="true">XML</button>
+          <button id="view-text" type="button" aria-pressed="false">Text</button>
+        </div>
         <button id="wf-button" class="check" type="button" aria-describedby="xml-status">
           <svg class="icon"><use href="#i-ok"/></svg><span id="wf-label" class="label">Wohlgeformt</span>
         </button>
@@ -84,6 +97,10 @@
         <button id="wrap-toggle" class="icon-button" type="button" aria-pressed="true" aria-label="Zeilenumbruch" data-tip="Zeilenumbruch">
           <svg class="icon"><use href="#i-wrap"/></svg>
         </button>
+        <div id="layout-switch" class="segmented segmented-icons" role="group" aria-label="Satz" hidden>
+          <button id="layout-lines" type="button" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-lines"/></svg><span class="label">Zeilen</span></button>
+          <button id="layout-flow" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-flow"/></svg><span class="label">Fließtext</span></button>
+        </div>
       </div>
       <div id="editor" class="code"></div>
       <div id="xml-status" class="status" role="status" data-hint="Text markieren, um ihn zu annotieren"></div>
@@ -151,10 +168,18 @@
   <div id="actions" class="actions" role="menu" aria-label="Annotieren" tabindex="-1" hidden>
     <div id="actions-quote" class="actions-quote" aria-live="polite"></div>
     <p id="actions-note" class="actions-note" aria-live="polite" hidden></p>
-    <button type="button" role="menuitem" data-action="person"><svg class="icon"><use href="#i-person"/></svg>Person</button>
-    <button type="button" role="menuitem" data-action="del">Streichung</button>
-    <button type="button" role="menuitem" data-action="unclear">Unsicher</button>
-    <button type="button" role="menuitem" data-action="add">Ergänzung</button>
+    <div id="actions-items" class="actions-items"></div>
+    <p id="actions-empty" class="actions-note" hidden>Keine Aktion eingeschaltet. Unter „Aktionen“ im Kopf lassen sie sich einschalten.</p>
+  </div>
+
+  <div id="mark-card" class="mark-card" role="group" aria-label="Auszeichnung" hidden>
+    <p id="mark-card-title" class="mark-card-title"></p>
+    <p id="mark-card-detail" class="mark-card-detail"></p>
+    <p id="mark-card-note" class="mark-card-note" hidden></p>
+    <div class="toolbar">
+      <button id="mark-card-change" type="button">Ändern</button>
+      <button id="mark-card-remove" type="button">Entfernen</button>
+    </div>
   </div>
 
   <dialog id="person-dialog" class="person-dialog" aria-labelledby="person-title">
@@ -201,11 +226,91 @@
             <option value="approved">Abgenommen</option>
           </select>
         </label>
+        <p id="docs-count" class="docs-count" role="status"></p>
       </div>
-      <div id="docs-collections" class="chips" role="group" aria-label="Sammlung"></div>
-      <p id="docs-count" class="docs-count" role="status"></p>
+      <div id="docs-collections" class="chips" role="group" aria-label="Collection"></div>
+      <section id="docs-setup" class="docs-setup" aria-labelledby="docs-setup-title" hidden>
+        <h3 id="docs-setup-title">Eine Collection einrichten</h3>
+        <p>Der Editor ist eine statische Seite ohne Server, daher entsteht eine Collection im Repository und erscheint nach dem nächsten Laden hier.</p>
+        <ol>
+          <li>Einen Ordner unter <code>data/</code> anlegen, etwa <code>data/tagebuecher/</code>.</li>
+          <li>In <code>js/source.js</code> unter <code>collections</code> einen Eintrag mit <code>key</code> (dem Ordnernamen), <code>label</code> und <code>description</code> ergänzen.</li>
+          <li>Die Dokumente in <code>tools/working-set.json</code> eintragen und mit <code>node tools/import-working-set.mjs</code> importieren.</li>
+          <li>Den Index mit <code>node tools/build-document-index.mjs</code> neu bauen und alles committen.</li>
+        </ol>
+      </section>
       <div id="docs-list" class="docs-list"></div>
       <div class="toolbar dialog-actions">
+        <button type="submit">Schließen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="place-dialog" class="person-dialog" aria-labelledby="place-title">
+    <form id="place-form" method="dialog">
+      <h2 id="place-title">Ort markieren: <span id="place-text"></span></h2>
+      <div id="place-lookup" class="toolbar">
+        <label class="grow">
+          <span class="visually-hidden">Ort suchen</span>
+          <input id="place-query" type="search" autocomplete="off" placeholder="Ort suchen">
+        </label>
+        <button id="place-search" type="button">In der GND suchen</button>
+      </div>
+      <p id="place-status" class="status" role="status"></p>
+      <ul id="place-results" class="results" aria-label="Orte in der GND"></ul>
+      <label class="manual">
+        GND-Kennung (optional)
+        <input id="place-id" type="text" autocomplete="off" placeholder="z. B. 4075416-9">
+      </label>
+      <p id="place-preview" class="preview"></p>
+      <p id="place-unlinked" class="dialog-hint">Ohne Kennung wird der Ort markiert und als noch nicht verknüpft gezeigt.</p>
+      <div class="toolbar dialog-actions">
+        <button type="button" id="place-cancel">Abbrechen</button>
+        <button type="submit" id="place-apply" class="primary" value="apply">Markieren</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="date-dialog" class="person-dialog" aria-labelledby="date-title">
+    <form id="date-form" method="dialog">
+      <h2 id="date-title">Datum auszeichnen: <span id="date-text"></span></h2>
+      <label id="date-trim-row" class="check-row"><input id="date-trim" type="checkbox"><span>Nur „<span id="date-part"></span>“ auszeichnen</span></label>
+      <fieldset class="date-forms">
+        <legend>Form</legend>
+        <label><input type="radio" name="date-form" value="when" checked> Genau oder teilweise</label>
+        <label><input type="radio" name="date-form" value="range"> Zeitraum</label>
+        <label><input type="radio" name="date-form" value="span"> Ungefähr, zwischen</label>
+      </fieldset>
+      <div class="date-fields" data-form="when">
+        <label>Datum <code>@when</code><input id="date-when" type="text" autocomplete="off" placeholder="JJJJ, JJJJ-MM oder JJJJ-MM-TT"></label>
+      </div>
+      <div class="date-fields" data-form="range" hidden>
+        <label>von <code>@from</code><input id="date-from" type="text" autocomplete="off" placeholder="JJJJ-MM-TT"></label>
+        <label>bis <code>@to</code><input id="date-to" type="text" autocomplete="off" placeholder="JJJJ-MM-TT"></label>
+      </div>
+      <div class="date-fields" data-form="span" hidden>
+        <label>frühestens <code>@notBefore</code><input id="date-notBefore" type="text" autocomplete="off" placeholder="JJJJ"></label>
+        <label>spätestens <code>@notAfter</code><input id="date-notAfter" type="text" autocomplete="off" placeholder="JJJJ"></label>
+      </div>
+      <p id="date-status" class="status" role="status"></p>
+      <p id="date-preview" class="preview"></p>
+      <div class="toolbar dialog-actions">
+        <button type="button" id="date-cancel">Abbrechen</button>
+        <button type="submit" id="date-apply" class="primary" value="apply">Auszeichnen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="actions-dialog" class="actions-dialog" aria-labelledby="actions-title">
+    <form method="dialog">
+      <h2 id="actions-title">Aktionen</h2>
+      <p id="actions-intro" class="dialog-hint"></p>
+      <ul id="actions-list" class="action-list"></ul>
+      <p id="actions-status" class="status" role="status"></p>
+      <div class="toolbar dialog-actions">
+        <span id="actions-save-reason" class="save-reason"></span>
+        <button type="button" id="actions-folder">Repository-Ordner wählen</button>
+        <button type="button" id="actions-save" class="primary">Speichern</button>
         <button type="submit">Schließen</button>
       </div>
     </form>

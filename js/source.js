@@ -1,6 +1,8 @@
 // Source-specific configuration for Stefan Zweig Digital. A derivation for
-// another edition replaces this file; the generic modules stay untouched.
+// another edition replaces this file and data/actions.json; the generic
+// modules stay untouched.
 
+import { markerDetectors } from "./actions.js";
 import { matchesOf } from "./state.js";
 
 // Reference forms of the Stefan Zweig Digital holdings: persons point to the
@@ -19,6 +21,18 @@ export const source = {
   documents: "data/index.json",
 
   /**
+   * The collections of the holdings, one folder under data/ each (ADR-009).
+   * The document list, tools/build-document-index.mjs and
+   * tools/import-working-set.mjs read them from here.
+   */
+  collections: [
+    { key: "korrespondenzen", label: "Korrespondenzen", description: "Briefe von und an Stefan Zweig, mit Umschlägen und Beilagen." },
+    { key: "lebensdokumente", label: "Lebensdokumente", description: "Verträge, Ausweise, Notizbücher und Register aus Zweigs Leben." },
+    { key: "werke", label: "Werke", description: "Manuskripte und Typoskripte seiner Werke, meist mit Personen im standOff." },
+    { key: "aufsatzablage", label: "Aufsatzablage", description: "Zweigs Ablage von Aufsätzen und Zeitungsbeiträgen." },
+  ],
+
+  /**
    * GAMS serves a IIIF Presentation manifest per SZD object. The TEI carries
    * the object id as idno[@type="objectId"] in the form o_szd.NNNN.
    * @param {Record<string, string>} idnos
@@ -31,19 +45,20 @@ export const source = {
   },
 
   /**
-   * Element suggestions in the editor: the small set the letter work needs,
-   * not the whole of TEI. Typing "<" offers these.
+   * Element suggestions in the editor: the structural elements the letter
+   * work needs, not the whole of TEI. The elements of the actions are added
+   * from the registry. Typing "<" offers these.
    */
-  elements: [
-    { name: "persName", attributes: ["ref"] },
-    { name: "placeName", attributes: ["ref"] },
-    { name: "add", attributes: [{ name: "place", values: ["above", "below", "margin", "inline"] }, "hand"] },
-    { name: "del", attributes: [{ name: "rend", values: ["strikethrough", "overwritten", "erased"] }, "hand"] },
-    { name: "unclear", attributes: [{ name: "reason", values: ["illegible", "faded", "damage"] }, "cert"] },
-    { name: "lb" },
-    { name: "pb", attributes: ["n", "facs"] },
-    { name: "p" },
-  ],
+  elements: [{ name: "lb" }, { name: "pb", attributes: ["n", "facs"] }, { name: "p" }],
+
+  /**
+   * The annotation actions as data (js/actions.js): element, attributes,
+   * dialog, views and the HTR marker each resolves. The schema refuses an
+   * action whose markup it does not know when the editor loads.
+   */
+  actions: "data/actions.json",
+  schema: "schemas/tei-p5-4.11.0/tei_all.rng",
+  schemaLabel: "TEI All",
 
   /**
    * Person annotation: the SZD person index first, the GND for persons not
@@ -61,57 +76,57 @@ export const source = {
     gndRef: (id) => `${GND_PREFIX}${id}`,
     /** @param {string} value */
     isRegisterId: (value) => /^SZDPER\.\d+$/.test(value.trim()),
+    /** The register id of a reference, or "". @param {string} ref */
+    registerIdOf: (ref) => (ref.startsWith(PERSON_INDEX) ? ref.slice(PERSON_INDEX.length) : ""),
+    /** The GND id of a reference, or "". @param {string} ref */
+    gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
     /** The marked text without HTR marker syntax, as a search query. @param {string} text */
     nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
-    /** @param {string} text @param {string} ref */
-    markup: (text, ref) => `<persName ref="${ref}">${text}</persName>`,
   },
 
-  /** Name of the open work counter, followed by the labels of the detectors below. */
+  /**
+   * Places: marked as placeName, with a GND reference when one is chosen.
+   * Without one the place stays „noch nicht verknüpft“. Which places are
+   * marked and how belongs to the editorial rules (S4 in knowledge/plan.md).
+   * GeoNames is not configured, because its API needs a registered user name.
+   */
+  place: {
+    /** @param {string} id */
+    gndRef: (id) => `${GND_PREFIX}${id}`,
+    /** The GND id of a reference, or "". @param {string} ref */
+    gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
+  },
+
+  /** Name of the open work counter, followed by the labels of the detectors. */
   openWorkName: "Offene HTR-Stellen",
 
   /**
-   * Wrapping actions on a selection. The szd-htr transcription writes open
-   * editorial work as plain-text markers; `marker` finds them in the text,
-   * `strip` removes the marker syntax when the selection carries it, so a
-   * marked "~~amb~~" becomes <del>amb</del> and an unmarked selection is
-   * wrapped as it is.
+   * The text view (js/textview.js): which part of the document it shows, how
+   * structure becomes layout, and how open HTR spots look in it.
    */
-  wraps: [
-    {
-      key: "del",
-      label: "Streichung",
-      element: "del",
-      marker: /~~[^~\n<>]+?~~/g,
-      strip: (/** @type {string} */ t) => t.replace(/^~~([\s\S]*)~~$/, "$1"),
-    },
-    {
-      key: "unclear",
-      label: "Unsicher",
-      element: "unclear",
-      marker: /[^\s<>[\]{}]+\[\?\]/g,
-      strip: (/** @type {string} */ t) => t.replace(/^([\s\S]*)\[\?\]$/, "$1"),
-    },
-    {
-      key: "add",
-      label: "Ergänzung",
-      element: "add",
-      marker: /\{[^{}\n<>]+\}/g,
-      strip: (/** @type {string} */ t) => t.replace(/^\{([\s\S]*)\}$/, "$1"),
-    },
-  ],
+  textView: {
+    root: "body",
+    lineBreak: "lb",
+    pageBreak: "pb",
+    blocks: ["div", "p", "head", "ab", "lg", "l", "list", "item", "opener", "closer", "dateline", "salute", "signed", "postscript", "note", "table", "row", "fw"],
+    /** Element labels for the card of a marked passage. */
+    marks: { persName: "Person", placeName: "Ort", date: "Datum", del: "Streichung", add: "Ergänzung", unclear: "Unsicher" },
+    /** Parts of open spots drawn as a badge instead of their marker text. */
+    badges: [
+      { pattern: "\\[\\?(?:\\d+\\?)?\\]", text: "?", tip: "Unsicher gelesen, noch offen" },
+      { pattern: "\\[\\.\\.\\.(?:\\d+\\.\\.\\.)?\\]", text: "Lücke", tip: "Unlesbare Stelle, noch offen" },
+    ],
+  },
 };
 
 /**
- * What counts as open work in this edition: the HTR output of szd-htr still
- * in the text. The wraps resolve their markers; the other kinds have no
- * encoding rule yet (S4 in knowledge/plan.md), so F8 selects them without an
- * action. Brackets count only standing apart from words, so a supplied
- * "G[ro]d" or a numbered "[3500]" is left alone, and the header is not searched.
+ * Open work without an action yet: HTR output of szd-htr that has no
+ * encoding rule (S4 in knowledge/plan.md), so F8 selects it and the menu says
+ * so. Brackets count only standing apart from words, so a supplied "G[ro]d" or
+ * a numbered "[3500]" is left alone, and the header is not searched.
  * @type {import("./state.js").Detector[]}
  */
-source.openWork = [
-  ...source.wraps.map((w) => ({ key: w.key, label: w.label, find: matchesOf(w.marker), action: w.key })),
+const unresolved = [
   {
     // [?] or [?3?] on its own, not attached to a word as the Unsicher marker is.
     key: "unsure",
@@ -131,3 +146,11 @@ source.openWork = [
     find: matchesOf(/(?<![\p{L}\p{N}])\[\p{L}[^[\]<>\n]{2,}\](?![\p{L}\p{N}])/gu),
   },
 ];
+
+/**
+ * What counts as open work in this edition: the markers the actions of the
+ * registry resolve, then the kinds without an action.
+ * @param {import("./actions.js").LoadedAction[]} actions
+ * @returns {import("./state.js").Detector[]}
+ */
+export const openWorkFor = (actions) => [...markerDetectors(actions), ...unresolved];

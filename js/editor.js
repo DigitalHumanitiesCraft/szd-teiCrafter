@@ -68,6 +68,70 @@ const chrome = EditorView.theme({
   ".cm-tooltip, .cm-panels": { backgroundColor: "var(--surface)", color: "var(--text)", border: "1px solid var(--line)" },
   ".cm-tooltip-autocomplete ul li[aria-selected]": { backgroundColor: "var(--blue)", color: "var(--bg)" },
   ".cm-panels input, .cm-panels button": { color: "var(--text)" },
+
+  // The text view (js/textview.js): a reading measure in a text face, markup
+  // drawn as underlines and badges. Line decorations use padding, because
+  // CodeMirror measures line heights without margins.
+  "&.cm-textview .cm-content": {
+    fontFamily: "var(--font-text)",
+    fontSize: "1.12em",
+    lineHeight: "1.6",
+    maxWidth: "70ch",
+    marginInline: "auto",
+    paddingBlock: "1.25rem 3rem",
+    paddingInline: "1.25rem",
+  },
+  "&.cm-textview .cm-line": { paddingInline: "0" },
+  ".tv-block-start": { paddingTop: "0.75em" },
+  // Widgets stay inline: CodeMirror puts buffers beside a widget, which would
+  // add an empty line after a block. The page line draws its own hairline.
+  ".tv-page-line": {
+    paddingTop: "0.9em",
+    paddingBottom: "0.2em",
+    textAlign: "center",
+    background: "linear-gradient(var(--line), var(--line)) no-repeat 0 calc(50% + 0.35em) / 100% 1px",
+  },
+  ".tv-page": {
+    paddingInline: "0.75em",
+    fontFamily: "var(--font-ui)",
+    fontSize: "0.78rem",
+    color: "var(--muted)",
+    backgroundColor: "var(--surface)",
+    cursor: "pointer",
+  },
+  ".tv-head": { fontFamily: "var(--font-ui)", fontSize: "0.8rem", fontStyle: "italic", color: "var(--muted)" },
+  ".tv-break": { display: "block" },
+  ".tv-mark": { textUnderlineOffset: "0.22em", textDecorationThickness: "2px" },
+  ".tv-el-persName": { textDecorationLine: "underline", textDecorationColor: "var(--blue)" },
+  ".tv-el-placeName": { textDecorationLine: "underline", textDecorationStyle: "double", textDecorationColor: "var(--blue)", textDecorationThickness: "1px" },
+  ".tv-el-date": { textDecorationLine: "underline", textDecorationColor: "var(--muted)", textDecorationThickness: "1px" },
+  ".tv-unlinked": { textDecorationColor: "var(--muted)" },
+  ".tv-el-del": { textDecorationLine: "line-through", textDecorationThickness: "1px" },
+  ".tv-el-add": { position: "relative", top: "-0.45em", fontSize: "0.85em" },
+  ".tv-el-unclear": { textDecorationLine: "underline", textDecorationStyle: "dotted", textDecorationColor: "var(--text)" },
+  // Orange always means still open in the text view.
+  ".tv-open": {
+    textDecorationLine: "underline",
+    textDecorationStyle: "dashed",
+    textDecorationColor: "var(--orange)",
+    textDecorationThickness: "2px",
+    textUnderlineOffset: "0.22em",
+    backgroundColor: "color-mix(in oklch, var(--orange) 10%, transparent)",
+  },
+  ".tv-open-remark": { fontStyle: "italic" },
+  ".tv-badge": {
+    display: "inline-block",
+    marginInline: "0.15em",
+    paddingInline: "0.35em",
+    borderRadius: "999px",
+    border: "1px solid var(--orange)",
+    color: "var(--orange)",
+    fontFamily: "var(--font-ui)",
+    fontSize: "0.75em",
+    fontWeight: "600",
+    lineHeight: "1.4",
+    verticalAlign: "0.1em",
+  },
 });
 
 // Wrapped continuation lines hang two columns under the start of their own
@@ -177,6 +241,9 @@ export function lineEndings(text) {
   return { separator: crlf > lf ? "\r\n" : "\n", crlf, lf, cr, mixed: [crlf, lf, cr].filter(Boolean).length > 1 };
 }
 
+/** What the XML view shows besides the text: gutters, the active line and the hanging indent. */
+const xmlChrome = [lineNumbers(), foldGutter(), lintGutter(), highlightActiveLineGutter(), highlightActiveLine(), hangingIndent];
+
 /**
  * @typedef {{ message: string, line: number, column: number, severity?: "error" | "warning" }} Problem
  * @param {HTMLElement} parent
@@ -185,6 +252,10 @@ export function lineEndings(text) {
 export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll, onPointerSelect }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
+  // XML chrome or the text view; both work on the same state and history.
+  const presentation = new Compartment();
+  /** @type {any} */
+  let shown = xmlChrome;
   let zoom = 100;
   // Letters are prose, so long lines wrap by default and nothing hides at the right edge.
   let wrapped = true;
@@ -201,11 +272,6 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
     EditorState.create({
       doc,
       extensions: [
-        lineNumbers(),
-        foldGutter(),
-        lintGutter(),
-        highlightActiveLineGutter(),
-        highlightActiveLine(),
         history(),
         drawSelection(),
         indentOnInput(),
@@ -215,7 +281,6 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         highlightSelectionMatches(),
         syntaxHighlighting(highlight),
         chrome,
-        hangingIndent,
         germanPhrases,
         xml({ elements, autoCloseTags: true }),
         EditorState.tabSize.of(2),
@@ -230,6 +295,7 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         fontSize.of(sizeTheme(zoom)),
         // Application commands first, so they win over defaults with the same key.
         keymap.of(keys),
+        presentation.of(shown),
         keymap.of([
           ...closeBracketsKeymap,
           ...defaultKeymap,
@@ -367,6 +433,35 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
       zoom = direction === 0 ? 100 : ZOOM_STEPS[Math.min(Math.max(i + direction, 0), ZOOM_STEPS.length - 1)];
       view.dispatch({ effects: fontSize.reconfigure(sizeTheme(zoom)) });
       onZoom(zoom);
+    },
+    get state() {
+      return view.state;
+    },
+    /**
+     * Shows the XML chrome (null) or another presentation such as the text
+     * view, on the same state: text, selection and undo history stay.
+     * @param {any} extension
+     */
+    present(extension) {
+      shown = extension ?? xmlChrome;
+      view.dispatch({ effects: presentation.reconfigure(shown) });
+    },
+    /** @param {import("../vendor/codemirror/codemirror.js").TransactionSpec} spec */
+    dispatch(spec) {
+      view.dispatch(spec);
+    },
+    /** The document position at the top of the visible text. */
+    topPos() {
+      const box = view.scrollDOM.getBoundingClientRect();
+      return view.posAtCoords({ x: box.left + box.width / 2, y: box.top + 8 }, false);
+    },
+    /** Scrolls the caret to the middle of the pane. */
+    reveal() {
+      view.dispatch({ effects: EditorView.scrollIntoView(view.state.selection.main.head, { y: "center" }) });
+    },
+    /** @param {number} pos */
+    coordsAt(pos) {
+      return view.coordsAtPos(pos);
     },
     toggleWrap() {
       wrapped = !wrapped;

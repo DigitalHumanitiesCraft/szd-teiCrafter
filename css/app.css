@@ -28,6 +28,8 @@
     --hl-comment: var(--muted);
     --font-ui: system-ui, sans-serif;
     --font-code: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    /* The text view reads in a book face. */
+    --font-text: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 1rem;
@@ -244,7 +246,7 @@
     opacity: 0;
     transition: opacity 0.12s 0.25s;
   }
-  [data-tip]:hover::after, [data-tip]:focus-visible::after, [data-tip]:focus-within::after { opacity: 1; }
+  [data-tip]:hover::after, [data-tip]:focus-visible::after, [data-tip]:has(:focus-visible)::after { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { [data-tip]::after { transition: none; } }
   /* Check buttons sit at the left edge, so their longer tips open to the right and wrap. */
   .check[data-tip] { position: relative; }
@@ -349,18 +351,6 @@
     & span { grid-column: 1; }
     &[aria-current="true"] { box-shadow: inset 3px 0 var(--blue); }
   }
-  .doc-tag {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: center;
-    font-style: normal;
-    font-size: 0.8rem;
-    padding: 0.1rem 0.5rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--muted);
-    &[data-state="approved"] { color: var(--ok); border-color: color-mix(in oklch, var(--ok) 50%, var(--line)); }
-  }
   .diff-body {
     min-block-size: 0;
     overflow: auto;
@@ -457,6 +447,127 @@
     border-inline-end: 0;
   }
 
+  /* Two or more choices in one control, the pressed one filled. */
+  .segmented {
+    position: relative;
+    display: inline-flex;
+    flex: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    & button { border: 0; border-radius: 0; min-block-size: calc(2.25rem - 2px); padding-inline: 0.5rem; background: var(--surface); }
+    & button + button { border-inline-start: 1px solid var(--line); }
+    & button[aria-pressed="true"] { background: color-mix(in oklch, var(--blue) 18%, var(--surface)); color: var(--text); font-weight: 600; }
+    & button[aria-disabled="true"] { color: var(--muted); cursor: not-allowed; }
+    &[data-tip]::after { inset-inline: 0 auto; inline-size: max-content; max-inline-size: min(24rem, calc(100vi - 2rem)); white-space: normal; font-weight: 400; }
+  }
+  .segmented-icons button { gap: 0.3rem; }
+
+  /* Menu items carry their letter key, quiet, after the label. */
+  .actions-items { display: flex; flex-wrap: wrap; gap: 2px; }
+  .actions kbd {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding-inline: 0.25rem;
+    margin-inline-start: 0.15rem;
+  }
+
+  /* The card of a marked passage in the text view. */
+  .mark-card {
+    position: fixed;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-inline-size: 14rem;
+    max-inline-size: min(24rem, calc(100vi - 1rem));
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+    & .toolbar { margin-block-start: var(--space-1); }
+  }
+  .mark-card-title { font-weight: 600; }
+  .mark-card-detail { font-size: 0.9rem; &[data-unlinked] { color: var(--muted); font-style: italic; } }
+  .mark-card-note { font-size: 0.8rem; color: var(--muted); }
+
+  .dialog-hint { font-size: 0.85rem; color: var(--muted); }
+  .check-row { display: flex; align-items: center; gap: var(--space-2); & input { inline-size: auto; min-block-size: 0; } }
+  .date-forms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    border: 0;
+    margin: 0;
+    padding: 0;
+    & legend { font-weight: 600; padding: 0; margin-block-end: var(--space-1); }
+    & label { display: flex; align-items: center; gap: var(--space-1); }
+    & input { inline-size: auto; min-block-size: 0; }
+  }
+  .date-fields {
+    display: flex;
+    gap: var(--space-2);
+    & label { flex: 1; display: flex; flex-direction: column; gap: var(--space-1); font-weight: 600; }
+    & code { font-weight: 400; color: var(--muted); }
+    & input { font-family: var(--font-code); font-weight: 400; }
+  }
+
+  /* The action registry as a list of rows. */
+  .actions-dialog {
+    inline-size: min(52rem, calc(100vi - 2rem));
+    max-block-size: calc(100dvb - 4rem);
+    & form { max-block-size: calc(100dvb - 6rem); }
+  }
+  .action-list { list-style: none; padding: 0; overflow: auto; min-block-size: 0; & li + li { border-block-start: 1px solid var(--line); } }
+  .action-row {
+    display: grid;
+    grid-template-columns: auto minmax(8rem, 12rem) 3rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-1) var(--space-2);
+    padding-block: var(--space-2);
+    & input[type="checkbox"] { inline-size: 1.1rem; block-size: 1.1rem; min-block-size: 0; }
+    & .action-key { text-align: center; font-family: var(--font-code); }
+    & input[aria-invalid="true"] { border-color: var(--error); }
+  }
+  .action-facts { font-size: 0.85rem; color: var(--muted); & code { color: var(--blue); } }
+  .action-refused { grid-column: 2 / -1; font-size: 0.85rem; color: var(--error); }
+  .save-reason { flex: 1; font-size: 0.85rem; color: var(--muted); &[data-state="error"] { color: var(--error); } }
+
+  /* The documents dialog: state as icons, the setup note for collections. */
+  /* The entry's generic span rule would put the icon into the first column. */
+  .result.doc-item > .doc-state-icon {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    &[data-state="draft"] { opacity: 0.45; }
+    &[data-state="approved"] { color: var(--ok); }
+    &[data-state="ready"] { color: var(--blue); }
+    &[data-state="open"] { color: var(--orange); }
+  }
+  .chip-add { border-style: dashed; color: var(--muted); position: relative; }
+  .chip-add[data-tip]::after { inset-inline: auto 0; inline-size: max-content; max-inline-size: min(22rem, calc(100vi - 2rem)); white-space: normal; }
+  .docs-setup {
+    padding: var(--space-2) var(--space-3);
+    border-inline-start: 3px solid var(--blue);
+    background: color-mix(in oklch, var(--blue) 6%, var(--surface));
+    font-size: 0.9rem;
+    & h3 { font-size: 0.95rem; margin-block-end: var(--space-1); }
+    & ol { margin: var(--space-1) 0 0; padding-inline-start: 1.3rem; }
+    & li + li { margin-block-start: 0.2rem; }
+    & code { font-size: 0.85em; }
+  }
+  .doc-state[data-tip] { position: relative; }
+  .doc-state[data-tip]::after { inset-inline: 0 auto; inline-size: max-content; max-inline-size: min(24rem, calc(100vi - 2rem)); white-space: normal; font-weight: 400; color: var(--bg); }
+
   .page-short { display: none; }
   /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
      state colour, the page label to its short form, and the full words stay
@@ -464,7 +575,7 @@
      override, because source order decides within a layer. */
   @container (width < 38rem) {
     .page-short { display: inline; }
-    .check .label, .page-long {
+    .check .label, .page-long, .segmented-icons .label {
       position: absolute;
       inline-size: 1px;
       block-size: 1px;
@@ -474,11 +585,25 @@
     }
   }
   /* The reset button for the code size is the first to give way; Ctrl+0 is not
-     needed, the size buttons and the wheel remain. */
+     needed, the size buttons and the wheel remain. Then the validation button
+     and the layout control keep their icons, with the state in colour and
+     tooltip, while the open-spot counter keeps its words longest. */
   @container (width < 48rem) {
     .zoom-label { display: none; }
   }
+  @container (width < 46rem) {
+    /* A document in the text view is always well-formed, so that label goes too. */
+    #valid-button .label, .segmented-icons .label, .toolbar:has(> #layout-switch:not([hidden])) #wf-button .label {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
   @container (width < 30rem) {
+    .segmented button { padding-inline: 0.4rem; }
     .toolbar-sep { display: none; }
     .toolbar { gap: var(--space-1); }
     .icon-button { inline-size: 2rem; }

@@ -17,6 +17,8 @@ const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
 const REICHNER = ALL_DOCS.find((d) => d.objectId === "o_szd.1750");
 const REICHNER_TEXT = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
 const lf = (text) => text.replace(/\r\n/g, "\n");
+const ACTIONS_TEXT = readFileSync(new URL("../data/actions.json", import.meta.url), "utf8");
+const ACTIONS = JSON.parse(ACTIONS_TEXT).actions;
 const results = [];
 // A run that throws still shows the checks it reached.
 process.on("exit", (code) => code && !results.printed && console.log(results.join("\n")));
@@ -483,15 +485,15 @@ const LOBID_FIXTURE = {
 // saved file with the original transformed by the same rules, earliest marker
 // first, so the check proves that the interface applied exactly these edits.
 {
-  const { source } = await import("../js/source.js");
+  const { stripMarker, wrap } = await import("../js/actions.js");
   let expected = ORIGINAL;
   for (;;) {
-    const spots = source.wraps
-      .flatMap((w) => [...expected.matchAll(w.marker)].map((m) => ({ w, from: m.index, text: m[0] })))
-      .sort((a, b) => a.from - b.from || b.text.length - a.text.length);
+    const spots = ACTIONS.filter((a) => a.resolves)
+      .flatMap((a) => [...expected.matchAll(new RegExp(a.resolves.marker, "g"))].map((m) => ({ a, from: m.index, text: m[0] })))
+      .sort((x, y) => x.from - y.from || y.text.length - x.text.length);
     if (!spots.length) break;
-    const { w, from, text } = spots[0];
-    expected = `${expected.slice(0, from)}<${w.element}>${w.strip(text)}</${w.element}>${expected.slice(from + text.length)}`;
+    const { a, from, text } = spots[0];
+    expected = `${expected.slice(0, from)}${wrap(a, stripMarker(a, text))}${expected.slice(from + text.length)}`;
   }
 
   const { page, errors } = await open({}, () => {
@@ -743,7 +745,7 @@ async function chooseDocument(page, objectId) {
   check("validation keeps the accepted state", (await docState(page)) === "Abgenommen", await docState(page));
   await shotAll(page, "accepted", "dark");
   await page.click("#docs-button");
-  check("the list shows the accepted state", (await label(page, ".doc-item[aria-current='true'] .doc-tag")) === "Abgenommen");
+  check("the list shows the accepted state", (await page.getAttribute(".doc-item[aria-current='true'] .doc-state-icon svg", "aria-label")) === "Abgenommen");
   await page.click("#docs-dialog .dialog-actions button");
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
@@ -1029,6 +1031,420 @@ async function chooseDocument(page, objectId) {
   check("Enter on a kind without action changes nothing", (await editorText(page)) === before && !(await page.isVisible("#person-dialog")));
   await page.keyboard.press("Escape");
   check("no console errors (data safety run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Text view run: the same document with the markup hidden. Annotating in it,
+// undo across the switch, the refusal of edits that cut markup, the card of a
+// marked passage, Enter as a new line, the layout by <lb/>, CRLF, a malformed
+// document, and the place and date actions. Saved bytes are compared with the
+// original plus exactly the expected edits.
+const lobidPlaces = {
+  member: [
+    { gndIdentifier: "4005728-8", preferredName: "Berlin", type: ["PlaceOrGeographicName"], geographicAreaCode: [{ label: "Deutschland" }] },
+    { gndIdentifier: "1234567-1", preferredName: "Berlin-Mitte", type: ["PlaceOrGeographicName"] },
+  ],
+};
+/** Selects a passage of the document by its text, as a pointer selection would. */
+const selectText = (page, needle, offset = 0, length = needle.length) =>
+  page.evaluate(
+    async ([n, o, l]) => {
+      const { EditorView } = await import("./vendor/codemirror/codemirror.js");
+      const view = EditorView.findFromDOM(document.querySelector(".cm-editor"));
+      const at = view.state.doc.toString().indexOf(n) + o;
+      view.dispatch({ selection: { anchor: at, head: at + l }, scrollIntoView: true });
+      view.focus();
+    },
+    [needle, offset, length],
+  );
+const caretAt = (page, needle, offset = 0) => selectText(page, needle, offset, 0);
+const selection = (page) =>
+  page.evaluate(async () => {
+    const { EditorView } = await import("./vendor/codemirror/codemirror.js");
+    const { from, to } = EditorView.findFromDOM(document.querySelector(".cm-editor")).state.selection.main;
+    return { from, to };
+  });
+const pressed = (page, id) => page.getAttribute(`#${id}`, "aria-pressed").then((v) => v === "true");
+const shownText = (page) => page.evaluate(() => document.querySelector(".cm-content").innerText);
+{
+  const noLb = ORIGINAL.replace(/<lb\/>/g, "");
+  const files = {
+    a: { name: "A.tei.xml", text: ORIGINAL },
+    crlf: { name: "crlf.tei.xml", text: ORIGINAL.replace(/\n/g, "\r\n") },
+    nolb: { name: "nolb.tei.xml", text: noLb },
+    broken: { name: "kaputt.tei.xml", text: ORIGINAL.replace("</TEI>", "") },
+  };
+  const { page, errors } = await open(
+    { colorScheme: "light" },
+    (served) => {
+      Object.assign(window, { __writes: [], __next: "a" });
+      const make = (key) => ({
+        name: served[key].name,
+        getFile: async () => new File([served[key].text], served[key].name, { lastModified: 1761800000000 + window.__writes.length }),
+        createWritable: async () => ({ write: async (data) => window.__writes.push({ key, data }), close: async () => {} }),
+      });
+      const handles = Object.fromEntries(Object.keys(served).map((k) => [k, make(k)]));
+      window.showOpenFilePicker = async () => [handles[window.__next]];
+      window.showSaveFilePicker = async () => handles[window.__next];
+    },
+    files,
+  );
+  await page.route("https://lobid.org/gnd/search**", (route) => route.fulfill({ json: route.request().url().includes("PlaceOrGeographicName") ? lobidPlaces : LOBID_FIXTURE }));
+  const openFile = async (key) => {
+    await page.evaluate((k) => (window.__next = k), key);
+    await page.click("#tei-open");
+    await page.waitForTimeout(700);
+  };
+  const lastWrite = () => page.evaluate(() => window.__writes.at(-1)?.data ?? "");
+
+  check("the XML view opens first", (await pressed(page, "view-xml")) && !(await pressed(page, "view-text")) && (await page.locator(".cm-textview").count()) === 0);
+  check("the view switch explains both views", (await page.getAttribute("#view-switch", "data-tip")).startsWith("XML zeigt den TEI-Quelltext"));
+  await openFile("a");
+  await doubleClickWord(page, "Herr Reichner", "Reichner");
+  const before = await selection(page);
+  await page.click("#view-text");
+  await page.waitForTimeout(400);
+  const visible = await shownText(page);
+  check(
+    "the text view hides header, tags and line numbers",
+    (await page.locator(".cm-textview").count()) === 1 && !visible.includes("<") && !visible.includes("Machine-generated") && (await page.locator(".cm-lineNumbers").count()) === 0,
+  );
+  check("a letter with <lb/> opens in lines", (await pressed(page, "layout-lines")) && visible.includes("Vor allem erinnere ich daran, dass ich am 10. mit dem Conte\n"), JSON.stringify(visible.slice(0, 200)));
+  check("page breaks show as dividers", (await page.locator(".tv-page", { hasText: "Seite 1" }).count()) === 1);
+  check("the selection survives the switch", JSON.stringify(await selection(page)) === JSON.stringify(before), JSON.stringify([before, await selection(page)]));
+  check("the toolbar stays one row in the text view", (await page.locator(".pane-text .toolbar").first().boundingBox()).height < 50);
+  await shot(page, "text-lines-light");
+
+  // A pointer selection across a line break is ordinary reading: no menu, no
+  // message. Asking for the menu explains it calmly in the words of the view.
+  const wordPoint = (word) =>
+    page.locator(".cm-line", { hasText: word }).first().evaluate((el, w) => {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+        const i = n.textContent.indexOf(w);
+        if (i < 0) continue;
+        const r = document.createRange();
+        r.setStart(n, i);
+        r.setEnd(n, i + w.length);
+        const b = r.getBoundingClientRect();
+        return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+      }
+      return null;
+    }, word);
+  await page.locator(".cm-line", { hasText: "dem Conte" }).first().scrollIntoViewIfNeeded();
+  const [p1, p2] = [await wordPoint("Conte"), await wordPoint("Savoia")];
+  const statusBefore = await label(page, "#xml-status");
+  await page.mouse.move(p1.x, p1.y);
+  await page.mouse.down();
+  await page.mouse.move(p2.x, p2.y, { steps: 6 });
+  await page.mouse.up();
+  await page.waitForTimeout(300);
+  check(
+    "a pointer selection across a line opens no menu and no message",
+    (await page.isHidden("#actions")) && (await label(page, "#xml-status")) === statusBefore && (await page.getAttribute("#xml-status", "data-state")) !== "error",
+    await label(page, "#xml-status"),
+  );
+  await page.keyboard.press("Control+.");
+  await page.waitForTimeout(200);
+  check(
+    "asking for the menu there explains it calmly in the words of the text view",
+    (await label(page, "#xml-status")).startsWith("Die Auswahl reicht über eine Zeile oder eine Auszeichnung hinaus.") && (await page.getAttribute("#xml-status", "data-state")) === "",
+    await label(page, "#xml-status"),
+  );
+
+  // Annotating a person in the text view writes the same markup as in XML.
+  await doubleClickWord(page, "Herr Reichner", "Reichner");
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("Enter");
+  await page.waitForSelector("#register-results .result", { timeout: 20000 });
+  await page.locator("#register-results .result", { hasText: "SZDPER.2188" }).click();
+  await page.click("#person-apply");
+  await page.waitForTimeout(400);
+  const person = 'Herr <persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>';
+  const annotated = ORIGINAL.replace("Herr Reichner", person);
+  check("a person annotated in the text view is the same markup", (await editorText(page)) === annotated);
+  check("the person shows underlined in blue", (await page.locator(".tv-el-persName", { hasText: "Reichner" }).count()) === 1);
+
+  // Undo and redo reach across the switch: one document, one history.
+  await page.click("#view-xml");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(300);
+  const undone = (await editorText(page)) === ORIGINAL;
+  await page.keyboard.press("Control+y");
+  await page.waitForTimeout(300);
+  check("undo across the switch takes back the text-view edit, redo restores it", undone && (await editorText(page)) === annotated);
+  await page.click("#view-text");
+  await page.waitForTimeout(300);
+
+  // An edit that would cut hidden markup is refused and says why.
+  await caretAt(page, person, 5);
+  await page.keyboard.press("Delete");
+  await page.waitForTimeout(200);
+  check(
+    "deleting into hidden markup is refused with a reason",
+    (await editorText(page)) === annotated &&
+      (await label(page, "#xml-status")) === "Hier liegt eine Auszeichnung; zum Entfernen die Markierung öffnen." &&
+      (await page.getAttribute("#xml-status", "data-state")) === "",
+    await label(page, "#xml-status"),
+  );
+  // Typed markup characters become text, so the document stays well-formed.
+  await caretAt(page, "Hotel Westminster", 5);
+  await page.keyboard.type("<&");
+  await page.waitForTimeout(400);
+  check(
+    "typed < and & become references and the document stays well-formed",
+    (await editorText(page)).includes("Hotel&lt;&amp; Westminster") && (await shownText(page)).includes("Hotel<& Westminster") && (await label(page, "#wf-label")) === "Wohlgeformt",
+  );
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(300);
+
+  // Enter on a marked passage opens its card; Escape returns to the text.
+  await caretAt(page, "Reichner</persName>", 3);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(500);
+  check(
+    "Enter on a mark opens its card with the identity",
+    (await page.isVisible("#mark-card")) && (await label(page, "#mark-card-title")) === "Person" && (await label(page, "#mark-card-detail")).includes("SZDPER.2188") && (await page.evaluate(() => document.activeElement?.id === "mark-card-change")),
+    await label(page, "#mark-card-detail"),
+  );
+  await shot(page, "text-card-light");
+  await page.keyboard.press("Escape");
+  check("Escape closes the card and returns to the text", !(await page.isVisible("#mark-card")) && (await page.evaluate(() => document.activeElement?.classList.contains("cm-content"))));
+  await caretAt(page, "Reichner</persName>", 3);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(400);
+  await page.click("#mark-card-remove");
+  await page.waitForTimeout(300);
+  const removed = (await editorText(page)) === ORIGINAL;
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(300);
+  check("Entfernen unwraps the passage in one undoable step", removed && (await editorText(page)) === annotated);
+
+  // Enter elsewhere starts a new transcription line.
+  await caretAt(page, "Ihr\n", 0);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(300);
+  check("Enter in the text starts a new line with <lb/>", (await editorText(page)).includes("Mit besten Grüssen \n        <lb/>Ihr"));
+  await page.keyboard.press("Control+z");
+  await page.waitForTimeout(300);
+
+  // F8 works in the text view and its action applies to the hidden source.
+  await caretAt(page, person, person.length);
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(300);
+  const suggested = await page.evaluate(() => document.activeElement?.dataset.action);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(400);
+  const afterF8 = annotated.replace("{wenn ich ihm meine Bücher gebe}", "<add>wenn ich ihm meine Bücher gebe</add>");
+  check("F8 in the text view selects the next spot and Enter applies its action", suggested === "add" && (await editorText(page)) === afterF8, suggested);
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  check("saving after annotating in the text view is byte-exact", (await lastWrite()) === afterF8);
+
+  // Places: without an identifier as not yet linked, with one from the GND.
+  await doubleClickWord(page, "Hotel Westminster", "Nizza");
+  await page.waitForTimeout(200);
+  await page.click("#actions [data-action='place']");
+  await page.waitForTimeout(200);
+  check("the place dialog previews a placeName without reference", (await label(page, "#place-preview")) === "<placeName>Nizza</placeName>" && (await page.isVisible("#place-unlinked")));
+  await page.click("#place-apply");
+  await page.waitForTimeout(300);
+  check("a place without identifier is marked without @ref", (await editorText(page)).includes("<placeName>Nizza</placeName>, den"));
+  await caretAt(page, "Nizza</placeName>", 2);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(400);
+  check("its card says not yet linked", (await label(page, "#mark-card-title")) === "Ort" && (await label(page, "#mark-card-detail")) === "noch nicht verknüpft");
+  await page.keyboard.press("Escape");
+  await doubleClickWord(page, "Berlin N.W.21", "Berlin");
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("o");
+  await page.waitForTimeout(200);
+  await page.click("#place-search");
+  await page.waitForSelector("#place-results .result", { timeout: 10000 });
+  await page.locator("#place-results .result", { hasText: "4005728-8" }).click();
+  check("a GND place fills the preview", (await label(page, "#place-preview")) === '<placeName ref="http://d-nb.info/gnd/4005728-8">Berlin</placeName>');
+  await shot(page, "place-dialog-light");
+  await page.click("#place-apply");
+  await page.waitForTimeout(300);
+
+  // A date with words around it is trimmed to the date and given an ISO value.
+  await selectText(page, "Nizza</placeName>, den 4.Januar 1935.", "Nizza</placeName>, ".length, "den 4.Januar 1935.".length);
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("d");
+  await page.waitForTimeout(300);
+  check(
+    "the date dialog proposes the ISO value and the trimmed date part",
+    (await page.inputValue("#date-when")) === "1935-01-04" && (await page.isChecked("#date-trim")) && (await label(page, "#date-part")) === "4.Januar 1935" && (await label(page, "#date-preview")) === '<date when="1935-01-04">4.Januar 1935</date>',
+    await label(page, "#date-preview"),
+  );
+  await shot(page, "date-dialog-light");
+  await page.fill("#date-when", "1935-13");
+  await page.click("#date-apply");
+  check("an invalid date is not written", (await page.isVisible("#date-dialog")) && (await label(page, "#date-status")).includes("kein Datum"));
+  await page.fill("#date-when", "1935-01-04");
+  await page.click("#date-apply");
+  await page.waitForTimeout(300);
+  const placesAndDate = afterF8
+    .replace("Westminster                                Nizza, den 4.Januar 1935.", 'Westminster                                <placeName>Nizza</placeName>, den <date when="1935-01-04">4.Januar 1935</date>.')
+    .replace("Berlin N.W.21", '<placeName ref="http://d-nb.info/gnd/4005728-8">Berlin</placeName> N.W.21');
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  check("places and the date are saved as exactly these elements", (await lastWrite()) === placesAndDate);
+  check("the places and the date are valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+
+  // The layout follows the document, and a choice is remembered for its kind.
+  await openFile("nolb");
+  check("a document without <lb/> opens in flowing text", (await pressed(page, "view-text")) && (await pressed(page, "layout-flow")));
+  await shot(page, "text-flow-light");
+  await page.click("#layout-lines");
+  await openFile("a");
+  check("a letter with <lb/> still opens in lines", await pressed(page, "layout-lines"));
+  await page.click("#layout-flow");
+  await openFile("a");
+  check("the chosen layout is remembered for documents with <lb/>", await pressed(page, "layout-flow"));
+  await page.click("#layout-lines");
+
+  // CRLF: an action in the text view inserts no bare LF and saves byte-exact.
+  await openFile("crlf");
+  await caretAt(page, "Herr Reichner", 0);
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(300);
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(300);
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  const crlfSaved = await lastWrite();
+  check(
+    "a CRLF letter annotated in the text view keeps CRLF",
+    crlfSaved === files.crlf.text.replace("{wenn ich ihm meine Bücher gebe}", "<add>wenn ich ihm meine Bücher gebe</add>") && bareLf(crlfSaved) === 0,
+  );
+
+  // A malformed document cannot enter the text view and says why.
+  await openFile("broken");
+  check("a malformed document opens in XML", await pressed(page, "view-xml"));
+  // aria-disabled keeps the button reachable, so clicking it explains the refusal.
+  await page.click("#view-text", { force: true });
+  await page.waitForTimeout(200);
+  check(
+    "it refuses the text view with the reason",
+    (await pressed(page, "view-xml")) && (await label(page, "#xml-status")).startsWith("Die Textansicht braucht ein wohlgeformtes Dokument.") && (await page.getAttribute("#view-text", "aria-disabled")) === "true",
+    await label(page, "#xml-status"),
+  );
+  // The choice of the text view is remembered for the next visit.
+  await openFile("a");
+  await page.click("#view-text");
+  const again = await page.context().newPage();
+  await again.goto(BASE_URL);
+  await again.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
+  await again.waitForTimeout(500);
+  check("the text view is remembered per browser", (await again.getAttribute("#view-text", "aria-pressed")) === "true");
+  await again.emulateMedia({ colorScheme: "dark" });
+  await again.waitForTimeout(300);
+  await shot(again, "text-lines-dark");
+  await again.setViewportSize({ width: 900, height: 800 });
+  await again.waitForTimeout(400);
+  check("the text toolbar stays one row at 900 px", (await again.locator(".pane-text .toolbar").first().boundingBox()).height < 50);
+  await shot(again, "text-lines-dark-900");
+  await again.close();
+  check("no console errors (text view run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Action registry run: the settings view, switching an action off and on,
+// saving the registry in place byte-stable, and refusing an action whose
+// element the schema does not know.
+{
+  const { page, errors } = await open({ colorScheme: "light" }, (registry) => {
+    window.__registry = [];
+    const file = {
+      name: "actions.json",
+      getFile: async () => new File([window.__registry.at(-1) ?? registry], "actions.json"),
+      createWritable: async () => ({ write: async (t) => window.__registry.push(t), close: async () => {} }),
+    };
+    const data = { name: "data", getFileHandle: async (n) => (n === "actions.json" ? file : Promise.reject(new Error("missing"))) };
+    const root = { name: "szd-teiCrafter", getDirectoryHandle: async (n) => (n === "data" ? data : Promise.reject(new Error("missing"))) };
+    window.showDirectoryPicker = async () => root;
+  }, ACTIONS_TEXT);
+  check("the menu offers every action of the registry", (await page.locator("#actions-items button").count()) === ACTIONS.length);
+  await page.click("#actions-button");
+  check("the settings list every action", (await page.locator(".action-row").count()) === ACTIONS.length);
+  await shot(page, "actions-settings-light");
+  await page.click("#actions-folder");
+  await page.waitForTimeout(200);
+  await page.locator(".action-row", { has: page.locator("input[aria-label='Bezeichnung von del']") }).locator("input[type='checkbox']").uncheck();
+  check("switching an action off removes it from the menu", (await page.locator("#actions-items [data-action='del']").count()) === 0);
+  await page.click("#actions-save");
+  await page.waitForTimeout(300);
+  const written = await page.evaluate(() => window.__registry.at(-1) ?? "");
+  const diffLines = written.split("\n").filter((l, i) => l !== ACTIONS_TEXT.split("\n")[i]);
+  check("the saved registry differs only in that switch", JSON.stringify(diffLines) === JSON.stringify(['      "enabled": false']), JSON.stringify(diffLines));
+  await page.click("#actions-dialog button[type='submit']");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+Home");
+  for (let i = 0; i < 4 && !(await label(page, "#actions-quote")).startsWith("„~~"); i++) {
+    await page.keyboard.press("F8");
+    await page.waitForTimeout(200);
+  }
+  check("a marker of a switched-off action names the switch", (await label(page, "#actions-note")).includes("unter „Aktionen“ ausgeschaltet"), await label(page, "#actions-note"));
+  await page.keyboard.press("Escape");
+  await page.click("#actions-button");
+  await page.locator(".action-row", { has: page.locator("input[aria-label='Bezeichnung von del']") }).locator("input[type='checkbox']").check();
+  await page.click("#actions-save");
+  await page.waitForTimeout(300);
+  check("switched on again, the registry is saved byte-identical", (await page.evaluate(() => window.__registry.at(-1))) === ACTIONS_TEXT);
+  await page.click("#actions-dialog button[type='submit']");
+  check("no console errors (registry run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+
+  // An action whose element the schema does not know is refused at load.
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const extra = JSON.parse(ACTIONS_TEXT);
+  extra.actions.push({ ...extra.actions[3], id: "foo", key: "f", label: "Unbekannt", element: "foobar" });
+  await ctx.route("**/data/actions.json", (route) => route.fulfill({ body: JSON.stringify(extra), contentType: "application/json" }));
+  const other = await ctx.newPage();
+  await other.goto(BASE_URL);
+  await other.waitForTimeout(2500);
+  await other.click("#actions-button");
+  check(
+    "an action with an unknown element is refused at load with the reason",
+    (await other.locator(".action-refused", { hasText: "Das Schema kennt kein Element <foobar>." }).count()) === 1 && (await other.locator("#actions-items [data-action='foo']").count()) === 0,
+  );
+  await ctx.close();
+}
+
+// Documents dialog: counts per collection, state icons with names, the
+// collection setup explained in place, the search selected on reopening.
+{
+  const { page, errors } = await open({ colorScheme: "light" });
+  await page.click("#docs-button");
+  const heading = await label(page, "#docs-list h3 .docs-progress");
+  const first = INDEX.collections[0].documents;
+  check(
+    "each collection names its documents, accepted and open ones",
+    heading === `${first.length} Dokumente | ${first.filter((d) => d.status === "approved").length} abgenommen | ${first.filter((d) => d.open > 0).length} mit offenen Stellen`,
+    heading,
+  );
+  const openDoc = ALL_DOCS.find((d) => d.open > 0);
+  check(
+    "a document with open spots shows them as a named icon",
+    (await page.locator(".doc-item", { hasText: openDoc.objectId }).locator(`svg[aria-label='${openDoc.open === 1 ? "1 offene Stelle" : `${openDoc.open} offene Stellen`}']`).count()) === 1,
+  );
+  check("the add chip defines a collection", (await page.getAttribute("#docs-add", "data-tip")).startsWith("Collection: "));
+  await page.click("#docs-add");
+  check("it explains how a collection is set up", (await page.isVisible("#docs-setup")) && (await label(page, "#docs-setup")).includes("node tools/build-document-index.mjs"));
+  await shot(page, "docs-dialog-light");
+  await page.fill("#docs-query", "Brief");
+  await page.keyboard.press("Escape");
+  check("Escape closes the list", !(await page.isVisible("#docs-dialog")));
+  await page.click("#docs-button");
+  check(
+    "reopening selects the last search",
+    await page.evaluate(() => {
+      const q = document.getElementById("docs-query");
+      return document.activeElement === q && q.selectionStart === 0 && q.selectionEnd === q.value.length && q.value === "Brief";
+    }),
+  );
+  await page.keyboard.press("Escape");
+  check("the badge and counter explain their terms", (await page.getAttribute("#doc-state", "data-tip")).startsWith("Arbeitsstand: ") && (await page.getAttribute("#work-button", "data-tip")).startsWith("Offene Stelle: "));
+  check("no console errors (documents dialog run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
 // Run 8: every document of the working set loads from the list, well-formed

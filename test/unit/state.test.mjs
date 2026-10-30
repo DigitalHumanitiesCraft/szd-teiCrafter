@@ -1,9 +1,12 @@
 // Pure working-state functions: acceptance edits on the header variants that
-// occur or could occur, and the open-work detectors of the source configuration.
+// occur or could occur, and the open-work detectors of the source configuration
+// with the action registry.
 
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { source } from "../../js/source.js";
+import { readFileSync } from "node:fs";
+import { loadActions } from "../../js/actions.js";
+import { openWorkFor } from "../../js/source.js";
 import { acceptanceEdits, openSpots } from "../../js/state.js";
 
 const CHANGE = { date: "2026-10-30", note: "ok" };
@@ -66,7 +69,8 @@ test("acceptance without a header changes nothing", () => {
   assert.deepEqual(acceptanceEdits("<TEI><text/></TEI>", CHANGE), []);
 });
 
-const kinds = (/** @type {string} */ text) => openSpots(text, source.openWork).map((s) => `${s.key}:${text.slice(s.from, s.to)}`);
+const openWork = openWorkFor(loadActions(JSON.parse(readFileSync(new URL("../../data/actions.json", import.meta.url), "utf8"))));
+const kinds = (/** @type {string} */ text) => openSpots(text, openWork).map((s) => `${s.key}:${text.slice(s.from, s.to)}`);
 const doc = (/** @type {string} */ body) => `<TEI><teiHeader><title>Briefregister [I] [?]</title></teiHeader><text><body><p>${body}</p></body></text></TEI>`;
 
 test("open work finds the wrap markers as before", () => {

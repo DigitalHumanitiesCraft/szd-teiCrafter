@@ -1,18 +1,28 @@
-// Composition root: creates editor, viewer and dialogs, connects them, and
-// keeps the checks and the working state of the open document.
+// Composition root: loads the action registry, creates editor, viewer and
+// dialogs, connects them, and keeps the checks, the working state and the
+// view (XML or text) of the open document.
 
+import { checkAgainstSchema, elementSuggestions, loadActions, offered, withAttributes, wrap } from "./actions.js";
 import { showChanges } from "./changes.js";
+import { concepts } from "./concepts.js";
+import { createDateDialog } from "./datedialog.js";
 import { conflictMarkers } from "./diff.js";
 import { createDocumentList } from "./docs.js";
 import { createEditor } from "./editor.js";
 import { createFiles } from "./files.js";
 import { resolveIiif } from "./iiif.js";
+import { createMarkCard } from "./markcard.js";
 import { createActionMenu } from "./menu.js";
 import { createPersonDialog } from "./person.js";
-import { source } from "./source.js";
+import { createPlaceDialog } from "./place.js";
+import { registerEntry } from "./register.js";
+import { schemaChecker } from "./schema.js";
+import { createSettings } from "./settings.js";
+import { openWorkFor, source } from "./source.js";
 import { attachSplit } from "./split.js";
 import { acceptanceEdits, openSpots, workingState } from "./state.js";
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
+import { attributeOf, hasLineBreaks, textView } from "./textview.js";
 import { $, setStatus } from "./ui.js";
 import { validateTeiAll } from "./validate.js";
 import { createViewer } from "./viewer.js";
@@ -23,8 +33,74 @@ const iiifInput = /** @type {HTMLInputElement} */ ($("iiif-url"));
 const wfButton = $("wf-button");
 const validButton = $("valid-button");
 const workButton = $("work-button");
-// The counter names what this edition counts as open work.
-workButton.dataset.tip = `${source.openWorkName}: ${source.openWork.map((d) => d.label).join(", ")}. F8 springt zur nächsten.`;
+
+// Per-browser conveniences; blocked storage only loses the preference.
+const remembered = (/** @type {string} */ key) => {
+  try {
+    return localStorage.getItem(`${source.storageKey}:${key}`);
+  } catch {
+    return null;
+  }
+};
+const remember = (/** @type {string} */ key, /** @type {string} */ value) => {
+  try {
+    localStorage.setItem(`${source.storageKey}:${key}`, value);
+  } catch {
+    // Not persisted; the choice holds for this session.
+  }
+};
+
+// The action registry
+
+/** @type {import("./actions.js").LoadedAction[]} */
+let actions = [];
+/** @type {import("./state.js").Detector[]} */
+let openWork = openWorkFor([]);
+
+/** Reads data/actions.json and refuses the actions the schema does not know. */
+async function loadRegistry() {
+  const text = await fetch(source.actions).then((r) => (r.ok ? r.text() : Promise.reject(new Error(`Status ${r.status}`))));
+  let json;
+  try {
+    json = JSON.parse(text);
+  } catch (err) {
+    throw new Error(`${source.actions} ist kein gültiges JSON: ${err instanceof Error ? err.message : err}`);
+  }
+  const loaded = loadActions(json);
+  try {
+    const rng = await fetch(source.schema).then((r) => (r.ok ? r.text() : Promise.reject(new Error(`Status ${r.status}`))));
+    checkAgainstSchema(loaded, schemaChecker(rng));
+  } catch (err) {
+    for (const a of loaded) a.refused ||= `Das Schema ${source.schemaLabel} ist nicht geladen (${err instanceof Error ? err.message : err}), daher bleibt die Aktion aus.`;
+  }
+  return { text, actions: loaded, comment: json.$comment };
+}
+
+/** Hands an edited or loaded registry to menu, counter and tooltips. @param {import("./actions.js").LoadedAction[]} list */
+function applyActions(list) {
+  actions = list;
+  openWork = openWorkFor(list);
+  // The counter names what this edition counts as open work.
+  workButton.dataset.tip = `${concepts.openSpot} Hier: ${openWork.map((d) => d.label).join(", ")}. F8 springt zur nächsten.`;
+  const refused = list.filter((a) => a.refused);
+  $("actions-button").dataset.tip = refused.length ? `${concepts.action} ${refused.length === 1 ? "Eine Aktion ist" : `${refused.length} Aktionen sind`} nicht geladen.` : concepts.action;
+  $("actions-button").toggleAttribute("data-refused", refused.length > 0);
+  if (editorReady) {
+    menu.setActions(offered(actions, mode));
+    clearTimeout(checkTimer);
+    checkSource();
+  }
+}
+
+let editorReady = false;
+const settings = createSettings({ path: source.actions, load: loadRegistry, onChange: applyActions });
+$("actions-intro").textContent = `${concepts.action} Ausgeschaltete Aktionen fehlen im Menü, ihre HTR-Marker zählen weiter als offene Stellen. Geprüft gegen ${source.schemaLabel}.`;
+try {
+  await settings.init();
+} catch (err) {
+  applyActions([]);
+  setStatus(xmlStatus, "error", `Aktionen nicht geladen: ${err instanceof Error ? err.message : err}`);
+}
 
 /** @type {string[]} */
 let pageLabels = [];
@@ -43,9 +119,15 @@ const VALID_SUMMARY = "Gültig gegen TEI All (P5 4.11.0).";
 let docStatus = "";
 /** The text at acceptance, so a later edit shows as a change after acceptance. */
 let acceptedText = /** @type {string | null} */ (null);
+/** The presentation of the text pane, and the text view while it is shown. */
+let mode = /** @type {"xml" | "text"} */ ("xml");
+let layout = /** @type {"lines" | "flow"} */ ("lines");
+/** @type {ReturnType<typeof textView> | null} */
+let tv = null;
+let scrollFrame = 0;
 
 const editor = createEditor($("editor"), {
-  elements: source.elements,
+  elements: elementSuggestions(actions, source.elements),
   keys: [
     { key: "Mod-.", run: () => menu.open(true) },
     { key: "F8", run: () => nextOpenSpot() },
@@ -65,7 +147,20 @@ const editor = createEditor($("editor"), {
   onZoom(percent) {
     $("zoom-reset").textContent = `${percent} %`;
   },
-  onScroll: () => menu.follow(),
+  onScroll() {
+    menu.follow();
+    if (mode !== "text") return;
+    // In the text view the facsimile also follows the page in view, unless
+    // the caret is visible, whose page it already shows.
+    cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(() => {
+      const box = editor.view.scrollDOM.getBoundingClientRect();
+      const caret = editor.coordsAt(editor.selection().from);
+      if (caret && caret.top >= box.top && caret.bottom <= box.bottom) return;
+      const top = editor.topPos();
+      if (top !== null) viewer.show(pageAtOffset(editor.slice(0, top), top));
+    });
+  },
 });
 
 const viewer = createViewer($("viewer"), (index, count) => {
@@ -85,6 +180,7 @@ viewer.onError((message) => {
 attachSplit({ workspace: $("workspace"), splitter: $("splitter"), hide: $("facs-hide"), show: $("facs-show"), storageKey: `${source.storageKey}:split` });
 
 const report = (/** @type {"ok" | "error"} */ state, /** @type {string} */ message) => setStatus(xmlStatus, state, message);
+const stale = (/** @type {string} */ message) => report("error", message);
 
 const files = createFiles({
   editor,
@@ -99,19 +195,41 @@ const files = createFiles({
   onSaved: showMeta,
 });
 
-const openPersonDialog = createPersonDialog({ editor, person: source.person, onStale: (message) => report("error", message) });
+const actionFor = (/** @type {string} */ dialog) => actions.find((a) => a.dialog === dialog && !a.refused);
+const openPersonDialog = createPersonDialog({
+  editor,
+  person: source.person,
+  markup: (text, ref) => {
+    const a = actionFor("person");
+    return a ? wrap(a, text, { ref }) : text;
+  },
+  onStale: stale,
+});
+const openPlaceDialog = createPlaceDialog({ editor, place: source.place, nameOf: source.person.nameOf, onStale: stale });
+const openDateDialog = createDateDialog({ editor, onStale: stale });
 
 const menu = createActionMenu({
   editor,
-  wraps: source.wraps,
-  onPerson: openPersonDialog,
+  onDialog(action, sel) {
+    if (action.dialog === "person") openPersonDialog(sel);
+    else if (action.dialog === "place") openPlaceDialog(sel, action);
+    else if (action.dialog === "date") openDateDialog(sel, action);
+  },
   onNext: nextOpenSpot,
-  report: (message) => report("error", message),
+  // A selection that cannot be annotated endangers nothing, so the tone is neutral.
+  report: (message) => setStatus(xmlStatus, "", message),
+  markupNote: () =>
+    mode === "text"
+      ? "Die Auswahl reicht über eine Zeile oder eine Auszeichnung hinaus. Bitte innerhalb einer Zeile und außerhalb bestehender Auszeichnungen markieren."
+      : "Die Markierung enthält Markup. Nur reinen Text markieren.",
 });
+menu.setActions(offered(actions, mode));
+editorReady = true;
 
 createDocumentList({
   index: source.documents,
-  current: () => ({ path: files.path, open: openSpots(editor.docText(), source.openWork).length, status: docStatus }),
+  collections: source.collections,
+  current: () => ({ path: files.path, open: openSpots(editor.docText(), openWork).length, status: docStatus, ready: updateDocState().state === "ready" }),
   async choose(path) {
     if (await files.mayDiscard()) files.load(path);
   },
@@ -119,13 +237,15 @@ createDocumentList({
 
 /**
  * Sets a check button's state, icon and short label; the full message stays
- * in the status area below the editor.
+ * in the status area below the editor. The label is also the tooltip, so the
+ * buttons stay distinguishable when a narrow pane shows only their icons.
  * @param {HTMLElement} button @param {"ok" | "error" | "stale" | "busy"} state @param {string} label
  * @param {string} [idleIcon]
  */
 function setCheck(button, state, label, idleIcon = "#i-ok") {
   button.dataset.state = state;
   button.querySelector(".label").textContent = label;
+  if (button !== workButton) button.dataset.tip = label;
   const icon = state === "ok" ? "#i-ok" : state === "error" ? "#i-error" : idleIcon;
   button.querySelector("use").setAttribute("href", icon);
 }
@@ -161,6 +281,7 @@ function checkSource() {
   if (conflicts.length) {
     showConflicts(conflicts);
     updateDocState();
+    updateViewSwitch();
     return null;
   }
   if (!doc) {
@@ -169,6 +290,7 @@ function checkSource() {
     showMessages([problem]);
     editor.setProblems([problem]);
     updateDocState();
+    updateViewSwitch();
     return null;
   }
   setCheck(wfButton, "ok", "Wohlgeformt");
@@ -183,6 +305,7 @@ function checkSource() {
   $("doc-title").textContent = facts.title || files.name;
   docStatus = doc.getElementsByTagNameNS("*", "revisionDesc")[0]?.getAttribute("status") ?? "";
   updateDocState();
+  updateViewSwitch();
   return facts;
 }
 
@@ -201,7 +324,11 @@ function showMessages(items, summary = "") {
     const li = document.createElement("li");
     if (item.line) {
       const b = Object.assign(document.createElement("button"), { type: "button", className: "link", textContent: `Zeile ${item.line}` });
-      b.addEventListener("click", () => editor.jumpTo(item.line, item.column));
+      b.addEventListener("click", () => {
+        // Line numbers belong to the source, so the jump shows it.
+        if (mode === "text") setView("xml");
+        editor.jumpTo(item.line, item.column);
+      });
       li.append(b, ` ${item.message}`);
     } else {
       li.textContent = item.message;
@@ -275,11 +402,13 @@ validButton.addEventListener("click", runValidation);
 
 // Working state and acceptance. Saving stays possible in every state (ADR-008).
 
+$("doc-state").dataset.tip = `${concepts.workingState} ${concepts.acceptance}`;
+
 function updateDocState() {
   const facts = workingState({
     wellFormed: !xmlError,
     valid: validated() && !validation?.problems.length,
-    open: openSpots(editor.docText(), source.openWork).length,
+    open: openSpots(editor.docText(), openWork).length,
     status: docStatus,
     changedSinceAcceptance: acceptedText !== null && editor.text !== acceptedText,
   });
@@ -321,12 +450,21 @@ $("accept").addEventListener("click", async () => {
   if (await runValidation()) report("ok", "Abgenommen und gültig gegen TEI All. Speichern hält die Abnahme in der Datei fest.");
 });
 
-// Open work: what the detectors of the source configuration find, worked through with F8.
+// Open work: what the detectors find, worked through with F8.
 
 function updateOpenWork() {
-  const count = openSpots(editor.docText(), source.openWork).length;
+  const count = openSpots(editor.docText(), openWork).length;
   if (count) setCheck(workButton, "stale", count === 1 ? "1 offene Stelle" : `${count} offene Stellen`, "#i-task");
   else setCheck(workButton, "ok", "Keine offenen Stellen");
+}
+
+/** What the menu says for a kind of open work without a usable action. @param {import("./state.js").Detector | undefined} kind */
+function openRuleNote(kind) {
+  const action = actions.find((a) => a.resolves?.kind === kind?.key);
+  if (action?.refused) return `${kind?.label}: Die Aktion ${action.label} ist nicht geladen. ${action.refused} F8 springt weiter.`;
+  if (action && !action.enabled) return `${kind?.label}: Die Aktion ${action.label} ist unter „Aktionen“ ausgeschaltet. F8 springt weiter.`;
+  if (action && !action.views.includes(mode)) return `${kind?.label}: Die Aktion ${action.label} steht in dieser Ansicht nicht zur Verfügung. F8 springt weiter.`;
+  return `${kind?.label}: Die Kodierungsregel ist noch offen, daher gibt es hier noch keine Aktion. F8 springt weiter.`;
 }
 
 /**
@@ -334,7 +472,7 @@ function updateOpenWork() {
  * action; a kind without one is named in the menu instead.
  */
 function nextOpenSpot() {
-  const spots = openSpots(editor.docText(), source.openWork);
+  const spots = openSpots(editor.docText(), openWork);
   if (!spots.length) {
     report("ok", "Keine offenen Stellen mehr.");
     return true;
@@ -342,11 +480,11 @@ function nextOpenSpot() {
   const { from } = editor.selection();
   const next = spots.find((s) => s.from > from) ?? spots[0];
   editor.select(next.from, next.to);
-  const kind = source.openWork.find((d) => d.key === next.key);
-  menu.open(true, kind?.action ? "" : `${kind?.label}: Die Kodierungsregel ist noch offen, daher gibt es hier noch keine Aktion. F8 springt weiter.`);
+  const kind = openWork.find((d) => d.key === next.key);
+  const usable = kind?.action && offered(actions, mode).some((a) => a.id === kind.action);
+  menu.open(true, usable ? "" : openRuleNote(kind));
   return true;
 }
-
 
 workButton.addEventListener("click", nextOpenSpot);
 document.addEventListener("keydown", (e) => {
@@ -355,6 +493,146 @@ document.addEventListener("keydown", (e) => {
     nextOpenSpot();
   }
 });
+
+// The text view: the same document with the markup hidden (js/textview.js).
+
+const card = createMarkCard({
+  editor,
+  markAt: (pos) => tv?.markAt(editor.state, pos) ?? null,
+  async describe(mark) {
+    const ref = attributeOf(mark.attrs, "ref");
+    const action = actions.find((a) => a.element === mark.name && !a.refused);
+    const known = new Set(action?.attributes.map((a) => a.name) ?? []);
+    const extra = [...mark.attrs.matchAll(/([\w:.-]+)\s*=/g)].map((m) => m[1]).filter((n) => !known.has(n));
+    let detail = "";
+    let unlinked = false;
+    if (mark.name === "persName" || mark.name === "placeName") {
+      const id = mark.name === "persName" ? source.person.registerIdOf(ref) : "";
+      const gnd = (mark.name === "persName" ? source.person : source.place).gndOf(ref);
+      if (!ref) {
+        detail = "noch nicht verknüpft";
+        unlinked = true;
+      } else if (id) {
+        const entry = await registerEntry(source.person.register, id).catch(() => null);
+        detail = [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
+      } else detail = gnd ? `GND ${gnd}` : ref;
+    } else if (mark.name === "date") {
+      detail = ["when", "from", "to", "notBefore", "notAfter"]
+        .map((n) => [n, attributeOf(mark.attrs, n)])
+        .filter(([, v]) => v)
+        .map(([n, v]) => `@${n} ${v}`)
+        .join(" | ");
+      unlinked = !detail;
+      detail ||= "ohne Datumswert";
+    }
+    return {
+      title: source.textView.marks[/** @type {keyof typeof source.textView.marks} */ (mark.name)] ?? mark.name,
+      detail,
+      note: extra.length ? `Weitere Attribute (${extra.map((n) => `@${n}`).join(", ")}) stehen in der XML-Ansicht.` : "",
+      unlinked,
+      changeable: !!action && action.dialog !== "none",
+    };
+  },
+  onChange(mark) {
+    const action = actions.find((a) => a.element === mark.name && !a.refused);
+    if (!action) return;
+    const tag = editor.slice(mark.openFrom, mark.openTo);
+    const sel = { from: mark.openTo, to: mark.closeFrom, text: editor.slice(mark.openTo, mark.closeFrom) };
+    /** Sets attributes on the opening tag, if it is still where it was. @param {Record<string, string | null>} changes */
+    const change = (changes) => {
+      if (editor.slice(mark.openFrom, mark.openTo) !== tag) {
+        stale("Die Auszeichnung hat sich verändert; bitte erneut öffnen.");
+        return;
+      }
+      editor.replace(mark.openFrom, mark.openTo, withAttributes(tag, changes));
+    };
+    if (action.dialog === "person") openPersonDialog(sel, (ref) => change({ ref }));
+    else if (action.dialog === "place") openPlaceDialog(sel, action, (ref) => change({ ref: ref || null }));
+    else if (action.dialog === "date") {
+      const attrs = Object.fromEntries(["when", "from", "to", "notBefore", "notAfter"].map((n) => [n, attributeOf(mark.attrs, n)]));
+      openDateDialog(sel, action, { attrs, apply: change });
+    }
+  },
+});
+
+const hooks = {
+  openWork: (/** @type {string} */ text) => openSpots(text, openWork),
+  // The refused edit did not happen, so the explanation is calm, not an error.
+  onRefuse: (/** @type {string} */ message) => setStatus(xmlStatus, "", message),
+  // A page divider turns the facsimile to its page.
+  onPage: (/** @type {number} */ pos) => viewer.show(pageAtOffset(editor.slice(0, pos + 4), pos + 4)),
+  onMarkKey: (/** @type {import("./textview.js").Mark} */ mark) => card.openWithFocus(mark),
+};
+
+/** The layout a document opens in: the remembered choice for its kind, else lines where it marks line breaks. */
+function layoutFor(/** @type {string} */ text) {
+  const kind = hasLineBreaks(text, source.textView) ? "lb" : "plain";
+  const stored = remembered(`layout:${kind}`);
+  return stored === "lines" || stored === "flow" ? stored : kind === "lb" ? "lines" : "flow";
+}
+
+/**
+ * Switches between XML and text on the same state; text, selection and undo
+ * history stay. A malformed document cannot enter the text view.
+ * @param {"xml" | "text"} next @param {{ remember?: boolean, layout?: "lines" | "flow" }} [options]
+ */
+function setView(next, { remember: keep = true, layout: chosen } = {}) {
+  if (next === "text" && xmlError) {
+    report("error", textRefusal());
+    return false;
+  }
+  card.close();
+  mode = next;
+  if (next === "text") {
+    layout = chosen ?? layoutFor(editor.text);
+    tv = textView(source.textView, hooks, layout);
+    editor.present(tv.extension);
+    // A caret inside hidden markup moves to the visible text after it.
+    const { from, to } = editor.selection();
+    const head = tv.visiblePos(editor.state, from);
+    if (head !== from) editor.dispatch({ selection: { anchor: head } });
+    else if (to !== from) editor.dispatch({ selection: { anchor: to, head: from } });
+  } else {
+    tv = null;
+    editor.present(null);
+  }
+  editor.reveal();
+  if (keep) remember("view", next);
+  $("view-xml").setAttribute("aria-pressed", String(next === "xml"));
+  $("view-text").setAttribute("aria-pressed", String(next === "text"));
+  $("layout-switch").hidden = next !== "text";
+  $("layout-lines").setAttribute("aria-pressed", String(layout === "lines"));
+  $("layout-flow").setAttribute("aria-pressed", String(layout === "flow"));
+  $("wrap-toggle").hidden = next === "text";
+  menu.setActions(offered(actions, mode));
+  return true;
+}
+
+const textRefusal = () =>
+  `Die Textansicht braucht ein wohlgeformtes Dokument. ${xmlError?.message === "Git-Konflikt" ? "Erst den Git-Konflikt auflösen" : `Erst den Fehler${xmlError?.line ? ` in Zeile ${xmlError.line}` : ""} beheben`}, dann umschalten.`;
+
+/** Keeps the text button's availability in step with well-formedness. */
+function updateViewSwitch() {
+  const blocked = !!xmlError;
+  $("view-text").setAttribute("aria-disabled", String(blocked));
+  $("view-switch").dataset.tip = blocked ? `${concepts.views} ${textRefusal()}` : concepts.views;
+  // A document that turns malformed in the text view (undo, a jump from the
+  // problem list) is shown as XML, where the error can be fixed.
+  if (blocked && mode === "text") {
+    setView("xml", { remember: false });
+    report("error", `Zur XML-Ansicht gewechselt: ${textRefusal()}`);
+  }
+}
+
+$("view-xml").addEventListener("click", () => setView("xml"));
+$("view-text").addEventListener("click", () => setView("text"));
+$("layout-switch").dataset.tip = concepts.layout;
+for (const [id, value] of /** @type {const} */ ([["layout-lines", "lines"], ["layout-flow", "flow"]])) {
+  $(id).addEventListener("click", () => {
+    remember(`layout:${hasLineBreaks(editor.text, source.textView) ? "lb" : "plain"}`, value);
+    setView("text", { layout: value });
+  });
+}
 
 // Opening a document
 
@@ -378,6 +656,10 @@ function documentOpened() {
   const start = lines.findIndex((l) => /<pb\b/.test(l));
   const body = lines.findIndex((l) => /<body\b/.test(l));
   if (start >= 0 || body >= 0) editor.jumpTo((start >= 0 ? start : body) + 1, 1);
+  // XML opens first; the text view returns where it was chosen before.
+  const wanted = mode === "text" || remembered("view") === "text" ? "text" : "xml";
+  if (wanted === "text" && !xmlError) setView("text", { remember: false });
+  else if (mode === "text") setView("xml", { remember: false });
   const manifest = facts && source.manifestFor(facts.idnos);
   if (manifest) {
     iiifInput.value = manifest;

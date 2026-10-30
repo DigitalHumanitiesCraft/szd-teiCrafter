@@ -40,6 +40,19 @@ export function decodeXml(buffer, name) {
   return { text, bom };
 }
 
+/**
+ * Write permission is requested before the file on disk is compared, so the
+ * permission prompt, which may stay open for a while, cannot fall between
+ * the comparison and the writing. Handles without the permission methods
+ * (older implementations, test stubs) are taken as writable.
+ * @param {any} target
+ */
+export async function mayWrite(target) {
+  if (typeof target.queryPermission !== "function") return true;
+  if ((await target.queryPermission({ mode: "readwrite" })) === "granted") return true;
+  return (await target.requestPermission({ mode: "readwrite" })) === "granted";
+}
+
 /** The text as written to disk, with the byte order mark the file had. @param {string} text @param {boolean} bom */
 export const encodeXml = (text, bom) => (bom ? BOM + text : text);
 
@@ -170,19 +183,6 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
       // Moved or deleted on disk; NaN never equals a time, so asking follows.
       return Number.NaN;
     }
-  }
-
-  /**
-   * Write permission is requested before the file on disk is compared, so the
-   * permission prompt, which may stay open for a while, cannot fall between
-   * the comparison and the writing. Handles without the permission methods
-   * (older implementations, test stubs) are taken as writable.
-   * @param {any} target
-   */
-  async function mayWrite(target) {
-    if (typeof target.queryPermission !== "function") return true;
-    if ((await target.queryPermission({ mode: "readwrite" })) === "granted") return true;
-    return (await target.requestPermission({ mode: "readwrite" })) === "granted";
   }
 
   /**

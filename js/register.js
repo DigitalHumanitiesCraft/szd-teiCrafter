@@ -49,6 +49,15 @@ export async function searchRegister(url, query, ignore = []) {
     .slice(0, 8);
 }
 
+/**
+ * The entry with this identifier, or null.
+ * @param {string} url @param {string} id
+ * @returns {Promise<RegisterPerson | null>}
+ */
+export async function registerEntry(url, id) {
+  return (await load(url)).find((p) => p.id === id) ?? null;
+}
+
 /** The query without ignored words, for handing on to another search. */
 export function cleanQuery(/** @type {string} */ query, /** @type {string[]} */ ignore = []) {
   const skip = new Set(ignore.map(fold));
