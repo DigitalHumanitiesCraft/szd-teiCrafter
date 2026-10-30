@@ -76,6 +76,9 @@
     position: relative;
     flex: 1;
     min-block-size: 0;
+    /* Panes scroll on their own; this keeps absolutely placed viewer helpers
+       from extending the page below the viewport. */
+    overflow: hidden;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 0.5rem minmax(0, var(--facs-share));
     &[data-facs="hidden"] {
@@ -131,7 +134,7 @@
   /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
      state colour plus their accessible label, which stays readable to
      assistive technology and on hover. */
-  @container (width < 36rem) {
+  @container (width < 46rem) {
     .check .label {
       position: absolute;
       inline-size: 1px;
@@ -160,7 +163,20 @@
     & button { border-color: transparent; background: none; font-size: 0.9rem; }
     & button:hover { background: color-mix(in oklch, var(--blue) 12%, transparent); }
     & button[data-suggested] { border-color: var(--orange); font-weight: 600; }
+    flex-wrap: wrap;
+    max-inline-size: min(36rem, calc(100vi - 1rem));
   }
+  .actions-quote {
+    flex-basis: 100%;
+    padding: 2px 6px;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+  .save-state { color: var(--orange); font-weight: 600; }
+  .result:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .check[data-state="stale"][data-was-checked] { border-style: dashed; }
 
   .toolbar {
     display: flex;

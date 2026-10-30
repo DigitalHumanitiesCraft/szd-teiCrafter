@@ -35,13 +35,14 @@
     <div class="doc-id">
       <h1 id="doc-title">teiCrafter SZD</h1>
       <p id="doc-meta" class="doc-meta"></p>
+      <p id="save-state" class="save-state" role="status"></p>
     </div>
     <div class="toolbar">
       <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
         <svg class="icon"><use href="#i-open"/></svg>
       </button>
       <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" hidden>
-      <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern">
+      <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern (Strg+S)">
         <svg class="icon"><use href="#i-save"/></svg>
       </button>
     </div>
@@ -68,7 +69,7 @@
         <button id="zoom-in" class="icon-button" type="button" aria-label="Code vergrößern" data-tip="Code vergrößern (Strg + Mausrad)">
           <svg class="icon"><use href="#i-zoom-in"/></svg>
         </button>
-        <button id="wrap-toggle" class="icon-button" type="button" aria-pressed="false" aria-label="Zeilenumbruch" data-tip="Zeilenumbruch">
+        <button id="wrap-toggle" class="icon-button" type="button" aria-pressed="true" aria-label="Zeilenumbruch" data-tip="Zeilenumbruch">
           <svg class="icon"><use href="#i-wrap"/></svg>
         </button>
       </div>
@@ -135,6 +136,7 @@
   </main>
 
   <div id="actions" class="actions" role="menu" aria-label="Annotieren" hidden>
+    <div id="actions-quote" class="actions-quote" aria-live="polite"></div>
     <button type="button" role="menuitem" data-action="person"><svg class="icon"><use href="#i-person"/></svg>Person</button>
     <button type="button" role="menuitem" data-action="del">Streichung</button>
     <button type="button" role="menuitem" data-action="unclear">Unsicher</button>
@@ -158,7 +160,7 @@
       <ul id="person-results" class="results" aria-labelledby="gnd-heading"></ul>
       <label class="manual">
         Kennung (Personenindex oder GND)
-        <input id="person-gnd" type="text" autocomplete="off" required placeholder="z. B. SZDPER.2188 oder 116402873">
+        <input id="person-gnd" type="text" autocomplete="off" placeholder="z. B. SZDPER.2188 oder 116402873">
       </label>
       <p id="person-preview" class="preview"></p>
       <div class="toolbar dialog-actions">

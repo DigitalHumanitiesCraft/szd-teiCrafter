@@ -61,21 +61,53 @@ const chrome = EditorView.theme({
   ".cm-panels input, .cm-panels button": { color: "var(--text)" },
 });
 
-const ZOOM_STEPS =[70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
+// Wrapped continuation lines hang under the first, so the markup stays readable.
+const hangingIndent = EditorView.theme({
+  "&.cm-lineWrapping .cm-line": { paddingLeft: "2.5em", textIndent: "-2em" },
+});
+
+// German interface strings for search, folding and diagnostics.
+const germanPhrases = EditorState.phrases.of({
+  Find: "Suchen",
+  Replace: "Ersetzen",
+  next: "weiter",
+  previous: "zurück",
+  all: "alle",
+  "match case": "Groß/klein",
+  "by word": "ganzes Wort",
+  regexp: "regulärer Ausdruck",
+  replace: "ersetzen",
+  "replace all": "alle ersetzen",
+  close: "schließen",
+  "current match": "aktueller Treffer",
+  "on line": "in Zeile",
+  "replaced match on line $": "Treffer in Zeile $ ersetzt",
+  "replaced $ matches": "$ Treffer ersetzt",
+  "Go to line": "Gehe zu Zeile",
+  go: "los",
+  "Folded lines": "Eingeklappte Zeilen",
+  "Unfold line": "Zeile ausklappen",
+  "Fold line": "Zeile einklappen",
+  Diagnostics: "Befunde",
+  "No diagnostics": "Keine Befunde",
+});
+
+const ZOOM_STEPS = [70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 
 /**
  * @typedef {{ message: string, line: number, column: number, severity?: "error" | "warning" }} Problem
  * @param {HTMLElement} parent
- * @param {{ elements: any[], keys: { key: string, run: () => boolean }[], onChange: (text: string) => void, onCaret: (offset: number) => void, onZoom: (percent: number) => void, onScroll: () => void }} options
+ * @param {{ elements: any[], keys: { key: string, run: () => boolean }[], onChange: (text: string) => void, onCaret: (offset: number) => void, onZoom: (percent: number) => void, onScroll: () => void, onPointerSelect: () => void }} options
  */
-export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll }) {
+export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll, onPointerSelect }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
   // The document keeps the line endings of the opened file, so saving changes
   // no byte the user did not edit, whatever platform the file came from.
   const lineEnding = new Compartment();
   let zoom = 100;
-  let wrapped = false;
+  // Letters are prose, so long lines wrap by default and nothing hides at the right edge.
+  let wrapped = true;
 
   const sizeTheme = (/** @type {number} */ percent) =>
     EditorView.theme({ "&": { fontSize: `${(0.9 * percent) / 100}rem` } });
@@ -99,10 +131,12 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         highlightSelectionMatches(),
         syntaxHighlighting(highlight),
         chrome,
+        hangingIndent,
+        germanPhrases,
         xml({ elements, autoCloseTags: true }),
         EditorState.tabSize.of(2),
         lineEnding.of(EditorState.lineSeparator.of("\n")),
-        wrapping.of([]),
+        wrapping.of(EditorView.lineWrapping),
         fontSize.of(sizeTheme(zoom)),
         // Application commands first, so they win over defaults with the same key.
         keymap.of(keys),
@@ -122,6 +156,12 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         }),
         // Ctrl + mouse wheel zooms the code only, not the page.
         EditorView.domEventHandlers({
+          // The action menu follows a selection made with the pointer, not
+          // every selection change (search, undo, keyboard movement).
+          mouseup() {
+            setTimeout(onPointerSelect, 0);
+            return false;
+          },
           wheel(event) {
             if (!event.ctrlKey) return false;
             event.preventDefault();
@@ -161,7 +201,8 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
     },
     /** @param {number} from @param {number} to */
     select(from, to) {
-      view.dispatch({ selection: { anchor: from, head: to }, effects: EditorView.scrollIntoView(from, { y: "center" }) });
+      // The head sits at the start, so the start of the selection is what scrolls into view.
+      view.dispatch({ selection: { anchor: to, head: from }, effects: EditorView.scrollIntoView(from, { y: "center", x: "nearest", xMargin: 48 }) });
       view.focus();
     },
     /** Screen rectangle of the selection start, or null when it is scrolled out. */

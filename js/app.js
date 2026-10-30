@@ -27,23 +27,29 @@ let pageLabels = [];
 /** @type {import("./tei.js").XmlError | null} */
 let xmlError = null;
 let checkTimer = 0;
-let menuTimer = 0;
+/** The text as last opened or saved; any difference is unsaved work. */
+let savedText = "";
+let validatedOnce = false;
 
 const editor = createEditor($("editor"), {
   elements: source.elements,
   keys: [
     { key: "Mod-.", run: () => openMenu(true) },
     { key: "F8", run: () => nextOpenSpot() },
+    { key: "Mod-s", run: () => (save(), true) },
   ],
   onChange() {
     clearTimeout(checkTimer);
     checkTimer = window.setTimeout(checkSource, 300);
+    updateSaveState();
   },
   onCaret(offset) {
     const before = editor.slice(0, offset);
     viewer.show(pageAtOffset(before, before.length));
-    clearTimeout(menuTimer);
-    menuTimer = window.setTimeout(() => openMenu(false), 150);
+    if (!editor.selection().text && !menu.contains(document.activeElement)) menu.hidden = true;
+  },
+  onPointerSelect() {
+    openMenu(false);
   },
   onZoom(percent) {
     $("zoom-reset").textContent = `${percent} %`;
@@ -91,8 +97,9 @@ function setCheck(button, state, label, idleIcon = "#i-ok") {
 function checkSource() {
   const { doc, error } = parseXml(editor.text);
   xmlError = error;
-  // Any edit makes an earlier validation result stale.
-  setCheck(validButton, "stale", "Validieren", "#i-validate");
+  // Any edit makes an earlier validation result stale, and the label says so.
+  setCheck(validButton, "stale", validatedOnce ? "Neu validieren" : "Validieren", "#i-validate");
+  validButton.toggleAttribute("data-was-checked", validatedOnce);
   updateOpenWork();
   if (!doc) {
     setCheck(wfButton, "error", error?.line ? `Fehler Zeile ${error.line}` : "Nicht wohlgeformt");
@@ -155,6 +162,8 @@ validButton.addEventListener("click", async () => {
   try {
     const problems = await validateTeiAll(text);
     if (editor.text !== text) return; // edited meanwhile; result no longer applies
+    validatedOnce = true;
+    validButton.removeAttribute("data-was-checked");
     if (problems.length) {
       setCheck(validButton, "error", `${problems.length} Schemafehler`);
       showMessages(problems);
@@ -192,7 +201,10 @@ function updateOpenWork() {
 /** Selects the next marker after the caret, wrapping around, and offers its action. */
 function nextOpenSpot() {
   const spots = openSpots();
-  if (!spots.length) return true;
+  if (!spots.length) {
+    setStatus(xmlStatus, "ok", "Keine offenen Stellen mehr.");
+    return true;
+  }
   const { from } = editor.selection();
   const next = spots.find((s) => s.from > from) ?? spots[0];
   editor.select(next.from, next.to);
@@ -231,7 +243,9 @@ function positionMenu() {
   }
   const width = menu.offsetWidth || 320;
   menu.style.left = `${Math.max(8, Math.min(at.left, window.innerWidth - width - 8))}px`;
-  menu.style.top = `${Math.min(at.bottom + 6, window.innerHeight - menu.offsetHeight - 8)}px`;
+  // Below the selected line, or above it when there is no room below.
+  const below = at.bottom + 6;
+  menu.style.top = `${below + menu.offsetHeight < window.innerHeight - 8 ? below : Math.max(8, at.top - menu.offsetHeight - 6)}px`;
 }
 
 /** @param {boolean} withFocus true when opened from the keyboard */
@@ -247,6 +261,10 @@ function openMenu(withFocus) {
     return true;
   }
   const suggested = suggestedAction();
+  // The marked text is quoted in the menu, so the judgement is made on what is
+  // actually selected even where the menu covers part of the line.
+  const { text } = editor.selection();
+  $("actions-quote").textContent = `„${text.length > 90 ? `${text.slice(0, 87)}…` : text}“`;
   const items = /** @type {HTMLButtonElement[]} */ ([...menu.querySelectorAll("button")]);
   for (const b of items) b.toggleAttribute("data-suggested", b.dataset.action === suggested);
   menu.hidden = false;
@@ -339,6 +357,8 @@ function renderResults(list, items) {
       for (const other of dialog.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
       b.setAttribute("aria-pressed", "true");
       updatePreview();
+      // The next Enter applies the choice.
+      $("person-apply").focus();
     });
     li.append(b);
     list.append(li);
@@ -380,7 +400,9 @@ async function runGndSearch() {
 function openPersonDialog(sel) {
   pending = sel;
   $("person-text").textContent = sel.text;
-  $("person-query").value = cleanQuery(sel.text.trim(), source.person.ignore) || sel.text.trim();
+  // HTR marker syntax and forms of address are no part of a name.
+  const name = sel.text.replace(/~~|\[\?\]|[{}]/g, "").trim();
+  $("person-query").value = cleanQuery(name, source.person.ignore) || name;
   refInput.value = "";
   $("person-results").replaceChildren();
   $("gnd-heading").hidden = true;
@@ -401,7 +423,20 @@ $("person-query").addEventListener("keydown", (/** @type {KeyboardEvent} */ e) =
   if (e.key === "Enter") {
     e.preventDefault();
     runGndSearch();
+  } else if (e.key === "ArrowDown") {
+    e.preventDefault();
+    /** @type {HTMLElement | null} */ (dialog.querySelector(".result"))?.focus();
   }
+});
+// Arrow keys move through both result lists as one.
+dialog.addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
+  const current = /** @type {HTMLElement} */ (e.target);
+  if (!current.classList?.contains("result") || !["ArrowDown", "ArrowUp"].includes(e.key)) return;
+  e.preventDefault();
+  const all = /** @type {HTMLElement[]} */ ([...dialog.querySelectorAll(".result")]);
+  const i = all.indexOf(current);
+  if (e.key === "ArrowUp" && i === 0) $("person-query").focus();
+  else all[Math.min(Math.max(i + (e.key === "ArrowDown" ? 1 : -1), 0), all.length - 1)].focus();
 });
 refInput.addEventListener("input", updatePreview);
 $("person-cancel").addEventListener("click", () => dialog.close());
@@ -474,9 +509,17 @@ $("wrap-toggle").addEventListener("click", () => {
 // from a local clone of the data repository is saved back in place, ready to
 // commit; elsewhere the input element opens and a download saves.
 
+/** Shows whether the text differs from what was last opened or saved. */
+function updateSaveState() {
+  $("save-state").textContent = editor.text === savedText ? "" : "Ungespeicherte Änderungen";
+}
+
 /** @param {string} text */
 function openText(text) {
   editor.setText(text);
+  savedText = editor.text;
+  validatedOnce = false;
+  updateSaveState();
   const facts = checkSource();
   const manifest = facts && source.manifestFor(facts.idnos);
   if (manifest) {
@@ -490,7 +533,17 @@ function openText(text) {
 const canWriteInPlace = "showOpenFilePicker" in window;
 const XML_TYPES = [{ description: "TEI/XML", accept: { "application/xml": [".xml"] } }];
 
+/**
+ * Asks before replacing unsaved work with another document. Deliberate
+ * shortcut: the browser's confirm(); a <dialog> with the same two choices is
+ * the upgrade path once the project page opens documents too.
+ */
+function mayDiscard() {
+  return editor.text === savedText || window.confirm("Ungespeicherte Änderungen verwerfen?");
+}
+
 $("tei-open").addEventListener("click", async () => {
+  if (!mayDiscard()) return;
   if (!canWriteInPlace) {
     $("tei-file").click();
     return;
@@ -513,7 +566,7 @@ $("tei-file").addEventListener("change", async (/** @type {Event} */ e) => {
   openText(await file.text());
 });
 
-$("tei-save").addEventListener("click", async () => {
+async function save() {
   // Run the pending check now, so it cannot overwrite the save confirmation.
   clearTimeout(checkTimer);
   checkSource();
@@ -525,14 +578,14 @@ $("tei-save").addEventListener("click", async () => {
       await writable.write(text);
       await writable.close();
       fileName = fileHandle.name;
+      savedText = text;
+      updateSaveState();
       setStatus(xmlStatus, "ok", `Gespeichert in ${fileName}.`);
       $("doc-meta").textContent = [fileName, source.name].join(" | ");
-      return;
     } catch (err) {
-      if (/** @type {any} */ (err)?.name === "AbortError") return;
-      setStatus(xmlStatus, "error", `Speichern fehlgeschlagen: ${err}`);
-      return;
+      if (/** @type {any} */ (err)?.name !== "AbortError") setStatus(xmlStatus, "error", `Speichern fehlgeschlagen: ${err}`);
     }
+    return;
   }
   const blob = new Blob([text], { type: "application/xml" });
   const a = document.createElement("a");
@@ -540,7 +593,21 @@ $("tei-save").addEventListener("click", async () => {
   a.download = fileName;
   a.click();
   URL.revokeObjectURL(a.href);
+  savedText = text;
+  updateSaveState();
   setStatus(xmlStatus, "ok", `Als ${fileName} heruntergeladen.`);
+}
+
+$("tei-save").addEventListener("click", save);
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s" && !e.defaultPrevented) {
+    e.preventDefault();
+    save();
+  }
+});
+// The browser asks before a tab with unsaved work is closed or reloaded.
+window.addEventListener("beforeunload", (e) => {
+  if (editor.text !== savedText) e.preventDefault();
 });
 
 fetch(source.defaultDocument)

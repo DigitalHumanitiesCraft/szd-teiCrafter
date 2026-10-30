@@ -25,6 +25,17 @@ export function createViewer(element, onPage) {
     crossOriginPolicy: "Anonymous",
   });
 
+  // When the pane width changes (split dragged, window resized), fit the page
+  // again; height changes alone keep the user's zoom.
+  let lastWidth = element.clientWidth;
+  let fitTimer = 0;
+  new ResizeObserver(() => {
+    if (Math.abs(element.clientWidth - lastWidth) < 8) return;
+    lastWidth = element.clientWidth;
+    clearTimeout(fitTimer);
+    fitTimer = window.setTimeout(() => viewer.viewport?.goHome(true), 150);
+  }).observe(element);
+
   return {
     /** @param {Page[]} next */
     load(next) {

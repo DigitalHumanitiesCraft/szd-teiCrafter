@@ -41,6 +41,8 @@ The tests prove the editing task end to end in a real browser, because the risks
 | The action menu appears at a selection and works by mouse and by Ctrl+. | browser check |
 | F8 and Enter resolve every HTR marker, and the saved file equals the original transformed by the marker rules in `js/source.js` | browser check, byte comparison |
 | Both pane toolbars stay on one row at half width, and the image source opens and closes on demand | browser check |
+| The page fits the viewport, unsaved work is marked until saved, Ctrl+S saves, an edit after validation asks to validate again | browser check |
+| A marker selected by F8 is fully visible and quoted in the menu | browser check |
 | Malformed input is underlined and named on the check button | browser check |
 | The annotated letter is valid against TEI All | browser check |
 | Code zoom, element suggestions, the facsimile split and its edge button work | browser check |

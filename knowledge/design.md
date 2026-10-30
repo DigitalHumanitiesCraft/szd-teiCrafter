@@ -44,7 +44,9 @@ Source and facsimile are the content, and everything else is a control serving t
 - Check buttons as status. The well-formedness and validation buttons show their state by icon and label and lead to the error on activation.
 - Caret follows facsimile. Moving through the source turns the facsimile to the page of the preceding `pb`.
 - Split as visibility control. Dragging the separator resizes the facsimile, dragging it to the edge hides it, and an edge button brings it back. The separator works with arrow keys, Home and End.
-- Saving writes back. Saving targets the opened file and confirms where it wrote.
+- Saving writes back. Saving targets the opened file and confirms where it wrote. Unsaved work is named in the header until it is saved, Ctrl+S saves, and closing the tab with unsaved work asks first.
+- The judged text stays readable. The action menu quotes the selection, sits below the line or above it when there is no room, and long lines wrap by default with a hanging indent.
+- A menu appears for a pointer selection, Ctrl+. or F8, and not for selections made by search or undo.
 
 ## Connection to the action layer
 

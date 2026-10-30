@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Usability review by an independent agent
+
+- Trigger: operator asked that subagents use the editor themselves and report what they learn, instead of the operator sending screenshots.
+- Found: the reviewer drove seven user tasks in three viewports and both colour schemes. Verified by the main session before acting were that the page was 29 px taller than the viewport and that a marker selected by F8 lay partly outside the visible text. Further findings were unsaved work without protection, the menu opening on search selections, an English search panel, no visible focus in the person results, marker syntax in the person query, an outdated validation that looked like an unvalidated one, and toolbars wrapping at laptop width.
+- Changed: unsaved-work mark, Ctrl+S and a question before closing, quoted selection in the menu placed below or above the line, wrapping by default with a hanging indent, menu only for pointer selection, Ctrl+. and F8, German search panel, keyboard navigation and focus in the person dialog, "Neu validieren" for an outdated result, refit of the facsimile on width change, workspace clipped to the viewport. [design](design.md#interaction-patterns), [testing](testing.md#what-is-guaranteed).
+- Decided: the narrow-view switch between text and facsimile and localised parser messages wait, see [plan](plan.md#open-decisions-and-dependencies).
+- Evidence: `test/browser-check.mjs`, all checks passing on 2026-10-30.
+
 ### 2026-10-30 Person index of Stefan Zweig Digital
 
 - Trigger: operator: „gibt es Dinge, die du einfach selber durch Recherchen beantworten kannst?“ on the open question of person identity.

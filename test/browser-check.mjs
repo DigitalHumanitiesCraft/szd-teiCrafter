@@ -61,6 +61,9 @@ async function doubleClickWord(page, lineText, word) {
     delete window.showSaveFilePicker;
   });
   check("line numbers shown", (await page.locator(".cm-lineNumbers .cm-gutterElement").count()) > 20);
+  check("page fits the viewport", (await page.evaluate(() => document.documentElement.scrollHeight)) <= 900);
+  check("long lines wrap by default", (await page.getAttribute("#wrap-toggle", "aria-pressed")) === "true");
+  check("no unsaved mark at start", (await label(page, "#save-state")) === "");
   check("action menu hidden without selection", await page.isHidden("#actions"));
   check("open spots counted", /^\d+ offene Stellen?$/.test(await label(page, "#work-label")), await label(page, "#work-label"));
   const rowHeight = async (sel) => (await page.locator(sel).first().boundingBox()).height;
@@ -114,6 +117,7 @@ async function doubleClickWord(page, lineText, word) {
   await page.click("#valid-button");
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
   check("valid against TEI All", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#xml-status"));
+  check("annotations mark the document unsaved", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
 
   const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
   const saved = readFileSync(await download.path(), "utf8");
@@ -122,6 +126,15 @@ async function doubleClickWord(page, lineText, word) {
     'Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName>',
   );
   check("saved file is the original plus exactly the two annotations", saved === expected);
+  check("saving clears the unsaved mark", (await label(page, "#save-state")) === "");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.waitForTimeout(400);
+  check("an edit after validating asks to validate again", (await label(page, "#valid-label")) === "Neu validieren");
+  const [again] = await Promise.all([page.waitForEvent("download"), page.keyboard.press("Control+s")]);
+  check("Ctrl+S saves", (await again.suggestedFilename()) === "o_szd.1222.tei.xml" && (await label(page, "#save-state")) === "");
+  await page.keyboard.press("Backspace");
 
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
@@ -236,12 +249,23 @@ async function doubleClickWord(page, lineText, word) {
     if (steps === 0) {
       const suggested = await page.evaluate(() => document.activeElement?.dataset.action);
       check("F8 selects a marker and focuses its suggested action", ["del", "unclear", "add"].includes(suggested), suggested);
+      const quote = await label(page, "#actions-quote");
+      check("the menu quotes the selected text in full", quote.startsWith("„") && quote.includes("[?]"), quote);
+      const visible = await page.evaluate(() => {
+        const r = document.querySelector(".cm-selectionBackground")?.getBoundingClientRect();
+        const s = document.querySelector(".cm-scroller").getBoundingClientRect();
+        return !!r && r.left >= s.left && r.right <= s.right;
+      });
+      check("the selected marker is fully visible", visible);
     }
     await page.keyboard.press("Enter");
     await page.waitForTimeout(450);
     steps++;
   }
   check("all open spots resolved by F8 and Enter", (await label(page, "#work-label")) === "Keine offenen Stellen", `${initial}, ${steps} steps`);
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(200);
+  check("F8 without open spots says so", (await label(page, "#xml-status")) === "Keine offenen Stellen mehr.");
   check("still well-formed after marker edits", (await label(page, "#wf-label")) === "Wohlgeformt");
   await page.click("#valid-button");
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });

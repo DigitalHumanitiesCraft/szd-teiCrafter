@@ -130,5 +130,6 @@ Exit condition (M9): a partner reaches every letter from the list and sees which
 - Whether the save rule of M8 (never malformed, schema errors with a note) is accepted, which departs from the fail-closed gate of the base and the Wenzelsbibel derivation, before M8.
 - Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`) so that Git diff, project page and editor read the same value, and who may accept, before M8.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before M6.
+- Whether the narrow view gets a switch between text and facsimile as separate views, which the usability review of 2026-10-30 proposed because stacked panes separate the passage from its image, before M6.
 - How collections are modelled, so that a project holds several collections (SZD letters, a medieval manuscript) whose objects show their working state and can be switched, before M9. Operator request of 2026-10-30.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before M6.
