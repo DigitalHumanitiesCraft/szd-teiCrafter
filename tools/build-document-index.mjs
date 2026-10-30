@@ -7,6 +7,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { source } from "../js/source.js";
+import { openSpots } from "../js/state.js";
 
 const COLLECTIONS = {
   korrespondenzen: "Korrespondenzen",
@@ -26,7 +27,7 @@ for (const d of set.documents) {
   // The first title is the document title of the szd-htr conversion.
   const title = /<title\b[^>]*>([\s\S]*?)<\/title>/.exec(xml)?.[1].replace(/\s+/g, " ").trim() ?? d.objectId;
   const status = /<revisionDesc\b[^>]*\bstatus="([^"]*)"/.exec(xml)?.[1] ?? "draft";
-  const open = source.wraps.reduce((n, w) => n + (xml.match(w.marker)?.length ?? 0), 0);
+  const open = openSpots(xml, source.wraps).length;
   const pages = xml.match(/<pb\b/g)?.length ?? 0;
   collection.documents.push({ path, objectId: d.objectId, title, pages, open, status });
 }

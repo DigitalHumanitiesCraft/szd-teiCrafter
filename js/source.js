@@ -54,6 +54,8 @@ export const source = {
     gndRef: (id) => `${GND_PREFIX}${id}`,
     /** @param {string} value */
     isRegisterId: (value) => /^SZDPER\.\d+$/.test(value.trim()),
+    /** The marked text without HTR marker syntax, as a search query. @param {string} text */
+    nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
     /** @param {string} text @param {string} ref */
     markup: (text, ref) => `<persName ref="${ref}">${text}</persName>`,
   },
