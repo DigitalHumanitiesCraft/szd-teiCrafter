@@ -81,6 +81,8 @@ Built on 2026-10-30: changes since opening as a line comparison, Git conflict ma
 
 After the refactoring of the interface code into modules (ADR-002), the browser check follows the badge from not validated through ready and accepted to changed since, acceptance into a missing, an existing and an empty `revisionDesc`, and the unsaved dot, see [testing](testing.md#what-is-guaranteed).
 
+An adversarial review of the save path on 2026-10-30 found data-loss and corruption risks, all fixed with regression checks and recorded as [data safety guarantees](specification.md#data-safety-guarantees). A save keeps its document while another is chosen, undo stays within the open document, only UTF-8 opens and a byte order mark survives, a download keeps the text unsaved, write permission comes before the disk comparison and a change while the write stream opens aborts it, inserted line breaks follow the file and mixed endings stay, acceptance waits for the pending check and only reaches a real `revisionDesc`, and a validation result belongs to its exact text. The fast unit tests under `test/unit/` now run before the browser check.
+
 Open: the save confirmation does not yet name the state, as ADR-008 asks. Saving a malformed document has no browser case yet, see [testing](testing.md#gaps). Independent review and operator acceptance of the milestone.
 
 Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
@@ -101,7 +103,7 @@ Open: the signature as a field of its own in the index (it is part of the title 
 ### S4 Editorial rule layer
 
 - A project rule set that reports remaining HTR markers and person references outside the index as open work, in the editing and review phases the Wenzelsbibel derivation uses.
-- The gap marker `[...]` and `[...n...]` of the HTR output counted as an open spot with an action that writes `gap`, see [data](data.md#model).
+- Actions for the open-work kinds that are counted since 2026-10-30 but have no encoding rule yet, namely the gap `[...]` and `[...n...]` (an action that writes `gap`, see [data](data.md#model)), the standalone `[?]` and `[?n?]`, and the bracketed HTR remarks such as `[Randnotiz links:]`, `[Durchgestrichen: …]`, `[eingefügt: …]` and `[Unterschrift]`, which may become `note`, `del`, `add` or a signature encoding. Each gets its action in `js/source.js` once the rule is settled. Until then F8 selects them and the menu names the open rule, and documents with them are not ready for acceptance.
 - German framing for parser and schema messages.
 
 ### S5 Publication and partner trial
@@ -127,7 +129,7 @@ These items are accepted as direction and not yet placed in a milestone.
 | Milestone | Status | Notes |
 |---|---|---|
 | S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
-| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge and acceptance built and in the browser check, while the state in the save confirmation, a case for saving a malformed document, review and acceptance are open |
+| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge, acceptance and the data safety fixes built and checked, while the state in the save confirmation, a case for saving a malformed document, review and acceptance are open |
 | S3 Collections and project page | in progress | working set imported, document list with search and filters built and in the browser check, while collection-specific suggestions, standOff persons, the version-history link and the partner guide are open |
 | S4 Editorial rule layer | pending | |
 | S5 Publication and partner trial | pending | operator action |

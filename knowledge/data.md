@@ -53,9 +53,11 @@ The HTR (Handwritten Text Recognition) output marks open editorial work in plain
 - `~~…~~` for a deletion, the later `del`.
 - `[?]` after an uncertain reading, the later `unclear`.
 - `{…}` for a handwritten addition, the later `add`.
-- `[...]` for an illegible or omitted passage, also as `[...n...]` with an estimated length, the later `gap`. It is rare and concentrated in a few documents of the working set, one notebook among the works above all.
+- `[...]` for an illegible or omitted passage, also as `[...n...]` with an estimated length, the later `gap`. It is concentrated in a few documents of the working set, one notebook among the works above all.
+- `[?]` standing alone, not attached to a word, for an unreadable word, and `[?n?]` for several. Some letters and notebooks carry hundreds of them.
+- Bracketed remarks of the transcription, such as `[Randnotiz links:]`, `[Handschriftliche Notiz am linken Rand:]`, `[Durchgestrichen: harte]`, `[eingefügt: hinaus]` and `[Unterschrift unleserlich]`. Brackets attached to a word, such as the supplied letters in „G[ro]d“, a number such as `[3500]`, and brackets in header titles such as „Briefregister [I]“ are no remarks.
 
-The editor counts the first three as open spots and offers their actions. The gap marker is neither counted nor wrapped yet, see [plan](plan.md#s4-editorial-rule-layer).
+The editor counts all of these as open spots, searched in the transcription outside the header and comments, so a document carrying any of them is not ready for acceptance. It offers actions for the first three. The other kinds have no encoding rule yet, so F8 selects them and the menu names the open rule, see [plan](plan.md#s4-editorial-rule-layer).
 
 The editor adds `persName` whose `@ref` points to the person index entry, or to the GND for persons outside the index.
 

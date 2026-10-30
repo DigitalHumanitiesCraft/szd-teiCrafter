@@ -24,6 +24,15 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Data safety of the save path and open work beyond the HTR markers
+
+- Trigger: an adversarial review of the save path with repro scripts, and a role test in which documents with dozens of open spots read „Bereit zur Abnahme“.
+- Found: a save that finished after another document was opened reset handle and name to the old file, so the next Ctrl+S wrote the new document into it. Undo crossed a document switch. Non-UTF-8 bytes were replaced silently and a byte order mark dropped. Acceptance inside the check's delay accepted an unvalidated text. A download counted as saved. Inserts into a CRLF file carried bare LF. `acceptanceEdits` duplicated a single-quoted status, broke on `>` in an attribute and wrote into a commented-out `revisionDesc`. Permission prompts fell between the disk comparison and the write. A text line „=======“ counted as a conflict. Mixed line endings misplaced error jumps. Title, state and facsimile of the previous document survived a malformed one. A menu action skipped the selection check. Open work counted only the three wrap markers.
+- Changed: every finding fixed at its owning module and guarded by a unit test under `test/unit/` or a browser check, see [data safety guarantees](specification.md#data-safety-guarantees) and [testing](testing.md#what-is-guaranteed). Open work became a list of detectors in `js/source.js`, adding standalone `[?]`, gaps and bracketed HTR remarks without actions, and `data/index.json` was rebuilt.
+- Decided: a lone conflict start or end marker still counts, because a leftover `>>>>>>>` line is well-formed text that would otherwise stay unnoticed, so only the separator line needs an open conflict. A download keeps the unsaved dot with the words „Als Download übergeben, Ankunft nicht bestätigt“. Mixed line endings stay byte-exact, with minority breaks drawn as placeholders. Only the last validation result is kept.
+- Evidence: `npm run check` in `test/` passing in full on 2026-10-30. The unit tests and the new browser checks were also run against the code before the change, served from a copy, where the unit tests of acceptance, detectors, encoding and line endings failed and the browser checks failed for the held save, the permission order, undo across a switch, the overwrite window, byte order mark and Latin-1, title and facsimile after a malformed document, CRLF inserts, the mixed-ending status and jump, the debounce acceptance, the validation result after typing, the download state, the menu recheck and the reentrant question.
+- Open: a lone conflict marker of a partial resolution stays counted by design, and the facsimile request of a previous document is not cancelled when a new one opens.
+
 ### 2026-10-30 One facsimile row, one status line, open work defined by the edition
 
 - Trigger: operator, on the facsimile bar and the source field below it: „Ich glaube, dass man das elegant in eine Linie alles bringen kann“, asked for a better header and footer, and asked what an open spot means, since every derivation has its own annotation functions.
