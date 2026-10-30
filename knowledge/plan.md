@@ -121,7 +121,6 @@ These items are accepted as direction and not yet placed in a milestone.
 - A reading view without visible XML. Options are hiding tags inside the code editor through decorations, a separate rendered annotation view, and a full structured editor. The session recommends hiding tags in the code editor first, because it keeps one text, one undo history and byte-exact saving. The operator wants to work this out step by step.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
 - Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validateTeiAll` into a worker is the upgrade path named in `js/validate.js`.
-- Strings outside `js/source.js` that still name the product or the edition (ADR-002 effect) move into the source configuration before the modules go into the base (S6).
 
 ## Status tracker
 

@@ -107,7 +107,7 @@ export function createPersonDialog({ editor, person, onStale }) {
     const ref = chosenRef();
     if (!ref) {
       e.preventDefault();
-      setStatus(status, "error", "Bitte einen Treffer wählen oder eine Kennung eingeben, etwa SZDPER.2188 oder eine GND-ID.");
+      setStatus(status, "error", `Bitte einen Treffer wählen oder eine Kennung eingeben, etwa ${person.idExample} oder eine GND-ID.`);
       return;
     }
     // The document may have changed while the dialog was open; only apply if the

@@ -9,6 +9,9 @@ const GND_PREFIX = "http://d-nb.info/gnd/";
 
 export const source = {
   name: "Stefan Zweig Digital",
+  /** Product name for the title fallback, the acceptance note and browser storage. */
+  product: "teiCrafter SZD",
+  storageKey: "teicrafter-szd",
   defaultDocument: "data/o_szd.1222.tei.xml",
   /** The document list by collection, built by tools/build-document-index.mjs. */
   documents: "data/index.json",
@@ -47,6 +50,8 @@ export const source = {
   person: {
     register: "data/register/szd-persons.json",
     registerLabel: "SZD-Personenindex",
+    /** An identifier of the register, named as an example in messages. */
+    idExample: "SZDPER.2188",
     ignore: ["Frau", "Fräulein", "Herr", "Herrn", "Dr", "Doktor", "Professor", "Prof"],
     /** @param {string} id e.g. SZDPER.2188 */
     registerRef: (id) => `${PERSON_INDEX}${id}`,

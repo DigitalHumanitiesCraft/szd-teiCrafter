@@ -2,18 +2,17 @@
 // right edge hides the facsimile; an edge button brings it back. The width is
 // remembered per browser as a convenience only.
 
-const KEY = "teicrafter-szd:split";
 const MIN = 20; // smallest facsimile share in percent while visible
 const HIDE_AT = 8; // dropping below this share hides the facsimile
 const STEP = 5;
 
 /**
- * @param {{ workspace: HTMLElement, splitter: HTMLElement, hide: HTMLElement, show: HTMLElement }} els
+ * @param {{ workspace: HTMLElement, splitter: HTMLElement, hide: HTMLElement, show: HTMLElement, storageKey: string }} els
  */
-export function attachSplit({ workspace, splitter, hide, show }) {
+export function attachSplit({ workspace, splitter, hide, show, storageKey }) {
   let share = 50;
   try {
-    const stored = Number(localStorage.getItem(KEY));
+    const stored = Number(localStorage.getItem(storageKey));
     if (stored >= MIN && stored <= 100 - MIN) share = stored;
   } catch {
     // Storage blocked: keep the default.
@@ -25,7 +24,7 @@ export function attachSplit({ workspace, splitter, hide, show }) {
     workspace.style.setProperty("--facs-share", `${share}%`);
     splitter.setAttribute("aria-valuenow", String(Math.round(share)));
     try {
-      localStorage.setItem(KEY, String(share));
+      localStorage.setItem(storageKey, String(share));
     } catch {
       // Not persisted; the split still works for this session.
     }

@@ -73,7 +73,7 @@ viewer.onError((message) => {
   toggleSource(true);
 });
 
-attachSplit({ workspace: $("workspace"), splitter: $("splitter"), hide: $("facs-hide"), show: $("facs-show") });
+attachSplit({ workspace: $("workspace"), splitter: $("splitter"), hide: $("facs-hide"), show: $("facs-show"), storageKey: `${source.storageKey}:split` });
 
 const report = (/** @type {"ok" | "error"} */ state, /** @type {string} */ message) => setStatus(xmlStatus, state, message);
 
@@ -155,7 +155,7 @@ function checkSource() {
   showMessages([]);
   editor.setProblems([]);
   const facts = documentFacts(doc);
-  $("doc-title").textContent = facts.title || "teiCrafter SZD";
+  $("doc-title").textContent = facts.title || source.product;
   docStatus = doc.getElementsByTagNameNS("*", "revisionDesc")[0]?.getAttribute("status") ?? "";
   updateDocState();
   return facts;
@@ -263,7 +263,7 @@ function updateDocState() {
 
 // Who accepted is left to the editorial rules of S4.
 $("accept").addEventListener("click", () => {
-  const edits = acceptanceEdits(editor.docText(), { date: new Date().toISOString().slice(0, 10), note: "Abgenommen im teiCrafter SZD." });
+  const edits = acceptanceEdits(editor.docText(), { date: new Date().toISOString().slice(0, 10), note: `Abgenommen im ${source.product}.` });
   if (!edits.length) {
     report("error", "Nicht abgenommen: Das Dokument hat keinen teiHeader, in dem die Abnahme stehen könnte.");
     return;

@@ -162,7 +162,7 @@ Effect. Since the refactoring of 2026-10-30 the code is cut as follows.
 - `js/docs.js` is the document list, `js/menu.js` the action menu at the selection, `js/person.js` the person dialog, `js/changes.js` the comparison dialog, and `js/ui.js` the shared helpers `$`, `setStatus`, `ask` and `arrowNavigation`.
 - `js/editor.js`, `js/tei.js`, `js/iiif.js`, `js/viewer.js`, `js/validate.js`, `js/split.js`, `js/gnd.js`, `js/register.js` and `js/diff.js` are the generic modules for code editor, TEI facts, IIIF resolution, image viewer, schema validation, split, GND search, register search and line comparison.
 
-The SZD knowledge, including the person index added on 2026-10-30, has stayed in `js/source.js` and the data it points to. A few strings outside it still name the product or the edition, namely the title fallback and the acceptance note in `js/app.js`, the example identifier `SZDPER.2188` in the hint of `js/person.js` and the storage key of `js/split.js`. They carry no edition logic and belong to the cleanup before the modules move into the base (S6).
+The SZD knowledge, including the person index added on 2026-10-30, has stayed in `js/source.js` and the data it points to. The product name, the browser storage key and the example identifier of the person index are configuration values there too, so the generic modules name neither product nor edition. `index.html` remains the edition's page and carries its title and placeholders.
 
 ### ADR-003 CodeMirror 6 as a vendored bundle
 
