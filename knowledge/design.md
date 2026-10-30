@@ -40,7 +40,8 @@ Source and facsimile are the content, and everything else is a control serving t
 
 - Action at the selection. Marking text opens a small menu right below it with the annotation actions. The wrapping actions apply at once, while Person opens a short modal dialog that previews the resulting markup. Ctrl+. opens the menu from the keyboard, arrow keys move, Enter applies, Escape returns to the text.
 - Open work as a queue. A counter in the text toolbar shows the HTR markers still in the text. F8 selects the next one and focuses its suggested action, so the letter is worked through with F8 and Enter.
-- One toolbar row per pane. Each pane is a size container. In a narrow pane the check buttons keep icon and state colour and move their label to assistive technology, and file actions live in the header.
+- One toolbar row per pane. Each pane is a size container. In a narrow pane the check buttons keep icon and state colour and move their label to assistive technology, and the page label of the facsimile shortens to the form „1/2“, while the full sentence „Seite 1 von 2“ stays readable to screen readers. The container queries follow the rules they override, because source order decides within a CSS layer.
+- File actions in the header. Document list, open and save sit in the header and stay together at its right edge, also when the header wraps onto a second row.
 - Check buttons as status. The well-formedness and validation buttons show their state by icon and label and lead to the error on activation.
 - Caret follows facsimile. Moving through the source turns the facsimile to the page of the preceding `pb`.
 - Split as visibility control. Dragging the separator resizes the facsimile, dragging it to the edge hides it, and an edge button brings it back. The separator works with arrow keys, Home and End.
@@ -55,6 +56,10 @@ Source and facsimile are the content, and everything else is a control serving t
 - Selection keeps the highlighting. The selection is drawn as a mix of the theme's blue behind the text, while the native selection stays transparent, so selected element and attribute names keep their colours in light and dark mode.
 - Work starts in the text. An opened document places the caret at its first page break, so the transcription is in view at once and the facsimile shows its first page, while the `teiHeader` stays above, one scroll away.
 - A menu appears for a pointer selection, Ctrl+. or F8, and not for selections made by search or undo.
+
+## Open questions
+
+- In a narrow pane the three check buttons in their ok state show the same check icon with the state colour. Well-formedness and validation have no tooltip, and the open-spot button has one that names its action rather than its state, so the three can only be told apart by position or by a screen reader. A distinct icon per check or a tooltip naming the state would resolve it.
 
 ## Connection to the action layer
 

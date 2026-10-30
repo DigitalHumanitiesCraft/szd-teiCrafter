@@ -24,6 +24,13 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Module cut, new browser checks and knowledge in step
+
+- Trigger: brief from the coordinating session to bring the knowledge base in step with the refactoring of `afbda2c`, the layout fix of `8efbfef` and the checks of `3082fea`.
+- Changed: `afbda2c` split the interface code of `js/app.js` into `files.js`, `docs.js`, `state.js`, `menu.js`, `person.js`, `changes.js` and `ui.js`, leaving `app.js` as composition root, and moved the marker stripping of the name query into `person.nameOf` of `js/source.js`. `8efbfef` moved the narrow-pane container queries behind the rules they override, so they now apply, shortened the page label to „1/2“ in a narrow pane and kept the file actions at the right edge of a wrapping header. `3082fea` added browser runs for the document list, the working state with acceptance, an existing `revisionDesc` and every working-set document, made the check import `buildIndex()` so a stale `data/index.json` fails, and made the index resolve character references in titles. This curation rewrote ADR-002 as the module cut, widened the acceptance criteria of FR-14 to FR-17, replaced the gap list of testing with the covered categories and the remaining gaps, added the narrow page label, the header and an open question on identical check icons to design, and placed the slow first validation and the remaining edition strings in the plan.
+- Found: generic modules still carry a few product and edition strings, namely the title fallback and acceptance note in `js/app.js`, the example identifier in `js/person.js` and the storage key in `js/split.js`. Saving a malformed document still has no browser case.
+- Evidence: the code of `afbda2c`, `8efbfef`, `3082fea` and the current `js/`, `tools/` and `test/browser-check.mjs` read for every statement, and `npm run check` passing in full on 2026-10-30 in about two minutes.
+
 ### 2026-10-30 Knowledge base brought to the working set, document list and working state
 
 - Trigger: brief from the coordinating session to curate the knowledge base after the commits since `8c9aa15`, which had added the hanging indent, the working-set import, the document list, the working state and acceptance without updating the documents.

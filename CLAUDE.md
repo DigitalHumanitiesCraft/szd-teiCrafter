@@ -22,6 +22,7 @@ Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, t
 - Handoff: read `knowledge/handoff.md` at session start, verify source and target of every point used, integrate durable content first, write the journal entry, then remove the point.
 - Journal: one entry per coherent transition with the fields that have content. Status, open tasks and detailed results belong in their own documents.
 - Keep edition specifics in `js/source.js`. A generic module that needs to know about Stefan Zweig Digital is a design error, report it.
+- Place a change in the module that owns it, following the module cut in ADR-002 of `knowledge/specification.md`. `js/app.js` is the composition root for checks, problem list, badge, open spots and facsimile, `js/files.js` owns opening and saving, `js/state.js` the pure working-state functions, `js/docs.js`, `js/menu.js`, `js/person.js` and `js/changes.js` their dialogs, and `js/ui.js` the shared helpers.
 - Never alter research data beyond the requested edit. Saving must keep every untouched byte, and the browser check proves it.
 - No volatile numbers in this file or in `knowledge/`. Future work goes to `knowledge/plan.md`.
 
@@ -51,7 +52,7 @@ Check available tools, runtimes and network access before dependent steps, and n
 
 - Serve: `python -m http.server 8000` in the repository root.
 - Syntax: `node --check js/<module>.js` for every changed module.
-- Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour.
+- Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour. It takes about two minutes and fails first when `data/index.json` is stale.
 - CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
 - Person index: `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from GAMS.
 - Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `data/IMPORT.md`. It keeps files corrected here.

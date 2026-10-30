@@ -79,7 +79,9 @@ Open: operator acceptance with a real save into the clone of this repository.
 
 Built on 2026-10-30: changes since opening as a line comparison, Git conflict markers explained in the problem list, overwrite protection with a question dialog that also replaced the browser's confirm before discarding unsaved work, each with browser cases. Later the same day the state ladder as a badge in the header (FR-15), acceptance into `revisionDesc` offered only in the ready state (FR-16, ADR-011), and unsaved work marked on the save button.
 
-Open: the save confirmation does not yet name the state, as ADR-008 asks. Browser cases for the badge, for acceptance and for saving a malformed document are outstanding unless the current refactoring of the interface code adds them, see [testing](testing.md#gaps). Independent review and operator acceptance of the milestone.
+After the refactoring of the interface code into modules (ADR-002), the browser check follows the badge from not validated through ready and accepted to changed since, acceptance into a missing, an existing and an empty `revisionDesc`, and the unsaved dot, see [testing](testing.md#what-is-guaranteed).
+
+Open: the save confirmation does not yet name the state, as ADR-008 asks. Saving a malformed document has no browser case yet, see [testing](testing.md#gaps). Independent review and operator acceptance of the milestone.
 
 Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
 
@@ -92,7 +94,9 @@ Verification adds browser cases for a file changed on disk, a file with conflict
 
 Built on 2026-10-30: the working set of about ten documents per collection in one folder per collection, imported byte-exact with provenance by `tools/import-working-set.mjs` (ADR-009, ADR-010), and the document list (FR-14) over the generated `data/index.json` with search, collection and state filters, per-document pages, open spots and state tag, and the accepted count per collection. Opening starts at the first page break (FR-17), and wrapped lines hang under their own indentation (FR-18).
 
-Open: the signature as a field of its own in the index (it is part of the title now), rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, the version-history link, the partner guide, and browser cases for the list, see [testing](testing.md#gaps).
+The browser check now covers the list with search, collection chip, state filter and the question before switching, the start at the first page break, the hanging indent, and every working-set document loading well-formed from the list, and it fails when `data/index.json` is stale.
+
+Open: the signature as a field of its own in the index (it is part of the title now), rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, the version-history link and the partner guide.
 
 ### S4 Editorial rule layer
 
@@ -116,14 +120,16 @@ These items are accepted as direction and not yet placed in a milestone.
 - Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
 - A reading view without visible XML. Options are hiding tags inside the code editor through decorations, a separate rendered annotation view, and a full structured editor. The session recommends hiding tags in the code editor first, because it keeps one text, one undo history and byte-exact saving. The operator wants to work this out step by step.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
+- Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validateTeiAll` into a worker is the upgrade path named in `js/validate.js`.
+- Strings outside `js/source.js` that still name the product or the edition (ADR-002 effect) move into the source configuration before the modules go into the base (S6).
 
 ## Status tracker
 
 | Milestone | Status | Notes |
 |---|---|---|
 | S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
-| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge and acceptance built, while the state in the save confirmation, browser cases, review and acceptance are open |
-| S3 Collections and project page | in progress | working set imported, document list with search and filters built, while collection-specific suggestions, standOff persons and the partner guide are open |
+| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge and acceptance built and in the browser check, while the state in the save confirmation, a case for saving a malformed document, review and acceptance are open |
+| S3 Collections and project page | in progress | working set imported, document list with search and filters built and in the browser check, while collection-specific suggestions, standOff persons, the version-history link and the partner guide are open |
 | S4 Editorial rule layer | pending | |
 | S5 Publication and partner trial | pending | operator action |
 | S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |

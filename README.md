@@ -51,17 +51,28 @@ it in place, open it from the clone with the open button.
 - `node tools/import-working-set.mjs [path to szd-htr]` imports the working set and writes
   `data/IMPORT.md`. It never overwrites a file that has been corrected here.
 - `node tools/build-document-index.mjs` rebuilds `data/index.json`, the document list with title,
-  pages, open spots and working state. Run it after an import and after commits that change a
-  document's state.
+  pages, open spots and working state, with character references in titles resolved. Run it
+  after an import and after commits that change a document's state.
 - `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from the person
   index at GAMS.
 
 ## Structure
 
-- `js/`: generic modules for editor, TEI, IIIF, viewer, validation, comparison and interface,
-  plus `js/source.js`, which holds everything specific to Stefan Zweig Digital (GAMS manifest,
-  element suggestions, HTR marker actions, person index and reference forms). Another edition
-  replaces this file.
+- `js/app.js`: the composition root, which connects editor, viewer and dialogs and keeps the
+  checks, the problem list, the working-state badge, the open spots with F8 and the facsimile
+  of the open document.
+- `js/`: generic modules for the code editor (`editor.js`), TEI facts (`tei.js`), IIIF
+  (`iiif.js`), the image viewer (`viewer.js`), validation (`validate.js`), the split
+  (`split.js`), GND and register search (`gnd.js`, `register.js`), the line comparison
+  (`diff.js`) and its dialog (`changes.js`), the working state (`state.js`), opening and saving
+  (`files.js`), the document list (`docs.js`), the action menu (`menu.js`), the person dialog
+  (`person.js`) and shared interface helpers (`ui.js`).
+- `js/source.js` holds everything specific to Stefan Zweig Digital (GAMS manifest, element
+  suggestions, HTR marker actions, person index and reference forms). Another edition replaces
+  this file.
+- `tools/`: the Node scripts that import the working set and build the document and person
+  indexes. The browser check imports `tools/build-document-index.mjs` and fails when
+  `data/index.json` is not in step with the files.
 - `vendor/codemirror/`, `vendor/openseadragon/`, `vendor/libxml2-wasm/`, `schemas/tei-p5-4.11.0/`:
   vendored third-party material, each with its `NOTICE.md`. CodeMirror is a prebuilt bundle; its
   rebuild recipe is in `vendor/codemirror/NOTICE.md`.
