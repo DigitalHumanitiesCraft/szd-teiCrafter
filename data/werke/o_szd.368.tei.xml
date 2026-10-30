@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Kleist</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Adolf Haslinger Literaturstiftung im Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-SAM/W5</idno>
+            <idno type="objectId">o_szd.368</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.25"/>
+    </surface>
+    <surface xml:id="surf_26">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.26"/>
+    </surface>
+    <surface xml:id="surf_27">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.27"/>
+    </surface>
+    <surface xml:id="surf_28">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.28"/>
+    </surface>
+    <surface xml:id="surf_29">
+      <graphic url="https://gams.uni-graz.at/o:szd.368/IMG.29"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.368">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Kleist
+      </p>
+      <p>
+        <lb/>Jak. A. Jetzelsberger, Salzburg.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>Kleist der Dämon am meisten mit den Nerven verstrickt. Er
+        <lb/>dass verbunden mit dem Sexus, vitalen Kraft. Lebensform.
+        <lb/>(Nietzsche Gehirn, Hölderlin Empfindungen). Deshalb bei ihm biogra
+        <lb/>fisch sichtbarer
+      </p>
+      <p>
+        <lb/>Heinrich v. K. gieng an dieser Angeliebtheit zu Grunde und
+        <lb/>es ist das schrecklichste Gegenmittel gegen ungewöhnliche Menschen
+        <lb/>sie dergestalt tief in sich hinein zu treiben, dass er wiederfe-
+        <lb/>rauskommen jedesmal ein silhaunisher[?] Ausbruch ist?
+      </p>
+      <p>
+        <lb/>Sie armen, diese Einsamen und freien, in feste - dass sie fort
+        <lb/>während irgendworin anders kleiner als sie denken: während sie
+        <lb/>aups als Wahrheit und Ehrlichkeit wollen ist rings um sie ein
+        <lb/>Netz von Missverständnissen ... Das sammelt eine Wolke von Me-
+        <lb/>lancholie auf ihren Stirnen ... Von Zeit zu Zeit rasen[?] sie für
+        <lb/>ihr gewaltsames Sich-Verbergen, für ihre erzwungene Zurück-
+        <lb/>haltung. Sie kommen aus ihrer Höhle heraus und schrecklichen
+        <lb/>Minen; ihre Worte sind dann Explosionen und es ist möglich
+        <lb/>dass sie an sich selbst zu Grunde gehen?
+      </p>
+      <p>
+        <lb/>Kleist als er die Kantische Philo. erlebt, vor kurzem wüste
+        <lb/>ich aus der Kantischen Philo. bekannt - und die muss
+        <lb/>ich jetzt daran einen Gedanken mitteilen, indem ich nicht fürh-
+        <lb/>ten darf, dass er dich so tief, so schmerzhaft erschüttern
+        <lb/>wird als mich - wir können nicht erkennen, ob das, was wir
+        <lb/>Wahrheit nennen, wahrhaft Wahrheit ist oder nur so scheint..
+        <lb/>- Wenn die Spitze dieses Gedankens dein Herz nicht trifft,
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>so läßt sie nicht über einen andern, der sich tief in seiner jetzigen
+        <lb/>Innern davon verwundet fühlt.
+      </p>
+      <p>
+        <lb/>Das ist das Tragisch-grossartige, dass Probleme als Le-
+        <lb/>bensentscheidungen empfunden werden, dass sie beim wahr-
+        <lb/>lichen Menschen bis ins „heilig Innere“ dringen, dass sie zu
+        <lb/>einem Leiden werden. So Hölderlin den tiefenwunden, der bei
+        <lb/>Schiller eine poetische Fiktion war, als Realität, so Kleist den
+        <lb/>Form der Lebens als eine Not, so Kleist jedes Problem. Alles ins
+        <lb/>Schneide, alles verwundend. Die Not des Vaterlandes, die rathe
+        <lb/>halt innen, Goethe philosophisch-contemplativ, sie war ihm
+        <lb/>zu einer Erschütterung, Philosophie, ja die Dichtkunst (und das
+        <lb/>Lebensproblem) das ja nur kein der Welt zu einer Entwertung.
+        <lb/>Das war das Leben so dramatisch - oder eigentlich Tragik
+        <lb/>erklärt jedes ungeheure Missverhältnis zwischen Ursache und
+        <lb/>Wirkung, in dem lauen halten so fremd bleibt, dass sie immer
+        <lb/>Gründe[?] für den Untergang suchen nur Zufälligkeiten unterhie-
+        <lb/>ben, wo Notwendigkeit das absolute war.
+      </p>
+      <p>
+        <lb/>Er würde angerannt von allen Problemen. Ein grausames
+        <lb/>Problem (auch in der Kunst) deshalb zerrissen.
+      </p>
+      <p>
+        <lb/>Nervenreiz
+        <lb/>Er ist keine zerrissene Natur, zerreisst sich.
+      </p>
+      <p>
+        <lb/>Es gibt eine Besunkenheit. Ein Stummsein und dann der
+        <lb/>schrecktes Aufblicken. Augenblicke wo er in seinen eigenen Abgrund
+        <lb/>stürzt und dann hast[?] wankend heraufkommt. Homburg.
+      </p>
+      <p>
+        <lb/>Schuberts Briefe über „Dunkle Seelenzustände“ als ob
+        <lb/>er es gelernt hätte daraus. Banalität, solche Briefe muss wer daran.
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>die „innere Forderung seiner Seele“
+      </p>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>leidet (so wie heute die Studenten der Psychoanalyse sexuell
+        <lb/>verwahrlost.)
+      </p>
+      <p>
+        <lb/>Unbehagen, das die Menschen bei Dostoj. das ich
+        <lb/>selbst empfand als ich Weininger sprach. Verborgene Menschen
+        <lb/>anhitzen, sich nicht gab. Maskenhafte, Rufe wüste. Verschwanz[?]
+        <lb/>und auftauchte wie jene unterirdischen Quellen im Karol
+      </p>
+      <p>
+        <lb/>Verhaftig im bürgerlichen Sinn. Verhaftet als Spion
+        <lb/>von den Österr. Verhaftet von ihnen von den Franzosen. Kein
+        <lb/>Zufall. Lebt in merkwürdigen Kreisen jener Renegaten Adam
+        <lb/>Müller, Gentz, den[?] Carbonari.
+      </p>
+      <p>
+        <lb/>Goethes Genius kannte die Furcht. So den Frauen
+        <lb/>Friderike, Lili, Kroneckmann, den Freunden, dem Dämon.
+        <lb/>Selbstvernichtungs-trieb den Selbstentfaltungstrieb in einer
+        <lb/>wohlatige[?] wogender Natur, heroischer das andere.
+      </p>
+      <p>
+        <lb/>[Durchgestrichen: Widerspruch] Bei seinem Selbstmord vom „über-
+        <lb/>spannten“ Wesen der Preußen. Frafo, über-spannt.
+        <lb/>Nicht gespannt. Er der uns malt sich Blöße, deren
+        <lb/>Dichtung kaum Silberung der Länge war, geschweige der
+        <lb/>Herzens....
+      </p>
+      <p>
+        <lb/>Kleist der Ungeduldige fällt nicht aus, das
+        <lb/>Schicksal nicht erreicht: er hat es vorausgeholt. Engel
+        <lb/>nur gefasst, ehe es von selber in Stücke gieng.
+      </p>
+      <p>
+        <lb/>aufgeregten aber
+        <lb/>Eine saturnische Natur. Dunkle Blüte
+        <lb/>Melancholie. Finsterkeit angehäuft aus darin
+        <lb/>vom Monde angezogen, Magie der gespenstischen. Verwandten
+        <lb/>[eingefügt: endend in ein]
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <p>
+        <lb/>Man bereue die
+        <lb/>Expansionskraft der Kleist
+        <lb/>auch aus dem Sterben
+        <lb/>eine der seelhaft[?]
+        <lb/>[eingefügt: kleinen Menschen von]
+        <lb/>wie die Kraft zu wagen
+      </p>
+      <p>
+        <lb/>Kein Seneca ist so gestorben, kein
+        <lb/>Cato nur Socrates: in alle
+        <lb/>Glanzlosigkeit in Kunst,
+        <lb/>glänzend. Hier Seligkeit
+        <lb/>Reine Freude, reine Güte
+        <lb/>reine Heiterkeit.
+      </p>
+      <p>
+        <lb/>Was Kleist war, wenn in der
+        <lb/>Dämon Gen: das sich
+        <lb/>man
+      </p>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>Anfang Kleist. Durch die Länder jagen. Als Spion
+        <lb/>festgenommen. Er werde nicht warnen.
+      </p>
+      <p>
+        <lb/>Wohin jagt er? Wohin die, die ihm gleichen. Die
+        <lb/>Maria, Florens, Rimbaud, Lenau... In welches Ziel.
+        <lb/>In keinem Ziel, keinem andern: als weg von sich selbst, sich
+        <lb/>überrennen, ihn überholen, den Dämon, wie Fiebernde
+        <lb/>aufspringen, verbaut[?] abweisen.
+      </p>
+      <p>
+        <lb/>Weltlauf mit dem Dämon. Dem Abgrund zu.
+        <lb/>Aber Abgrund innen. Wohin sie auch rennen, die sind
+        <lb/>innen.
+      </p>
+      <p>
+        <lb/>Shenstone: „Menschen von wirklichem Genie
+        <lb/>haben starke Leidenschaften“
+      </p>
+      <p>
+        <lb/>Nebel ist fort. Das Leben
+        <lb/>schon verschwunden
+        <lb/>Untergang in Musik, wie so jemand gestorben
+        <lb/>oder frage ich, wer eine solche Todesmusik. Shakespeare
+        <lb/>lässt die Fanfaren tönen. [Durchgestrichen: Hamlet]. Ganz gewaltig
+        <lb/>sich entladen. Da schlägt alles in Eines zusammen. Diese
+        <lb/>Briefe an Ulrike. Jede erdenkliche frei schreibt Kleist. Horn
+        <lb/>Ewig[?] Wohlklang. Ahnung was ihre Seele gewesen wäre Tor.
+        <lb/>Litanei. Der Dämon, die warft über ihn.
+      </p>
+      <p>
+        <lb/>Pathologie. Er war kein Verschweizer. Er stand
+        <lb/>da. Sie haben es vernichtet. Jean Jaques Rousseau ge-
+        <lb/>stellt hatte. Verhängnis ist das Treu über den Tor
+      </p>
+      <p>
+        <lb/>Ein russischer Mensch in einen preussischen Gerade
+        <lb/>angezwängt. [eingefügt: zerrieben in der Zwangjacke der Vernunft].
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>Aristoteles: von einem gefährlichen
+        <lb/>Affect durch deren vehemente Entladung zu
+        <lb/>reinigen.
+      </p>
+      <p>
+        <lb/>Tragische: „an der Wahrheit leiden sein
+        <lb/>eine verunglückte Wahrheit sein“ Nietzsche
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>Ein Platen schwätzt hohl. Fernen, Kors und
+        <lb/>Zypern schreiben: hier mitten aus der Tat.
+      </p>
+      <p>
+        <lb/>Titanisches: gegen Zeus sich zu empören
+      </p>
+      <p>
+        <lb/>Lebensplan: Hölderlin Schicksal gelenke, Kleist
+        <lb/>Schicksal formen könne. Er ist nicht griechisch, aber auch nicht
+        <lb/>christlich. Heidnische Härte, [Durchgestrichen: harte] verbissene Zähne
+      </p>
+      <p>
+        <lb/>Kleist Novellen: man sieht ja wie er schreibt mit der
+        <lb/>verbissenen Zähnen und angekrampften Händen. Nicht in froher,
+        <lb/>in einer kalten, zitternden Wollüstigkeit der Kraft, des warten
+        <lb/>lassens. Masochistische Erzählungskunst, eine erotische Lust, eine
+        <lb/>Unmenschheit. Sich-selbst beherrschen
+        <lb/>Qualfreude in gelähmt
+        <lb/>Lügenlose seiner Briefe. Übertreibend
+      </p>
+      <p>
+        <lb/>„Und sinkt mein Kahn, sinkt er zu neuen Meeren“
+        <lb/>im Bardentied
+        <lb/>„Du wirst nicht wanken und nicht weichen
+        <lb/>vom Amt, das du dir kühn erhöht“
+        <lb/>[eingefügt: Heranwuchs]
+      </p>
+      <p>
+        <lb/>Goethe: „Mir erregte er, bei dem reinsten Vor-
+        <lb/>satz einer aufrichtigen Teilnahme immer Schauder und
+        <lb/>Abscheu, wie ein von Natur schön intentionierter Körper
+        <lb/>der von einer unheilbaren Krankheit ergriffen wäre“
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <p>
+        <lb/>Sowie bei Theatrie die anderen Bekannte
+        <lb/>nicht entlarven.
+      </p>
+      <p>
+        <lb/>Sprachfehler: harte Züge
+        <lb/>sah manfällig aus.
+        <lb/>[Durchgestrichen: Niemand] bemerkte ihn. Graf wenig
+        <lb/>[eingefügt: der Briefe geschaffen] Verdufte seine Seele.
+        <lb/>Geheimnis verloren gegangen
+      </p>
+      <p>
+        <lb/>Homburg verbrannt.
+        <lb/>Was wir haben ist nur Zufall
+      </p>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>Nun ist nun angestraft in einen nüchternen Beamten
+        <lb/>Empfinde Halbherren kaum geborn, belastet mit Reile[?] Krieg
+        <lb/>aber beamtischer Ahnen, eingehüllt in eine [Durchgestrichen: harte] Unheit einer
+        <lb/>Junkerfamilie. Man muss zwar in zorniger Stunde einer
+        <lb/>Bettel von Staat und Adel kennen, aber in sofern, es geht
+        <lb/>starr in Blut, bittere[?] Hass der Beamten Kleist zerfressen
+      </p>
+      <p>
+        <lb/>Lebensplan. (Goethe in Jugendjahren von
+        <lb/>strengen Vater)
+      </p>
+      <p>
+        <lb/>Tragik in Kleist: seine Klarheit, jene „traurige
+        <lb/>Klarheit“ die er betätigt, „zu jeder Miene den Gedanken, zu
+        <lb/>jedem Wort den Sinn, zu jeder Handlung den Grund“ zu erraten.
+        <lb/>Unfähig zu Lüge. Shelley, Hölderlin, die in sich selbst einherwär-
+        <lb/>men, den Geist die die Himmel jagen, das fest. Wie sich selbst
+        <lb/>Belügen. Leben ohne Lüge eine Qual für den kranken
+        <lb/>Todesgefährten, darum die Zufälligkeit“
+        <lb/>im Tristan tönend geworden
+      </p>
+      <p>
+        <lb/>„Nervengenossen“ gesagt (falsch 30)
+        <lb/>Rahel, „es gieng streng um ihn her“
+      </p>
+      <p>
+        <lb/>„gemischtlammig“ nennt er eines
+      </p>
+      <p>
+        <lb/>„Meine Seele ist so wüst, dass wenn ich
+        <lb/>möchte fast sagen, wenn ich die Nase aus dem Fenster
+        <lb/>stecke, das Tageslicht weht ist, das mir darauf blitzt“
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>Er hatte Leidenschaften, in dem er sie in den Saper
+        <lb/>[?] hinaufpflanzte, um sich hinaufpflanzte hierte
+        <lb/>märkische Junker.
+      </p>
+      <p>
+        <lb/>In diese lautwüste orientalische Phantasie.
+        <lb/>Er liegt mir weit fern: erst am Ende findet er sich
+        <lb/>selber. Seine erste Auseinandersetzung mit wirklicher
+        <lb/>ist der Homburg - - Heros Friedrich gestorben
+        <lb/>Finale So gross er ist: seine Gestalt grösser als seine
+        <lb/>Gestalten. Verloren giengen. Wir haben kaum ein
+        <lb/>Halbheit: vertraute [?] [?], Peter der Erzähler
+        <lb/>Leopold (Homburg blieb nur durch Zufall, das ein san-
+        <lb/>ner verfolgt war) verloren, verkleidet der Roman,
+        <lb/>dann Novellen, Geschichte seiner Seele nur zerrissener
+        <lb/>Unentlebtes, hinter [?] gebritel, Gestalt aber tra-
+        <lb/>gischer als alle Tragödien. Hätte er nichts als dem
+        <lb/>Leben gegeben der tragischste aller Dichter
+      </p>
+      <p>
+        <lb/>Napoleon - ihn grenzenlos zu lieben. Das
+        <lb/>verworfe er ihn. Stinkend[?] gerührt, aber nicht wie an
+        <lb/>Balzac, Byron, Goethe, Sinne der Antike, sonst wider-
+        <lb/>herbs. Antichrist. Plan ihn zu ermorden
+      </p>
+      <p>
+        <lb/>Doch hat er auch gelernt aus all der Leere
+        <lb/>Schwarze Natur: sie war zerissen, nicht Kleist
+        <lb/>nicht. Irgendwoher er das Gleichgewicht herstellen könnte.
+        <lb/>Bildung, Philosophie. Er musste kein Deutscher sein, wie nicht der
+        <lb/>Bildung: er müsste kein Romantiker sein, der Kirche. Dogma. Klar
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <p>
+        <lb/>Pathologie: Schluss: Jena hin und her. Kooper in.
+        <lb/>[?] Seiten unleserlich. Metaphysisches. Seelenruhe
+      </p>
+      <p>
+        <lb/>wie in Lenau’schen Gedichte der Seelenkranke
+        <lb/>voll von Rissen und Klüften. [?] 
+        <lb/>verwahrlost, [?] [?] [?] 
+        <lb/>für was er geschlossen ist.
+      </p>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>am Ende Ruhe aller Ruhe: der Tor. Lebensplan immer der
+        <lb/>Todesplan. In allen Verzweiflung. Grüner Fels, den die Flut nur
+        <lb/>flüchtig überweht; wie die Flut begeisterung zurückzieht, auf jeder
+        <lb/>Ebbe der Gefühle wird er sichtbar, der dunkle Fels, an dem er
+        <lb/>zerbersten wollte (ganz nachbarlich ob weg von einem
+      </p>
+      <p>
+        <lb/>Isolation von den Menschen. Im Bett ge-
+        <lb/>arbeitet. Tagelang nicht ausgegangen. Monatelang
+        <lb/>krank. Vielleicht das, was die Neuropathen fest, Kleist
+        <lb/>in die Krankheit nennen, tiefer Begriff
+      </p>
+      <p>
+        <lb/>Dämon bevor ich aus sich heraus, aber über ihr
+        <lb/>[eingefügt: hinaus]
+      </p>
+      <p>
+        <lb/>Ein Ziel. Jagt einem Phantom nach, der Jagd
+        <lb/>Diese Ulrike sein seltener Widerspruch. Die
+        <lb/>Verblüffen so extravagant wie er als Mann, überbetont.
+        <lb/>Durch Grenzkraft verwirrt
+      </p>
+      <p>
+        <lb/>Menschen ein zerstören. Ulrike ist besser
+        <lb/>Kennen kaum, Marie von Kleist, die leise [?], Ada
+        <lb/>Müller, Brief - wo er andeutet Verhängnis.
+        <lb/>Verhängnis strahlt von ihm aus. Er ist viel
+        <lb/>Menschen sich [?] und sie haben recht. Goethe, der
+        <lb/>sah, wofür er sah
+      </p>
+      <p>
+        <lb/>Durchbruch vollzogen. Endlich gefasst, wie
+        <lb/>er entfliehen kann. Ein grenzenlos und tief, eine
+        <lb/>grosse Phantastische Möglichkeiten: die Dichter
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <p>
+        <lb/>Nietzsche.
+      </p>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>Waren aus ferner nicht auch feinfühler sein als
+        <lb/>Beamte wie Preussen
+      </p>
+      <p>
+        <lb/>Das war eine Haltung nennt, Contenance. No-
+        <lb/>vellen und verbissen [?] [?]
+        <lb/>[?] [?] [?]
+        <lb/>Er ist immer seelisch, Goethe ist anderer
+      </p>
+      <p>
+        <lb/>Sich legitimieren. (Lebensplan) als Mann
+        <lb/>als Mensch, als Kleist: legitimieren vor mir, vor der Fa-
+        <lb/>milie, Freunde, vor der Welt - vor der [?] Welt, der
+        <lb/>später erst.
+      </p>
+      <p>
+        <lb/>Nachwerte des Lebens: seine dunkle Art, sein
+        <lb/>„Hypochonder“ alles überarbeitete, [?] wurde ihm
+        <lb/>Ernst, Amphitryon seine [?]
+      </p>
+      <p>
+        <lb/>Leid nehmen
+        <lb/>Tat als ob sie keine [?] hätten
+      </p>
+      <p>
+        <lb/>Ich glaube dass in Generellen die wollig-
+        <lb/>sten Auffälligkeiten in Dichtung entfalten sind. Ein
+        <lb/>Mensch - man fühlt das tief, weil es keine far-
+        <lb/>monische Mensch war (wie Goethe, Haydn, Schubert
+        <lb/>Bach) sondern verwirrte, ständige [?] [?]
+        <lb/>ohne Antwortung
+      </p>
+      <p>
+        <lb/>[?] [?]: er [?] auf die Antworten
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <p>
+        <lb/>Unfähigkeit zu Herstellung, zu Contenance.
+        <lb/>So in sein Schweigen.
+      </p>
+      <p>
+        <lb/>Nicht lebenswürdig. Goethe, ein sauberer in
+        <lb/>Weimar [?].
+        <lb/>[?] So ist nichts [?] es die Furcht vor [?]
+        <lb/>Leben, nur der [?] es in frommen Frechen [?], der er [?]
+        <lb/>[?] [?]
+      </p>
+      <p>
+        <lb/>Jene beiden Briefe: mit Beethoven
+        <lb/>Brief an die Unsterbliche Geliebte nur dem
+        <lb/>Heiligsten [?] [?].
+      </p>
+      <p>
+        <lb/>Hau: gegen Goethe gegen Napoleon. [?] 
+        <lb/>andere mit verbissenen Zähne. Iffland[?] zwingt an
+      </p>
+      <p>
+        <lb/>Telepathie (Käthchen) Mesmerismus
+        <lb/>Jacob Grimm, [?], die Wahrheit oft
+        <lb/>allzu kühn ans Licht riss
+      </p>
+      <p>
+        <lb/>Kühnheit
+        <lb/>Trieb: herausfordern
+        <lb/>[?] alles, liegt in ein verworren
+        <lb/>[?] in [?] [?] [?]
+        <lb/>Seine eigene Dummheit überträgt er: Magnetismus, Mes-
+        <lb/>merismus, Träumereien
+      </p>
+      <pb n="21" facs="#surf_21"/>
+      <p>
+        <lb/>warten. Novellen, das Thema an die Spitze
+        <lb/>~~Helle Farbe~~ „Ich hoffe nur, weil ich es nicht lassen kann“
+        <lb/>„Mutter blick froh durch sein Fenster“ hatte auf
+        <lb/>das Denkmal vor dem ~~Bernal~~ [?] ~~pun~~ [?] ~~Ewald v. Kleist~~ [?] geht
+        <lb/>Schlachtentor in Boulogne, nicht für Bakulen[?]
+        <lb/>Neue Gedanken üben Zwang auf ihn aus. Alles
+        <lb/>~~w~~ Kategorie: Natur, Karl. Ein Buch nie zu werfen.
+        <lb/>Eine Kirche und katholisch werden. Spontaneität, sofort
+        <lb/>wird es Lebensgesetz. Immergleich Buch an die Hand des
+        <lb/>~~Kleist~~ schlechter Soldat, „Mehr Dichter als Soldat“
+        <lb/>Ist nur er die Dissonanz losen. Wenn
+        <lb/>er die verwirrten Saiten seiner Brust zerschmettert
+        <lb/>~~B~~ er die Feder anregt, einer der allerleisesten
+        <lb/>~~Menschen~~ [?]
+        <lb/>Dem Freunde Brokes gedruckt „Es komme nur
+        <lb/>vom dem Fehler alles in Respekt auf dem Eigner selbst
+        <lb/>Betrachten zu wollen. Sieh dich nie als Mittelpunkt
+        <lb/>dessen an, was um dich herum vorgeht, sondern be-
+        <lb/>muhe dich vielleicht, dich selbst soviel als möglich zu
+        <lb/>vergessen“ — ~~Ohne~~ um dich glücklich zu machen. Aber
+        <lb/>nicht unter zu sein, gerade das braucht Egozentrisch.
+        <lb/>~~Skal~~ [?] ~~w~~ [?] ~~n~~ [?] ~~ten~~ [?] ~~ten~~ [?] ~~n~~ [?] ~~e~~ [?] ~~n~~ [?] ~~z~~ [?] ~~l~~ [?] ~~e~~ [?] ~~n~~ [?] ~~94~~
+      </p>
+      <pb n="22" facs="#surf_22"/>
+      <p>
+        <lb/>„Ach der wahrlige Ehrgeiz, er ist ein Gift
+        <lb/>für alle Freuden“
+        <lb/>„Ach es ist unverantwortlich, den Ehrgeiz in
+        <lb/>uns zu erwecken, eine ferne, jene Ranke sind wir junge
+        <lb/>~~geben~~ [?]
+        <lb/>~~S~~ [?] ~~d~~ [?] ~~dass~~ [?] er den Samen enthettet ist, die Prae-
+        <lb/>~~hen~~ [?] ~~in~~ [?] ~~f~~ [?] ~~e~~ [?]
+      </p>
+      <p>
+        <lb/>Kommen kann nur etwas Gutes hin und
+        <lb/>dabei sterben. „Einen der Millionen
+        <lb/>Tote, die wir schon gestorben sind
+        <lb/>und noch sterben werden“
+        <lb/>Es ist als ob wir aus einem Zimmer
+        <lb/>in das andere gehen“
+        <lb/>Das Schwergewicht der
+        <lb/>~~K~~ [?] ~~l~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~h~~ [?] ~~t~~ [?] ~~r~~ [?] ~~ü~~ [?] ~~c~~ [?] ~~k~~ [?] ~~t~~ [?]
+        <lb/>Goethe, (ganz
+        <lb/>~~E~~ [?] ~~h~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?] ~~e~~ [?] ~~n~~ [?] ~~t~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~T~~ [?] ~~ü~~ [?] ~~m~~ [?]
+        <lb/>~~K~~ [?] ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~G~~ [?] ~~e~~ [?] ~~l~~ [?] ~~u~~ [?] ~~s~~ [?] ~~t~~ [?]
+        <lb/>~~H~~ [?] ~~o~~ [?] ~~l~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~i~~ [?] ~~n~~ [?] ~~f~~ [?] ~~e~~ [?] ~~h~~ [?] ~~t~~ [?] ~~h~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~G~~ [?] ~~l~~ [?] ~~a~~ [?] ~~n~~ [?] ~~z~~ [?]. ~~R~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?]. ~~K~~ [?] ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?]
+        <lb/>- Exorcismus -
+        <lb/>wie eine Koppel ~~K~~ [?] ~~u~~ [?] ~~n~~ [?] ~~d~~ [?]
+        <lb/>~~w~~ [?] ~~i~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~T~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~e~~ [?] ~~l~~ [?] ~~a~~ [?] ~~u~~ [?] ~~s~~ [?] ~~d~~ [?] ~~e~~ [?] ~~n~~ [?] ~~B~~ [?] ~~e~~ [?] ~~s~~ [?] ~~e~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~n~~ [?] ~~i~~ [?] ~~n~~ [?] ~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~S~~ [?] ~~a~~ [?] ~~u~~ [?] ~~e~~ [?]
+        <lb/>~~g~~ [?] ~~e~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?] ~~H~~ [?] ~~e~~ [?] ~~b~~ [?] ~~b~~ [?] ~~e~~ [?] ~~l~~ [?]: ~~K~~ [?] ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?] ~~p~~ [?] ~~l~~ [?] ~~a~~ [?] ~~s~~ [?] ~~t~~ [?] ~~i~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~G~~ [?] ~~e~~ [?] ~~f~~ [?] ~~ü~~ [?] ~~h~~ [?] ~~l~~ [?], ~~k~~ [?] ~~e~~ [?] ~~i~~ ~~n~~ [?] ~~e~~ [?] ~~L~~ [?] ~~e~~ [?] ~~i~~ [?] ~~d~~ [?] ~~e~~ [?] ~~n~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?]
+        <lb/>~~H~~ [?] ~~e~~ [?] ~~b~~ [?] ~~b~~ [?] ~~e~~ [?] ~~l~~ [?], ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~i~~ [?] ~~h~~ [?] ~~n~~ [?] ~~n~~ [?] ~~a~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?], ~~n~~ [?] ~~u~~ [?] ~~r~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~G~~ [?] ~~e~~ [?] ~~d~~ [?] ~~a~~ [?] ~~n~~ [?] ~~k~~ [?] ~~e~~ [?] ~~n~~ [?].
+      </p>
+      <pb n="23" facs="#surf_23"/>
+      <p>
+        <lb/>Turm zu Babel
+        <lb/>„ich fühle mich so friedliebend, so liebend
+        <lb/>wie in der Nähe einer Totenruhe“ 12 Jahre später an
+        <lb/>~~L~~ [?] ~~o~~ [?] ~~u~~ [?] ~~i~~ [?] ~~s~~ [?] ~~e~~ [?]
+        <lb/>„O wenn Gott dereinst mein krankhaftes
+        <lb/>~~G~~ [?] ~~e~~ [?] ~~f~~ [?] ~~ü~~ [?] ~~h~~ [?] ~~l~~ [?] nicht betrügen wollte, wenn er mein sterben
+        <lb/>~~h~~ [?] ~~i~~ [?] ~~e~~ [?] ~~ß~~ [?]“
+        <lb/>Weil er zu Leben nicht sprechen kann, ~~a~~ [?] ~~r~~ [?] ~~r~~ [?] ~~e~~ [?] ~~s~~ [?]
+        <lb/>~~u~~ [?] ~~n~~ [?] ~~d~~ [?] überschreibt er sich in seinen Dramen. Die Exalta-
+        <lb/>~~t~~ [?] ~~i~~ [?] ~~o~~ [?] ~~n~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~s~~ [?] ~~G~~ [?] ~~e~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~r~~ [?] ~~i~~ [?] ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~s~~ [?] sind notwendige Correla-
+        <lb/>te des verbissenen Schweigens, seiner persönlichen Unmittel-
+        <lb/>barkeit. Kleist, Ulrike, - Briefen, quält er auf, ~~U~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~t~~ [?] ~~r~~ [?] ~~e~~ [?]
+        <lb/>~~G~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~ü~~ [?] ~~h~~ [?] ~~l~~ [?] ebenso gewiss das er fast, verschlossen, ~~u~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~t~~ [?] ~~r~~ [?] ~~a~~ [?] ~~g~~ [?] ~~l~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?]
+        <lb/>war. Goethe würde nicht vermissen exaltiert in Werk
+        <lb/>und Briefen sein, weil er ein Gespräch: Das Aufgestaute
+        <lb/>in klein, das Ausbruch. Jede Äußerung dann überschwemmt
+        <lb/>mit Gefühle, überspült mit Leidenschaft - wir wären ein Stoff
+        <lb/>~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~g~~ [?] ~~e~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?] wäre
+        <lb/>Ich lasse beiseite den zerbrochenen Ring
+        <lb/>~~u~~ [?] ~~n~~ [?] ~~d~~ [?] ~~H~~ [?] ~~a~~ [?] ~~u~~ [?] ~~r~~ [?] ~~g~~ [?] ~~e~~ [?] ~~l~~ [?] ~~e~~ [?] ~~n~~ [?], ~~f~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?], ~~k~~ [?] ~~ü~~ [?] ~~h~~ [?] ~~n~~ [?] ~~e~~ [?] ~~K~~ [?] ~~r~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?] ~~p~~ [?] ~~r~~ [?] ~~o~~ [?] ~~b~~ [?] ~~e~~ [?], ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~e~~ [?] ~~n~~ [?] ~~n~~ [?]
+        <lb/>~~m~~ [?] ~~u~~ [?] ~~t~~ [?] ~~l~~ [?] ~~o~~ [?] ~~s~~ [?], ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~g~~ [?] ~~e~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~n~~ [?] ~~e~~ [?] ~~l~~ [?] ~~l~~ [?] ~~e~~ [?] ~~n~~ [?] ~~W~~ [?] ~~a~~ [?] ~~h~~ [?] ~~r~~ [?] ~~n~~ [?] ~~e~~ [?] ~~h~~ [?] ~~m~~ [?] ~~u~~ [?] ~~n~~ [?] ~~g~~ [?] ~~c~~ [?] ~~e~~ [?] ~~l~~ [?] ~~b~~ [?]
+        <lb/>~~n~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~R~~ [?] ~~e~~ [?] ~~v~~ [?] ~~o~~ [?] ~~l~~ [?] ~~u~~ [?] ~~t~~ [?] ~~i~~ [?] ~~o~~ [?] ~~n~~ [?],
+        <lb/>Goethe isoliert seine Gefühle, ~~k~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~s~~ [?] ~~i~~ [?] ~~e~~ [?] ~~s~~ [?] ~~k~~ [?] ~~e~~ [?] ~~n~~ [?]
+      </p>
+      <pb n="24" facs="#surf_24"/>
+      <p>
+        <lb/>zu Lebensplan
+        <lb/>Goethe Schopenhauer ~~u~~ [?] ~~n~~ [?]
+        <lb/>~~S~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~m~~ [?] ~~e~~ [?] ~~m~~ [?] ~~b~~ [?] ~~o~~ [?] ~~u~~ [?] ~~r~~ [?] ~~g~~ [?] ~~w~~ [?] ~~o~~ [?] ~~h~~ [?] ~~l~~ [?]
+        <lb/>~~s~~ [?] ~~o~~ [?] ~~n~~ [?] ~~u~~ [?] ~~n~~ [?] ~~d~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~W~~ [?] ~~e~~ [?] ~~l~~ [?] ~~t~~ [?] ~~d~~ [?] ~~u~~ [?] ~~w~~ [?] ~~e~~ [?] ~~n~~ [?] ~~n~~ [?] ~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~h~~ [?]
+        <lb/>Gegen den Willen zum Leben immer deutlich der
+        <lb/>~~K~~ [?] ~~ü~~ [?] ~~n~~ [?] ~~s~~ [?] ~~t~~ [?] ~~l~~ [?] ~~e~~ [?] ~~z~~ [?] ~~u~~ [?] ~~L~~ [?] ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~n~~ [?]. ~~W~~ [?] ~~i~~ [?] ~~l~~ [?] ~~l~~ [?] ~~e~~ [?] ~~z~~ [?] ~~u~~ [?] ~~B~~ [?] ~~a~~ [?] ~~u~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~W~~ [?] ~~i~~ [?] ~~l~~ [?] ~~l~~ [?] ~~e~~ [?] ~~z~~ [?] ~~u~~ [?] ~~z~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~ö~~ [?] ~~r~~ [?] ~~e~~ [?] ~~n~~ [?]
+        <lb/>Er zerfetzt gleich die Pläne, kaum dann er zu beginnen
+        <lb/>~~W~~ [?] ~~e~~ [?] ~~r~~ [?] ~~t~~ [?] ~~m~~ [?] ~~i~~ [?] ~~t~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~B~~ [?] ~~i~~ [?] ~~l~~ [?] ~~d~~ [?] ~~u~~ [?] ~~n~~ [?] ~~g~~ [?]. ~~U~~ [?] ~~n~~ [?] ~~d~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~V~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~u~~ [?] ~~n~~ [?] ~~f~~ [?] ~~t~~ [?], ~~D~~ [?] ~~a~~ [?] ~~n~~ [?]
+        <lb/>gleich über zum Gegenteil, ~~s~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~a~~ [?] ~~r~~ [?] ~~t~~ [?] ~~w~~ [?] ~~e~~ [?] ~~r~~ [?] ~~d~~ [?] ~~e~~ [?] ~~n~~ [?]. ~~D~~ [?] ~~a~~ [?] ~~s~~ [?] ~~d~~ [?] ~~u~~ [?] ~~m~~ [?] ~~p~~ [?] ~~f~~ [?] ~~e~~ [?] ~~L~~ [?] ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~n~~ [?]
+        <lb/>(als ob man am Thron Rega lernen könnt)
+        <lb/>alles mit ~~d~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~e~~ [?] ~~r~~ [?] ~~h~~ [?] ~~e~~ [?] ~~r~~ [?] ~~b~~ [?] ~~i~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~e~~ [?] ~~r~~ [?] ~~t~~ [?]
+      </p>
+      <pb n="25" facs="#surf_25"/>
+      <p>
+        <lb/>Unreife, Kindheit der ersten Briefe.
+        <lb/>Bis 25 ein gefahrener nur in seiner Erfahrenheit
+        <lb/>dankbar. ~~H~~ [?] ~~i~~ [?] ~~n~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~f~~ [?] ~~a~~ [?] ~~h~~ [?] ~~r~~ [?] ~~e~~ [?] ~~j~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~s~~ [?] ~~K~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~u~~ [?] ~~m~~ [?], ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~w~~ [?] ~~i~~ [?] ~~r~~ [?] ~~r~~ [?] ~~t~~ [?] ~~e~~ [?] ~~s~~ [?]
+        <lb/>Spätentwickelt. Knabenhaftes Ungetüm
+        <lb/>~~H~~ [?] ~~y~~ [?] ~~b~~ [?] ~~i~~ [?] ~~n~~ [?] ~~r~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~L~~ [?] ~~i~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?] ~~l~~ [?] ~~a~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~n~~ [?] ~~h~~ [?] ~~e~~ [?] ~~i~~ [?] ~~t~~ [?]. ~~R~~ [?] ~~u~~ [?] ~~h~~ [?] ~~s~~ [?] ~~t~~ [?] ~~l~~ [?] ~~o~~ [?] ~~s~~ [?]
+        <lb/>„Die Wahrheit ist, dass ich nur das, was ich
+        <lb/>mir vorstelle, schön finde, nicht was ich lerne“
+        <lb/>~~G~~ [?] ~~e~~ [?] ~~n~~ [?] ~~u~~ [?] ~~s~~ [?] ~~s~~ [?] ~~f~~ [?] ~~ä~~ [?] ~~h~~ [?] ~~i~~ [?] ~~g~~ [?] ~~k~~ [?] ~~e~~ [?] ~~i~~ [?] ~~t~~ [?] ~~j~~ [?] ~~e~~ [?] ~~t~~ [?] ~~z~~ [?] ~~t~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~i~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~P~~ [?] ~~h~~ [?] ~~a~~ [?] ~~n~~ [?] ~~t~~ [?] ~~a~~ [?] ~~s~~ [?] ~~i~~ [?] ~~e~~ [?]
+        <lb/>Gestalten laufen in die Welt wie jene erst
+        <lb/>~~C~~ [?] ~~h~~ [?] ~~r~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?] ~~e~~ [?] ~~n~~ [?], ~~i~~ [?] ~~n~~ [?] ~~j~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~s~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~e~~ [?] ~~l~~ [?] ~~l~~ [?]. ~~L~~ [?] ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~n~~ [?] ~~t~~ [?] ~~z~~ [?] ~~F~~ [?] ~~a~~ [?] ~~h~~ [?] ~~e~~ [?] ~~l~~ [?] ~~n~~ [?].
+        <lb/>„ich hoffe bloß, weil ich es nicht lassen kann“
+        <lb/>Er müsste ruhig sagen, weil es mich auch läßt. Sein einziger
+        <lb/>~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~h~~ [?] ~~l~~ [?]. ~~I~~ [?] ~~n~~ [?] ~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~r~~ [?] ~~G~~ [?] ~~r~~ [?] ~~o~~ [?] ~~ß~~ [?] ~~e~~ [?] ~~s~~ [?] ~~t~~ [?] ~~ö~~ [?] ~~r~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~m~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?], ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~d~~ [?] ~~e~~ [?] ~~n~~ [?] ~~ü~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~m~~ [?]
+        <lb/>er mich. ~~D~~ [?] ~~u~~ [?] ~~l~~ [?] ~~d~~ [?] ~~u~~ [?] ~~n~~ [?] ~~g~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~z~~ [?] ~~i~~ [?] ~~g~~ [?] ~~e~~ [?] ~~E~~ [?] ~~n~~ [?] ~~t~~ [?] ~~l~~ [?] ~~a~~ [?] ~~d~~ [?] ~~i~~ [?] ~~g~~ [?] ~~u~~ [?] ~~n~~ [?] ~~g~~ [?], ~~w~~ [?] ~~o~~ [?] ~~e~~ [?] ~~r~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?]
+        <lb/>seiner Unvollkommenheit ~~f~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~e~~ [?] ~~h~~ [?] ~~t~~ [?].
+        <lb/>~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~o~~ [?] ~~r~~ [?] ~~e~~ [?] ~~n~~ [?]: ~~d~~ [?] ~~r~~ [?] ~~a~~ [?] ~~n~~ [?] ~~g~~ [?] ~~n~~ [?] ~~a~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~u~~ [?] ~~ß~~ [?] ~~e~~ [?] ~~n~~ [?]. ~~D~~ [?] ~~a~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~K~~ [?]
+        <lb/>~~g~~ [?] ~~l~~ [?] ~~ü~~ [?] ~~c~~ [?] ~~k~~ [?]. ~~h~~ [?] ~~e~~ [?] ~~r~~ [?] ~~v~~ [?] ~~o~~ [?] ~~r~~ [?] ~~t~~ [?]: ~~a~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~d~~ [?] ~~a~~ [?] ~~b~~ [?] ~~e~~ [?] ~~i~~ [?] ~~f~~ [?] ~~ü~~ [?] ~~r~~ [?] ~~c~~ [?] ~~h~~ [?] ~~t~~ [?] ~~b~~ [?] ~~a~~ [?] ~~r~~ [?] ~~k~~ [?] ~~l~~ [?] ~~a~~ [?] ~~r~~ [?]: ~~d~~ [?] ~~a~~ [?] ~~s~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?]
+        <lb/>~~a~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~g~~ [?] ~~l~~ [?] ~~ü~~ [?] ~~c~~ [?] ~~k~~ [?]. ~~S~~ [?] ~~e~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?] ~~s~~ [?] ~~a~~ [?] ~~h~~ [?] ~~e~~ [?], ~~M~~ [?] ~~a~~ [?] ~~r~~ [?] ~~t~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~G~~ [?] ~~e~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~n~~ [?] ~~i~~ [?] ~~m~~ [?] ~~m~~ [?] ~~e~~ [?] ~~r~~ [?]
+        <lb/>~~K~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~n~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~t~~ [?] ~~d~~ [?] ~~u~~ [?] ~~r~~ [?] ~~c~~ [?] ~~h~~ [?] ~~b~~ [?] ~~r~~ [?] ~~e~~ [?] ~~c~~ [?] ~~h~~ [?] ~~e~~ [?] ~~n~~ [?]
+        <lb/>~~F~~ [?] ~~l~~ [?] ~~i~~ [?] ~~e~~ [?] ~~h~~ [?] ~~t~~ [?] ~~v~~ [?] ~~o~~ [?] ~~r~~ [?] ~~i~~ [?] ~~h~~ [?] ~~r~~ [?] ~~n~~ [?] ~~u~~ [?] ~~r~~ [?] ~~e~~ [?] ~~r~~ [?] ~~g~~ [?] ~~a~~ [?] ~~p~~ [?] ~~t~~ [?] ~~s~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~i~~ [?] ~~n~~ [?] ~~j~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~P~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?]
+        <lb/>~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~V~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~j~~ [?] ~~a~~ [?] ~~h~~ [?] ~~t~~ [?] ~~i~~ [?] ~~m~~ [?] ~~m~~ [?] ~~e~~ [?] ~~r~~ [?] ~~d~~ [?] ~~r~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?], ~~e~~ [?] ~~r~~ [?] ~~r~~ [?] ~~e~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~t~~ [?] ~~i~~ [?] ~~h~~ [?] ~~i~~ [?] ~~m~~ [?] ~~m~~ [?] ~~e~~ [?] ~~r~~ [?], ~~o~~ [?] ~~h~~ [?]
+        <lb/>~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~H~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?], ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~g~~ [?] ~~l~~ [?] ~~ü~~ [?] ~~c~~ [?] ~~k~~ [?] ~~s~~ [?] ~~e~~ [?] ~~l~~ [?] ~~i~~ [?] ~~g~~ [?] ~~e~~ [?] ~~V~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?]
+        <lb/>~~G~~ [?] ~~r~~ [?] ~~i~~ [?] ~~e~~ [?] ~~d~~ [?] ~~o~~ [?] ~~r~~ [?] ~~f~~ [?] ~~J~~ [?] ~~a~~ [?] ~~h~~ [?] ~~r~~ [?], ~~m~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~V~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?]. ~~L~~ [?] ~~a~~ [?] ~~n~~ [?] ~~g~~ [?] ~~s~~ [?] ~~a~~ [?] ~~m~~ [?] ~~v~~ [?] ~~o~~ [?] ~~r~~ [?]
+        <lb/>~~d~~ [?] ~~r~~ [?] ~~i~~ [?] ~~n~~ [?] ~~g~~ [?] ~~t~~ [?], ~~a~~ [?] ~~u~~ [?] ~~n~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~D~~ [?] ~~ü~~ [?] ~~r~~ [?] ~~r~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?]
+      </p>
+      <pb n="26" facs="#surf_26"/>
+      <p>
+        <lb/>Sinn für das dramatische, weil er fix des
+        <lb/>Gegensatzes fühlte. Das Zusammenprallen
+        <lb/>~~S~~ [?] ~~i~~ [?] ~~l~~ [?] ~~w~~ [?] ~~a~~ [?] ~~r~~ [?] ~~m~~ [?] ~~e~~ [?] ~~r~~ [?] ~~e~~ [?] ~~k~~ [?] ~~r~~ [?] ~~a~~ [?] ~~n~~ [?] ~~k~~ [?] ~~h~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~w~~ [?] ~~i~~ [?] ~~r~~ [?] ~~m~~ [?] ~~i~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~h~~ [?]
+        <lb/>~~m~~ [?] ~~e~~ [?] ~~r~~ [?] ~~A~~ [?] ~~r~~ [?] ~~t~~ [?] ~~w~~ [?] ~~i~~ [?] ~~e~~ [?] ~~e~~ [?] ~~r~~ [?] ~~v~~ [?] ~~o~~ [?] ~~n~~ [?] ~~s~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~m~~ [?] ~~K~~ [?] ~~o~~ [?] ~~p~~ [?] ~~f~~ [?] ~~a~~ [?] ~~u~~ [?] ~~s~~ [?] ~~s~~ [?] ~~a~~ [?] ~~g~~ [?]
+        <lb/>Goethe u er gebe ein kantonen nur ~~B~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~u~~ [?] ~~t~~ [?] ~~u~~ [?] ~~n~~ [?] ~~g~~ [?]
+        <lb/>~~g~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~s~~ [?], ~~m~~ [?] ~~i~~ [?] ~~t~~ [?] ~~d~~ [?] ~~e~~ [?] ~~m~~ [?] ~~s~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~d~~ [?] ~~u~~ [?] ~~d~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~t~~ [?] ~~l~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~t~~ [?] ~~b~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~o~~ [?] ~~h~~ [?] ~~s~~ [?] ~~o~~ [?]
+        <lb/>~~h~~ [?] ~~a~~ [?] ~~n~~ [?] ~~s~~ [?] ~~t~~ [?] ~~r~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~B~~ [?] ~~e~~ [?] ~~f~~ [?] ~~a~~ [?] ~~n~~ [?] ~~g~~ [?] ~~n~~ [?] ~~w~~ [?] ~~e~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~b~~ [?] ~~e~~ [?] ~~f~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~n~~ [?] ~~n~~ [?] ~~o~~ [?] ~~c~~ [?] ~~h~~ [?] ~~a~~ [?] ~~u~~ [?] ~~s~~ [?] ~~s~~ [?] ~~o~~ [?] ~~p~~ [?] ~~f~~ [?] ~~e~~ [?] ~~n~~ [?]
+        <lb/>~~k~~ [?] ~~o~~ [?] ~~n~~ [?] ~~n~~ [?] ~~t~~ [?] ~~e~~ [?] ~~“~~ [?] ~~N~~ [?] ~~o~~ [?] ~~v~~ [?] ~~e~~ [?] ~~l~~ [?] ~~l~~ [?] ~~e~~ [?] ~~n~~ [?] ~~j~~ [?] ~~a~~ [?] ~~f~~ [?] ~~a~~ [?] ~~l~~ [?] ~~l~~ [?], ~~a~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~t~~ [?] ~~v~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~u~~ [?] ~~c~~ [?] ~~h~~ [?] ~~e~~ [?] ~~n~~ [?], ~~d~~ [?] ~~u~~ [?]
+        <lb/>~~G~~ [?] ~~e~~ [?] ~~r~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~a~~ [?] ~~l~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~W~~ [?] ~~e~~ [?] ~~l~~ [?] ~~l~~ [?] ~~j~~ [?] ~~e~~ [?] ~~i~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?], ~~e~~ [?] ~~w~~ [?] ~~i~~ [?] ~~g~~ [?] ~~e~~ [?] ~~h~~ [?] ~~a~~ [?] ~~r~~ [?] ~~h~~ [?] ~~t~~ [?], ~~d~~ [?] ~~r~~ [?] ~~u~~ [?] ~~n~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~a~~ [?] ~~n~~ [?]
+        <lb/>~~g~~ [?] ~~o~~ [?] ~~t~~ [?] ~~t~~ [?] ~~h~~ [?] ~~a~~ [?] ~~f~~ [?] ~~t~~ [?] ~~e~~ [?] ~~G~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?], ~~m~~ [?] ~~i~~ [?] ~~t~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~t~~ [?] ~~i~~ [?] ~~e~~ [?] ~~n~~ [?] ~~f~~ [?] ~~e~~ [?] ~~s~~ [?] ~~t~~ [?] ~~e~~ [?] ~~n~~ [?], ~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~s~~ [?] ~~e~~ [?] ~~r~~ [?] ~~G~~ [?] ~~e~~ [?] ~~r~~ [?] ~~n~~ [?] ~~y~~ [?] ~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~g~~ [?] ~~e~~ [?] ~~n~~ [?]
+        <lb/>~~b~~ [?] ~~i~~ [?] ~~m~~ [?] ~~a~~ [?] ~~n~~ [?] ~~i~~ [?] ~~s~~ [?] ~~t~~ [?], ~~d~~ [?] ~~a~~ [?] ~~s~~ [?] ~~e~~ [?] ~~r~~ [?] ~~d~~ [?] ~~u~~ [?] ~~r~~ [?] ~~c~~ [?] ~~h~~ [?] ~~W~~ [?] ~~e~~ [?] ~~l~~ [?] ~~t~~ [?] ~~a~~ [?] ~~l~~ [?] ~~l~~ [?] ~~g~~ [?] ~~i~~ [?] ~~n~~ [?] ~~g~~ [?]
+        <lb/>~~p~~ [?] ~~r~~ [?] ~~o~~ [?] ~~b~~ [?] ~~l~~ [?] ~~e~~ [?] ~~m~~ [?] ~~a~~ [?] ~~t~~ [?] ~~i~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~e~~ [?] ~~s~~ [?] ~~T~~ [?] ~~h~~ [?] ~~e~~ [?] ~~a~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~t~~ [?] ~~ü~~ [?] ~~c~~ [?] ~~k~~ [?]
+        <lb/>~~I~~ [?] ~~m~~ [?] ~~a~~ [?] ~~g~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~s~~ [?] ~~T~~ [?] ~~h~~ [?] ~~e~~ [?] ~~a~~ [?] ~~t~~ [?] ~~e~~ [?] ~~r~~ [?]
+        <lb/>~~K~~ [?] ~~ä~~ [?] ~~t~~ [?] ~~h~~ [?] ~~c~~ [?] ~~h~~ [?] ~~e~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~e~~ [?] ~~P~~ [?] ~~o~~ [?] ~~l~~ [?] ~~d~~ [?] ~~e~~ [?] ~~r~~ [?] ~~P~~ [?] ~~e~~ [?] ~~u~~ [?] ~~t~~ [?] ~~h~~ [?] ~~e~~ [?] ~~r~~ [?] ~~i~~ [?] ~~t~~ [?] ~~e~~ [?] ~~a~~ [?],
+        <lb/>~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~W~~ [?] ~~e~~ [?] ~~s~~ [?] ~~e~~ [?] ~~n~~ [?], ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~n~~ [?] ~~s~~ [?] ~~o~~ [?] ~~m~~ [?] ~~a~~ [?] ~~r~~ [?] ~~k~~ [?] ~~l~~ [?] ~~i~~ [?] ~~j~~ [?] ~~d~~ [?] ~~u~~ [?] ~~r~~ [?] ~~c~~ [?] ~~h~~ [?] ~~g~~ [?] ~~a~~ [?] ~~n~~ [?] ~~z~~ [?] ~~l~~ [?] ~~i~~ [?] ~~c~~ [?] ~~h~~ [?] ~~H~~ [?] ~~i~~ [?] ~~n~~ [?] ~~g~~ [?] ~~a~~ [?] ~~b~~ [?]
+        <lb/>~~w~~ [?] ~~i~~ [?] ~~e~~ [?] ~~j~~ [?] ~~e~~ [?] ~~n~~ [?] ~~e~~ [?] ~~d~~ [?] ~~u~~ [?] ~~r~~ [?] ~~c~~ [?] ~~h~~ [?] ~~H~~ [?] ~~a~~ [?] ~~n~~ [?] ~~d~~ [?] ~~e~~ [?] ~~l~~ [?] ~~n~~ [?]
+        <lb/>„Verflucht das Herz, das ich nicht
+        <lb/>mäßigen kann.“
+        <lb/>~~K~~ [?] ~~a~~ [?] ~~t~~ [?] ~~h~~ [?] ~~e~~ [?] ~~n~~ [?] ~~t~~ [?] ~~e~~ [?] ~~a~~ [?]
+        <lb/>~~P~~ [?] ~~a~~ [?] ~~u~~ [?] ~~t~~ [?] ~~h~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~i~~ [?] ~~a~~ [?] ~~O~~ [?] ~~r~~ [?] ~~g~~ [?] ~~i~~ [?] ~~e~~ [?]. ~~W~~ [?] ~~i~~ [?] ~~e~~ [?] ~~B~~ [?] ~~a~~ [?] ~~r~~ [?] ~~b~~ [?] ~~a~~ [?] ~~r~~ [?] ~~o~~ [?] ~~s~~ [?] ~~a~~ [?] ~~l~~ [?] ~~e~~ [?] ~~r~~ [?], ~~M~~ [?] ~~a~~ [?] ~~u~~ [?] ~~e~~ [?] ~~r~~ [?]
+        <lb/>~~a~~ [?] ~~u~~ [?] ~~f~~ [?] ~~d~~ [?] ~~e~~ [?] ~~m~~ [?] ~~B~~ [?] ~~i~~ [?] ~~s~~ [?] ~~c~~ [?] ~~h~~ [?] ~~o~~ [?] ~~f~~ [?] ~~k~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~e~~ [?] ~~r~~ [?] ~~W~~ [?] ~~e~~ [?] ~~s~~ [?] ~~e~~ [?] ~~n~~ [?] ~~s~~ [?], ~~P~~ [?] ~~l~~ [?] ~~a~~ [?] ~~t~~ [?] ~~i~~ [?] ~~n~~ [?] ~~a~~ [?] ~~n~~ [?] ~~h~~ [?] ~~a~~ [?] ~~d~~ [?] ~~a~~ [?] ~~n~~ [?]
+        <lb/>~~s~~ [?] ~~t~~ [?] ~~a~~ [?] ~~u~~ [?] ~~b~~ [?] ~~l~~ [?] ~~i~~ [?] ~~e~~ [?] ~~b~~ [?] ~~e~~ [?] ~~r~~ [?] ~~d~~ [?] ~~i~~ [?] ~~e~~ [?] ~~e~~ [?] ~~i~~ [?] ~~n~~ [?] ~~W~~ [?] ~~a~~ [?] ~~s~~ [?] ~~s~~ [?] ~~e~~ [?] ~~r~~ [?], ~~d~~ [?] ~~a~~ [?] ~~s~~ [?] ~~k~~ [?] ~~e~~ [?] ~~r~~ [?] ~~l~~ [?] ~~r~~ [?] ~~e~~ [?] ~~g~~ [?] ~~t~~ [?]
+      </p>
+      <pb n="27" facs="#surf_27"/>
+      <pb n="28" facs="#surf_28"/>
+      <pb n="29" facs="#surf_29"/>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Brief an Stefan Zweig vom 27. Juni 1944, SZ-AAP/B14</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.1437</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="en"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.1437/IMG.25"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1437">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Bodwenog
+        <lb/>Llangranog
+        <lb/>Llandyssul
+        <lb/>Cards.
+        <lb/>27.6.44
+      </p>
+      <p>
+        <lb/>Dear Mr Zweig,
+      </p>
+      <p>
+        <lb/>Having just finished
+        <lb/>reading with much interest
+        <lb/>your book 'The World of
+        <lb/>yesterday', I felt that perhaps
+        <lb/>you would be patient with
+        <lb/>a very amateur poet such
+        <lb/>as myself, and might if you
+        <lb/>can spare the time, read the
+        <lb/>few enclosed poems, &amp; give
+        <lb/>a candid verdict upon them.
+        <lb/>Oh! I know they contain
+        <lb/>many faults, &amp; that I've a
+        <lb/>long way to go to get anywhere
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>near perfection, but do you
+        <lb/>think I stand any chance? That
+        <lb/>I shall always have to
+        <lb/>write down what appeals to
+        <lb/>me I know, no matter how
+        <lb/>adverse your criticism, still
+        <lb/>I would be very grateful
+        <lb/>for a little advice.
+        <lb/>I am evacuated with my
+        <lb/>children to a tiny village &amp;
+        <lb/>the chances of meeting literary
+        <lb/>people whose discussion etc
+        <lb/>would be so helpful is nil.
+        <lb/>That is why I take this great
+        <lb/>liberty and am writing to
+        <lb/>you.
+        <lb/>Of course I enclose only a
+        <lb/>few poems, but as they are
+        <lb/>all as bad as each other
+        <lb/>it matters little which I
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>send. I've had fews published
+        <lb/>in little papers, but do
+        <lb/>want to really know their
+        <lb/>worth, if any.
+      </p>
+      <p>
+        <lb/>Yours very sincerely
+        <lb/>Betty Cohen
+        <lb/>(Mrs Meyer Cohen)
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>Planes at Midnight.
+      </p>
+      <p>
+        <lb/>I've watched you thread your way amongst the
+        <lb/>stars,
+        <lb/>And cast your shadow on the languid moon.
+        <lb/>I've heard the throb, throb, throbbing of
+        <lb/>your heart,
+        <lb/>And wondered did you ride the wings of doom?
+        <lb/>Fresh constellations to the night you bring,
+        <lb/>Of red and green and honeyed amber hue,
+        <lb/>Whilst jealously the winking stars look on,
+        <lb/>Palely envious at the sight of you
+        <lb/>Who drain the colour from their flashing eyes,
+        <lb/>With brighter shades than they can ever wear,
+        <lb/>And sweep across the highway of the skies,
+        <lb/>Whilst stars and planets and the comets stare.
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>After War
+      </p>
+      <p>
+        <lb/>Man.
+        <lb/>What follows in thy wake,
+        <lb/>O flood of War?
+      </p>
+      <p>
+        <lb/>War.
+        <lb/>Disease and famine, death at many a door,
+        <lb/>O foolish man.
+      </p>
+      <p>
+        <lb/>Man.
+        <lb/>Yet if we toil and dredge thy dreadful silt
+        <lb/>What mayn't we find?
+      </p>
+      <p>
+        <lb/>War,
+        <lb/>Lost hopes and dreams by others left
+        <lb/>behind.
+      </p>
+      <p>
+        <lb/>Man.
+        <lb/>Ah then I know that all is not in vain;
+        <lb/>With dreams and hope we'll build our
+        <lb/>lives again.
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>Ploughing 1944.
+      </p>
+      <p>
+        <lb/>Over the crest of the hill there came,
+        <lb/>Not the straining team,
+        <lb/>With the flowing mane,
+        <lb/>Or the ploughman
+        <lb/>Astraddle the furrows lane,
+        <lb/>But over the crest of the hill there came,
+        <lb/>A tractor.
+      </p>
+      <p>
+        <lb/>Over the crest of the hill there goes,
+        <lb/>Not the sweating flanks
+        <lb/>As the furrow grows,
+        <lb/>But a robot
+        <lb/>Aclawing its treble rows.
+        <lb/>Over the crest of the hill there goes,
+        <lb/>A tractor.
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>Thoughts in Wartime;
+        <lb/>The Mother
+        <lb/>How can my love avail them any more?
+        <lb/>Most willingly would I my breast have bared,
+        <lb/>To the most naked steel,
+        <lb/>But mother-love is helpless against War.
+        <lb/>And all that now I feel,
+        <lb/>Is this my heart abeating in my head,
+        <lb/>Like some great war-drum,
+        <lb/>Drumming dread, dread, dread,
+        <lb/>Lest they be dead.
+      </p>
+      <p>
+        <lb/>The Old Man.
+        <lb/>I who am old, and have not long to stay,
+        <lb/>Look sadly on this battle-stricken World.
+        <lb/>What good my sojourn here?
+        <lb/>I too have fought battles in my day,
+        <lb/>To end all wars and fear.
+        <lb/>And now my pulse beats slower like the tread
+        <lb/>Of weary marching feet,
+        <lb/>Over my head, head, head,
+        <lb/>When I am dead.
+      </p>
+      <p>
+        <lb/>The Sweetheart.
+        <lb/>I held you but a little while ago,
+        <lb/>Before the hands of War tore you away,
+        <lb/>And I was left behind.
+        <lb/>Remember that I love you, love you so.
+        <lb/>Supposing I should find,
+        <lb/>You maimed. What have I said?
+        <lb/>My heart pounds so,
+        <lb/>With awful dread, dread, dread,
+        <lb/>Lest you be dead.
+      </p>
+      <p>
+        <lb/>Youth
+        <lb/>What strange horizons lie in wait for me?
+        <lb/>What glories for the picking at my feet?
+        <lb/>Intoxicating thought.
+        <lb/>If this Old Devil War be kind, I'll see
+        <lb/>A thousand wonders wrought.
+        <lb/>My blood runs fast and high,
+        <lb/>Singing 'wed, wed, wed,'
+        <lb/>Lest you fall dead.
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>Sympathisers.
+      </p>
+      <p>
+        <lb/>When much in need of sympathy
+        <lb/>The owls came to comfort me.
+        <lb/>From ruined tower and lichened free,
+        <lb/>They came to bear me company.
+        <lb/>"Strange company" I hear you say,
+        <lb/>You who know happiness and day,
+        <lb/>But I who sorrowed in the night
+        <lb/>Dreaded your happiness and light.
+        <lb/>The sympathy of man's a clumsy thing.
+        <lb/>Not to compare with that the owls bring.
+        <lb/>They come in silence,
+        <lb/>They do not intrude,
+        <lb/>Strange is their music,
+        <lb/>Fitting to the mood,
+        <lb/>Of sadness.
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>Mosquitoes
+        <lb/>"Mosquitoes lais mines in enemy waters"--News
+      </p>
+      <p>
+        <lb/>Mosquitoes laying eggs,
+        <lb/>Have ever been,
+        <lb/>A curse to human life.
+        <lb/>They lay unseen
+        <lb/>Within the waters,
+        <lb/>And there beyond the view
+        <lb/>Of human eye,
+        <lb/>They hatch their deadly brood,
+        <lb/>And men must die.
+      </p>
+      <p>
+        <lb/>Now man himself has learned,
+        <lb/>This lesson too,
+        <lb/>From this descerning fly,
+        <lb/>And 'neath the blue,
+        <lb/>A lethal weapon lays.
+        <lb/>Silently lurking there,
+        <lb/>Cold lone and still,
+        <lb/>Awaiting too
+        <lb/>The hour to rise and kill.
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>Spring 1944.
+        <lb/>There will come other Springs, and yet to me
+        <lb/>Of all the lovely ones that were, or are to be
+        <lb/>None will within its vernal fingers hold
+        <lb/>Such poignancy for all, both young and old
+        <lb/>As this strange season that with bated breath
+        <lb/>We greet, for 'tis the harbinger of death.
+        <lb/>Aye death to oh so many, who can say
+        <lb/>What each swift minute bring, far less a day.
+        <lb/>This being so I feel each leaf to be
+        <lb/>More beautiful by death's proximity.
+        <lb/>Each celandine with lacquered petals bright,
+        <lb/>Is there I feel for naught but my delight,
+        <lb/>And I must hasten speedily to find,
+        <lb/>In some warm spot sequestered from the wind,
+        <lb/>The first half opened primroses, for these
+        <lb/>May be the last I pluck beneath the trees.
+        <lb/>And oh sweet season as your days grow mild
+        <lb/>May I with some lighthearted laughing child,
+        <lb/>Down the green lanes and midst the wood forget
+        <lb/>The war, whilst finding the first violet.
+        <lb/>Once Itwas the aged who with sad quiv'ring
+        <lb/>sighs,
+        <lb/>Watched the approach of Spring with misty eyes
+        <lb/>Yet many a youthful eye with tears o're brimme
+        <lb/>Will see this seasons glory so bedimmed.
+        <lb/>Fearful as are the old lest it should be,
+        <lb/>The last that may be granted them to see.
+        <lb/>I must away, each moment must I fill
+        <lb/>With beauty from each dale and wood and hill.
+        <lb/>Who knows but that the other Springs to be,
+        <lb/>Are seasons I myself may never see.
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <pb n="21" facs="#surf_21"/>
+      <p>
+        <lb/>D-Day June 6th. 1944.
+      </p>
+      <p>
+        <lb/>Dip your banners, mute your drums,
+        <lb/>For here through Hell the vanguard comes.
+        <lb/>No inquisition could decree
+        <lb/>A greater torture than we see,
+        <lb/>Wrought in the name of Liberty.
+      </p>
+      <p>
+        <lb/>Bow your heads and clasp your hands.
+        <lb/>Pray for the men of the Peaceful Lands.
+        <lb/>Pray we may keep alight the flame,
+        <lb/>That they have kindled in our name,
+        <lb/>Upon the Alter of the Slain.
+      </p>
+      <pb n="22" facs="#surf_22"/>
+      <pb n="23" facs="#surf_23"/>
+      <p>
+        <lb/>Flying Bombs
+      </p>
+      <p>
+        <lb/>The Hoards of Hell ride out, ride out,
+        <lb/>Ride out on steely steeds.
+        <lb/>Foaled in the Stygian pastures,
+        <lb/>Where Dire destruction breeds.
+      </p>
+      <p>
+        <lb/>Concieved by the Mare of Madness,
+        <lb/>From the stallion Madmans Mirth,
+        <lb/>They were born to bear the Jockeys of Death,
+        <lb/>Over the Styx to Earth.
+      </p>
+      <pb n="24" facs="#surf_24"/>
+      <pb n="25" facs="#surf_25"/>
+      <p>
+        <lb/>Flying Bombs
+      </p>
+      <p>
+        <lb/>The Hoards of Hell ride out, ride out,
+        <lb/>Ride out on steely steeds.
+        <lb/>Foaled in the Stygian pastures,
+        <lb/>Where Dire destruction breeds.
+      </p>
+      <p>
+        <lb/>Concieved by the Mare of Madness,
+        <lb/>From the stallion Madmans Mirth,
+        <lb/>They were born to bear the Jockeys of Death,
+        <lb/>Over the Styx to Earth.
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

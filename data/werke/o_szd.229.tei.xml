@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Werknotizen 3</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W41</idno>
+            <idno type="objectId">o_szd.229</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.25"/>
+    </surface>
+    <surface xml:id="surf_26">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.26"/>
+    </surface>
+    <surface xml:id="surf_27">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.27"/>
+    </surface>
+    <surface xml:id="surf_28">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.28"/>
+    </surface>
+    <surface xml:id="surf_29">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.29"/>
+    </surface>
+    <surface xml:id="surf_30">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.30"/>
+    </surface>
+    <surface xml:id="surf_31">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.31"/>
+    </surface>
+    <surface xml:id="surf_32">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.32"/>
+    </surface>
+    <surface xml:id="surf_33">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.33"/>
+    </surface>
+    <surface xml:id="surf_34">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.34"/>
+    </surface>
+    <surface xml:id="surf_35">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.35"/>
+    </surface>
+    <surface xml:id="surf_36">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.36"/>
+    </surface>
+    <surface xml:id="surf_37">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.37"/>
+    </surface>
+    <surface xml:id="surf_38">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.38"/>
+    </surface>
+    <surface xml:id="surf_39">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.39"/>
+    </surface>
+    <surface xml:id="surf_40">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.40"/>
+    </surface>
+    <surface xml:id="surf_41">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.41"/>
+    </surface>
+    <surface xml:id="surf_42">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.42"/>
+    </surface>
+    <surface xml:id="surf_43">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.43"/>
+    </surface>
+    <surface xml:id="surf_44">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.44"/>
+    </surface>
+    <surface xml:id="surf_45">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.45"/>
+    </surface>
+    <surface xml:id="surf_46">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.46"/>
+    </surface>
+    <surface xml:id="surf_47">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.47"/>
+    </surface>
+    <surface xml:id="surf_48">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.48"/>
+    </surface>
+    <surface xml:id="surf_49">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.49"/>
+    </surface>
+    <surface xml:id="surf_50">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.50"/>
+    </surface>
+    <surface xml:id="surf_51">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.51"/>
+    </surface>
+    <surface xml:id="surf_52">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.52"/>
+    </surface>
+    <surface xml:id="surf_53">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.53"/>
+    </surface>
+    <surface xml:id="surf_54">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.54"/>
+    </surface>
+    <surface xml:id="surf_55">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.55"/>
+    </surface>
+    <surface xml:id="surf_56">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.56"/>
+    </surface>
+    <surface xml:id="surf_57">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.57"/>
+    </surface>
+    <surface xml:id="surf_58">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.58"/>
+    </surface>
+    <surface xml:id="surf_59">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.59"/>
+    </surface>
+    <surface xml:id="surf_60">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.60"/>
+    </surface>
+    <surface xml:id="surf_61">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.61"/>
+    </surface>
+    <surface xml:id="surf_62">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.62"/>
+    </surface>
+    <surface xml:id="surf_63">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.63"/>
+    </surface>
+    <surface xml:id="surf_64">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.64"/>
+    </surface>
+    <surface xml:id="surf_65">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.65"/>
+    </surface>
+    <surface xml:id="surf_66">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.66"/>
+    </surface>
+    <surface xml:id="surf_67">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.67"/>
+    </surface>
+    <surface xml:id="surf_68">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.68"/>
+    </surface>
+    <surface xml:id="surf_69">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.69"/>
+    </surface>
+    <surface xml:id="surf_70">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.70"/>
+    </surface>
+    <surface xml:id="surf_71">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.71"/>
+    </surface>
+    <surface xml:id="surf_72">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.72"/>
+    </surface>
+    <surface xml:id="surf_73">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.73"/>
+    </surface>
+    <surface xml:id="surf_74">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.74"/>
+    </surface>
+    <surface xml:id="surf_75">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.75"/>
+    </surface>
+    <surface xml:id="surf_76">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.76"/>
+    </surface>
+    <surface xml:id="surf_77">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.77"/>
+    </surface>
+    <surface xml:id="surf_78">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.78"/>
+    </surface>
+    <surface xml:id="surf_79">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.79"/>
+    </surface>
+    <surface xml:id="surf_80">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.80"/>
+    </surface>
+    <surface xml:id="surf_81">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.81"/>
+    </surface>
+    <surface xml:id="surf_82">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.82"/>
+    </surface>
+    <surface xml:id="surf_83">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.83"/>
+    </surface>
+    <surface xml:id="surf_84">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.84"/>
+    </surface>
+    <surface xml:id="surf_85">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.85"/>
+    </surface>
+    <surface xml:id="surf_86">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.86"/>
+    </surface>
+    <surface xml:id="surf_87">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.87"/>
+    </surface>
+    <surface xml:id="surf_88">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.88"/>
+    </surface>
+    <surface xml:id="surf_89">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.89"/>
+    </surface>
+    <surface xml:id="surf_90">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.90"/>
+    </surface>
+    <surface xml:id="surf_91">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.91"/>
+    </surface>
+    <surface xml:id="surf_92">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.92"/>
+    </surface>
+    <surface xml:id="surf_93">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.93"/>
+    </surface>
+    <surface xml:id="surf_94">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.94"/>
+    </surface>
+    <surface xml:id="surf_95">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.95"/>
+    </surface>
+    <surface xml:id="surf_96">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.96"/>
+    </surface>
+    <surface xml:id="surf_97">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.97"/>
+    </surface>
+    <surface xml:id="surf_98">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.98"/>
+    </surface>
+    <surface xml:id="surf_99">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.99"/>
+    </surface>
+    <surface xml:id="surf_100">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.100"/>
+    </surface>
+    <surface xml:id="surf_101">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.101"/>
+    </surface>
+    <surface xml:id="surf_102">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.102"/>
+    </surface>
+    <surface xml:id="surf_103">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.103"/>
+    </surface>
+    <surface xml:id="surf_104">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.104"/>
+    </surface>
+    <surface xml:id="surf_105">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.105"/>
+    </surface>
+    <surface xml:id="surf_106">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.106"/>
+    </surface>
+    <surface xml:id="surf_107">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.107"/>
+    </surface>
+    <surface xml:id="surf_108">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.108"/>
+    </surface>
+    <surface xml:id="surf_109">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.109"/>
+    </surface>
+    <surface xml:id="surf_110">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.110"/>
+    </surface>
+    <surface xml:id="surf_111">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.111"/>
+    </surface>
+    <surface xml:id="surf_112">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.112"/>
+    </surface>
+    <surface xml:id="surf_113">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.113"/>
+    </surface>
+    <surface xml:id="surf_114">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.114"/>
+    </surface>
+    <surface xml:id="surf_115">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.115"/>
+    </surface>
+    <surface xml:id="surf_116">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.116"/>
+    </surface>
+    <surface xml:id="surf_117">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.117"/>
+    </surface>
+    <surface xml:id="surf_118">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.118"/>
+    </surface>
+    <surface xml:id="surf_119">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.119"/>
+    </surface>
+    <surface xml:id="surf_120">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.120"/>
+    </surface>
+    <surface xml:id="surf_121">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.121"/>
+    </surface>
+    <surface xml:id="surf_122">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.122"/>
+    </surface>
+    <surface xml:id="surf_123">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.123"/>
+    </surface>
+    <surface xml:id="surf_124">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.124"/>
+    </surface>
+    <surface xml:id="surf_125">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.125"/>
+    </surface>
+    <surface xml:id="surf_126">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.126"/>
+    </surface>
+    <surface xml:id="surf_127">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.127"/>
+    </surface>
+    <surface xml:id="surf_128">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.128"/>
+    </surface>
+    <surface xml:id="surf_129">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.129"/>
+    </surface>
+    <surface xml:id="surf_130">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.130"/>
+    </surface>
+    <surface xml:id="surf_131">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.131"/>
+    </surface>
+    <surface xml:id="surf_132">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.132"/>
+    </surface>
+    <surface xml:id="surf_133">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.133"/>
+    </surface>
+    <surface xml:id="surf_134">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.134"/>
+    </surface>
+    <surface xml:id="surf_135">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.135"/>
+    </surface>
+    <surface xml:id="surf_136">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.136"/>
+    </surface>
+    <surface xml:id="surf_137">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.137"/>
+    </surface>
+    <surface xml:id="surf_138">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.138"/>
+    </surface>
+    <surface xml:id="surf_139">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.139"/>
+    </surface>
+    <surface xml:id="surf_140">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.140"/>
+    </surface>
+    <surface xml:id="surf_141">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.141"/>
+    </surface>
+    <surface xml:id="surf_142">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.142"/>
+    </surface>
+    <surface xml:id="surf_143">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.143"/>
+    </surface>
+    <surface xml:id="surf_144">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.144"/>
+    </surface>
+    <surface xml:id="surf_145">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.145"/>
+    </surface>
+    <surface xml:id="surf_146">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.146"/>
+    </surface>
+    <surface xml:id="surf_147">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.147"/>
+    </surface>
+    <surface xml:id="surf_148">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.148"/>
+    </surface>
+    <surface xml:id="surf_149">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.149"/>
+    </surface>
+    <surface xml:id="surf_150">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.150"/>
+    </surface>
+    <surface xml:id="surf_151">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.151"/>
+    </surface>
+    <surface xml:id="surf_152">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.152"/>
+    </surface>
+    <surface xml:id="surf_153">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.153"/>
+    </surface>
+    <surface xml:id="surf_154">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.154"/>
+    </surface>
+    <surface xml:id="surf_155">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.155"/>
+    </surface>
+    <surface xml:id="surf_156">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.156"/>
+    </surface>
+    <surface xml:id="surf_157">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.157"/>
+    </surface>
+    <surface xml:id="surf_158">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.158"/>
+    </surface>
+    <surface xml:id="surf_159">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.159"/>
+    </surface>
+    <surface xml:id="surf_160">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.160"/>
+    </surface>
+    <surface xml:id="surf_161">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.161"/>
+    </surface>
+    <surface xml:id="surf_162">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.162"/>
+    </surface>
+    <surface xml:id="surf_163">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.163"/>
+    </surface>
+    <surface xml:id="surf_164">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.164"/>
+    </surface>
+    <surface xml:id="surf_165">
+      <graphic url="https://gams.uni-graz.at/o:szd.229/IMG.165"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.229">
+      <pb n="1" facs="#surf_1"/>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>Wieder für
+        <lb/>Zusammenstoß in der neuen Welt, da war
+        <lb/>er beim Feind gewesen. Eitelkeit, als Capitalein-
+        <lb/>lage, als Sicherheit, als Selbstelemente, Podest
+        <lb/>darauf stellte, Herr Kramer, Besitzer der sammlen
+        <lb/>Kramer. Er selbst wie den er besaß, dunkler Patel
+        <lb/>Reihe pflanzte, der aber Fafner, breit, herrscht
+        <lb/>eine Welt, alles kauft, Geld macht aus allem was
+        <lb/>alles gibt, Alles Geld ist, von irgend aber Fließer
+        <lb/>fast zu bezogen, feist. Ehrfurchtlos, die Finger, in
+        <lb/>dem nahm, lausig fest breiten flachen Nagel, be
+        <lb/>haart, harte, Kralle letzter ist: offenbare,
+      </p>
+      <p>
+        <lb/>Nass, alles was er fasste, hinterließ
+        <lb/>natürlich, das so, die Wichtigkeit, die von
+        <lb/>Operrette tart, grau worlon aus Matheet
+        <lb/>ramon, ganze Mann alles durchgefordert, wie
+        <lb/>satt.
+        <lb/>Schwarze, Sessel sehen, Gefühl, wohl gewöhnt
+        <lb/>so wie Alkohol in die Beine fast. Hassie einen
+        <lb/>Menhen.
+        <lb/>{kunst sein beflende}
+        <lb/>{in etwa Chorren frage we}
+        <lb/>{sehr der vernachlässigt}
+        <lb/>Und fing ich zu Mast genommen, getreten, gelassen
+        <lb/>voller Gebete, durch Atem der ganzen Eitel, dies
+        <lb/>Raffel, wusste nicht, was sie nahm, hohlGraue
+        <lb/>Larth Hand, nur Nerven an ballen waren, hat
+        <lb/>nur - sie geht frein. Rinhonvel so, derult
+        <lb/>Tat frawphysion als Tat, Mann sich jastent -- das
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <p>
+        <lb/>Eine Frau, grauenhaft: Eitel
+        <lb/>gab ich damit sich es lebent
+        <lb/>mit dem Glatten war nun klarer -- so
+        <lb/>verreist bis Morgen der tempelartig
+        <lb/>Bis den vor den Fremden aus Eitelkeit
+        <lb/>nur edle Frauen verrafft, sie zeigte mit, war
+        <lb/>und auch Eitelkeit, ist gut geworden, eine Eitelkeit
+        <lb/>Form der Welt, der durch den Entschlossen, aber
+        <lb/>gesen war in der Notwendigkeit, war, hatte er für, was
+        <lb/>mit Clubtrend, war, hatte er für, was
+      </p>
+      <p>
+        <lb/>Iphigenia, Szene, Bitte, auf, Erbgut
+      </p>
+      <p>
+        <lb/>Kämpfen mit weitem Gegen, einen
+        <lb/>Angstent zu bereiten
+      </p>
+      <p>
+        <lb/>Was war spare
+        <lb/>, gottbeständig, denn hingebend
+        <lb/>und auf die edlen Gebote
+        <lb/>Marmor, elfenbeinschlanken,
+        <lb/>Mont, in der Zelle illerwind, solange,
+        <lb/>fachen bitter, Glatten, überall gelebt er
+        <lb/>überall ein Friedlichkeit aus Cestrice
+        <lb/>- kein, sammelte war raffen zwar
+        <lb/>verleitet den ganz Gebraucht shall Grapel
+        <lb/>statt ja teuer stand schwingt sich sehr
+        <lb/>Man konnte nicht damit
+        <lb/>mehr, schaffe mir
+        <lb/>Schenken. Sicherstellen. Jetzt kurz. Nun sich mehr freuen
+      </p>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>Alle Frau forte wohl, aber Dienstwarten fiel
+        <lb/>es auf, Jalustoff nicht spielte. Er samm. Getrennt
+        <lb/>Hohlspiegel seiner selbst gesehen, seine stille
+        <lb/>Verlust für dafür. Sehr zarte Mann seiner Frau
+        <lb/>überlegte ob er nicht zurückstoßen wolle. Lieber
+        <lb/>so Waffen streben als mit dieser Art Menhen zu
+        <lb/>kämpfen. Nicht mehr nur mengen. Wirkt mehr
+        <lb/>dingen nur nichtbenzen wollen. Nur das Kunst
+        <lb/>dar
+        <lb/>Aber verfängnisvoller Weise, Katalog ein
+        <lb/>Mancher Auktion. Ein paar Kunststücke - etwas
+        <lb/>ein Glück, wie wird dem Raffel ich freuen; jetzt
+        <lb/>reine Collection ergänzen. Antelefonieren war
+        <lb/>ihm sagen, gönnerhaften, dieses verflucht fester
+        <lb/>Liebenswürdigkeit. Ihm zu helfen. Teuer bezahlen
+        <lb/>Katalog 3000 Mark, darf zu geben, herbe züge, Geld
+        <lb/>um jeden Preis, Not erspart. Auferlegt, als nicht
+        <lb/>Jorrome Neues einen Feind.
+      </p>
+      <p>
+        <lb/>Bisher für ich gekauft - rein nicht frei auf
+        <lb/>Versammlungen. Ein Jastruxent Exemplar. Jetzt zu
+        <lb/>jemanden Antrag, drei Tau, zweifelt Mark
+        <lb/>diesmal, blieb ein Händler, dann bezahlen, nur
+        <lb/>mehr verloren Capellmeisterwitwe,
+        <lb/>Wolf aus der Kurve herüber
+        <lb/>fertigen
+        <lb/>Ab. Zittern. Ich bin ja wahnsinnig. Jetzt Ker
+        <lb/>alt werde, krank werde, Not einmal darüber, vera
+        <lb/>ist Belohnung.
+        <lb/>Woher. Barunter kommt, der eher ein
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>Jene Tage, das Böses fast erfüllt, ob er es ist
+        <lb/>wir kennen wollte. Einen Schmerz entfugen, sich alles vor
+        <lb/>gepreßt, er volle weggetreten. Das wahr. Die Hand
+        <lb/>so anger, das Gottes bewußtsein des Geldes, herauf zum Tat
+        <lb/>Etwas nicht in Ordnung. In stille Worte. Das Spiel
+        <lb/>mit dem Zufall.
+      </p>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>Kraft geben. Zitter zu bekommen, zitter nur zu bekommen
+        <lb/>Nicht richten. Nowesent, Plothar kam. Auf war ab. Tel
+        <lb/>ferner Berlin. Nicht bekommen, fälschlich tut auf ist es
+        <lb/>Samstag. Manuscrypt. Unklar es, Feuer
+        <lb/>Gerettet! Gerettet! Teuerer Zug, beim ander
+        <lb/>Verlust. Ob ich ihn antel fonner. Nein, bewegen.
+      </p>
+      <p>
+        <lb/>Sonntag vormittags war ich mir nicht
+        <lb/>ausgelöst. 11 Uhr, an der Tür, ein Herr, kath. Er
+        <lb/>sah wie ein Dieb. Kramer? Was wollte er? Ach
+        <lb/>so, Geschenke. Einen Namen von heute, Huren die
+        <lb/>sie hergezogen aus, die so war die Zeit
+        <lb/>Spion. Neugier sei
+        <lb/>Allgemein, dunkler sein, schaffen, geladen. Die
+        <lb/>Was den Glück? Aber wer habe die
+        <lb/>Betreut an
+        <lb/>Lafte, Defekt in Sprache
+      </p>
+      <p>
+        <lb/>Na, der aber wirklich wortgewaltig zu gegen alle.
+        <lb/>Lardantes
+        <lb/>Ich auch. Nie
+        <lb/>Daß was, Ach nie, wieder die, keine
+        <lb/>aus den Krieg her, französischer Hand Händen an
+        <lb/>unsere sehr lebendig, nicht schwerer. Mit
+      </p>
+      <p>
+        <lb/>Jol.
+        <lb/>Zepant
+        <lb/>Nichts für wagt, kommen sie her?
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>Schwarzen, Nicht wer zeigen. Nicht abloßen lassen. Me
+        <lb/>Niederlagen berührt, das Menschen gehen. Me
+        <lb/>{der Teil des Geldes}
+        <lb/>Sonst nur nie nicht
+      </p>
+      <p>
+        <lb/>Donnerwetter. Wie haben sie das gerafft
+        <lb/>Herr Kramer, Erzählen. Americane
+        <lb/>Na, ausgestellt. Auch, wenn sie fort
+        <lb/>sehen. Eines dass der American ganz
+        <lb/>so mutt. Darauf gibt mehr
+        <lb/>dann ist jetzt kein Antreiben
+        <lb/>Mehr los vorwende. Darauf zu streiten
+        <lb/>Defekte in an die Treppe.
+      </p>
+      <p>
+        <lb/>Lenfering, Koffer, an die Bahn
+      </p>
+      <p>
+        <lb/>Umgekehrt, erlebte Kramer, Er war genau
+        <lb/>da starker, leere Freude mehr. Warum, nicht zu
+        <lb/>den Rock aus wer in die Ecke, anfassen. Telegraphierte
+        <lb/>drei Straßen, wie er wohnen, jetzt eine Beding
+        <lb/>anpassen nur endlich
+        <lb/>freu mitwirkt, wir besser ausgerechnet
+        <lb/>Herr Kramer "keinen Sinn"
+        <lb/>Eine alte Sammlung, stellt noch daran, der
+        <lb/>Hauptlieferant, deret zusammen gleichzeit
+        <lb/>kaufen zu sammeln, hat Frau der Kont mit
+        <lb/>kaufe ab. Irgend ein Ding
+        <lb/>Sehr billig verhandelt
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>Eine ganz andere Art Lust.
+        <lb/>Sie macht nur böse. Etwas
+        <lb/>Fremdes. Etwas Neues
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>Die Preise zahl ich nicht, denken die Chopin
+        <lb/>wunderbaren. Ist das soviel 6000
+        <lb/>6000 geben, dachte. Na, man auch ganz aus
+        <lb/>der Preis
+        <lb/>Keine Speisen
+        <lb/>Sonntig, stand ab, man traut. Man da
+        <lb/>sein sonntig wenn sie wollen
+        <lb/>Ja wenn ich an der Haupttür heranfunt
+        <lb/>aber da ist er zäh wie Leder
+        <lb/>Haupttür
+        <lb/>Nicht reden, etwas hat, Aberglauben. Die
+        <lb/>neuen Opern heute.
+        <lb/>Die Opern gelacht
+        <lb/>Wenn er etwas sucht. Ich nicht ganz sicher
+        <lb/>Kaufte. Hier heraus bin, Rafferty ausgehend
+        <lb/>Kassenschrank gesehen. Den beste fern an
+        <lb/>"Nein wird nur Frau Schiefer"
+        <lb/>Alles die Firma
+        <lb/>Ich hab die Konten in Loch nun von gegeben
+      </p>
+      <p>
+        <lb/>Ein aufregendes Spiel, ein Gedanke. Er durfte es
+        <lb/>nie erfahren, dass er der Stärkere war; kaum nur
+        <lb/>diese fast eine Note lesen konnte.
+        <lb/>Blaten Tabel
+        <lb/>Durfte sie, Tote, Freude gemindert.
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>Unbekagen. Jalustoff frieden gelobt. Solche
+        <lb/>geboren, in dreißig Jahren nie mit Treff aus
+        <lb/>selbst, keinen Process geführt. Treuhaft, einer der leeren
+        <lb/>Stunden gerne an bewahrt stehen. Nie gefasst, als
+        <lb/>nicht zweifelt, wer ich wünschte in Streit
+        <lb/>Treuhaft kann ihn treffen. Zorn war das eine
+        <lb/>angenehmen Kämpfer. Gefühl stets hinaus war nicht
+        <lb/>fein, keine Freude am Sieg? Er wollte nicht. Aber
+        <lb/>was er will. Es ging um etwas, das jenseits von ihm
+        <lb/>war, von seinen Interessen, wie ein Prinzip, wie eine
+        <lb/>Art Gläubiger, die ihm gar nicht deutlich war, verstört
+        <lb/>gerade für war, des physische optische Bord des Wider
+        <lb/>sagers.
+        <lb/>Jemand freindenken, kein dachte von man auch
+        <lb/>Feuer andere in sich hinein. Wenn man anders
+        <lb/>Glück. Er freute sich nicht, etwas getan, dieses
+        <lb/>Strich gar nicht gewollt. Sagte ihm nichts, indem es
+        <lb/>der eigenen Natur näher geworden war, er selber am Raffel
+        <lb/>werden, indem man sich hineintrat. Sein Denken gleich
+        <lb/>ganz über, verwandelt sich mit einer Gegner, Gärtner
+        <lb/>gewesen, jetzt ein Jäger und Raffel.
+        <lb/>{Deckt. Indem wir der Seele}
+        <lb/>{ansprechen: außer denkt}
+        <lb/>heraus an. Von innen her, wie man auch
+        <lb/>ware versteht. Praktisch unterstellend, von
+        <lb/>wir auf valuten (jetzt sofort) Autograph. Heut
+        <lb/>kannte in so und, dann er dann
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <p>
+        <lb/>Vollständigkeitswahn. Trapire
+        <lb/>sammeln. Über seine Kraft
+      </p>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>Er empfand sofort gegen Eitelkeit. Er ist die
+        <lb/>mutig. Jener ist aufgesteckt. Rembrandt, Bank
+        <lb/>mehr. Joch, stiller, in dem er wusste mehr.
+        <lb/>Durch Angst das Machtbewusstsein fördern, der
+        <lb/>Selbstgefühl, mit aus Werken zog die er gekauft
+        <lb/>{Bad, nur Rechte nicht, das 20000 Mark}
+        <lb/>Das Böse // seinen Namen Talent zu verleugnen. Nur
+        <lb/>{an Talenten wieder}
+        <lb/>Er wusste zwar dass keine Gemeinschaft war; auch
+        <lb/>hier ein Wort, ein Begriff, das Wort Sammler ganz
+        <lb/>verworrene.
+        <lb/>sich zu forschen, war ich selbst
+        <lb/>Freude dahin, Gärtnerfreude. Ein anderes
+        <lb/>Gefühl in ihm: Hass.
+        <lb/>Hass war nur deutlich. Dann im Freund, ein
+        <lb/>contemplativer Mensch, Leben nur in leisen Spannungen,
+        <lb/>nicht viel. Ohne Gier wie meist zweiten Generation; in
+        <lb/>der ersten vertraut der Anspruch, neue Lust des Raffels
+        <lb/>Neum Tort, ein Daseiende, Bewahren, war nur Müdig-
+        <lb/>keit ist aber ohne Sentenhaftigkeit der Sammlung,
+        <lb/>ein schüchterne Natur, innen gerannt.
+        <lb/>Verstörte, blätterte Katalogen. Entgangen war
+        <lb/>fast. Er die absolute Sammlung für jeden. Mangel
+        <lb/>wahnsinnig, Eitelkeit. Wenig was vorzuholen nur viel
+        <lb/>gewesen war, konnte gewonnen. Lust verloren. Jetzt war
+        <lb/>es zu spät. Lass den andern in Welt. Spiel Clavier her
+        <lb/>ganz. Treffen das Gerät, kann ihm den Rat
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>Aber Ärger mit dem Mozart
+        <lb/>Mozart: das war der einzige Punkt, gekauft
+        <lb/>genommen. Trio, wunderbares Stück. Neben
+        <lb/>ein aufgenommen. Charakteres Natur, reizt
+        <lb/>gelegt. Nicht mehr auf, lieber sehr verloren gegeben
+        <lb/>Jetzt verlangte, ob er es erkennen wird?
+        <lb/>Das ein Bad! Wunderbar, das ist selten, denn
+        <lb/>weiter, meiner am Dasein dagegen.
+        <lb/>Lebensgefühl - das neue ich. -
+        <lb/>Ich mein, nur eigentlich zu Sammlung
+        <lb/>oder sie allenfalls abgeben?
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <p>
+        <lb/>Kramer erfuhr Bewunderung
+        <lb/>Enthusiasmus wohl.
+        <lb/>Jeder Sammler eitel. Heute
+        <lb/>konnten auf eine Stücke. Ein Zorn obwohl, es
+        <lb/>war fort.
+        <lb/>Großartig. Wie zusammen
+        <lb/>gebracht. Probleme komme ich denn mit. Try zu
+        <lb/>Americane
+        <lb/>{kaufen an. Wenn er}
+        <lb/>{kommt, und war}
+        <lb/>{beiden, die Haare}
+        <lb/>{hat. Sagte große}
+        <lb/>{Sammlung habe}
+        <lb/>Form erdiginal die
+        <lb/>Tonfall ab
+        <lb/>Gut. Heraus wohl, das war jenes
+        <lb/>brauchen wollten, worum zu wenig habe.
+        <lb/>Sammler.
+        <lb/>Sie waren Menschen, beinahe Freunde
+        <lb/>Statt zwei Jahren, wozu eigentlich plan
+        <lb/>Alles genossen, die Kälte. Nur von
+        <lb/>selbst reden dürfen. Was für ist. Diese 270 Stücke
+        <lb/>null eins weg. Gott!
+        <lb/>{war eine weitere zu}
+        <lb/>Angst verstehe er. Und des hier
+        <lb/>noch lange. Habe bemerkt, das es
+        <lb/>Jahresbrief ist, nein, nein, das so
+        <lb/>lebenshaft ist, Waffen zu sagen. Das Rad
+        <lb/>Monfo. Häßlich lebenshaftig neue dann an dem
+      </p>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>Mein Herr Kramer!
+        <lb/>Bestimmt, Sammlung bestimmt, kein Pfund sein
+        <lb/>Sorge, lang?
+        <lb/>{Terroteh lernt}
+        <lb/>{Hauswerk}
+        <lb/>von diesen. Allenfalls.
+        <lb/>Keiner geht
+        <lb/>Sehr liebenswürdig, das alles will 100 Mark be
+        <lb/>zahlt vor zwei Jahren Londoner Bucher, das
+        <lb/>Manuskript, wissen ja wahrlich selber denken.
+        <lb/>Winter die 5000 Mark
+        <lb/>{Dank nur zu wenig}
+        <lb/>{so war raffiniert gewesen}
+        <lb/>Allein an. Wenig für ein Filter, selber in der frei
+        <lb/>drehen in calcaleern so noch, Bad dem Schiffs-
+        <lb/>chen schlagen
+        <lb/>Ich würde ein altes Buchmanuskript 7000 Mark
+        <lb/>Mein lieben kann, einverstanden
+        <lb/>Zögern, war nicht richtig erfasst, dass er der Rest
+        <lb/>Kramer lang, von Zeit eine Lehre; Briefblatt den
+        <lb/>{in Hand, jetzt aber an ihm entlohnt}
+        <lb/>wirklich, so gestorben, er an sehr
+        <lb/>Joy den Atem, Erwarten
+        <lb/>{Freundlich Eintritt, Liebenswürdig}
+        <lb/>{Hörig zu, Herr dann}
+        <lb/>sie senden freuen mögen.
+        <lb/>bedenken. Durfte ich, Worte sah, den er er
+        <lb/>zuerst, Prozess freier gelebten zeigen, Prozessing
+        <lb/>Bank Ausgabe war doch gesagt, den er Autograf
+        <lb/>Ich zweifle nicht daran, von Ihnen doch es. An
+        <lb/>einem solchen Keime, Beleg auf den Zettel für.
+      </p>
+      <p>
+        <lb/>Leitworte in die Hand
+      </p>
+      <p>
+        <lb/>In Herbaten. Freue mich; allen
+        <lb/>{Sie an das Mal}
+        <lb/>{das war dritt}
+        <lb/>{das war Atelier}
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <p>
+        <lb/>Nein, nein - ich hole mir ihn ab
+        <lb/>bin in paar Tagen da
+      </p>
+      <pb n="21" facs="#surf_21"/>
+      <pb n="22" facs="#surf_22"/>
+      <pb n="23" facs="#surf_23"/>
+      <pb n="24" facs="#surf_24"/>
+      <pb n="25" facs="#surf_25"/>
+      <pb n="26" facs="#surf_26"/>
+      <pb n="27" facs="#surf_27"/>
+      <pb n="28" facs="#surf_28"/>
+      <pb n="29" facs="#surf_29"/>
+      <pb n="30" facs="#surf_30"/>
+      <pb n="31" facs="#surf_31"/>
+      <pb n="32" facs="#surf_32"/>
+      <pb n="33" facs="#surf_33"/>
+      <pb n="34" facs="#surf_34"/>
+      <pb n="35" facs="#surf_35"/>
+      <pb n="36" facs="#surf_36"/>
+      <pb n="37" facs="#surf_37"/>
+      <pb n="38" facs="#surf_38"/>
+      <pb n="39" facs="#surf_39"/>
+      <pb n="40" facs="#surf_40"/>
+      <pb n="41" facs="#surf_41"/>
+      <pb n="42" facs="#surf_42"/>
+      <pb n="43" facs="#surf_43"/>
+      <pb n="44" facs="#surf_44"/>
+      <pb n="45" facs="#surf_45"/>
+      <pb n="46" facs="#surf_46"/>
+      <pb n="47" facs="#surf_47"/>
+      <pb n="48" facs="#surf_48"/>
+      <pb n="49" facs="#surf_49"/>
+      <pb n="50" facs="#surf_50"/>
+      <pb n="51" facs="#surf_51"/>
+      <pb n="52" facs="#surf_52"/>
+      <pb n="53" facs="#surf_53"/>
+      <pb n="54" facs="#surf_54"/>
+      <pb n="55" facs="#surf_55"/>
+      <pb n="56" facs="#surf_56"/>
+      <pb n="57" facs="#surf_57"/>
+      <pb n="58" facs="#surf_58"/>
+      <pb n="59" facs="#surf_59"/>
+      <pb n="60" facs="#surf_60"/>
+      <pb n="61" facs="#surf_61"/>
+      <pb n="62" facs="#surf_62"/>
+      <pb n="63" facs="#surf_63"/>
+      <pb n="64" facs="#surf_64"/>
+      <pb n="65" facs="#surf_65"/>
+      <pb n="66" facs="#surf_66"/>
+      <pb n="67" facs="#surf_67"/>
+      <pb n="68" facs="#surf_68"/>
+      <pb n="69" facs="#surf_69"/>
+      <pb n="70" facs="#surf_70"/>
+      <pb n="71" facs="#surf_71"/>
+      <pb n="72" facs="#surf_72"/>
+      <pb n="73" facs="#surf_73"/>
+      <pb n="74" facs="#surf_74"/>
+      <pb n="75" facs="#surf_75"/>
+      <pb n="76" facs="#surf_76"/>
+      <pb n="77" facs="#surf_77"/>
+      <pb n="78" facs="#surf_78"/>
+      <pb n="79" facs="#surf_79"/>
+      <pb n="80" facs="#surf_80"/>
+      <pb n="81" facs="#surf_81"/>
+      <pb n="82" facs="#surf_82"/>
+      <pb n="83" facs="#surf_83"/>
+      <pb n="84" facs="#surf_84"/>
+      <pb n="85" facs="#surf_85"/>
+      <pb n="86" facs="#surf_86"/>
+      <pb n="87" facs="#surf_87"/>
+      <pb n="88" facs="#surf_88"/>
+      <pb n="89" facs="#surf_89"/>
+      <pb n="90" facs="#surf_90"/>
+      <pb n="91" facs="#surf_91"/>
+      <pb n="92" facs="#surf_92"/>
+      <pb n="93" facs="#surf_93"/>
+      <pb n="94" facs="#surf_94"/>
+      <pb n="95" facs="#surf_95"/>
+      <pb n="96" facs="#surf_96"/>
+      <pb n="97" facs="#surf_97"/>
+      <pb n="98" facs="#surf_98"/>
+      <pb n="99" facs="#surf_99"/>
+      <pb n="100" facs="#surf_100"/>
+      <pb n="101" facs="#surf_101"/>
+      <pb n="102" facs="#surf_102"/>
+      <pb n="103" facs="#surf_103"/>
+      <pb n="104" facs="#surf_104"/>
+      <pb n="105" facs="#surf_105"/>
+      <pb n="106" facs="#surf_106"/>
+      <pb n="107" facs="#surf_107"/>
+      <pb n="108" facs="#surf_108"/>
+      <pb n="109" facs="#surf_109"/>
+      <pb n="110" facs="#surf_110"/>
+      <pb n="111" facs="#surf_111"/>
+      <pb n="112" facs="#surf_112"/>
+      <pb n="113" facs="#surf_113"/>
+      <pb n="114" facs="#surf_114"/>
+      <pb n="115" facs="#surf_115"/>
+      <pb n="116" facs="#surf_116"/>
+      <pb n="117" facs="#surf_117"/>
+      <pb n="118" facs="#surf_118"/>
+      <pb n="119" facs="#surf_119"/>
+      <pb n="120" facs="#surf_120"/>
+      <pb n="121" facs="#surf_121"/>
+      <pb n="122" facs="#surf_122"/>
+      <pb n="123" facs="#surf_123"/>
+      <pb n="124" facs="#surf_124"/>
+      <pb n="125" facs="#surf_125"/>
+      <pb n="126" facs="#surf_126"/>
+      <pb n="127" facs="#surf_127"/>
+      <p>
+        <lb/>Wenn Leute reist von einem Land zum
+        <lb/>andern, zu Schiff oder in der Bahn, war die
+        <lb/>letzte Zeit fast nur die Kunst zu beobachten, so
+        <lb/>merken wir Menschen[?] die Menschen mit veränderter
+        <lb/>Gestalt, sie ist der Grenze nähern. Sie werden
+        <lb/>unruhig, sie geben auf was ab, weiter schauen
+        <lb/>sie gegen die anderen Menschen, eine Unruhe die
+        <lb/>überfallen, eine gekünstelte Angst, sie tasten
+        <lb/>an die Bordkante, wo in ihren Pass war ihr Papier
+        <lb/>wirren[?] / verweilen in Ordnung sind, aber ist es
+        <lb/>auch gewiss? Schein am Hals. Man fühlt die wüsten
+        <lb/>feindenden Fragen, und beruhigen lassen eine Angst
+        <lb/>wie in ein falsches Land, dann beginnt die fremd
+        <lb/>und was ist die frohe Sicherheit, forplatt[?] da
+        <lb/>allen Europäer, vertraut, wer hat diese Freuden
+        <lb/>anders die Sitten, anders die Sprach, verfremdet.
+        <lb/>Was fernsteht das eigene Schicksal; andere sind
+        <lb/>ratlos, gläubige, vielleicht fordern sie die elend,
+        <lb/>authentisch ergreifenden in allen sind. Sie war
+        <lb/>das fragen, mit beruhigen kann, einen Fremden ein
+        <lb/>Helfer haben pflegt[?] Zweifel aber in begrenz[?]. Ist
+        <lb/>die Frau, nicht einer von der Welt ganz fern
+        <lb/>gefahren, die wie Armut leise weht, Leid und
+        <lb/>weiten. Beachten von elendige Hoffen, belast[?] an der
+        <lb/>Statt, auch wir nicht ganz[?] ja
+        <lb/>Tausende von oberlanden[?]...
+      </p>
+      <pb n="128" facs="#surf_128"/>
+      <p>
+        <lb/>geruht nur mit gekräftigt in denen Haut als sind
+        <lb/>weitergegangen; kein Dichter hätte Erfindungskraft
+        <lb/>genug, um die Hilf[?], die Tragik der tausend
+        <lb/>Schicksale zu schildern, denn hier hat das Leben,
+        <lb/>[...10...] alles Dichter wo eine neue Welle der Un-
+        <lb/>glücks sich erfüllt in der Welt, ob in Deutschland oder
+        <lb/>Polen oder Spanien, abrennend sei zerbrochene,
+        <lb/>geträumte Existenzen heran gegen dieses eine
+        <lb/>(den Glücklichen, den Reichen, den Sorglosen[?] unbe-
+        <lb/>kannte) Haus, das bisher nur mit jedem Ausländer
+        <lb/>standgehalten und dessen Hüter mit bewundernswerter
+        <lb/>Hingabe über Helferpflicht gedient. Wenn sie auch
+        <lb/>immer nur einen Tropfen abschöpfen können wäre
+        <lb/>aus dem unerschöpflichen Meer des menschlichen
+        <lb/>des jiddischen Elends, wie viel ist schon damit getan,
+        <lb/>einem Unglücklichen einen Tag {und für Stunden} Licht zu ma-
+        <lb/>chen, einem Heimatlosen das Gefühl der Heimat zu
+        <lb/>geben, [...10...] an [...10...] 
+        <lb/>[...10...] verzagte neue Sicherheit! Möge [...10...] wie wird es
+        <lb/>man weiß es ja, gelingen, jemals völlig die Über-
+        <lb/>macht der menschlichen Elends zu besiegen, aber diese
+        <lb/>Erkenntnis darf uns nicht gleichgültig machen, sondern
+        <lb/>im Gegenteil, sie muss unsere Willen anrufen, so unser
+        <lb/>Pflicht zu sein an geben wie es das zu
+      </p>
+      <pb n="129" facs="#surf_129"/>
+      <p>
+        <lb/>viele Juden unter ihnen, weiter einmal von dort
+        <lb/>in der Welt gefahren, aus dem Hause
+        <lb/>weggetrieben, wie ihr Vater der Arme fern, fern
+        <lb/>zu Heimat, tausendjährige Angst in ihren Blick
+        <lb/>in ihre Leben. Herz [...5...] bitterlich es ist einer fremde
+        <lb/>zu retten, adermals fremd. Aber jede Freude
+        <lb/>es sind fremder war vernünftiger als wie je jemals
+        <lb/>gewesen, [...5...] Vertrauen in der Welt Menschen es
+        <lb/>es jemals. Der [...5...] ist mich [...5...] jemals
+        <lb/>gewesen. Wandernder [...5...] die Augenblick
+        <lb/>[...5...] sie an sich zu gut an, wie der je
+        <lb/>[...5...] glücklicher, wer, wo dein Heim ist von
+        <lb/>[...5...] als auch in dem [...5...] war [...5...] hat
+        <lb/>[...5...] [...5...] sei gut an, glücklicher, wer
+        <lb/>[...5...] [...5...] war für wer, hat sie gut an, wie
+        <lb/>[...5...] [...5...] zu bereiten, [...5...] wie besorgt war.
+        <lb/>[...5...] [...5...] von der Frau. Kinder [...5...] an
+        <lb/>[...5...] den alten Massa, [...5...] zu [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] von da her fragt, verstehe, ich [...5...]
+        <lb/>[...5...] [...5...] die Luft [...5...] [...5...], ahnen [...5...] a
+        <lb/>[...5...] [...5...] [...5...], wofür sie [...5...]? [...5...], ein Sohn
+        <lb/>[...5...] [...5...] zu [...5...], weiter ist [...5...], ob in fremd
+        <lb/>[...5...]? Nein, ob [...5...] [...5...] [...5...] [...5...]? Nein
+        <lb/>[...5...] in der Frage kommen, [...5...], [...5...], [...5...]
+        <lb/>[...5...] aber [...5...]: in der Shelter.
+        <lb/>Shelter, es weiß auch was das ist. [...5...]
+        <lb/>[...5...] [...5...]. Aber [...5...], [...5...] a alle [...5...]
+        <lb/>[...5...] [...5...] alle wissen sie in den Haus, in
+        <lb/>[...5...], in [...5...], in [...5...] — [...5...] [...5...]
+      </p>
+      <pb n="130" facs="#surf_130"/>
+      <p>
+        <lb/>So gieng in diesen Shelter, zu sehen. Es ist ein
+        <lb/>Haus in [...5...] in einer wunderbaren Gasse, aber
+        <lb/>jede Not hat noch immer den Weg zu ihm gefunden,
+        <lb/>[...5...] eingerichtet, ohne jeden Luxus, aber von
+        <lb/>besonderer Reinlichkeit, wartet es mit immer geöffneter
+        <lb/>Tür auf den Wandernden, den Auswanderer, der hier
+        <lb/>rasten will. Ein Bett steht ihm bereit, ein Tisch ist ihm
+        <lb/>gerüstet und mehr noch: er kann Rat haben und
+        <lb/>Hilfe inmitten fremder Welt. Die Sorge, die ihn drängt,
+        <lb/>es kann sie endlich unbesorgt vor freundlichen Helfern
+        <lb/>ausreden, man denkt, man schreibt für ihn nur nicht
+        <lb/>ihm wenigstens ein Stück des schweren zu behackenden Weges
+        <lb/>zu beben, der vor ihm liegt. Inmitten der ungeheuren
+        <lb/>Unsicherheit, die für Tausende jetzt das Leben wie eine
+        <lb/>Nebelwolke frostige, fühlt er für ein paar Tage Wärme
+        <lb/>nur [...5...] der Menschlichkeit und - wirklicher Trost in
+        <lb/>all seiner Trostlosigkeit - er sieht, er erlebt, dass er
+        <lb/>nicht einsam und verlassen ist in der Fremde, sondern
+        <lb/>der Gemeinschaft seines Volkes oder der höheren Gemein-
+        <lb/>schaft des menschlichen verbinden.
+        <lb/>Lange Rast freilich ist keinem gegönnt, denn
+        <lb/>das Elend [...5...] geht heute wie ein unaufhörlicher
+        <lb/>Strom durch die Welt. Eine andere Verbundenheit als die
+        <lb/>[...5...] wird morgen in diesem Bette ruhen, eine andere
+        <lb/>an dem Tische [...5...] [...5...], andere Flüchtige, aber an
+        <lb/>[...5...] [...5...] [...5...], helle [...5...] [...5...], [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>haben in den [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+      </p>
+      <pb n="131" facs="#surf_131"/>
+      <p>
+        <lb/>[...5...] der Fremde [...5...]. Eine frohe Lage
+        <lb/>[...5...] Haus [...5...] aller Länder gibt, Stern [...5...]
+        <lb/>[...5...] [...5...] [...5...], [...5...] [...5...] : [...5...] [...5...]
+        <lb/>[...5...], [...5...], [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...], [...5...] der [...5...]. [...5...] [...5...] [...5...] [...5...], [...5...]
+        <lb/>[...5...] [...5...]. [...5...] [...5...] [...5...] [...5...]: [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...]. [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...], [...5...] [...5...] [...5...], [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...], [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+      </p>
+      <pb n="132" facs="#surf_132"/>
+      <p>
+        <lb/>was [...5...] [...5...], [...5...], [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...], [...5...] [...5...], [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...]. [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...], [...5...] [...5...], [...5...] : [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...], [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+      </p>
+      <pb n="133" facs="#surf_133"/>
+      <p>
+        <lb/>Entwicklung, von Zeit zu Zeit der Mensch
+        <lb/>[...5...] zurückgefragt.
+        <lb/>Herabsetzung der Lebensanspruchs. Der
+        <lb/>Mensch will freuen, will leben so [...5...]
+        <lb/>lebt nicht um zu [...5...], sondern
+        <lb/>[...5...] [...5...] achtbaren [...5...] [...5...]
+        <lb/>[...5...] sein
+        <lb/>[...5...] in der Freude des Lebens [...5...]
+        <lb/>[...5...] der Furcht der Herrn
+        <lb/>[...5...] den mosaischen Terror, [...5...] und
+        <lb/>[...5...] [...5...] [...5...], [...5...] [...5...] [...5...] [...5...]
+        <lb/>Systemisierung von [...5...] der
+        <lb/>[...5...] [...5...], die [...5...] [...5...]
+        <lb/>Was gibt Calvin das Gefühl, das
+        <lb/>in richtig leben. Das [...5...] war richtig
+        <lb/>leben. Aus [...5...] [...5...] [...5...]
+        <lb/>[...5...] [...5...] [...5...] [...5...] [...5...] [...5...]
+      </p>
+      <pb n="134" facs="#surf_134"/>
+      <pb n="135" facs="#surf_135"/>
+      <p>
+        <lb/>Praktiker, ein politischer,
+        <lb/>Denker, Organisator
+      </p>
+      <p>
+        <lb/>Luther [...5...] [...5...], [...5...] [...5...]
+        <lb/>[...5...] [...5...]. [...5...] [...5...]. Seine
+        <lb/>[...5...]. [...5...] [...5...] [...5...] [...5...]
+        <lb/>Aristoteles, Bibel, [...5...] [...5...]
+        <lb/>[...5...]
+      </p>
+      <pb n="136" facs="#surf_136"/>
+      <pb n="137" facs="#surf_137"/>
+      <pb n="138" facs="#surf_138"/>
+      <pb n="139" facs="#surf_139"/>
+      <pb n="140" facs="#surf_140"/>
+      <pb n="141" facs="#surf_141"/>
+      <pb n="142" facs="#surf_142"/>
+      <pb n="143" facs="#surf_143"/>
+      <pb n="144" facs="#surf_144"/>
+      <pb n="145" facs="#surf_145"/>
+      <pb n="146" facs="#surf_146"/>
+      <pb n="147" facs="#surf_147"/>
+      <pb n="148" facs="#surf_148"/>
+      <pb n="149" facs="#surf_149"/>
+      <pb n="150" facs="#surf_150"/>
+      <pb n="151" facs="#surf_151"/>
+      <pb n="152" facs="#surf_152"/>
+      <pb n="153" facs="#surf_153"/>
+      <pb n="154" facs="#surf_154"/>
+      <p>
+        <lb/>Frage Was ist mit mir. Die Gesinnung wird müde. Immer die
+        <lb/>Kranken. Suche ich an, aber das Leben ruht. Wollte nicht mehr
+        <lb/>zu habe genug. Gestern mir voll. Mut kalt. Etwas verdorben.
+        <lb/>Etwas tot in mir. Alle von mir feran[?]. Zuzuhören
+        <lb/>Sie haben Art zuzuhören. Ich habe auch selbst gefragt.
+        <lb/>Sie geben anders. Sie sind hier fremd.
+        <lb/>Kleine Stadt in Galizien. Kleine Leute. Zweite Geige. Kling
+        <lb/>wenig ist. Er hätte nie heraussollen. Vergleit[?] die Wahrheit zu sagen
+        <lb/>Partei. Er bin Communist. Hier spionieren. Ganz gut. Die andern
+        <lb/>geholfen
+      </p>
+      <pb n="155" facs="#surf_155"/>
+      <pb n="156" facs="#surf_156"/>
+      <p>
+        <lb/>Gruppe die ihm hilft. Clavier spieler. Unpünktlich. Er ver
+        <lb/>gisst. Er verliert alle Stellungen. Kaum Zischt[?]. Für ihn
+        <lb/>keine Uhr. Nichts übrig. Wir sind jetzt neun fünf Stellung
+        <lb/>gehen, eine Tante gibt 10, mieten[?] ich aber das fällt nicht
+        <lb/>lange.
+        <lb/>Chieflos. Er braucht Helfer.
+        <lb/>An sie gewandt. Sie haben Recht. Sie haben rente[?] Kurwaarte[?]
+        <lb/>Heraushelfen. Ein fluss.
+        <lb/>Gehen zu ihm hin. Angemeldet.
+        <lb/>Nichts fertig
+        <lb/>Empfängt sie hirtisch[?] nur verlegen
+        <lb/>Kraft hat er weiss nicht. Schwäche zieht an. Für uns falbe[?] das
+        <lb/>gibt noch schwächer ist. Nah armer. Dass es hinten gibt. Dann
+        <lb/>das Proletariat, immer noch mehr
+        <lb/>Leben keinen Sinn hat. Wozu? Gesetz[?] vorgemerkt. Revert[?] weg
+        <lb/>aus. Gesagt nicht werden.
+        <lb/>Einwehen Hören Sie, der Befehle Ihnen zu schwer ist. Zer
+        <lb/>reissen Sie diesen Brief
+        <lb/>Vielleicht dass er stirbt und sie dann empfängt
+        <lb/>Abschiedessen Hören Sie, Nicht wahr. Verstehen Sie das.
+        <lb/>Aufregende Scene Widerbegegnung. Gnädige Frau. Je
+        <lb/>mand sprachen. Kalt. Ihm sagen, dass die 10000 unter der
+        <lb/>Erde liegen, Nicht an sich, ob sie ihn fessen[?] könne.
+        <lb/>Bituer[?] voraus. Ganz still mitgehen. Karen
+        <lb/>Widerstand leisten, Höflich, Vielleicht vergessen sie an ih
+        <lb/>Zücken, der Dichter.
+        <lb/>Ein Rollshift. Ford. Hebe auf. Rot aber w
+        <lb/>über. War einmal. Ich sah sie. Waren klug, den sie
+        <lb/>nicht wollten.
+        <lb/>An mich gewandt
+        <lb/>Gerne. Sünde. Küsste ihm die Hand.
+        <lb/>Ich muss Sie etwas fragen? Schon gehört
+        <lb/>Hatte. Zügen Musika, 10000 ganz so. Nie zu spät
+        <lb/>Bote weiss sie. Leicht Hallen ankor. Rezent[?] 4.8
+      </p>
+      <pb n="157" facs="#surf_157"/>
+      <p>
+        <lb/>Wahrhaftig zu sein
+        <lb/>Nicht die Wahrheit sagte, die waren ganz anders
+        <lb/>Vollkommen arm. Mich maskiert. Nicht wahr?
+        <lb/>Nicht gesagt
+        <lb/>Nicht den Mut
+        <lb/>Mir den Mut genommen
+        <lb/>Tu mich vorwand[?] da. Sei sie ein andrer.
+        <lb/>Ist Mann
+        <lb/>Nein. Mit mir auch
+        <lb/>Fragen Sie mich nicht.
+        <lb/>Adresse noch.
+        <lb/>Kind, warst du, wo ist die selbst
+        <lb/>Niemand. Nicht einmal Gott
+      </p>
+      <pb n="158" facs="#surf_158"/>
+      <p>
+        <lb/>Advocat Ein Zeuge gemeldet. Er bitte mir zu nennen, Er
+        <lb/>aussagen[?] muss. Finger auf den Mund verstarrt. Er nicht. Ver-
+        <lb/>standen leicht.
+        <lb/>Verhandlung zu Ende wir unterbrechen! Sind Sie müde Nein
+        <lb/>Es war halb acht.
+        <lb/>Es war halb acht. Massufeine[?]. Nervös, Tee in Fahr[?] gesucht
+        <lb/>Nein, nichts, nichts. An anders machen.
+        <lb/>Zu sprechen. Auf die Brust, bissen ihn. Begleitet. Sagte. Tut ihm
+        <lb/>ein nicht wusste wohin. Vor ihm gefallen.
+        <lb/>Allein im Bett.
+        <lb/>Verhandlung letzter Tag.
+        <lb/>Er ist vierundzwanzig, sie siebenundzwanzig an ge
+        <lb/>mit das mütterlichen Verhältnis der Pflegeus[?]
+        <lb/>Oben 4 nicht nicht. Von nicht wozu. Junge hat
+        <lb/>Um Gottes willen, wie sie fielen herabtritt mit Freunden.
+        <lb/>Familie aber allein. Er nach zurück 7 Minuten Pause
+        <lb/>Herrschaften tanzen. Sie oben. Er brauche die Kraft.
+        <lb/>Er trinke sie. Zucker den Tee warm, jedenfalls
+        <lb/>Zimmer 2-4. Hatte nüchtern, um 1/2 5 beim Tee, Nachmittag
+        <lb/>Er muss. - Adresse -
+        <lb/>Collector gebietet. Juter[?] sars. hier. Clavier
+        <lb/>Süntig[?] von uns allen was ist. Helfen. Man kann von ih
+        <lb/>verliehen. Gleichzeitig ob die Musik wage oder er. Seendes[?]
+        <lb/>si. Ich. Vielleicht um, wenn man besser hat. Hatte ein
+        <lb/>Mangel an Vitalität. Vollwollen[?] Biszeit[?], man weiss ja nicht
+        <lb/>Ich glaube an ihn. Neuer Junge. Conservatoire
+        <lb/>Krieg entwei. Ehe Haus. Mit 17. Jetzt nicht mehr. Außer
+        <lb/>den
+        <lb/>Er bin ein unnötiger[?] Mensch. Zirrel[?] nur aus gut
+        <lb/>genug. Bogen aus von nur Bohème
+      </p>
+      <pb n="159" facs="#surf_159"/>
+      <pb n="160" facs="#surf_160"/>
+      <p>
+        <lb/>Einzelscenen
+        <lb/>Pass. Ich werde es besorgen. Fand ihn nicht. Lustig war
+        <lb/>Hinfahren. Sprich mir davon. Familie. Sie erzählte eine
+        <lb/>Lüge. Familie nicht erfahren
+        <lb/>Erzählung von der Frau
+        <lb/>Erzählung von dem Clavier
+        <lb/>Erzählung von dem ersten Concert
+        <lb/>Erzählung aus der Jugendzeit
+        <lb/>Bild in den Kasten Unordnung. Er komme schon.
+        <lb/>Tag zu ihnen. Darf ich Sie etwas bitten?
+        <lb/>Er sah zu. Schaufe[?] mir
+        <lb/>Es macht nur Freude. Sie sollen sich nicht bekümmern.
+        <lb/>Musiker Ich habe nicht. Ich beneide sie. Haydn,
+        <lb/>Mozart, Richard Strauss. Sie erleben nicht. Nicht
+        <lb/>zusammen. Materie der Musik. Wagner. Ange wolf
+        <lb/>Beethoven, ich bin vom andern Geschlecht. Depressionen
+        <lb/>Scene an der Riviera Das kleine Haus. Arbeiter gebaut
+        <lb/>Neben einer .. Wäscherei. Eines kleinen Haus, Maurer
+        <lb/>arbeit. Garten hausbreit.
+        <lb/>Sie hatten es gefunden. Hotels ging es nicht. Da Nizza
+        <lb/>ferüber ein Clavier. Schlecht. Begann.
+        <lb/>Erster Tage nichts. Frage. Er kam zu spät zum Essen, Rauchte
+        <lb/>ein sprach. Nichts.
+        <lb/>Er bin, da war die Sonne.
+        <lb/>-
+        <lb/>Nacht ist böse. Wind. Nicht geliebt. Foren. Gendarmerie
+        <lb/>Kam Nationale. Sie starb dreimal. Morgen.
+        <lb/>Zu Glück. Er merkte nichts. Nicht da war aus nicht fort
+        <lb/>Nicht feiter[?]. Bemerkte nichts. Stille. Genügte mit
+        <lb/>Garten. Eine alte Frau. -
+      </p>
+      <pb n="161" facs="#surf_161"/>
+      <pb n="162" facs="#surf_162"/>
+      <pb n="163" facs="#surf_163"/>
+      <p>
+        <lb/>Erste Novelle noch nicht gedruckt
+        <lb/>existiert andere Fassung
+      </p>
+      <p>
+        <lb/>Begrabene Leuchter 1 Teil
+      </p>
+      <pb n="164" facs="#surf_164"/>
+      <pb n="165" facs="#surf_165"/>
+      <p>
+        <lb/>Erste Novelle noch nicht gedruckt
+        <lb/>existiert andere Fassung
+      </p>
+      <p>
+        <lb/>Begrabene Leuchter 1 Teil
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

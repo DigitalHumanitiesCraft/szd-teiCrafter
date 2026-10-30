@@ -1,0 +1,52 @@
+{
+  "about": "Working set imported from szd-htr by tools/import-working-set.mjs (ADR-010). Documents are chosen for the variety of their TEI profiles. Each was checked for well-formed XML, idno[@type='objectId'], pb/@facs on every page and a GAMS IIIF manifest that parses as JSON.",
+  "excluded": [
+    { "objectId": "o_szd.67", "collection": "lebensdokumente", "reason": "GAMS manifest is invalid JSON (unescaped quotes in a range label), so the facsimile cannot load." },
+    { "objectId": "o_szd.174", "collection": "lebensdokumente", "reason": "GAMS manifest is invalid JSON (unescaped quotes in a range label), so the facsimile cannot load." }
+  ],
+  "documents": [
+    { "objectId": "o_szd.1222", "collection": "korrespondenzen", "target": "data/o_szd.1222.tei.xml", "reason": "Existing demo letter, kept at its path because the app opens it at start; typescript with handwritten additions and all three HTR markers." },
+    { "objectId": "o_szd.1437", "collection": "korrespondenzen", "reason": "Most pages in the collection (25, about half blank); English, typed poems with a handwritten letter, no markers." },
+    { "objectId": "o_szd.1786", "collection": "korrespondenzen", "reason": "Longest letter text; clean typescript over six pages, no markers." },
+    { "objectId": "o_szd.1481", "collection": "korrespondenzen", "reason": "Shortest text, a cover sheet of a few words with mostly blank pages." },
+    { "objectId": "o_szd.504", "collection": "korrespondenzen", "reason": "Handwritten postcard dense with deletions and additions plus uncertain readings." },
+    { "objectId": "o_szd.406", "collection": "korrespondenzen", "reason": "Handwritten, the heaviest use of [?] in the collection." },
+    { "objectId": "o_szd.1267", "collection": "korrespondenzen", "reason": "Typescript with handwritten additions carrying many [...] gaps." },
+    { "objectId": "o_szd.1750", "collection": "korrespondenzen", "reason": "Plain typescript letter of two pages without any HTR marker, the clean baseline." },
+    { "objectId": "o_szd.1079", "collection": "korrespondenzen", "reason": "Handwritten letter of 1901 without markers; one of the szd-htr demo files tracked in git." },
+    { "objectId": "o_szd.1404", "collection": "korrespondenzen", "reason": "French typescript letter with a handwritten addition." },
+
+    { "objectId": "o_szd.187", "collection": "lebensdokumente", "reason": "Only single-page profile: printed English form with a signature, no standOff." },
+    { "objectId": "o_szd.100", "collection": "lebensdokumente", "reason": "English publishing agreement with two persons with GND in standOff; tracked szd-htr demo file." },
+    { "objectId": "o_szd.141", "collection": "lebensdokumente", "reason": "Faded pencil notebook of 84 pages, very many [?] and deletions, standOff." },
+    { "objectId": "o_szd.72", "collection": "lebensdokumente", "reason": "Long handwritten diary (39 pages) replacing o_szd.67; tracked szd-htr demo file." },
+    { "objectId": "o_szd.134", "collection": "lebensdokumente", "reason": "Contract typescript with handwritten additions {} and a deletion, standOff; replaces the add-heavy o_szd.174." },
+    { "objectId": "o_szd.153", "collection": "lebensdokumente", "reason": "Shortest text, a blank printed letter card with mostly empty pages, standOff." },
+    { "objectId": "o_szd.184", "collection": "lebensdokumente", "reason": "Handwritten list of two pages with deletions and uncertain readings, no standOff." },
+    { "objectId": "o_szd.192", "collection": "lebensdokumente", "reason": "Official typed notice (form) of two pages, no markers, no standOff." },
+    { "objectId": "o_szd.194", "collection": "lebensdokumente", "reason": "Letter register of 135 pages in tabular form, the register profile." },
+    { "objectId": "o_szd.152", "collection": "lebensdokumente", "reason": "Printed postcard without handwriting and without markers." },
+
+    { "objectId": "o_szd.260", "collection": "werke", "reason": "Two-page typescript without markers, the clean baseline of the works." },
+    { "objectId": "o_szd.218", "collection": "werke", "reason": "Printed enclosure of two pages, one of the few works without standOff." },
+    { "objectId": "o_szd.263", "collection": "werke", "reason": "Short handwritten speech draft with all three markers on two pages." },
+    { "objectId": "o_szd.320", "collection": "werke", "reason": "Heavily corrected handwritten manuscript, the most deletions in the works." },
+    { "objectId": "o_szd.368", "collection": "werke", "reason": "Pencil notebook with masses of both deletions and [?]." },
+    { "objectId": "o_szd.229", "collection": "werke", "reason": "Notebook of 165 pages, mostly blank, with the most [...] gaps." },
+    { "objectId": "o_szd.273", "collection": "werke", "reason": "Long mixed-materials work (238 pages) with all markers, the size stress case." },
+    { "objectId": "o_szd.2856", "collection": "werke", "reason": "Shortest work text, a few handwritten words over five pages." },
+    { "objectId": "o_szd.2934", "collection": "werke", "reason": "French carbon typescript; its manifest has one canvas more than the TEI has pages." },
+    { "objectId": "o_szd.1890", "collection": "werke", "reason": "Printed proof sheet without handwriting or markers." },
+
+    { "objectId": "o_szd.2215", "collection": "aufsatzablage", "reason": "Newspaper clipping without markers, standOff; tracked szd-htr demo file." },
+    { "objectId": "o_szd.2478", "collection": "aufsatzablage", "reason": "Shortest essay text, a handwritten opening line." },
+    { "objectId": "o_szd.2846", "collection": "aufsatzablage", "reason": "Fleeting handwritten manuscript with the most [?] in the collection, no standOff." },
+    { "objectId": "o_szd.2322", "collection": "aufsatzablage", "reason": "Typescript overlaid with handwritten corrections, the most deletions in the collection." },
+    { "objectId": "o_szd.2375", "collection": "aufsatzablage", "reason": "Typescript with the most {} additions in the collection." },
+    { "objectId": "o_szd.2290", "collection": "aufsatzablage", "reason": "Printed clipping where the model marked omissions as [...] gaps." },
+    { "objectId": "o_szd.2325", "collection": "aufsatzablage", "reason": "Longest essay text, a printed offprint of 45 pages without markers." },
+    { "objectId": "o_szd.2414", "collection": "aufsatzablage", "reason": "French printed clipping with handwritten annotations." },
+    { "objectId": "o_szd.2296", "collection": "aufsatzablage", "reason": "Proof sheet with minimal handwriting, no markers." },
+    { "objectId": "o_szd.2412", "collection": "aufsatzablage", "reason": "Handwritten manuscript of a few lines over seven mostly blank pages, no standOff." }
+  ]
+}

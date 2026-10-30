@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Dank an die Bücher</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription agent_verified. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/W-H124</idno>
+            <idno type="objectId">o_szd.1890</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1890/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1890/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.1890/IMG.3"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1890">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>DANK AN DIE BÜCHER
+      </p>
+      <p>
+        <lb/>SIE sind da, wartend und schweigend. Sie drängen, sie rufen,
+        <lb/>sie fordern nicht. An der Wand stehen sie stumm. Schlaf
+        <lb/>scheint über ihnen und doch blickt von jedem wie aufge-
+        <lb/>schlagenes Auge ein Name dich an. Geht man vorüber an
+        <lb/>ihnen mit den Blicken, mit den Händen, so rufen, sie nicht
+        <lb/>nach, so drängen sie nicht vor. Sie fordern nicht. Sie warten,
+        <lb/>bis man ihnen aufgetan ist: dann erst tun sie sich auf. Erst
+        <lb/>eine Stille um uns, erst eine Stille in uns, dann ist man ihnen
+        <lb/>bereit, eines Abends, heimkehrend von ermüdendem Gang,
+        <lb/>eines Mittags, matt von den Menschen, eines Morgens, wolkig
+        <lb/>vorwehend aus traumhaftem Schlaf. Man möchte eine Zwie-
+        <lb/>sprache haben und will doch allein sein. Man möchte träu-
+        <lb/>men, aber in Musik. Mit dem genießenden Vorgefühl süßer
+        <lb/>Probe tritt man an den Schrank: hundert Augen, hundert
+        <lb/>Namen blicken stumm-geduldig dem suchenden Blick ent-
+        <lb/>gegen wie Sklavinnen eines Serails ihrem Herrn, demütig den
+        <lb/>Ruf erwartend und doch selig, gewählt, genossen zu sein.
+        <lb/>Und dann, wie auf dem Klavier tastet der Finger, den Ton
+        <lb/>zu finden zur inneren Melodie: weich schmiegt es sich der
+        <lb/>Hand, das stumme weiße Wesen, verschlossene Geige, in der
+        <lb/>alle Stimmen Gottes warten. Man schlägt Eines auf, man liest
+        <lb/>eine Zeile, einen Vers: aber er klingt nicht klar in die Stunde.
+        <lb/>Enttäuscht, unzärtlich fast, legt man es zurück. Bis das rechte
+        <lb/>naht, das rechte für die Stunde: und plötzlich bist du um-
+        <lb/>fangen, dein Atem geht in fremden Atem ein, als läge der
+        <lb/>warme, nackte Leib einer Frau neben dir. Und wie du es nun
+        <lb/>unter die Lampe trägst, das Buch, das glücklich gewählte,
+        <lb/>erglüht es blendsam von innerem Licht. Magie ist getan, aus
+        <lb/>zartem Gewölk des Traumes steigt Phantasmagorie. Straßen
+        <lb/>öffnen sich weit und Fernen nehmen dein verlöschendes
+        <lb/>Gefühl.
+        <lb/>Irgendwo tickt eine Uhr. Aber sie dringt nicht in diese sich
+        <lb/>selbst entwanderte Zeit. Hier mißt die Stunde anderes Maß.
+        <lb/>Da sind Bücher, die viele Jahrhunderte weit gewandert sind,
+        <lb/>ehe ihr Wort an unsere Lippen kam, da sind junge, gestern
+        <lb/>erst geboren, gestern erst gezeugt aus eines bartlosen Knaben
+        <lb/>Verwirrung und Not: aber sie sprechen magische Sprache
+        <lb/>und eines wie das andere wiegt und wellt unseren Atem em-
+        <lb/>por. Und indem sie erregen, trösten sie auch, indem sie
+        <lb/>verführen, beschwichtigen sie den aufgetanen Sinn. Und
+        <lb/>allmählich sinkt man selbst in sie hinein, wird Ruhen und
+        <lb/>Schauen, gelassenes Schweben in ihrer Melodie, Welt jen-
+        <lb/>seits der Welt.
+        <lb/>Ihr Stunden, reinste, hinwegtragende aus dem Tumult des
+        <lb/>Tages, ihr Bücher, allertreueste, schweigsamste Gefährten,
+        <lb/>wie euch danken für euer stets gegenwärtiges Bereitsein, für
+        <lb/>dies ewig Aufhebende, unendlich Beschwingende eurer Ge-
+        <lb/>genwart! Was seid ihr gewesen in den finstersten Tagen der
+        <lb/>Seeleneinsamkeit; in Lazaretten und Kriegslagern, in Ge-
+        <lb/>fängnissen und an Schmerzensbetten, überall habt ihr, allzeit
+        <lb/>Wache, dem Menschen Träume geschenkt und ein handbreit
+        <lb/>Stille in Unrast und Qual. Immer vermochtet ihr, milde
+        <lb/>Magnete Gottes, die Seele wegzuziehen, wenn sie im Täg-
+        <lb/>lichen verschüttet war, in ihr eigenstes Element, immer habt
+        <lb/>ihr in allen Düsterungen den inneren Himmel uns wieder zur
+        <lb/>Ferne erweitert.
+        <lb/>Winzige Stücke Unendlichkeit, still gereiht an schmuckloser
+        <lb/>Wand, steht ihr unscheinbar in unserem Haus. Doch wenn
+        <lb/>die Hand euch befreit, wenn das Herz euch berührt, so sprengt
+        <lb/>ihr unsichtbar die werktäglichen Räume und wie im feurigen
+        <lb/>Wagen führt euer Wort uns aus Enge ins Ewige empor.
+        <lb/>271 Zweig: Begegnungen.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>DANK AN DIE BÜCHER
+      </p>
+      <p>
+        <lb/>SIE sind da, wartend und schweigend. Sie drängen, sie rufen,
+        <lb/>sie fordern nicht. An der Wand stehen sie stumm. Schlaf
+        <lb/>scheint über ihnen und doch blickt von jedem wie aufge-
+        <lb/>schlagenes Auge ein Name dich an. Geht man vorüber an
+        <lb/>ihnen mit den Blicken, mit den Händen, so rufen, sie nicht
+        <lb/>nach, so drängen sie nicht vor. Sie fordern nicht. Sie warten,
+        <lb/>bis man ihnen aufgetan ist: dann erst tun sie sich auf. Erst
+        <lb/>eine Stille um uns, erst eine Stille in uns, dann ist man ihnen
+        <lb/>bereit, eines Abends, heimkehrend von ermüdendem Gang,
+        <lb/>eines Mittags, matt von den Menschen, eines Morgens, wolkig
+        <lb/>vorwehend aus traumhaftem Schlaf. Man möchte eine Zwie-
+        <lb/>sprache haben und will doch allein sein. Man möchte träu-
+        <lb/>men, aber in Musik. Mit dem genießenden Vorgefühl süßer
+        <lb/>Probe tritt man an den Schrank: hundert Augen, hundert
+        <lb/>Namen blicken stumm-geduldig dem suchenden Blick ent-
+        <lb/>gegen wie Sklavinnen eines Serails ihrem Herrn, demütig den
+        <lb/>Ruf erwartend und doch selig, gewählt, genossen zu sein.
+        <lb/>Und dann, wie auf dem Klavier tastet der Finger, den Ton
+        <lb/>zu finden zur inneren Melodie: weich schmiegt es sich der
+        <lb/>Hand, das stumme weiße Wesen, verschlossene Geige, in der
+        <lb/>alle Stimmen Gottes warten. Man schlägt Eines auf, man liest
+        <lb/>eine Zeile, einen Vers: aber er klingt nicht klar in die Stunde.
+        <lb/>Enttäuscht, unzärtlich fast, legt man es zurück. Bis das rechte
+        <lb/>naht, das rechte für die Stunde: und plötzlich bist du um-
+        <lb/>fangen, dein Atem geht in fremden Atem ein, als läge der
+        <lb/>warme, nackte Leib einer Frau neben dir. Und wie du es nun
+        <lb/>unter die Lampe trägst, das Buch, das glücklich gewählte,
+        <lb/>erglüht es blendsam von innerem Licht. Magie ist getan, aus
+        <lb/>zartem Gewölk des Traumes steigt Phantasmagorie. Straßen
+        <lb/>öffnen sich weit und Fernen nehmen dein verlöschendes
+        <lb/>Gefühl.
+        <lb/>Irgendwo tickt eine Uhr. Aber sie dringt nicht in diese sich
+        <lb/>selbst entwanderte Zeit. Hier mißt die Stunde anderes Maß.
+        <lb/>Da sind Bücher, die viele Jahrhunderte weit gewandert sind,
+        <lb/>ehe ihr Wort an unsere Lippen kam, da sind junge, gestern
+        <lb/>erst geboren, gestern erst gezeugt aus eines bartlosen Knaben
+        <lb/>Verwirrung und Not: aber sie sprechen magische Sprache
+        <lb/>und eines wie das andere wiegt und wellt unseren Atem em-
+        <lb/>por. Und indem sie erregen, trösten sie auch, indem sie
+        <lb/>verführen, beschwichtigen sie den aufgetanen Sinn. Und
+        <lb/>allmählich sinkt man selbst in sie hinein, wird Ruhen und
+        <lb/>Schauen, gelassenes Schweben in ihrer Melodie, Welt jen-
+        <lb/>seits der Welt.
+        <lb/>Ihr Stunden, reinste, hinwegtragende aus dem Tumult des
+        <lb/>Tages, ihr Bücher, allertreueste, schweigsamste Gefährten,
+        <lb/>wie euch danken für euer stets gegenwärtiges Bereitsein, für
+        <lb/>dies ewig Aufhebende, unendlich Beschwingende eurer Ge-
+        <lb/>genwart! Was seid ihr gewesen in den finstersten Tagen der
+        <lb/>Seeleneinsamkeit; in Lazaretten und Kriegslagern, in Ge-
+        <lb/>fängnissen und an Schmerzensbetten, überall habt ihr, allzeit
+        <lb/>Wache, dem Menschen Träume geschenkt und ein handbreit
+        <lb/>Stille in Unrast und Qual. Immer vermochtet ihr, milde
+        <lb/>Magnete Gottes, die Seele wegzuziehen, wenn sie im Täg-
+        <lb/>lichen verschüttet war, in ihr eigenstes Element, immer habt
+        <lb/>ihr in allen Düsterungen den inneren Himmel uns wieder zur
+        <lb/>Ferne erweitert.
+        <lb/>Winzige Stücke Unendlichkeit, still gereiht an schmuckloser
+        <lb/>Wand, steht ihr unscheinbar in unserem Haus. Doch wenn
+        <lb/>die Hand euch befreit, wenn das Herz euch berührt, so sprengt
+        <lb/>ihr unsichtbar die werktäglichen Räume und wie im feurigen
+        <lb/>Wagen führt euer Wort uns aus Enge ins Ewige empor.
+        <lb/>271 Zweig: Begegnungen.
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

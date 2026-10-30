@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A Marcel Martinet</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+        <respStmt><resp>contributor</resp><persName>Maurice Parijanine</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA136.2</idno>
+            <idno type="objectId">o_szd.2414</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="fr"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+      <person xml:id="pers_maurice_parijanine">
+        <persName>Maurice Parijanine</persName>
+        <idno type="GND">http://d-nb.info/gnd/124857760</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2414/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2414/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2414/IMG.3"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2414">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>A Marcel Martinet Jan/Febr/März
+        <lb/>Les Numbles 1936
+        <lb/>— 91 —
+        <lb/>Une occasion ne peut être accueillie que de tout
+        <lb/>cœur quand il s'agit d'exprimer ouvertement la pro-
+        <lb/>fonde admiration et la reconnaissance qui se sont ac-
+        <lb/>cumulées en nous, au cours de la guerre, à l'égard de
+        <lb/>Marcel Martinet. Nous entendîmes pour la première
+        <lb/>fois sa voix en pleine guerre : au milieu de la bestia-
+        <lb/>lité, un appel humain ; à travers les clameurs hysté-
+        <lb/>riques de haine des autres, une infaillible profession
+        <lb/>de foi en la fraternité. Il est difficile d'exposer au-
+        <lb/>jourd'hui combien pour nous, qui avions en allemand
+        <lb/>les mêmes pensées, le sentiment fut réconfortant de
+        <lb/>lire nos réflexions à nous, nos idées, dans la langue
+        <lb/>de l'ennemi, et en termes plus ardents et plus passion-
+        <lb/>nés que les nôtres. Car l'ardeur et la passion furent
+        <lb/>toujours l'élément primordial de cet écrivain, de cet
+        <lb/>homme ; elles ont donné à ses strophes, à sa prose, à
+        <lb/>ses discours l'élan qui emporte. Et aussi son intelli-
+        <lb/>gence, si armée soit-elle de dialectique, si enserrée de
+        <lb/>logique, ne fut jamais comme tant d'autres une froide
+        <lb/>mécanique. L'intelligence de Martinet a une chaleur
+        <lb/>sanguine et son cerveau est toujours également au
+        <lb/>rythme de son cœur.
+        <lb/>On l'a souvent appelé révolutionnaire. Mais le mot
+        <lb/>n'est exact que s'il est exactement compris. Si l'on se
+        <lb/>représente comme révolutionnaire celui qui démolit
+        <lb/>et dévaste, qui s'attaque aveuglément à l'ordre éta-
+        <lb/>bli, il serait faux de compter Martinet parmi tous ces
+        <lb/>simples destructeurs. Martinet fut toujours un révo-
+        <lb/>lutionnaire du relèvement, du bâtissement nouveau,
+        <lb/>de la reconstruction du monde, mais jamais un doc-
+        <lb/>trinaire.
+        <lb/>Il est beaucoup trop riche de sang, trop personnel,
+        <lb/>trop individualiste pour s'assujettir jamais à une froi-
+        <lb/>de doctrine, prise paragraphe par paragraphe; et se
+        <lb/>rendre dépendant pour une utopie de liberté. Bien que
+        <lb/>militant, il s'est toujours dressé contre n'importe quel
+        <lb/>caporalisme d'opinion, et il est resté libre, libre et
+        <lb/>seul.
+        <lb/>Seul, peut-être trop seul, car trop peu nombreux
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>— 92 —
+        <lb/>sont ceux qui savent que cet homme est digne juste-
+        <lb/>ment à cause de son éloignement de tous les partis et
+        <lb/>groupes politiques, et en littérature, son œuvre n'est
+        <lb/>que beaucoup trop méconnue. Que ses écrits ne soient
+        <lb/>parvenus au peuple de Paris, c'est un dommage plus
+        <lb/>grave pour certains que pour Martinet lui-même. N'em-
+        <lb/>pêche qu'il se tient en avant, au premier rang, que la
+        <lb/>puissance de son énergie, de son intelligence et de sa
+        <lb/>dignité humaine lui a valu comme à peu d'autres.
+        <lb/>Mais nous, quand nous admirons des hommes et les
+        <lb/>voulons aimer, nous savons depuis longtemps que nous
+        <lb/>n'avons pas à les chercher en haut, sur les tribunes
+        <lb/>des Führers, dans les bureaux ministériels et les états-
+        <lb/>majors, et non plus dans la liste des dominateurs.
+        <lb/>Nous savons que les plus dignes accomplissent tou-
+        <lb/>jours leur œuvre à l'arrière-plan, dans le silence, sous
+        <lb/>le vacarme des autres, à l'ombre des projecteurs de la
+        <lb/>publicité. Nous ne mesurons pas les noms à leur célé-
+        <lb/>brité, ni les hommes à leurs succès apparents, et nous
+        <lb/>ne voudrions pas confondre cet homme unique et ce
+        <lb/>nom de Martinet avec les innombrables qui, aujour-
+        <lb/>d'hui, règnent sur le monde.
+        <lb/>Nous savons qu'en France, nous avons peu de meil-
+        <lb/>leurs camarades que ce vaillant écrivain, cet homme
+        <lb/>sans reproche.
+        <lb/>A lui notre salut.
+        <lb/>Stefan ZWEIG.
+        <lb/>(Traduction de Parijanine).
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      </div>
+    </body>
+  </text>
+</TEI>

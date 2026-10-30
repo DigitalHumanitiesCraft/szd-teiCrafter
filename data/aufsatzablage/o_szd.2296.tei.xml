@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Hugo Steiner-Prag</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription agent_verified. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA185.1</idno>
+            <idno type="objectId">o_szd.2296</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1" ulx="0" uly="0" lrx="4912" lry="7360">
+      <graphic url="https://gams.uni-graz.at/o:szd.2296/IMG.1"/>
+      <zone xml:id="z_1_r1" ulx="933" uly="1325" lrx="1228" lry="1840" type="marginalia"/>
+      <zone xml:id="z_1_r2" ulx="1002" uly="2068" lrx="3659" lry="5549" type="paragraph"/>
+      <zone xml:id="z_1_r3" ulx="3365" uly="5336" lrx="3635" lry="5557" type="marginalia"/>
+      <zone xml:id="z_1_r4" ulx="2205" uly="5652" lrx="2269" lry="5711" type="heading"/>
+    </surface>
+    <surface xml:id="surf_2" ulx="0" uly="0" lrx="4912" lry="7360">
+      <graphic url="https://gams.uni-graz.at/o:szd.2296/IMG.2"/>
+      <zone xml:id="z_2_r1" ulx="3537" uly="1398" lrx="3709" lry="1730" type="heading"/>
+      <zone xml:id="z_2_r2" ulx="1375" uly="1936" lrx="3684" lry="5505" type="paragraph"/>
+      <zone xml:id="z_2_r3" ulx="835" uly="3680" lrx="1375" lry="4931" type="marginalia"/>
+      <zone xml:id="z_2_r4" ulx="3684" uly="2355" lrx="4126" lry="5299" type="marginalia"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2296/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.2296/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.2296/IMG.5"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2296">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Es ist mir eine gute Erinnerung, daß mein erstes Buch (die Ge-
+        <lb/>dichte: ,,Silberne Saiten“, 1901, heute längst verschollen) gleich-
+        <lb/>zeitig auch eines der ersten Bücher gewesen ist, denen Hugo Steiner-
+        <lb/>Prag zeichnerisches Gewand und Gestalt gab. Ich hatte von ihm,
+        <lb/>dem damals Zwanzigjährigen, einige Zeichnungen in einem gleich-
+        <lb/>falls verschollenen Prager Dichterblatt ,,Frühling“ gesehen und
+        <lb/>sie machten mir einen so starken Eindruck, daß ich gerade ihn
+        <lb/>bat, die Ausstattung meines Erstlings zu übernehmen. So darf ich
+        <lb/>mich zu den Ersten rechnen, die schon im Beginn spürten, mit wel-
+        <lb/>cher verstehenden, liebevoll begreifenden und darum anpassungs-
+        <lb/>fähigen Art Hugo Steiner-Prag den geistigen Gehalt von Büchern
+        <lb/>in bildnerische und typographische Gestalt umzuwandeln vermag.
+        <lb/>Sein sicherer Sinn für die klar eindringlichen Formen, für die har-
+        <lb/>monische Anordnung der Lettern im Raume und die Einheit
+        <lb/>welche in einem Buche zwischen all seinen innern und äußern Be-
+        <lb/>standteilen walten muß, hat sich ja seitdem an unzähligen andern
+        <lb/>Büchern bewährt. Und mehr noch: sie ist auch lebendig geworden
+        <lb/>in einer ersten und zweiten Generation von Schülern. Es ist nicht
+        <lb/>genug, ein Geheimnis der Kunst zu kennen, man muß es auch aus-
+        <lb/>zudrücken und zu lehren wissen, damit es Bestand in der Welt
+        <lb/>habe. Dies hat Hugo Steiner-Prag mit unermüdlichem Fleiß und
+        <lb/>gleich schöpferischer Leidenschaft getan. Die Bücher, die er ge-
+        <lb/>schmückt und gestaltet, können ihm selbst nicht danken, so wird es
+        <lb/>unsere freudige Pflicht, ihm einigen Dank für das so reich Gestal- L n
+        <lb/>4
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>tete zu sagen und sein heutiger Festtag dafür ein rechter und freu-
+        <lb/>diger Anlaß.
+      </p>
+      <p>
+        <lb/>Stefan Zweig
+      </p>
+      <p>
+        <lb/>5
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>tete zu s.gen und sein heutiger Festtag dafür ein rechter und freu-
+        <lb/>diger Anlaß.
+      </p>
+      <p>
+        <lb/>Stefan Zweig
+      </p>
+      <p>
+        <lb/>5
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Bescheid über die Judenvermögensabgabe</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/L-S7.8</idno>
+            <idno type="objectId">o_szd.192</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.192/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.192/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.192">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Finanzamt Moabit-West
+        <lb/>Abt. für beschränkt Steuerpflichtige
+        <lb/>Berlin NW 7, Luisenstr. 33/34
+        <lb/>Steuernummer 934/5033
+      </p>
+      <p>
+        <lb/>Berlin- N.W. 7, 20.2.39 1938
+      </p>
+      <p>
+        <lb/>Das Finanzamt (Finanzkasse) hat folgende Konten:
+        <lb/>a) Postscheckkonto Berlin Nr. 15045
+        <lb/>b) Reichsbankgirokonto
+        <lb/>Einzahlungen auf dieses Konto nehmen alle Reichsbankanstalten
+        <lb/>kostenfrei an
+      </p>
+      <p>
+        <lb/>Publikumsverkehr bei der Finanzkasse wöchentlich von 9 bis 13 Uhr;
+        <lb/>am letzten Werktage im Monat ist die Finanzkasse ganz und an den
+        <lb/>Sonnabenden von 12.30 Uhr ab geschlossen.
+      </p>
+      <p>
+        <lb/>Hausanschluß: 42 00 13
+        <lb/>Zimmer Nr. 335
+        <lb/>Fördert den unbaren Zahlungsverkehr, er
+        <lb/>erspart längeres Warten in der Finanzkasse!
+        <lb/>Bei persönlichen Einzahlungen empfiehlt
+        <lb/>es sich, diesen Bescheid vorzulegen.
+        <lb/>Die Namen und Unterschriftsproben der zur Quittungs-
+        <lb/>erteilung berechtigten Beamten sind im Kassenraum
+        <lb/>angeschlagen.
+      </p>
+      <p>
+        <lb/>Bescheid über die Judenvermögensabgabe
+      </p>
+      <p>
+        <lb/>Auf Grund der Durchführungsverordnung über die Sühneleistung der Juden vom 21. November 1938
+        <lb/>(Reichsgesetzbl. I S. 1638) wird die von Ihnen zu entrichtende Abgabe festgesetzt auf
+        <lb/>48.600 RM
+      </p>
+      <p>
+        <lb/>Die Abgabe beträgt 20 vom Hundert des von Ihnen auf Grund der Verordnung über die An-
+        <lb/>meldung des Vermögens von Juden vom 26. April 1938 (Reichsgesetzbl. I S. 414) angemeldeten
+        <lb/>Vermögens (unter Berücksichtigung angezeigter Veränderungen).
+      </p>
+      <p>
+        <lb/>Die Abgabe ist zu entrichten in vier Teilbeträgen von je
+        <lb/>12.150 RM
+      </p>
+      <p>
+        <lb/>Der erste Teilbetrag ist bis zum 15. Dezember 1938,
+        <lb/>die weiteren Teilbeträge sind bis zum 15. Februar,
+        <lb/>15. Mai und
+        <lb/>15. August 1939
+        <lb/>unter Bezeichnung als Judenvermögensabgabe und unter Angabe der oben ver-
+        <lb/>merkten St.-Nr. zu leisten.
+        <lb/>Eine Stundung ist grundsätzlich nicht zulässig.
+      </p>
+      <p>
+        <lb/>Wird eine Zahlung nicht rechtzeitig entrichtet, so ist mit Ablauf des Fälligkeitstags ein Säumnis-
+        <lb/>zuschlag in Höhe von zwei vom Hundert des rückständigen Betrags verwirkt. Nach Ablauf der
+        <lb/>Zahlungsfrist werden rückständige Beträge ohne vorhergehende Mahnung eingezogen und erforder-
+        <lb/>lichenfalls beigetrieben. Die Zwangsvollstreckungskosten fallen dem Zahlungspflichtigen zur Last.
+      </p>
+      <p>
+        <lb/>Herren Dr. Stefan Zweig
+        <lb/>Frau
+        <lb/>in
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>Finanzamt Moabit-West
+        <lb/>Abt. für beschränkt Steuerpflichtige
+        <lb/>Berlin NW 7, Luisenstr. 33/34
+      </p>
+      <p>
+        <lb/>Frei durch Ablösung Reich
+      </p>
+      <p>
+        <lb/>Herren Dr. Stefan Zweig
+        <lb/>934/5033 London W 1 / England
+        <lb/>49 Hallam Street
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

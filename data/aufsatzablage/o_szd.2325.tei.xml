@@ -1,0 +1,2184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Scharlach.</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA177.1</idno>
+            <idno type="objectId">o_szd.2325</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.25"/>
+    </surface>
+    <surface xml:id="surf_26">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.26"/>
+    </surface>
+    <surface xml:id="surf_27">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.27"/>
+    </surface>
+    <surface xml:id="surf_28">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.28"/>
+    </surface>
+    <surface xml:id="surf_29">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.29"/>
+    </surface>
+    <surface xml:id="surf_30">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.30"/>
+    </surface>
+    <surface xml:id="surf_31">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.31"/>
+    </surface>
+    <surface xml:id="surf_32">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.32"/>
+    </surface>
+    <surface xml:id="surf_33">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.33"/>
+    </surface>
+    <surface xml:id="surf_34">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.34"/>
+    </surface>
+    <surface xml:id="surf_35">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.35"/>
+    </surface>
+    <surface xml:id="surf_36">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.36"/>
+    </surface>
+    <surface xml:id="surf_37">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.37"/>
+    </surface>
+    <surface xml:id="surf_38">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.38"/>
+    </surface>
+    <surface xml:id="surf_39">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.39"/>
+    </surface>
+    <surface xml:id="surf_40">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.40"/>
+    </surface>
+    <surface xml:id="surf_41">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.41"/>
+    </surface>
+    <surface xml:id="surf_42">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.42"/>
+    </surface>
+    <surface xml:id="surf_43">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.43"/>
+    </surface>
+    <surface xml:id="surf_44">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.44"/>
+    </surface>
+    <surface xml:id="surf_45">
+      <graphic url="https://gams.uni-graz.at/o:szd.2325/IMG.45"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2325">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Separatabdruck aus der „Österreichischen Rundschau“.
+        <lb/>Band XV. Herausgegeben von Heft 6.
+        <lb/>Dr. Alfred Freiherrn v. Berger, Leopold Freiherrn v. Chlumecky, Dr. Karl Glossy,
+        <lb/>Dr. Felix Freiherrn v. Oppenheimer.
+      </p>
+      <p>
+        <lb/>Scharlach.
+      </p>
+      <p>
+        <lb/>Novelle von
+      </p>
+      <p>
+        <lb/>Dr. Stefan Zweig.
+      </p>
+      <p>
+        <lb/>Wien und Leipzig. K. u. k. Hof-Buchdruckerei und Hof-Verlags-Buchhandlung
+        <lb/>Carl Fromme.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>337
+      </p>
+      <p>
+        <lb/>Der junge Student ging von Haus zu Haus, stieg viele Treppen auf und
+        <lb/>nieder, froh, für ein paar Augenblicke dem bösartigen Regen zu entkommen. Er
+        <lb/>sah viele Zimmer, aber keines konnte ihm behagen. Daran war vielleicht der Regen
+        <lb/>schuld und das kalte graue Licht, das alle Räume bedrückt erscheinen ließ und sie
+        <lb/>anfüllte mit kränklicher gepreßter Luft. Ein leise beengtes Gefühl wurde in ihm
+        <lb/>wach, als er das Elend und die Unreinlichkeit mancher Quartiere sah, zu denen
+        <lb/>er auf krummen feuchten Treppen hinaufkroch, irgendwie eine erste Ahnung der
+        <lb/>großen Traurigkeiten, die hinter der Stirne dieser kleinen gebückten, abgeschabten
+        <lb/>Vorstadthäuser sich verbergen. Immer mutloser wurde sein Suchen.
+        <lb/>Endlich traf er seine Wahl. Es war in der Josefstadt oben, nicht mehr weit
+        <lb/>vom Gürtel, in einem recht alten aber schwerfällig breiten Hause von altbürgerlicher
+        <lb/>Behaglichkeit, wo er Quartier nahm. Das Zimmer war einfach und eigentlich kleiner,
+        <lb/>als er gewünscht hatte, aber die Fenster gingen in einen großen Hof hinaus, in
+        <lb/>einen jener alten Vorstadthöfe, wo ein paar Bäume standen, jetzt rauschend im
+        <lb/>Regen und leise fröstelnd. Dieses letzte zähe Grün, die ganz verlorene Erinnerung
+        <lb/>an die Gärten seiner Heimat, lockte ihn an und dann, daß im Vorzimmer, als er
+        <lb/>die Glocke zog, ein Kanarienvogel in seinem Gehäuse zu trillern anfing und nicht
+        <lb/>müde wurde seiner Koloraturen, so lang er das Zimmer besah. Das schien ihm
+        <lb/>ein gutes Vorzeichen, und auch die Vermieterin gefiel ihm, eine ältere verhärmte
+        <lb/>Frau, Beamtenswitwe, wie sie erzählte. Sie selbst bewohnte nur ein armseliges
+        <lb/>Kabinett mit ihrer Tochter, nebenan hatte noch ein anderer Student sein
+        <lb/>Zimmer, dessen Anwesenheit schon die Visitkarte an der Eingangstür verriet.
+        <lb/>In den paar Stunden, die bis Abend blieben, wollte er noch eilig etwas sehen
+        <lb/>von der fremden, seit tausend Tagen herbeigesehnten Stadt, aber der kalte, vom
+        <lb/>Wind aufgepeitschte Regen vertrieb ihm bald das Gelüst. Er trat in ein Kaffeehaus,
+        <lb/>sah dann lange gedankenlos zu, wie der weiße Ball am Billardbrett dem roten
+        <lb/>nachlief, hörte das Gespräch von vielen fremden Menschen rings um sich herum
+        <lb/>und mühte sich das bittere Gefühl der Enttäuschung niederzuringen, das langsam
+        <lb/>in seiner Kehle aufquoll und Worte wollte. Noch einmal versuchte er dann über
+        <lb/>die Straßen zu streifen, aber der Regen war zu hartnäckig. Triefend und durch-
+        <lb/>näßt ging er in ein Gasthaus, ein Abendbrot rasch und ohne Lust zu nehmen, und
+        <lb/>dann nach Hause.
+        <lb/>Und nun stand er in seinem Zimmer und sah sich darin um. Ein paar Sachen
+        <lb/>lehnten da beieinander wie vergessen, ohne alle innere Zusammengehörigkeit, ohne
+        <lb/>Anmut und Lebendigkeit: zwei alte Schränke, vornübergebeugt und aufseufzend,
+        <lb/>wenn man ihnen nahe trat, ein Bett mit verschossener Decke, eine weiße Lampe,
+        <lb/>die melancholisch im Dunkel des verdüsterten Zimmers pendelte, ein gebrechlicher
+        <lb/>Alt-Wiener Ofen. Dazwischen ein paar Farbdrucke und Photographien, bleiche
+        <lb/>Dinger ohne Beziehungen zueinander, fremde Gesichter, die sich seit Jahren vielleicht
+        <lb/>hier schon anstarrten, ohne sich zu kennen. Frösteln quoll auf von der unebenen
+        <lb/>Diele, das eine Fenster schloß schlecht und klapperte unruhig, wenn der Wind den
+        <lb/>Regen gegen die Scheibe warf.
+        <lb/>Ihn fröstelte. Fremd stand er unter diesem Altväterkram. Wer hatte in diesem
+        <lb/>Bette geschlafen, wer auf diesen Sesseln geruht, wer in diesen Spiegel geblickt, aus
+        <lb/>dem ihn nun sein eigenes blasses Kindergesicht angstvoll und fast weinerlich ansah?
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <p>
+        <lb/>338
+      </p>
+      <p>
+        <lb/>Nichts erinnerte ihn hier an Vergangenes und Erlebtes, fremd war alles und
+        <lb/>fühlte die Kühle bis ins Blut.
+        <lb/>Sollte er schon zu Bett gehen? Es war neun Uhr. Zum ersten Male schlief er
+        <lb/>unter fremdem Dach. Zu Hause saßen sie jetzt wohl freundlich bestrahlt vom goldenen
+        <lb/>Lampenlicht um den runden Tisch, im ruhigen Gespräch. Nun wußte er, würde
+        <lb/>Edith, seine blonde Schwester, bald aufstehen und hingehen zum Klavier und noch
+        <lb/>spielen, eine schwermütige Sonate oder irgend einen lachenden Walzer, ganz wie
+        <lb/>er sie bat. Aber wo war er heute, der dort sonst am Klavier im Schatten stand
+        <lb/>und zu den Tönen träumte, bis sie aufstand und ihm herzlich Gute Nacht bot?
+        <lb/>Nein, er konnte noch nicht schlafen. Er ging hin und nahm aus dem Koffer,
+        <lb/>den er inzwischen hatte abholen lassen, seine paar Sachen. Alles war sorglich von
+        <lb/>den Seinen gepackt und wie er die Ordnung auseinander nahm, mußte er an die
+        <lb/>Hände denken, die das für ihn in Liebe getan. Zwischen den Büchern fand er, froh
+        <lb/>erschreckt, eine Überraschung, das Bild seiner Schwester, die es ihm verstohlen hinein-
+        <lb/>gelegt, mit einer herzlichen Zeile darauf. Lang sah er es an, dieses helle lächelnde
+        <lb/>Gesicht und stellte es dann auf den Schreibtisch, damit es freundlich auf ihn
+        <lb/>hinsehe und ihn tröste, den Heimatlosen. Aber es war ihm, als werde das Lä-
+        <lb/>cheln trüber auf dem Bilde und als würde sie hier, im Dunkel, traurig mit
+        <lb/>ihm. Kaum wagte er mehr hinzusehen, so dunkel schien es ihm schon.
+        <lb/>Sollte er noch einmal hinaus aus diesem trüben trostlosen Gelaß? Wie er
+        <lb/>ans Fenster trat, sah er den Regen rastlos rinnen. Auf den trüben Scheiben sam-
+        <lb/>melten sich die Tropfen, blieben stehen, bis sie ein anderer mitnahm und rannen
+        <lb/>dann rasch herab, wie Tränen über glatte Kinderwangen. Immer neue kamen und
+        <lb/>immer wieder rannen sie herab, von allen Seiten, als weinte da draußen eine ganze
+        <lb/>Welt ihre Traurigkeit in Millionen Tränen aus. Er blieb stehen, vielleicht eine
+        <lb/>halbe Stunde lang. Dieses leise murmelnde Spiel vom Leide Leides, dieses stete
+        <lb/>Tropfenrinnen, die unverständliche Musik der klagenden Bäume — tief griff das
+        <lb/>wunderliche Bild der kollernden Tränen in sein Herz. Eine wilde Traurigkeit fiel
+        <lb/>ihn an, die nach Tränen schrie.
+        <lb/>Er wollte sich aufreißen. Aber war das sein erster Abend in Wien? Wie oft
+        <lb/>schon hatte er ihn voraus gelebt, im Traum, im Gespräch mit der Schwester und
+        <lb/>den Freunden. Nichts Deutliches hatte er sich dabei gedacht, aber doch etwas
+        <lb/>Wildes und Helles, ein Hinstürmen durch die funkelnden Straßen, vorwärts nur
+        <lb/>vorwärts, als sei morgen alle Pracht nicht mehr da, als wollte schon in der
+        <lb/>ersten Stunde Unvergeßliches erlebt sein. Im lachenden Gespräch hatte er sich ge-
+        <lb/>sehen, singend vor Übermut, den Hut aufwirbelnd und mit klopfendem Herzen. Und
+        <lb/>nun stand er da, vor einer blinden Scheibe, fröstelnd, allein, und sah zu, wie die
+        <lb/>Tropfen niederrannen, zwei und jetzt wieder drei und wieder zwei, starrte hin, wie
+        <lb/>sie sich unsichtbare Gleise schufen, auf denen sie niederrollten und kniff die Lider
+        <lb/>ein, daß nicht plötzlich auch seine eigenen Tränen herabliefen und hinfielen auf
+        <lb/>seine kalten Hände. Hatte er das seit Jahren ersehnt?
+        <lb/>Wie langsam doch die Zeit verging. Der Zeiger auf dem Holzgehäuse der
+        <lb/>alten Uhr kroch ganz unmerklich vorwärts. Und immer drohender fühlte er die
+        <lb/>Abendangst, dieses unerklärliche kindische Bangen vor der Einsamkeit in diesem
+        <lb/>fremden Zimmer, die wilde Sehnsucht Heimweh, die er nicht mehr verleugnen
+      </p>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>339
+      </p>
+      <p>
+        <lb/>konnte. Ganz allein war er in dieser riesigen Stadt, in der Millionen Herzen
+        <lb/>hämmerten und keiner sprach zu ihm, als dieser plätschernde höhnische Regen, keiner
+        <lb/>hörte auf ihn oder sah ihn an, der da mit Schluchzen und Tränen rang, der sich
+        <lb/>schämte zu sein wie ein Kind und doch sich nicht zu retten wußte vor diesem Ban-
+        <lb/>gen, das hinter dem Dunkel stand und ihn mit stählernen Augen unerbittlich an-
+        <lb/>starrte. Nie hatte er sich so nach einem Wort gesehnt wie jetzt.
+        <lb/>Da knarrte nebenan eine Tür und fiel sausend ins Schloß. Der Hingekauerte
+        <lb/>sprang auf und horchte. Eine rauhe und doch geübte Stimme summte nebenan
+        <lb/>eine abgerissene Strophe aus einem Burschenlied, dann surrte das angeflickte Zünd-
+        <lb/>holz und er hörte das Hantieren mit der offenbar jetzt zündenden Lampe. Das
+        <lb/>konnte nur sein Nachbar sein, ein Jurist, wie ihm die Vermieterin erzählt hatte,
+        <lb/>der vor den letzten Prüfungen stand. Er atmete tief auf, denn er fühlte sein Ver-
+        <lb/>lassensein einen Augenblick beruhigt. Von drinnen knarrten die schweren strammen
+        <lb/>Tritte des Auf- und Abgehenden auf der Diele, das Lied klang immer deutlicher
+        <lb/>und plötzlich schämte sich der Lauschende, so zitternd und hinhorchend dazustehen und
+        <lb/>er schlich geräuschlos zum Tisch zurück, wie in Angst, als könnte ihm der nebenan
+        <lb/>durch die Wand zusehen.
+        <lb/>Jetzt schwieg drin die Stimme und auch das Auf- und Niedergehen verstummte.
+        <lb/>Offenbar hatte sich sein Nachbar gesetzt. Nun singen die surrenden Tropfen wieder
+        <lb/>an, auf ihn einzusprechen und die Einsamkeit mit all ihrer Angst lugte wieder aus
+        <lb/>dem Dunkel hervor.
+        <lb/>Ihm war, als müßte er ersticken in dieser Enge. Nein, er konnte jetzt nicht
+        <lb/>allein bleiben. Er richtete sich auf, wartete, bis die Wangen nicht mehr gerötet
+        <lb/>waren vom Daliegen, probierte mit einem Räuspern die Stimme, dann schlich er
+        <lb/>hinaus und zur Tür, des Nachbars hin. Zweimal hielt er an, doch dann klopfte
+        <lb/>endlich sein Finger zaghaft an die fremde Tür.
+        <lb/>Ein offenbar erstauntes Schweigen folgte. Dann klang ein helles „Herein“.
+        <lb/>Er flinkte die Tür auf. Blauer Rauch quoll ihm entgegen. Das enge Zimmer
+        <lb/>war ganz vollgedampft und alle Gegenstände verschwammen zuerst in dem dicken,
+        <lb/>von der Zugluft aufschwankendem Nebel. Sein Nachbar stand hochaufgerichtet und
+        <lb/>sah erstaunt auf den Eintretenden. Er hatte Weste und Gilet bereits abgelegt, das
+        <lb/>halboffene Hemd zeigte ungeniert eine breite, behaarte Brust, die Schuhe lagen
+        <lb/>rechts und links am Boden hingehaut. Er war eine kräftige, bäuerisch derbe Ge-
+        <lb/>stalt, einem Arbeiter mehr ähnlich als einem Studenten, wie er da stand, die kurze
+        <lb/>Shagpfeife im Mund, deren Rauch er jetzt mit einem Stoß bis zur Tür hinblies.
+        <lb/>Der Eintretende stammelte ein paar Worte. „Ich bin heute hier eingezogen
+        <lb/>und wollte mich Ihnen als Nachbar vorstellen.“
+        <lb/>Sein Gegenüber schnellte mechanisch die Beine zusammen. „Sehr erfreut. Ju-
+        <lb/>rist Schramek.“
+        <lb/>Nun nannte auch der Besuchende, hastig, um das Versäumnis zu reparieren,
+        <lb/>seinen Namen „Bertold Berger“.
+        <lb/>Schramek übersflog ihn mit einem Blick. „Sie sind im ersten Semester?“
+        <lb/>Berger bejahte und fügte gleich bei, es sei auch sein erster Tag in Wien.
+        <lb/>„Sie studieren natürlich Jus. Alle Leute studieren nur mehr Jus.“
+        <lb/>„Nein, ich will mich an der medizinischen Fakultät inskribieren lassen.“
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>340
+      </p>
+      <p>
+        <lb/>„So, bravo, endlich einmal Einer . . . Aber bitte, nehmen Sie doch ein biß-
+        <lb/>chen Platz!“
+        <lb/>Die Aufforderung war herzlich.
+        <lb/>„Sie nehmen doch eine Zigarette, Herr Kollega.“
+        <lb/>„Ich danke, ich rauche nicht.“
+        <lb/>„Na . . . das wird schon werden. Die Nichtraucher sind im Aussterben be-
+        <lb/>griffen. Also einen Kognak. Einen guten.“
+        <lb/>„Danke . . . danke sehr.“
+        <lb/>Schramek zog lachend die Schultern hoch: „Sie, lieber Kollege, seien Sie nicht
+        <lb/>böse, aber ich glaube, Sie sind, was man so sagt, ein fadian. Kein Kognak, nicht
+        <lb/>rauchen, das ist sehr verdächtig.“
+        <lb/>Berger wurde rot. Er schämte sich, so ungeschickt gewesen zu sein und seine
+        <lb/>Unbehilflichkeit gleich verraten zu haben, aber er spürte, daß eine verspätete Zu-
+        <lb/>sage noch lächerlicher sein müsse. Um etwas zu reden, entschuldigte er noch-
+        <lb/>mals den nächtlichen Besuch. Schramek ließ ihn nicht zu Ende reden,
+        <lb/>sondern hielt ihn mit ein paar Fragen fest. Sie waren beinahe Landsleute, aus Deutsch-
+        <lb/>böhmen der eine, aus Mähren der andere, bald fanden sie auch einen gemeinsamen
+        <lb/>Bekannten in ihrer Erinnerung. Ihr Gespräch ward bald lebendig. Schramek er-
+        <lb/>zählte von seinen Prüfungen und seiner Verbindung, von all den hundert dummen
+        <lb/>Dingen, die solchen studentischen Naturen der Sinn dieser paar Jahre zu sein
+        <lb/>scheinen. Es war eine sehr lebendige Herzlichkeit in seinem Erzählen, eine etwas
+        <lb/>laute Heiterkeit und eine wohlbewußte, fast eitle Routine. Er freute sich sichtlich,
+        <lb/>einem Neuling, einem Provinzler zu imponieren. Und das gelang ihm mehr als er
+        <lb/>wußte. Berger horchte auf alle diese Dinge mit einer unbeschreiblich sehnsüchtigen
+        <lb/>Neugier, weil sie ihm das neue Leben zu verkünden schienen, das hier in Wien
+        <lb/>auf ihn wartete, ihm gefiel das forsche Reden, das Art, wie der Schramek beim
+        <lb/>Rauchen den Dampf in breiten Kegeln von sich stieß. Auf jede Kleinigkeit
+        <lb/>achtete er, denn es war der erste echte Student, der ihm begegnete und wahllos
+        <lb/>nahm er ihn als den vollkommensten.
+        <lb/>Er hätte ihm gerne auch etwas erzählt, aber all das von Hause kam ihm
+        <lb/>gegen diese neuen Dinge plötzlich so unwichtig vor, so unscheinbar und platt all die
+        <lb/>Scherze vom Gymnasium, die Erlebnisse der Provinz, all seine eigenen Gedanken und
+        <lb/>Worte bisher schienen ihm plötzlich in die Kindheit hinein zu gehören und hier war
+        <lb/>erst der Beginn aller Mannhaftigkeit. Schramek merkte sein Schweigen gar nicht
+        <lb/>und freute sich sehr an dem scheu bewundernden Blick des Novizen. Berger fuhr
+        <lb/>auf sein Verlangen mit vorsichtiger Hand die drei Schmisse nach, die eine scharfe
+        <lb/>rote Spur über Schrameks kurzgeschorenen Schädel zogen und staunte bei der Er-
+        <lb/>zählung von der Kontrahage und Mensur. Ihm ward ängstlich und doch warm
+        <lb/>bei dem Gedanken, nun bald auch so Aug in Aug einem Gegner gegenüber zu
+        <lb/>stehen und er bat den Schramek, ihn für einen Augenblick einen der Säbel nehmen zu
+        <lb/>lassen, die in der Ecke des Zimmers lagen. Das war dann freilich ein schmerzliches
+        <lb/>Gefühl, wie er ihn nur mit Mühe aufheben konnte: er merkte erst wieder, wie
+        <lb/>schwach und kindhaft mager noch seine Arme waren und fühlte den Unterschied
+        <lb/>zwischen sich und diesem stämmigen robusten Burschen mit einem plötzlichen Neid.
+        <lb/>Wie etwas ganz Unerhörtes schien es ihm, daß man mit so einem Säbel leicht
+      </p>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>341
+      </p>
+      <p>
+        <lb/>durch die Luft wirbeln könne, die Klinge pfeifen lassen, mit aller Kraft die Parade
+        <lb/>durchschlagen und in ein fremdes Gesicht hineinsetzen. Alle diese alltäglichen Dinge
+        <lb/>schienen ihm sehr gewaltig und bewundernswert wie große erstrebenswerte Taten,
+        <lb/>und die scheue Bewunderung, mit der er davon sprach, machte den Schramek nur
+        <lb/>immer noch redseliger und vertrauter. Er sprach zu ihm wie zu einem Freunde
+        <lb/>und rollte das grellfarbige Bild seines ganzen Lebens auf, das nie über das stu-
+        <lb/>dentische Ideal hinausreichte, und auf das Berger wie verzückt hinstarrte. Hier hatte
+        <lb/>er den Herold seines neuen Lebens gefunden.
+        <lb/>Um Mitternacht sagten sie sich endlich „Auf Wiedersehen“. Schramek schüttelte
+        <lb/>Berger herzlich die Hand, schlug ihm auf die Schulter und versicherte mit jenem
+        <lb/>spontanen Freundschaftsgefühl, wie man es nur in diesen Jahren kennt, er sei „ein
+        <lb/>lieber Kerl“, was den jungen ganz hingerissenen Menschen unendlich beglückte.
+        <lb/>Ganz trunken von all diesen Eindrücken kam er in sein Zimmer, das ihm
+        <lb/>plötzlich nicht mehr so einsam und trübe schien, wenn auch der Regen noch immer
+        <lb/>am Fenster plätscherte und Kühle aus allen Fugen quoll. Sein Herz war voll von
+        <lb/>diesen fremden funkelnden Dingen, und er empfand es als unsagbares Glück, gleich
+        <lb/>am ersten Tage einen Freund gefunden zu haben. Allerdings: eine leise Wehmut
+        <lb/>mischte sich bald ein, er fühlte, wie schwach, wie kindisch, wie schuljungenhaft er
+        <lb/>neben diesem Menschen war, der mit beiden Füßen fest im Leben stand. Er war
+        <lb/>immer der schwächste, verzärteltste, kränklichste seiner Kameraden gewesen, immer
+        <lb/>zurückgeblieben in Spiel und Übermut, aber heute erst empfand er es schmerzlich.
+        <lb/>Würde er je werden können wie dieser Schramek: so fest, so stark, so frei? Eine
+        <lb/>wilde Sehnsucht kam ihn an, so flink und forsch reden zu können, Muskeln zu
+        <lb/>haben, das Leben fest anpacken zu können und nicht irgendwie mit ihm zu paktieren.
+        <lb/>Würde er je so werden können? Mißtrauisch sah er im Spiegel auf sein schüch-
+        <lb/>ternes schmales Kindergesicht und es fiel ihm wieder ein, daß er den
+        <lb/>Säbel kaum hätte heben können mit diesem zarten Arm, an dem kein Muskel auf-
+        <lb/>sprang. Es fiel ihm ein, daß er vor zwei Stunden fast geweint hatte wie ein
+        <lb/>Kind, nur weil es dunkel war und kalt und er niemanden um sich hatte. Eine
+        <lb/>Angst beugte sich leise über ihn: Wie würde es mit ihm, dem Schwachen, dem Kin-
+        <lb/>dischen werden in dieser fremden Stadt, in diesem neuen Leben, wo man die Kraft
+        <lb/>brauchte, Mut und Übermut? Nein — er raffte sich mit Gewalt auf — er wollte
+        <lb/>kämpfen, bis er vollwertig sei, so werden wie sein Freund, stark und gewaltig, alles
+        <lb/>wollte er ihm ablernen, den schlenkernden Gang, die helle forsche Art des Redens,
+        <lb/>seine Muskeln wollte er stärken, ein Mann werden wie er. Wehmut und Freude,
+        <lb/>Hoffnung und Verzagen rannen ineinander, immer mehr verwirrte sich seine Träu-
+        <lb/>merei. Erst als die Lampe qualmte, sah er, daß es spät geworden sei, und ging
+        <lb/>eiligst zu Bett. Draußen trommelte noch immer der unerbittliche September-
+        <lb/>regen.
+        <lb/>Das war Bertold Bergers erster Tag in Wien.
+        <lb/>* * *
+        <lb/>Und so blieb es auch in nächster Zeit: Wehmut und Freude, Hoffnung und
+        <lb/>Enttäuschung unablässig mitsammen vermengt, ein unklares Gefühl, aber immer
+        <lb/>nur fremdsein und kein Sichgewöhnen. Das Große, Unerwartete, Neue, das er
+        <lb/>von seiner Unabhängigkeit, von der Studentenzeit, von Wien erwartet hatte, wollte
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <p>
+        <lb/>342
+      </p>
+      <p>
+        <lb/>sich nicht einstellen. Es gab ja einzelne schöne Dinge: Schönbrunn im milden
+        <lb/>Septemberglanz, die goldenen Alleen, die langsam zur Gloriette hinaufstiegen, und
+        <lb/>von dort oben dieser schwungvoll ausgreifende Blick über den edlen Garten und
+        <lb/>das kaiserliche Schloß. Oder die Theater mit ihrem Spiel und dem faszinierenden
+        <lb/>Beisammensein so vieler schöner Menschen, der Anblick der Eleganz bei den Ver-
+        <lb/>anstaltungen und Festen, die Straße manchmal, die so viele schöne und seltsame
+        <lb/>Gesichter an einem vorbeitrug und die funkelte von tausend Versprechungen und
+        <lb/>Lockungen. Aber immer war es ein Anblick nur und nie ein Eindringen, immer
+        <lb/>nur wie das gierige Lesen in einem aufgeschlagenen Buch, nie die Unmittelbarkeit
+        <lb/>eines Gespräches, eines Erlebnisses.
+        <lb/>Einen einzigen Versuch des Eindringens in diese neue Welt machte er gleich
+        <lb/>in den ersten Tagen. Er hatte Verwandte in Wien, vornehme Leute, die er be-
+        <lb/>suchte und die ihn dann zu Tisch baten. Sie waren sehr liebenswürdig zu ihm,
+        <lb/>auch seine ungefähr gleichaltrigen Vettern, aber er fühlte doch zu sehr, daß man
+        <lb/>sich mit der Einladung nur einer Pflicht entledigte, fühlte auf seinem Anzug ihre
+        <lb/>Blicke mit einem unterdrückt-mitleidigen Lächeln, schämte sich seiner Provinzeleganz, seiner
+        <lb/>Schüchternheit, die kläglich sein mußte im Vergleich zu dem selbstsichereren Wesen seiner
+        <lb/>Vettern und war froh, wie er sich empfehlen konnte. Und er ging nie mehr hin.
+        <lb/>So drängte ihn alles in die Freundschaft jenes ersten Abends zurück, der er
+        <lb/>sich mit aller Leidenschaftlichkeit eines halben Kindes hingab. Er vertraute sich ganz
+        <lb/>diesem starken gesunden Menschen, der willig seine überschwängliche Liebe hinnahm
+        <lb/>und sie nur mit jener stets bereiten Herzlichkeit innerlich gleichgültiger Menschen er-
+        <lb/>widerte. Nach paar Tagen schon trug Schramek dem vorfreude errötenden Berger
+        <lb/>das „Du“ an, das dieser noch nach längerer Zeit nur ungeschickt und zaghaft hand-
+        <lb/>habte, so ungemein war der Respekt vor der Überlegenheit seines Freundes. Oft
+        <lb/>sah er ihn, wenn sie zusammen gingen, von der Seite verstohlen um diese
+        <lb/>weitausgreifende sichere Art des Gehens zu lernen und dann die ungezwungene
+        <lb/>Weise, wie er jedem hübschen Mädel den Kopf unter die Nase schob; selbst die
+        <lb/>Unarten gefielen ihm, dieses fechtwirbeln mit dem Stock auf der Straße, der stete
+        <lb/>Knastergeruch in den Kleidern, das laute herausfordernde Reden in den Lokalen
+        <lb/>und die oft stupiden Ulke. Stundenlang konnte er Schramek zuhören, wenn er die
+        <lb/>belanglosesten Geschichten von Mädeln, Kontrahagen und Partien erzählte, unwill-
+        <lb/>kürlich wurden ihm selbst alle diese Dinge wichtig, die ihn gar nicht berührten, er
+        <lb/>regte sich daran auf, sie schienen ihm das wirkliche, das eigentliche Leben zu sein
+        <lb/>und er brannte vor Begier, auch so etwas zu erleben. Im geheimen hoffte er,
+        <lb/>Schramek werde ihn einmal in ein solches Abenteuer hineinschieben, aber der hatte
+        <lb/>eine seltsame Art, ihn bei wichtigen Angelegenheiten auszuschalten. Offenbar
+        <lb/>empfand er das kindliche und bartlose Gesicht als zu wenig repräsentabel, denn er
+        <lb/>nahm ihn selten mit, wenn er in Couleur ging und sie trafen sich meist nur im
+        <lb/>Café oder in der Wohnung. Und immer mußte die Initiative von Berger ausgehen.
+        <lb/>Das hatte der bald bemerkt und es hing an ihm als geheimer Kummer. In
+        <lb/>seiner Freundschaft war wie in jeder Freundschaft ganz junger Leute etwas von
+        <lb/>Liebe: die ungestüme Leidenschaftlichkeit und dann eine leise Eifersucht. Eine Er-
+        <lb/>bitterung, der er freilich nicht Ausdruck zu geben wagte, bemächtigte sich seiner,
+        <lb/>wenn er merkte, daß Schramek es ganz einfältigen, gleichgültigen Menschen, die er
+      </p>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>343
+      </p>
+      <p>
+        <lb/>eben kennen gelernt hatte, ebenso herzlich war wie zu ihm selbst und oft noch
+        <lb/>burschikoser. Und dann fühlte er, daß er ihm in den paar Wochen, die er ihn nun
+        <lb/>schon kannte, um keinen Schritt näher gekommen war als am ersten Abend, so
+        <lb/>sehr er sich auch ihm hingab. Er ärgerte sich, daß Schramek für alle seine Ange-
+        <lb/>legenheiten nichts von dem Interesse zeigte, das er ihm doch für seinen so über-
+        <lb/>strömend entgegenbrachte, daß er ihm nie mehr gab, nie weniger als eine herzliche
+        <lb/>Begrüßung und dann gleich von seinen eigenen Dingen erzählte, kaum hinhörend,
+        <lb/>wenn Berger etwas von den seinen sprach.
+        <lb/>Und dann, das Bitterste: aus jedem Worte fühlte Berger, daß ihn Schramek
+        <lb/>nicht für voll nahm. Schon wie er ihn nannte! Statt des anfänglichen Bertold
+        <lb/>sagte er nun immer „Bubi“ zu ihm. Das klang lieb und herzlich, tat aber immer
+        <lb/>wieder weh. Denn es traf ihn gerade an der Stelle, die schon seit Jahren un-
+        <lb/>vernarbt in ihm blutete: daß er immer für ein Kind gehalten wurde. Jahrelang
+        <lb/>brannte es in ihm, in der Schule war er wie ein Mädel gewesen, so verzärtelt
+        <lb/>schien er allen und so schüchtern war er auch, und jetzt, da er ein Mann sein
+        <lb/>sollte, sah er aus wie ein Bub und hatte alle seine Zaghaftigkeiten und ner-
+        <lb/>vösen Empfindlichkeiten. Nie wollten es die Leute glauben, daß er schon Student
+        <lb/>sei. Freilich, er war nicht ganz 18 Jahre alt, aber er mußte noch viel jünger aus-
+        <lb/>sehen, um so kindisch zu wirken. Immer mehr befestigte sich in ihm der Ver-
+        <lb/>dacht, daß sich Schramek nur um dieser Äußerlichkeit vor den Kameraden mit
+        <lb/>ihm genierte.
+        <lb/>Eines Abends hatte er volle Gewißheit darüber. Er war lange in der Stadt
+        <lb/>herumgestreift und hatte wieder schmerzlich das absolute Alleinsein in den wogenden
+        <lb/>Straßen empfunden. So ging er noch zu Schramek hinein auf einen Plausch. Der
+        <lb/>begrüßte ihn herzlich vom Sofa her, ohne aufzustehen.
+        <lb/>Auf dem Tisch lag die Couleurkappe, brennrot, und stach Berger ins Auge.
+        <lb/>Das war sein liebster, sein geheimer Wunsch, von Schramek in seine Verbindung
+        <lb/>eingeführt zu werden, dort hätte er ja alles, was er so schmerzlich entbehrte, ver-
+        <lb/>trauten Umgang, ein Heim, dort könnte er so werden, wie er sein wollte, stark,
+        <lb/>männlich, ein ganzer Kerl. Seit Wochen wartete er auf einen Vorschlag Schrameks,
+        <lb/>oft schon hatte er ganz heimlich vorsichtige aber offenbar überhörte Anspielungen
+        <lb/>gemacht. Und jetzt brannte ihm diese Kappe ins Auge; wie eine lebende Flamme
+        <lb/>schien sie ihm auf dem Tisch zu zucken, sie flimmerte und glühte, sie faszinierte sein
+        <lb/>ganzes Denken. Er mußte davon reden.
+        <lb/>„Gehst du morgen zur Kneipe?“
+        <lb/>„Natürlich,“ sagte Schramek, sofort animiert. „Es wird riesig lustig werden.
+        <lb/>Drei neue Füchse werden aufgenommen, wirklich ganz famose stramme Kerle. Da
+        <lb/>muß ich doch dabei sein als Zweitchargierter. Es wird riesig sein werden. Weck
+        <lb/>mich nur nicht am Donnerstag vor zwei Uhr auf, wir kommen sicher erst in der
+        <lb/>Früh heim.“
+        <lb/>„Ja, das stell' ich mir riesig lustig vor,“ sagte Berger. Er wartete. Schramek
+        <lb/>sagte nichts. Wozu noch weiter reden? Aber am Tische lockte die Kappe, brennrot,
+        <lb/>feurig rot . . . wie Blut leuchtete sie.
+        <lb/>„Du . . . sag, könntest du mich nicht einmal dort einführen . . . mitnehmen
+        <lb/>natürlich nur . . . weiß du, ich möchte das einmal gern sehen.“
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>344
+      </p>
+      <p>
+        <lb/>„Aber ja, komm nur einmal. Morgen geht's freilich nicht. Aber einmal schau
+        <lb/>dir's an, als Gast natürlich. Es wird zwar nicht gefallen, Bubi, denn da geht's
+        <lb/>oft wüst zu, aber wenn du willst . . .“
+        <lb/>Berger fühlte etwas in der Kehle aufsteigen. Diese Kappe, dieser rote lockende
+        <lb/>Traum, wie im Nebel sah er sie plötzlich nur. Waren das Tränen? Wild und
+        <lb/>schluckend fuhr es heraus:
+        <lb/>„Warum soll's mir nicht gefallen? Wofür hältst du mich denn? Bin ich
+        <lb/>ein Kind?“
+        <lb/>Etwas mußte in der Stimme, im Ton gewesen sein, denn Schramek sprang auf.
+        <lb/>Er kam, jetzt wirklich recht herzlich, zu Berger heran und schlug ihm auf die Schulter.
+        <lb/>„Nein, Bubi, du darfst nicht bös sein, so hab ich's nicht gemeint. Aber wie
+        <lb/>ich dich kenne, glaub' ich, taugst du zu so was nicht recht. Du bist zu fein, zu
+        <lb/>brav, zu anständig zu so was. Da muß man rabiat sein, ein Kerl, vor dem die
+        <lb/>anderen Respekt haben und wenn's nur vor dem Trinken ist. Kannst du dich bei
+        <lb/>einer Sauferei vorstellen oder bei einer Schlägerei, wie sie ja jetzt jeden Augenblick
+        <lb/>in der Aula sind. Nein, nicht wahr? Es ist ja kein Unglück, aber da paßt du
+        <lb/>halt nicht hinein.“
+        <lb/>Nein, er paßte nicht; da, fühlte er, hatte Schramek recht. Aber wozu paßte
+        <lb/>er? Wozu brauchte ihn das Leben? Er wußte nicht, sollte er dem Schramek böse
+        <lb/>oder dankbar sein für die freie Aussprache. Der hatte freilich nach einer Minute
+        <lb/>wieder daran vergessen und plauschte weiter, aber in dem anderen fraß sich der
+        <lb/>Gedanke, daß all die ihn für minderwertig nahmen, immer tiefer ein. Die rote
+        <lb/>Kappe dort am Tisch starrte ihn an wie ein böser Blick. Er blieb nicht mehr lang
+        <lb/>diesen Abend und ging in sein Zimmer, dort blieb er sitzen, bis spät nach Mitter-
+        <lb/>nacht, die Hände auf den Tisch gestützt, reglos in die Lampe starrend.
+        <lb/>* * *
+        <lb/>Am nächsten Tag beging Bertold Berger eine Dummheit. Er hatte die ganze
+        <lb/>Nacht nicht geschlafen, so sehr bohrte in ihm der Gedanke, daß ihn Schramek für
+        <lb/>minderwertig, für feig, für ein Kind hielt. Und da hatte er beschlossen, ihnen zu
+        <lb/>beweisen, daß es ihm an Mut nicht fehle. Er wollte Händel suchen, ein Duell,
+        <lb/>um ihm zu zeigen, daß er nicht furchtsam sei.
+        <lb/>Das gelang ihm leicht. Im Umgang mit Schramek hatte er aus den Gesprächen
+        <lb/>gelernt, wie solche Dinge zu beginnen waren. In dem kleinen niederen Zimmer
+        <lb/>des Vorstadtrestaurants, wo er speiste, saßen gegenüber täglich ein paar Couleur-
+        <lb/>studenten. Es war nicht schwer, mit ihnen anzubandeln, denn sie sprachen nie von
+        <lb/>anderen Dingen, ihr ganzes Denken drehte sich um diese sogenannten Ehrverletzungen.
+        <lb/>Wie er vorbeiging an ihrem Tisch, streifte er mit Absicht und warf einen
+        <lb/>Sessel um. Er ging ruhig weiter, ohne sich zu entschuldigen. Das Herz schlug ihm
+        <lb/>in der Brust.
+        <lb/>Da klang schon hinter ihm, drohend und scharf, eine Stimme. „Können Sie
+        <lb/>nicht achtgeben?“
+        <lb/>„Hofmeistern Sie jemand anderen!“
+        <lb/>„So eine Frechheit!“
+        <lb/>Da bog er um und verlangte die Karte, gab die seine. Er freute sich, daß
+        <lb/>seine Hand nicht zitterte dabei. In einer Sekunde war das Ganze geschehen. Wie
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>345
+        <lb/>er stolz hinausging, hörte er die noch lachen am Tisch und den einen heiter sagen:
+        <lb/>„So ein Krispinderl!“ Das verdarb ihm den Stolz.
+        <lb/>Und dann stürmte er nach Hause. Mit glühenden Wangen, stammelnd vor
+        <lb/>Freude, überfiel er Schramek, der gerade aufgestanden war, in seinem Zimmer,
+        <lb/>erzählte ihm alles, die letzte Bemerkung freilich verschweigend und auch, daß er
+        <lb/>den Sessel mit Absicht umgeworfen habe. Selbstverständlich müsse Schramek sein
+        <lb/>Sekundant sein.
+        <lb/>Er hatte gehofft, Schramek werde ihm auf die Schulter klopfen und beglück-
+        <lb/>wünschen, was er für ein strammer Kerl sei. Aber der sah sich nachdenklich die
+        <lb/>Visitkarte an, pfiff leise durch die Zähne und sagte ärgerlich: „Daß du dir aber
+        <lb/>gerade den ausgesucht hast! Das ist ein baumstarker Kerl, einer unserer besten
+        <lb/>Fechter. Der haut dich zusamm' wie nichts.“
+        <lb/>Berger erschrak. Nicht. Daß er abgeführt werde, war für ihn selbstverständlich,
+        <lb/>da er noch nie einen Säbel in der Hand gehabt hatte. Er freute sich beinahe auf
+        <lb/>einen schweren Schmiß im Gesicht: da konnten die anderen ihn nicht mehr fragen,
+        <lb/>ob er Student sei. Aber was ihn unangenehm berührte, war das Benehmen
+        <lb/>Schrameks, der, die Karte in der Hand, immer wieder auf und ab ging und
+        <lb/>murmelte: „Das wird nicht leicht sein. Frechheit hat er gesagt, nicht wahr?“
+        <lb/>Schließlich zog sich Schramek an und sagte zu Berger. „Ich geh' gleich
+        <lb/>zu unserer Verbindung hin und such' dir den zweiten Vertreter. Sei unbesorgt,
+        <lb/>ich werde die Sache schon richten.“
+        <lb/>Berger war wirklich unbesorgt. Er empfand eine wilde und fast über-
+        <lb/>schwengliche Freude, jetzt zum erstenmal offiziell als Student, als Mann behandelt
+        <lb/>zu sein, auch seine Affaire zu haben. Er spürte plötzlich beinahe Kraft in den
+        <lb/>Gelenken, und wie er nun den Säbel aufnahm und damit wirbelte, schien es ihm
+        <lb/>fast eine Lust, fest dreinzuhauen. Den ganzen Nachmittag träumte er, tat ihm
+        <lb/>ab gehend, von dem Duell und die Gewißheit, daß er unterliegen werde, tat ihm
+        <lb/>gar nicht weh. Im Gegenteil, gerade da konnte er dem Schramek und den
+        <lb/>Anderen zeigen, daß er nicht furchtsam sei, er wollte stehen bleiben, ob
+        <lb/>auch das Blut über das Gesicht und die Augen liefe, wollte stehen bleiben, ob
+        <lb/>sie ihn auch wegzerren wollten. Dann würden sie ihm schon selbst die rote Kappe
+        <lb/>anbieten.
+        <lb/>Sein Blut war ganz warm geworden. Als Schramek um 7 Uhr abends kam,
+        <lb/>sprang er ihm ganz aufgeregt entgegen! Auch Schramek war sehr heiter.
+        <lb/>„Na also, Bubi. Alles ist gut, die Sache ist in Ordnung.“
+        <lb/>„Wann steigen wir?“
+        <lb/>„Aber Bubi, wir werden dich doch nicht mit dem steigen lassen. Die Sache
+        <lb/>ist natürlich beigelegt.“
+        <lb/>Berger wurde totenblaß, seine Hände zitterten, ein Zorn brach in ihm auf
+        <lb/>und drängte in den Augen nach Tränen. Er hätte dem Schramek ins Gesicht schlagen
+        <lb/>können, wie der ihm jetzt sagte: „Leicht war's freilich nicht und nächstens sei vor-
+        <lb/>sichtiger! Das geht nicht immer so gut aus!“
+        <lb/>Berger rang vergeblich nach einem Wort. Aber die Enttäuschung war
+        <lb/>zu furchtbar. Endlich sagte er, am Weinen würgend: „Ich dank' dir jedenfalls
+        <lb/>schön. Aber einen Gefallen hast du mir damit nicht getan.“ Und ging hinaus.
+        <lb/>„Österreichische Rundschau“, XV. 5. 23
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <p>
+        <lb/>346
+      </p>
+      <p>
+        <lb/>Schramek sah ihm verblüfft nach. Er schob dieses sonderbare Benehmen auf die
+        <lb/>Aufregung des Neulings und spekulierte nicht weiter darüber.
+        <lb/>* * *
+        <lb/>Berger begann sich umzusehen. Sein Leben wollte endlich Grund ertasten. Nun
+        <lb/>war er schon Wochen da und stand nicht weiter als am ersten Tag. Wie zerflatternde
+        <lb/>Wolken flog langsam Bild um Bild in die Ferne, die phantasievollen Versprechungen
+        <lb/>seiner Kindheit wurden blaß und zerrannen in Nebel. War das wirklich Wien, die
+        <lb/>große Stadt, der Traum der vielen Jahre, herbeigesehnt vielleicht schon seit dem
+        <lb/>Tag, da er zum erstenmal mit steifen, ungelenken Lettern das Wort Wien auf das
+        <lb/>Papier hinmalte? Damals hatte er vielleicht nur an viele Häuser gedacht und daß
+        <lb/>die Karussells größer sein müßten und bunter als das auf ihrem Marktplatz, wenn
+        <lb/>Kirchmeß war. Und dann hatte er langsam die Farben von den vielen Büchern
+        <lb/>geborgt, hatte die lockenden begehrenswerten Frauen auf den Straßen kokett hingehen
+        <lb/>lassen, die Häuser bevölkert mit verwegenen Abenteuern, die Nächte erfüllt mit wilder
+        <lb/>Kameraderie und all das getaucht in den brausenden Wirbel, der Jugend und
+        <lb/>Leben hieß.
+        <lb/>Und was war nun? Ein Zimmer, eng und kahl, dem er morgens entlief, um
+        <lb/>ein paar Stunden in schwitzigen Studierstuben zu verbringen; ein Gasthaus, wo
+        <lb/>er rasch das Essen hinabwürgte; ein Kaffeehaus, wo er die Zeit mit dem Hinstarren
+        <lb/>auf Zeitungen und Menschen totschlug; ein zielloses Hinwandern auf den lauten
+        <lb/>Straßen, bis er müde war und wieder heimkam in das enge kahle Zimmer. Ein,
+        <lb/>zweimal ging er auch ins Theater, aber es war immer für ihn ein bitteres
+        <lb/>Erlebnis. Denn wenn er da oben stand auf der Galerie, zwischen viele Menschen
+        <lb/>gedrängt, die nichts wußten von ihm, sah er unten im Parterre, in den Logen die
+        <lb/>Herren, elegant und geschmeidig, die Damen verlockend in Schmuck und Entblößung,
+        <lb/>sah wie sie sich alle begrüßten, lachend und übermütig begegneten. Alle kannten sich,
+        <lb/>alle gehörten zueinander. Die Bücher hatten nicht gelogen. Hier war die Wirk-
+        <lb/>lichkeit aller Abenteuer, an denen er oft zweifelte, weil sie ihn nicht erreichten,
+        <lb/>da war die Welt, die sonst in den stummen Häusern sich verkroch, da war Erlebnis,
+        <lb/>Abenteuer, Schicksal. Auf vielen Schächten, fühlte er, ging es da in das Gold des
+        <lb/>Lebens hinab. Aber er stand da, sah zu und konnte nicht hinein. Wirklich, seine
+        <lb/>Kindheit hatte recht gesehen: hier war das bunte, flirrende Karussell größer als
+        <lb/>zu Hause, lauter und rauschender seine Musik, wilder, atemraubender der Schwung.
+        <lb/>Aber er stand nur dabei und fuhr nicht mit.
+        <lb/>Das war nicht seine Schüchternheit allein, die ihn abseits hielt. Auch die Armut
+        <lb/>band ihm die Hände. Daß er von Hause genug bekam, war ihm zu wenig. Es
+        <lb/>hielt ihn gerade noch über der Klippe der Entbehrung aufrecht, war nur genug
+        <lb/>für dieses stille, einfache alltägliche Leben, nie hätte es gereicht für einen verschwenderi-
+        <lb/>schen Überschwang, der doch der Sinn der Jugend ist. Er hätte Geld nicht zu ver-
+        <lb/>wenden gewußt, aber das Bewußtsein machte ihn beschämt, daß ihm all das ver-
+        <lb/>sagt sei, was er dumpf als sehr schön und berauschend fühlte: in einem Fiater
+        <lb/>wild durch den Prater zu sausen oder eine Nacht irgendwo in einem eleganten
+        <lb/>Lokal mit Frauen und Freunden bei Champagner zu verleben, einmal Geld, ohne
+        <lb/>zu zählen, hinzuwerfen für eine tolle Laune. Ihn ekelte vor diesen wüsten
+        <lb/>Studentendrahrereien in rauchigen Bierlokalen und immer wilder wuchs die brennende
+      </p>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>347
+      </p>
+      <p>
+        <lb/>Sehnsucht, sich nur einmal in irgend einem Überschwang aus dem öden Trott der
+        <lb/>Tage zu retten in ein lebendigeres Gefühl, in dem etwas mitschwang vom großen
+        <lb/>Takt des Lebens, vom unbändigen Rhythmus der Jugend. Aber all das war ihm
+        <lb/>versagt und aller Tage Ende war diese öde Heimkehr am Abend in das enge ver-
+        <lb/>haßte Zimmer, wo die Schatten breit lagen wie von bösen Händen hingestreut, der
+        <lb/>Spiegel wie erfroren glänzte, wo er am Abend das Erwachen in den Morgen
+        <lb/>fürchtete und am Morgen den langen, schläfrigen, öden eintönigen Tag bis zum
+        <lb/>Abend hin.
+        <lb/>In dieser Zeit begann er sich ungemein eifrig, mit einer gewissen Verzweiflung
+        <lb/>dem Studium hinzugeben. Er war der erste in den Hörsälen und Laboratorien, der
+        <lb/>kam und der letzte, der ging, er arbeitete mit einer stumpfen Gier, ohne sich um
+        <lb/>die Kameraden zu kümmern, bei denen er bald unbeliebt wurde. Er suchte in dieser
+        <lb/>wilden Arbeit seine Sehnsucht nach anderen Dingen niederzuringen und es gelang
+        <lb/>ihm auch. Abends war er so abgearbeitet, daß er oft kaum mehr Bedürfnis hatte,
+        <lb/>mit Schramek zu sprechen. Ganz blind arbeitete er vorwärts, ohne jeden Ehrgeiz,
+        <lb/>nur um sich zu betäuben und nicht an die vielen Dinge zu denken, auf die er ver-
+        <lb/>zichten mußte. Er begriff, daß ein wunderbares Geheimnis in diesem Fieber war,
+        <lb/>mit dem viele Leute über die Rußlosigkeit und Leere ihres ganzen Lebens hin-
+        <lb/>wegtäuschten und hoffte, so auch seinen Leben einen Sinn aufzwingen zu können,
+        <lb/>freilich vergessend, daß die erste Jugend nicht einen Sinn des Lebens will, sondern
+        <lb/>das ganze Leben selbst.
+        <lb/>* * *
+        <lb/>Eines Nachmittags, als er etwas früher wie sonst von der Arbeit nach Hause
+        <lb/>kam, fiel ihm beim Vorübergehen an der Türe seines Freundes ein, daß er ihn
+        <lb/>jetzt vier Tage nicht gesehen hatte. Er klopfte an. Niemand antwortete ihm. Aber
+        <lb/>er war das gewöhnt bei Schramek, der oft am Abend noch schlief, wenn er die
+        <lb/>Nacht mit seinen Freunden verbummelt hatte.
+        <lb/>Wie er jetzt die Tür aufmachte, schien ihm das dunkle Zimmer leer. Aber da
+        <lb/>regte sich plötzlich etwas beim Fauteuil am Fenster, ein großes lachendes Mädel
+        <lb/>sprang auf, das auf Schrameks Schoß gesessen hatte.
+        <lb/>Berger wollte sofort hinaus. Sie hatten offenbar sein Klopfen überhört, und
+        <lb/>er war sehr geniert. Aber Schramek sprang auf, faßte den Widerstrebenden am
+        <lb/>Arm und zog ihn heran. „Siehst du, so ist er. Hatst Angst vor einem Mädel wie
+        <lb/>vor einer Spinne. Ah nein, durchbrennen gibt's nicht. So Karla, siehst du, das ist
+        <lb/>der Bubi, von dem ich dir schon erzählt hab.“
+        <lb/>„Ich seh gar nix,“ lachte eine helle, etwas laute Stimme. Wirklich, es war
+        <lb/>zu dunkel. Berger sah nur undeutlich die weißen Zähne durch die Dämmerung
+        <lb/>schimmern und die noch lachende Augen.
+        <lb/>„Also: es werde Licht“, sagte Schramek und machte sich an der Lampe
+        <lb/>zu schaffen. Berger fühlte sich sehr ungemütlich, fühlte sein Herz unruhig pochen, aber
+        <lb/>da gab es kein Durchbrennen mehr.
+        <lb/>Er hatte von dieser Karla schon gehört. Sie war Schrameks Geliebte seit paar
+        <lb/>Wochen, irgendein Mädel aus einem Geschäft, das hatte er von
+        <lb/>seinem Zimmer aus die beiden lachen und flüstern gehört, aber er hatte es doch,
+        <lb/>furchtsam wie er war, einzurichten gewußt, daß er ihr nie begegnete.
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <p>
+        <lb/>348
+      </p>
+      <p>
+        <lb/>Das Licht flammte auf. Jetzt sah er sie dastehen, hoch und hübsch, ein breites
+        <lb/>starkes, gesundes Mädel mit vollen Formen, brennrotem Haar und großen lachenden
+        <lb/>Augen. Ein derbes Ding war sie, ein bißchen dienstmädelhaft und auch schlampig
+        <lb/>in ihrer Kleidung und Frisur; oder hatte die gerade Schramek in Unordnung
+        <lb/>gebracht? Es sah fast so aus. Aber hübsch war ihre unbefangene übermütige Art,
+        <lb/>wie sie jetzt auf ihn zukam, ihm die Hand reichte und ihm „Servus!“ sagte.
+        <lb/>„No, wie g'fällt er dir?“ sagte der Schramek. Es bereitete ihm einen Riesen-
+        <lb/>spaß, den Berger verlegen zu machen.
+        <lb/>„Hübscher ist er schon wie du“, lachte die Karla. „Ist nur halt gar so viel
+        <lb/>schad, daß er ein Stummerl ist.“
+        <lb/>Berger wurde rot und wollte etwas herausbringen, da lachte die Karla und
+        <lb/>sprang hin zu Schramek. „Du, der wird ja rot, wenn man zu ihm reden tut.“
+        <lb/>„Laß ihn in Ruh“, sagte der Schramek. „Der kann die Mädeln nicht leiden.
+        <lb/>Er ist halt so schüchtern, aber du wirst ihn schon aufmischen.“
+        <lb/>„Natürlich, das wär nicht schlecht. Kommen's nur her, ich beiß Ihna ja net.“
+        <lb/>Sie nahm ihn resolut beim Arm, um ihn zum Sitzen zu nötigen.
+        <lb/>„Aber Fräulein . . .“, stammelte der hilflose Berger.
+        <lb/>„Hast g'hört? Fräulein hat er g'sagt, Fräulein. Sie, lieber Herr Bubi, mir
+        <lb/>sagt man net Fräulein, mir sagt man „Karla“, ein für allemal.“
+        <lb/>Sie lachten beide unbändig, Schramek und die Karla. Hilflos mußte er aus-
+        <lb/>sehen, das fühlte der Berger und um nicht so kläglich zu erscheinen, lachte er mit.
+        <lb/>„Weiß was“, sagte der Schramek. „Wir lassen einen Wein holen. Vielleicht
+        <lb/>ist er dann nicht mehr so schüchtern. Also Bubi, vorwärts, spendier eine Flaschen
+        <lb/>oder lieber zwei. Willst du?“
+        <lb/>„Natürlich“, sagte Berger. Er fühlte sich nach und nach sicherer werden, sie
+        <lb/>hatten ihn nur so überrumpelt, anfangs. Er ging hinaus, rief die Hausfrau und
+        <lb/>die holte Wein, brachte Gläser und jetzt saßen sie alle drei um den Tisch, plauschten
+        <lb/>und lachten. Die Karla hatte sich neben Berger gesetzt und trank ihm zu. Er war
+        <lb/>sichtlich mutiger geworden. Manchmal traute er sich schon, wenn sie zu Schramek
+        <lb/>hinüber sprach, sie voll anzuschauen. Sie gefiel ihm jetzt besser. Das feuergoldene
+        <lb/>Haar über dem ganz weißen Nacken gab einen lockenden Kontrast. Und dann fesselte
+        <lb/>ihn die ungezwungene Lebendigkeit, die wilde, starke, temperamentvolle Kraft und
+        <lb/>er mußte immer auf ihren roten sinnlichen Mund schauen, der beim Lachen auf-
+        <lb/>sprang und die starken schneeweißen Zähne zeigte.
+        <lb/>Einmal erwischte sie ihn, plötzlich mit einer Frage sich zu ihm hinwendend,
+        <lb/>wie er sie anstarrte. „G'fall ich dir?“ lachte sie in ihrem Übermut. „Du g'fallst
+        <lb/>mir auch!“ Ganz arglos sagte sie es, ohne Schmeichelei, aber es gefiel ihm irgend-
+        <lb/>wie, es berauschte ihn fast für eine Sekunde.
+        <lb/>Immer lebendiger wurde er. Und allmählich sprang wie eine heiße Quelle all
+        <lb/>der verschüttete Übermut seiner Gymnasiastenjahre in ihm auf, er begann zu er-
+        <lb/>zählen, Possen zu treiben, vom Wein befeuert, funkelte sein ganzes Reden von einer
+        <lb/>wilden Jugendlichkeit, die er selbst an sich nie gekannt hatte. Auch Schramek staunte.
+        <lb/>„Aber, Bubi, was ist denn aus dir geworden? Siehst du, so solltest du immer sein,
+        <lb/>nicht so ein fadian!“ „Ja“, lachte die Karla, „hab' ich dir net gleich gesagt, ich
+        <lb/>werd' ihm die Würmer aus der Nase ziehn.“
+      </p>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>349
+      </p>
+      <p>
+        <lb/>Noch einmal mußte die Hausfrau um Wein gehen. Immer lauter wurde die
+        <lb/>Fröhlichkeit der drei. Berger, der sonst fast nie trank, fühlte sich wunderbar gehoben
+        <lb/>von dieser ungewohnten Festlichkeit, er lachte und scherzte durcheinander und verlor
+        <lb/>alle Scheu. Bei der dritten Flasche fing die Karla zu singen an und dann bot sie
+        <lb/>Berger das „Du“ an.
+        <lb/>„Nicht wahr, Schram, du erlaubst es. Er ist gar so ein lieber Kerl.“
+        <lb/>„Aber natürlich. Vorwärts! Den Bruderküß.“
+        <lb/>Und ehe der Berger viel überlegen konnte, spürte er ein paar feuchte Lippen
+        <lb/>auf seinem Mund. Es tat nicht weh und nicht wohl, es verrann irgendwie spurlos
+        <lb/>in die wilde und schon leise nebelnde Lustigkeit, die ihn auf und nieder schaukelte.
+        <lb/>Er hatte nur den einen Wunsch, daß das jetzt so fortdauern solle, dieser wilde
+        <lb/>schöne Wirbel, dieser leise Rausch, der von dem Mädel ausging und vom Wein
+        <lb/>und von seiner Jugend. Auch die Karla hatte gerötete Wangen und lachte den
+        <lb/>Schramek manchmal zwinkernd an.
+        <lb/>Auf einmal sagte der Schramek zu Berger: „Hast du schon meinen neuen
+        <lb/>Säbel gesehen?“
+        <lb/>Berger war nicht neugieriger. Aber der Schramek zog ihn hin. Und wie sie sich
+        <lb/>niederbeugten, sagte er ihm leise: „So, und jetzt verschwind, Bubi. Jetzt können
+        <lb/>wir dich nicht mehr brauchen.“
+        <lb/>Berger starrte ihn einen Moment verdutzt an. Dann verstand er und sagte
+        <lb/>gute Nacht.
+        <lb/>Wie er in seinem Zimmer stand, fühlte er ein leises Schwanken unter seinen
+        <lb/>Füßen. Oben auf der Stirne hämmerte das Blut und die Müdigkeit warf ihn bald
+        <lb/>ins Bett. Am nächsten Tag verschlief er zum erstenmal die Vorlesung.
+        <lb/>* * *
+        <lb/>Immerhin: diese Begegnung, so flüchtig sie auch war, hatte eine leise flimmernde
+        <lb/>Erregung in sein Blut gestrahlt. Er sann dumpf nach: ob das nicht irgendein Irr-
+        <lb/>tum war, eine geheime Lüge, dieser Durst nach einer Freundschaft. Ob in diesem
+        <lb/>Hinverlangen aus der Einsamkeit in eine wilde Vertraulichkeit nicht ein anderes
+        <lb/>mühsam verhülltes Verlangen sich rührte?
+        <lb/>Er sann jene Tage mit seiner Schwester zurück. Er dachte an jene blauen
+        <lb/>Abende, wo sie im abendlich verdunkelten Garten saßen und er nicht mehr ihre
+        <lb/>Züge sah, nur mehr den weißen Schimmer des Kleides aus der Dämmerung, ganz
+        <lb/>leise nur, wie oft eine Wolke zart leuchtet auf dem schon umnachteten Himmel.
+        <lb/>Was war es, das ihn damals so beseligte, wenn diese Stimme mit den lieben
+        <lb/>Worten aus dem Dunkel kam, silbern und leise, oft hell blinkend von Lachen und
+        <lb/>dann wieder voll Zärtlichkeit, wenn diese Musik anflog an sein Herz wie schmeichelnder
+        <lb/>Wind oder ein zutraulicher Vogel? War dies wirklich nur geschwisterliches Vertrauen
+        <lb/>gewesen oder war nicht doch darin — irgendwo ganz am tiefsten Grunde und ge-
+        <lb/>kühlt durch begehrungslose Freundschaft — eine freude verborgen an der Frau,
+        <lb/>eine zarteste, süßeste Empfindung des Weiblichen? Und war nicht vielleicht alles,
+        <lb/>was er hier dumpf ersehnte, ein Glanz, eine verirrte Spur von weiblicher Seele
+        <lb/>über seinem Leben?
+        <lb/>Seit jenem Abend wußte er es bestimmt, er sehnte sich sehr nach irgendeiner
+        <lb/>Frau. Nicht so sehr nach einem Verhältnis, nach einer Liebe, sondern nur nach
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <p>
+        <lb/>350
+        <lb/>irgendeiner leisen Berührung mit den Frauen. War denn nicht all das Unbekannte
+        <lb/>und Wunderbare, das er erhoffte, mit den Frauen verknüpft, waren sie nicht Hüte-
+        <lb/>rinnen aller Geheimnisse, lockend und verheißend, begehrend und begehrt zugleich.
+        <lb/>Er begann jetzt mehr die Frauen auf der Straße zu beachten. Er sah viele, die
+        <lb/>jung waren und schön und das funkelnde Licht in den Augen trugen, das so viel
+        <lb/>verrät. Wem gehörten die, die so wiegend gingen wie in leisem Tanz, die so stolz
+        <lb/>aufrecht um sich sahen, als seien sie Königinnen, die in den Wagen wie in Wollust
+        <lb/>ruhten und mit den Blicken lässig hinstreiften auf die, die da staunend standen und
+        <lb/>sie bewunderten? War in ihnen denn nicht auch Sehnsucht und mußten nicht hinter
+        <lb/>diesen tausenden Türen, hinter den zahllosen ängstlich verhängten und sehnsüchtig
+        <lb/>aufgetanen Fenstern der großen Stadt viele Frauen sein, in denen auch ein Ver-
+        <lb/>langen war, ähnlich wie das seine und ihm entgegenbreitet wie mit offenen
+        <lb/>Armen? War er nicht jung wie sie und war nicht gleiche Sehnsucht in alle gegossen?
+        <lb/>Er ging jetzt weniger in die Vorlesungen und streifte öfter die Straßen entlang.
+        <lb/>Ihm war, als müßte er endlich irgendeiner begegnen, die in den zitternden Zeichen
+        <lb/>seines Auges lesen könnte, irgendein Zufall müßte ihm helfen, ein Unvermutetes
+        <lb/>geschehen. Er sah mit Neid und einer wilden Begier, wie knapp vor ihm junge
+        <lb/>Burschen mit Mädeln bekannt wurden, sah Liebespaare, zärtlich und verschlungen,
+        <lb/>abends sich hinein in die Parke verlieren und immer drängender wurde in ihm
+        <lb/>das Verlangen, auch sein Erlebnis zu haben. Freilich, nichts Wildes ersehnte er sich,
+        <lb/>sondern eine Frau, zart und sanft wie seine Schwester, zärtlich und lind, kindhaft
+        <lb/>treu und mit dieser wunderbaren leisen Stimme im Abend. Das Bild füllte seine
+        <lb/>Träume.
+        <lb/>Jeden Tag, wenn er mittags durch die Florianigasse nach Hause ging, be-
+        <lb/>gegnete er den schwärmenden Zügen junger Mädchen. Fünfzehnjährige, Sechzehn-
+        <lb/>jährige waren es, die von der Schule kamen, in kleinen schwatzenden Trupps, mit
+        <lb/>jenem hüpfenden Schritt der Mädel in diesen Jahren, unruhig herumspähend,
+        <lb/>kichernd, die Bücher schlenkernd. Jeden Tag sah er sie von ferne, die frischen
+        <lb/>lachenden Gesichter, die schlanken Körper in den kurzen Röcken, die leicht sich wie-
+        <lb/>genden Hüften, sah die unbesorgte, noch kindische Fröhlichkeit mit einer wilden
+        <lb/>Sehnsucht, von dieser Jugend das Lachen zu lernen und diese klare Heiterkeit.
+        <lb/>Jeden Tag sah er sie. Und schon kannten sie ihn. Wenn er kam, stießen sie sich
+        <lb/>in der auffallenden Art der Backfische an, lachten überlaut und sahen ihn mit über-
+        <lb/>mütigen Augen herausfordernd an, der dann immer rasch wegsah und vorübereilte.
+        <lb/>Wie sie dann seine schüchterne Verwirrtheit merkten und dieses errötende Wegstieben
+        <lb/>vor ihrem Blick, wurden sie immer verwegener von Tag zu Tag, ohne daß er sich
+        <lb/>je aufraffen konnte, sie anzusprechen. Waren sie nicht knabenhafter, männlicher als
+        <lb/>er? War er nicht in seiner schüchternen Blödigkeit wie ein Mädel so verwirrt
+        <lb/>und kindisch?
+        <lb/>Er erinnerte sich an einen Scherz in seiner Heimat, den seine Schwester vor
+        <lb/>paar Jahren gemacht hatte. Sie hatte ihn heimlich als Mädel angezogen und
+        <lb/>ihn plötzlich unter ihre Freundinnen geführt, die ihn zuerst nicht erkannten und
+        <lb/>dann übermütig, mit hundert Scherzen umringten. Er, ein Bub damals noch, war
+        <lb/>zitternd und errötend dagestanden und hatte kaum gewagt die Augen aufzuschlagen
+        <lb/>und in den Spiegel zu schauen, den sie ihm brachten. Schon damals war er
+      </p>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>351
+        <lb/>schüchtern gewesen und feig, aber da war er noch ein Kind. Jetzt war er ein
+        <lb/>Mann fast und wußte noch nicht, einen lachenden Blick zu ertragen, wußte nicht
+        <lb/>stark zu sein und brutal, wie das Leben es verlangte. Warum konnte er nicht so
+        <lb/>sein wie der Schramek oder all die anderen? War er wirklich minderwertig, wirklich
+        <lb/>wie ein Kind?
+        <lb/>Immer fiel ihm das wieder ein, wie er damals als Mädel verkleidet unter
+        <lb/>diesen lachenden, übermütigen Dingern stand und nicht aufzuschauen wagte. Was
+        <lb/>war aus denen seither geworden? Das Küssen kannten sie und die Liebe, sie
+        <lb/>trugen lange Kleider, manche hatten schon Mann und Kind. Alle waren sie aus
+        <lb/>dem Zimmer von damals, alle aus der Kindheit hinaus ins Leben gestürmt. Nur
+        <lb/>er stand immer da, Mädel mehr als Mann, ein errötendes Kind im ver-
+        <lb/>lassenen Zimmer mit den verwirrt niedergeschlagenen Augen und wagte nicht auf-
+        <lb/>zusehen . . .
+        <lb/>* * *
+        <lb/>Einmal, es war spät im Jänner, ging er wieder zu Schramek hinüber. Er
+        <lb/>kam jetzt seltener, seit er dem einsamen Umherstreifen auf den Straßen eine
+        <lb/>leise lockende abgewonnen hatte. Das Wetter war wüst. Der Schnee
+        <lb/>der letzten Tage war geschmolzen, aber der Wind blieb scharf und schneidend
+        <lb/>und verlangte die Straße allein für sich. Wolken hezten über den grauen Himmel,
+        <lb/>der niederstarrte wie erblindet. Ein scharfer stechender Regen begann, der sich wie
+        <lb/>Eispitzen in die Haut bohrte.
+        <lb/>Schramek sagte ihm kaum guten Tag. Er war immer rücksichtslos und grob,
+        <lb/>wenn in seinen Angelegenheiten etwas nicht ganz in Ordnung war. Unruhig ging
+        <lb/>er auf und ab, die Pfeife immer wieder anqualmend. Manchmal kehrte er kurz
+        <lb/>um, als wollte er etwas sagen. „Verfluchte Sache“, knurrte er zwischen den Zähnen.
+        <lb/>Berger saß still. Er traute sich nicht, ihn zu fragen, was eigentlich vorgehe.
+        <lb/>Schramek würde schon reden, das wußte er.
+        <lb/>Der brach auch endlich los. „So ein Sauwetter! Das hat mir noch gerade
+        <lb/>gefehlt. Da kann ich jetzt herumrennen wegen die Dummheiten!“
+        <lb/>Er rannte wieder zornig auf und, hieb mit einem Lineal scharfe pfeifende
+        <lb/>Striche durch die Luft. Nun fragte erst Berger vorsichtig: „Was ist denn los?“
+        <lb/>„Dieser Laff, mein Leibbursch, hat vorgestern zwei Kerle angerempelt. Heute
+        <lb/>um vier Uhr geht's los und dann morgen wieder. Und ich hab' doch Prüfung in
+        <lb/>acht Tagen und hätt' mich wirklich um andere Sachen zu kümmern. Dazu hat er
+        <lb/>sich noch zwei ausgesucht, die ihn sicher abstechen werden, den Tepp, den blöden.
+        <lb/>Wenn ich jetzt durchfall', dann ist's aus, dann kann ich wieder ein Jahr sitzen und
+        <lb/>warten, wie die Buben in der Schule. Und da soll man sich nicht giften.“
+        <lb/>Berger sagte nichts. Es hatte nicht lange gedauert, bis er die Stupidität aller
+        <lb/>dieser Mensuren hinter dem leichten lockenden Glanz erkannt hatte, der sie ver-
+        <lb/>goldete. Seit er bei einer Kneipe gewesen war und die trunkenen Studenten dann
+        <lb/>fahl und grau im Frühlicht gesehen hatte nach allen Feierlichkeiten und Zeremonien,
+        <lb/>seit er draußen in einer engen, schmutzigen Stube einer Mensur beiwohnt hatte,
+        <lb/>blieb ihm nur mehr ein leises Lächeln für den Ernst, mit dem diese Dinge betrieben
+        <lb/>wurden, seitdem fehlte ihm jegliches innerliches Interesse an diesen Affären ganz und
+        <lb/>gar. Freilich, dem Schramek hatte er sich's nie zu sagen getraut, dem ging's bis ins
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <p>
+        <lb/>352
+        <lb/>Blut. Jetzt saßen sie beide schweigsam da, jeder mit seinen Gedanken beschäftigt,
+        <lb/>draußen ratterte immer lauter der Wind.
+        <lb/>Da ging die Glocke. Und gleich darauf klopfte es an der Tür.
+        <lb/>Die Karla kam herein, den Hut schief, nasse Strähnen über dem lachenden Ge-
+        <lb/>sicht. „Schön schau ich aus, nicht wahr? Was?“ „Servus.“ Sie ging auf Schramek
+        <lb/>zu und küßte ihn. Er wich übelgelaunt aus. „Hast Angst, ich werd' dich naß machen
+        <lb/>mit meiner Jack'n. Blödian? Dann bemerkte sie Berger. „Servus Bubi!“
+        <lb/>Sie zog die Jacke aus und warf sie auf das Sofa hin. Alle schwiegen. Berger
+        <lb/>war irgendwie unangenehm berührt. Seit jenem Abend, wo sie Bruderschaft ge-
+        <lb/>trunken hatte, war er paarmal mit Karla zusammen gewesen, aber nie mehr fand
+        <lb/>er die kameradschaftliche freie Unbefangenheit wieder. Die warme erotische Welle,
+        <lb/>die seit damals über sein Leben gestürzt war, machte ihn unruhig und erregt in
+        <lb/>der Nähe einer Frau. Er fürchtete sich beinahe vor seiner Leidenschaftlichkeit.
+        <lb/>Auch Schramek sprach nichts. Er übelgelaunt, die Affäre und seine Prü-
+        <lb/>fung gingen ihm nicht aus dem Kopf. Das Schweigen dehnte sich unange-
+        <lb/>nehm lang.
+        <lb/>Die Karla schaute jetzt ziemlich böse. „Mir scheint, ich komme dem gnädigen
+        <lb/>Herrn ungelegen. Dazu hab' ich mich also freig'macht für heute Nachmittag, daß
+        <lb/>ich zuseh', wie Ihr mit offenen Augen schlaft's. Liebe Leut' seid's, das muß ich
+        <lb/>schon sagen.“
+        <lb/>Schramek stand auf und nahm seinen Winterrock. „Liebes Kind, du kommst
+        <lb/>mir immer gelegen, das weißt du. Nur grad jetzt nicht. Ich muß weggehen, es
+        <lb/>ist halb vier und um vier steigt der fix draußen in Ottakring.“
+        <lb/>„G'schieht ihm schon recht, dem Lausbuben, was ist er auch so frech mit alle
+        <lb/>Leut! — Also weggehen willst du. Was soll nachher mit mir g'schehn. Soll ich
+        <lb/>am End' bei dem Wetter auf der Gassen umeinanderrennen?“
+        <lb/>„Liebes Kind, ich komm erst um sieben Uhr zurück. Du kannst ja dableiben.“
+        <lb/>„Was soll ich denn tun. Schlafen? Dank schön, das hab' ich besorgt von
+        <lb/>gestern abend um neune bis heut früh. Nimm mich mit. Ich möcht' gern zuschauen,
+        <lb/>wie man den fix auf Fezen haut.“
+        <lb/>„Das geht doch nicht, was fällt dir ein.“
+        <lb/>„Na, in Gottesnamen, dann bleib' ich halt da und wart' auf dich. Der Bubi
+        <lb/>bleibt bei mir. Nicht wahr, Bubi?“
+        <lb/>Berger wußte keine Antwort. Er war solchen plötzlichen Überfällen gegen-
+        <lb/>über wehrlos. Er traute sich kaum, sie anzuschauen. Die beiden fingen zu lachen an.
+        <lb/>„Natürlich“, sagte der Schramek, jetzt wieder gut gelaunt. „Natürlich, euch
+        <lb/>zwei soll ich allein lassen. Hast du denn Ahnung, was der Bubi für ein Duck-
+        <lb/>mäuser ist?“
+        <lb/>„Das ist doch gar kein Bubi. Der ist doch ein Mädi.“
+        <lb/>Nun lachten sie wieder beide. Wie sie ihn verachteten, dachte Berger. Warum
+        <lb/>konnte er jetzt nicht mitlachen, warum war er so tölpisch, kein Wort zu finden, keinen
+        <lb/>Scherz, nichts, gar nichts. Ein Zorn wuchs in ihm auf.
+        <lb/>„Na also, gut ist's“, sagte der Schramek. „Ich will's riskieren. Was tu ich
+        <lb/>aber, wenn ihr zwei was anstellt's.“
+        <lb/>„Dazu gehören doch zwei.“
+      </p>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>353
+        <lb/>„Na weißt du . . . du . . . schwören möcht ich doch lieber nicht auf dich.“
+        <lb/>„Mich hab' ich ja gar net g'meint.“
+        <lb/>Und jetzt lachten sie wieder beide, mit jenem vollen heiteren Lachen gesunden
+        <lb/>Lebens, das gar nicht bösartig gemeint war und doch in Berger brannte wie
+        <lb/>Peitschenhiebe. Weg sein, nur weg sein, tausend, zehntausend Meilen, fühlte er
+        <lb/>dumpf. Oder schlafen. Oder lustig sein können wie die. Nur nicht so dasitzen
+        <lb/>ohne ein Wort. Nicht so tölpisch-schüchtern, so kindisch verwirrt sein, sich nicht be-
+        <lb/>mitleiden lassen.
+        <lb/>Schramek setzte sich die Kappe auf. „Gut, probieren wir's halt. Aber wehe
+        <lb/>euch, wenn . . . Um sieben Uhr bin ich wieder da. Bubi, sei brav! Ich seh' dir's
+        <lb/>an den Augen an, wenn du was angestellt hast. Und langweil mir das arme
+        <lb/>Mädel nicht. Servus!“
+        <lb/>Er faßte die Karla derb um die Hüften, daß sie sich kichernd wand, gab ihr
+        <lb/>ein paar feste Küsse, winkte Berger mit der Hand und war fort. Draußen fiel die
+        <lb/>Tür hart ins Schloß.
+        <lb/>Nun waren sie allein, der Berger und die Karla. Der Wind tanzte mit dem
+        <lb/>Regen über die Gasse und manchmal knackte es im Ofen, als bräche etwas ent-
+        <lb/>zwei. Immer stiller wurde es im Zimmer, man konnte schon den dünnen Atem
+        <lb/>der Pendeluhr von nebenan hören. Berger saß da wie schlafend. Ohne aufzusehen,
+        <lb/>spürte er, daß sie ihn lächelnd anschaute. Er spürte diesen Blick wie ein elektrisches
+        <lb/>Prickeln, das Haar leise anrührend und dann hinab in die Füße. Ihm war,
+        <lb/>als müßte er ersticken.
+        <lb/>Sie saß da, die Beine überschlagen, und wartete. Jetzt beugte sie sich vor.
+        <lb/>Sie lächelte leise. Und plötzlich sagte sie in die Stille hinein. „Bubi! Hast Angst?“
+        <lb/>Wirklich, das war's. Woher wußte sie das? Angst fühlte er, Angst allein,
+        <lb/>eine dumme kindische Angst. Aber er zwang sich und stieß heraus „Angst? Vor
+        <lb/>wem denn Angst? Vor dir vielleicht?“ Es klang grob, ohne daß er es wollte.
+        <lb/>Und wieder zitterte das Schweigen durchs Zimmer. Die Karla stand auf,
+        <lb/>glättete das Kleid, richtete sich die zerrausten Haare vor dem Spiegel und sah ihre
+        <lb/>Augen lachen. Dann wandte sie sich halb herum. „Offen g'sagt, du bist grauslich
+        <lb/>fad, Bubi. Erzähl' mir doch was.“
+        <lb/>Berger fühlte eine immer wachsende Erbitterung gegen sie und gegen sich
+        <lb/>selbst, daß er so tölpisch war. Er wollte ihr schon wieder heftig antworten, aber
+        <lb/>da kam sie zu ihm heran, lieb und zutraulich, setzte sich neben ihn und bettelte wie
+        <lb/>ein kleines Kind. „Erzähl' mir doch was. Irgend was Gescheites oder Dummes.
+        <lb/>Ihr lest's doch den ganzen Tag in die Bücher, da müßt's doch was wissen.“ Sie
+        <lb/>lehnte sich ganz an ihn. Das war so ihre ungenierte Art, mit allen Leuten ver-
+        <lb/>traulich zu sein. Aber dieser weiche, warme Arm auf dem seinen verwirrte ihn.
+        <lb/>„Mir fällt nichts ein.“
+        <lb/>„Mir scheint, dir fallt nie was G'scheites ein. Was tust denn eigentlich so den
+        <lb/>langen Tag? Umeinanderrennen, kommt mir vor. Lezthin hab' ich dich auf der
+        <lb/>Josefstädterstraßen g'sehn, aber du warst pressiert oder du hast mich nicht kennen
+        <lb/>wollen. Mir scheint gar, du bist grad' einem Mädel nachgestiegen.“
+        <lb/>Er wollte protestieren.
+        <lb/>„No, no, es ist ja nir dabei. Sag, Bubi, hast du eigentlich ein Verhältnis?“
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <p>
+        <lb/>354
+        <lb/>Sie lachte ihn an und freute sich unbändig über seine Verwirrtheit. „Da schaut's
+        <lb/>her, rot wird er auch. Ich hab's ja gleich gewußt, daß du eins hast, du Duckmäuser.
+        <lb/>Die möcht' ich mir gern einmal anschauen. Wie sieht sie denn aus?“
+        <lb/>In seiner Verzweiflung wußte er nur Eines, immer wieder nur das Eine,
+        <lb/>um sich zu verstellen. Er wurde grob. „Das ist meine Sache. Was geht's dich an?
+        <lb/>Kümmer' du dich um deine Verhältnisse.“
+        <lb/>„Aber Bubi, was schreist denn so, ich hab' ja rein eine Angst vor dir.“ Sie
+        <lb/>stellte sich furchtbar erschrocken.
+        <lb/>Er sprang auf. „Und dann sag mir nicht immer Bubi. Ich vertrag das nicht.“
+        <lb/>„Aber der Schramek sagt's dir ja auch.“
+        <lb/>„Das ist etwas anderes.“
+        <lb/>Karla lachte. Er gefiel ihr riesig in seinem kindischen Zorn.
+        <lb/>„So, jetzt sag' ich's extra. Bubi, Bubi, Bubi, dreimal hab' ich's g'sagt!“
+        <lb/>Seine Nasenflügeln zitterten. „Hör auf damit, hab' ich g'sagt. Ich vertrag das
+        <lb/>nicht.“
+        <lb/>„Aber Bubi — Bubi!“
+        <lb/>Er ballte die Fäuste zusammen. Das Blut stieg ihm ins Gesicht. Einen Schritt
+        <lb/>stand er vor ihr. Sie hörte, wie sein Atem keuchte, sah die Augen drohend funkeln.
+        <lb/>Unwillkürlich trat sie zurück. Aber dann packte sie wieder der Übermut. Die Hände
+        <lb/>in die Hüfte gestemmt, lachend, mit blinkenden Zähnen lachend sagte sie wie zu
+        <lb/>sich selbst. „Na sowas! Jetzt wird das Bubi bösartig.“
+        <lb/>Da warf er sich auf sie. Das Spottwort traf ihn wie ein Peitschenschlag. Er
+        <lb/>wollte sie prügeln, schlagen, irgendwie züchtigen, daß sie ihn nicht mehr verhöhnte
+        <lb/>Aber das starke, feste Mädel nahm seine Fäuste geschickt mit einem Griff und bog
+        <lb/>sie ihm herab. Schmerzhaft fühlte er seine Handgelenke in ihrer eisernen Um-
+        <lb/>klammerung. Nicht rühren konnte er sich, wie ein Kind, wie ein Spielzeug hielt
+        <lb/>sie ihn. Einen Schritt entfernt sahen sich die Gesichter an: das seine, verzerrt von
+        <lb/>Wut, die Augen aufquellend in nahen Tränen, das ihre, überrascht, kraftbewußt,
+        <lb/>überlegen, fast lächelnd. Eine Minute hielt sie ihn so von sich wie ein schnappendes
+        <lb/>Hündchen. In der nächsten hätte er, zermartert im Handgelenk, in die Knie brechen
+        <lb/>müssen. Da ließ sie ihn los und schob ihn sanft weg. „So — jetzt sei wieder brav.“
+        <lb/>Aber er sprang wieder an. Das machte ihn rasend, daß er so schwächlich
+        <lb/>unter ihrer Faust gezappelt. Jetzt mußte er sie niederringen, bändigen. Sie durfte
+        <lb/>nicht lachen über ihn. Jäh faßte er sie an, jetzt mitten um den Leib, um sie hinzu-
+        <lb/>werfen. Und nun feuchten sie beide Brust an Brust, sie überrascht und belustigt
+        <lb/>über seinen unbegreiflichen Zorn, er mit fiebernder Erbitterung und eingeknirschten
+        <lb/>Zähnen. Immer fester preßten sich seine krallenden Hände in ihren miederlosen
+        <lb/>geschmeidigen Körper, der immer geschickt ausbog, riß an den breiten Hüften, die
+        <lb/>kraftvoll eingestemmt waren. Sein Gesicht berührte im Ringen ihre Schultern und
+        <lb/>ihre Brust, er fühlte wirr einen weichen, warmen, berauschenden Duft, der seine
+        <lb/>Arme immer schwächer machte, er hörte manchmal das laute schütterne Stoßen des
+        <lb/>Herzens und das kollernde Lachen, das tief aus der umpreßten Brust aufquoll und
+        <lb/>es war ihm, als ob seine Muskeln erstarren würden. Wie an einem Baumstamm
+        <lb/>rüttelte er an diesem starken bäuerischen Körper, der manchmal leicht nachgab, aber
+        <lb/>nie gebogen wurde, der immer kraftvoller zu werden schien im Widerstand. Bis ihr
+      </p>
+      <pb n="21" facs="#surf_21"/>
+      <p>
+        <lb/>355
+        <lb/>das Spiel zu dumm wurde und sie sich losmachte mit zwei, drei Griffen. Jäh
+        <lb/>stieß sie ihn zurück, daß er nur so flog. „Jetzt gib' aber Ruh'!“ Zornig und fast
+        <lb/>drohend war ihre Stimme.
+        <lb/>Er taumelte nach rückwärts. Sein Gesicht brannte, blutunterlaufen waren die
+        <lb/>Augen, und rot, brennrot kreiste alles vor seinem Blick. Ein drittesmal noch sprang
+        <lb/>er an, blind, besinnungslos, mit flügelnden Armen wie ein Trunkener. Und plötzlich
+        <lb/>war es etwas anderes. Dieser wilde ausstrahlende Duft, dieses Knistern ihres
+        <lb/>Kleides, die warme Berührung des biegsamen Körpers hatten ihn toll gemacht.
+        <lb/>Nicht mehr schlagen wollte er oder züchtigen, sondern sich dieser Frau bemächtigen,
+        <lb/>die seine Sinne aufgestachelt hatte. Er riß sie an sich, verwühlte sich ganz in ihre
+        <lb/>heißen Formen, griff mit seinen fiebernden Händen um ihre ganze Gestalt, verbiß
+        <lb/>sich lechzend in ihr Kleid, um sie niederzupressen. Sie lachte noch immer, leise ge-
+        <lb/>kizelt von seinen Verirrungen, aber in ihrem Lachen war jetzt ein fremder, heiserer
+        <lb/>Ton. Ihr ganzes Wesen schien bewegter, unruhig wogte die Brust, ihr Körper
+        <lb/>preßte den seinen stürmischer an beim Ringen, ihre starken Hände zitterten immer
+        <lb/>unruhiger. Ihr Haar war aufgegangen und flatterte über die Schulter, schwül
+        <lb/>duftend und schwer. Immer heißer wurde ihr Gesicht. Beim Ringen riß ihre Bluse
+        <lb/>ein wenig auf, ein Knopf sprang weg und plötzlich sah der fiebernde ein unruhiges
+        <lb/>Blinken von ihrer weißen Brust. Er stöhnte in letzter Anstrengung. Er fühlte, daß
+        <lb/>sie ihm gar nicht widerstehen wollte, daß sie nur bezwungen sein wollte, hingeworfen,
+        <lb/>aber selbst dazu reichte nicht seine Kraft. Ohnmächtig rüttelte er an ihr herum.
+        <lb/>Einen Augenblick war es, als wollte sie selbst zurückfallen. Wollstüig bog sich ihr
+        <lb/>Kopf zurück, er sah ihre Augen funkeln in einem jähen nie gekannten Licht. Und
+        <lb/>es war wie eine Zärtlichkeit, ein wilder drängender Seufzer, wie sie jetzt sagte:
+        <lb/>„Aber, Bubi, Bubi!“ Da riß er an ihr und wie er fühlte, daß sie nicht nieder-
+        <lb/>stürzte unter seinen mageren zitternden Kinderhänden, da griff er plötzlich
+        <lb/>gierig in das aufgelöste rote Haar, um sie niederzuziehen mit einem Ruck. Sie
+        <lb/>schrie auf vor Zorn und Schmerz. Mit einem wilden, wütenden Stoß schleu-
+        <lb/>derte sie den schwachen Körper von sich, daß er wie ein leichter Ballen durchs
+        <lb/>Zimmer flog.
+        <lb/>Berger stolperte im Zurücktaumeln. Und fiel dann klirrend hin in die Ecke,
+        <lb/>mitten unter die Säbel, die dort lagen. Ein scharfer Riß fuhr über seine Hand
+        <lb/>hoch in den Arm hinein.
+        <lb/>Eine Minute blieb er liegen, wie betäubt. Und da kam sie schon, leise noch
+        <lb/>zitternd vor Erregung, aber ängstlich besorgt: „Ist dir was g'schehn?“
+        <lb/>Er antwortete nicht. Sie half ihm sich aufrichten und streichelte ihn dabei. Es
+        <lb/>war keinerlei Bösartigkeit in ihr. Mühsam war das Aufstehen. Denn die linke
+        <lb/>Hand hatte er in die Rocktasche gesteckt, daß sie nicht merken sollte, wie er sich
+        <lb/>verletzt habe. Er wollte es nicht eingestehen. Wie ein Feuer brannte die Wut in
+        <lb/>ihm über seine klägliche Schwäche, daß er nicht einmal eine Willige bezwingen
+        <lb/>konnte. Einen Augenblick war ihm, als müßte er noch einmal anspringen. Und in
+        <lb/>der Tasche fühlte er, wie heiß und feucht das Blut aus der Wunde strömte.
+        <lb/>Er stolperte nach vorwärts, ohne sie anzusehen, die ihm erschreckt helfen wollte.
+        <lb/>Vor seinen Augen war ein Nebel von Tränen. Kaum sah er die Tür durch diese
+        <lb/>feuchte Wolke. Alles war in ihm ganz leer, ganz gleichgültig. In der Tasche tröpfelte
+      </p>
+      <pb n="22" facs="#surf_22"/>
+      <p>
+        <lb/>356
+        <lb/>das Blut: das fühlte er dumpf, sonst war alles erloschen in ihm. Er tappte nur
+        <lb/>blind nach vorwärts . . . zur Tür . . . hinaus . . . in sein Zimmer.
+        <lb/>Dort fiel er hin auf das Bett. Der verwundete Arm hing über die Kante
+        <lb/>hinaus. Er blutete noch immer und manchmal klatschte schwer ein Tropfen auf den
+        <lb/>Boden hinab. Berger achtete nicht darauf. In ihm wogte etwas, als wollte es
+        <lb/>ihn ersticken. Und endlich brach es heraus, ein ungeheurer Weinkrampf, ein wildes,
+        <lb/>wehes Schluchzen, das er in die Kissen vergrub. Minutenlang peitschte es seinen
+        <lb/>kindlichen fiebernden Körper. Dann fühlte er sich freier.
+        <lb/>Er horchte hinüber. Drinnen ging die Karla mit absichtlich lautem Schritt.
+        <lb/>Er regte sich nicht. Jetzt verstummten die Schritte. Und nun klapperte sie an den
+        <lb/>Schränken, trommelte auf dem Tisch, um sich bemerkbar zu machen. Offenbar
+        <lb/>wartete sie, daß er zurückkommen werde.
+        <lb/>Er lauschte weiter. Sein Herz wurde immer lauter, aber er regte kein Glied.
+        <lb/>Sie ging noch eine Weile und ab. Dann pfiff sie einen Walzer und trom-
+        <lb/>melte dazu wieder den Takt. Allmählich wurde es still. Nach einer Weile hörte
+        <lb/>er draußen die Türe gehen und im Gang schwer zufallen.
+        <lb/>(Schluß folgt.)
+      </p>
+      <p>
+        <lb/>Mensch und Landschaft in der bildenden Kunst.
+        <lb/>Eine kunst- und kulturgeschichtliche Skizze.
+        <lb/>Von Prof. Dr. B. Haendcke-Königsberg.
+        <lb/>Nichts hätte, sollte man meinen, stets gleichmäßiger zu den Menschen sprechen
+        <lb/>müssen, als die ewig gleiche, große Natur; und dennoch hat kaum ein anderes
+        <lb/>Objekt in der bildenden Kunst eine verschiedenartigere Auffassung, als gerade sie,
+        <lb/>die Eine, Unwandelbare, gefunden.
+        <lb/>Wohl war der Zauber eines Sonnenaufganges stets derselbe, immer erglühte
+        <lb/>der Himmel gleich prächtig, durchströmte das Licht die Morgennebel, erfunkelnd in
+        <lb/>tausend Farben — der beruhigende Friede einer vom glühenden Sternengold durch-
+        <lb/>leuchteten Nacht — alles, alles sahen die Menschen seit Anbeginn der Tage,
+        <lb/>und doch so außerordentlich abweichend schrieb es sich in Herz und Sinn der Völker
+        <lb/>ein, die in den verflossenen Jahrhunderten auf den Altar der Kunst ihre Opfer-
+        <lb/>gaben niederlegten.
+        <lb/>Früher formte das Wort das Wesen der Natur als die Hand des bildenden
+        <lb/>Künstlers; denn „unter Mythologie, schreibt Müllenhoff, verstehen wir die Summe
+        <lb/>der Bilder und Dichtungen, in denen ein Volk seine religiös-poetischen Anschau-
+        <lb/>ungen von der es umgebenden Natur und in ihr wirkenden Kräften, die es
+        <lb/>als persönliche Wesen auffaßte, ausgeprägt hat“. Die indogermanischen Völker haben
+        <lb/>vor allem den Grundgedanken ihrer Mythologie in Gebilden von seltsam wertvoller
+        <lb/>Schönheit darzustellen verstanden, jenen Kampf der Lichtgötter mit den Dämonen
+        <lb/>der Finsternis, zwischen Tag und Nacht, Sonne und Gewitterwolke, aus dem
+        <lb/>sich, wenn auch schwer bedrängt und fast besiegt, doch das Licht immer wieder
+        <lb/>emporringt. Wie die alten indogermanischen Vorfahren diese Aufgabe gelöst haben,
+        <lb/>erleben wir noch jeden Tag bei dem Genießen jener prachtvollen Epen und jener
+      </p>
+      <pb n="23" facs="#surf_23"/>
+      <p>
+        <lb/>335
+        <lb/>für ein einzelnes Individuum bildet, anderseits mit dem Korrelate dieses: der Per-
+        <lb/>sonalität und Subjektivität, mit der sich der Briefschreiber, im Unterschiede vom
+        <lb/>Schriftsteller, gibt. Und gerade in der letzteren Hinsicht ist der Brief als Verkehrs-
+        <lb/>form etwas ganz Einzigartiges. Bei unmittelbarer Gegenwärtigkeit gibt jeder Teil-
+        <lb/>nehmer des Verkehrs dem anderen mehr, als den bloßen Inhalt seiner Worte; in-
+        <lb/>dem man sein Gegenüber sieht, in die mit Worten gar nicht auszudrückende Stimmungs-
+        <lb/>sphäre desselben eintaucht, die tausend Nuancen im Rhythmus und in der Betonung
+        <lb/>seiner Äußerungen fühlt, erfährt der logische oder der gewollte Inhalt seiner Worte
+        <lb/>eine Bereicherung und Modifikation, für die der Brief nur äußerst dürftige Analo-
+        <lb/>gien bietet; und auch diese werden im ganzen nur aus Erinnerungen des per-
+        <lb/>sönlichen Verkehrs erwachsen. Es ist der Vorzug oder Nachteil des Briefes, prinzipiell
+        <lb/>nur den reinen Sachgehalt unseres momentanen Vorstellungslebens zu geben und
+        <lb/>das zu verschweigen, was man nicht sagen kann oder will. Und nun ist das
+        <lb/>Charakteristische, das Brief, wenn er sich nicht etwa nur durch seine Ungedruckt-
+        <lb/>heit von einer Abhandlung unterscheidet, dennoch etwas ganz Subjektives, Augen-
+        <lb/>blickliches, nur Persönliches ist, und zwar keineswegs nur, wenn es sich um lyrische
+        <lb/>Expektorationen, sondern auch wenn es sich um durchaus konkrete Mitteilungen
+        <lb/>handelt. Diese Objektivierung des Subjektiven, diese Entkleidung des letzteren von
+        <lb/>allem, man gerade jetzt von der Sache und von sich selbst nicht offenbaren
+        <lb/>will, ist nur in Zeiten hoher Kultur möglich, wo man die psychologische Technik
+        <lb/>hinreichend beherrscht, um den momentanen Stimmungen und Gedanken, die auch
+        <lb/>nur als momentane, der aktuellen Anforderung und Situation entsprechende, gedacht
+        <lb/>und aufgenommen werden, dennoch Dauerform zu verleihen. Wo eine innere Pro-
+        <lb/>duktion den Charakter des „Werkes“ hat, ist diese Dauerform durchaus adäquat;
+        <lb/>im Brief aber liegt ein Widerspruch zwischen dem Charakter des Inhalts und dem
+        <lb/>der Form, den zu produzieren, zu ertragen und auszunutzen es einer beherrschenden
+        <lb/>Objektivität und Differenziertheit bedarf.
+        <lb/>Diese Synthese findet ihre weitere Analogie in der Mischung von Bestimmt-
+        <lb/>heit und Unbestimmtheit, die der schriftlichen Äußerung, zuhöchst dem Briefe, eigen ist.
+        <lb/>Es handelt sich nicht einfach das Mehr oder Weniger, das eine von sich dem
+        <lb/>anderen zu erkennen gibt, sondern darum, daß das Gegebene für den Empfänger
+        <lb/>mehr oder weniger deutlich ist und daß dem Mangel an Deutlichkeit, wie zum Aus-
+        <lb/>gleich, eine proportionale Mehrheit möglicher Deutungen entspricht. Sicher gibt es
+        <lb/>kein irgend dauernderes Verhältnis zwischen Menschen, in dem nicht die wechselnden
+        <lb/>Maße der Deutlichkeit und der Deutbarkeit der Äußerungen eine wesentliche Rolle
+        <lb/>spielen. Die schriftliche Äußerung erscheint zunächst als die sichere, als die einzige,
+        <lb/>von der sich „kein Jota rauen läßt“. Allein diese Prärogative des Geschriebenen
+        <lb/>ist die bloße Folge eines Mangels: daß ihr die Begleiterscheinungen des Stimm-
+        <lb/>klanges und der Akzentuierung, der Geberde und der Miene fehlen, die für das
+        <lb/>gesprochene Wort ebenso eine Quelle der Verundeutlichung wie der Verdeutlichung
+        <lb/>sind. Tatsächlich aber pflegt sich der Empfangende nicht mit dem rein logischen
+        <lb/>Wortsinn zu begnügen, den der Brief freilich unzweideutiger als die Rede über-
+        <lb/>liefert, ja, unzählige Male kann er dies gar nicht, weil auch nur den logischen
+        <lb/>Sinn zu begreifen, es mehr als des logischen Sinnes bedarf. Darum ist der Brief,
+        <lb/>trotz oder richtiger wegen seiner Deutlichkeit, viel mehr als die Rede der Ort der
+      </p>
+      <pb n="24" facs="#surf_24"/>
+      <p>
+        <lb/>336
+        <lb/>Mißverständnisse und der „Deutungen“. Entsprechend dem Kulturniveau, auf
+        <lb/>dem überhaupt eine auf schriftlichen Verkehr gestellte Beziehung möglich ist, sind
+        <lb/>deren Bestimmungen in scharfer Differenziertheit auseinandergetreten: was an
+        <lb/>menschlichen Äußerungen ihrem Wesen nach deutlich ist, ist am Brief deutlicher als
+        <lb/>an der Rede, das, was an ihnen prinzipiell vieldeutig ist, ist dafür am Brief viel-
+        <lb/>deutiger als an der Rede. Drückt man dies mit den Begriffen der Freiheit und
+        <lb/>der Gebundenheit aus, die der Empfangende gegenüber der Äußerung besitzt: so
+        <lb/>ist sein Verständnis in bezug auf ihren logischen Sinn durch den Brief gebundener,
+        <lb/>in bezug auf ihren tieferen und persönlichen Sinn aber freier als gegenüber der Rede.
+        <lb/>Man kann sagen, daß die Rede durch alles, das was den Sprecher selbst umgibt, sein Geheimnis
+        <lb/>Hörbarem und an Imponderabilien des Sprechers selbst umgibt, sein Geheimnis
+        <lb/>offenbart, der Brief es aber verschweigt. Der Brief ist deshalb deutlicher, wo es
+        <lb/>auf das Geheimnis des anderen ankommt, undeutlicher und vieldeutiger aber, wo
+        <lb/>wo dies der Fall ist. Unter dem Geheimnis des anderen verstehe ich seine logisch
+        <lb/>nicht ausdrückbaren Stimmungen und Seinsqualitäten, auf die wir doch unzählige
+        <lb/>Male zurückgreifen, selbst um die eigentliche Bedeutung ganz konkreter Äußerungen
+        <lb/>zu verstehen. Bei der Rede sind diese Deutungshülfen mit dem Inhalt so verschmolzen,
+        <lb/>daß sich eine völlige Einheit des Verständnisses ergibt; vielleicht ist dies der ent-
+        <lb/>scheidendste Fall der allgemeinen Interpretation durch Zusehen, Abziehen,
+        <lb/>Umformen daraus macht, überhaupt nicht auseinanderzuhalten imstande ist. Es ge-
+        <lb/>hört zu den geistigen Erfolgen des schriftlichen Verkehrs, daß er aus dieser naiven
+        <lb/>Einheitlichkeit eines ihrer Elemente — eben den bloßen Sachgehalt der Äußerung
+        <lb/>— herausdifferenziert und dadurch die Vielheit dieser prinzipiell geschiedenen Faktoren
+        <lb/>veranschaulicht, die unser scheinbar so einfaches gegenseitiges „Verstehen“ ausmachen.
+      </p>
+      <p>
+        <lb/>Scharlach.
+        <lb/>Von Stefan Zweig.
+      </p>
+      <p>
+        <lb/>In der Josefstadt, hatten ihm die Freunde zu Hause gesagt, solle er sich ein
+        <lb/>Zimmer nehmen, wenn er nach Wien ginge. Das sei nahe der Universität und alle
+        <lb/>Studenten wohnten dort gerne, weil es ein stiller, ein wenig altväterischer Bezirk
+        <lb/>sei und dann, weil es schon durch Tradition ihr Hauptquartier geworden war. So
+        <lb/>hatte er sich also gleich von der Bahn, wo er das Gepäck vorläufig ließ, durch-
+        <lb/>gefragt, war hingegangen durch die vielen fremden lauten Gassen, vorbei an all
+        <lb/>den hastigen Menschen, die wie gejagt durch den Regen liefen und ihm nur un-
+        <lb/>willig Auskunft gaben.
+        <lb/>Das Herbstwetter war unerbittlich. Unablässig plätscherte ein spitzer nasser Schauer
+        <lb/>nieder, schwemmte von den falben Bäumen das letzte zitternde Laub, trommelte von
+        <lb/>allen Traufen und zerriß den melancholischen Himmel in Millionen grauer Kasern.
+        <lb/>Der Wind warf manchmal den Regen wie ein flatterndes Tuch vor sich her,
+        <lb/>schleuderte ihn gegen die Wände, daß es nur so prasselte und zerbrach den Leuten
+        <lb/>die Schirme. Bald waren auf der Straße nur mehr die holpernden schwarzen Wagen
+        <lb/>mit den dampfenden Pferden zu sehen und hie und da ein paar fliegende Schatten
+        <lb/>von Vorüberrennenden.
+      </p>
+      <pb n="25" facs="#surf_25"/>
+      <p>
+        <lb/>415
+        <lb/>entführten Deine Seufzer. Und nur im Tode offenbartest Du Deine stumme Seele
+        <lb/>in einem Seufzer.
+        <lb/>„Jetzt geht es mir besser“, flüstertest Du, als Dein Herz durchbohrt war.
+        <lb/>Ferne sitzest Du, wie Du ferne lebtest, Du, die stets ein Meisterwerk der Natur,
+        <lb/>Dein Antlitz mit Deinem Fächer verhülltest. Hoch weißt Du, als die Bergwanderin
+        <lb/>des Lebens, die Du warst. Weißt bist Du und scheinst doch in Trauer gekleidet, wie
+        <lb/>damals, als Du, dem König angetraute Habsburgerin, kniend an Kossuths Bahre
+        <lb/>betetest.
+        <lb/>Ein Diadem trägst Du.
+        <lb/>Ah, aber wäre ich Dein Bildhauer gewesen, ich hätte es anders befestigt.
+        <lb/>Mit einer Dornenranke hätte ich die Krone in Dein schönes Haar genagelt.
+        <lb/>Nicht das Diadem war Dein Stolz, Du, die einmal von dem „Korsikaner“ aus-
+        <lb/>riefst:
+        <lb/>„Wie unbegreiflich, daß ein so großer Mensch nach einer Krone trachten
+        <lb/>konnte . . .“
+        <lb/>Nein, der Dornenkranz der Schicksale ist der ewige Schmuck Deiner Stirn!
+        <lb/>Einen Augenblick sah Dich die Welt.
+        <lb/>Das war an einem Morgen, als die Hoffnung ganz Österreichs tot schien und
+        <lb/>wie aus den Schluchten des Schicksals selbst alle Schrecken aufloderten um den
+        <lb/>ältesten Stamm der Welt.
+        <lb/>Da empfingst Du, Elisabeth, die Botschaft zuerst und: „Ich gehe zum Kaiser!“
+        <lb/>waren Deine einzigen Worte . . .
+        <lb/>Hier ist die Wallfahrtsstätte. Hier sind die Opferfeuer, hier sollen wir knien.
+        <lb/>Vor dem weißen Antlitz des Schmerzes knien wir, Deinem Antlitz, Elisabeth
+        <lb/>von Österreich, Wittelsbacherin, Ermordete und Unsterbliche!
+      </p>
+      <p>
+        <lb/>Scharlach.
+        <lb/>Novelle von Stefan Zweig.
+        <lb/>(Schluß.)
+      </p>
+      <p>
+        <lb/>Die lange endlose Nacht und den nächsten Morgen hatte Berger gewartet,
+        <lb/>daß Schramek kommen würde und ihn zur Rede stellen über das, was vorgefallen
+        <lb/>sei zwischen ihm und der Karla. Denn daran zweifelte er nicht, daß die Karla
+        <lb/>sofort alles dem Schramek erzählt haben würde, nur wußte er nicht, ob sie's als
+        <lb/>bösartigen Angriff geschildert hatte oder als eine lächerliche unsinnige Laune. Die
+        <lb/>ganze Nacht grübelte er nach, was er Schramek erwidern sollte, lange Gespräche
+        <lb/>mit Rede und Gegenrede arbeitete er aus und erfann schon gewisse Bewegungen,
+        <lb/>um die Diskussion scharf abzuschneiden, wenn er keinen Ausweg mehr fände.
+        <lb/>Und eines wußte er, daß die Freundschaft nun auf einer Kippe stand, daß alles
+        <lb/>jetzt vorbei war oder neu werden mußte von Grund auf.
+        <lb/>Aber er wartete vergeblich. Schramek kam nicht, auch die nächsten Tage nicht.
+        <lb/>Das war eigentlich nicht so absonderlich, denn Schramek suchte ihn sonst nur auf,
+        <lb/>wenn er irgendeine Gefälligkeit brauchte oder irgend was von sich wegzuerzählen
+      </p>
+      <pb n="26" facs="#surf_26"/>
+      <p>
+        <lb/>416
+        <lb/>hatte, sonst war es immer der Berger, der ihn besuchen mußte, um ihn zu sehen.
+        <lb/>Nur schien diesmal ihm, dem Schuldbewußten, eine Absicht in dem Wegbleiben
+        <lb/>zu liegen und er ging nicht zu ihm, er wartete mit einem stillen verbissenen Trotz,
+        <lb/>der ihm selbst weh tat. Ganz allein war er in diesen Tagen. Keiner kam zu ihm
+        <lb/>und stärker als je empfand er das erniedrigende Gefühl, daß er für keinen Men-
+        <lb/>schen Bedürfnis war, daß keiner ihn liebte, keiner seiner bedurfte. Und da spürte
+        <lb/>er doppelt was diese Freundschaft ihm noch war, trotz aller Enttäuschungen und
+        <lb/>Erniedrigungen.
+        <lb/>Das ging so eine Woche. Da, eines Nachmittags, als er vor dem Schreib-
+        <lb/>tisch saß und arbeiten versuchte, hörte er ein paar rasche Schritte gegen die
+        <lb/>Türe zu. Er erkannte sofort Schrameks Gang, sprang empor und da flog auch schon
+        <lb/>die Tür auf, sauste wieder ins Schloß und Schramek stand vor ihm, atemlos,
+        <lb/>lachend, faßte ihn an mit beiden Armen und schüttelte ihn hin und her.
+        <lb/>„Servus Bubi! Daß man dich auch sieht, die anderen waren alle dabei, nur
+        <lb/>du nicht, weil du den ganzen Tag kümmeln mußt. Und es geht so auch. Ja,
+        <lb/>durchgekommen bin ich und Gott sei Dank, es war meine letzte Prüfung. In acht
+        <lb/>Tagen mußt du mir Herr Doktor sagen.“
+        <lb/>Berger war ganz verblüfft. Er hatte an alles mögliche gedacht, nur nicht,
+        <lb/>daß sie sich so wiedersehen würden. Ein paar Glückwunschworte stammelte er ge-
+        <lb/>rade noch. Aber Schramek unterbrach ihn.
+        <lb/>„Ja, ja, schon gut, streng dich nicht an. Und jetzt vorwärts, komm herüber
+        <lb/>zu mir, das muß tüchtig gefeiert werden und erzählen muß ich dir auch alles. Also,
+        <lb/>vorwärts. Die Karla ist schon drüben.“
+        <lb/>Berger erschrak. Er fühlte plötzlich Angst, mit der Karla zusammen zu sein,
+        <lb/>denn jetzt würde sie ihn lächerlich machen und er würde wieder errötend zwischen
+        <lb/>diesen beiden Menschen stehen wie ein Schulbub. Er suchte auszuweichen.
+        <lb/>„Du mußt mich schon entschuldigen, Schramek, aber ich kann nicht, mit bestem
+        <lb/>Willen nicht. Ich hab' furchtbar viel zu tun.“
+        <lb/>„Zu tun? Was hast du zu tun, du Kerl, wenn ich meine letzte Prüfung ge-
+        <lb/>macht habe? Zu freuen hast du dich und mitzukommen, sonst hast du gar nichts
+        <lb/>zu tun. Vorwärts mit dir.“
+        <lb/>Er nahm ihn am Arm und zog ihn fort. Berger fühlte sich zu schwach, um
+        <lb/>zu widerstreben. Er fühlte nur dumpf, was für eine Gewalt Schramek noch
+        <lb/>über ihn hatte. Wie ein Mädel nahm er ihn da, und zum ersten Male verstand
+        <lb/>wie sich eine Frau von einem so starken heitern lebensfrohen Menschen
+        <lb/>überwältigen müßte, ganz gegen ihren Willen, nur aus dem mattschwindenden
+        <lb/>bewundernden Gefühl der Stärke. Und so mußte auch die Frau von dem
+        <lb/>Manne denken in dem Augenblick, wie er jetzt von Schramek; Haß, Zorn mußte sie
+        <lb/>haben und doch das weiche Gefühl von einem Starken überwältigt zu sein. Er
+        <lb/>spürte sich gar nicht gehen, wußte gar nicht wie es geschah und war plötzlich drüben
+        <lb/>in Schrameks Zimmer.
+        <lb/>Und da stand schon die Karla. Wie sie ihn sah, kam sie auf ihn zu, über-
+        <lb/>flog ihn mit einem merkwürdigen warmen Blick, der ihn umhüllte wie eine weiche
+        <lb/>Welle und bot ihm die Hand, ganz ohne Wort. Und noch einmal sah sie ihn an,
+        <lb/>neugierig, wie einen fremden und doch wieder anders.
+      </p>
+      <pb n="27" facs="#surf_27"/>
+      <p>
+        <lb/>417
+        <lb/>Schramek hantierte am Tisch herum. Er hatte das Bedürfnis etwas zu tun
+        <lb/>und den Drang zu reden, die starke Lebendigkeit seines freudig erregten Gefühles
+        <lb/>brauchte solche Ventile. Wenn ihn etwas packte, brauchte er Menschen, um seinen
+        <lb/>Überschwang abzutun, sonst war er eigentlich gleichgültig und eher verschlossen.
+        <lb/>Aber heute glühte sein ganzes Wesen in Bewegung und einer wilden knabenhaften
+        <lb/>Freude.
+        <lb/>„Also was nehmen wir? Mit trockener Kehle kann ich Euch nichts erzählen.
+        <lb/>Was, keinen Wein? Sonst haben wir abends keine Freude mehr davon und heute
+        <lb/>abends muß es drunter und drüber gehen. Brauen wir einen Tee. Einen ganz
+        <lb/>langweiligen, schön heißen Tee. Wollt Ihr?“
+        <lb/>Karla und der Berger waren einverstanden. Sie saßen nebeneinander am
+        <lb/>Tisch, aber Berger sprach nicht mit ihr. Der Gedanke flog hin und her in seinem
+        <lb/>Kopf, wie ein eingesperrter Nachtfalter surrend durch ein Zimmer fährt: war das
+        <lb/>ein Traum gewesen, daß er mit dieser Frau da neben ihm wie ein Verzweifelter
+        <lb/>gekämpft hatte? Er wagte sie nicht anzusehen und spürte nur, wie die Luft stickig
+        <lb/>um ihn wurde, wie seine Kehle sich verschnürte. Glücklicherweise merkte Schramek
+        <lb/>nichts. Er klapperte mit den Tellern und Tassen herum, pfiff und schwatzte. Es
+        <lb/>machte ihm Freude, den Kellner für die beiden zu spielen, er servierte ihnen voll
+        <lb/>Übermut und warf sich dann breit und behaglich in das knackende Fauteuil ihnen
+        <lb/>gegenüber und fing an zu erzählen.
+        <lb/>„Also, daß ich nie viel gelernt hab', das brauch ich Euch beiden nicht zu
+        <lb/>sagen. Und wie ich mich da hinschleich' in meinem Leichenbitteranzug zum Prüfungs-
+        <lb/>saal, treff' ich einen alten Freund von mir, den Karl — du kennst ihn ja — und
+        <lb/>der, wie er sieht, daß mir elend zu Mut ist, fängt mächtig an, mich zu trösten.
+        <lb/>Aber ich frag' ihn nur in meiner Angst — ihr habt's keine Ahnung wie schäbig
+        <lb/>der anständigste Mensch eine Stunde vor einer Prüfung wird — ob das schwer ist
+        <lb/>und was er für Fragen vor zwei Jahren bekommen hat. Wie er mir die erste
+        <lb/>sagt, hab' ich keine Ahnung davon und mir wird ganz schwach. Ich bitt' ihn noch
+        <lb/>rasch, er soll mir das erklären — irgendeine Verfassungsgeschichte war's — und
+        <lb/>er trichtert mir's ein und kommt dann mit zuschauen, wie ich abgeschlachtet werde.“
+        <lb/>Was erzählte der da? Berger konnte nicht hinhören, das kam alles aus
+        <lb/>einer ferne her, das klang wie Worte und war ohne Sinn. In ihm zitterte immer
+        <lb/>nur der Gedanke, daß neben ihm die Frau saß, die mit ihm gerungen, die ihn
+        <lb/>niedergeschlagen hatte, und daß diese Frau ihn nicht verhöhnte, sondern angesehen
+        <lb/>hatte mit diesem weichen einhüllenden funkelnden Blick . . .
+        <lb/>Da schrak er plötzlich zusammen. Über seine Hand, die achtlos am Tische lag,
+        <lb/>strich jetzt ein Finger leise die Narbe entlang, die noch rot hinlief wie ein feuriger
+        <lb/>Streif. Und wie er aufzuckte, begegnete er einer Frage in Karlas Blick, einer fast
+        <lb/>zärtlichen mitleidigen Frage. Feuer stob hinauf bis in die Schläfen, er mußte sich
+        <lb/>festhalten am Sessel.
+        <lb/>Drüben erzählte noch immer der Schramek. „Und denkt's Euch, kaum sih' ich
+        <lb/>dort, da ist die erste Frage grad' die, die mir der Karl eingetrichtert hat. Ich hör'
+        <lb/>hinter mir ein Husten und Kichern, aber mir war einemmal so leicht, daß
+        <lb/>ich denen gar nicht böse war, ich fang zu ratschen und das rinnt wie ge-
+        <lb/>schmolzene Butter. Und wenn man schon einmal im Zug ist, dann geht's schon
+      </p>
+      <pb n="28" facs="#surf_28"/>
+      <p>
+        <lb/>418
+        <lb/>weiter. Ich hab' geredet, bis mir die Zunge weh getan hat, weiß Gott, was für
+        <lb/>dummes Zeug, aber geredet hab' ich.“
+        <lb/>Berger hörte kein Wort. Er spürte nur, wie nochmals der Finger über die
+        <lb/>Narbe strich und ihm war, als würde sie schmerzhaft aufgerissen durch diese ver-
+        <lb/>schwiegene Bewegung. Ein Zucken lief ihm über den Leib und jäh riß er die Hand
+        <lb/>vom Tisch, wie von einer weißglühenden Platte. Eine zornige Verwirrung wuchs
+        <lb/>in ihm auf. Aber wie er sie ansah, merkte er, daß ihre geschlossenen Lippen sich
+        <lb/>wie im Schlafe regten und sie leise murmelte „Armes Bubi“.
+        <lb/>Lag's nur um die Lippen, ein tonloses Wort, oder hatte sie es wirklich ge-
+        <lb/>sagt? Drüben saß der Schramek, ihr Geliebter und sein Freund, und erzählte wild
+        <lb/>weiter und inzwischen . . . Er zitterte leicht, ein Schwindel faßte ihn und er
+        <lb/>fühlte sich blaß werden. Da nahm die Karla unter dem Tisch seine Hand ganz
+        <lb/>leise und weich in die ihre und legte sie aufs Knie.
+        <lb/>Nun spürte er wieder alles Blut im Gesicht und jetzt, wie es sich im Herzen
+        <lb/>staute und jetzt, wie es herabrann und brannte in seiner Hand. Und er fühlte ein
+        <lb/>weiches rundes Knie. Er wollte die Hand wegzerren, aber die Muskeln gehorchten
+        <lb/>ihm nicht. Sie blieb liegen wie ein schlafendes Kind, weich gebettet ruhend, ver-
+        <lb/>gessen in einem wunderbaren Traum.
+        <lb/>Und da drüben — oh wie weit war diese Stimme im Rauch — erzählte
+        <lb/>noch immer einer, der sein Freund war und den er jetzt betrog, erzählte, erzählte
+        <lb/>von seinem Glück in unbesorgter Fröhlichkeit. „Am meisten hat's mich gefreut, daß
+        <lb/>der fix, der Frechling sein Geld dabei verloren hat. Denkt's euch, der wettet mit
+        <lb/>alle Leut', daß ich durchfallen werde und dann, wie ich herauskomme, hat er gar
+        <lb/>nicht gewußt, was er tun soll. Freuen hat er sich müssen und ärgern auch, ich
+        <lb/>sag' Euch, das Gesicht, das der gemacht hat, das Gesicht . . . aber was habt's Ihr
+        <lb/>denn? Mir scheint Ihr seid's eingeschlafen alle beide?“
+        <lb/>Karla ließ die Hand nicht los. Und Berger mußte nur immer denken „die
+        <lb/>Hand . . . die Hand . . . das Knie . . . ihre Hand“. Aber die Karla protestierte
+        <lb/>lachend. „No, soll man net sprachlos sein, wenn so ein Faultier wie du Doktor
+        <lb/>wird. Ich möcht' wirklich gern dann sehen, wie einer ausschaut, der durchfliegt,
+        <lb/>der muß rein an Wasserkopf haben.“
+        <lb/>Beide lachten. Berger zitterte immer mehr, ein geheimnisvolles Grauen kam
+        <lb/>ihn an vor der Verstellung dieses Mädels. Sie hielt noch immer seine Hand mit
+        <lb/>der ihren umschlossen und preßte sie so fest, daß der Ring sich blutig in seinen
+        <lb/>Finger einschnitt. Und leise schob sie ihr volles Bein an das seine an. Und sprach
+        <lb/>dabei ruhig, so ruhig weiter, daß ihn schauerte. „No und jetzt sag', wie wird denn
+        <lb/>so ein Wunder Gottes gefeiert? Wenn das keine Drahrerei gibt, so bist du ganz
+        <lb/>einfach ein niederträchtiger Schabian, du Doktor, du neugebackener. Na aber das
+        <lb/>ist gar nix dagegen, wenn erst der Bubi Doktor wird, paß' auf, da wird's erst
+        <lb/>zugeh'n.“
+        <lb/>Und dabei lag ihre Hüfte ganz an der seinen, er spürte die weiche Wärme
+        <lb/>ihres Körpers. Vor seinen Augen begannen alle Dinge zu schwanken, so erregt
+        <lb/>war er. Und an die Stirne drängte von innen schmerzhaft das Blut.
+        <lb/>Da schlug die Pendeluhr. Siebenmal rief eine dünne Stimme undeutlich ihr
+        <lb/>Kuckuck . . . Kuckuck. Das brachte Berger zur Besinnung. Er sprang auf, stammelte
+      </p>
+      <pb n="29" facs="#surf_29"/>
+      <p>
+        <lb/>419
+        <lb/>ein paar Worte. Dann gab er irgend jemand die Hand, ihm oder ihr, er wußte
+        <lb/>es nicht mehr, eine Stimme — es war wohl ihre — sagte „Auf Wiedersehen“
+        <lb/>und dann, aufatmend fühlte er es und beseligt, war hinter ihm die Türe zu-
+        <lb/>gefallen.
+        <lb/>Und dann, schon im nächsten Augenblick, wie er in seinem Zimmer stand, war
+        <lb/>ihm alles klar: nun hatte er seinen Freund verloren. Wenn er ihn nicht bestehlen
+        <lb/>wollte, durfte er nicht mehr verkehren mit ihm, denn er fühlte, daß er der Lockung
+        <lb/>dieses seltsamen Mädchens nicht würde widerstehen können. Der Duft ihres Haares,
+        <lb/>der wilde leidenschaftliche Krampf in ihren Gliedern, die begehrliche Kraft, das alles
+        <lb/>brannte in ihm und er wußte, er würde nicht widerstehen können, wenn sie ihn
+        <lb/>so ansah wie heute mit diesem leisen lockenden Lächeln. Wie war das gekommen,
+        <lb/>daß er ihr plötzlich so begehrlich wurde, daß sie um seinetwillen den Schramek be-
+        <lb/>trügen wollte, diesen festen, schönen, gesunden Menschen, den er heimlich so sehr be-
+        <lb/>neidete? Er verstand es nicht und fühlte nicht Stolz und nicht Freude. Nur eine
+        <lb/>wilde Wehmut, daß er nun seinen Freund werden müssen, um kein Schurke
+        <lb/>an ihm zu sein. Freilich, die Freundschaft mit Schramek war nicht geworden, was
+        <lb/>er gehofft hatte, vielen Dingen hat er auf den Grund gesehen, manches erkannt,
+        <lb/>was ihn einst geblendet, aber jetzt, es vorüber war, schien ihm alles so un-
+        <lb/>endlich viel. Denn es war das letzte, was er in Wien noch hatte. Alles war
+        <lb/>weggeglitten, die Hoffnungen zuerst und die Neugier, die freude am Studium dann
+        <lb/>und der Eifer und jetzt noch das letzte, diese Freundschaft. Er fühlte: diese Stunde
+        <lb/>hatte ihn ganz arm gemacht.
+        <lb/>Da hörte er von nebenan ein Geräusch. Ein leises kicherndes Lachen und
+        <lb/>jetzt lauter. Er horchte, beide Hände auf der pochenden Brust. Lachten sie über
+        <lb/>ihn? Hatte Karla alles erzählt, war das am Ende ein abgekartetes Spiel gewesen,
+        <lb/>ihn zu versuchen? Er horchte hin. Nein, das war ein anderes Lachen, Küsse
+        <lb/>schmatzten dazwischen und ein erregtes Kichern. Und dann Worte, Zärtlichkeiten,
+        <lb/>deren sie sich schämten. Seine Hände ballten sich unwillkürlich, er warf sich
+        <lb/>hin aufs Bett und stopfte sich das Kissen an die Ohren, um nichts mehr zu hören.
+        <lb/>Ein furchtbares Gefühl packte ihn, ein wilder zorniger Ekel, Ekel, daß er hätte
+        <lb/>ausspeien mögen. Ekel vor seinem Freund, vor dieser Dirne, vor sich selbst, der
+        <lb/>fast mitgespielt hätte in diesem widerlichen Spiel, ein besinnungsloser, todesmüder,
+        <lb/>schauervoller und ohnmächtiger Ekel vor dem ganzen Leben.
+        <lb/>* * *
+        <lb/>In diesen trüben Tagen schrieb er einen Brief an seine Schwester.
+        <lb/>„Liebste Schwester, ich habe dir noch zu danken für deinen Geburtstagsbrief.
+        <lb/>Es war mir schwer in diesen Tagen. Wie er kam und mich weckte und mir sagte,
+        <lb/>ich sei heute 18 Jahre alt, habe ich das gelesen und es war mir, als ginge es
+        <lb/>mich nichts an, als sei es nicht wahr. Denn all die Worte darin von dem Glück
+        <lb/>meiner Freiheit und meiner Jugend, ich hätte sie als Spott genommen, wär' es
+        <lb/>nicht deine liebe Hand und die seit Kindertagen vertraute Schrift gewesen, die mir
+        <lb/>sie brachten. Denn es ist alles so anders hier in meinem Leben, so ganz anders,
+        <lb/>als du es dir denken kannst und so anders, als meine eigenen Hoffnungen. Es tut
+        <lb/>mir weh, dir all das zu schreiben, aber ich habe hier niemanden mehr. Tagelang
+        <lb/>habe ich keinen Menschen gesprochen. Manchmal gehe ich den Leuten auf der
+      </p>
+      <pb n="30" facs="#surf_30"/>
+      <p>
+        <lb/>420
+        <lb/>Gasse nach und höre in ihre Gespräche hinein, nur um zu wissen, wie Worte
+        <lb/>klingen. Ich kenne nichts, weiß nichts, ich tue nichts, ich gehe zugrunde an einer
+        <lb/>Zwecklosigkeit. Tagelang bin ich ohne Erlebnis, begegne kein bekanntes Gesicht,
+        <lb/>und du weißt nicht, was das heißt, unter tausend Menschen einsam zu sein.
+        <lb/>Auch mit Schramek ist alles vorbei. Es ist da etwas vorgefallen, ich kann
+        <lb/>dir's nicht erzählen, denn du würdest es nicht verstehen. Ich verstehe es selbst kaum,
+        <lb/>denn nicht ich und nicht er haben Schuld, es ist nur irgend etwas zwischen uns
+        <lb/>wie ein zweischneidiges Schwert. Und jetzt weiß ich es erst, da ich ihn verloren
+        <lb/>habe: er war das Liebste, was ich noch hatte in Wien.
+        <lb/>Und noch eines ist es, das ich nur dir sagen kann, die es keinem verrät. Ich
+        <lb/>studiere nicht mehr. Seit Wochen war ich in keiner Vorlesung, meine Bücher liegen
+        <lb/>verstaubt. Ich weiß nicht warum, aber ich kann nicht mehr lernen, ich bin stumpf
+        <lb/>geworden, kein Beruf lockt mich hier, denn keiner hilft mir heraus aus diesem
+        <lb/>furchtbaren erdrückenden Gefühl der Einsamkeit. Ich will hier nichts, mich
+        <lb/>ekelt alles. Ich hasse jeden Stein, auf den ich hier trete, ich hasse mein Zimmer,
+        <lb/>die Menschen, die ich begegne, ich atme mit Qual die frostfeuchte schmutzige Luft.
+        <lb/>Alles erdrückt mich hier, ich gehe zugrunde. Ich sinke unter wie in einem Morast.
+        <lb/>Vielleicht bin ich noch zu jung und ganz sicher zu schwach. Ich habe keine Fäuste,
+        <lb/>keinen Willen, wie ein Kind stehe ich unter allen diesen geschäftigen Menschen.
+        <lb/>Und ich weiß eines: ich muß wieder heim. Ich kann nicht so allein leben,
+        <lb/>vielleicht geht es in paar Jahren. Aber jetzt brauche ich noch dich und die Eltern,
+        <lb/>ich brauche Menschen, die mich lieb haben, die um mich sind und mir helfen. Ja,
+        <lb/>das ist kindisch, es ist die Angst eines Kindes in einem dunkeln Zimmer, aber ich
+        <lb/>kann nicht anders. Du mußt es den Eltern sagen, daß ich das Studium lassen
+        <lb/>will und wieder heim, Bauer werden oder Schreiber oder was immer, nicht wahr
+        <lb/>du wirst es ihnen sagen, ihnen erklären, bitte, tue es bald, ich fühle wie der Boden
+        <lb/>mir hier unter den Füßen brennt. Ich habe das nie so ganz gewußt, wie alles
+        <lb/>in mir nach Hause zurückdrängt, aber jetzt, im Schreiben, da wacht alles so sehn-
+        <lb/>süchtig auf und weiß, ich kann nicht anders, ich muß zu Euch zurück.
+        <lb/>Es ist eine Flucht, eine Flucht vor dem Leben und nicht meine erste. Erinnerst
+        <lb/>du dich, damals als man mich auf das Gymnasium brachte und ich dann zum
+        <lb/>erstenmal in das Zimmer trat, wo 60 fremde Burschen mich neugierig, hochmütig,
+        <lb/>lachend und überrascht anschauten, da bin ich auch weggelaufen und nach Hause,
+        <lb/>und hab' den ganzen Tag geweint und nicht mehr zurückgewollt. Und das Kind
+        <lb/>von damals bin ich heute noch, ich habe die gleiche Angst und das gleiche
+        <lb/>brennende Heimweh nach Euch und allen, die mich lieb haben.
+        <lb/>Ich muß, ich muß weg. Jetzt, da ich es einmal mir abgerungen habe, fühle
+        <lb/>ich, es gibt kein Zurück. Ich weiß, viele werden lächeln und lachen, wenn ich heim-
+        <lb/>komme, ein Gestrandeter, einer, den das Leben nicht gewollt hat, ich weiß, daß
+        <lb/>meinen Eltern eine liebe Hoffnung damit niederstürzt, ich weiß, diese Schwäche ist
+        <lb/>kindisch und feig, aber ich kann nichts dagegen tun, ich spüre nur, ich kann hier
+        <lb/>nicht mehr leben. Keiner wird je wissen, was ich hier erduldet habe in den letzten
+        <lb/>Tagen, keiner kann mich mehr verachten, als ich mich selbst. Wie einen Gezeichneten
+        <lb/>fühl' ich mich, wie einen Kranken, einen Krüppel, denn ich bin ganz anders wie die
+        <lb/>anderen und, mit Tränen spür' ich's, schlechter, minderwertiger, unnötiger, ich bin . . .“
+      </p>
+      <pb n="31" facs="#surf_31"/>
+      <p>
+        <lb/>421
+        <lb/>Er hielt inne, selbst erschrocken von dem wilden Ausbruch seines Schmerzes.
+        <lb/>Jetzt erst, da die Feder rasch sein fieberndes Gefühl trug, merkte er, wie viel Schmerz
+        <lb/>in ihm angesammelt war, wie das nun losbrechen wollte in breiten rauschenden
+        <lb/>Strömen.
+        <lb/>Durfte er das schreiben? Durfte er die einzigen, die er besaß, noch verstören,
+        <lb/>eine Last, die keiner ihm konnte, aufbürden auf dieses sanfte Mädchenherz?
+        <lb/>Wie aus einer nebligen Ferne sah er in ihr liebes Gesicht mit den klaren Augen,
+        <lb/>die ein Lächeln gern überfunkelte, und sah, wie der Mund erschreckt sich zusammen-
+        <lb/>preßte, ein Zittern über die Züge hinlief und Tränen zögernd niederrollten über
+        <lb/>die erblaßten Wangen. Wozu noch dieses Leben verstören, sie erschrecken durch
+        <lb/>einen Hilfeschrei: wenn einer leiden sollte, wollte er es selbst sein und allein.
+        <lb/>Er öffnete das Fenster, riß den Brief durch und streute die Fetzen ins Dunkel,
+        <lb/>Nein, lieber hier still zugrunde gehen, als um Hülfe zu bitten. Hatte er nicht ge-
+        <lb/>lernt, daß das Leben alles vernichtete, was untauglich und gebrechlich war? Es
+        <lb/>würde auch gerecht sein gegen ihn und ihn versparen . . .
+        <lb/>Zögernd flatterten die weißen Streifen hinab in den Hof und sanken unter wie
+        <lb/>helle Steine in einem unergründlichen Wasser. Nächtig war der Himmel und
+        <lb/>ohne Sterne. Manchmal liefen Wolken heller hin über die dunkle Höhe und der
+        <lb/>Wind warf eine feuchte rauschende Luft gegen die schlafenden Häuser. Eine leise
+        <lb/>Unruhe war in alledem, wie erregter Atem war dieses stete Wehen des Windes,
+        <lb/>und von den stöhnenden Fenstern und zitternden Bäumen ging ein Raunen, als ob
+        <lb/>einer leise da spräche im Dunkel aus seinem bösen Traum. Und immer stärker
+        <lb/>wurde der Wind, wie Wetterleuchten flogen die Wolken schneller über den schwarzen
+        <lb/>Mantel des Himmels, und mit einem Male erkannte der Lauschende in all diesem
+        <lb/>seltsam erregten Bewegen das Fieber der ersten wunderbaren Nächte, die den
+        <lb/>Frühling bringen.
+        <lb/>* * *
+        <lb/>Und dann kam der Frühling, ganz langsam wie ein zögernder Gast. Berger,
+        <lb/>erkannte ihn kaum wieder in dieser fremden Stadt. Wie war ihm sonst gewesen,
+        <lb/>wenn zum ersten Male der Tauwind über die weißen Felder lief, wenn die schwarzen
+        <lb/>Schollen aufsprangen aus dem Schnee und die Luft feucht war von ihrem Geruch?
+        <lb/>Wo war jene erste wilde Angst, wenn er oft aufstand, das Fenster aufriß, den
+        <lb/>Wind an seiner nackten Brust zu fühlen und das Stöhnen der Bäume zu hören,
+        <lb/>die sich nach ihren Blättern sehnten? Wo war sein Entzücken all den tausend
+        <lb/>kleinen Dingen entgegen, dem Vogelschrei in der Ferne und den weißen jagenden
+        <lb/>Wolken, das feine rinnende Knacken und Knistern im Boden zu vernehmen, zu be-
+        <lb/>lauschen, wie im Garten an den Spitzen der Äste kleine klebrige Beulen wuchsen
+        <lb/>und wie sie dann aufbrachen, zaghafte Blätter und eine einzige noch farblose Blüte?
+        <lb/>Wo war die tief im Blut flackernde Unruhe, wo die unbändige freudige Wollust,
+        <lb/>den Mantel von sich zu werfen und mit schweren Schuhen über die feuchte quel-
+        <lb/>lende Erde zu stapfen, eine Anhöhe hinaufzustürmen und plötzlich aufzuschreien,
+        <lb/>jubelnd, ohne Sinn, wie ein Vogel steil oben in der glänzenden Luft?
+        <lb/>O, wie still war hier der Frühling, wie so ohne alle Gewalt. Oder war das
+        <lb/>in ihm, diese leise schläfernde Müdigkeit, diese Freudlosigkeit, die ihn nichts beglückt
+        <lb/>fühlen ließ, nicht den zartgoldenen Sonnenschein, die der Dächer wärmte, nicht dies
+      </p>
+      <pb n="32" facs="#surf_32"/>
+      <p>
+        <lb/>422
+        <lb/>Heller- und Lebendigerwerden der Straßen. Warum rührte ihn all dies so wenig
+        <lb/>an, daß er nie in den Prater hinausfuhr oder zum Kahlenberg, den er nur von ferne
+        <lb/>sah und doch wie nähergetragen von der geschmeidigen Luft. Sein Tun war so
+        <lb/>begrenzt, nie kam er aus dem Bezirk heraus. Immer müder wurde er. Er saß
+        <lb/>in dem kleinen Schönborn-Park, der sonst nur den Kindern gehört und einigen alten
+        <lb/>Leuten, er ging hin, um zu lernen oder zu lesen, aber das Buch rührte er nicht
+        <lb/>an und sah nur zu, wie die Kinder spielten, und irgend eine Sehnsucht war in ihm,
+        <lb/>mit ihnen spielen zu dürfen, wieder zurückzuwachsen in diese helle Sorglosigkeit.
+        <lb/>Das Studium hatte er längst aufgegeben. Er vegetierte nur mehr leise dahin,
+        <lb/>sah den Dingen zu und hatte doch kein Interesse daran. Einmal hatte er sich
+        <lb/>wieder aufraffen wollen und war ins Krankenhaus gegangen; und wie er da in
+        <lb/>den weiten Hof mit den aufknospenden Bäumen kam, die sich unbesorgt in der
+        <lb/>Stille wiegten, als wüßten sie nichts von den furchtbaren und geheimnisvollen
+        <lb/>Schicksalen ringsum, da geschah es ihm, daß er sich vergaß und hinsetzte auf
+        <lb/>eine Bänke. Und wie alle die Kranken, die in ihren langen blauen Leinen-
+        <lb/>gewändern heraustraten mit jenem zagen Schritt der erst Genesenden und nun
+        <lb/>ruhten, mit ruhigen matten Händen, ohne Lächeln und Gespräch, ganz nur dem
+        <lb/>dumpfen untätigen Gefühl erwachenden Lebens hingegeben, so saß er unter ihnen,
+        <lb/>ließ die Sonne warm über die Finger hinrinnen und träumte müde vor sich hin.
+        <lb/>Er hatte vergessen, was er hier wollte, er fühlte nur, daß da Menschen gingen
+        <lb/>und dort, hinter dem runden Tor eine laute lärmende Straße war, und daß Stunden
+        <lb/>langsam vergingen und die Schatten sich unmerklich vorstreckten. Wie man den
+        <lb/>Kranken das Zeichen der Rückkehr gab, schreckte er auf. War er nicht dagesessen,
+        <lb/>wie einer von ihnen, war er nicht vielleicht kränker und näher dem Tod als sie
+        <lb/>alle? Seltsam, nichts begehrte er mehr, als so zu sitzen und die Zeit zerrinnen zu sehen.
+        <lb/>freilich: am Abend flackerten manchmal böse Lichter in ihm auf. Er verlumpte
+        <lb/>sich allmählich, trieb sich mit Frauen herum, die er verachtete, weil er sie kaufen
+        <lb/>mußte, versaß manche Nacht stumpf im Kaffeehaus, aber all das geschah ohne Lust
+        <lb/>und ohne Begier, nur aus einer dumpfen Angst vor der rettungslosen Einsamkeit.
+        <lb/>Seit er mit keinem mehr sprach, war eine böse Falte um seine Lippen und er wich
+        <lb/>seinem eigenen Spiegelbild aus. Ein paarmal suchte er sich noch aufzuraffen, aber
+        <lb/>er fiel immer, wie erdrückt von der ganzen aufgetürmten Last der Einsamkeit in
+        <lb/>ihm, in seine träumerische und ziellose Lethargie zurück.
+        <lb/>* * *
+        <lb/>Doch das Leben rief ihn zu sich.
+        <lb/>Einmal, da er spät nachts heimkehrte, müde, verdrossen und mit jener inner-
+        <lb/>lichen Angst vor dem schweigend ihn erwartenden Zimmer, merkte er, daß er unter-
+        <lb/>wegs den Türschlüssel verloren haben müsse. Er klingelte, selbst auf die Gefahr
+        <lb/>hin, daß nicht die Hausfrau, sondern Schramek ihm öffnen würde. Aber da kamen
+        <lb/>schon eilige, schlürfende Schritte: seine Hausfrau öffnete die Türe und hob die Pe-
+        <lb/>troleumlampe, um den Eintretenden zu erkennen. Da, wie das Licht auf den un-
+        <lb/>ordentlichen Scheitel und das ihm fast fremde Gesicht der Frau fiel, sah Berger
+        <lb/>daß ihre Lider rot und übernächtig waren und eine Gramfalte um ihren Mund. Und
+        <lb/>dann, dachte er erschreckt, was geschehen, daß diese Frau wach war um zwei
+        <lb/>Uhr nachts? Besorgt fragte er sie,
+      </p>
+      <pb n="33" facs="#surf_33"/>
+      <p>
+        <lb/>423
+        <lb/>„Ja wissen's denn nicht, Herr Doktor, die Mizzi, meine Tochter, hat doch den
+        <lb/>Scharlach. Und schlecht geht's ihr, schlecht!“ Sie fing wieder leise an zu weinen.
+        <lb/>Berger erschrak. Er wußte von nichts. Er wußte kaum, daß diese Frau eine
+        <lb/>Tochter hatte. Ein paarmal war draußen im dunkeln Vorzimmer, wenn er ging
+        <lb/>oder kam, irgend ein schmächtiges Kind mit einem „Küß' d' Hand“ vorbeigeglitten,
+        <lb/>ein zwölfjähriges, dreizehnjähriges Mädel, aber er hatte nie mit ihr gesprochen
+        <lb/>oder sie nur angesehen. Schwer fiel es ihm plötzlich aufs Herz, daß seit Monaten,
+        <lb/>atemnah, nur durch eine Wand getrennt, Menschen wohnten, die er nie angesehen,
+        <lb/>daß Schicksale geschahen, hart neben seinem Leben und er sie nicht ahnte. Wie hatte
+        <lb/>er von den anderen Menschen Vertrauen ersehnt, und er selbst hatte geschlafen wie
+        <lb/>ein Tier, während nebenan der Tod mit einem Kinde rang.
+        <lb/>Er suchte die Weinende zu trösten. „Es wird schon gut ausgehen . . . beru-
+        <lb/>higen Sie sich nur . . .“ Und dann zaghafter: „Könnte ich vielleicht Ihre Tochter
+        <lb/>sehen. Ich verstehe zwar noch nicht viel . . . ich steh' erst ganz am Anfang, aber
+        <lb/>immerhin . . .“ Mit einemmal wachte die Sehnsucht nach seinem Studium wild
+        <lb/>in ihm auf, er wäre am liebsten hinübergegangen und hätte die Bücher aufge-
+        <lb/>schlagen und wieder zu lernen begonnen.
+        <lb/>Die Frau führte ihn auf leisen Zehen zu der Kranken. Es war ein enges
+        <lb/>Hofzimmer, schwül und qualmig von der nieder brennenden Petroleumlampe; eine
+        <lb/>Fenstermauer war gegenüber. Hier wußte man vom Frühling nichts und kannte die
+        <lb/>Sonne nur an den matten Reflexen, die von den beglänzten Fenstern manchmal
+        <lb/>herüberstrahlten. Jetzt sah man freilich gar nicht, wie ärmlich die Stube war, denn
+        <lb/>alles verschwamm in der trüben Dämmerung, nur in der Ecke, wo das Bett stand,
+        <lb/>glimmerte ein wenig gelbes Licht. Das Mädchen lag in unruhigem Schlaf. Ihre
+        <lb/>Wangen waren fiebrig gerötet, einer der mageren Arme hing wie vergessen über
+        <lb/>die Bettkante herab, die Lippen waren eingezogen und nichts in dem hübschen Ge-
+        <lb/>sicht verriet auf den ersten Blick die Erkrankung, nur der Atem ging laut und
+        <lb/>manchmal gequält.
+        <lb/>Die Frau erzählte leise, immer wieder von Weinen unterbrochen. „Heut' war
+        <lb/>wieder der Doktor da, hat sie angeschaut, aber er hat mir gar nichts gesagt. Das
+        <lb/>ist die dritte Nacht, daß ich wache, bei Tag muß ich für das Geschäft arbeiten.
+        <lb/>Freilich die Nachbarin hilft mir ja und ist da bei Tag, aber jetzt sind es schon
+        <lb/>drei Nächte, daß ich da bin und es wird nicht besser. Mein Gott, ich tu's ja so
+        <lb/>gern, wenn nur nichts geschieht.“
+        <lb/>Wieder brach ein Schluchzen in die Worte hinein. Eine wilde Verzweiflung
+        <lb/>war in ihrem ganzen Reden.
+        <lb/>In Berger quoll ein wunderbares Gefühl auf. Zum ersten Male, fühlte er,
+        <lb/>würde er einem Menschen helfen können, zum ersten Male spürte er beglückt etwas
+        <lb/>von dem Glanz seines Berufes.
+        <lb/>„Liebe Frau, das geht so nicht weiter. Sie richten sich zugrunde und helfen dem
+        <lb/>Kind damit. Sie werden sich jetzt niederlegen, ich bleibe die Nacht bei dem Kind.“
+        <lb/>„Aber Herr Doktor!“
+        <lb/>Sie hob erschreckt die Hände, als könnte sie es nicht glauben.
+        <lb/>„Sie müssen jetzt schlafen gehen, Sie brauchen den Schlaf. Verlassen Sie sich
+        <lb/>nur auf mich.“
+        <lb/>„Österreichische Rundschau“, XV. 6. 28
+      </p>
+      <pb n="34" facs="#surf_34"/>
+      <p>
+        <lb/>424
+        <lb/>„Aber Herr Doktor . . . nein . . . nein . . . wie kämen Sie denn dazu . . . nein,
+        <lb/>das geht nicht . . .“
+        <lb/>Berger fühlte die Sicherheit in sich wachsen, irgend ein Selbstgefühl zersprengte
+        <lb/>den aufgehäuften Schutt der letzten Monate in seiner Brust.
+        <lb/>„Es ist mein Beruf und meine Pflicht.“ Ganz stolz sagte er es, wie in der
+        <lb/>Freude, plötzlich in einer Nachtstunde, in irgend einer jähen Sekunde, den Sinn und
+        <lb/>das Ziel seines ganzen verlorenen Lebens gefunden zu haben.
+        <lb/>Sie stritten nicht lange. Die Frau war übermüdet, der Schlaf drückte ihr auf
+        <lb/>den Augen und so gab sie bald nach. Berger hatte nur noch zu wehren, daß sie
+        <lb/>ihm die Hand küßte in dem wilden Gefühl ihrer devoten Dankbarkeit, dann führte
+        <lb/>er sie hinüber in sein Zimmer, wo er sie auf den Diwan bettete. Die letzten Nächte,
+        <lb/>seit das Kind krank war, hatte sie in der Küche auf einer Matraze geschlafen.
+        <lb/>Alle diese kleinen und doch in ihrer Tragik furchtbaren Dinge, von denen er nichts
+        <lb/>gewußt hatte, ließen ihn seinen Dienst nicht als eine Tat empfinden, sondern als
+        <lb/>Tilgung einer bitteren Schuld.
+        <lb/>Und nun saß er am Bette des Mädchens. Es war ein unbeschreib-
+        <lb/>liches Gefühl in ihm; irgendwie schien das Leben leiser und friedfertiger
+        <lb/>geworden zu sein, wie diese Atemzüge, die jetzt nur mehr hauchend gingen und
+        <lb/>kamen. Jetzt erst sah er das von einem schmalen Lichtkreis umrandete Gesicht
+        <lb/>näher an. Nie hatte er, so lange er in Wien war, so innig die andere Men-
+        <lb/>schen Gegenwart fühlen dürfen, nie so lange in seine Züge sehen dürfen, nie ihm
+        <lb/>alles ablauschen, was in den Linien seines Antlitzes lag. Wie er sie so ansah, kam
+        <lb/>ihm irgend ein Erinnern, ganz leise schlief irgendwo um diese Gesicht, noch un-
+        <lb/>erblüht und verhärmt. Eine Neugier beschlich ihn, wie die Augen wohl sein möchten,
+        <lb/>ob wie die seiner Schwester auch, und wie eine Anklage sagte er immer wieder
+        <lb/>sein Versäumnis. Warum war er so fremd an diesem Mädchen und an ihrer
+        <lb/>Mutter vorübergegangen, warum hatte er nie an diese Beiden gedacht, die neben
+        <lb/>ihm lebten? Warum hatte dieser Mund nie gelächelt für ihn, waren diese Augen
+        <lb/>ihm fremd wie jetzt, wo sie unter dem Schrein der Lider verschlossen waren, warum
+        <lb/>wußte er nichts von dem, was da lebte in dieser Kinderbrust, die auf-
+        <lb/>und niederging in sanften Atemzügen? Vorsichtig faßte er die matte Hand des
+        <lb/>Kindes, die über die Bettkante hinaushing und legte sie auf die Decke. Wie eine
+        <lb/>Liebkosung so zart war seine Berührung. Und dann saß er still und sah sie an,
+        <lb/>dachte schmerzlich, wie viel er versäumt hatte von seinen Studien und gelobte
+        <lb/>sich im stillen, sein Leben von Grund auf zu beginnen. Schon flogen träumerische
+        <lb/>Bilder auf, er sah sich als Arzt, als Helfenden, das Blut wurde ihm warm
+        <lb/>bei diesen lockenden Gedanken. Und immer wieder umfaßte sein Blick dieses blasse
+        <lb/>kindliche Mädchengesicht und hielt es fest, als könnte er mit diesem Blick ihr Schicksal
+        <lb/>bewahren und ihr bedrohtes Leben zurückhalten.
+        <lb/>Plötzlich regte sich das Kind und schlug die Augen auf, große, fiebrig glän-
+        <lb/>zende wie in Tränen schimmernde, funkelnde Augen. Das ganze Gesicht wurde wie
+        <lb/>mit einem Male hell. Zuerst wanderten sie im Kreise herum, als müßten sie sich
+        <lb/>irgendwo durch die Wolke des Fiebers und der nachschattenden Träume bohren.
+        <lb/>Dann bleiben sie plötzlich, wie erschreckt, bei Bergers Antlitz stehen. Wie fragend
+      </p>
+      <pb n="35" facs="#surf_35"/>
+      <p>
+        <lb/>425
+        <lb/>tasteten sie seine Züge entlang, hingen sich dann fest an seinem Blick. Undeutlich
+        <lb/>bewegten sich die verbrannten Lippen.
+        <lb/>Berger sprang auf, trocknete die fiebrig erhitzte Stirne und gab ihr dann zu
+        <lb/>trinken. Das Mädchen bog den Kopf vor, trank hastig und fiel dann wieder matt
+        <lb/>in die Kissen zurück, die Augen unbeweglich auf Berger gerichtet. Nicht ganz klar
+        <lb/>bewußt schien ihm dieser Blick, aber doch, dem Staunen war darin etwas von
+        <lb/>Dankbarkeit beigemengt. Unablässig sah sie ihn an. Und als er jetzt, leise zitternd
+        <lb/>vor diesem tiefen unverständlichen Blick, sich abwandte und sich im Zimmer zu
+        <lb/>schaffen machte, spürte er, ohne hinzusehen, wie ihm diese großen, feuchtfunkelnden
+        <lb/>Kinderaugen überall hin folgten. Und wie er dann zurücktrat an das Bett, waren
+        <lb/>sie weit aufgetan und nun, wie er sich niederbeugte, regte sich der Mund, er wußte
+        <lb/>nicht, wollte sie sprechen oder lächeln. Dann fielen die Lider zu, das Leuchten ver-
+        <lb/>lösch auf ihrem Gesicht. Und dann lag sie wieder, stumm und blaß und schlief, mit
+        <lb/>jetzt leiseren Atemzügen.
+        <lb/>Berger fühlte auf einmal in der atemlosen Stille sein Herz ganz laut gehen.
+        <lb/>Irgend ein Glückgefühl war in ihm und wuchs wild auf. Zum ersten Male in seinem
+        <lb/>Leben sah er sich tätig eingereiht in den Kreis der anderen, ihm war, als hätte
+        <lb/>ihm jemand etwas Dankbares und Herzliches zugerufen, als hätte sich irgend etwas
+        <lb/>Großes und Schönes für ihn begeben in diesen paar Stunden. Fast zärtlich sah
+        <lb/>er nieder auf dieses Mädchen, auf dieses Kind, auf den ersten Menschen, der ihm
+        <lb/>anvertraut war, den er dem Leben gewinnen sollte und der ihn selbst zurück-
+        <lb/>gewonnen hatte für das Leben. Er las die langen Stunden schienen ihm leicht. Ganz überrascht war er, wie er, als die Lampe
+        <lb/>plötzlich mit einem jähen, aufspringenden flackern erlosch, das Dunkel verloren und
+        <lb/>den Morgen schon mit seinem ersten leisen Schein vor dem Fenster warten fand.
+        <lb/>* * *
+        <lb/>Vormittags kam der Arzt, um nach der Kranken zu sehen. Berger stellte sich
+        <lb/>ihm als Student der Medizin vor und fragte ihn, nicht ohne das peinliche Gefühl
+        <lb/>seiner Unkenntnis bis in die Kehle quellend zu spüren, ob noch Gefahr vor-
+        <lb/>handen sei.
+        <lb/>„Ich glaube nicht“, sagte der Arzt. „Die Krise scheint mir überstanden. Merk-
+        <lb/>würdig, die Kinder sind diesen Krankheiten gegenüber viel widerstandsfähiger, als
+        <lb/>die Erwachsenen, es ist, als ob in ihnen die Kraft ihres noch ungelebten Lebens
+        <lb/>dem Tode entgegenarbeiten würde und ihn niederringen. So ist es fast mit allen
+        <lb/>Kinderkrankheiten: Die Kinder überwinden sie und die Erwachsenen gehen daran
+        <lb/>zugrunde.“
+        <lb/>Er untersuchte die Kranke. Berger stand ergriffen dabei. Wenn er so sah,
+        <lb/>wie er selbst nach jedem Wort dieses Menschen griff, jede seiner Bewegungen be-
+        <lb/>lauschte, da fühlte er im tiefsten die wunderbare Gewalt des von ihm einst blind-
+        <lb/>lings erwählten und lang mißachteten Berufes. Die ganze Schönheit ging ihm
+        <lb/>auf wie eine jähe Sonne, so an ein Bett treten und dort, wie ein Geschenk,
+        <lb/>Hoffnung, Verheißung und vielleicht auch Gesundheit hinlegen zu dürfen. In diesem
+        <lb/>Augenblick war ihm die Richtung seines ganzen Lebens klar: tätig müßte er sein
+        <lb/>und nützlich, dann würde er auch nicht mehr allen fremd bleiben, nicht mehr
+        <lb/>einsam sein. 28*
+      </p>
+      <pb n="36" facs="#surf_36"/>
+      <p>
+        <lb/>426
+        <lb/>Er begann damit, die Pflege des Mädchens ganz zu übernehmen. Ohne selb-
+        <lb/>ständig etwas anzuordnen, beschränkte er sich darauf, die Phasen der Krankheit zu
+        <lb/>überwachen, die Nächte an dem Bett der Kranken zu verbringen und auch einen
+        <lb/>guten Teil des Tages. Es war jene Nacht wirklich die Krise gewesen. Das hohe
+        <lb/>Fieber wich, er konnte schon mit der Kleinen reden, und tat es gerne. War er
+        <lb/>draußen gewesen, so brachte er ihr ein paar Blumen mit und erzählte ihr vom
+        <lb/>Frühling, der jetzt schon im Schönbornpark, wo das Kind sonst immer spielte, die
+        <lb/>Bäume leise begrünte, und daß die anderen Mädchen schon helle Kleider trügen. Er er-
+        <lb/>zählte von der blanken Sonne, die jetzt draußen glänzte, erzählte allerlei Geschichten, las
+        <lb/>ihr vor, versprach ihr die baldige Genesung und hatte kein lieberes Vergnügen, als
+        <lb/>sie froh zu sehen. Ganz frei wurde ihm bei diesen einfältigen, absichtlich kindischen
+        <lb/>Gesprächen und er hörte manchmal, selbst überrascht, sich laut und lustig lachen.
+        <lb/>Und das kleine blasse Mädchen lag in den Kissen und lächelte nur. Ganz matt
+        <lb/>lächelte sie, eine leise liebe Linie grub sich um die Lippen und flog wieder weg wie
+        <lb/>ein Hauch. Aber wenn sie ihn ansah, dann ruhte ihr Blick, ihr ganzes tiefes grau-
+        <lb/>schillerndes Auge, feinstrahlig und leuchtend bis zum Grund, auf seinem Gesicht,
+        <lb/>ganz ohne Verwunderung und Fremdheit schon, hing warm und schwer an ihm,
+        <lb/>wie ein Kind um den Hals der Mutter. Nun durfte sie auch schon sprechen und
+        <lb/>bald verlor sie auch die hörte manchmal, selbst überrascht, sich laut und lustig lachen.
+        <lb/>Am liebsten verlangte sie von seiner Schwester zu hören. Wie sie aussehe, ob
+        <lb/>sie groß oder klein, wie sie sich kleide und ob sie brav in der Schule war. Und
+        <lb/>ob sie auch so blonde Haare habe, wie er. Und ob er es nicht einrichten könnte,
+        <lb/>daß sie einmal herkäme nach Wien, das doch schöner sein müßte als das
+        <lb/>kleine Städtchen mit dem harten Namen, über den sie immer lachen mußte. Und
+        <lb/>ob sie auch schon so fragen fand sie
+        <lb/>und immer neue. Aber sie machten Berger nicht müde. Er antwortete ihr gern
+        <lb/>und es tat ihm wohl, einmal von seiner Schwester, die ihm das Liebste war auf
+        <lb/>der Welt, herzlich reden zu dürfen. Und als ihn das Mädchen darum bat, brachte
+        <lb/>er ihr auch die Photographie von seinem Schreibtisch.
+        <lb/>Neugierig nahm sie das Bild in ihre schmalen, noch ganz durchsichtigen
+        <lb/>Kinderhände.
+        <lb/>„Da“ — sie strich sehr sorgfältig mit dem Fingernagel darüber — „das ist
+        <lb/>ganz Ihr Mund. Nur machen Sie oft eine böse Falte darum und dann schauen
+        <lb/>Sie ganz anders aus. Wenn ich Sie früher gesehen habe, habe ich immer Angst
+        <lb/>vor Ihnen gehabt, so haben Sie dreingeschaut.“
+        <lb/>„Und jetzt?“ er lächelte leise.
+        <lb/>„Jetzt nicht mehr. Aber sagen Sie, hat sie auch solche Augen wie Sie?“
+        <lb/>„Ich glaube ja?“
+        <lb/>„Und ist auch so groß wie Sie, nicht wahr? Sie muß sehr schön sein, Ihre
+        <lb/>Schwester. Ach, sehen Sie, sie trägt die Haare ganz so wie ich, auch so rund ge-
+        <lb/>flochten. Die Mutter hat's mir zuerst nicht erlauben wollen, daß ich sie so trage
+        <lb/>und hat gesagt, es macht mich zu alt. Aber ich bin ja kein Kind mehr, ich bin
+        <lb/>ja schon konfirmiert.“
+        <lb/>Sie reichte ihm die Photographie zurück und er sah sie lange an, ohne ein
+        <lb/>Wort zu sprechen. Zum ersten Male fand er von dem Bilde die Züge seiner Erinne-
+      </p>
+      <pb n="37" facs="#surf_37"/>
+      <p>
+        <lb/>427
+        <lb/>rung nicht mehr ganz zurück. Unmerklich waren seiner Schwester und dieses Kindes
+        <lb/>feine blasse Züge irgendwie zusammengeströmt in seinem innern Schauen, er ver-
+        <lb/>mochte sie nicht mehr zu scheiden. Beider Lächeln und beider Stimme war eins in
+        <lb/>ihm geworden, so wie sie jetzt auch in seinem Leben vereint waren, als die beiden
+        <lb/>einzigen weiblichen Wesen, die ihm vertrauten und es liebten, mit ihm zu sein.
+        <lb/>Die Gestalt Karlas war ganz weggeweht aus seiner Erinnerung, all die Tage
+        <lb/>hatte er nicht ein einziges Mal an sie gedacht und an jene Stunde, an die er jetzt
+        <lb/>ruhig sich erinnerte wie an ein Trunkensein von Wein, einen Rausch, eine Dumm-
+        <lb/>heit im Zorn. Und schon hatte er an alle die stumpfen bösen Tage vergessen, die
+        <lb/>er hier verlebt.
+        <lb/>Er fühlte nur eines, daß ihm ein großes Glück begegnet sei. Ihm war, als
+        <lb/>ob er lange im Dunkel gegangen wäre in den Abend hinein und hätte plötzlich,
+        <lb/>jäh beglückt, ein Licht, weiß wie einen Stern von der ferne glänzen sehen, Licht von
+        <lb/>einem Haus, wo er ruhen durfte und wo man ihn aufnahm als lieben Gast. Was
+        <lb/>hatte er, der Kindische, der Schwächling, der Verzagte bei den Frauen gewollt?
+        <lb/>Den Erfahrenen mußte er zu töricht sein, den Unschuldigen zu feige, ein hilfloser war
+        <lb/>er ja noch, ein Unfertiger, ein Träumer. Er war zu früh gekommen, hatte sich zu früh
+        <lb/>an sie gedrängt, die nur die reife Frucht des Lebens begehrten. Aber hier dieses
+        <lb/>Kind, in dem Frau erst keimte, knospennah und doch noch schlummernd, die noch
+        <lb/>sanft war, ohne Stolz und ohne Gier, wuchs ihm da nicht ein Schicksal entgegen,
+        <lb/>dem er Herr sein konnte, eine Seele, die er sich erziehen durfte, ein Herz, das un-
+        <lb/>bewußt sich ihm schon hinneigte? Ein Traum, süßer als alle bisherigen und doch
+        <lb/>wirklicher als die dumpfen Gebilde seiner leeren Stunden schlug an seine Brust wie
+        <lb/>eine warme Welle.
+        <lb/>Und dann, je öfter er sie ansah, je länger er sie kannte und nun, wie nach
+        <lb/>der Krankheit ihre Wangen sich leise färbten und das junge Gesicht verschönten,
+        <lb/>zitterte eine sehr verschwiegene und ganz leise Zärtlichkeit in ihm auf.
+        <lb/>Eine nur geschwisterliche Zärtlichkeit, der es Glück schon war, über die mageren
+        <lb/>Hände streifen zu dürfen und das Lächeln an den Lippen aufblühen zu sehen.
+        <lb/>Einmal lag sie wieder, ganz still. Sie hatten beide geschwiegen. Und
+        <lb/>plötzlich kam ihn ein Verlangen an, das er selbst nicht verstand. Er trat hin an
+        <lb/>ihr Bett, meinend, daß sie schliefe. Aber sie lag nur still und strahlte ihn so merk-
+        <lb/>würdig an mit den Augen. Stumm lag der Mund wie ein blasses eingerolltes
+        <lb/>Rosenblatt. Und plötzlich wußte er, was er wollte: diesen Mund einmal mit seinen
+        <lb/>Lippen berühren, ganz, ganz leise nur.
+        <lb/>Er beugte sich nieder. Aber selbst diesem kranken Kinde gegenüber war er
+        <lb/>noch mutlos.
+        <lb/>Sie sah auf zu ihm: „Woran denken Sie jetzt?“
+        <lb/>Da packte es ihn an, er konnte es nicht mehr verschweigen. Ganz leise sagte
+        <lb/>er: „Ich möchte dir gern einen Kuß geben? Darf ich?“
+        <lb/>Sie lag unbeweglich und lächelte nur, lächelte mit ihren hellen strahlenden
+        <lb/>Augen tief bis an sein Herz, lächelte nicht mehr wie ein Kind, sondern schon wie
+        <lb/>eine Frau . . .
+        <lb/>Da beugte er sich nieder und küßte leise den zarten unerfahrenen Kindermund.
+      </p>
+      <pb n="38" facs="#surf_38"/>
+      <p>
+        <lb/>428
+        <lb/>Ein paar Tage später durfte die Kranke zum ersten Male aufstehen. Im Lehn-
+        <lb/>sessel, den man ihr ans Fenster gerückt hatte, saß sie da, ganz glücklich, dem Bett
+        <lb/>entronnen zu sein. Berger saß bei ihr und sah sie stolz an, er hatte dunkel das
+        <lb/>Gefühl, als ob er sie retten geholfen hätte und dies auch seine Tat wäre, daß sie
+        <lb/>nun wieder dem Leben gehörte. Sie schien größer geworden zu sein während ihrer
+        <lb/>Krankheit und irgendwie war das Kindhafte leise abgeglitten von ihr: wie ein
+        <lb/>junges Mädchen saß sie da und ihre Freude war gar nicht mehr übermütig-kinder-
+        <lb/>haft, sondern schon so besonnen und tief gefühlt. Wie sie an das Fenster tippte,
+        <lb/>hinter dem die Luft lau glänzte, und sagte: „Der Frühling soll doch hereinkommen,
+        <lb/>wenn ich noch nicht hinaus kann“, das schien Berger wie ein kleines Wunder, wie
+        <lb/>eine nie gekannte Lieblichkeit des Lebens. Und er schämte sich gar nicht mehr vor
+        <lb/>sich selbst, verliebt zu sein in ein dreizehnjähriges Mädchen, weil er wußte, daß all
+        <lb/>dies gewissermaßen traumhaft war und unwiderbringlich, was er in diesen
+        <lb/>Tagen des Genesens erlebte. Und wunderbar ergriff ihn das herzhafte, von frau-
+        <lb/>licher Scham noch gar nicht verwirrte Zutrauen, ihre innige und heitere Zuneigung
+        <lb/>zu ihm. Sie sprach ihn jetzt oft beim Vornamen an, neckte sich mit ihm und er
+        <lb/>spürte, mitten im Übermütigsein ein lautes Glückseligkeitsgefühl, nicht mehr
+        <lb/>einsam zu sein. Lachen kam aus seiner Seele wieder herauf, er sei „ein
+        <lb/>wie an eine vergessene Sprache aus Kindertagen. Und dann kamen, wenn er allein
+        <lb/>war, sanfte Träumereien, er sah sie aufwachsen zur Frau, sah sie klug, ernst,
+        <lb/>verständig. Und sah sich selbst diesen Bildern verstrickt und verstand, daß sie für
+        <lb/>ihn wachsen und werden sollte.
+        <lb/>Aber auch sonst hatte seine Einsamkeit ein Ende. Da war die Mutter des
+        <lb/>Mädchens, die aufsah zu ihm wie zu einem Gott. Sie schien den ganzen Tag nur
+        <lb/>auf Möglichkeiten zu sinnen, ihm ihre Dankbarkeit erweisen zu können. Und nun, wie
+        <lb/>er öfters mit ihr sprach, merkte er, daß diese ärmliche Frau viel Schicksal erlebt
+        <lb/>hatte und trotz Erniedrigungen und Enttäuschungen eine ergreifende Güte bewahrt
+        <lb/>hatte. Er bereute jetzt, früher schroff an diesen ihm untergebenen Leuten vorbeige-
+        <lb/>gangen zu sein, und fühlte sich froh, diese Schuld nun getilgt zu haben.
+        <lb/>Und auch zu Schramek fand er wieder. Er traf ihn einmal im Flur,
+        <lb/>und Berger staunte über sich selbst, wie heiter und unbesorgt er mit ihm reden
+        <lb/>konnte. Auch von der Karla sprachen sie und nichts tat ihm mehr weh bei diesem
+        <lb/>Wort. Es war zu viel innere Freudigkeit in ihm, ein freischweben und freisein, das
+        <lb/>bis in seinen Gang strömte, das ihn aufrecht sein ließ und elastisch. Von allen
+        <lb/>Seiten schien das Leben ihn zu durchdringen, alles paßte ineinander und das einzige
+        <lb/>wilde Begehren, das in ihm drängte, war, jetzt die verstaubten Bücher aufzu-
+        <lb/>schlagen und das Studium zu beginnen. Mit goldenen Lichtern lockte ihn nun sein
+        <lb/>Beruf. Ein paar Tage nur wollte er noch warten, bis das Mädchen ganz gesund
+        <lb/>sei, diesen ersten Erfolg, diesen wilden, in jeder Sekunde der strahlenden Tage
+        <lb/>empfundenen Genuß wollte er noch zu Ende auskosten.
+        <lb/>* * *
+        <lb/>Zwei Wochen hatte Berger die Straße kaum gekannt, war nur manchmal vom
+        <lb/>Krankenzimmer eilig hinabgestürmt, um etwas zu besorgen. Wie er nun zum ersten
+        <lb/>Male wieder langsam hinschlenderte über das besonnte blinkende Pflaster, empfand
+        <lb/>er den Frühling erst ganz, dessen kühl duftender Atem hinzitterte über der wie fest-
+      </p>
+      <pb n="39" facs="#surf_39"/>
+      <p>
+        <lb/>429
+        <lb/>lich erleuchteten Stadt. Und ihm war, als sehe er heute diese Stadt zum ersten Male,
+        <lb/>als sei sie aus einem trüben nassen Nebel glitzernd aufgetaucht. Er sah diese alten
+        <lb/>Häuser der Josefstadt, die ihm immer morsch und schmutzig erschienen waren, jetzt,
+        <lb/>da ein blanker blauer Himmel scharf die Konturen der altertümlichen Dächer und
+        <lb/>Rauchfänge abzeichnete, in ihrer anheimeinden Vertrautheit, empfand den hinter
+        <lb/>den breiten Straßen fern vorliegenden Kahlenberg mit seinem noch ganz matten
+        <lb/>Grün wie einen Gruß. Alle Menschen schienen ihm hellere Mienen zu haben und
+        <lb/>manchmal war ihm, als funkelte aus den Blicken der Frauen ein freundlicher Blick
+        <lb/>ihm zu im Vorübergehen. Oder war das nur sein eigener innerer Glanz, zurück-
+        <lb/>gespiegelt von jedem Ding, von der dunklen Pupille und den flackernden Fenstern,
+        <lb/>von den glimmernden Straßen und den grell leuchtenden erwachten Blumen hinter
+        <lb/>den Scheiben? Nicht feindlich schien dies alles mehr um ihn zu stehen und
+        <lb/>fremd, sondern lag da wie eine reifende Frucht, verheißend und farbig, baldiger
+        <lb/>Besitz und schon wunderbares Vorgefühl des Genießens. Eine immer wieder neu-
+        <lb/>ausströmende Fülle war rings in alledem und sie trug einen wie eine Welle fort.
+        <lb/>Ganz gab er sich hin an dieses Glücksgefühl.
+        <lb/>Bald kam ihm eine leichte Betäubung an. Wie betrunken war er, seine Füße
+        <lb/>wurden ihm schwer, bleiern schloß sich ein Ring um seinen Kopf. Plötzlich fiel ihn
+        <lb/>diese Mattigkeit an wie eine Krankheit des Frühlings. Er mußte sich bei der Ring-
+        <lb/>straße hinsetzen auf eine Bank. Vor ihm, auf seine Hände, auf seinen ganz leicht
+        <lb/>fröstelnden Körper strahlte die Sonne, noch nicht gefiltert vom dichten Blattwerk
+        <lb/>der Bäume, sondern voll und prall, mit so stürmischer Gewalt, daß er die Augen
+        <lb/>schließen mußte. Lärm stürmte am Pflaster vorbei, Menschen gingen vorüber,
+        <lb/>aber irgend etwas zwang ihn, die Augen geschlossen zu halten und unbeweglich hin-
+        <lb/>gegossen zu bleiben auf die harte Bank. Zwei, drei Stunden saß er so. Erst in der
+        <lb/>Dämmerung, als die Kühle kam, raffte er sich auf und ging nach Hause, mühsam,
+        <lb/>wie ein Kranker.
+        <lb/>Er ging vorbei am Zimmer, wo das Mädchen war. Er fühlte, er müßte jetzt
+        <lb/>allein sein mit sich, endlich abrechnen mit der Fülle neuer Erlebnisse, die ihn anders
+        <lb/>gemacht hatten in diesen Wochen. Er setzte sich hin zum Schreibtisch, um seine
+        <lb/>Bücher und Schriften zu ordnen. Morgen wollte er mit dem Studium beginnen.
+        <lb/>Da fiel ihm ein dickes unbeschriebenes Heft in die Hand, kaum erkannte er es
+        <lb/>wieder. Zum Tagebuch hatte er es sich bestimmt, als er nach Wien kam. Und hatte
+        <lb/>immer auf ein Erlebnis und Geschehnis gewartet, um würdig die erste Seite zu
+        <lb/>beschreiben, hatte gewartet und schließlich, als die Tage immer eintöniger wurden,
+        <lb/>ganz vergessen daran. Nun schien es ihm wie ein Zeichen. Denn jetzt hatte ja erst
+        <lb/>sein Leben begonnen, jetzt begannen Sterne über die trostlose Nacht zu glänzen.
+        <lb/>Ein Tagebuch der Erlebnisse sollte es werden und — unsicher spürte er es —
+        <lb/>vielleicht auch der Liebe. Denn in ihm war irgend eine Stimme, die so sprach, als
+        <lb/>ob die Neigung zu diesem Kinde einmal Liebe werden sollte zu einer Frau . . .
+        <lb/>Er schraubte die Lampe hoch. Und nahm dann Tinte, schwarze und rote und
+        <lb/>allerhand Federn und begann mit vielen Schnörkeln und Arabesken Dantes Worte
+        <lb/>auf die erste Seite zu malen „Incipit vita nuova“. „Ein neues Leben hat begonnen.“
+        <lb/>Er liebte von Kindertagen diese Spielerei des Schönschreibens und selbst da, wo
+        <lb/>er seine Zukunft und Vergangenheit festhalten wollte, stichelte er schöne geschwungene
+      </p>
+      <pb n="40" facs="#surf_40"/>
+      <p>
+        <lb/>430
+        <lb/>Lettern, füllte sie mit Rot und Schwarz: „Ein neues Leben hat begonnen.“ Leuchten
+        <lb/>sollte das wie Blut!
+        <lb/>Da . . . er hielt inne im Schreiben . . . ein Tintenspritzer saß auf seiner
+        <lb/>Hand. Ein kleiner roter runder Fleck. Er wollte ihn wegwischen. Es ging nicht.
+        <lb/>Er nahm Wasser und rieb daran. Der Fleck ging nicht weg . . . wie seltsam . . .
+        <lb/>Er versuchte wieder. Und wieder vergebens.
+        <lb/>Da durchfuhr ihn ein Gedanke jäh wie ein Blitz. Er fühlte sein Blut stocken.
+        <lb/>Was war das? . . . Etwa? . . .
+        <lb/>Zögernd, angstvoll schob er dann den Ärmel empor. Und spürte seine streifende
+        <lb/>Hand kalt werden: auch hier saßen solche rote kreisrunde Flecke, einer, zwei, drei.
+        <lb/>Mit einem Male verstand er die Müdigkeit und den Druck von vorhin. Er wußte
+        <lb/>genug. Stärker begann es in seiner Schläfe zu hämmern, die Kehle war ihm ver-
+        <lb/>klemmt. Und kalt, wie schwere fremde Klötze fühlte er seine Füße unter dem Tisch.
+        <lb/>Taumelnd riß er sich auf, mit einem erschreckten Blick am Spiegel vorbei.
+        <lb/>Nein, nur nicht hineinsehen! Und nichts tun, nicht schreien oder weinen, nichts
+        <lb/>hoffen oder erwarten, da es doch unabänderlich war. Und es war ja nur so natürlich.
+        <lb/>Er hatte sich angesteckt. Er hatte Scharlach.
+        <lb/>Scharlach . . . und da hörte er plötzlich, als spräche einer im Zimmer laut
+        <lb/>die Worte, die der Arzt damals von den Kinderkrankheiten und dem Scharlach gesagt
+        <lb/>hatte. „Die Kinder überwinden es leichter, die Erwachsenen gehen daran zugrunde.“
+        <lb/>Scharlach . . . Sterben . . . das klang ihm alles ineinander. Scharlach — eine
+        <lb/>Kinderkrankheit! War das nicht ein Symbol für sein ganzes Leben, daß er immer
+        <lb/>an dem als Erwachsener noch gelitten hatte, was nur den Kindern und der Kind-
+        <lb/>heit zugehört? Und die Erwachsenen überdauerten das schwerer wie die Kinder:
+        <lb/>wie wunderbar verstand er das mit einem Male!
+        <lb/>Aber Sterben — es revoltierte doch zu viel in ihm dagegen. Vor drei Wochen,
+        <lb/>wie gerne wäre er gegangen, wie gerne still und unauffällig weggetreten von der
+        <lb/>Bühne, wo keiner ihm zuhörte und keiner zu ihm sprach. Aber jetzt? Warum spielte
+        <lb/>das Leben so mit ihm, daß es ihm Lockendes noch in letzter Stunde gezeigt, um ihm
+        <lb/>den Abschied schwer zu machen? Warum gerade jetzt, wo er wieder mit Menschen
+        <lb/>verknüpft war, wo manche vielleicht leiden würden, mehr vielleicht als er selbst?
+        <lb/>Dann kam die Müdigkeit über ihn, eine stumme fassungslose Resignation.
+        <lb/>Starr sah er hin auf die roten Flecken, bis sie vor seinen Augen wie funken
+        <lb/>tanzten. Wirr wurde ihm alles. Er fühlte nur noch, daß es ein Traum gewesen,
+        <lb/>das Glück oder das Unglück, die Menschen oder die Einsamkeit, das Ver-
+        <lb/>gangene oder das Kommende. Er begehrte nichts mehr. War das schon Sterben,
+        <lb/>dieses Stillwerden in einem solchen Augenblick, dachte er schmerzlich.
+        <lb/>Nur Abschied nehmen wollte er noch.
+        <lb/>Er ging hinein in das Zimmer, wo das Mädchen schlief. Mit einem Blick
+        <lb/>nur sah er hin auf die ruhenden, ihm so vertrauten Züge. Hatte er nicht geträumt,
+        <lb/>hier werde ihm ein Schicksal werden? Und war es ihm nicht durch sie geworden,
+        <lb/>ganz, ganz anders nur, als es dachte, ein Sterben und kein Leben?
+        <lb/>Er streichelte mit dem Blick zärtlich die Züge. Und das Lächeln, das im Schlaf
+        <lb/>leise ihren kindischen Mund umrandete, nahm er mit auf seinen Lippen. Freilich,
+        <lb/>wie er zurücktrat ins Zimmer, hing es schon bitter herab, wie eine verwelkte Blume.
+      </p>
+      <pb n="41" facs="#surf_41"/>
+      <p>
+        <lb/>431
+        <lb/>Er zerriß noch ein paar Briefe, schrieb eine Adresse auf einen Zettel. Dann
+        <lb/>klingelte er und wartete.
+        <lb/>Die Frau kam sofort hereingestürzt. Sie stürmte nur immer, ihm, den sie ab-
+        <lb/>göttisch verehrte, dienlich sein zu können.
+        <lb/>„Ich“ — er mußte noch einmal ansehen, die Stimme war nicht ganz fest —
+        <lb/>„Ich fühle mich nicht ganz wohl. Bitte richten Sie mir das Bett und rufen sie
+        <lb/>dann den Arzt. Wenn es mir schlecht gehen sollte, senden sie ein Telegramm an
+        <lb/>meine Schwester, hier ist die Adresse.“
+        <lb/>Zwei Stunden später lag er in hitzigem Fieber.
+        <lb/>* * *
+        <lb/>Furchtbar brannte das Fieber in seinem Blut. Es war, als ob die ganze
+        <lb/>Kraft der noch ungelebten Stunden, die nie verbrauchte Leidenschaft ihn verbrennen
+        <lb/>würde in den zwei Tagen, die ihm noch gegeben waren von einem langen Leben.
+        <lb/>Das Haus war verstört. Mit verweinten Augen schlich das Mädchen herum und
+        <lb/>wagte keinen anzusehen, wie in Angst, man möchte sie anklagen. Die Frau lag ver-
+        <lb/>zweifelt vor dem Kruzifix im Vorzimmer und betete schluchzend um das Leben des
+        <lb/>Sterbenden. Auch Schramek kam mehrmals zu ihm herüber und versicherte allen
+        <lb/>mit seinem unverwüstlichen Vertrauen, es würde schon gut ausgehen. Der Arzt
+        <lb/>dachte anders und sandte das Telegramm an Bergers Schwester.
+        <lb/>* * *
+        <lb/>Zwei Tage hielt das Fieber den Besinnungslosen umklammert und schleuderte
+        <lb/>ihn auf und nieder in seinem roten Gischt. Und sein Blut
+        <lb/>war still geworden. Reglos lag er da mit matten Händen und geschlossenen Lidern.
+        <lb/>Aber er war ganz wach. Das Zimmer mußte sehr hell jetzt sein,
+        <lb/>denn wie ein rosaroter Nebel lag es auf seinen Lidern.
+        <lb/>Er blieb reglos. Da begann nebenan der Vogel zu zwitschern. Ganz vor-
+        <lb/>sichtig, ganz leise . . . und doch so unendlich süß. Eine Melodie stieg empor und
+        <lb/>eine Melodie stieg empor und wiegte sich auf und nieder. Der Kranke horchte hin.
+        <lb/>Dagegen schien ihm jetzt frühling sein.
+        <lb/>Die Vogelstimme tönte immer lauter: fast tat sie ihm weh mit ihrem Jubel.
+        <lb/>Ihm war, als nistete der Vogel hart neben ihm am Bett und gellte ihm die
+        <lb/>schrillen Töne ins Ohr . . . Aber nein . . . Jetzt war er wieder ganz leise, so
+        <lb/>fern. Auf einem Baum mußte er sitzen, draußen im Frühling. Immer leiser ward
+        <lb/>das Lied, immer zarter, wie von einer Flöte, wie von einer Mädchenstimme. Oder
+        <lb/>war es gar kein Vogel, sang da nicht die feine silbern-biegsame Stimme eines Mäd-
+        <lb/>chens, eine süße helle Kinderstimme?
+        <lb/>Ein Mädchen, ein Kind . . . Erinnerung kam zaghaft wieder hergeweht
+        <lb/>und rührte an sein Herz. Langsam fiel ihm alles wieder ein, aber nicht in richtiger
+        <lb/>Folge, sondern Bilder, eines nach dem anderen. Das lächelnde Kindergesicht stieg
+        <lb/>auf aus der Dunkelheit des Vergessens und jetzt, schattenhaft und doch süß, dieser
+        <lb/>eine verstohlene Kuß. Und die Krankheit dann und die Mutter, das ganze Haus
+        <lb/>— der Kreis des Erlebens lief zurück und plötzlich wußte er, daß er krank da lag
+        <lb/>und vielleicht sterben mußte.
+        <lb/>Er riß die schweren Augenlider auf. Ja, das war das Zimmer. Und er war
+        <lb/>ganz allein da. Der Vogel nebenan sang nicht mehr und auch die Uhr war stumm,
+      </p>
+      <pb n="42" facs="#surf_42"/>
+      <p>
+        <lb/>432
+        <lb/>die sonst eilfertig tickte, man hatte sie aufzuziehen vergessen. Langsam glitten ihm
+        <lb/>die Lider wieder zu, ohne daß er es merkte. Er sah in das Zimmer wie in eine
+        <lb/>ferne zurück und saß darin, in jener ersten Nacht wo er nach Wien kam und
+        <lb/>draußen der Regen rann und er weinte in seinem bittern Verlassensein. Und dann
+        <lb/>kam alles wieder, das mit Schramek und die anderen bunten Dinge, aber schon
+        <lb/>ganz unwirklich war es . . . so fremd . . . es tat nicht gut und schmerzte doch
+        <lb/>nicht . . . es rann so vorüber, rann in die große dunkle Mattigkeit.
+        <lb/>Da hörte er . . . plötzlich . . . wie nebenan eine Tür zufiel. Und dann ein
+        <lb/>paar Schritte. Die kannte er: das war Schramek. Ja, das war seine Stimme. Zu
+        <lb/>wem sprach er? Sein Blut fing an bei den Schläfen zu ticken . . . war das nicht
+        <lb/>die Karla, die jetzt lachte nebenan? Oh, wie weh tat das Lachen. Sie sollte jetzt
+        <lb/>ruhig sein! Ruhe wollte er . . . Schweigen . . . Stille. Aber nein, was taten die?
+        <lb/>Er hörte sie lachen. Und plötzlich, wie durch Glas sah er in das Zimmer hinein.
+        <lb/>Da stand der Schramek, faßte sie an und küßte sie. Und sie bog die Hüfte zurück,
+        <lb/>mit lachenden Augen, wie damals, ganz so wie damals . . .
+        <lb/>Es fieberte ihm in den Händen. Was lachten die da drüben so toll! Es tat
+        <lb/>ihm ja weh. Wußten sie nicht, daß er hier sterben wollte, daß er hier starb, ganz
+        <lb/>allein, ohne Freund. Tränen fühlte er steigen, irgend etwas kochte in seiner Brust,
+        <lb/>er schlug mit den Händen um sich. Konnten sie nicht warten, bis er tot war?
+        <lb/>Aber da . . . ein Sessel polterte drin zu Boden . . . alles sah er, wie sie ihm
+        <lb/>entsprang. Und jetzt, wie er ihr nachlief, oh wie wild, wie stark war er, wie er sie
+        <lb/>faßte, über den Tisch hin und sie herüberzog . . . Und jetzt war sie wieder weg
+        <lb/>. . . wo? . . . Ja, da hatte sie sich versteckt . . . und jetzt sprangen sie herum und
+        <lb/>hexten. Das Zimmer begann zu zittern . . . dröhnte nicht jetzt das ganze Haus
+        <lb/>. . . ja, alles schwang hin und her, voll wüsten Lärms war die Luft. Was schonten
+        <lb/>sie nicht seine letzte Stunde, die Verfluchten! . . . Nein, sie hexten weiter, jetzt, jetzt
+        <lb/>hatte er sie gepackt. Was kreischt du so in deiner Angst und Brunst? . . . Der
+        <lb/>Kranke stöhnte bitter auf. Jetzt hatte sie der Schramek gefaßt, wie Blut rann das
+        <lb/>gelöste rote Haar herab . . . jetzt riß er ihr die Jacke ab . . . weiß leuchtete das
+        <lb/>Hemd . . . sie selbst ganz weiß und nackt . . . und so jagten sie sich um den Tisch
+        <lb/>herüber, hinüber, herüber, zurück . . . wie sie nur lachte! wie sie nur lachte! . .
+        <lb/>und jetzt — wie war das nur? — mitten durch die Wand war sie in sein Zimmer
+        <lb/>hereingestürmt und stand nun vor ihm . . . vor seinem Bett . . . weißfunkelnd,
+        <lb/>nackt . . . Oder . . .
+        <lb/>Oder — er mühte sich die schweren Augenlider aufzureißen — oder . . . war
+        <lb/>das nicht seine Schwester im weißen Kleid, die da vor ihm stand? War das nicht
+        <lb/>ihre liebe kühle Hand auf seiner Stirne? . . .
+        <lb/>Zwei Stunden noch brannte das Fieber. Dann losch alles aus. An seinem
+        <lb/>Bette stand die Schwester, das Kind und Schramek, die drei, denen seine Liebe
+        <lb/>galt und die nun so vereint, wie er sie nie gesehen hatte, sein ganzes Leben be-
+        <lb/>deuteten. Alle drei sprachen sie kein Wort. Das kleine Mädchen schluchzte leise und
+        <lb/>allmählich starb auch dieser letzte klagende Ton. Ganz still wurde es im Zimmer,
+        <lb/>allen dreien war feierlich und weh und nichts hörte man als draußen vor den
+        <lb/>Fenstern die laute zornige Stimme der großen Stadt, die unablässig weiter-
+        <lb/>grollte und sich nicht bekümmerte um Tod oder Leben.
+      </p>
+      <pb n="43" facs="#surf_43"/>
+      <pb n="44" facs="#surf_44"/>
+      <pb n="45" facs="#surf_45"/>
+      </div>
+    </body>
+  </text>
+</TEI>

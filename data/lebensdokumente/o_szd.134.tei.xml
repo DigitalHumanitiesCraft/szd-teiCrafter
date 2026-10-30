@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Vertrag Aktiebolaget Skoglunds Bokförlag</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/L13.57</idno>
+            <idno type="objectId">o_szd.134</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.134/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.134/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.134/IMG.3"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.134">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>                                V e r t r a g
+      </p>
+      <p>
+        <lb/>                                        London 49, Hallam Street
+      </p>
+      <p>
+        <lb/>Zwischen Herrn Doktor Stefan Zweig, Kapuzinerberg 5, Salzburg,
+        <lb/>(im Vertrag genannt "Autor") und der Firma Aktiebolaget Skoglunds Bok-
+        <lb/>förlag, Sergelgatan 4, Stockholm, (im Vertrag genannt "schwedischer Ver-
+        <lb/>leger") wurde heute folgender Vertrag abgeschlossen:
+      </p>
+      <p>
+        <lb/>                                § 1.
+      </p>
+      <p>
+        <lb/>Der Autor überträgt dem schwedischen Verleger die Rechte einer
+        <lb/>schwedischen Buchausgabe des Werkes
+      </p>
+      <p>
+        <lb/>"C a s t e l l i o  g e g e n  C a l v i n"
+        <lb/>oder
+        <lb/>Ein Gewissen gegen die Gewalt
+      </p>
+      <p>
+        <lb/>                                § 2.
+      </p>
+      <p>
+        <lb/>{von 5% Honorar} Für die Überlassung der Buchrechte verpflichtet sich der schwedi-
+        <lb/>{des Ladenpreises} sche Verleger zur Zahlung ~~einer einmaligen Abfindung von schwed.Kr~~ 
+        <lb/>{für das erste} ) zahlbar bei Zeichnung des Vertrages, für eine
+        <lb/>{Tausend und} Auflage von 3.000 Exemplaren und 10% Honorar vom Ladenpreis aller über
+        <lb/>{von 10% von allen} 3.000 hinaus verkauften Exemplare. Die Abrechnung erfolgt halbjährlich
+        <lb/>{weiteren verkauften Exemplaren} und zwar am 30. Juni und 31. Dezember eines jeden Jahres.
+      </p>
+      <p>
+        <lb/>                                § 3.
+      </p>
+      <p>
+        <lb/>Alle andern als die oben festgelegten Buchrechte bleiben ausdrück-
+        <lb/>lich dem Autor vorbehalten.
+      </p>
+      <p>
+        <lb/>                                § 4.
+      </p>
+      <p>
+        <lb/>Der schwedische Verleger verpflichtet sich, das Werk bis spätestens
+        <lb/>30. Dezember 1937 erscheinen zu lassen, andernfalls würde dieser Vertrag
+        <lb/>ungültig, die geleistet Vorauszahlung aber würde von dem Autor dem schwe-
+        <lb/>dischen Verleger nicht zurückvergütet.
+      </p>
+      <p>
+        <lb/>                                § 5.
+      </p>
+      <p>
+        <lb/>Der schwedische Verleger verpflichtet sich zur unentgeltlichen
+        <lb/>Überlassung von sechs Pflichtexemplaren an den Autor; von jeder weiteren
+        <lb/>Auflage von je einem Pflichtexemplar an den Autor.
+      </p>
+      <p>
+        <lb/>                                § 6.
+      </p>
+      <p>
+        <lb/>250 Besprechungs- und Freiexemplare sind honorarfrei.
+      </p>
+      <p>
+        <lb/>                                § 7.
+      </p>
+      <p>
+        <lb/>Wenn der schwedische Verleger sechs Monate nach Ausverkauf einer
+        <lb/>Auflage keine neue Auflage in Angriff nimmt, fallen die in diesem Ver-
+        <lb/>trag festgelegten Rechte an den Autor zurück.
+      </p>
+      <p>
+        <lb/>                                § 8.
+      </p>
+      <p>
+        <lb/>Alle Zahlungen unter diesem Vertrag sind zu richten an dem Autor.
+        <lb/>Der ausschliessliche Gerichtsstand für etwaige Streitigkeiten aus diesem
+        <lb/>Vertrag ist Wien.
+      </p>
+      <p>
+        <lb/>                                § 9.
+      </p>
+      <p>
+        <lb/>Vorstehender Vertrag wurde in zwei gleichlautenden Exemplaren
+        <lb/>ausgefertigt, von beiden vertragschliessenden Teilen gelesen, anerkannt
+        <lb/>und unterschrieben und geht mit seinen Rechten und Pflichten an die
+        <lb/>Rechtnachfolger der Unterzeichneten über.
+      </p>
+      <p>
+        <lb/>London 8. June 1936  Stockholm 3 Juni 1936
+        <lb/>                     AKTIEBOLAGET SKOGLUNDS BOKFÖRLAG
+      </p>
+      <p>
+        <lb/>Stefan Zweig         [Unterschrift]
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      </div>
+    </body>
+  </text>
+</TEI>

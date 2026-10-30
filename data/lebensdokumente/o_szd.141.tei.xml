@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Notizbuch Russlandreise</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Adolf Haslinger Literaturstiftung im Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-SAH/L1</idno>
+            <idno type="objectId">o_szd.141</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.25"/>
+    </surface>
+    <surface xml:id="surf_26">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.26"/>
+    </surface>
+    <surface xml:id="surf_27">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.27"/>
+    </surface>
+    <surface xml:id="surf_28">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.28"/>
+    </surface>
+    <surface xml:id="surf_29">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.29"/>
+    </surface>
+    <surface xml:id="surf_30">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.30"/>
+    </surface>
+    <surface xml:id="surf_31">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.31"/>
+    </surface>
+    <surface xml:id="surf_32">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.32"/>
+    </surface>
+    <surface xml:id="surf_33">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.33"/>
+    </surface>
+    <surface xml:id="surf_34">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.34"/>
+    </surface>
+    <surface xml:id="surf_35">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.35"/>
+    </surface>
+    <surface xml:id="surf_36">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.36"/>
+    </surface>
+    <surface xml:id="surf_37">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.37"/>
+    </surface>
+    <surface xml:id="surf_38">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.38"/>
+    </surface>
+    <surface xml:id="surf_39">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.39"/>
+    </surface>
+    <surface xml:id="surf_40">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.40"/>
+    </surface>
+    <surface xml:id="surf_41">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.41"/>
+    </surface>
+    <surface xml:id="surf_42">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.42"/>
+    </surface>
+    <surface xml:id="surf_43">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.43"/>
+    </surface>
+    <surface xml:id="surf_44">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.44"/>
+    </surface>
+    <surface xml:id="surf_45">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.45"/>
+    </surface>
+    <surface xml:id="surf_46">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.46"/>
+    </surface>
+    <surface xml:id="surf_47">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.47"/>
+    </surface>
+    <surface xml:id="surf_48">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.48"/>
+    </surface>
+    <surface xml:id="surf_49">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.49"/>
+    </surface>
+    <surface xml:id="surf_50">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.50"/>
+    </surface>
+    <surface xml:id="surf_51">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.51"/>
+    </surface>
+    <surface xml:id="surf_52">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.52"/>
+    </surface>
+    <surface xml:id="surf_53">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.53"/>
+    </surface>
+    <surface xml:id="surf_54">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.54"/>
+    </surface>
+    <surface xml:id="surf_55">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.55"/>
+    </surface>
+    <surface xml:id="surf_56">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.56"/>
+    </surface>
+    <surface xml:id="surf_57">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.57"/>
+    </surface>
+    <surface xml:id="surf_58">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.58"/>
+    </surface>
+    <surface xml:id="surf_59">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.59"/>
+    </surface>
+    <surface xml:id="surf_60">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.60"/>
+    </surface>
+    <surface xml:id="surf_61">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.61"/>
+    </surface>
+    <surface xml:id="surf_62">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.62"/>
+    </surface>
+    <surface xml:id="surf_63">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.63"/>
+    </surface>
+    <surface xml:id="surf_64">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.64"/>
+    </surface>
+    <surface xml:id="surf_65">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.65"/>
+    </surface>
+    <surface xml:id="surf_66">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.66"/>
+    </surface>
+    <surface xml:id="surf_67">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.67"/>
+    </surface>
+    <surface xml:id="surf_68">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.68"/>
+    </surface>
+    <surface xml:id="surf_69">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.69"/>
+    </surface>
+    <surface xml:id="surf_70">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.70"/>
+    </surface>
+    <surface xml:id="surf_71">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.71"/>
+    </surface>
+    <surface xml:id="surf_72">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.72"/>
+    </surface>
+    <surface xml:id="surf_73">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.73"/>
+    </surface>
+    <surface xml:id="surf_74">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.74"/>
+    </surface>
+    <surface xml:id="surf_75">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.75"/>
+    </surface>
+    <surface xml:id="surf_76">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.76"/>
+    </surface>
+    <surface xml:id="surf_77">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.77"/>
+    </surface>
+    <surface xml:id="surf_78">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.78"/>
+    </surface>
+    <surface xml:id="surf_79">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.79"/>
+    </surface>
+    <surface xml:id="surf_80">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.80"/>
+    </surface>
+    <surface xml:id="surf_81">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.81"/>
+    </surface>
+    <surface xml:id="surf_82">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.82"/>
+    </surface>
+    <surface xml:id="surf_83">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.83"/>
+    </surface>
+    <surface xml:id="surf_84">
+      <graphic url="https://gams.uni-graz.at/o:szd.141/IMG.84"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.141">
+      <pb n="1" facs="#surf_1"/>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>Baja Professor Dr. Paul Stefan
+        <lb/>Wien VIII
+        <lb/>Hamerlingplatz 7
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>Bajaderka von M. Petipa
+        <lb/>Musik von J. Minkus
+        <lb/>Semjenowa
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <pb n="7" facs="#surf_7"/>
+      <pb n="8" facs="#surf_8"/>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>Dreifaltigkeit
+        <lb/>Ernste[?] der Größe
+        <lb/>5 Turner York &amp;
+        <lb/>~~H~~ Hagiar
+      </p>
+      <p>
+        <lb/>Nikita Konfe
+        <lb/>gay in Rot
+        <lb/>~~H~~ Frauen &amp; farb.
+        <lb/>~~U~~ Unbekannt offen
+        <lb/>~~v~~ verry mal very[?] Kisch
+        <lb/>~~A~~ Ausgänge[?] 63. Gericht. Terba
+        <lb/>~~Z~~ Zinn. Cachel. ~~real~~. Hojalufin in
+        <lb/>~~d~~ den [?]
+      </p>
+      <p>
+        <lb/>Hoffauer von vortraf
+        <lb/>~~B~~ Boje
+      </p>
+      <p>
+        <lb/>~~B~~ Barol bar. Stille in vor
+        <lb/>~~n~~ 101 gelöste[?] ~~g~~ [?] [?]
+        <lb/>~~U~~ Uspitze Kapchanka
+        <lb/>~~a~~ auf [?] [?]
+      </p>
+      <p>
+        <lb/>Schlechter Material / ~~d~~ [?] [?]
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>Verwaptost. wute
+        <lb/>warum Elend Material
+        <lb/>Herrenfuhre
+      </p>
+      <p>
+        <lb/>~~P~~ Paster latrofe
+      </p>
+      <p>
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~E~~ [?] [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~H~~ [?] [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~S~~ [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>You Reed zehn Tage die die Welt
+        <lb/>erschütterten
+        <lb/>Malik
+      </p>
+      <p>
+        <lb/>~~M~~ [?] [?] [?] [?] [?]
+        <lb/>~~Z~~ [?] [?] [?] [?]
+        <lb/>~~H~~ [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~R~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~M~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~a~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~B~~ [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~T~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~D~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~H~~ [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~E~~ [?] [?] [?] [?]
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>~~P~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~g~~ [?] [?] [?] [?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~u~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~f~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~f~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~r~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~f~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~d~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~1~~ [?] [?] [?] [?] [?] [?] [?]
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>Häuser [?] in Reclame! [?] [?] weh
+        <lb/>Seite. Nicht notwendig. Hier das [?] [?]
+        <lb/>Fehler: Bauern. [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~W~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>~~V~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>~~M~~ [?] [?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?]
+        <lb/>~~D~~ [?] [?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?]
+        <lb/>~~F~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~F~~ [?] [?] [?] [?] [?]
+        <lb/>~~J~~ [?] [?] [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~M~~ [?] [?] [?] [?] [?] [?]
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>~~D~~ [?] [?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?]
+        <lb/>~~V~~ [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?]
+        <lb/>~~R~~ [?] [?] [?]
+        <lb/>~~E~~ [?] [?] [?]
+        <lb/>~~K~~ [?] [?]
+        <lb/>~~J~~ [?] [?] [?]
+        <lb/>~~E~~ [?] [?]
+        <lb/>~~T~~ [?] [?] [?]
+        <lb/>~~G~~ [?] [?]
+        <lb/>~~E~~ [?] [?] [?] [?]
+        <lb/>~~E~~ [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?]
+        <lb/>~~F~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~K~~ [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?] [?] [?] [?] [?] [?]
+        <lb/>~~P~~ [?] [?] [?] [?]
+        <lb/>~~K~~ [?] [?] [?] [?] [?]
+        <lb/>~~S~~ [?] [?] [?]
+        <lb/>~~S~~ [?] [?]
+        <lb/>~~J~~ [?] [?] [?]
+        <lb/>~~R~~ [?] [?]
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <pb n="21" facs="#surf_21"/>
+      <p>
+        <lb/>Au der Grenze die erste Lüge. Keine
+        <lb/>bewaffneten roten Soldaten. Kluge Ge
+        <lb/>sichter, harte Arbeit. Durchaus unwirk
+        <lb/>lich. Bildnisse Lenins
+      </p>
+      <p>
+        <lb/>Leistungen, Calurell. Reisen maschinen
+        <lb/>aus der A B C Pass allen Aemtern. Ine
+        <lb/>Schreibwagen sogar, Hölzerne.
+        <lb/>Geschicht. 200 Völker 20 Religionen
+        <lb/>Umorganisation Bauernstand, auf
+        <lb/>Bau Industrie, Handels. Mitten im
+        <lb/>Kriege. Archangils. Odessa. (Toulon)
+        <lb/>attentate. Volksbildungs wesen. Kluge
+        <lb/>Lehre Leistung, sowenig französischer Res
+        <lb/>ention von der Guillotine, die russische
+        <lb/>nach dem Terror {im ganzen anlagen das}
+        <lb/>Keine Rein interessantes, aufregendes, rein
+        <lb/>für Seeligen ausbeute als Russen
+        <lb/>grossen Blasen, rastlosen Schädel
+        <lb/>Arbeit noch in Moskau. Orten aber,
+        <lb/>die fortgeschritten Hütten. Leeren felder.
+        <lb/>Aschigen Wesen. Melancholie
+      </p>
+      <p>
+        <lb/>Billig. Wetseln. Dollar? Rubel Rubel 2
+        <lb/>Reist besehen. Loreten wagen. Samorzi. Gabel
+        <lb/>Tapfere Zinkes
+        <lb/>17.
+      </p>
+      <pb n="22" facs="#surf_22"/>
+      <pb n="23" facs="#surf_23"/>
+      <p>
+        <lb/>Kremlplatz nachts, die rote Fahne beleuchtet
+        <lb/>wie eine Flamme. Geniale Idee. Fenster des res
+        <lb/>olutionaare Brudergrat. Mitten in die Stal hinein
+        <lb/>die Martyrer {Schlussgarten}
+        <lb/>Verzeichnis auf meinem Manuscrypt rückwärts
+        <lb/>Nun noch zu ergänzen, brutal? Zwischendurch. Kraftwort
+        <lb/>zwar ein Formulier. Alte Adeliger. Er war V. corv. der
+        <lb/>Grafen Tolstoi. Du kam ein ganz nette Frau, fahrenden
+        <lb/>lebendigen Augen, wortlos, ward Apollo jeller Augen. | Gabeln
+        <lb/>Stoff an den milden Tolstoi aus. Er hat Nun, überhaupt
+        <lb/>Sklaven auf den Worten gaffen durch den Bauernwah zu
+        <lb/>Promenaden.
+        <lb/>Viele Reden. Viel gelobt, viel getan.
+        <lb/>Zettel. Von Zettel. Vorbote überfällt.
+        <lb/>Unser N.N. forfere Sekretär Tolstoi
+        <lb/>mildes Groß, freudiges Gemp. Miete Art
+        <lb/>ump bei der Rede zur Eröffnung?
+        <lb/>In den Oconensammlungen, Großvater der
+        <lb/>russischen. Entbehrung gar nicht so schwer. Eine
+        <lb/>Freudigkeit der Farbe wie sie geahnt.
+        <lb/>Stoffe. Aufgekauft. Kerl zu bewältigen, nach
+        <lb/>wort classificied.
+        <lb/>Bitter Tolstoi. Colossal Energie. In
+        <lb/>Bauernschefeln, Mann. Helle Sonnen, ihre
+        <lb/>wer lenkt stärker. Man kann ein so wäre
+        <lb/>lefergünstig als das Tolstois und lenkt ein Werk
+        <lb/>19.
+      </p>
+      <pb n="24" facs="#surf_24"/>
+      <pb n="25" facs="#surf_25"/>
+      <p>
+        <lb/>leere unterh. Sie männlich, Mehr von alter
+        <lb/>von allen
+        <lb/>Sturzgestorbene Frau Jessocins Witwe. Ja
+        <lb/>Dora Bincan
+      </p>
+      <p>
+        <lb/>Grenze, nicht wie Uf, umstellen. Ganze Zeit, Ein Stufen
+        <lb/>verwirrgrang sturer Rein derflung, Meile. anders
+        <lb/>Mitteleuropäische Zeit
+      </p>
+      <p>
+        <lb/>Alexandra Sevovna Tolstoi
+        <lb/>links Kamenewo Bordo Luxenberstischen. Juri
+        <lb/>ghen markt. Sie [Kamenewo Erhelformy's
+        <lb/>shwingen Mann. Blickt | als ob in ausserer
+        <lb/>Tuveler war Sentarmen falten Ordnung
+        <lb/>Zuspruch auf sympathie
+        <lb/>Herrenre Hilfskraft. Mädel [?]har, erregend, für
+        <lb/>Sprache sporpen, Burschen, eine Seelenhaft für die fast
+        <lb/>übertragt Freude mit erwerben. Ope Begriff für Wand
+        <lb/>alles Durcheinander.
+        <lb/>wie sympathie groß Höllelehren [?]en setzt
+        <lb/>Gesamtern Intelligenz. emporer Proletarische
+        <lb/>Intelligenz [?]er. [?]etai. [?]anbar. [?]en
+        <lb/>für Schatten erst. [?]irgnall. [?]enwontj.
+        <lb/>Strasse. [?]egaras. [?]edrige [?]on- [?]ass. Zwiebel
+        <lb/>21.
+      </p>
+      <pb n="26" facs="#surf_26"/>
+      <pb n="27" facs="#surf_27"/>
+      <p>
+        <lb/>Jiemals mit einer Karte war [?] [?]
+        <lb/>für sofort er zum Propaganda [?] [?]. Und
+        <lb/>[?] [?]
+        <lb/>23.
+      </p>
+      <pb n="28" facs="#surf_28"/>
+      <pb n="29" facs="#surf_29"/>
+      <p>
+        <lb/>lehen
+      </p>
+      <p>
+        <lb/>Promenaden der Sowjet [?] [?]. Junge Bauern voll
+        <lb/>Intelligenz, Klugheit, Genuaer. [?] Theoretisch
+        <lb/>[?] grossartig. Vielleicht immer so gleich
+        <lb/>sein Universitäten gearbeiten Wellen [?] [?]
+        <lb/>Bauern velcher vernunft und Klarheit sprach
+        <lb/>die Grafen, [?] [?] [?]. [?] [?]
+        <lb/>so fremdartig. [?].
+        <lb/>Russischen [?]. [?] an [?] [?],
+        <lb/>[?] in [?] [?] eine [?] [?]
+        <lb/>[?] wie ein Parlamentarier.
+        <lb/>Kamenewo eine sanfte Stimme [?]
+        <lb/>herrlich klingt, Eine Ruhe war [?] [?],
+        <lb/>Genie [?], [?] [?] [?]. [?]
+        <lb/>heit.
+        <lb/>Ein [?] [?], Hellblau. [?] [?] [?] [?]
+        <lb/>[?], [?]. [?] [?].
+        <lb/>[?] [?] [?] [?], [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?].
+        <lb/>Jiemals mit einer Karte war [?] [?]
+        <lb/>für sofort er zum Propaganda [?] [?]. Und
+        <lb/>[?] [?]
+        <lb/>23.
+      </p>
+      <pb n="30" facs="#surf_30"/>
+      <pb n="31" facs="#surf_31"/>
+      <p>
+        <lb/>Sadel in Propaganda. Rein abgesehen
+        <lb/>wieviel man ihn brauchen kann. Gut, soweit er
+        <lb/>ins Programm passt. Ohne Maske, klar, energie.
+        <lb/>Ohne Höflichkeit
+        <lb/>[?] [?] [?]
+        <lb/>Nulla crue nulla corona [?] [?]
+        <lb/>[?] die R.T. so [?]
+        <lb/>[?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?]. [?] [?]
+        <lb/>[?] [?].
+        <lb/>[?] [?] [?] [?] [?] [?] [?].
+        <lb/>[?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?]
+        <lb/>[?] [?]. [?] [?], [?] [?]
+        <lb/>[?] [?], [?]
+        <lb/>[?] [?] [?] [?] [?].
+        <lb/>[?]. [?] [?]
+        <lb/>[?] [?] [?] [?], [?] [?]
+        <lb/>[?] [?]. [?] [?], [?] [?]
+        <lb/>[?] [?] [?] [?], [?] [?]
+        <lb/>[?] [?].
+        <lb/>25.
+      </p>
+      <pb n="32" facs="#surf_32"/>
+      <pb n="33" facs="#surf_33"/>
+      <p>
+        <lb/>Opa er war seine Bruder geborn. [?] [?]
+        <lb/>[?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?]. [?] [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?] [?]. [?] [?] [?]
+        <lb/>[?]. Wie viel reifer das Goethe Haus. Das
+        <lb/>[?] [?] [?]. [?] [?]. [?]
+        <lb/>[?]. [?] [?] [?]. [?] [?] [?]
+        <lb/>[?] [?], [?] [?], [?]
+      </p>
+      <p>
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?]. [?] [?]. [?] [?] [?]
+        <lb/>[?]. [?] [?].
+      </p>
+      <p>
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?]. [?] [?] [?] [?]. [?] [?]
+        <lb/>[?] [?]. [?] [?] [?]. [?] [?]
+        <lb/>[?] [?], [?] [?] [?]. [?] [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?]
+        <lb/>[?] [?].
+        <lb/>27.
+      </p>
+      <pb n="34" facs="#surf_34"/>
+      <pb n="35" facs="#surf_35"/>
+      <p>
+        <lb/>Abteilungen: Redliche Vorbemerkung
+        <lb/>Grenze
+        <lb/>Zeit.
+        <lb/>Moscow die Strasse
+        <lb/>Theater
+        <lb/>Kreml
+        <lb/>Museum.
+        <lb/>die Gelehrten
+        <lb/>Vorlesungen (Gesten)
+        <lb/>[?] [?]
+        <lb/>[?]
+        <lb/>Jas noga Poljana
+        <lb/>das älteste Grab
+        <lb/>Herrenhaus
+        <lb/>Ausflug nach Leningrad
+        <lb/>29.
+      </p>
+      <pb n="36" facs="#surf_36"/>
+      <pb n="37" facs="#surf_37"/>
+      <p>
+        <lb/>Lenin [?]
+        <lb/>Alice Koonen
+      </p>
+      <p>
+        <lb/>Tseretelli
+        <lb/>Femin [?]
+        <lb/>O'Neill (The name
+        <lb/>of the writher
+        <lb/>this play)
+        <lb/>Passions
+        <lb/>[?] [?] [?]
+        <lb/>[?] [?] [?]. [?]
+        <lb/>[?] [?]
+        <lb/>[?] [?], [?] [?]
+        <lb/>[?], [?], [?] [?], [?] [?]
+        <lb/>[?] [?] [?] [?] [?] [?].
+        <lb/>[?] [?] [?] [?] [?],
+        <lb/>[?] [?] [?] [?]
+      </p>
+      <p>
+        <lb/>[?] [?]. [?] [?]
+        <lb/>[?], [?], [?] [?]
+        <lb/>31.
+      </p>
+      <pb n="38" facs="#surf_38"/>
+      <pb n="39" facs="#surf_39"/>
+      <pb n="40" facs="#surf_40"/>
+      <pb n="41" facs="#surf_41"/>
+      <p>
+        <lb/>Bauernfrage nach Massenmord an toten
+        <lb/>Revolut. französischer Revolut
+        <lb/>drei Märkte
+      </p>
+      <p>
+        <lb/>Polyst osten Stole
+      </p>
+      <p>
+        <lb/>Auf deck an der Kofferzone
+        <lb/>eine Helligkeit nie vermutet. Man
+        <lb/>war einmal in der Koffer gena
+      </p>
+      <p>
+        <lb/>Alle ineinander, arbeits-tunnel floor
+        <lb/>~~h~~mch. ganzer das Strasse unterdoll
+        <lb/>ich für ein sehr neuer Form.
+      </p>
+      <p>
+        <lb/>Sergei Michailowitsch Eisenstein
+        <lb/>Kampf um Odesa. Generalim
+        <lb/>collectiven. Bäuerin
+        <lb/>Revol. soll Lage. Kine Knab
+        <lb/>~~K~~ru / Ministerium. Verpflichtung der
+        <lb/>Ökon. Werftauf der Bauern
+        <lb/>Bäuerin spielt Hauptrolle. Typen
+        <lb/>— Oper erholt von Traktor in das nem
+        <lb/>dort kommt
+      </p>
+      <pb n="42" facs="#surf_42"/>
+      <pb n="43" facs="#surf_43"/>
+      <p>
+        <lb/>~~Fe~~ Orthodoxer Bauer Katshalow
+        <lb/>~~T~~ane der Worte füge, fabelhaft
+        <lb/>vor den Gelehr
+      </p>
+      <p>
+        <lb/>~~T~~chelows Einfluss auf der Kunstlerthier
+        <lb/>am bei Tchelow gefunden
+      </p>
+      <p>
+        <lb/>~~H~~unger jeweils von 60 %
+        <lb/>~~R~~eichen Thor Kreis
+        <lb/>~~B~~lair Howd
+        <lb/>Malajil Lapis lazili
+        <lb/>~~B~~er Lope de Vegas mit Giecos
+        <lb/>~~v~~o
+        <lb/>Silbersaal, Silbersarkophal
+        <lb/>~~H~~elligkeit der Räume
+        <lb/>~~M~~ichelangelo Bauern hat
+        <lb/>~~L~~eonardo Madonna Litta
+        <lb/>~~T~~ihan Venus mit dem Spiegel
+        <lb/>~~P~~ortr. von Giorgion.
+      </p>
+      <pb n="44" facs="#surf_44"/>
+      <pb n="45" facs="#surf_45"/>
+      <p>
+        <lb/>Rembrandt Opfy maals, Danae
+        <lb/>Heilige Familie
+        <lb/>~~T~~alon 80m (fertig)
+      </p>
+      <p>
+        <lb/>~~L~~eninterbrogn Salvator
+        <lb/>~~n~~och nicht übern
+      </p>
+      <p>
+        <lb/>~~P~~aulus Potter
+        <lb/>Canaletto
+        <lb/>~~T~~heaters zur Hof
+        <lb/>~~A~~ufstellung im Palais [?]
+        <lb/>~~G~~rav [?] kalk gearbeitet
+        <lb/>~~P~~arhellenhebe
+        <lb/>~~G~~oldene Saat
+      </p>
+      <p>
+        <lb/>~~P~~astelle [?] John [?] [?]
+        <lb/>~~P~~etersburg so planvoll in Kon
+        <lb/>~~p~~lanlos
+      </p>
+      <pb n="46" facs="#surf_46"/>
+      <pb n="47" facs="#surf_47"/>
+      <p>
+        <lb/>Wappensaal, Winterpalas
+        <lb/>~~N~~ewa Blick, Oden [?] 28m
+        <lb/>~~G~~hount Sevres, Wedgwood
+      </p>
+      <p>
+        <lb/>~~U~~msatz [?] 40%
+      </p>
+      <p>
+        <lb/>~~S~~chaffammer Urhuns [?] in Gold. Silber
+        <lb/>~~M~~ayolish [?] [?] - Silberwerk
+        <lb/>Tierornamentik
+      </p>
+      <p>
+        <lb/>Goldene Totenmaske Skupenius II
+        <lb/>aus [?] [?] [?]
+        <lb/>~~R~~hytor [?] Tonar
+      </p>
+      <p>
+        <lb/>freilich wenn man sieht, was
+        <lb/>~~S~~chiffen gearbeitet. Zauberhafte [?] [?]
+        <lb/>~~g~~eist [?] dass man in echt Capar
+        <lb/>~~k~~ann. Alles aus [?] [?]
+      </p>
+      <p>
+        <lb/>Juwelenkammer. Was wie ein
+        <lb/>~~u~~ntre [?] [?] [?], verle und tra
+        <lb/>~~m~~ant, Uhren. [?] [?] [?]
+      </p>
+      <pb n="48" facs="#surf_48"/>
+      <pb n="49" facs="#surf_49"/>
+      <p>
+        <lb/>Schaffammer jetzt doch versiegelt
+      </p>
+      <p>
+        <lb/>~~R~~eimware aus dem Ural
+        <lb/>~~F~~ernglepp [?] 20x Tonnen
+        <lb/>1829 [?] [?]
+        <lb/>120 [?] 200 vom Ural
+        <lb/>~~D~~enkmäler
+      </p>
+      <p>
+        <lb/>~~V~~atran [?] [?] [?]
+        <lb/>~~v~~on nah immer [?] [?]
+      </p>
+      <p>
+        <lb/>~~T~~änzerin [?] [?] neue
+        <lb/>~~K~~ünstlerin
+        <lb/>~~B~~alle [?] [?] | Minkuss
+      </p>
+      <pb n="50" facs="#surf_50"/>
+      <pb n="51" facs="#surf_51"/>
+      <pb n="52" facs="#surf_52"/>
+      <pb n="53" facs="#surf_53"/>
+      <pb n="54" facs="#surf_54"/>
+      <pb n="55" facs="#surf_55"/>
+      <pb n="56" facs="#surf_56"/>
+      <pb n="57" facs="#surf_57"/>
+      <pb n="58" facs="#surf_58"/>
+      <pb n="59" facs="#surf_59"/>
+      <pb n="60" facs="#surf_60"/>
+      <pb n="61" facs="#surf_61"/>
+      <p>
+        <lb/>53
+      </p>
+      <pb n="62" facs="#surf_62"/>
+      <pb n="63" facs="#surf_63"/>
+      <p>
+        <lb/>55
+      </p>
+      <pb n="64" facs="#surf_64"/>
+      <pb n="65" facs="#surf_65"/>
+      <p>
+        <lb/>57
+      </p>
+      <pb n="66" facs="#surf_66"/>
+      <pb n="67" facs="#surf_67"/>
+      <p>
+        <lb/>59
+      </p>
+      <pb n="68" facs="#surf_68"/>
+      <pb n="69" facs="#surf_69"/>
+      <p>
+        <lb/>61
+      </p>
+      <pb n="70" facs="#surf_70"/>
+      <pb n="71" facs="#surf_71"/>
+      <p>
+        <lb/>63
+      </p>
+      <pb n="72" facs="#surf_72"/>
+      <pb n="73" facs="#surf_73"/>
+      <p>
+        <lb/>65
+      </p>
+      <pb n="74" facs="#surf_74"/>
+      <pb n="75" facs="#surf_75"/>
+      <p>
+        <lb/>67
+      </p>
+      <pb n="76" facs="#surf_76"/>
+      <pb n="77" facs="#surf_77"/>
+      <pb n="78" facs="#surf_78"/>
+      <pb n="79" facs="#surf_79"/>
+      <p>
+        <lb/>D.R.G.M.
+        <lb/>D.R. PAT. (ELASTIC) AUSL. PAT.
+        <lb/>NO. 1610
+      </p>
+      <pb n="80" facs="#surf_80"/>
+      <pb n="81" facs="#surf_81"/>
+      <pb n="82" facs="#surf_82"/>
+      <p>
+        <lb/>МОСКОВСКИЙ
+        <lb/>ХУДОЖЕСТВЕННЫЙ
+        <lb/>ТЕАТР
+        <lb/>ВЕЧЕР
+        <lb/>8 ряд, лев.
+        <lb/>№ 10
+        <lb/>ПАРТЕР
+        <lb/>Первые места
+        <lb/>Во время действия вход в зал не допускается.
+      </p>
+      <p>
+        <lb/>МОСКОВСКИЙ
+        <lb/>ХУДОЖЕСТВЕННЫЙ
+        <lb/>ТЕАТР
+        <lb/>ВЕЧЕР
+        <lb/>8 ряд, лев.
+        <lb/>№ 11
+        <lb/>ПАРТЕР
+        <lb/>Первые места
+        <lb/>Во время действия вход в зал не допускается.
+      </p>
+      <pb n="83" facs="#surf_83"/>
+      <p>
+        <lb/>МОСКОВСКИЙ ХУДОЖЕСТВЕННЫЙ
+        <lb/>АКАДЕМИЧЕСКИЙ ТЕАТР
+        <lb/>1 4 СЕН 1928
+        <lb/>Начало 7ч. 30м.
+      </p>
+      <p>
+        <lb/>МОСКОВСКИЙ ХУДОЖЕСТВЕННЫЙ
+        <lb/>АКАДЕМИЧЕСКИЙ ТЕАТР
+        <lb/>1 4 СЕН 1928
+        <lb/>Начало 7ч. 30м.
+      </p>
+      <pb n="84" facs="#surf_84"/>
+      <p>
+        <lb/>МОСКОВСКИЙ ХУДОЖЕСТВЕННЫЙ
+        <lb/>АКАДЕМИЧЕСКИЙ ТЕАТР
+        <lb/>1 4 СЕН 1928
+        <lb/>Начало 7ч. 30м.
+      </p>
+      <p>
+        <lb/>МОСКОВСКИЙ ХУДОЖЕСТВЕННЫЙ
+        <lb/>АКАДЕМИЧЕСКИЙ ТЕАТР
+        <lb/>1 4 СЕН 1928
+        <lb/>Начало 7ч. 30м.
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

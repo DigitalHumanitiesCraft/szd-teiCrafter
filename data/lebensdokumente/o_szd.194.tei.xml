@@ -1,0 +1,3361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Briefregister [I]</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/L-S9.1</idno>
+            <idno type="objectId">o_szd.194</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.11"/>
+    </surface>
+    <surface xml:id="surf_12">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.12"/>
+    </surface>
+    <surface xml:id="surf_13">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.13"/>
+    </surface>
+    <surface xml:id="surf_14">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.14"/>
+    </surface>
+    <surface xml:id="surf_15">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.15"/>
+    </surface>
+    <surface xml:id="surf_16">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.16"/>
+    </surface>
+    <surface xml:id="surf_17">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.17"/>
+    </surface>
+    <surface xml:id="surf_18">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.18"/>
+    </surface>
+    <surface xml:id="surf_19">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.19"/>
+    </surface>
+    <surface xml:id="surf_20">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.20"/>
+    </surface>
+    <surface xml:id="surf_21">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.21"/>
+    </surface>
+    <surface xml:id="surf_22">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.22"/>
+    </surface>
+    <surface xml:id="surf_23">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.23"/>
+    </surface>
+    <surface xml:id="surf_24">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.24"/>
+    </surface>
+    <surface xml:id="surf_25">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.25"/>
+    </surface>
+    <surface xml:id="surf_26">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.26"/>
+    </surface>
+    <surface xml:id="surf_27">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.27"/>
+    </surface>
+    <surface xml:id="surf_28">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.28"/>
+    </surface>
+    <surface xml:id="surf_29">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.29"/>
+    </surface>
+    <surface xml:id="surf_30">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.30"/>
+    </surface>
+    <surface xml:id="surf_31">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.31"/>
+    </surface>
+    <surface xml:id="surf_32">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.32"/>
+    </surface>
+    <surface xml:id="surf_33">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.33"/>
+    </surface>
+    <surface xml:id="surf_34">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.34"/>
+    </surface>
+    <surface xml:id="surf_35">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.35"/>
+    </surface>
+    <surface xml:id="surf_36">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.36"/>
+    </surface>
+    <surface xml:id="surf_37">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.37"/>
+    </surface>
+    <surface xml:id="surf_38">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.38"/>
+    </surface>
+    <surface xml:id="surf_39">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.39"/>
+    </surface>
+    <surface xml:id="surf_40">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.40"/>
+    </surface>
+    <surface xml:id="surf_41">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.41"/>
+    </surface>
+    <surface xml:id="surf_42">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.42"/>
+    </surface>
+    <surface xml:id="surf_43">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.43"/>
+    </surface>
+    <surface xml:id="surf_44">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.44"/>
+    </surface>
+    <surface xml:id="surf_45">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.45"/>
+    </surface>
+    <surface xml:id="surf_46">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.46"/>
+    </surface>
+    <surface xml:id="surf_47">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.47"/>
+    </surface>
+    <surface xml:id="surf_48">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.48"/>
+    </surface>
+    <surface xml:id="surf_49">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.49"/>
+    </surface>
+    <surface xml:id="surf_50">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.50"/>
+    </surface>
+    <surface xml:id="surf_51">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.51"/>
+    </surface>
+    <surface xml:id="surf_52">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.52"/>
+    </surface>
+    <surface xml:id="surf_53">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.53"/>
+    </surface>
+    <surface xml:id="surf_54">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.54"/>
+    </surface>
+    <surface xml:id="surf_55">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.55"/>
+    </surface>
+    <surface xml:id="surf_56">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.56"/>
+    </surface>
+    <surface xml:id="surf_57">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.57"/>
+    </surface>
+    <surface xml:id="surf_58">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.58"/>
+    </surface>
+    <surface xml:id="surf_59">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.59"/>
+    </surface>
+    <surface xml:id="surf_60">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.60"/>
+    </surface>
+    <surface xml:id="surf_61">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.61"/>
+    </surface>
+    <surface xml:id="surf_62">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.62"/>
+    </surface>
+    <surface xml:id="surf_63">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.63"/>
+    </surface>
+    <surface xml:id="surf_64">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.64"/>
+    </surface>
+    <surface xml:id="surf_65">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.65"/>
+    </surface>
+    <surface xml:id="surf_66">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.66"/>
+    </surface>
+    <surface xml:id="surf_67">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.67"/>
+    </surface>
+    <surface xml:id="surf_68">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.68"/>
+    </surface>
+    <surface xml:id="surf_69">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.69"/>
+    </surface>
+    <surface xml:id="surf_70">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.70"/>
+    </surface>
+    <surface xml:id="surf_71">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.71"/>
+    </surface>
+    <surface xml:id="surf_72">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.72"/>
+    </surface>
+    <surface xml:id="surf_73">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.73"/>
+    </surface>
+    <surface xml:id="surf_74">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.74"/>
+    </surface>
+    <surface xml:id="surf_75">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.75"/>
+    </surface>
+    <surface xml:id="surf_76">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.76"/>
+    </surface>
+    <surface xml:id="surf_77">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.77"/>
+    </surface>
+    <surface xml:id="surf_78">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.78"/>
+    </surface>
+    <surface xml:id="surf_79">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.79"/>
+    </surface>
+    <surface xml:id="surf_80">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.80"/>
+    </surface>
+    <surface xml:id="surf_81">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.81"/>
+    </surface>
+    <surface xml:id="surf_82">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.82"/>
+    </surface>
+    <surface xml:id="surf_83">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.83"/>
+    </surface>
+    <surface xml:id="surf_84">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.84"/>
+    </surface>
+    <surface xml:id="surf_85">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.85"/>
+    </surface>
+    <surface xml:id="surf_86">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.86"/>
+    </surface>
+    <surface xml:id="surf_87">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.87"/>
+    </surface>
+    <surface xml:id="surf_88">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.88"/>
+    </surface>
+    <surface xml:id="surf_89">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.89"/>
+    </surface>
+    <surface xml:id="surf_90">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.90"/>
+    </surface>
+    <surface xml:id="surf_91">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.91"/>
+    </surface>
+    <surface xml:id="surf_92">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.92"/>
+    </surface>
+    <surface xml:id="surf_93">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.93"/>
+    </surface>
+    <surface xml:id="surf_94">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.94"/>
+    </surface>
+    <surface xml:id="surf_95">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.95"/>
+    </surface>
+    <surface xml:id="surf_96">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.96"/>
+    </surface>
+    <surface xml:id="surf_97">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.97"/>
+    </surface>
+    <surface xml:id="surf_98">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.98"/>
+    </surface>
+    <surface xml:id="surf_99">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.99"/>
+    </surface>
+    <surface xml:id="surf_100">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.100"/>
+    </surface>
+    <surface xml:id="surf_101">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.101"/>
+    </surface>
+    <surface xml:id="surf_102">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.102"/>
+    </surface>
+    <surface xml:id="surf_103">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.103"/>
+    </surface>
+    <surface xml:id="surf_104">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.104"/>
+    </surface>
+    <surface xml:id="surf_105">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.105"/>
+    </surface>
+    <surface xml:id="surf_106">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.106"/>
+    </surface>
+    <surface xml:id="surf_107">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.107"/>
+    </surface>
+    <surface xml:id="surf_108">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.108"/>
+    </surface>
+    <surface xml:id="surf_109">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.109"/>
+    </surface>
+    <surface xml:id="surf_110">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.110"/>
+    </surface>
+    <surface xml:id="surf_111">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.111"/>
+    </surface>
+    <surface xml:id="surf_112">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.112"/>
+    </surface>
+    <surface xml:id="surf_113">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.113"/>
+    </surface>
+    <surface xml:id="surf_114">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.114"/>
+    </surface>
+    <surface xml:id="surf_115">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.115"/>
+    </surface>
+    <surface xml:id="surf_116">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.116"/>
+    </surface>
+    <surface xml:id="surf_117">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.117"/>
+    </surface>
+    <surface xml:id="surf_118">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.118"/>
+    </surface>
+    <surface xml:id="surf_119">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.119"/>
+    </surface>
+    <surface xml:id="surf_120">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.120"/>
+    </surface>
+    <surface xml:id="surf_121">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.121"/>
+    </surface>
+    <surface xml:id="surf_122">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.122"/>
+    </surface>
+    <surface xml:id="surf_123">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.123"/>
+    </surface>
+    <surface xml:id="surf_124">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.124"/>
+    </surface>
+    <surface xml:id="surf_125">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.125"/>
+    </surface>
+    <surface xml:id="surf_126">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.126"/>
+    </surface>
+    <surface xml:id="surf_127">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.127"/>
+    </surface>
+    <surface xml:id="surf_128">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.128"/>
+    </surface>
+    <surface xml:id="surf_129">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.129"/>
+    </surface>
+    <surface xml:id="surf_130">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.130"/>
+    </surface>
+    <surface xml:id="surf_131">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.131"/>
+    </surface>
+    <surface xml:id="surf_132">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.132"/>
+    </surface>
+    <surface xml:id="surf_133">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.133"/>
+    </surface>
+    <surface xml:id="surf_134">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.134"/>
+    </surface>
+    <surface xml:id="surf_135">
+      <graphic url="https://gams.uni-graz.at/o:szd.194/IMG.135"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.194">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>LETTER REGISTER
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>MADE IN ENGLAND
+        <lb/>FRANK SMYTHSON LTD. NEW BOND ST. W.
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>25. II. 35 - 23. XI. 36
+      </p>
+      <p>
+        <lb/>THE
+        <lb/>“FEATHERWEIGHT”
+        <lb/>(Copyright)
+        <lb/>BOOKS
+      </p>
+      <p>
+        <lb/>KNOWN THE WORLD OVER
+        <lb/>REGISTERED
+      </p>
+      <p>
+        <lb/>FRANK SMYTHSON (Ltd.)
+        <lb/>Publishers of “Featherweight” Books
+        <lb/>54, NEW BOND STREET,
+        <lb/>LONDON, W. 1.
+      </p>
+      <p>
+        <lb/>(Registered).
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>25. II | Richard Strauss | rec -
+        <lb/>| Huebsch |
+        <lb/>| Chapuro |
+        <lb/>| Geigy - Hagenbach |
+        <lb/>| Bing |
+        <lb/>| Hella |
+        <lb/>| Pirandello |
+        <lb/>| Toscanini |
+        <lb/>| Manacorda |
+        <lb/>| Meingast |
+        <lb/>27. | Wolff |
+        <lb/>| Neh &amp; Peiser machs |
+        <lb/>| Meingast |
+        <lb/>| Rusca |
+        <lb/>| Sommer Verlag |
+        <lb/>| Lippenberg |
+        <lb/>| Baie |
+        <lb/>| Henrici |
+        <lb/>| Sabalier |
+      </p>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>27. II | Werner |
+        <lb/>| Ullmann |
+        <lb/>29. III | Ron Walter |
+        <lb/>| Helma Wioncoli |
+        <lb/>| Meingast |
+        <lb/>| Mazzuchelli |
+        <lb/>| Lauterbach |
+        <lb/>| Teuber |
+        <lb/>| Zinker nagel |
+        <lb/>| Desmour Flower |
+        <lb/>| Hermann Hesse |
+        <lb/>Paul T. | Dalton |
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>4. III. | Gilhofer u. Rauschbg. |
+        <lb/>| J. Breustein |
+        <lb/>| A. Furstner |
+        <lb/>| Meingast |
+        <lb/>| Dr. v. Würmayer |
+        <lb/>| Felix Salten |
+        <lb/>| Prof. Kippenberg |
+        <lb/>| Dr. H. Benedikt |
+        <lb/>| Frl. S. Grdo[?] |
+        <lb/>| Dr. Felix Braun |
+        <lb/>| Simon Kra |
+        <lb/>6. III. | Heim. Wisemann |
+        <lb/>| Rusca |
+        <lb/>| Julien Weisz |
+        <lb/>| Dr. R. A. Bermann |
+        <lb/>| H. Broch |
+        <lb/>| Meingast |
+        <lb/>| S. Warburg |
+        <lb/>| Dr. R. Kayser |
+      </p>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16. III. | Melanie Wassermann |
+        <lb/>| Georges Glaser |
+        <lb/>| Melchior Gournet |
+        <lb/>| Praetorius-Markertig. |
+        <lb/>| W. Glassny |
+        <lb/>| Adolf Weigl |
+        <lb/>| Verl. Melantrich |
+        <lb/>| Meingast |
+        <lb/>| Dr. R. Kayser |
+        <lb/>| Dr. F. Weisz |
+        <lb/>| Verl. Roszavölgyi |
+        <lb/>| Hof. J. Weisz |
+        <lb/>| Frau Gehlke |
+        <lb/>| W. Barer |
+        <lb/>| A. Gierle |
+        <lb/>| Alzi Hella |
+        <lb/>| Tocker |
+        <lb/>| Dr. Kleit |
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19. III. | Sabatier |
+        <lb/>| Sterkenburg |
+        <lb/>| Bing |
+        <lb/>| Sperling &amp; Kupfer |
+        <lb/>| Fraenkel |
+        <lb/>| Hennequin |
+        <lb/>| Proma Wistrich |
+        <lb/>| Bermann |
+        <lb/>| Meingast |
+        <lb/>| Rozsavölgyi |
+        <lb/>| American Friends of the |
+        <lb/>| Hebrew University. |
+        <lb/>21. | Edar Paul |
+        <lb/>| Lederer |
+        <lb/>| Mazzuchelli |
+        <lb/>| Dr. Ernst Weiss |
+        <lb/>| Sonderegger - Grob |
+        <lb/>| Melantrich |
+        <lb/>| Sperling &amp; Kupfer |
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>| Dr. Joseph Gregor |
+        <lb/>| Meingast |
+        <lb/>23. III. | Jacob |
+        <lb/>| Cramer v. Clausel |
+        <lb/>| Lissauer |
+        <lb/>| Meingast |
+        <lb/>| Roth |
+        <lb/>| Bauer |
+        <lb/>| Helicon |
+        <lb/>| Sekr. Pirandello |
+        <lb/>| Sterkenburg |
+        <lb/>| Einstein |
+        <lb/>26. | Hella |
+        <lb/>| Latzko |
+        <lb/>| Meingast |
+        <lb/>| Bing |
+        <lb/>| Baumgarten |
+        <lb/>| Szekely |
+      </p>
+      <pb n="12" facs="#surf_12"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>28. III | Jutrosinski |
+        <lb/>| Carlo Toscanini |
+        <lb/>| Sperling &amp; Kupfer |
+        <lb/>| Zimin |
+        <lb/>| Sterkenburg |
+        <lb/>| Hinrich |
+        <lb/>| Rusca |
+        <lb/>| Guanabara. |
+        <lb/>29. III. | Mazzuchelli |
+        <lb/>| Benedikt |
+        <lb/>| Edar Paul |
+        <lb/>| Wisemann, Warburg |
+        <lb/>| Roth. |
+        <lb/>30. III | Reisiger |
+        <lb/>| Sperling &amp; Kupfer |
+        <lb/>| Skoglunds Bokförlag |
+        <lb/>| Mazzuchelli |
+        <lb/>| Albertini |
+        <lb/>| Kra |
+      </p>
+      <pb n="13" facs="#surf_13"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>| Atenea Barcelone. |
+        <lb/>1. IV. | Edar Paul |
+        <lb/>| Rose Walter |
+        <lb/>| Temianko |
+        <lb/>| Alf. Einstein |
+        <lb/>| Latzko |
+        <lb/>| Julian Weisz |
+        <lb/>| Max Brod |
+        <lb/>| A. Hahn |
+        <lb/>| G. Lausinena de Elizalde. |
+        <lb/>| Dr. Kleiber, Basler Nat. Ztg. |
+        <lb/>3. IV. | Hauser |
+        <lb/>| Hella |
+        <lb/>| Renasterea Noastra |
+        <lb/>| Jul. Wassermann |
+        <lb/>| Huebsch |
+        <lb/>| Mulsam |
+        <lb/>| Geigy-Hagenbach |
+      </p>
+      <pb n="14" facs="#surf_14"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>| Sabatier |
+        <lb/>| Rosenthal Ludrg. |
+        <lb/>5. IV. | Schlickum |
+        <lb/>| Wassermann |
+        <lb/>| Reisiger |
+        <lb/>| Kippenberg |
+        <lb/>| Huebsch |
+        <lb/>| Meingast |
+        <lb/>| Flower |
+        <lb/>| Grasset |
+        <lb/>6. IV | Sterkenburg Telegram. |
+        <lb/>7. IV | Bing, Zürich |
+        <lb/>8. IV | Grasset |
+        <lb/>| Trebitsch |
+        <lb/>| Sernel Holecia |
+        <lb/>| Meingast |
+        <lb/>| Wener |
+      </p>
+      <pb n="15" facs="#surf_15"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>8. IV. | Gregor |
+        <lb/>| Jacob |
+        <lb/>| Beierle |
+        <lb/>| Schwarz |
+        <lb/>| Henrici. |
+        <lb/>10. IV | Meingast |
+        <lb/>| Lanetti |
+        <lb/>| Livraria do Globo |
+        <lb/>| Sabatier |
+        <lb/>| Philipon |
+        <lb/>| Faesi |
+        <lb/>| Gaies |
+        <lb/>| Goetzfried |
+        <lb/>| Roth. |
+        <lb/>12. IV | Skoglund |
+        <lb/>| Kissling |
+        <lb/>| Dr. Finger |
+      </p>
+      <pb n="16" facs="#surf_16"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>12. IV | Binoza |
+        <lb/>| de Lange |
+        <lb/>| Bonnier |
+        <lb/>| Sterkenburg |
+        <lb/>| Bach |
+        <lb/>| Guanabara |
+        <lb/>| Mazzuchelli |
+        <lb/>| Cohen |
+        <lb/>16. IV | Dr. Kayser |
+        <lb/>| Geigy |
+        <lb/>| Bido |
+        <lb/>| Reisiger |
+        <lb/>| Trebitsch |
+        <lb/>| Wisemann |
+        <lb/>| Ad. Fürstner |
+        <lb/>| Jul. Wassermann |
+        <lb/>| Juventud. |
+        <lb/>| Jespersen |
+        <lb/>| Zarek |
+        <lb/>| Melantrich. |
+      </p>
+      <pb n="17" facs="#surf_17"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19. IV. | Bauer |
+        <lb/>| Meingast |
+        <lb/>| Silbergleit |
+        <lb/>| Dr. J. Fucker |
+        <lb/>| Kurt Lotz |
+        <lb/>| Hella |
+        <lb/>| Zarek |
+        <lb/>| Hellens |
+        <lb/>| Albertini |
+        <lb/>| L. Friedmann |
+        <lb/>| Hellmut Mayer. |
+        <lb/>| Salten. |
+        <lb/>23 | Werfel Telegr. |
+        <lb/>24. IV | Meingast |
+        <lb/>| Lauterbach |
+        <lb/>| Wisemann |
+        <lb/>| Guanabara |
+        <lb/>| Flower |
+        <lb/>| Skoglund |
+        <lb/>| F. Braun. |
+      </p>
+      <pb n="18" facs="#surf_18"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>24. IV. | Reisiger |
+        <lb/>| Dujardin |
+        <lb/>| Rosenfeld |
+        <lb/>| Stiller |
+        <lb/>| Lahn |
+        <lb/>| Latzko |
+        <lb/>| Hella. |
+        <lb/>26. IV | Richard Strauss. |
+        <lb/>| Ammers-Küller |
+        <lb/>| Martin |
+        <lb/>| Schmeier |
+        <lb/>| Kereszowski |
+        <lb/>| Wolfenstein |
+        <lb/>| Rosenkranz |
+        <lb/>| Julian Weisz. |
+      </p>
+      <pb n="19" facs="#surf_19"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>29. IV. | Sheyer |
+        <lb/>| Karl |
+        <lb/>| Weisz |
+        <lb/>| Zarek |
+        <lb/>| Bermann |
+        <lb/>| Bloch's Leben |
+        <lb/>| Van Prag |
+        <lb/>| Aschehoug Oslo |
+        <lb/>| Ring |
+        <lb/>| Sterkenburg |
+        <lb/>| Meingast |
+        <lb/>| Marcia |
+        <lb/>| Björnson |
+        <lb/>2. V. | Hofrat Weisz. |
+        <lb/>| Braun |
+        <lb/>| Meingast |
+        <lb/>| Stefan |
+        <lb/>| Karl. |
+        <lb/>| Latzko |
+      </p>
+      <pb n="20" facs="#surf_20"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>2. V. | Roth |
+        <lb/>| Seelig |
+        <lb/>| Reisiger |
+        <lb/>| Zarek |
+        <lb/>| Ernst Weiss |
+        <lb/>| Fürstner. |
+        <lb/>4. V. | Thomas |
+        <lb/>| Komfelt-Karner |
+        <lb/>| Juventud |
+        <lb/>| Neumann |
+        <lb/>| Hesse |
+        <lb/>| Th. Mann |
+        <lb/>| Kereszowski |
+        <lb/>6. V. | Hirsch |
+        <lb/>| Friedauer |
+        <lb/>| Pope |
+        <lb/>| Fürstner |
+      </p>
+      <pb n="21" facs="#surf_21"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>6.V. | Kippenberg
+        <lb/> | Weisz
+        <lb/> | v. d. Paul.
+        <lb/> | Hella
+        <lb/> | Heures Alpines
+        <lb/> | Borgese
+        <lb/> | Grasset
+        <lb/> | J. Richter
+        <lb/> | Dr. Schenker
+        <lb/>8.V. | Reichner
+        <lb/> | Meingast
+        <lb/> | Harisch-Vermittler
+        <lb/> | Grünberg
+        <lb/> | Calm
+        <lb/> | Schickele
+        <lb/> | Trümpy
+        <lb/> | Gautherot
+        <lb/> | Reichner-Verlag
+      </p>
+      <pb n="22" facs="#surf_22"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>8.V. | Wassermann
+        <lb/> | Kesser
+        <lb/> | Leftwich
+        <lb/> | Faesi
+        <lb/>13.V. | Meingast
+        <lb/> | Aschehoug &amp; Co
+        <lb/> | Apolo Verlag
+        <lb/> | Kippenberg
+        <lb/> | Dr. Bergmann
+        <lb/> | Halle
+        <lb/> | Hirschfeld
+        <lb/> | Pester Lloyd
+        <lb/> | Lindenfeld
+        <lb/> | Ullmann
+        <lb/> | Schenker
+        <lb/> | Reichner
+        <lb/> | Roy
+        <lb/>14.V. | Bauer
+        <lb/> | Dr. Friedenthal
+      </p>
+      <pb n="23" facs="#surf_23"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>14.V. | Maass
+        <lb/> | Griebsch
+        <lb/> | Meier u. Rensch
+        <lb/> | ~~A~~ Hella
+        <lb/>15.V. | Meingast
+        <lb/>16.V. | Gregor
+        <lb/> | Paul Stefan
+        <lb/> | Reichner Verlag
+        <lb/>17.V. | Meingast
+        <lb/> | Reichner
+        <lb/> | Coudenhove-Kalergi
+        <lb/> | Kinsky
+        <lb/>18.V. | Schenker
+        <lb/> | Hissauer
+        <lb/> | v. Arx
+        <lb/> | Hesse
+        <lb/> | Dr. Theimer
+        <lb/> | Lindenfeld
+      </p>
+      <pb n="24" facs="#surf_24"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>20.V. | Kantorowicz
+        <lb/> | Prof. L. Karl
+        <lb/>21.V. | Trümpy
+        <lb/> | Geigy
+        <lb/> | Meingast
+        <lb/> | Prof. Gregor
+        <lb/> | Jesperson
+        <lb/>22.V. | Romain Rolland
+        <lb/> | Prof. Braun
+        <lb/> | Meingast
+        <lb/> | G. Hirschfeld
+        <lb/> | Leftwich
+        <lb/> | A. Zweig
+        <lb/> | Latzko
+        <lb/> | Minor
+        <lb/>23.V. | Eulenburg
+        <lb/> | Bergmann
+        <lb/> | Haefelin-Hofmann
+        <lb/> | Prof. L. Karl
+      </p>
+      <pb n="25" facs="#surf_25"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Reichner
+        <lb/> | Fornary
+        <lb/> | Meingast
+        <lb/>24.V. | Reichner
+        <lb/> | Frau Zweig
+        <lb/> | Shall
+        <lb/> | Lisemann
+        <lb/> | Rieger
+        <lb/> | Baudouin
+        <lb/> | Newman Flower
+        <lb/> | Gregor
+        <lb/>25.V. | Hübsch
+        <lb/> | Kra
+        <lb/> | Bruno Frank
+        <lb/> | Paul Stefan
+        <lb/> | Meingast
+        <lb/> | Aschehoug
+        <lb/> | Gregor
+        <lb/> | Rusca
+        <lb/> | Hirschfeld
+      </p>
+      <pb n="26" facs="#surf_26"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>27.V. | Dr. Sachs
+        <lb/> | Fürstner
+        <lb/> | von Arx
+        <lb/> | Zuckerhandl
+        <lb/> | C. Clemens
+        <lb/> | Pimm
+        <lb/> | Jespersen
+        <lb/>28.V. | Meingast
+        <lb/> | Reichner
+        <lb/> | Gregor
+        <lb/> | Hissauer
+        <lb/> | Roth
+        <lb/> | Malraux
+        <lb/> | Shalom Asch
+        <lb/> | Herzl[?]
+        <lb/> | Frau J. Zweig
+        <lb/> | A. Zweig
+        <lb/> | Gallati
+      </p>
+      <pb n="27" facs="#surf_27"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>29.V. | Alfred Zweig
+        <lb/> | Frau N. Zweig
+        <lb/> | Paul Stefan
+        <lb/> | Rusca
+        <lb/> | Schenker
+        <lb/> | Reichner
+        <lb/> | Hella
+        <lb/> | Editorial Juventud
+        <lb/>30.V. | Reichner
+        <lb/> | Monghy
+        <lb/> | Simon Kra
+        <lb/> | Newman Flower
+        <lb/> | Trümpy
+        <lb/> | Hauerlein
+        <lb/> | Dr. Schuh
+        <lb/> | M. Pia Berger
+        <lb/> | Gallati
+        <lb/> | Antonio Aita
+        <lb/> | Lilly Mosheim
+      </p>
+      <pb n="28" facs="#surf_28"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>31.V. | Reichner
+        <lb/> | Stefan
+        <lb/> | Salten
+        <lb/> | Lisemann
+        <lb/> | Fürstner
+        <lb/> | Meingast
+        <lb/> | Frau F. Zweig
+        <lb/> | Reichner
+        <lb/> | Fuchs
+        <lb/> | Jespersen
+        <lb/>1.VI. | Ullmann
+        <lb/> | Bach
+        <lb/> | von Arx
+        <lb/>3.VI. | Alfred Zweig
+        <lb/> | Rosset
+        <lb/> | Man. La Pasteur
+        <lb/> | Fostenberg
+        <lb/> | Cahn
+        <lb/> | Zarek
+      </p>
+      <pb n="29" facs="#surf_29"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Herczeg
+        <lb/> | Strauss
+        <lb/> | Kra
+        <lb/> | Dr. Weisz
+        <lb/>7.VI. | Hella
+        <lb/> | Ulrich
+        <lb/> | Meingast
+        <lb/> | Trebitsch
+        <lb/> | Roth
+        <lb/> | Frets
+        <lb/> | Hübsch
+        <lb/> | Jespersen
+        <lb/> | von Praag
+        <lb/> | Kippenberg
+        <lb/> | Ischyk-Ratay
+        <lb/> | Relgis
+        <lb/> | Reichner
+      </p>
+      <pb n="30" facs="#surf_30"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>11.VI. | Reichner
+        <lb/> | Strauss
+        <lb/> | Marucetti
+        <lb/> | Frau J. Zweig
+        <lb/>12.VI. | Frau F. Zweig
+        <lb/> | Gallati
+        <lb/> | Somzara
+        <lb/> | Reichner
+        <lb/> | Rusca
+        <lb/> | Hübsch
+        <lb/> | Geigy
+        <lb/> | Bloch Erben
+        <lb/> | A. Zweig
+        <lb/> | de Bary
+        <lb/> | Lerner-Holewa
+        <lb/> | Smolka
+        <lb/> | Meingast
+        <lb/> | Jüdische Blinde
+        <lb/> | R. Roble
+      </p>
+      <pb n="31" facs="#surf_31"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Emil Ludwig
+        <lb/> | Faesi
+        <lb/>13.VI. | Frau F. Zweig
+        <lb/> | Meingast
+        <lb/> | Reichner
+        <lb/>14.VI. | A. Zweig
+        <lb/> | Trebitsch
+        <lb/> | Ammos Müller
+        <lb/> | R. Kleiber
+        <lb/>17.VI. | Hübsch
+        <lb/> | Reichner
+        <lb/> | Rieger
+        <lb/> | Gregor
+        <lb/> | Pierre-Quint
+        <lb/> | Gallati
+        <lb/>18.VI. | Marachetti
+        <lb/> | Fuchs
+      </p>
+      <pb n="32" facs="#surf_32"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19.VI. | Meingast
+        <lb/> | Sabatier
+        <lb/> | Reichner
+        <lb/> | Kayser
+        <lb/> | Leftwich
+        <lb/> | Warburg
+        <lb/> | Dunin
+        <lb/> | Glaser
+        <lb/>20.VI. | Goth-Selden
+        <lb/> | Benedict
+        <lb/> | Masereel
+        <lb/> | Maass
+        <lb/> | Fleischer
+        <lb/> | Ehrenstein
+        <lb/> | Leftwich
+        <lb/> | Bauer
+        <lb/> | Meingast
+        <lb/>21.VI. | Reichner
+        <lb/> | de Lange
+      </p>
+      <pb n="33" facs="#surf_33"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Foto-Mundi
+        <lb/> | R. Tenschert
+        <lb/> | Friedmann
+        <lb/> | Universitätsbibl. Basel
+        <lb/> | Ewald
+        <lb/>23.VI. | B. Diebold
+        <lb/> | Intendanz Dresden
+        <lb/>24.VI. | Fleischer
+        <lb/> | Carr
+        <lb/> | Frau F. Zweig
+        <lb/> | Meingast
+        <lb/> | Reichner
+        <lb/> | M. Flower
+        <lb/> | de Bary
+        <lb/> | Gregor
+        <lb/> | Gianoni
+        <lb/> | Glaser (Maass)
+        <lb/>26.VI. | Frau F. Zweig
+        <lb/> | Temianka
+      </p>
+      <pb n="34" facs="#surf_34"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>27.VI. | Winteritz
+        <lb/> | A. Zweig
+        <lb/> | Hübsch
+        <lb/> | D. Flower
+        <lb/> | Geigy
+        <lb/>29.VI. | Geigy
+        <lb/> | Glaser
+        <lb/> | Meingast
+        <lb/> | A. Zweig
+        <lb/> | Silbergleit
+        <lb/> | Kleiber
+        <lb/> | Univers. Bibl. Basel
+        <lb/> | Valentina-Hüscher
+        <lb/>29.VI. | Richard Strauss
+        <lb/> | Jos. Gregor
+        <lb/> | Frau Prof. Kippenberg
+        <lb/>30.VI. | Reichner
+        <lb/>2.VII. | F. Zweig
+        <lb/> | Roth
+      </p>
+      <pb n="35" facs="#surf_35"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Trümpy
+        <lb/> | Mainland
+        <lb/> | Schwarz
+        <lb/> | R. Kayser
+        <lb/> | B. Ring
+        <lb/> | R. Kraus
+        <lb/> | A. Zweig
+        <lb/> | Sabatier
+        <lb/> | A. Fürstner
+        <lb/>3.VII. | Reichner
+        <lb/> | F. Zweig
+        <lb/> | Gregor
+        <lb/> | Frisch
+        <lb/>4.VII. | Reichner
+        <lb/> | Mitzky
+        <lb/> | A. Zweig
+        <lb/> | Hübsch
+        <lb/> | Stefan
+        <lb/> | Kesten
+      </p>
+      <pb n="36" facs="#surf_36"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Leftwich
+        <lb/> | Lilly Steiner
+        <lb/>11.VII. | Paul Stefan
+        <lb/> | Dunin
+        <lb/> | F. Zweig
+        <lb/> | Dr. Shapure
+        <lb/> | A. Neumann
+        <lb/>12.VII. | F. Zweig
+        <lb/> | A. Zweig
+        <lb/> | Scheyer
+        <lb/> | Hirschfeld
+        <lb/> | Fuchs
+        <lb/>14.VII. | Frl. Rieger
+        <lb/> | Reichner
+        <lb/>15.VII. | Reichner
+        <lb/> | F. Zweig
+        <lb/> | Hinterberger
+        <lb/> | A. Zweig
+        <lb/> | Gregor
+      </p>
+      <pb n="37" facs="#surf_37"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Bruno Walter
+        <lb/> | D. Flower
+        <lb/> | A. Ehrenstein
+        <lb/>17.VII. | Benedict
+        <lb/> | Reichner
+        <lb/> | F. Zweig
+        <lb/> | Jauner
+        <lb/> | Lörner
+        <lb/> | Aita
+        <lb/> | Geigy
+        <lb/> | Wittkowski
+        <lb/> | Ehrenstein
+        <lb/> | Gregor
+        <lb/>20.VII. | A. Zweig
+        <lb/> | F. Zweig
+        <lb/> | Stiasny
+        <lb/> | ~~Reichner~~
+        <lb/> | Wimmer
+        <lb/> | Marx
+      </p>
+      <pb n="38" facs="#surf_38"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Hübsch
+        <lb/> | Kraus
+        <lb/> | Lavinia
+        <lb/> | Rusca
+        <lb/>22.VII. | Schweizer Vortragsverband
+        <lb/> | Frau Zweig
+        <lb/> | Hübsch
+        <lb/>23.VII. | Rose Walter
+        <lb/>24.VII. | Thomas Marx
+        <lb/> | Giran
+        <lb/>26.VII. | Otto Zarek
+        <lb/> | Heilbronn
+        <lb/> | Bank f. Handel u. Ind.
+        <lb/> | Ernst Weiss
+        <lb/> | Giran
+        <lb/> | Jean Richard Bloch
+        <lb/> | Masereel
+        <lb/> | Madeleine Rolland
+        <lb/> | Carl Seelig
+      </p>
+      <pb n="39" facs="#surf_39"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>26.VII. | Hotel Bellerive
+        <lb/> | Keren Hajesod
+        <lb/>27.9. | Japiesse
+        <lb/> | M. Flower Kön. Howard[?]
+        <lb/> | Carr
+        <lb/> | Alfred Zweig
+        <lb/> | ~~Folk~~ Zweig
+        <lb/>30.9. | Ed. Manabara
+        <lb/> | G. Bing
+        <lb/> | Huebsch
+        <lb/> | Kippenberg
+        <lb/> | Masereel
+        <lb/> | Adler
+        <lb/> | Meingast
+        <lb/> | Waghalter
+        <lb/> | Natonek
+        <lb/> | Beheim-Schwarzbach
+        <lb/> | Walter Bauer
+        <lb/>1.10. | Roth
+      </p>
+      <pb n="40" facs="#surf_40"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Hübsch
+        <lb/> | Kraus
+        <lb/> | Lavinia
+        <lb/> | Rusca
+        <lb/>22.VII. | Schweizer Vortragsverband
+        <lb/> | Frau Zweig
+        <lb/> | Hübsch
+        <lb/>23.VII. | Rose Walter
+        <lb/>24.VII. | Thomas Marx
+        <lb/> | Giran
+        <lb/>26.VII. | Otto Zarek
+        <lb/> | Heilbronn
+        <lb/> | Bank f. Handel u. Ind.
+        <lb/> | Ernst Weiss
+        <lb/> | Giran
+        <lb/> | Jean Richard Bloch
+        <lb/> | Masereel
+        <lb/> | Madeleine Rolland
+        <lb/> | Carl Seelig
+      </p>
+      <pb n="41" facs="#surf_41"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>26.VII | Hotel Bellerive
+        <lb/> | Keren Hajesod[?]
+        <lb/>27.9. | Japiesse
+        <lb/> | Flower Kön. Harvard. H.
+        <lb/> | Carr
+        <lb/> | Alfred Zweig
+        <lb/> | Folk Zweig
+        <lb/>30.9. | Ed. Guanabara
+        <lb/> | G. Bing
+        <lb/> | Huebsch
+        <lb/> | Kippenberg
+        <lb/> | Masereel
+        <lb/> | Adler
+        <lb/> | Meingast
+        <lb/> | Waghalter
+        <lb/> | Natonek
+        <lb/> | Beheim-Schwarzbach
+        <lb/> | Walter Bauer
+        <lb/>1.10. | Roth
+      </p>
+      <pb n="42" facs="#surf_42"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>1.10 | Koninklijk Huisarchief
+        <lb/> | Gregor
+        <lb/> | Dr. Tenschert
+        <lb/> | Carr
+        <lb/>2.10 | Lakin
+        <lb/>3.10 | Newman Flower
+        <lb/> | Guilbeaux
+        <lb/> | Standard Film Res (Grosmann)
+        <lb/> | Geigy-Magenbach
+        <lb/> | Ernst Weiss
+        <lb/> | Dr. Benedikt
+        <lb/> | Dr. Morgenstern
+        <lb/> | Reichner
+        <lb/> | Piatigorsky
+        <lb/>4.10 | P. Stefan
+        <lb/> | A. Zweig
+        <lb/> | Frau Petzold
+        <lb/> | Ehrenstein
+        <lb/> | Dr. O. Schlesinger
+      </p>
+      <pb n="43" facs="#surf_43"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>5.X | Fuchs
+        <lb/> | Ebermayer
+        <lb/> | Kesser
+        <lb/> | F. Bloch Erben
+        <lb/>8.X | Sotheby
+        <lb/> | Nat. Prov. Bank
+        <lb/> | Flower
+        <lb/> | Felmingham
+        <lb/> | Furnée u. Co
+        <lb/> | Frau F. Zweig
+        <lb/> | Asch
+        <lb/> | Heymann
+        <lb/> | Lothar
+        <lb/> | A. Zweig
+        <lb/> | Meingast
+        <lb/> | Reichner
+        <lb/> | Waitzmann
+        <lb/>9.X | Dr. Casper
+      </p>
+      <pb n="44" facs="#surf_44"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>10.X | Reichner
+        <lb/> | G. Hirsch
+        <lb/> | R. Steiner
+        <lb/> | Newman Flower
+        <lb/> | Nathansohn
+        <lb/>* 11.X | Weiss
+        <lb/> | Walter Bauer
+        <lb/> | Une journée du monde
+        <lb/> | Kirsky
+        <lb/> | Stefan
+        <lb/> | R. Standfield
+        <lb/> | Reichner
+        <lb/> | G. Benedikt
+        <lb/> | Szalai
+        <lb/> | Buschbeck
+        <lb/>12.X | O. Zarek
+        <lb/> | Harrods
+        <lb/> | Apollo-Verlag
+        <lb/> | Gregor
+      </p>
+      <pb n="45" facs="#surf_45"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>12.X | Felix Bloch Erben
+        <lb/> | Folkard u. Hayward
+        <lb/> | Druce
+        <lb/> | Reichner
+        <lb/>14.X | Huebsch
+        <lb/> | Silbergleit
+        <lb/> | W. Maas
+        <lb/> | Ehrenstein
+        <lb/> | Reichner
+        <lb/> | Fuchs
+        <lb/> | Keiman-Knes
+        <lb/> | Carr
+        <lb/> | Ed. Guanabara
+        <lb/> | Marx
+        <lb/>15.X | A. Russell
+        <lb/> | Babin
+        <lb/> | A. Zweig
+        <lb/> | Viertel
+        <lb/> | Ebermayer
+        <lb/> | Grosmann
+      </p>
+      <pb n="46" facs="#surf_46"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>15.X | Reinhardt
+        <lb/>16.X | Roth
+        <lb/> | Ebermayer
+        <lb/> | Newman Flower
+        <lb/> | Franckenstein
+        <lb/>17.X | Reichner
+        <lb/> | Kippenberg
+        <lb/> | Waghalter
+        <lb/> | Mertska
+        <lb/> | Rieger
+        <lb/> | F. Brann
+        <lb/> | Fuchs
+        <lb/> | A. Singer
+        <lb/> | Hinterberger
+        <lb/> | Meingast
+        <lb/>18.X | Mazzuchetti (Jollos)
+        <lb/> | Dainovsky
+        <lb/> | Rosset
+        <lb/> | Wolfenstein
+      </p>
+      <pb n="47" facs="#surf_47"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>18.X | Sanzara
+        <lb/> | Silbergleit
+        <lb/> | Ernst Weiss
+        <lb/> | Buch Schorer
+        <lb/> | Wells
+        <lb/> | Loew
+        <lb/> | Wallmann
+        <lb/>19.X | Ebermayer
+        <lb/> | Meingast
+        <lb/> | Benedikt
+        <lb/> | Reichner
+        <lb/> | v. Festenberg
+        <lb/> | Rieger
+        <lb/> | Guanabara
+        <lb/>21.X | Ebermayer
+        <lb/> | Wilka Itzeng[?]
+        <lb/> | Sabatier
+        <lb/> | G. Schreiber
+        <lb/> | Reichner
+      </p>
+      <pb n="48" facs="#surf_48"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>21.X | Huebsch
+        <lb/> | Albertini
+        <lb/> | Morgenstern
+        <lb/> | Thom. White Lit. Brillian
+        <lb/> | Mella
+        <lb/> | G. Hermann
+        <lb/>22.X | Reichner
+        <lb/> | Jewish National Fund
+        <lb/> | Hock
+        <lb/> | Cassell u. Co.
+        <lb/>23.X | G. Hofmann
+        <lb/> | G. Hofmann
+        <lb/> | Battermann
+        <lb/> | Reichner
+        <lb/> | Lakin
+        <lb/> | Lania
+        <lb/> | Bermann
+        <lb/>24.X | Curtis-Brown
+        <lb/> | A. Russell
+      </p>
+      <pb n="49" facs="#surf_49"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>24.X | Reichner
+        <lb/> | Estate Office 17 Cavendish St.
+        <lb/> | Felix Brann
+        <lb/> | Fritz Heymann
+        <lb/> | Meingast
+        <lb/>26.X | Grosmann
+        <lb/> | Gregor
+        <lb/> | Fuchs
+        <lb/> | Zarek
+        <lb/> | Friedenthal
+        <lb/> | Burke
+        <lb/> | Spitz
+        <lb/> | Way u. Waller
+        <lb/> | (Manuskript Heymann zurück)
+        <lb/>28.X | Kippenberg
+        <lb/> | Desmond Flower
+        <lb/> | Masereel
+        <lb/> | Rieger
+        <lb/> | Grosmann
+      </p>
+      <pb n="50" facs="#surf_50"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>28.10. | Reichner
+        <lb/> | Hinterberger
+        <lb/> | Verein Kadimah
+        <lb/> | Hedwig Loew
+        <lb/> | 17 New Cavendish Street
+        <lb/>29.X | Maas
+        <lb/> | Grosmann
+        <lb/> | Ebermayer
+        <lb/> | Newman Flower
+        <lb/> | Masereel
+        <lb/> | Fran Zweig
+        <lb/> | Vallentin-Luchaire
+        <lb/> | J. R. Bloch
+        <lb/> | Wolfenstein
+        <lb/>30.X | Al. Singer
+        <lb/> | A. M. Frey
+        <lb/> | O. Beirnet
+        <lb/> | V. Wittner
+        <lb/> | A. Grünewald
+      </p>
+      <pb n="51" facs="#surf_51"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/> | Reichner
+        <lb/> | P. Tacla
+        <lb/> | Huebsch (Telegramm u. Brief)
+        <lb/> | Grosmann
+        <lb/> | Franckenstein
+        <lb/>31.X | Ebermayer
+        <lb/> | Bonnier
+        <lb/>1.XI | Hirsch
+        <lb/> | Natonek
+        <lb/> | United French Publishers
+        <lb/> | W. S. Samuel
+        <lb/>2.XI | E. F. Marshall
+        <lb/> | Geigy-Hagenbach
+        <lb/> | Mielsch
+        <lb/> | Kra
+        <lb/> | Dr. F. Heymann
+        <lb/> | Soma Morgenstern
+        <lb/> | Ross
+        <lb/> | Luchaire (Manuskriptzurück)
+      </p>
+      <pb n="52" facs="#surf_52"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>2.XI | Fran F. Zweig
+        <lb/> | Hubermann
+        <lb/>4.XI | Reichner
+        <lb/> | Benedikt
+        <lb/> | Salatti
+        <lb/> | Grosmann
+        <lb/> | Kesser
+        <lb/> | Hinterberger
+        <lb/> | Fuchs
+        <lb/> | Zarek
+        <lb/>5.XI | Blaizot
+        <lb/> | Flesch
+        <lb/> | Albertini
+        <lb/> | Reichner
+        <lb/> | Roth
+        <lb/> | Kra
+        <lb/> | Alfred Einstein
+        <lb/> | Jules Romains
+        <lb/> | Oliveira
+      </p>
+      <pb n="53" facs="#surf_53"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>5.XI | Koogan (Guanabara)
+        <lb/>7.XI | Mrs. Woodhouse
+        <lb/> | Humanitas-Verlag
+        <lb/> | Estate Office
+        <lb/> | National Prov. Bank
+        <lb/> | Frend
+        <lb/> | Lakin
+        <lb/> | Alexander
+        <lb/> | Bonnier
+        <lb/> | Meingast (Einschreiben!)
+        <lb/>8.XI | Meingast (und Buch)
+        <lb/> | Huebsch (und Buch)
+        <lb/> | Leftwich (und Buch)
+        <lb/> | Schalom Asch
+        <lb/> | Guanabara (Buch)
+        <lb/>9.XI | Kra
+        <lb/> | Reichner
+        <lb/> | Wertheimer
+        <lb/> | Roth
+      </p>
+      <pb n="54" facs="#surf_54"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>11.XI | Kra
+        <lb/> | Fran F. Zweig
+        <lb/> | Geigy-Hagenbach
+        <lb/> | Walter Bauer
+        <lb/> | Latzko
+        <lb/> | Brettauer
+        <lb/> | Gregor
+        <lb/> | Handzel
+        <lb/> | Warburg
+        <lb/> | Lucka
+        <lb/> | J. L. Stern
+        <lb/> | Reichner
+        <lb/> | Lesehalle jüd. Hochschüler
+        <lb/> | Editorial Apolo
+        <lb/> | Frau Meingast
+        <lb/>12.XI | A. Singer
+        <lb/>13.XI | Brasilian embassy
+        <lb/> | A. Singer
+        <lb/> | Carr
+      </p>
+      <pb n="55" facs="#surf_55"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>15.XI | Kippenberg
+        <lb/> | Brun (Grasset)
+        <lb/> | Grosmann
+        <lb/> | Stefan Hock
+        <lb/> | Geigy-Hagenbach
+        <lb/> | Desmond Flower
+        <lb/> | Newman
+        <lb/> | Reichner
+        <lb/> | Helmut Meyer
+        <lb/> | Brandus
+        <lb/> | Ernst Weiss
+        <lb/> | Kalidas Nag
+        <lb/> | Lucien Price
+        <lb/> | Fran Meingast (Manusk.)
+        <lb/>16.XI | Geigy-Hagenbach (Katalog)
+        <lb/> | Puntscher-Wydenbruck
+        <lb/> | Schorer
+        <lb/> | Möckner
+        <lb/> | Kerkenburg
+      </p>
+      <pb n="56" facs="#surf_56"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16.XI | Lucka
+        <lb/> | Fran Zweig
+        <lb/> | Reichner
+        <lb/> | W. van Wyck (und Scheck)
+        <lb/>18.XI | Kesten
+        <lb/> | Lania
+        <lb/> | Tanbl Buch
+        <lb/> | Benedikt
+        <lb/> | Fran Zweig
+        <lb/> | Rieger
+        <lb/>19.XI | D. Flower
+        <lb/> | Ebermayer
+        <lb/> | L. Manen
+        <lb/> | G. Adler / Kolophon
+        <lb/> | Mazzuchetti
+        <lb/> | A. Zweig
+        <lb/> | Max Wolff
+        <lb/> | des Mumbles
+        <lb/> | Fran Prof. Kippenberg
+      </p>
+      <pb n="57" facs="#surf_57"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>20.XI | Masereel
+        <lb/> | Zarek
+        <lb/> | Eisemann
+        <lb/> | Roth
+        <lb/> | Grasset (Brun)
+        <lb/>21.XI | Meingast (Kap. II)
+        <lb/> | Friedmann
+        <lb/> | Lissaner
+        <lb/> | Grosmann
+        <lb/> | Ebermayer
+        <lb/> | Mazzuchetti
+        <lb/> | Gregor
+        <lb/> | Reichner
+        <lb/> | Burger
+        <lb/> | Battermann
+        <lb/>22.XI | Hella
+        <lb/> | Drinkwater
+        <lb/> | Grosmann
+        <lb/> | Lania
+      </p>
+      <pb n="58" facs="#surf_58"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>22.XI | Honig
+        <lb/> | Felix Bloch Erben
+        <lb/> | Mitterer...
+        <lb/> | Kippenberg
+        <lb/>25.XI | Hermann Wolf
+        <lb/> | Frey
+        <lb/> | Menzel
+        <lb/> | F. Brann
+        <lb/> | Fran F. Zweig
+        <lb/> | Reichner
+        <lb/> | Gregor
+        <lb/>26.XI | Muret
+        <lb/> | Singer
+        <lb/> | Rolland
+        <lb/> | Kesser
+        <lb/> | Bureau d'Org. d. l. Rencontre
+        <lb/> | Diebold
+        <lb/> | Barth
+        <lb/> | Mella
+      </p>
+      <pb n="59" facs="#surf_59"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>26.XI | Brun
+        <lb/> | Grosmann
+        <lb/> | Maass
+        <lb/> | Guanabara
+        <lb/> | Zweig
+        <lb/> | Gunderloch
+        <lb/>27.XI | Mazzuchetti (Jollos)
+        <lb/> | Reichner (u. Handel)
+        <lb/> | Dr. M. Wolff
+        <lb/> | Mrs. Sieff
+        <lb/> | Meingast (u. 5. Kap.)
+        <lb/> | Maggs
+      </p>
+      <pb n="60" facs="#surf_60"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>6.I.36. | Hinterberger
+        <lb/> | Reichner
+        <lb/> | Kippenberg
+        <lb/>7.I | Maurois
+        <lb/> | Alexander
+        <lb/> | Rebstock
+        <lb/> | Cercle de Droit (Moreau)
+        <lb/> | Isr. Kultusgemeinde
+        <lb/> | Meingast
+        <lb/> | Unger
+        <lb/> | Rolland
+        <lb/> | Hinterberger
+        <lb/> | Masereel
+        <lb/> | Julian Weiss
+        <lb/> | Alfredo Cahn
+        <lb/>8.I | Marcu
+        <lb/> | Schickele
+        <lb/> | Morgenstern
+        <lb/> | Hinterberger (Drucksache)
+      </p>
+      <pb n="61" facs="#surf_61"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>9.I | Seyer
+        <lb/>| Stargard
+        <lb/>| Marcuchetti
+        <lb/>| Reichner
+        <lb/>10.I | Hinterberger
+        <lb/>11.I | Reichner
+        <lb/>| Wittkowski
+        <lb/>| Meingast
+        <lb/>| René Levy
+        <lb/>| Maccabacans
+        <lb/>| Juventud
+        <lb/>| Max Unger
+        <lb/>| Panes de Budapesy
+        <lb/>| El. Feist
+        <lb/>13.I | Masereel
+        <lb/>| Landauer (deLange)
+        <lb/>| Hinterberger
+        <lb/>| Meyrowitz
+        <lb/>| Telegramm Junges
+      </p>
+      <pb n="62" facs="#surf_62"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>13.I | Telegramm Transkantor
+        <lb/>14.I | Gaby Morlay
+        <lb/>| Schönbergske Forlag
+        <lb/>| William Jensen
+        <lb/>| J. R. Bloch
+        <lb/>| Brun (Grasset)
+        <lb/>| Wittkowski
+        <lb/>| Rieger
+        <lb/>15.I | Willner
+        <lb/>| Kayser
+        <lb/>| Frieberger
+        <lb/>| Stroh
+        <lb/>| Kreitner
+        <lb/>16.I | Marcuchetti
+        <lb/>| Meingast
+        <lb/>| Jollos
+        <lb/>| Hellmut Meyer
+        <lb/>| Eisemann
+        <lb/>| Hallwag
+      </p>
+      <pb n="63" facs="#surf_63"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16.I | Reichner
+        <lb/>| H. zur Mühlen
+        <lb/>| Rita Gerö
+        <lb/>| Reigy-Magenbach
+        <lb/>18.I | Bayr. Vereinsbank
+        <lb/>| Telegramm Stiassny
+        <lb/>| Kinsky
+        <lb/>| Alfred Zweig
+        <lb/>19.I | Wittkowski
+        <lb/>20.I | Nat. Library of the Blind
+        <lb/>| Alexander
+        <lb/>| A. de Lange
+        <lb/>| Dora Angel (Jakob)
+        <lb/>| Salten
+        <lb/>| Rieger
+        <lb/>| Stefan
+        <lb/>| Reichner
+        <lb/>22.I | Muebsch
+        <lb/>| Gollancz
+      </p>
+      <pb n="64" facs="#surf_64"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>22.I | Bing
+        <lb/>| Chardonne (Rope an Hella)
+        <lb/>| Stefan
+        <lb/>| Masereel
+        <lb/>23.I | Schichele
+        <lb/>| Seiringer
+        <lb/>| Grasset
+        <lb/>| Hella
+        <lb/>| Oxford Univ. Jewish Society
+        <lb/>22.I | Joske
+        <lb/>24.I | Wittkowski
+        <lb/>| H. Rita
+        <lb/>| Gregor
+        <lb/>| Brogan (Chr. Mann)
+        <lb/>| Wanger
+        <lb/>| Vallentin
+        <lb/>| Maass
+        <lb/>| Bondi
+        <lb/>25.I | Nat. Prov. Bank (reg.)
+      </p>
+      <pb n="65" facs="#surf_65"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>25.I | Hinterberger
+        <lb/>26.I | Reichner
+        <lb/>| Fuchs
+        <lb/>| Kippenberg
+        <lb/>| Grasset
+        <lb/>| Machette (Dép. Etranger)
+        <lb/>28.I | Brandus
+        <lb/>| Bonnet
+        <lb/>| Hellmut Meyer
+        <lb/>| Meng
+        <lb/>| Reichner
+        <lb/>| Grazes Stadttheater
+        <lb/>29.I | Dr K London
+        <lb/>| Dr. W Rechnitz
+        <lb/>| Hinterberger
+        <lb/>| Paul Stefan
+        <lb/>| Polack
+        <lb/>30.I | Dr Max Wolff
+        <lb/>| Jos. Roth
+      </p>
+      <pb n="66" facs="#surf_66"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>30.I | Hinterberger
+        <lb/>| "Europa"
+        <lb/>| Hrdlicka
+        <lb/>31.I | Reichner
+        <lb/>1.II | Meingast (ca. Drucksache)
+        <lb/>| Bahr-Mildenburg
+        <lb/>3.II | Reichner
+        <lb/>| Rosset
+        <lb/>| R. Neumann
+        <lb/>| Brandus
+        <lb/>| Hinterberger
+        <lb/>| Hirschfeld
+        <lb/>| A. Zweig
+        <lb/>| A. Einstein
+        <lb/>| Hella
+        <lb/>| Bonnet
+        <lb/>| Grasset (Brun)
+        <lb/>| Narodno Delo
+        <lb/>| W Ten Have
+      </p>
+      <pb n="67" facs="#surf_67"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>3.II | Luchaire
+        <lb/>| Gaby Morlay
+        <lb/>| J. Cain
+        <lb/>4.II | Hotel Louvois
+        <lb/>| Masereel
+        <lb/>5.II | Rehne Rieger
+        <lb/>| Schmid (Hallwag)
+        <lb/>| F. Brann
+        <lb/>| Jegner
+        <lb/>| Polak
+        <lb/>| Gutmann
+        <lb/>| Hinterberger
+        <lb/>| F. Bloch Erben
+        <lb/>| A. Weiner
+        <lb/>| Landesverb. jüd. Frauen Warnsdorf
+        <lb/>6.I | De Jonge Spelers
+        <lb/>| Brenes
+        <lb/>| Lucy Jakobi
+        <lb/>| Ellermayer
+      </p>
+      <pb n="68" facs="#surf_68"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>6.II | J R Bloch
+        <lb/>| Brann-Fernwald
+        <lb/>| Schieri
+        <lb/>7.II | Klaus Mann
+        <lb/>| Schönberner
+        <lb/>| Fürstner
+        <lb/>| Courtney Brueston
+        <lb/>8.II | Hinterberger | 5.II
+        <lb/>| Reichner
+        <lb/>9.II | Reichner | 3.II
+        <lb/>10.II | Reichner (Masereel Zeichnungen reg)
+        <lb/>| Bonnet
+        <lb/>| Gilhofer u Ranschburg
+        <lb/>| Dr Moser
+        <lb/>| Georg Hermann | Borchardt
+        <lb/>| Paul Stefan
+        <lb/>| Baudouin
+        <lb/>| R. Kayser | 30.I
+        <lb/>| Kippenberg
+      </p>
+      <pb n="69" facs="#surf_69"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>10.II | European Books | 6.II
+        <lb/>12.II | Felix Bloch Erben | 5.II
+        <lb/>13.II | Albert Org'i Kirjastus
+        <lb/>| Schiff
+        <lb/>| Huebsch
+        <lb/>| Liptein
+        <lb/>17.II | Masereel
+        <lb/>| Leicester Gallery
+        <lb/>| Huebsch
+        <lb/>| Landauer
+        <lb/>| Rosenkranz
+        <lb/>| Revere Musicale
+        <lb/>| Journée du Monde
+        <lb/>| Schönberner
+        <lb/>| Felix Bloch Erben
+        <lb/>| Reichner
+        <lb/>| Hinterberger (air-m)
+        <lb/>| Nebehay (air)
+        <lb/>| Meingast
+      </p>
+      <pb n="70" facs="#surf_70"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>18.II | Slurkenberg
+        <lb/>| Marsden
+        <lb/>| Meingast
+        <lb/>| Hoffmann
+        <lb/>| Reichner
+        <lb/>| Fuchs
+        <lb/>| Meng
+        <lb/>| Th. Mann
+        <lb/>19.II | Schiff
+        <lb/>| E. Weiss
+        <lb/>20.II | Marcuchetti
+        <lb/>| Reichner
+        <lb/>| Meingast (einschr. IV u I)
+        <lb/>| 1, II III am 19.2.
+        <lb/>21.II | Schiff
+        <lb/>| Gregor
+        <lb/>| Scholl
+        <lb/>| Meng
+        <lb/>| John Tann Ltd.
+      </p>
+      <pb n="71" facs="#surf_71"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>21.II | Mincioux
+        <lb/>| Hanns Wolff (f. E. Hirsch)
+        <lb/>| Nebehay
+        <lb/>| Hinterberger
+        <lb/>22.II | Meingast
+        <lb/>| Astruc
+        <lb/>| Reichner (und eill. reg.)
+        <lb/>| Bu B Paul
+        <lb/>| Feist
+        <lb/>| Meingast (einh. reg)
+        <lb/>24.II | Singer
+        <lb/>| Reichner
+        <lb/>| Romains
+        <lb/>| Fuchs
+        <lb/>25.II | Joyce
+        <lb/>| Meng
+        <lb/>26.II | Agence Littéraire Internationale
+        <lb/>| Luchaire
+        <lb/>| Schmidt (Hallwag)
+      </p>
+      <pb n="72" facs="#surf_72"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>26.II | Reigy-Magenbach
+        <lb/>| Hinterberger
+        <lb/>| David
+        <lb/>| Roth
+        <lb/>| Reichner
+        <lb/>| Schichele
+        <lb/>| Semi Meyer
+        <lb/>| Paul
+        <lb/>| Wells
+        <lb/>27.II | N. Hoffmann
+        <lb/>| Council for German Jewry
+        <lb/>| Einstein
+        <lb/>| Leftwich
+        <lb/>| Freudenthal
+        <lb/>28.II | Aberbach
+        <lb/>| Hermann
+        <lb/>| Fuchs
+        <lb/>29.II | Insel-Verlag
+        <lb/>| Reichner
+      </p>
+      <pb n="73" facs="#surf_73"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>29.II | Gregor
+        <lb/>| Schiff
+        <lb/>2.III | Reichner
+        <lb/>| Rosenkranz
+        <lb/>| Meingast (Drucksache-Papier)
+        <lb/>| S. Fuchs
+        <lb/>| D. Flower
+        <lb/>| F. Brann
+        <lb/>| Fontana
+        <lb/>| Miss Price
+        <lb/>| Ati Film Rights (Manon-MS)
+        <lb/>| Moissi
+        <lb/>3.III | Elbogen
+        <lb/>| Roth
+        <lb/>4.III | Friedmann (Mitropres)
+        <lb/>3.III | Schiff
+        <lb/>4.III | Warburg
+        <lb/>| Reichner
+        <lb/>| Jollos
+      </p>
+      <pb n="74" facs="#surf_74"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>4.III | Minterberger (Pc)
+        <lb/>| Hullenberg
+        <lb/>| Meingast
+        <lb/>| Meulenhoff
+        <lb/>| Graupe
+        <lb/>5.III | Wittkowski
+        <lb/>| Schaeffer
+        <lb/>| Stefan
+        <lb/>| Kleiber
+        <lb/>| Weiss
+        <lb/>| Rieger
+        <lb/>| Huebsch
+        <lb/>| Reichner reg.
+        <lb/>6.III | Fürstner
+        <lb/>| Gregor
+        <lb/>| Romains
+        <lb/>| Meyerovitz
+        <lb/>| Reichner (Mändel MS)
+        <lb/>| Copyright Patent Bureau
+      </p>
+      <pb n="75" facs="#surf_75"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>7.III | Meng
+        <lb/>| Virginia Woolf
+        <lb/>| Minterberger
+        <lb/>8.III | Deutscher-Wydebruck
+        <lb/>| Dr Lampel
+        <lb/>| Masereel
+        <lb/>| Reichner
+        <lb/>| Auernheimer
+        <lb/>| Meng
+        <lb/>| Seiringer
+        <lb/>| Einstein
+        <lb/>11.III | Eisemann
+        <lb/>| Regendanz
+        <lb/>| Meng
+        <lb/>12.III | Ryman
+        <lb/>| Juventud
+        <lb/>| Schorer
+        <lb/>| Scholl
+        <lb/>| Alexander
+      </p>
+      <pb n="76" facs="#surf_76"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>12.III | D Flower
+        <lb/>| Maggs
+        <lb/>| R. W. Thompson
+        <lb/>| Fürstner
+        <lb/>| Warburg
+        <lb/>| Patil
+        <lb/>| Breslauer
+        <lb/>| Reichner
+        <lb/>| Kinsky
+        <lb/>| Meng
+        <lb/>| Minterberger
+        <lb/>| O. Freud
+        <lb/>| Stols
+        <lb/>| Hecht
+        <lb/>13.III | Wilmot
+        <lb/>| Rassemblement Universel, Paix
+        <lb/>| A. Zweig
+        <lb/>| Fuchs
+        <lb/>| Gottlieb
+      </p>
+      <pb n="77" facs="#surf_77"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>13.III | Comtesse de Mésanbran
+        <lb/>| Salatti
+        <lb/>| Klaus Mann
+        <lb/>| Broch
+        <lb/>| Reigy Bary
+        <lb/>| de Matheson
+        <lb/>| Loew
+        <lb/>14.III | Beamt
+        <lb/>| Rosset
+        <lb/>| Georg Hermann
+        <lb/>| Dr R Kayser
+        <lb/>| Victor
+        <lb/>| Nouvelles Littéraires
+        <lb/>| Dr Karl Roth
+        <lb/>| Minterberger
+        <lb/>| Reichner
+        <lb/>| Nebehay
+        <lb/>16.III | Roth
+      </p>
+      <pb n="78" facs="#surf_78"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16.III | Russlandhilfe
+        <lb/>| Lidin
+        <lb/>| Feuchtwang
+        <lb/>| Fürstner
+        <lb/>| Reichner
+        <lb/>| Eisemann
+        <lb/>| Meingast
+        <lb/>| Scholl
+        <lb/>| Lewit
+        <lb/>| Austrian Legation
+        <lb/>| Franckenstein
+        <lb/>| Marcuchetti
+        <lb/>17.III | S. Reinhardt
+        <lb/>| Luchaire
+        <lb/>| Sekretariat Singer
+        <lb/>| Reichner (Korr. eiml. Tu VI)
+        <lb/>| Minterberger
+        <lb/>18.III | Regendanz
+        <lb/>| Reichner
+      </p>
+      <pb n="79" facs="#surf_79"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>18.III | Minterberger
+        <lb/>| Auernheimer
+        <lb/>| Fuchs
+        <lb/>| Gregor
+        <lb/>19.III | Reichner
+        <lb/>| Morgenstern
+        <lb/>| Reigy
+        <lb/>| Bock
+        <lb/>| Kreuz
+        <lb/>20.III | Eisemann
+        <lb/>| E Roth
+        <lb/>| Reichner
+        <lb/>| Hellmut Meyer
+        <lb/>| Schorer
+        <lb/>| Stefan
+        <lb/>| Muebsch
+        <lb/>21.III | Reichner
+        <lb/>| O. Kleiber
+        <lb/>23.III | Regendanz
+      </p>
+      <pb n="80" facs="#surf_80"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>23.III | Minterberger
+        <lb/>| Türk
+        <lb/>| Reinhart
+        <lb/>| Breslauer
+        <lb/>| Cain
+        <lb/>| O. Kraus
+        <lb/>| Salten
+        <lb/>24.III | Eisemann
+        <lb/>| Roth
+        <lb/>| Bayr. Vereinsbank
+        <lb/>| Ehrhardt
+        <lb/>| Reichner (Korr. 2,3,4) reg.
+        <lb/>25.III | de Bary
+        <lb/>| Sandberg
+        <lb/>| Tann
+        <lb/>| Stroh
+        <lb/>| Maass
+        <lb/>| Felix Bloch Erben
+        <lb/>| Zsolnay (Storch)
+      </p>
+      <pb n="81" facs="#surf_81"/>
+      <p>
+        <lb/>25.III | Reichner
+        <lb/> | Cassell u Co
+        <lb/>26.III | A. Zweig
+        <lb/> | Hinterberger
+        <lb/> | Meng
+        <lb/> | Kinsky
+        <lb/>27.III | Hinterberger
+        <lb/> | Fuchs
+        <lb/> | Zarek
+        <lb/> | Landauer
+        <lb/> | Roth
+        <lb/> | Kayser
+        <lb/>28.III | Reichner
+        <lb/> | Leuchtwang
+        <lb/> | Russlandhilfe
+        <lb/>30.III | A. Zweig
+        <lb/> | Mellnund
+        <lb/> | Schorer
+        <lb/> | Meng
+      </p>
+      <pb n="82" facs="#surf_82"/>
+      <p>
+        <lb/>30.III | Broch (Frend A.)
+        <lb/> | Reichner
+        <lb/> | Carl Roth
+        <lb/> | J. Weiss
+        <lb/> | Warburg
+        <lb/> | Hinterberger
+        <lb/>31.III | Meingast
+        <lb/> | Frend-A an Remarque
+        <lb/> | B. Ludwig
+        <lb/> | S. Dali
+        <lb/> | Gregor
+        <lb/> | Deutsch-Steckelberg
+        <lb/> | H. v. Jacob
+        <lb/> | Auerheimer
+        <lb/> | Reichner
+        <lb/> | Roth
+        <lb/> | Scholl
+        <lb/> | R. Walter
+      </p>
+      <pb n="83" facs="#surf_83"/>
+      <p>
+        <lb/>1.IV | Maggs
+        <lb/> | Banque de l'Europe Centr.
+        <lb/> | Romains
+        <lb/> | A. Zweig
+        <lb/> | Mochdorf
+        <lb/> | Reichner (u. Korr. VIII u IX a
+        <lb/> | Breslauer (MS zurück)
+        <lb/> | Schorer
+        <lb/> | B. Weiss
+        <lb/> | Comm. of Customs
+        <lb/> | Borghese Unger
+        <lb/> | Harald Telegramm (unbestellt)
+        <lb/> | M. Goldschmidt
+        <lb/> | Huebsch
+        <lb/> | Schorer
+        <lb/> | Neuberger
+        <lb/>2.IV | M. Reinhardt
+        <lb/> | A. v. Winternitz
+        <lb/> | Kindler
+      </p>
+      <pb n="84" facs="#surf_84"/>
+      <p>
+        <lb/>2.IV | Telephone service (Scheck)
+        <lb/> | W. B. Scott
+        <lb/> | Zarek
+        <lb/> | New Trading Comp.
+        <lb/> | Reisinger
+        <lb/> | Kinsky
+        <lb/> | Frankenstein
+        <lb/> | Reichner
+        <lb/> | Stefan
+        <lb/> | Katalog Warburg
+        <lb/> | Unger
+        <lb/>3.IV | Reichner
+        <lb/> | Copyright u Patent Bureau
+        <lb/> | Mrs Roberts
+        <lb/> | Winsor
+        <lb/> | A. Zweig
+        <lb/> | Fuchs
+        <lb/>4.IV | A. Zweig
+        <lb/> | Warburg
+      </p>
+      <pb n="85" facs="#surf_85"/>
+      <p>
+        <lb/>4.IV | Konrad Zweig
+        <lb/> | Hinterberger
+        <lb/>5.IV | D. Flower (u. Katalog)
+        <lb/> | M. Heimann (u. MS)
+        <lb/> | Schorer
+        <lb/> | W. Landauer
+        <lb/> | Roth
+        <lb/> | G. Fuchs
+        <lb/> | Reisinger
+        <lb/>7.IV | Fleischer
+        <lb/> | Carr
+        <lb/> | Roth
+        <lb/> | Continental Express
+        <lb/> | Mazzuchetti
+        <lb/>8.IV | Friedenthal
+        <lb/> | Reichner
+        <lb/>9.IV | Marcuse
+        <lb/> | Hinterberger
+        <lb/> | Reichner (2. Korr. II u. III.)
+      </p>
+      <pb n="86" facs="#surf_86"/>
+      <p>
+        <lb/>9.IV | Guilloux
+        <lb/> | Viscontess Mountgarret
+        <lb/> | Flower
+        <lb/> | Nancy Price
+        <lb/> | Chérix
+        <lb/> | Meingast
+        <lb/>11.IV | Rozsavölgyi
+        <lb/> | Leftwich
+        <lb/> | Banque de l'Eur. C.
+        <lb/> | M. Goldschmidt
+        <lb/> | Fuchs
+        <lb/>14.IV | S. v. Winternitz
+        <lb/> | Reichner
+        <lb/> | Mochdorf
+        <lb/> | Salten
+        <lb/> | Meng
+        <lb/> | W. Landauer
+        <lb/> | Reigy
+        <lb/> | W. Türk
+      </p>
+      <pb n="87" facs="#surf_87"/>
+      <p>
+        <lb/>14.IV | Banque de l'Eur. C.
+        <lb/>15.IV | Trebitsch
+        <lb/> | Huebsch
+        <lb/> | G. Paul
+        <lb/> | Jollos
+        <lb/> | Wells
+        <lb/> | Herzfelde (Jourgas)
+        <lb/> | Kayser
+        <lb/> | Angel-Souka
+        <lb/> | Schweizer Bankverein
+        <lb/> | Regendanz
+        <lb/> | S.L. Weiss
+        <lb/>16.IV | Alf. Zweig
+        <lb/> | D. Flower
+        <lb/> | Hinterberger
+        <lb/>17.IV | Gregor
+        <lb/> | Zentr. Eur. Länderbank sa
+        <lb/> | Meingast
+        <lb/> | Scholl
+      </p>
+      <pb n="88" facs="#surf_88"/>
+      <p>
+        <lb/>17.IV | B.L. Weiss (Scheck)
+        <lb/> | Mazzuchetti
+        <lb/>18.IV | Frankenstein
+        <lb/> | Scholl
+        <lb/> | Bing
+        <lb/> | Grasset (Bonn)
+        <lb/> | Auerheimer
+        <lb/> | Lakin
+        <lb/> | B. Weiss
+        <lb/> | Selten-Roth
+        <lb/> | Virginia Woolf
+        <lb/>20.IV | Masereel (Frend. A)
+        <lb/> | Regendanz
+        <lb/> | Hinterberger
+        <lb/> | Fuchs
+        <lb/> | Meng
+        <lb/> | Ernst Weiss (Frend. A)
+        <lb/> | Herma Zaborcky
+        <lb/> | Bergner (Frend-A)
+      </p>
+      <pb n="89" facs="#surf_89"/>
+      <p>
+        <lb/>20.IV | Herzfelde (Jourgas)
+        <lb/> | Benedikt
+        <lb/> | Reichner
+        <lb/> | Schorer
+        <lb/>21.IV | Viertel
+        <lb/> | Nat Prov Bank
+        <lb/> | Matheson
+        <lb/>22.IV | Fuchs
+        <lb/> | Meng
+        <lb/> | Grasset (Vertrag ca)
+        <lb/> | G. Paul
+        <lb/> | Pecenik
+        <lb/> | Hinterberger
+        <lb/> | Scheyer
+        <lb/> | F. Braun
+        <lb/>23.IV | Reichner
+        <lb/> | Crédit Lyonnais
+        <lb/> | Herzfelde
+        <lb/> | Nat Prov Bank
+      </p>
+      <pb n="90" facs="#surf_90"/>
+      <p>
+        <lb/>23.IV | Neergaard
+        <lb/> | Meng (Neergaard Br)
+        <lb/> | Meingast
+        <lb/> | Sterkenburg
+        <lb/> | Mazzuchetti
+        <lb/>24.IV | Keynes
+        <lb/> | Bodanzky
+        <lb/> | Schorer
+        <lb/> | Gregor
+        <lb/> | Ludwig
+        <lb/> | Halperin
+        <lb/>25.IV | Meng
+        <lb/> | Nadja Jollos
+        <lb/> | R. Neumann
+        <lb/> | Lissauer
+        <lb/> | Huebsch
+        <lb/>27.IV | v. Arx
+        <lb/> | Hinterberger
+        <lb/> | W. Landauer
+      </p>
+      <pb n="91" facs="#surf_91"/>
+      <p>
+        <lb/>27.IV | Zarek
+        <lb/> | Fcal
+        <lb/> | Sperling u. Kupfer
+        <lb/> | Reichner
+        <lb/> | Wilmot
+        <lb/> | Kompassbank
+        <lb/> | Paul
+        <lb/> | Mrs Hecht
+        <lb/> | Sagan
+        <lb/>28.IV | Suse v. Winternitz
+        <lb/> | Paul
+        <lb/> | Reunion Films
+        <lb/> | Jespersen
+        <lb/> | Meingast
+        <lb/> | Stauffacher
+        <lb/> | Juventud (Adresse)
+        <lb/>29.IV | Meng
+        <lb/> | Huebsch
+        <lb/> | Reichner (Drucksache)
+      </p>
+      <pb n="92" facs="#surf_92"/>
+      <p>
+        <lb/>30.IV | Hinterberger
+        <lb/> | Frend-Büste
+        <lb/> | Vikin Hinterberger
+        <lb/> | Regendanz
+        <lb/> | Ohld
+        <lb/> | Sterkenburg
+        <lb/> | W. Landauer
+        <lb/> | Stols
+        <lb/> | Offenbacher
+        <lb/> | Mock
+        <lb/> | Meng (Untersch. Nebel)
+        <lb/> | Angel-Souka
+        <lb/> | H. v. Jacob
+        <lb/>1.V | Maggs
+        <lb/> | Reichner (2 Briefe)
+        <lb/> | Meng (Untersch. Neergaard)
+        <lb/> | Neergaard
+        <lb/> | Karrner
+        <lb/> | Scheyer
+      </p>
+      <pb n="93" facs="#surf_93"/>
+      <p>
+        <lb/>1.V | Kleiber
+        <lb/> | Reigy-Magenbach
+        <lb/> | A. Zweig
+        <lb/> | v. Weber
+        <lb/>2.V | A. Zweig
+        <lb/> | Wilmot
+        <lb/> | Nat Prov Bank
+        <lb/> | Cassell u Co (Cash Dep)
+        <lb/> | Paul
+        <lb/> | Fuchs
+        <lb/> | Ohld
+        <lb/> | Lomnitz (Scheck)
+        <lb/> | Hella (u. Druckbogen)
+        <lb/> | Huebsch (Druckbogen)
+        <lb/> | Reichner
+        <lb/>4.V | Frend
+        <lb/> | Zarek (u. Druckbogen)
+        <lb/> | Rozsavölgyi
+        <lb/> | Landauer (Beilage Stolzbrief)
+      </p>
+      <pb n="94" facs="#surf_94"/>
+      <p>
+        <lb/>4.V | Kubin
+        <lb/> | Reisinger
+        <lb/> | Zentr. eur. Länderbank
+        <lb/> | Kompass bank
+        <lb/>5.V | A. Einstein
+        <lb/> | Szalai
+        <lb/> | Meng (Drucksache Frend)
+        <lb/> | Maggs
+        <lb/> | Private Estate Office
+        <lb/> | L'Univers Israélite
+        <lb/> | Hinterberger
+        <lb/> | Schwarz
+        <lb/> | Reichner
+        <lb/> | Telegramm Frend
+        <lb/>6.V | Wilmot
+        <lb/> | Cassell
+        <lb/> | Reichner
+        <lb/> | Schorer
+        <lb/>7.V | Ludwig
+      </p>
+      <pb n="95" facs="#surf_95"/>
+      <p>
+        <lb/>7.V | L. Rosenthal
+        <lb/> | Agence Litt. Internationale
+        <lb/> | Bing
+        <lb/> | Willkowski
+        <lb/> | Fuchs
+        <lb/> | Aita
+        <lb/> | Koogan
+        <lb/> | Russell
+        <lb/> | Carr
+        <lb/> | Jollos
+        <lb/> | Trinka
+        <lb/>8.V | G. Wieser
+        <lb/> | Ilse Cowan
+        <lb/> | Carl Seelig
+        <lb/> | Reichner
+        <lb/> | Preiss
+        <lb/>9.V | Reisinger
+        <lb/> | F. Bloch Erben
+        <lb/> | Meingast
+      </p>
+      <pb n="96" facs="#surf_96"/>
+      <p>
+        <lb/>4.V | Kubin
+        <lb/> | Reisinger
+        <lb/> | Zentr. eur. Länderbank
+        <lb/>5.V | A. Einstein
+        <lb/> | Szalai
+        <lb/> | Meng (Drucksache)
+        <lb/> | Maggs
+        <lb/> | Private Estate Office
+        <lb/> | L'Univers Israélite
+        <lb/> | Hinterberger
+        <lb/> | Schwarz
+        <lb/> | Reichner
+        <lb/> | Telegramm Frend
+        <lb/>6.V | Wilmot
+        <lb/> | Cassell
+        <lb/> | Reichner
+        <lb/> | Schorer
+        <lb/>7.V | Ludwig
+      </p>
+      <pb n="97" facs="#surf_97"/>
+      <p>
+        <lb/>7.V | L. Rosenthal
+        <lb/> | Agence Litt. Internationale
+        <lb/> | Bing
+        <lb/> | Willkowski
+        <lb/> | Fuchs
+        <lb/> | Aita
+        <lb/> | Koogan
+        <lb/> | Russell
+        <lb/> | Carr
+        <lb/> | Jollos
+        <lb/> | Trinka
+        <lb/>8.V | G. Wieser
+        <lb/> | Ilse Cowan
+        <lb/> | Carl Seelig
+        <lb/> | Reichner
+        <lb/> | Preiss
+        <lb/>9.V | Reisinger
+        <lb/> | F. Bloch Erben
+        <lb/> | Meingast
+      </p>
+      <pb n="98" facs="#surf_98"/>
+      <p>
+        <lb/>9.V | Reklam
+        <lb/> | Relgis
+        <lb/> | Anderlecht
+        <lb/> | Benaroja
+        <lb/> | Hinterberger
+        <lb/>11.V | Stadlen
+        <lb/> | Masereel
+        <lb/> | Donath
+        <lb/> | Mazzuchetti
+        <lb/> | Reichner
+        <lb/> | A. Burger
+        <lb/> | S. Burger
+        <lb/>12.V | Zarek
+        <lb/> | Sterkenburg
+        <lb/> | Nancy Price
+        <lb/> | Karrner-Kornfeld
+        <lb/>13.V | Rozsavölgyi
+        <lb/> | G. Paul
+        <lb/> | United Dairies (Scheck sh. 2/3)
+      </p>
+      <pb n="99" facs="#surf_99"/>
+      <p>
+        <lb/>13.V | B.L. Weiss (Scheck über £ 1.19)
+        <lb/>14.V | Desmond Flower
+        <lb/> | G. Paul
+        <lb/> | Dandistel
+        <lb/> | W. Landauer
+        <lb/> | Mayer-Lismann
+        <lb/> | Zarek (+ Lesson a. Rozsavölgyi
+        <lb/> | Hallway
+        <lb/> | Jollos
+        <lb/>15.V | G. u. G. Paul
+        <lb/> | Dandistel
+        <lb/> | Mayer-Lismann
+        <lb/> | Zarek
+        <lb/> | Landauer
+        <lb/> | Hallway
+        <lb/> | F. U. Jones
+        <lb/> | Jollos
+        <lb/>18.V | Banque de l'Eur. C.
+        <lb/> | Aita (air)
+      </p>
+      <pb n="100" facs="#surf_100"/>
+      <p>
+        <lb/>20.V | Reichner
+        <lb/> | Roth
+        <lb/> | C. Ehrenstein
+        <lb/> | Amsterdamische Bank
+        <lb/> | Stroh
+        <lb/> | Meingast
+        <lb/> | W. Flower
+        <lb/> | Zarek
+        <lb/> | L. Oppenheim
+        <lb/> | P. Stefan
+        <lb/> | Mayer-Lismann
+        <lb/>21.V | Relgis
+        <lb/> | Hinterberger
+        <lb/> | Grande Librairie
+        <lb/> | Zarek
+        <lb/> | Bruce
+        <lb/> | Stroh (Buch)
+        <lb/> | Preiss
+        <lb/> | Tester Lloyd (M.-Neisse Info)
+      </p>
+      <pb n="101" facs="#surf_101"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>3.V | Seelig
+        <lb/>| Braun
+        <lb/>| Reichner
+        <lb/>| Steinitz u Kalmus
+        <lb/>| S. Burger
+        <lb/>| F Bloch Erben
+        <lb/>| Rothstein
+        <lb/>| Rebermayer
+        <lb/>| Maass
+        <lb/>| F. Zweig
+        <lb/>| Standfield
+        <lb/>| Sperling u Kupfer
+        <lb/>| Heilbronn
+        <lb/>| Sterkenburg
+        <lb/>| St. Marylebone B Council (7/5)
+        <lb/>25.V | Price
+        <lb/>| Fischbacher
+        <lb/>| Lengauer
+        <lb/>| Wittkowski
+      </p>
+      <pb n="102" facs="#surf_102"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>25.V | Matheson
+        <lb/>| Fuchs
+        <lb/>| B. Hirschfeld
+        <lb/>| Univer[?] Israelite
+        <lb/>| Landauer
+        <lb/>27.V | Oliveira
+        <lb/>| Lilichowski
+        <lb/>28.V | Reichner
+        <lb/>| F. Zweig
+        <lb/>| Rangel (Nacion)
+        <lb/>| Felix Zweig
+        <lb/>| Marzuchetti
+        <lb/>| Zarek
+        <lb/>| Paul
+        <lb/>| Binder Marilyn[?] Cor.
+        <lb/>| Kippenberg
+        <lb/>| Svanabara
+        <lb/>2.VI | Menz
+        <lb/>| Landauer
+      </p>
+      <pb n="103" facs="#surf_103"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>2.VI | Roth
+        <lb/>| Reichner (u. Telegramm)
+        <lb/>| Sterkenburg
+        <lb/>| Hella
+        <lb/>| Meyerhof (+MS)
+        <lb/>| Karrner-Kornfeld
+        <lb/>| Bermann
+        <lb/>| Hinterberger
+        <lb/>| A Zweig
+        <lb/>| W Maas
+        <lb/>| Kra
+        <lb/>| Dandistel
+        <lb/>| Auernheimer
+        <lb/>| Schickele
+        <lb/>| Stockholms Enskilda Bank
+        <lb/>3.VI | Guld
+        <lb/>| Nat. Prov. Bank
+        <lb/>| Temianka
+        <lb/>| Sch. Asch
+      </p>
+      <pb n="104" facs="#surf_104"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>3.VI | O. Maas
+        <lb/>5.VI | Fontana
+        <lb/>| Ehrenstein
+        <lb/>| Hohenlohe
+        <lb/>| M. Thies
+        <lb/>| Podbielski
+        <lb/>| Lehmann
+        <lb/>| Davis
+        <lb/>| Stefan
+        <lb/>| Reichner
+        <lb/>| M van Loon } Ca
+        <lb/>| Gottlieb
+        <lb/>| W Köhler
+        <lb/>| Hella
+        <lb/>| Guld
+        <lb/>6.VI | Enskilda Bank
+        <lb/>| Reichner (und Buch)
+        <lb/>| Hinterberger
+        <lb/>| New Trading Co
+      </p>
+      <pb n="105" facs="#surf_105"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>6.VI | Seelig
+        <lb/>| London Telephone Service
+        <lb/>| Agence Litt. Intern
+        <lb/>| Menz
+        <lb/>| Rozsavölgyi
+        <lb/>| Juventud } und Cast.
+        <lb/>| Sterkenburg } verändert
+        <lb/>| Hultenberg }
+        <lb/>| Fuchs }
+        <lb/>| Hella }
+        <lb/>8.VI | Landauer
+        <lb/>| Sterkenburg
+        <lb/>| Skoglund
+        <lb/>| Trümpy
+        <lb/>| G Ludwig
+        <lb/>| J. Weiss
+        <lb/>| Unger
+        <lb/>| F. Zweig
+        <lb/>| Trebitsch
+      </p>
+      <pb n="106" facs="#surf_106"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>8.VI | Hinterberger
+        <lb/>| Reichner
+        <lb/>| Baer
+        <lb/>| R. Ullmann
+        <lb/>| The Group Theatre
+        <lb/>| M de Montfort
+        <lb/>9.VI | Guld
+        <lb/>| Mochdorf
+        <lb/>10.VI | Bing
+        <lb/>| Juventud
+        <lb/>| Aita (ais)
+        <lb/>| Tondal
+        <lb/>| Crédit Lyonnais
+        <lb/>| Roth
+        <lb/>| Relgis (und verb. Ex)
+        <lb/>| Sterkenburg
+        <lb/>| Salkind
+        <lb/>| Luminafilm
+      </p>
+      <pb n="107" facs="#surf_107"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>10.VI | Hultenberg
+        <lb/>| Rozsavölgyi
+        <lb/>| Guanabara (ca verb. Ex)
+        <lb/>11.VI | Nat. Prov. Bank
+        <lb/>| Przeworskiego
+        <lb/>| Duchemin-Exprinter
+        <lb/>| Stefan
+        <lb/>12.VI | Wittkowski
+        <lb/>| Newman Flower
+        <lb/>| Clemond
+        <lb/>| Winterfeld
+        <lb/>| Enskilda Bank
+        <lb/>| London Telephone Service
+        <lb/>| Mrs Jackson
+        <lb/>| Inst. Intern de Coopération Intell.
+        <lb/>| W. Landauer
+        <lb/>| Paul Hirsch
+        <lb/>| Stroh
+        <lb/>| N. Jollos
+      </p>
+      <pb n="108" facs="#surf_108"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>12.VI | Franckenstein
+        <lb/>| Carr
+        <lb/>| Sterkenburg
+        <lb/>| Wolbe
+        <lb/>| Reigy-Magenbach
+        <lb/>13.VI | Heilbronn
+        <lb/>| Milkina
+        <lb/>| Price
+        <lb/>| Aita (ais)
+        <lb/>14.VI | Cassell u Co
+        <lb/>| Mrs Levy (Vera u. Hammer)
+        <lb/>| Mrs Barclay
+        <lb/>| Miss Spencer
+        <lb/>15.VI | Oliveira
+        <lb/>| Vivante
+        <lb/>| R. Walter
+        <lb/>| Kayser
+        <lb/>| Hinterberger
+        <lb/>| Logan
+      </p>
+      <pb n="109" facs="#surf_109"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>15.VI | Nat Prov Bank
+        <lb/>| Rose Walter
+        <lb/>17.VI | Klaus Mann
+        <lb/>| Wolfenstein
+        <lb/>| St Zweig
+        <lb/>| G M Worn
+        <lb/>| M Wolf
+        <lb/>| Stroh
+        <lb/>| Kesser
+        <lb/>| W Flower
+        <lb/>| G. Hirschfeld
+        <lb/>| Nancy Price
+        <lb/>| Przeworskiego
+        <lb/>| Ullmann
+        <lb/>| New Trading Co.
+        <lb/>| Davis
+        <lb/>18.VI | Westend Mansions
+        <lb/>| Zillet
+        <lb/>| Vronsky
+      </p>
+      <pb n="110" facs="#surf_110"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19.VI | Sterkenburg
+        <lb/>| Cassell u Co
+        <lb/>| Telephone Service Scheck
+        <lb/>| Schorer
+        <lb/>| St Zweig
+        <lb/>| Westend Mansions (Scheck)
+        <lb/>22.VI | Gallimard
+        <lb/>| St Zweig
+        <lb/>25.VI | Ras (jedr. K)
+        <lb/>| B. Weiss
+        <lb/>29.VI | Zuckerhandl
+        <lb/>| Martinet
+        <lb/>| Sterner (Skoglund)
+        <lb/>| B. Weiss
+        <lb/>1.VII | Victor
+        <lb/>| Gidon
+        <lb/>| Reisiger
+        <lb/>| Henrici
+      </p>
+      <pb n="111" facs="#surf_111"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>3.VII | Fetter
+        <lb/>| R. Kuh
+        <lb/>| Reid u Lefèvre
+        <lb/>| Pinette
+        <lb/>| Reichner
+        <lb/>| 49 Hallam St
+        <lb/>| W. Landauer
+        <lb/>5.VII | Reizinger
+        <lb/>| Jaffe
+        <lb/>6.VII | Grasset S
+        <lb/>| Inst Intern. de Coop. Intell. S
+        <lb/>| Journées bracme S
+        <lb/>| Meingast S
+        <lb/>9.VII | A. Zweig
+        <lb/>| Bahr-Mildenburg
+        <lb/>| Meingast S
+        <lb/>| Przeworskiego
+        <lb/>| Zarek
+        <lb/>| Muebelt
+      </p>
+      <pb n="112" facs="#surf_112"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>9.VII | Exprinter
+        <lb/>10.VII | Zvezda
+        <lb/>| Warburg
+        <lb/>| Zuckerhandl
+        <lb/>| Katodal u Co
+        <lb/>| Feist
+        <lb/>| Gálvez
+        <lb/>| Meingast
+        <lb/>| D Flower
+        <lb/>| M Wolff
+        <lb/>| Reizinger
+        <lb/>| Sterkenburg
+        <lb/>13.VII | A Zweig
+        <lb/>| Intercont. Press
+        <lb/>| R. Weiss
+        <lb/>| Reichner
+        <lb/>14.VII | Hinterberger
+        <lb/>| v. Hoboken
+        <lb/>| Leftwich
+      </p>
+      <pb n="113" facs="#surf_113"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16.VII | Gutierrez-Salino
+        <lb/>| S. Müller
+        <lb/>| Eckstein
+        <lb/>| Mrs Rose
+        <lb/>| J. Skowronek i Ska
+        <lb/>| Sanielevici
+        <lb/>17.VII | Rieger
+        <lb/>| F. Fuchs
+        <lb/>| Unger
+        <lb/>| Rozsavölgyi
+        <lb/>| Zarek
+        <lb/>| Lissauer
+        <lb/>| Gregor
+        <lb/>| Gorkor
+        <lb/>| Muebach
+        <lb/>| Bayr Vereinsbank
+        <lb/>| Sochaczewer
+        <lb/>| Reichner
+        <lb/>| A Zweig
+      </p>
+      <pb n="114" facs="#surf_114"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>17.VII | J. H. Schultz Forlag
+        <lb/>18.VII | F. Bloch Erben
+        <lb/>| Löwy
+        <lb/>19.VII | Fleischer
+        <lb/>| Hella
+        <lb/>| Reichner
+        <lb/>| Leftwich
+        <lb/>| Kayser
+        <lb/>| Zuckerhandl
+        <lb/>| Hinterberger
+        <lb/>| Exprinter
+        <lb/>22.VII | Anderson
+        <lb/>| Faesi
+        <lb/>| Meymann
+        <lb/>| Royal Mail Line
+        <lb/>| Sanielevici S
+        <lb/>24.VII | Heilbronn
+        <lb/>| Reichner
+        <lb/>25.VII | Leftwich
+      </p>
+      <pb n="115" facs="#surf_115"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>25.VII | R Neumann
+        <lb/>| Querido-Verlag
+        <lb/>| Stroh
+        <lb/>28.VII | Hoboken
+        <lb/>| Marzuchetti
+        <lb/>| Fuchs
+        <lb/>| Reichner
+        <lb/>| Warburg
+        <lb/>| D Flower
+        <lb/>| Aita
+        <lb/>28.VII | Porter Hallam Street
+        <lb/>| Volksuniversitet Haas
+        <lb/>| Grasset
+        <lb/>| Gaillie
+        <lb/>29.VII | Bruno Frank
+        <lb/>30.VII | Reichner
+        <lb/>31.VII | Lania
+        <lb/>| Selden-Roth
+        <lb/>| Meisel
+      </p>
+      <pb n="116" facs="#surf_116"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>31.VII | W. Maas
+        <lb/>| Muebsch
+        <lb/>1.VIII | Desmond Flower
+        <lb/>| Warburg
+        <lb/>| Royal Mail Line (Photo)
+        <lb/>| Reichner
+        <lb/>| Schweiz. Vortrageverband
+        <lb/>| Woburn House
+        <lb/>2.VIII | Oliveira
+        <lb/>| Who's Who?
+        <lb/>| Länderbank Reichenberg
+        <lb/>| Bing (Lenin)
+        <lb/>| Sterkenburg
+        <lb/>| Enskilda Bank
+        <lb/>| de Bary (Castellio)
+        <lb/>4.VIII | Fuchs
+        <lb/>| Reichner
+        <lb/>| A Zweig
+        <lb/>| Muebsch
+      </p>
+      <pb n="117" facs="#surf_117"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>4.VIII | D. Flower (und Buch)
+        <lb/>| Nat Prov Bank
+        <lb/>5.VIII | Reichner
+        <lb/>| Paul
+        <lb/>| Carr
+        <lb/>6.VIII | Meingast
+        <lb/>| Hinterberger
+        <lb/>| Maas
+        <lb/>| Rozsavölgyi
+        <lb/>| Frischauer
+        <lb/>| Evert
+        <lb/>| Enskilda Bk
+        <lb/>7.VIII | Der Morgen
+        <lb/>10.VIII | Paul
+        <lb/>12.VIII | Reichner
+        <lb/>| Roth (und Papier)
+        <lb/>| Western Union Tel (Scheck)
+        <lb/>| W Green u Co (Scheck)
+        <lb/>| Carossa
+      </p>
+      <pb n="118" facs="#surf_118"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>12.VIII | France U.R.S.S.
+        <lb/>| Lissauer
+        <lb/>| Duhamel
+        <lb/>| Internat Artists
+        <lb/>| Freter
+        <lb/>| Zvezda Verlagsanstalt
+        <lb/>| Menz
+        <lb/>| N Price
+        <lb/>20.VIII | J. Werner Cohn (und MSS)
+        <lb/>| Reigy-Magenbach
+        <lb/>| Meyer u Ernst
+        <lb/>| Forbath
+        <lb/>| Bernhard-Cohn
+        <lb/>| Wasserman
+        <lb/>| West End Mansions
+        <lb/>| Nancy Price
+        <lb/>| London Libr (Bücher)
+        <lb/>| Meisel (reg)
+      </p>
+      <pb n="119" facs="#surf_119"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>15.IX | Fuchs
+        <lb/>| A. Cahn (cast. ungeb. gerüst)
+        <lb/>| Carry v. Vienna
+        <lb/>| Westminster Bk (Scheck)
+        <lb/>| Selbstwehr
+        <lb/>| Türk
+        <lb/>| Weinel
+        <lb/>| Singer
+        <lb/>16.IX | Wasserman
+        <lb/>| Meisel
+        <lb/>| Stockum u Zn
+        <lb/>| Meingast
+        <lb/>| Ebis-Verlagbuchh.
+        <lb/>19.IX | Benaroya (u. Begr. Leuchter)
+        <lb/>| Berslew
+        <lb/>21.IX | Rosenfeld
+        <lb/>| Mazzuchetti (u. Begr. Leuchter)
+        <lb/>23.IX | Reigy
+        <lb/>| Polar Bear Laundry (Scheck 7/X)
+      </p>
+      <pb n="120" facs="#surf_120"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>23.IX | G. Paul
+        <lb/>| Michaelis
+        <lb/>28.IX | Simon
+        <lb/>| de Leon
+        <lb/>| Skoglund
+        <lb/>| Prentice-Hall
+        <lb/>30.IX | Paul (u. begr. Leuchter)
+        <lb/>| Salatti
+        <lb/>2.X | Lonsada
+        <lb/>| Rozsavölgyi
+        <lb/>| Mondadori
+        <lb/>| Die Ernte
+        <lb/>| Max Wolff
+        <lb/>5.X | Dijkstra
+        <lb/>7.X | Hinterberger (ais)
+        <lb/>| Bernhard-Cohn
+        <lb/>| Freter
+        <lb/>| Sanders
+        <lb/>| Michaelis
+      </p>
+      <pb n="121" facs="#surf_121"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>7.X | Reichner (air)
+        <lb/>| Jehonda (Revue Juive)
+        <lb/>| Mella
+        <lb/>| Menrici
+        <lb/>| Rozsavölgyi (air)
+        <lb/>| Mazzuchetti
+        <lb/>| Scheyer (air)
+        <lb/>| Schröder
+        <lb/>| Aita (n. Vortragswelle)
+        <lb/>| Sotheby (Scheck £2)
+        <lb/>| Grasset
+        <lb/>| Mueboch
+        <lb/>| Paul
+        <lb/>8.X | Pen Club
+        <lb/>9.X | Heilbronn
+        <lb/>| Stroh
+        <lb/>| Krauss (Bk f. Handel u Ind.)
+        <lb/>| Reigy
+        <lb/>| Zech
+      </p>
+      <pb n="122" facs="#surf_122"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>9.X | M. Wolff
+        <lb/>| Krakaner (Nachrichtblatt)
+        <lb/>| Fried-Herzog
+        <lb/>| Stickelberger (cast.)
+        <lb/>| Aschehoug (u. cast.)
+        <lb/>10.X | C. T. Painters (£ 1.7.-)
+        <lb/>| Wolfski
+        <lb/>| Schröder (air)
+        <lb/>| Reichner
+        <lb/>12.X | Salver
+        <lb/>| Hinterberger
+        <lb/>| Pester Lloyd (und MS)
+        <lb/>| Neues Wiener Tagblatt (u. MS)
+        <lb/>| Schröder
+        <lb/>| Mandslay
+        <lb/>| Länderbank
+        <lb/>| Scheyer
+        <lb/>13.X | Cassell (Newman £)
+        <lb/>14.X | Reichner (air)
+      </p>
+      <pb n="123" facs="#surf_123"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>14.X | Schröder (air)
+        <lb/>| Burger (telgr.)
+        <lb/>| Reichner
+        <lb/>| Singer
+        <lb/>| Gregor
+        <lb/>| Cassell Flower
+        <lb/>15.X | Landauer (u. Kaleidoskop)
+        <lb/>| Reichner (S)
+        <lb/>| Josué Jehonda (u. Rez. Revue)
+        <lb/>16.X | Wolfski (Telegramm)
+        <lb/>| Nat. Prov. Bank
+        <lb/>| Enskilda Bk
+        <lb/>| Schröder
+        <lb/>| Ibis (u. Baumeister)
+        <lb/>17.X | Schröder
+        <lb/>| Meingast
+        <lb/>19.X | Wolfski (Telegramm)
+        <lb/>| Körner (New Trad. Co)
+        <lb/>| A. Zweig
+      </p>
+      <pb n="124" facs="#surf_124"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19.X | M. Scheyer
+        <lb/>| Reichner
+        <lb/>| Cain
+        <lb/>| O. Zarek
+        <lb/>| Angel-Soyka
+        <lb/>| Edns Rieder
+        <lb/>| Allgem. Pressebüro (Michaels)
+        <lb/>| London Teleph. Serv (Scheck)
+        <lb/>20.X | Paz
+        <lb/>| Carnaxide
+        <lb/>| Huelboch
+        <lb/>| Schröder
+        <lb/>| Comtesse Pange
+        <lb/>| G. Weiss
+        <lb/>| Reichner
+        <lb/>| Schorer (u. amer. cast.)
+        <lb/>| Leonard
+        <lb/>21.X | Mella
+        <lb/>| Landauer
+      </p>
+      <pb n="125" facs="#surf_125"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>21.X | Frau Zweig
+        <lb/>| Dr. Rosenberger
+        <lb/>| Krauss
+        <lb/>| W. Maass
+        <lb/>| Maggs
+        <lb/>22.X | Stroh
+        <lb/>| Marylebone B Council (9/2)
+        <lb/>| Mandslay
+        <lb/>| Reichner
+        <lb/>| Fuchs
+        <lb/>23.X | B. Walter
+        <lb/>| Maggs
+        <lb/>| New Trading Co.
+        <lb/>24.X | Braun
+        <lb/>| Michaels (u. Bücher)
+        <lb/>| Av. Winternitz
+        <lb/>| P. Stefan
+        <lb/>| Kubin
+        <lb/>| Silbergleit
+      </p>
+      <pb n="126" facs="#surf_126"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>24.X | Bayr. Vereinsbank
+        <lb/>| Landauer
+        <lb/>| Murray
+        <lb/>26.X | Everda
+        <lb/>| Ksiazmica-Atlas
+        <lb/>| Reichner (u. Mändel zur.)
+        <lb/>| Landauer (u. Korr. zurück)
+        <lb/>| Mullenberg
+        <lb/>| Schorer
+        <lb/>| Wiedemann
+        <lb/>| Wolfski
+        <lb/>| Flinkes
+        <lb/>| Tarr
+        <lb/>| A. Vallentin
+        <lb/>| Lucka
+        <lb/>| Arnold
+        <lb/>| Unger
+        <lb/>27.X | W. Maass
+        <lb/>28.X | Meingast
+      </p>
+      <pb n="127" facs="#surf_127"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>28.X | Maggs
+        <lb/>| Schröder
+        <lb/>| Polzin
+        <lb/>| Ring
+        <lb/>30.X | Mullenberg
+        <lb/>| S. Aurednicek
+        <lb/>| Reichner
+        <lb/>| Agence Litt. Intern.
+        <lb/>| Buchh. Perles
+        <lb/>| Tarr (Telegramm)
+        <lb/>| Gräfin Huyn
+        <lb/>| Edns Rieder
+        <lb/>31.X | Lissauer
+        <lb/>| Schickele
+        <lb/>| George West
+        <lb/>| Sillen
+        <lb/>| Zuckerhandl
+        <lb/>| Albert Einstein (Kaleid)
+        <lb/>2.XI | Frau Zweig
+      </p>
+      <pb n="128" facs="#surf_128"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>2.XI | Auerheimer
+        <lb/>| Wolfski
+        <lb/>| Mella
+        <lb/>| W. Koogan
+        <lb/>| Mainzer
+        <lb/>| Benenson
+        <lb/>| L. Monath
+        <lb/>3.XI | Zoltán
+        <lb/>| Selden-Goth
+        <lb/>| Skoglund
+        <lb/>| Fuchs
+        <lb/>4.XI | Jollos
+        <lb/>| Donker
+        <lb/>| Reichner
+        <lb/>| Reigy
+        <lb/>| Dunbar
+        <lb/>5.XI | Alf. Einstein
+        <lb/>| Wolfski
+        <lb/>| Braun
+      </p>
+      <pb n="129" facs="#surf_129"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>5.XI | Carr
+        <lb/>| Michaels
+        <lb/>| Schönberger
+        <lb/>| Albertini
+        <lb/>| Brun
+        <lb/>| Prutscher
+        <lb/>| Prévost
+        <lb/>6.XI | Wolfski
+        <lb/>| Schröder
+        <lb/>7.XI | Mella
+        <lb/>| Silten (Telegramm)
+        <lb/>| West
+        <lb/>| Meingast
+        <lb/>| Sorter
+        <lb/>| Hinterberger
+        <lb/>| A. Zweig
+        <lb/>| Reichner
+        <lb/>9.XI | Polzer
+        <lb/>| Pester Lloyd
+      </p>
+      <pb n="130" facs="#surf_130"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>9.XI | Donker
+        <lb/>| Friedmann
+        <lb/>| Franchenstein
+        <lb/>| F. Weiss
+        <lb/>10.XI | Priv. Estate Office
+        <lb/>| Monath
+        <lb/>| Franchenstein
+        <lb/>| Jacob
+        <lb/>11.XI | Viertel
+        <lb/>| Huelboch
+        <lb/>| P. Wertheimer
+        <lb/>12.XI | A. Zweig
+        <lb/>| Frau Zweig
+        <lb/>| Ksiazmica Atlas
+        <lb/>| West
+        <lb/>| Paul
+        <lb/>| S. Warburg
+        <lb/>| Hinterberger
+        <lb/>| Antiqu. Moppli
+      </p>
+      <pb n="131" facs="#surf_131"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>13.XI | Guggenheim Foundation
+        <lb/>| New Trading Co (u. Scheck)
+        <lb/>| Löw
+        <lb/>| Scheyer
+        <lb/>| Koogan
+        <lb/>| Gregor
+        <lb/>| Cookor
+        <lb/>| Soulié
+        <lb/>| Reichner
+        <lb/>14.XI | Hinterberger
+        <lb/>| Maggs
+        <lb/>16.XI | P. Hirsch
+        <lb/>| Bing
+        <lb/>| ↓ Kopie an Campbell
+        <lb/>| Beiringer
+        <lb/>| Schweitzer
+        <lb/>| Lucka
+        <lb/>| Alfred Einstein
+        <lb/>| Meingast
+      </p>
+      <pb n="132" facs="#surf_132"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>16.XI | Comtesse Pange
+        <lb/>| Mazzuchetti
+        <lb/>| Mella
+        <lb/>| Vicomte Carnaride
+        <lb/>17.XI | Anna Frend
+        <lb/>| G. den Paul
+        <lb/>| Gedar
+        <lb/>| Pester Lloyd
+        <lb/>| Maggs (Scheck)
+        <lb/>| Nat. Prov. Bk
+        <lb/>18.XI | Rosenberger
+        <lb/>| Maneock
+        <lb/>| Türk
+        <lb/>| J. R. Bloch
+        <lb/>| Kippenberg
+        <lb/>19.XI | M. Jacob
+        <lb/>| Huyn
+        <lb/>| Layton
+        <lb/>| Reichner
+      </p>
+      <pb n="133" facs="#surf_133"/>
+      <p>
+        <lb/>Date Sent | NAME | Date Received
+        <lb/>19.XI | Rose
+        <lb/>20.XI | Thelen
+        <lb/>| M. Rolland (u. MS)
+        <lb/>| Bank Gosp. Krajowego
+        <lb/>| Ruzicka
+        <lb/>| Ley
+        <lb/>| M. G. Jacob (MS rez)
+        <lb/>| Hinterberger
+        <lb/>21.XI | Reiringer
+        <lb/>| A. Zweig (air)
+        <lb/>23.XI | Stauffacher
+        <lb/>| Enskilda Bk
+        <lb/>| Stroh
+        <lb/>| Gerhard
+        <lb/>| Canetti
+        <lb/>| Polzin (u. 3, 4, 5, des brasil.
+        <lb/>| de Soares) Feuilletons
+        <lb/>| Skoglund
+        <lb/>| Unger
+      </p>
+      <pb n="134" facs="#surf_134"/>
+      <pb n="135" facs="#surf_135"/>
+      </div>
+    </body>
+  </text>
+</TEI>

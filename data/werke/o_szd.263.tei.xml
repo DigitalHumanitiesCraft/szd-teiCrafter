@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Worte am Sarge Sigmund Freuds
+                                [Fragment I]</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/W-H206</idno>
+            <idno type="objectId">o_szd.263</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.263/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.263/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.263">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Stefan Zweig Worte am Sarge Sigmund Freuds
+        <lb/>(26 September 1939 im Crematorium, London)
+      </p>
+      <p>
+        <lb/>Erlauben Sie mir, {angesichts dieses rührenden Sarges} einige Worte erschütterten
+        <lb/>Dankes im Namen seiner {seiner weltfremden[?]} ~~seiner~~ seiner österreichischen
+        <lb/>~~Freunde~~ in jener Sprache zu wagen, die Sigmund
+        <lb/>Freud durch sein Werk so grossartig bereichert und gea-
+        <lb/>delt hat. Lassen Sie sich vor allem ins Bewusstsein
+        <lb/>rufen, dass wir, die wir hier in gemeinsamer Trauer
+        <lb/>versammelt sind, einen historischen Augenblick durch-
+        <lb/>leben, wie er keinem von uns wohl ein zweites Mal
+        <lb/>vom Schicksal verstattet sein wird. Erinnern wir uns
+        <lb/>— bei andern Sterblichen, bei fast allen, ist innerhalb
+        <lb/>der knappen Minute, da der Leib erkaltet, ihr Dasein,
+        <lb/>ihr Mitdasein für immer beendet. Bei diesem einen
+        <lb/>dagegen, an dessen Bahre wir stehen, bei diesem Einen
+        <lb/>war Einzigen innerhalb unserer {trostlosen} Zeit bedeutet Tod
+        <lb/>nur eine flüchtige und fast wesenlose Erscheinung.
+        <lb/>Hier ist ~~das berührende~~ kein Ende, kein {harter} Abschluss, sondern bloss
+        <lb/>ein linder Übergang von Sterblichkeit in Unsterblichkeit.
+        <lb/>Für das körperlich Vergängliche, das wir heute schmerz-
+        <lb/>voll verlieren, ist das Unvergängliche seines Werks,
+        <lb/>seines Wesens gerettet — wir alle in diesem Raume,
+        <lb/>die noch ahnen und leben und sprechen und lau-
+        <lb/>schen, wir alle hier sind im geistigen Sinne nicht
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Richard Specht</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription agent_verified. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA175.2</idno>
+            <idno type="objectId">o_szd.2322</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.2322/IMG.7"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2322">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Richard Specht, einige Jahre jünger als Arthur Schnitz-
+        <lb/>ler und Schönherr, einige Jahre älter als Hofmannsthal und Wasser-
+        <lb/>mann, gehört zu jenem Kreise, den eine frühere Generation "Das
+        <lb/>schon
+        <lb/>junge Wien" genannt und dem die gegenwärtige als beinahe klassisch
+        <lb/>vollendeten Ausdruck deutscher Kunst verehrt. Innerhalb dieses Krei-
+        <lb/>und
+        <lb/>ses, weniger als produktive Natur denn als darstellende{n}, aus-
+        <lb/>wirkend hat er ~~leute~~ ein ~~rundes nur~~ ~~schöpferisches Werk~~ {schöpferisches Werk}
+        <lb/>deutende ~~kraft~~ ~~schöpferisches Werk~~ ~~es kam~~ die sehr intensive gelastet
+        <lb/>vein zur
+        <lb/>künstlerische Natur ~~schöpferisch~~ nie so völlig und einhellig seine
+        <lb/>und zu literarischer Geltung kam Richard Spechts
+        <lb/>zum Ausdruck als die seiner Mitbrüder, denn seine Neigung war ~~kühl~~
+        <lb/>wie jene der Wiener Dichter ~~arrig der Dichtung~~ ~~risewandt~~, sondern
+        <lb/>von vornherein geteilt. Nur die Hälfte seiner Leidenschaft gab er
+        <lb/>der Literatur, die andere gehörte unverweigerlich der Musik.
+        <lb/>einer der ersten
+        <lb/>~~Als~~ Kinder Gustav Mahlers, ~~als~~ Vorkämpfer der Jüngeren und Jüng-
+        <lb/>sten, selbst der atonalen Komponisten, hat er gleichzeitig die
+        <lb/>klassischen
+        <lb/>vollkommensten Biografien der beiden Meister Johannes Brahms und
+        <lb/>mit derselben und mitfühlender Liebe
+        <lb/>Richard Strauss geschrieben, und ~~in dieser Zeit und~~ ~~gezeichnet~~ ~~ein~~ ~~Bildnis~~ ~~des~~ ~~sechzigjährigen~~ ~~Arthur~~ ~~Schnitzler~~ ~~und~~ ~~damals~~ ~~fünfunddreissigjährigen~~ ~~Franz~~ ~~Werfel~~ ~~an~~ ~~dieser~~ ~~Vielfältigkeit~~ ~~erkennt~~ ~~man~~ ~~schon~~ ~~das~~ ~~Wesentliche~~ ~~seiner~~ ~~Natur:~~ ~~eine~~ ~~vollkommene,~~ ~~eine~~ ~~allem~~ ~~aufgetane~~ ~~Einfühlungsgabe,~~ ~~eine~~ ~~Hingebungsfähigkeit~~ ~~an~~ ~~fremdes~~ ~~Wesen,~~ ~~des~~ ~~verwandten~~ ~~ebenso~~ ~~wie~~ ~~des~~ ~~gegnerischen,~~ ~~des~~ ~~zeitgenössischen~~ ~~nicht~~ ~~minder~~ ~~als~~ ~~des~~ ~~klassischen.~~ ~~Selbst~~ ~~Künstler,~~ ~~aber~~ ~~vielleicht~~ ~~aus~~ ~~zu~~ ~~weichem~~ ~~Stoff~~ ~~für~~ ~~weitausladende~~ ~~Gestaltung,~~ ~~hat~~ ~~er~~ ~~niemals~~ ~~aufgehört~~ ~~der~~ ~~Kunst~~ ~~durch~~ ~~Nachbildung~~ ~~und~~ ~~Erläuterung~~ ~~schöpferisch~~ ~~zu~~ ~~dienen.~~ ~~Aber~~ ~~zu~~ ~~Unrecht~~ ~~wäre~~ ~~er~~ ~~als~~ ~~Kritiker~~ ~~jenes~~ ~~Kreises~~ ~~benannt,~~ ~~neben~~ ~~den~~ ~~Dichtern~~ ~~und~~ ~~Musikern,~~ ~~denn~~ ~~sein~~ ~~Wille~~ ~~geht~~ ~~niemals~~ ~~auf~~ ~~darauf,~~ ~~abzuteilen~~ ~~und~~ ~~abzulehnen,~~ ~~sondern~~ ~~immer~~ ~~nur~~ ~~das~~ ~~Schöpferische~~ ~~nahezubringen,~~ ~~der~~ ~~liebevollste~~ ~~und~~ ~~verlässlichste~~ ~~Führer~~ ~~zu~~ ~~sein.~~ ~~Keiner~~ ~~Richtung~~ ~~verbunden,~~ ~~keiner~~ ~~Generation~~ ~~ausschliesslich~~ ~~verpflichtet,~~ ~~überall~~ ~~frei~~ ~~mit~~ ~~seinem~~ ~~unbeirrbaré~~ ~~mitempfinden~~
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>- 2 -
+      </p>
+      <p>
+        <lb/>denden, leidenschaftlich mitgeniessenden Blick, hat er dem
+        <lb/>Vergangenen seine Würde, dem Werdenden seine Wirkung in unserer
+        <lb/>Zeit erhalten geholfen und eine Reihe dauerhafter Standbilder
+        <lb/>in die Zeit und über die Zeit gestellt.
+        <lb/>und zu jeder Epoche
+        <lb/>Immer aber ist das Dichterische in Richard Specht wei-
+        <lb/>ter tätig geblieben, Es durchdringt als reinste, formende Substanz
+        <lb/>seine grossen Biografien, und manche Kapitel seiner Brahmsdarstel-
+        <lb/>lung, manche Porträts könnten ebenso gut einem Roman angehören,
+        <lb/>so hinreissend eindringlich und mitreissend sind die gestaltet.
+        <lb/>Aber auch in der reinen Form der Novelle und des kleinen Romans
+        <lb/>hat der gerade reife Künstler in ihm weiter geschaffen, freilich
+        <lb/>auch hier im Problematischen fast immer angelehnt an das Problem
+        <lb/>des schöpferischen Menschen. Ein Filmschauspieler, ein Musiker,
+        <lb/>werden Phantasie
+        <lb/>ein Komödiant, die Menschen seiner geistigen ~~Lebenswelt~~, immer
+        <lb/>reizt die psychische Natur in ihren ~~Heldsmomenten~~ ~~und~~ ~~Krisen~~ ~~seiner~~ ~~Schilderung~~ ~~quellen~~ ~~und~~ ~~wie~~ ~~in~~ ~~seinem~~ ~~humoristisch~~ ~~gefärbten~~ ~~Roman~~ ~~"Die~~ ~~Nase~~ ~~des~~ ~~Vallentin~~ ~~Berger"~~ ~~so~~ ~~zieht~~ ~~auch~~ ~~in~~ ~~der~~ ~~hier~~ ~~vorliegenden~~ ~~Novelle~~ ~~die~~ ~~Zwischenwelt~~ ~~wahrer~~ ~~und~~ ~~verschminkter,~~ ~~tragischer~~ ~~und~~ ~~skurriler~~ ~~Empfindung~~ ~~unwiderstehlich~~ ~~an.~~ ~~Geübt~~ ~~als~~ ~~unvergleichlicher~~ ~~Kritiker~~ ~~in~~ ~~jedem~~ ~~Takt,~~ ~~in~~ ~~jeder~~ ~~Verszeile,~~ ~~das~~ ~~bloss~~ ~~Gemachte~~ ~~vom~~ ~~Natürlichen~~ ~~unfehlbar~~ ~~unterscheidend,~~ ~~spürt~~ ~~er~~ ~~gern~~ ~~mit~~ ~~Leidenschaft~~ ~~der~~ ~~Echtes~~ ~~und~~ ~~Falsches~~ ~~nach,~~ ~~wo~~ ~~sich~~ ~~Echtes~~ ~~und~~ ~~Falsches,~~ ~~der~~ ~~reine~~ ~~und~~ ~~gezwungene~~ ~~Wille~~ ~~in~~ ~~gewissen~~ ~~Augenblicken~~ ~~gefährlich~~ ~~überschneiden.~~ ~~Und~~ ~~gleichzeitig~~ ~~auch~~ ~~wird~~ ~~man~~ ~~hier~~ ~~der~~ ~~andern~~ ~~besonderen~~ ~~Fähigkeit,~~ ~~jener~~ ~~Kultur-~~ ~~schilderung~~ ~~überzeugend~~ ~~gewahr.~~ ~~Wie~~ ~~in~~ ~~den~~ ~~ersten~~ ~~Werken,~~ ~~stellt~~ ~~er~~ ~~auch~~ ~~in~~ ~~dieser~~ ~~kleinen~~ ~~Erzählung~~ ~~die~~ ~~ganze~~ ~~Epoche~~ ~~des~~ ~~alten~~ ~~Burgtheaters~~ ~~und~~ ~~des~~ ~~vormärzlichen~~ ~~Wien,~~ ~~soviel~~ ~~ich~~ ~~weiss~~ ~~erstmalig~~ ~~dar~~ ~~und~~ ~~so~~ ~~geht~~ ~~von~~ ~~diesem~~ ~~kleinen~~ ~~Werke,~~ ~~weil~~ ~~es~~ ~~Extrakt~~ ~~der~~ ~~Kräfte~~ ~~sammelt,~~ ~~charakteristische~~ ~~Wirkung~~ ~~seines~~ ~~besonderen~~ ~~Wesens~~ ~~aus.~~
+      </p>
+      <p>
+        <lb/>Menschen wie dieser Richard Specht, sind notwendig in
+        <lb/>unserer Zeit. Menschen, die vom Dichter genug in sich haben um al-
+        <lb/>le andere Dichtung wahrhaft zu verstehen und verstehen zu machen
+        <lb/>und denen der anderseits der eigenwillige, eigensüchtige Hochmut
+        <lb/>fehlt, nur aus sich und für sich schaffen zu wollen. Vermitteln-
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>- 3 -
+      </p>
+      <p>
+        <lb/>de und schenkende Naturen, nähren sie im schönsten Sinn den geheim-
+        <lb/>nisvollen Zusammenhang zwischen Schaffenden, Schöpfung und Em-
+        <lb/>zwischen
+        <lb/>pfangenden, zu der gestaltenden und geniessenden Welt. Und unter
+        <lb/>diesen seltenen, reinen, hingebungsvollen und lauteren Naturen,
+        <lb/>will mir die Richard Specht's als eine der erfreulichsten, ehr-
+        <lb/>berufensten
+        <lb/>lichsten und liebenswürdigsten erscheinen. a'an die dürften etwas
+        <lb/>halten, die das, das die Kunst und ihre Menschen so
+        <lb/>produktiv gefördert, der seine Güte ganz in die Zeit
+        <lb/>gegeben, unsere aufrichtige und dankbare Liebe
+        <lb/>verweigern?
+      </p>
+      <p>
+        <lb/>Stefan Zweig
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <pb n="6" facs="#surf_6"/>
+      <pb n="7" facs="#surf_7"/>
+      </div>
+    </body>
+  </text>
+</TEI>

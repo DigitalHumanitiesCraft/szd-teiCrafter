@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title> Unidentified an Stefan Zweig, 1906-11-23, SZ-SAM/AK.214</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.504</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.504/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.504/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.504/IMG.3"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.504">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>23/11. 16
+        <lb/>~~Aus Villa Igiea mir~~ {eingefügt} ~~d~~ {eingefügt} ~~e~~ {eingefügt} ~~s~~ {eingefügt} ~~t~~ {eingefügt} ~~e~~ {eingefügt} ~~s~~ {eingefügt} ~~u~~ {eingefügt} ~~n~~ {eingefügt} ~~d~~ {eingefügt} ~~v~~ {eingefügt} ~~i~~ {eingefügt} ~~e~~ {eingefügt} ~~l~~ {eingefügt} ~~e~~ {eingefügt} ~~K~~ {eingefügt} ~~r~~ {eingefügt} ~~ü~~ {eingefügt} ~~ß~~ {eingefügt} ~~e~~ {eingefügt}!
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>Palermo, G[ro]d Hotel Villa
+        <lb/>Igiea.
+      </p>
+      <p>
+        <lb/>Lieber Freund, ich habe
+        <lb/>die[?] frohe Gelegenheit zum neuen
+        <lb/>Herzog[?] Genua gewünscht und
+        <lb/>wiederhole dies jetzt. Ich habe
+        <lb/>eine herrliche italienische Reise
+        <lb/>gemacht Rom, Neapel und bleibe
+        <lb/>nun über den Winter in Palermo.
+        <lb/>Laß doch hier von hören!! Herzlichst
+        <lb/>[Unterschrift unleserlich]
+      </p>
+      <p>
+        <lb/>Signore Dr Stefan Zweig
+      </p>
+      <p>
+        <lb/>Vienna I
+        <lb/>Rathausstrasse 17.
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      </div>
+    </body>
+  </text>
+</TEI>

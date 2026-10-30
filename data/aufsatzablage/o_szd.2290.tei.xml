@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Salzburg. Die Stadt als Rahmen</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA183.1</idno>
+            <idno type="objectId">o_szd.2290</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2290/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2290/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2290/IMG.3"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2290">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>schnittsvorstellungen hinzutreten. — Sehr witzig hat einmal ein geistreicher
+        <lb/>Mann solche Festspiele bezeichnet als »Repertoirvorstellungen, verschlech-
+        <lb/>tert einige gute Kräfte«. — Nein, auf den Stil kommt es an!
+        <lb/>Die Bayreuther Festspiele waren nicht nur eine Kunsttat, sie sind und bleiben
+        <lb/>auch eine Kulturtat von unvergänglicher Bedeutung. Das Jahr 1876 ist ein
+        <lb/>Markstein in der Geschichte des deutschen Geisteslebens, es war eine »Er-
+        <lb/>füllung uralten Sehnens und Suchens arischer Völker« (Schröder). Die Kunst
+        <lb/>wurde dort arisches Mysterium.
+        <lb/>Deutschland hat alle Ursache, diese Stätte zu pflegen, nicht durch Nörgeleien
+        <lb/>herunterzudrücken, sondern durch ihre Erhaltung dafür zu sorgen, daß »das
+        <lb/>aus Weltkrieg und Revolution erwachsene, neue Geschlecht in das Wesen
+        <lb/>des ihm noch unbekannten Bayreuther Kunst- und Kulturwerkes eingeführt
+        <lb/>werde« (Prüfer). Denn nur dort kann man den wahren Sinn der Wagner-
+        <lb/>schen Kunst kennenlernen. Die Bayreuther Festspiele bedeuten keine
+        <lb/>»Steigerung« des Theaters, sondern eine »ganz neue, von der Wirklichkeit
+        <lb/>unserer Theater so weit wie möglich abliegende Institution außerordentlicher
+        <lb/>Art«. (Wagner.) Dort nur ist die hohe Weihe zu verspüren, die das Kunst-
+        <lb/>werk in seiner höchsten Potenz auslöst, dort nur die sittliche Erhebung zu
+        <lb/>fühlen, die ein Bollwerk gegen die Mechanisierung und Bolschewisierung der
+        <lb/>Kunst ist.
+        <lb/>Das Bayreuther Festspielhaus ist und bleibt ein ragendes Ehrenmal des
+        <lb/>deutschen Volkes, ein Heiligtum deutscher Kunst.
+      </p>
+      <p>
+        <lb/>SALZBURG
+        <lb/>DIE STADT ALS RAHMEN
+        <lb/>VON
+        <lb/>STEFAN ZWEIG-SALZBURG
+      </p>
+      <p>
+        <lb/>Steigt man von den Höhen des Gaisberges zu Tal oder kommt man vom
+        <lb/>bayrischen Flachland — von allen Seiten sieht man zuerst das steinerne
+        <lb/>Schiff, die Hohen-Salzburg, über dem grünen Gewoge der Landschaft. Fest-
+        <lb/>geankert seit den Tagen der Römer, eine zweitausendjährige Trireme aus
+        <lb/>hellen Quadern, fährt dieses Schiff durch die Zeit und steht doch ewig an
+        <lb/>gleicher Stelle, bald den Bug, den scharfen, mit Mastturm und Wimpel dem
+        <lb/>Blicke blendend zugewandt, bald die Breitseite mit hundert Luken und
+        <lb/>Fenstern. Und um das leuchtende Schiff rauscht wie weißer Schaum inmitten
+        <lb/>einer grünen Flut die kleine uralte Stadt. Wäre nicht dies wuchtige Wahr-
+        <lb/>zeichen der Hohen-Salzburg über ihr, man wüßte nicht zu sagen, wo sie
+        <lb/>beginnt und endet, denn sie löst sich lose auf in die Landschaft, geht unmerk-
+        <lb/>lich in sie ein.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>584
+        <lb/>DIE MUSIK
+        <lb/>XXII/8 (Mai 1930)
+      </p>
+      <p>
+        <lb/>Diese Kunst des harmonischen Übergangs ist das Wunderbare und gleich-
+        <lb/>zeitig das eminent Musikalische an Salzburg. Denn die schärfsten Gegensätze
+        <lb/>stehen Stirn wider Stirn in dieser Stadt: sie in Stein und Stimmung tönend
+        <lb/>zu lösen, war ihr vorbehalten. Bergland und Flachland stoßen hier hart
+        <lb/>gegeneinander; von Süden wirft sich das mächtigste Massiv Europas, die
+        <lb/>Alpen, in drohendem Sturz heran, und gerade über dem Tal hält wie mit
+        <lb/>einem ungeheuren Ruck die gebäumte Felswelle plötzlich inne.
+        <lb/>Dies Geheimnis ausgleichenden Übergangs, diese Lösung von Dissonanz
+        <lb/>in Harmonie, ist aber ein Geheimnis der Musik. Man muß nicht erst auf
+        <lb/>Mozarts Heimathaus hindeuten, um zu bekräftigen, wie eminent musikalisch
+        <lb/>die Stadt wirkt. Und unnötig auch zu fragen, wer diese architektonische
+        <lb/>Melodie schuf, ob es die Erzbischöfe waren, die reichen und prunkfreudigen,
+        <lb/>oder die italienischen Baumeister oder die Gunst der Zeit: wie manche
+        <lb/>Menschen überschwebt eben auch manche Städte der Genius der Musik
+        <lb/>und gibt ihrer steinernen Hülle eine Schwingung, die jede Seele zum
+        <lb/>Tönen bringt. Plätze sind ihr gebaut für Umgänge und Prozessionen, Lust-
+        <lb/>schlösser für Heiterkeit und Spiel, Kirchen mit wölbigen Räumen für Orgel
+        <lb/>und Gesang — von allem Anfang an war ihr von prunkfreudigen, kunst-
+        <lb/>willigen Herren das Festhafte, das Spielfrohe wissend eingetan, das dann
+        <lb/>von diesem einen ihrer Menschen, von Mozart, aus Stein und Linie in Geist
+        <lb/>und Musik erhoben ward. In ihm hat sich die Form dieser Stadt gleichsam
+        <lb/>bildhaft gestaltet bis ins Ewige hinein — mitten im Irdischen aber steht noch
+        <lb/>der unversehrte Rahmen, das verlassene Instrument, immer wieder bereit
+        <lb/>zu erklingen. Und wenn festliches Spiel in ihr nun wieder beginnt, so wird
+        <lb/>nichts Fremdes gewaltsam der Stadt eingezwungen, sondern nur der in Stein
+        <lb/>eingegrabene Gedanke ihrer einstigen Herren wieder wahrhaft erfüllt und die
+        <lb/>eingefrorene Musik, die innere Melodik ihrer Gegenwart bewußt und auf-
+        <lb/>rauschend wieder zum Tönen gebracht.
+      </p>
+      <p>
+        <lb/>DIE SALZBURGER FESTSPIELE
+        <lb/>VON
+        <lb/>ROLAND TENSCHERT-SALZBURG
+      </p>
+      <p>
+        <lb/>Kunst und Fest gehören zusammen. Das täglich spielende Repertoiretheater, gegen
+        <lb/>welches wegen seiner nicht zu vermeidenden Beimischung von Täglich-Alltäglichem
+        <lb/>berechtigte grundsätzliche Bedenken bestehen, kann seine Existenz erst durch die frohen
+        <lb/>Feste rechtfertigen, für die seine sauren Wochen das Material liefern. Sind die in
+        <lb/>seiner Tagesarbeit gewonnenen Höchstleistungen der Einzelnen wie der Bühne als
+        <lb/>Ganzes festreif zu nennen, so sind sie aber dadurch immer noch nicht festlich. Zum
+        <lb/>Festlichen gehört das Ausnahmehafte: die vorzügliche Kunstleistung, die Darstel-
+        <lb/>lende und Genießende außerhalb des gewohnten Lebensganges, zur eigens nur für
+        <lb/>das Kunsterlebnis vorbestimmten und ausgenützten Zeit, am besonders hierfür ge-
+        <lb/>eigneten Ort vereint, ist erst festlich zu nennen. — In den Salzburger Festspielen
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>584
+        <lb/>DIE MUSIK
+        <lb/>XXII/8 (Mai 1930)
+      </p>
+      <p>
+        <lb/>Diese Kunst des harmonischen Übergangs ist das Wunderbare und gleich-
+        <lb/>zeitig das eminent Musikalische an Salzburg. Denn die schärfsten Gegensätze
+        <lb/>stehen Stirn wider Stirn in dieser Stadt: sie in Stein und Stimmung tönend
+        <lb/>zu lösen, war ihr vorbehalten. Bergland und Flachland stoßen hier hart
+        <lb/>gegeneinander; von Süden wirft sich das mächtigste Massiv Europas, die
+        <lb/>Alpen, in drohendem Sturz heran, und gerade über dem Tal hält wie mit
+        <lb/>einem ungeheuren Ruck die gebäumte Felswelle plötzlich inne.
+        <lb/>Dies Geheimnis ausgleichenden Übergangs, diese Lösung von Dissonanz
+        <lb/>in Harmonie, ist aber ein Geheimnis der Musik. Man muß nicht erst auf
+      </p>
+      <p>
+        <lb/>[...]
+      </p>
+      <p>
+        <lb/>der unversehrte Rahmen, das verlassene Instrument, immer wieder bereit
+        <lb/>zu erklingen. Und wenn festliches Spiel in ihr nun wieder beginnt, so wird
+        <lb/>nichts Fremdes gewaltsam der Stadt eingezwungen, sondern nur der in Stein
+        <lb/>eingegrabene Gedanke ihrer einstigen Herren wieder wahrhaft erfüllt und die
+        <lb/>eingefrorene Musik, die innere Melodik ihrer Gegenwart bewußt und auf-
+        <lb/>rauschend wieder zum Tönen gebracht.
+      </p>
+      <p>
+        <lb/>[...]
+      </p>
+      <p>
+        <lb/>serner Tagesarbeit gewonnenen Höchstleistungen der Einzelnen wie der Bühne als
+        <lb/>Ganzes festreif zu nennen, so sind sie aber dadurch immer noch nicht festlich. Zum
+        <lb/>Festlichen gehört das Ausnahmehafte: die vorzügliche Kunstleistung, die Darstel-
+        <lb/>lende und Genießende außerhalb des gewohnten Lebensganges, zur eigens nur für
+        <lb/>das Kunsterlebnis vorbestimmten und ausgenützten Zeit, am besonders hierfür ge-
+        <lb/>eigneten Ort vereint, ist erst festlich zu nennen. — In den Salzburger Festspielen
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

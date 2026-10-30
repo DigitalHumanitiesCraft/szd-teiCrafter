@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Josef Roth: "Rechts und Links".</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+        <respStmt><resp>contributor</resp><persName>Anna Meingast</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Literaturarchiv Salzburg</repository>
+            <idno type="shelfmark">SZ-AAP/W-AA168.1</idno>
+            <idno type="objectId">o_szd.2375</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+      <person xml:id="pers_anna_meingast">
+        <persName>Anna Meingast</persName>
+        <idno type="GND">http://d-nb.info/gnd/1080163751</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.2375/IMG.9"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2375">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Josef Roth: "Rechts und Links".
+        <lb/>-------------------------------
+        <lb/>Verlag Gustav Kiepenheuer, Berlin 1929.
+      </p>
+      <p>
+        <lb/>Die Zeit will {heute am liebsten ihr eigenes} ~~an ihren~~ Bild-
+        <lb/>nis ~~machen~~. Ihr Gestern will sie sich {immer wieder und immer} erzählen lassen, {in Grund noch} ~~ein Zeichen dies, wie wenig sie ihrer eigenen Richtung, ihrer seeli-
+        <lb/>schen Entscheidung seit dem Kriege gewiss ist. Zeugen fordert sie, Re-
+        <lb/>präsentanten und Erklärer mehr als ~~dem~~ {diesem dichterischen} Zeitlosen {derzeit} gewandten Dichter,
+        <lb/>und tatsächlich ist an ~~ihrem~~ Willen unsere beste Darstellungskunst heu-
+        <lb/>te eine epische dokumentarische {geworden. Zu diesen Sprechern und Zeu-
+        <lb/>gen ~~unserer~~ Wirklichkeit gehört} {der neuen} {schon in vorderer Reihe} Josef Roth, der Zweiunddreissigjähri-
+        <lb/>ge; ~~er~~ spricht für jene ganze tragische Generation, seine eigene,
+        <lb/>die geradeaus von der Schulbank in den Krieg getrieben und der dort
+        <lb/>in den Schützengräben und dann im Chaos der Inflation alle Naivität
+        <lb/>und Treugläubigkeit der Jugend ~~erschütterte~~ rettungslos verschüttet
+        <lb/>wurde. Von die vielleicht zwei Millionen seiner Altersklasse hat die
+        <lb/>Hälfte der Krieg umgelegt, die {andern meisten} der Zurückgekehrten
+        <lb/>haben sich allmählich zurechtgefunden, eingekapselt in einen Beruf,
+        <lb/>angeklammert rechts oder links an eine Partei, an eine Weltanschauung.
+        <lb/>Aber einige und nicht wenige, wahrscheinlich die Zartesten, die Ver-
+        <lb/>wundbarsten, die Wertvollsten haben es heute nach einem Jahrzehnt noch
+        <lb/>immer nicht über sich gebracht, kopfüber mit geschlossenen Augen sich
+        <lb/>in irgend eine Strömung zu stürzen und mit ihr zu schwimmen, noch im-
+        <lb/>mer sind sie auf der Suche nach irgend einer Kompensation für ihre
+        <lb/>verratene Jugendgläubigkeit, nach irgend einer klaren, wahren und red-
+        <lb/>lichen Einstellung zur Gegenwart. Für diese {„deracines“} ~~Menschen~~, für diese Ent-
+        <lb/>wurzelten, für diese "Wanderer die zwei fremden und keine Heimat haben"
+        <lb/>~~Menschen~~, spricht Josef Roth heute in Deutschland vielleicht ein-
+        <lb/>drucksvollsten: eine "Flucht ohne Ende", von Land zu Land, von Klasse
+        <lb/>zu Klasse, ~~von~~ Partei zu Partei, wahrhaftig das sind sie, seine Bü-
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>- 2 -
+      </p>
+      <p>
+        <lb/>cher, ein unablässiges Sich-Festhakenwollen und doch wieder Sichlos-
+        <lb/>reissen, alles "Menschen nach dem Kriege", wie einen {der Zahllose} Hans Sochaczewer {jüngst}
+        <lb/>in seinem Roman schildert, die {mit einem Herzen von früher} {auf der realen Erde in der wirklichen}
+        <lb/>Zeit nicht mehr Fuss fassen ~~können~~ können. Sie suchen seelische
+        <lb/>Heimat in Deutschland und finden sie nicht, sie fahren nach Frankreich,
+        <lb/>nach Russland, alle Länder durchstreifen sie, an alle Klassen und Sit-
+        <lb/>ten und Parteien und Gruppen versuchen sie sich anzugliedern, aber
+        <lb/>immer vergeblich, und dieses Suchen von vielen Einzelnen, dieses unab-
+        <lb/>lässige Versuchen macht sie, obwohl Kommunist der eine, obwohl Rechts-
+        <lb/>radikaler der andere, einander im tiefsten Sinn {zeit} brüderhaft. Alle diese
+        <lb/>Menschen Josef Roths haben einen unheimlich wachen, haben seinen eige-
+        <lb/>nen gefährlich misstrauischen Blick gegen das Leben. Sie lassen sich
+        <lb/>nicht täuschen, obwohl sie alle {jetzt} heimlich beneiden, die sich {billig} ~~da~~ 
+        <lb/>täuschen lassen können, die sich Illusionen, Gläubigkeiten, politischen
+        <lb/>Parolen oder äussern Erfolgen hingeben: in ihrer Pupille ist die Linse
+        <lb/>des {viele scharfe Jahre} mit Misstrauen ~~durch~~ durch Jahre schmerzhaft geschliffen und
+        <lb/>dass {sofort durchschauen} {nicht} sie ~~dann~~ mit ihrem strengen, nüchternen Blick alle Unwahrhaftig-
+        <lb/>keiten und vor allem die der eigenen Haltung. Das wirkt, {es quält einen} {diese Darstellung} {einen} {vache}
+        <lb/>zu, zunächst bedrückend in den Büchern Josef Roth's, dass sie so furcht-
+        <lb/>bar ausweglos sind, so mitleidslos {unsentimentalisd} desillusionierend und ich kann es
+        <lb/>auch verstehen, dass aus diesem Grunde seine blendend geschriebenen, seine
+        <lb/>mit Wirklichkeit überfüllten Romane {bisher} {rechte} keine Weitwirkung gefunden
+        <lb/>haben. {Denn} aus instinktivem Bedürfnis {braucht} die Generation von heute
+        <lb/>Bejahung und Bestärkung ihrer selbst {und aus selbstablungtrieb sie} {dichterischen} {in ihres innern Schwenkens}
+        <lb/>willens. {Unperisseheiten an deutlich} {Wie} sie fürchtet sich vor den Dokumenten, die ihre eigene Be-
+        <lb/>troffenheit und {Mittelmässigkeit} enthüllen. Darum bleiben die Bücher Josef
+        <lb/>Roth's aber {doch} nicht minder gerade und wahr, denn die grosse Allge-
+        <lb/>meinheit in Deutschland, die ihre innere Verwirrtheit heute mit rasen-
+        <lb/>{politischen}
+        <lb/>der Zehnstundenarbeit überrennt, oder mit Parolen überschreitet, sie weiss
+        <lb/>{hinter Nachbartüren und Fenstern}
+        <lb/>{gar} nicht wieviel solcher seelisch Verwundeter, in ihrem organischen
+        <lb/>Wachstum ~~erschüttert~~ durch den Krieg gehemmter Naturen heute noch {mit}
+        <lb/>vom Gefühl ihrer Unanständigkeit {in der Zeit gequält sind}
+        <lb/>{und wie wichtig gerade diesen ein Bildnis ihres}
+        <lb/>allerheimlichsten Kampfes {ist. Und} dies macht das Besondere der Bücher
+        <lb/>Josef Roth's für mein Gefühl aus. dass sie einen dermassen verworrenen
+        <lb/>Seelenzustand mit {mit} äusserster Klarheit {und} einer bis zum kleinsten
+        <lb/>Kiesel unter der Strömung hinleuchtenden Transparenz darstellen, {dass}
+        <lb/>{e anbarnherzig exact sind mit ihren harten Feststellungen, köstlich frisch gleichzeitig bei} {bitterm Geschmack}
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>- 3 -
+      </p>
+      <p>
+        <lb/>Innerlich sehr erschüttert, {im Menschlichen} bis zur Verzweiflung er-
+        <lb/>regt und bewegt, stellt {in} {als Künstler} {Josef Roth} {mit einer unheim-
+        <lb/>lichen Sicherheit und Umrisskraft jeden einzelnen Menschen, jede ein-
+        <lb/>zelne soziologische Erscheinung dar. Er kennt das ganze Triebwerk der
+        <lb/>Gesellschaftsmaschine bis in die letzte verborgen wirkende Feder, bis
+        <lb/>in die kleinste, winzigste Kraftumschaltungsstelle und ebenso sicher
+        <lb/>legt er, ohne {jedweder} pathetische Vergrösserung und Vergröberung zu bedürfen,
+        <lb/>die Krankheitskeimzelle jeder einzelnen Psyche dar. Er hat gefährlich
+        <lb/>wache Nerven, {die auf jede Unechtheit} {dieser Josef Roth} {besprechen um Vorbeischwindeln vor dem Gewissen}
+        <lb/>haft reagieren, {er duldet keine} {und kontrolls} {und} {Verstellung. Darum geht es sehr hell zu}
+        <lb/>{in seinen Romanen, freilich nicht recht taghell, mit starker ozonhal-
+        <lb/>tiger von Sonne durchfilterter Luft, es ist vielmehr die glasklare,
+        <lb/>metallische Klarheit eines Seziersaales, wo ein komplizierter Fall am
+        <lb/>innersten Gewebe mit dem Skalpell demonstriert wird. Diese glasklare,
+        <lb/>aber darum nicht kalte Helligkeit waltet auch in seiner Sprache, die
+        <lb/>wie der Silhouette mit dem Messer, in allerreinster Linie und {dabei}
+        <lb/>mit sparsamster Technik jedes Geschehnis umreisst und deren {prosaiche} Lichthellig-
+        <lb/>keit, deren Rechtschaffenheit schon im ästhetischen Sinn auf das wohl-
+        <lb/>tuendste berührt: so kommt alles Lastende, Schwere und Bedrückende
+        <lb/>{mattigkeit}
+        <lb/>{immer nur vom Innersten, von seiner Seelen} {der Zeit}
+        <lb/>{kurzum daher, dass} {vorerst nur}
+        <lb/>wie im letzten, alle seine Bücher {furchtbar klare und wahre Diagnosen}
+        <lb/>{und noch nicht}
+        <lb/>sind, {ein Versuch einer Therapie. Immer steht am letzten Wegkreuz}
+        <lb/>seiner Erzählungen {ein unsichtbares Fragezeichen, ein Ich-weiss-nicht-
+        <lb/>{angelehrt aus ihren Lehrjahren und Wanderjahren}
+        <lb/>wohin seiner Menschen, sie gehen {an von vorhat und wird vorbei}
+        <lb/>{ermüdet vorbei}
+        <lb/>an allen Erkenntnisse und Erfahrungen, {aber keiner kommt ganz zu sich}
+        <lb/>{endgültigen Entelechie}
+        <lb/>{selbst} auf dieser "Flucht ohne Ende", zu seiner {zu einem dau-
+        <lb/>erhaften Bezuge zur Welt.}
+      </p>
+      <p>
+        <lb/>Auch sein neues Buch, ebenso wirklichkeitshaltig, ebenso
+        <lb/>geistig belebt und hellsichtig beschwingt wie die früheren, auch der
+        <lb/>Roman "Rechts und Links" hat keine rechte Antwort. Beide Brüder, der
+        <lb/>jüngere und der ältere, gehen nicht so sehr ihren eigenen Weg als sie
+        <lb/>geschoben werden von starken Kräften und keineswegs der Richtung zu,
+        <lb/>die ihre innerste, ihre eigenste ist. Aber zum erstenmal erscheint
+        <lb/>hier eine Gestalt der man die Kraft zutraut mit dem Ich als Problem
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>schliesslich
+        <lb/>und mit dem Leben als Aufgabe fertig zu werden, Nikolai Brandeis, ein
+        <lb/>Skeptiker auch er, aber Skeptiker auf einer schon höheren Linie. Ein
+        <lb/>Mann der Erfolg hat, aber sich nicht von ihm haben lässt, der nicht
+        <lb/>von vorneweg an der Zeit verächtlich vorübergeht, sondern {Dieser Nikolai Brandeis}
+        <lb/>dass er es unternehmen kann, souverän mit ihr zu spielen. {Es ist der}
+        <lb/>erste positive Mensch, den Josef Roth bisher geschaffen hat und sein
+        <lb/>{vorerst nur an - auch}
+        <lb/>Schicksal {ist} {noch nicht} ausgedeutet, sondern einem nächsten Roman
+        <lb/>{aber immerhin spürbar}
+        <lb/>vorbehalten; {in diesem sehr wichtigen und}
+        <lb/>{ein}
+        <lb/>dokumentarischen {Darstellen der Verzweiflung einer Zeit einen neuen}
+        <lb/>Willen, die eigene Resignation zu überwinden, der Hemmungen und Beklem-
+        <lb/>mungen künstlerisch Herr zu werden und aus einer eigenen Figur sich
+        <lb/>{selbst Kraft und Sicherheit zuzusprechen, alle skeptische Kunst hat}
+        <lb/>{Mit ihm scheint Josef Roth eine Gemüsenkrise überwunden zu haben. Dann}
+        <lb/>nur zwei Wege um fruchtbar zu werden, den zur Ironie, die kontrapunk-
+        <lb/>tisch die immere Schwere entlastet: sie führt zu einer Kunst wie sie
+        <lb/>die Engländer in Dickens und Shaw, die Franzosen in Anatole France {dank-
+        <lb/>{den andern, das sie}
+        <lb/>bar besitzen, Oder sie {geht} befreit sich vom Unglauben an die Zeit
+        <lb/>durch Leidenschaft zum Zeitlosen und Ueberdauernden. Beide Wege sind
+        <lb/>Josef Roth, einem der störksten prosaischen Talente, die in den letz-
+        <lb/>{eigentlich nichts}
+        <lb/>ten Jahren neu zu uns kamen, heute noch wahlfrei; ihm fehlt {als}
+        <lb/>{besonderen brauchbarkunst}
+        <lb/>{Mut} der letzte Mut zu sich selbst um zu werden, der er seiner see-
+        <lb/>{ein entscheidender Gestalter, bislang gefehlt}
+        <lb/>lichen Intensität, seiner {unbeirrbaren} {des - hat}
+        <lb/>Wirklichkeitskenntnis {schon längst ist: {Nur hat fehlt ihm sich}
+        <lb/>die Nerven vom schlechten Dunst der Zeit nicht niederdrücken zu lassen,
+        <lb/>{die unblossenherzreiche psychologische}
+        <lb/>{Werke}
+        <lb/>nur {Kraft an grösserer, panoramisch weiterwirkenden}
+        <lb/>{unrecht rechtmässiger}
+        <lb/>{wenden. Es braucht nur zu wollen und}
+        <lb/>{die Wirkung in die Zeit, die} {war in umrechter}
+        <lb/>{und doch seelisch verständlicher Weise ihm noch nicht genug am}
+        <lb/>{zugefallen, wird ihm unbedingt gehören.}
+        <lb/>{sie}
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>schliesslich
+        <lb/>und mit dem Leben als Aufgabe fertig zu werden, Nikolai Brandeis, ein
+        <lb/>Skeptiker auch er, aber Skeptiker auf einer schon höheren Linie. Ein
+        <lb/>Mann der Erfolg hat, aber sich nicht von ihm haben lässt, der nicht
+        <lb/>von vorneweg an der Zeit verächtlich vorübergeht, sondern {Dieser Nikolai Brandeis}
+        <lb/>dass er es unternehmen kann, souverän mit ihr zu spielen. {Es ist der}
+        <lb/>erste positive Mensch, den Josef Roth bisher geschaffen hat und sein
+        <lb/>{vorerst nur an - auch}
+        <lb/>Schicksal {ist} {noch nicht} ausgedeutet, sondern einem nächsten Roman
+        <lb/>{aber immerhin spürbar}
+        <lb/>vorbehalten; {in diesem sehr wichtigen und}
+        <lb/>{ein}
+        <lb/>dokumentarischen {Darstellen der Verzweiflung einer Zeit einen neuen}
+        <lb/>Willen, die eigene Resignation zu überwinden, der Hemmungen und Beklem-
+        <lb/>mungen künstlerisch Herr zu werden und aus einer eigenen Figur sich
+        <lb/>{selbst Kraft und Sicherheit zuzusprechen, alle skeptische Kunst hat}
+        <lb/>{Mit ihm scheint Josef Roth eine Gemüsenkrise überwunden zu haben. Dann}
+        <lb/>nur zwei Wege um fruchtbar zu werden, den zur Ironie, die kontrapunk-
+        <lb/>tisch die immere Schwere entlastet: sie führt zu einer Kunst wie sie
+        <lb/>die Engländer in Dickens und Shaw, die Franzosen in Anatole France {dank-
+        <lb/>{den andern, das sie}
+        <lb/>bar besitzen, Oder sie {geht} befreit sich vom Unglauben an die Zeit
+        <lb/>durch Leidenschaft zum Zeitlosen und Ueberdauernden. Beide Wege sind
+        <lb/>Josef Roth, einem der störksten prosaischen Talente, die in den letz-
+        <lb/>{eigentlich nichts}
+        <lb/>ten Jahren neu zu uns kamen, heute noch wahlfrei; ihm fehlt {als}
+        <lb/>{besonderen brauchbarkunst}
+        <lb/>{Mut} der letzte Mut zu sich selbst um zu werden, der er seiner see-
+        <lb/>{ein entscheidender Gestalter, bislang gefehlt}
+        <lb/>lichen Intensität, seiner {unbeirrbaren} {des - hat}
+        <lb/>Wirklichkeitskenntnis {schon längst ist: {Nur hat fehlt ihm sich}
+        <lb/>die Nerven vom schlechten Dunst der Zeit nicht niederdrücken zu lassen,
+        <lb/>{die unblossenherzreiche psychologische}
+        <lb/>{Werke}
+        <lb/>nur {Kraft an grösserer, panoramisch weiterwirkenden}
+        <lb/>{unrecht rechtmässiger}
+        <lb/>{wenden. Es braucht nur zu wollen und}
+        <lb/>{die Wirkung in die Zeit, die} {war in umrechter}
+        <lb/>{und doch seelisch verständlicher Weise ihm noch nicht genug am}
+        <lb/>{zugefallen, wird ihm unbedingt gehören.}
+        <lb/>{sie}
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

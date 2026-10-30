@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Vortrag über Dostojewski II [Beilage]</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.218</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.218/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.218/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.218">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>- are - Eine Dostojewski-Feier hat die Künstlerhilfe für die
+        <lb/>hungernden Rußlands im Staatstheater bereitet. Eine Veran-
+        <lb/>staltung, die nicht nur der gute Zweck, sondern der Künstler heilige
+        <lb/>innigste Innerlichkeit trug die Ansprache Stefan Zweigs, der
+        <lb/>er wie in einem meisterlichen Essai über Dostojewski fern einer nur
+        <lb/>geratenhaften Geste sich zu dem Propheten und dem Apostel des
+        <lb/>Leidens bekannte. Als nach ihm Fritz Kortner jenes wunder-
+        <lb/>same Kapitel aus dem VII. Buche der Russenbibel aus den „Brüdern
+        <lb/>Karamasow“ „Die Hochzeit zu Kana“ las, die Glut seiner Natur
+        <lb/>und seine vollendete Sprechkunst in die Seele des Jünglings Aljoscha
+        <lb/>stürzend, war die Stimme Dostojewskis gebannt: „De profundis
+        <lb/>clamavi“. Nicht restlos schöpfte die immer bewußte Tilla
+        <lb/>Durieux das Gefühl aus, das in Zweigs „Dostojewski“-
+        <lb/>Gedicht pocht, aber sicher traf sie die revolutionäre Wucht in der
+        <lb/>gespenstisch-wilden Ballade „Die Zwölf“, mit der Alex. Blok die Herr-
+        <lb/>schaft der Bolschewiki ankündet. Die Muttersprache dieses leidenden
+        <lb/>Volkes brachte ein Herold der Stanislawski-Truppe, Wassily
+        <lb/>Katschalow, dessen seltsam eindringlichen Gebärden und
+        <lb/>Miene zu folgen auch dem Freude gab, der keineswegs
+        <lb/>die Laute seiner Heimat zu deuten verstand. Nicht besser konnte die
+        <lb/>Feier beschlossen werden, als mit russischen Volksweisen, wie Feuer
+        <lb/>glimmenden und schwebenden, die das Balalaikaorchester Romanow
+        <lb/>vollendet spielte.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>fürchten, daß er das Vertrauen der europäischen Leser durch
+        <lb/>politischen Urteile verloren habe(?). Seine Vorwürfe gegen F-
+        <lb/>reich seien ungeheuerlich. Obendrein habe er sich dazu verführen la
+        <lb/>zu sagen, er hoffe, daß es in einem Jahrhundert kein b
+        <lb/>tisches Weltreich mehr geben werde. Die Frage,
+        <lb/>er damit gemeint habe, könne man offen lassen. Aber der Ein
+        <lb/>auf jedermann könne nicht anders als ungünstig sein. Das A
+        <lb/>erklärt dann, die weitere Berichterstattung seinem ständigen
+        <lb/>respondenten überlassen zu wollen. (Es mag dahingestellt bleiben, ob
+        <lb/>dem Blatte Lord Northcliffes das Recht zusteht, sich auf eine s
+        <lb/>erhabene Warte zu stellen und einem Manne wie Wells die Unpartei-
+        <lb/>lichkeit abzusprechen. Wells wird sich mit Keynes und anderen
+        <lb/>Gleichgesinnten trösten, denn selbst Götter kämpfen bekanntlich ver-
+        <lb/>gebens gegen — Unbelehrbarkeit. Die Red.)
+        <lb/>Z Washington, 28. November.
+        <lb/>Wells gibt bekannt, daß er von jetzt ab seine Artikel in der
+        <lb/>Londoner Zeitung „Daily Expreß“ und im „New York World“
+        <lb/>erscheinen werde. Als die Redaktion der „Daily Mail“ da-
+        <lb/>gegen protestierte, richtete die „New York World“ ein scharfes
+        <lb/>Telegramm an die „Daily Mail“, in dem gesagt wird,
+        <lb/>die „Daily Mail“ möge sich um ihre eigenen Angelegen-
+        <lb/>heiten kümmern. Die Washingtoner Presse lobt
+        <lb/>einmütig Wells als ein leuchtendes Beispiel
+        <lb/>journalistischer Redlichkeit.
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

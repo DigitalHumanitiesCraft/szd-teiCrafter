@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>VI Capitel
+                                Ein Wille gegen tausend Widerstände</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+        <respStmt><resp>contributor</resp><persName>Lotte Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/W-G503.3</idno>
+            <idno type="objectId">o_szd.320</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+      <person xml:id="pers_lotte_zweig">
+        <persName>Lotte Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/116001151</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.6"/>
+    </surface>
+    <surface xml:id="surf_7">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.7"/>
+    </surface>
+    <surface xml:id="surf_8">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.8"/>
+    </surface>
+    <surface xml:id="surf_9">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.9"/>
+    </surface>
+    <surface xml:id="surf_10">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.10"/>
+    </surface>
+    <surface xml:id="surf_11">
+      <graphic url="https://gams.uni-graz.at/o:szd.320/IMG.11"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.320">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>3. Fassung
+        <lb/>VI Capitel. Ein Wille gegen tausend Widerstände
+      </p>
+      <p>
+        <lb/>Bei grossen {Leistungen} ~~Ereignissen~~ ist die Welt geneigt, um
+        <lb/>der Vereinfachung der Optik willen immer nur ~~auf~~ den dra-
+        <lb/>matischen, den pittoresken Augenblick ~~zu sehen~~ {hervorzuheben}: Napoleon an
+        <lb/>Caesar, da er den Rubicon überschreitet, Napoleon auf der
+        <lb/>Brücke von Arcole. ~~Den~~ {Schaffen aber} ~~gewaltsamen~~ ~~Widerstand~~ ~~in~~ dieser einen knappen
+        <lb/>~~restlos~~ {~~die~~ ~~mühselige~~ ~~alltägliche~~} ~~Jahre~~ der Vorbereitung, die geistige,
+        <lb/>die geduldhafte, die organisatorische Emporshifung der Tat {~~auch~~ ~~bei~~} ~~Magellan~~ ~~wäre~~
+        <lb/>letzten entscheidenden Augenblick, ~~und~~ ~~auch~~ ~~bei~~ ~~Magellan~~ ~~wäre~~ {~~darf~~} es vielleicht der schwieri-
+        <lb/>gere Teil ~~seiner~~ {~~mühseligen~~} Leistung, eine Flotte zu erzwingen, {~~durchzusehen~~} ihre Ausrüstung gegen
+        <lb/>tausend Widerstände zu ~~erzwingen~~ {führen}, als die fertige dann zu dem vor-
+        <lb/>{? getrennten} ~~gesuchten~~ Ziele zu ~~führen~~. War einer ungeheuren Aufgabe {~~ist~~ ~~plötzlich~~ ~~der~~ ~~neue~~} der schon
+        <lb/>bisherige sobresaliente, der unbekannte Soldat gegenübergestellt, Etwas
+        <lb/>ganz Neues nur Vorbildloses {hat der} ~~soll~~ ~~ein~~ in der Organisation bisher
+        <lb/>noch Unerprobte vollbringen: eine Flotte von fünf Schiffen aus-
+        <lb/>rüsten {~~die~~ ~~deutlich~~ ~~von~~ ~~der~~ ~~es~~ ~~nur~~ ~~den~~ ~~Anfang~~ ~~beurlaubt~~} {~~und~~ ~~niemand~~} {~~gibt~~ ~~den~~ ~~Anfang~~} {~~Magellan~~} {~~kaum~~} {~~zu~~ ~~beraten~~} {~~denn~~ ~~niemand~~ ~~kennt~~ ~~die~~ ~~noch~~ ~~betretenen~~ ~~Zonen~~} {~~und~~ ~~in~~ ~~er~~ ~~was~~ ~~will~~} {~~Niemand~~} {~~kann~~ ~~ihm~~ ~~sagen~~, ~~wie~~ ~~lange~~ ~~die~~ ~~Fahrt~~ ~~dauern~~ ~~wird~~, ~~in~~} {~~welche~~ ~~Zonen~~, ~~in~~ ~~welches~~ ~~Klima~~, ~~zu~~ ~~welchen~~ ~~Völkern~~ ~~sie~~ ~~führt~~, ~~nur~~ ~~für~~} {~~alle~~ ~~nur~~ ~~denkbaren~~ ~~Möglichkeiten~~, ~~für~~ ~~für~~ ~~ein~~ ~~Jahr~~, ~~vielleicht~~ ~~für~~ ~~zwei~~, ~~vielleicht~~ ~~für~~ ~~drei~~} {~~sche~~ ~~Hitze~~, ~~bitter~~ ~~Sturm~~ ~~und~~ ~~Windstille~~, ~~für~~ ~~Krieg~~ ~~und~~ ~~für~~ ~~Handel~~ ~~muss~~} {~~sie~~ ~~gleichzeitig~~ ~~gerüstet~~ ~~sein~~. ~~Alles~~ ~~muss~~ ~~er~~ ~~dass~~ ~~selbst~~ ~~erreichen~~, ~~erhumpfen~~} {~~erzwingen~~ ~~und~~ ~~dann~~ ~~gegen~~ ~~in~~ ~~unerwarteten~~ ~~Widerstand~~} {~~gegen~~ ~~in~~ ~~feindseligste~~ ~~Widerstände~~ ~~wird~~ ~~alles~~ ~~von~~ ~~ihm~~ ~~allein~~ ~~erwo~~} {~~gen~~, ~~errechnet~~, ~~erkämpft~~, ~~erzwungen~~ ~~werden~~} {~~hat~~ ~~nun~~ ~~erst~~ ~~an~~ ~~der~~} {~~Magellan~~} {~~es~~ ~~den~~ ~~Maler~~, ~~den~~ ~~Dichter~~ ~~reizen~~, ~~ihn~~ ~~darzustellen~~ ~~in~~ ~~Augenblicke~~ ~~des~~ ~~Triumpfs~~, ~~da~~} {~~sein~~ ~~Plan~~ ~~ist~~ ~~er~~ ~~die~~ ~~ihm~~ ~~gebotene~~ ~~Stramm~~ ~~dastehen~~. ~~In~~ ~~Wahrheit~~ ~~aber~~}
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>Grösse der Aufgabe {~~wird~~ ~~die~~ ~~jahrelang~~ ~~hinter~~ ~~fremden~~ ~~Rahmen~~ ~~verborgene~~} {~~ein~~ ~~seine~~ ~~dämmende~~ ~~Arbeitskraft~~} {~~ritt~~} die jahrelang hinter fremden Rahmen verborgene
+        <lb/>Energie Magellans endlich zu Tage. Während sein Rivale im Welt-
+        <lb/>ruhm, Columbus, dieser „Don Quichote der Meere“, dieser naive und
+        <lb/>weltfremde Phantast alle praktischen Dinge der Vorbereitung den Pinzons
+        <lb/>und andern Piloten überlässt, erweist sich Magellan — hierin Napoleon
+        <lb/>ähnlich — {~~ebenso~~ ~~verwegen~~ ~~in~~ ~~der~~ ~~Gesamtcon~~} {~~ception~~ ~~seiner~~ ~~Unternehmung~~ ~~als~~ ~~präzis~~ ~~und~~ ~~pedantisch~~ ~~in~~ ~~der~~ ~~Durchden~~} {~~kung~~, ~~in~~ ~~der~~ ~~Durchrechnung~~ ~~jedes~~ ~~Details~~} {~~genau~~ ~~wie~~} {~~mit~~ ~~seiner~~ ~~Alpenüberquerung~~ ~~sind~~ ~~Aus~~ ~~dieser~~ ~~bindet~~ ~~sich~~ ~~grossartige~~ ~~Strategie~~} {~~geniale~~ ~~Phan~~} {~~tasie~~ ~~mit~~ ~~genialer~~ ~~Exaktheit~~ ~~nur~~ ~~wie~~ ~~Napoleon~~} {~~vor~~ ~~seinem~~ ~~Alpenübergang~~} {~~blitzhaft~~ ~~schnellen~~ ~~wohin~~ ~~nur~~ ~~wohin~~ ~~schon~~} {~~voraus~~ ~~berechnen~~ ~~müsste~~} {~~wie~~ ~~viel~~ ~~Pfund~~ ~~Pulver~~, ~~wie~~ ~~viel~~ ~~saiche~~ ~~Hafer~~} {~~an~~ ~~einem~~ ~~bestimmten~~ ~~Tage~~ ~~an~~ ~~einer~~ ~~bestimmten~~ ~~Stelle~~ ~~des~~ ~~Vormarsches~~} {~~bereithalten~~ ~~werden~~, ~~so~~ ~~bedacht~~ ~~bei~~ ~~der~~ ~~Ausrüstung~~ ~~seiner~~ ~~Flotte~~} {~~schon~~ ~~im~~ ~~voraus~~} {~~auf~~ ~~zwei~~, ~~auf~~ ~~drei~~ ~~Jahre~~ ~~hinaus~~ ~~jede~~ ~~nur~~ ~~denkbare~~ ~~Möglichkeit~~. ~~Un~~} {~~geheure~~ ~~Aufgabe~~ ~~eines~~ ~~einzelnen~~ ~~Mannes~~: ~~an~~ ~~alles~~ ~~zu~~ ~~denken~~ ~~und~~ ~~für~~} {~~alle~~ ~~nur~~ ~~dabei~~ ~~hinderlich~~ ~~hinderte~~ ~~Begegnungen~~ ~~der~~ ~~ewig~~ ~~dem~~ ~~Unge~~} {~~wollten~~ ~~die~~ ~~hinderlei~~ ~~Hemmungen~~ ~~zu~~ ~~überwin~~} {~~den~~, ~~die~~ ~~sich~~ ~~immer~~ ~~der~~ ~~Halsung~~ ~~einer~~ ~~Idee~~ ~~in~~ ~~die~~ ~~Tat~~ ~~aus~~ ~~der~~ ~~Schwer~~} {~~kraft~~ ~~der~~ ~~Materie~~ ~~ergeben~~. ~~Zwar~~ ~~hat~~ ~~Kaiser~~ ~~Karl~~ ~~sein~~ ~~Wort~~ ~~verpfändet~~,} {~~alles~~ ~~für~~ ~~die~~ ~~Weltfahrt~~ ~~Nötige~~ ~~zu~~ ~~veranlassen~~ ~~und~~ ~~wertgelern~~} {~~ste~~ ~~Hilfeleistung~~ ~~all~~ ~~seinen~~ ~~Ämtern~~ ~~anbefohlen~~, ~~aber~~ ~~zwischen~~ ~~einem~~} {~~Befehl~~, ~~sogar~~ ~~einem~~ ~~kaiserlichen~~ ~~Befehl~~ ~~und~~ ~~seiner~~ ~~Befolgung~~ ~~bleibt~~ ~~vielerlei~~} {~~Raum~~ ~~für~~ ~~Verzögerungen~~ ~~und~~ ~~künstliche~~ ~~Hindernisse~~;} {~~immer~~ ~~muss~~ ~~das~~ ~~alles~~ ~~wahrhaft~~ ~~schaffende~~ ~~schon~~ ~~allein~~}
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>{allein}
+        <lb/>{~~tatsächlich~~ ~~abwartend~~ ~~seine~~ ~~Ernennung~~ ~~von~~ ~~dem~~ ~~Schöpfer~~ ~~selbst~~ ~~ge~~} {~~tan~~ ~~werden~~, ~~soll~~ ~~es~~ ~~wahrhaft~~ ~~vollendet~~ ~~sein~~. ~~Nichts~~ ~~war~~ ~~auch~~ ~~nicht~~ ~~das~~} {~~Nichtigste~~ ~~in~~ ~~der~~ ~~Vorbereitung~~ ~~seines~~ ~~Lebens~~ ~~hat~~ ~~Magellan~~ ~~einem~~ ~~an~~} {~~dern~~ ~~überlassen~~. ~~Indem~~ ~~er~~ ~~mit~~ ~~der~~ ~~Casa~~ ~~de~~ ~~contratacion~~, ~~mit~~ ~~den~~} {~~Ämtern~~, ~~den~~ ~~Händlern~~, ~~den~~ ~~Lieferanten~~, ~~den~~ ~~Werkleuten~~ ~~auf~~ ~~die~~ ~~zäheste~~} {~~Weise~~ ~~verhandelt~~, ~~überwacht~~ ~~er~~ ~~im~~ ~~Bewusstsein~~ ~~seiner~~ ~~Verantwortung~~ ~~vor~~} {~~dem~~ ~~Kaiser~~, ~~der~~ ~~ihm~~ ~~eine~~ ~~Flotte~~ ~~geliehen~~, ~~vor~~ ~~den~~ ~~Menschen~~, ~~die~~ ~~ihm~~ ~~ihr~~ ~~Leben~~} {~~anvertrauen~~, ~~bei~~ ~~der~~ ~~Auslieferung~~ ~~jeder~~ ~~einzelne~~ ~~Einzelfeit~~. ~~Jede~~ ~~Ware~~ ~~ist~~} {~~von~~ ~~ihm~~ ~~überprüft~~, ~~jede~~ ~~Rechnung~~ ~~durchgerechnet~~, ~~jedes~~ ~~Tau~~, ~~jede~~ ~~Planke~~, ~~je~~} {~~de~~ ~~Waffe~~ ~~an~~ ~~Bord~~ ~~persönlich~~ ~~untersucht~~; ~~von~~ ~~der~~ ~~Mastspitze~~ ~~bis~~ ~~zum~~ ~~Kiel~~} {~~kennt~~ ~~er~~ ~~jedes~~ ~~der~~ ~~fünf~~ ~~Schiffe~~ ~~wie~~ ~~jeden~~ ~~Nagel~~ ~~an~~ ~~seinen~~ ~~Fingern~~ ~~und~~ ~~diese~~} {~~Jahre~~ ~~der~~ ~~Vorbereitung~~ ~~ist~~ ~~eine~~ ~~Fehleistung~~ ~~ebenso~~ ~~des~~ ~~wertvollsten~~} {~~Planens~~ ~~als~~ ~~der~~ ~~kleinen~~ ~~täglichen~~ ~~stumpfen~~ ~~unermüdlichen~~ ~~unerschütter~~} {~~lichen~~ ~~Geduld~~, ~~ehe~~ ~~ein~~ ~~einziges~~ ~~Schiff~~ ~~das~~ ~~Segel~~ ~~spannt~~ ~~für~~ ~~die~~ ~~reale~~, ~~die~~} {~~wirkende~~ ~~Tat~~ ~~in~~ ~~die~~ ~~in~~ ~~deren~~ ~~Jahre~~ ~~der~~ ~~Vorbereitung~~ ~~auf~~ ~~Magellans~~} {~~Seite~~ ~~schon~~ ~~vollständig~~ ~~vorausgetan~~ ~~ist~~ ~~bis~~ ~~zum~~ ~~Aber~~ ~~wie~~ ~~bei~~ ~~dem~~} {~~Arbeiten~~ ~~Jerusalems~~ ~~die~~ ~~Mariner~~ ~~arbeiteten~~, ~~in~~ ~~einer~~ ~~Hand~~} {~~die~~ ~~Kelle~~, ~~in~~ ~~der~~ ~~andern~~ ~~das~~ ~~Schwert~~, ~~muss~~ ~~Magellan~~ ~~nach~~ ~~drei~~ ~~Fronten~~} {~~während~~ ~~er~~ ~~die~~ ~~Flotte~~ ~~ausrüstet~~ ~~und~~ ~~seine~~ ~~Vorbereitungen~~ ~~trifft~~, ~~das~~} {~~werdende~~ ~~Werk~~ ~~gleichzeitig~~ ~~gegen~~ ~~Missgunst~~ ~~und~~ ~~Feindseligkeit~~ ~~jener~~} {~~verteidigen~~, ~~die~~ ~~um~~ ~~jeden~~ ~~Preis~~ ~~seine~~ ~~Ausführung~~ ~~verhindern~~ ~~wollen~~ —} {~~heroischer~~ ~~Kampf~~ ~~eines~~ ~~einzelnen~~ ~~Mannes~~ ~~gegen~~ ~~die~~ ~~Gegner~~ ~~von~~ ~~aussen~~} {~~und~~ ~~gegen~~ ~~die~~ ~~Gegner~~ ~~im~~ ~~des~~ ~~eigenen~~ ~~Werk~~ ~~und~~ ~~gegen~~ ~~den~~ ~~Wider~~} {~~stand~~, ~~den~~ ~~an~~ ~~ihm~~ ~~schon~~ ~~die~~ ~~Schwerkraft~~ ~~der~~ ~~Materie~~ ~~jedem~~ ~~Unterfangen~~} {~~entgegen~~ ~~setzt~~, ~~das~~ ~~über~~ ~~gemeines~~ ~~Mass~~ ~~sich~~ ~~erhebt~~. ~~Aber~~ ~~da~~ ~~immer~~ ~~der~~ ~~über~~} {~~dem~~ ~~Aber~~ ~~immer~~ ~~zerrt~~ ~~er~~ ~~an~~ ~~den~~ ~~Widerstand~~ ~~das~~ ~~wahre~~ ~~Mass~~} {~~der~~ ~~eingesetzten~~ ~~Kampf~~, ~~so~~ ~~erkennt~~ ~~man~~ ~~Magellans~~ ~~geistige~~ ~~Form~~ ~~an~~}
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <p>
+        <lb/>Auch die Vorbereitung seiner Tat, nicht nur die Tat selbst {~~war~~ ~~von~~} {~~von~~} heldi-
+        <lb/>schem Sinn und dämonischer Hingabefähigkeit getragen; {~~denn~~ ~~auch~~ ~~immer~~} {~~immer~~ ~~gibt~~ ~~es~~ ~~die~~ ~~Summe~~ ~~aller~~ ~~überwin~~} {~~denen~~ ~~Widerstände~~ ~~das~~ ~~wahre~~, ~~das~~ ~~richtige~~ ~~Mass~~ ~~der~~ ~~an~~ ~~ihnen~~ ~~siegreich~~ ~~er~~} {~~probten~~ ~~Kraft~~. ~~Tat~~ ~~nur~~ ~~des~~ ~~Menschen~~, ~~der~~ ~~sie~~ ~~vollendet~~.}
+      </p>
+      <p>
+        <lb/>× × ×
+      </p>
+      <p>
+        <lb/>Θ VI, 3-16,
+        <lb/>dann 2 handschr.
+        <lb/>“ VI, 17, 18,
+        <lb/>“ 3 handschr.
+        <lb/>“ VI 22 ————— 4
+      </p>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>✓ Kap VI, 3. Fassung
+        <lb/>Immer aber bewahrte {~~dank~~ ~~seiner~~ ~~zähen~~, ~~wahrsamen~~} {~~Magellans~~} {~~Energie~~} {~~alle~~ ~~Widerstände~~, ~~mit~~ ~~Besorgnis~~ ~~muss~~} {~~der~~ ~~einzige~~ ~~Faktor~~ ~~des~~ ~~Königs~~ ~~Manuel~~ ~~erkennen~~, ~~dass~~} {~~alle~~ ~~seine~~ ~~kleinen~~ ~~Stiche~~ ~~die~~ ~~Seperition~~ ~~zu~~ ~~vereiteln~~, ~~täglich~~} {~~an~~ ~~der~~ ~~geduldigen~~ ~~aber~~ ~~unerschütterlichen~~ ~~Abwehr~~} {~~Magellan~~ ~~seiner~~ ~~Gegner~~ ~~gescheitert~~ ~~sind~~, ~~vergebens~~ ~~dass~~ ~~er~~ ~~die~~ ~~Hafen~~} {~~officiere~~ ~~und~~ ~~den~~ ~~Pöbel~~ ~~Sevilas~~ ~~anhetzte~~, ~~die~~ ~~Beamten~~ ~~beredete~~,} {~~die~~ ~~Lieferungen~~ ~~zu~~ ~~verzögern~~ ~~suchte~~, ~~vergebens~~ ~~dass~~ {~~er~~} {~~der~~} {~~angeworbenen~~ ~~Mannschaft~~ ~~abredete~~ ~~und~~ ~~die~~ ~~andern~~ ~~Capitane~~ ~~mit~~} {~~Einflüsterungen~~ ~~in~~ ~~ihrem~~ ~~Ehrgeiz~~ ~~anheizte~~ — ~~Magellans~~ ~~geheime~~} {~~zielstrebiger~~ ~~Wille~~ ~~hat~~ ~~sich~~ ~~stärker~~ ~~erwiesen~~, ~~die~~ ~~Ausrüstung~~} {~~der~~ ~~Flotte~~ ~~ist~~ ~~vollendet~~, ~~frisch~~ ~~aufgetakelt~~, ~~beinahe~~ ~~schon~~ ~~voll~~ ~~be~~} {~~frachtet~~ ~~und~~ ~~bemannt~~, ~~warten~~ ~~die~~ ~~Schiffe~~ ~~nur~~ ~~auf~~ ~~die~~ ~~Order~~} {~~des~~ ~~Admirals~~, ~~den~~ ~~Guadalquivir~~ ~~hinabzufahren~~. ~~Nur~~ ~~einmal~~ ~~im~~} {~~offenen~~ ~~Meer~~, ~~ist~~ ~~Magellan~~ ~~unbeschränkter~~ ~~Herr~~ ~~der~~ ~~Gebiete~~. ~~Aber~~} {~~Alvarez~~ ~~hat~~ ~~noch~~ ~~einen~~ ~~letzten~~ ~~Pfeil~~, ~~einen~~ ~~vergifteten~~ ~~und~~ ~~köstlichen~~:}
+        <lb/>{~~Noch~~ ~~einmal~~ ~~knapp~~ ~~vor~~ ~~der~~ ~~Abfahrt~~ ~~sucht~~ ~~er~~ ~~Magellan~~ ~~auf~~ ~~in~~} {~~in~~ ~~letzter~~ ~~Stunde~~ ~~greift~~ ~~er~~ ~~zum~~ ~~letzten~~, ~~der~~ ~~gefährlichsten~~ ~~Waffe~~, ~~um~~ ~~den~~} {~~den~~ ~~Kern~~ ~~seines~~ {~~vergifteten~~ ~~Pfeils~~} {~~Landes~~}, ~~seines~~ ~~Königs~~ ~~an~~ ~~der~~ ~~ver~~} {~~wundbarsten~~ ~~Stelle~~ ~~zu~~ ~~treffen~~.}
+        <lb/>{~~Noch~~ ~~einmal~~ ~~über~~ ~~diesen~~ ~~letzten~~ ~~Versuch~~, ~~Magellans~~ ~~Mut~~} {~~zu~~ ~~beugen~~, ~~haben~~ ~~wir~~ ~~genauen~~ ~~Bericht~~ ~~durch~~ ~~den~~ ~~Brief~~, ~~den~~ ~~der~~} {~~Faktor~~ ~~Alvarez~~ ~~an~~ ~~König~~ ~~Manuel~~ ~~von~~ ~~Portugal~~ ~~richtete~~}
+        <lb/>L ↓ 17 J
+        <lb/>3 Diese Denkwürdigen Drohungen waren auf
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>{~~Lesen~~ ~~Was~~ ~~Alvarez~~ ~~mitteilt~~, ~~ist~~ ~~ihm~~ ~~keineswegs~~ ~~neu~~}
+        <lb/>{~~Magellan~~ ~~beurteilt~~ ~~den~~ ~~Eindruck~~, ~~er~~ ~~weiss~~ ~~dass~~ ~~dies~~ ~~schon~~ ~~die~~ ~~Wahrheit~~} {~~spricht~~. ~~Er~~ ~~hat~~ ~~den~~ ~~dumpfen~~ ~~Widerstand~~ ~~niemand~~ ~~weiss~~ ~~besser~~ ~~aber~~} {~~aus~~ ~~diesen~~ ~~mühevollen~~ ~~Monaten~~, ~~dass~~ ~~Sevilla~~, ~~dass~~ ~~Spanien~~} {~~ihm~~ ~~feindlich~~ ~~gesinnt~~ ~~ist~~, ~~er~~ ~~hat~~ ~~den~~ ~~dumpfen~~ ~~Widerstand~~ ~~den~~ ~~heim~~} {~~tückischen~~ ~~Widerstand~~ ~~der~~ ~~Hafenbeamten~~ ~~bei~~ ~~jeder~~ ~~Forderung~~ ~~gespürt~~,} {~~auch~~ ~~in~~ ~~den~~ ~~kalten~~ ~~verächtlichen~~ ~~Blicken~~, ~~mit~~ ~~den~~ ~~die~~ ~~Hidalgos~~ ~~auf~~} {~~ihn~~ ~~herabsehen~~, ~~das~~ ~~war~~ ~~herabsetzung~~ ~~genugsam~~ ~~gelesen~~. ~~Er~~ ~~weiss~~, ~~dass~~} {~~nur~~ ~~verantwortlich~~ ~~ist~~ ~~die~~ ~~adeligen~~ ~~castilianischen~~ ~~Capitane~~ ~~mit~~ ~~seinen~~} {~~Anordnungen~~ ~~folgen~~ ~~aus~~ ~~einzig~~ ~~der~~ ~~Wille~~ ~~des~~ ~~Kaisers~~ ~~ihnen~~ ~~selbst~~ ~~ihre~~ ~~kalte~~} {~~und~~ ~~hochmütige~~ ~~Höflichkeit~~ ~~ist~~ ~~einzig~~ ~~durch~~ ~~Furcht~~ ~~vor~~ ~~dem~~ ~~Kaiser~~ ~~er~~} {~~zwungen~~ ~~ist~~. ~~Aber~~ ~~mögen~~ ~~die~~ ~~Herren~~ ~~Alcalden~~ ~~in~~ ~~Sevilla~~ ~~ulken~~,} {~~mögen~~ ~~die~~ ~~Neider~~ ~~knurren~~ ~~und~~ ~~die~~ ~~Blaufüßigen~~ ~~mürren~~ — ~~Ihre~~} {~~Macht~~ ~~ist~~ ~~gebrochen~~ ~~in~~ ~~den~~ ~~Mauern~~ ~~von~~ ~~Sevilla~~ ~~zu~~} {~~Ende~~. ~~Einmal~~ ~~im~~ ~~offenen~~ ~~Meer~~ ~~ist~~ ~~er~~ ~~geborgen~~. ~~Dann~~ ~~ist~~ ~~er~~ ~~Herr~~ ~~über~~} {~~Leben~~ ~~und~~ ~~Tod~~, ~~Herr~~ ~~seiner~~ ~~Wege~~, ~~Herr~~ ~~seiner~~ ~~Ziele~~, ~~kein~~ ~~Kaiser~~,} {~~kein~~ ~~König~~ ~~kann~~ ~~ihm~~ ~~mehr~~ ~~dienen~~ ~~nicht~~ ~~mehr~~ ~~in~~} {~~deren~~, ~~wahren~~ ~~Herr~~ ~~einem~~ ~~noch~~ ~~unbekannten~~ ~~und~~ ~~uneroberten~~} {~~Land~~.}
+      </p>
+      <p>
+        <lb/>Aber noch hat Alvarez den langaufgesparten Pfeil
+        <lb/>Nun holt er ihn aus dem Köcher
+        <lb/>nicht entsendet. Noch einmal, sagt er, möchte er als Freund Magellan
+        <lb/>beraten, {~~er~~ ~~warne~~ ~~ihn~~ ~~ehrlich~~} {~~besser~~ ~~sein~~ ~~einfach~~ ~~nicht~~ ~~allzu~~ ~~sicher~~ ~~sich~~ ~~zu~~ ~~fühlen~~ ~~und~~} {~~lieber~~ ~~zu~~ ~~seinem~~ ~~rechtmässigen~~ ~~König~~ ~~zurückkehren~~: ~~ein~~ ~~ganzes~~ ~~Ehre~~} {~~ben~~ ~~an~~ ~~König~~ ~~Manuel~~ ~~und~~ ~~alles~~ ~~sei~~ ~~geordnet~~ ~~und~~ ~~verziehen~~. ~~Vielleicht~~} {~~vertraue~~ ~~Magellan~~ ~~noch~~ ~~allzu~~ ~~sehr~~ ~~den~~ ~~Versprechungen~~ ~~des~~ ~~spanischen~~ ~~Hofes~~,} {~~aber~~ ~~Alvarez~~ ~~—~~ ~~er~~ ~~möge~~ ~~ihm~~ ~~glauben~~ ~~—~~ ~~auch~~ ~~da~~ ~~handle~~ ~~man~~ ~~nicht~~ ~~so~~ ~~ehrlich~~} {~~jetzt~~ ~~da~~ ~~die~~ ~~Flotte~~ ~~zum~~ ~~Ausfall~~ ~~bereit~~ ~~liegt~~, ~~kann~~ ~~Kaiser~~, ~~kein~~ ~~König~~} {~~und~~ ~~am~~ ~~Ende~~ ~~doch~~ ~~in~~ ~~ihm~~ ~~nicht~~ ~~hemmen~~ ~~und~~ ~~hindern~~.}
+      </p>
+      <pb n="7" facs="#surf_7"/>
+      <p>
+        <lb/>{~~Hauptwaffen~~ ~~des~~ ~~Bischofs~~ ~~Fonseca~~ ~~glaubt~~ ~~genährt~~?}
+        <lb/>wie Magellan meine. Gewiss, Kaiser Karl der König von Spanien habe
+        <lb/>hätte ihn nur Talero zu Obercommandanten, zu Admiralen der
+        <lb/>Flotte mit Siegel und Brief erkannt. Aber sei Magellan gewiss, dass
+        <lb/>{~~nicht~~ ~~gleichzeitig~~ ~~an~~ ~~andere~~ ~~gewisse~~ ~~Instructionen~~ ~~ausgegeben~~}
+        <lb/>{~~worden~~ ~~seien~~ ~~die~~ ~~man~~ ~~ihm~~ ~~wohl~~ ~~gebitet~~ ~~habe~~, ~~ihm~~ ~~Magellan~~ ~~mitzu~~}
+        <lb/>{~~teilen~~? ~~Und~~ ~~könne~~ ~~er~~ ~~Talero~~ ~~sicher~~ ~~sein~~? ~~Habe~~ ~~nicht~~ ~~Talero~~ ~~öffentlich~~}
+        <lb/>{~~erklärt~~ ~~in~~ ~~Sevilla~~ ~~erklärte~~ ~~gewiss~~, ~~er~~ ~~denke~~ ~~nicht~~ ~~daran~~, ~~Magellan~~}
+        <lb/>{~~auf~~ ~~der~~ ~~Fahrt~~ ~~Gehorsam~~ ~~zu~~ ~~leisten~~? ~~Er~~ ~~stelle~~ ~~verdeckte~~ ~~und~~ ~~doch~~ ~~viel~~}
+        <lb/>Magellan
+        <lb/>möge also sich nicht täuschen und vor allem sich nicht täuschen lassen;
+        <lb/>trotz Siegel und Brief sehe es mit seiner Admiralschaft und seinem
+        <lb/>alleinigen Oberbefehl recht windig aus. Es gäbe ja — mehr könne er
+        <lb/>Magellan
+        <lb/>nicht sagen — allerhand geheime Klauseln und Instructionen für
+        <lb/>{~~Capitane~~ ~~des~~ ~~Königs~~, ~~von~~ ~~denen~~ ~~er~~ ~~erst~~ ~~erfahren~~ ~~werde~~, ~~wenn~~}
+        <lb/>{~~es~~ ~~zu~~ ~~spät~~ ~~sei~~ ~~für~~ ~~seine~~ ~~Ehre~~.}
+        <lb/>{~~Zu~~ ~~spät~~ ~~für~~ ~~die~~ ~~Ehre~~? ~~Künstlich~~ ~~ist~~ ~~Magellan~~}
+        <lb/>{~~abgefahren~~ ~~und~~ ~~doch~~ ~~kam~~ ~~der~~ ~~Schlage~~ ~~des~~ ~~vergifteten~~ ~~Pfeils~~ ~~berichten~~.}
+        <lb/>{~~Er~~ ~~war~~ ~~höchstlich~~ ~~erstaunt~~, ~~dass~~ ~~ihr~~ ~~so~~ ~~viel~~ ~~wüsste~~ ~~geheime~~ ~~Folge~~.}
+        <lb/>{~~Immer~~ ~~kennt~~ ~~der~~ ~~Schöpfer~~ ~~selbst~~ ~~am~~ ~~besten~~}
+        <lb/>{~~den~~ ~~verborgenen~~ ~~Fehler~~ ~~des~~ ~~Werks~~ ~~und~~ ~~seine~~ ~~innerste~~ ~~Gefahr~~; ~~seit~~}
+        <lb/>{~~langem~~ ~~merkt~~ ~~er~~ ~~schon~~ ~~eine~~ ~~gewisse~~ ~~Zweideutigkeit~~ ~~in~~ ~~der~~ ~~Stellung~~ ~~des~~}
+        <lb/>{~~spanischen~~ ~~Hofes~~ ~~zu~~ ~~spüren~~ ~~und~~ ~~vielfache~~ ~~Anzeichen~~ ~~lassen~~ ~~ihn~~ ~~missvertrauen~~, ~~dass~~ ~~man~~}
+        <lb/>{~~ihm~~ ~~anders~~ ~~und~~ ~~mit~~ ~~kaltem~~ ~~Vertrauen~~ ~~die~~ ~~Flotte~~ ~~ihm~~ ~~anvertraut~~. ~~Erst~~ ~~hat~~}
+        <lb/>{~~der~~ ~~Kaiser~~ ~~ihm~~ ~~drei~~ ~~spanische~~ ~~Edelleute~~ ~~als~~ ~~Controllore~~ ~~auf~~ ~~den~~ ~~Nacken~~}
+        <lb/>×
+        <lb/>Mit dieser Geste.
+        <lb/>{~~Dann~~ ~~dass~~ ~~diese~~ ~~Aufgabe~~ ~~hat~~ ~~der~~ ~~Unerschütterliche~~, ~~der~~ ~~sonst~~}
+        <lb/>{~~jede~~ ~~Erregung~~ ~~eben~~ ~~niederzuhalten~~ ~~weiss~~, ~~verraten~~, ~~dass~~ ~~der~~}
+        <lb/>{~~zähe~~ ~~Pfeil~~ ~~ihn~~ ~~an~~ ~~der~~ ~~empfindlichsten~~ ~~Stelle~~ ~~getroffen~~}
+      </p>
+      <pb n="8" facs="#surf_8"/>
+      <p>
+        <lb/>Angeblich
+        <lb/>gesetzt, angeblich sind dieser Veedor, dieser contador, dieser teso-
+        <lb/>rero nur ernannt, um die materiellen Rechnungen und der Vertei-
+        <lb/>lung der Gewinne zu prüfen. Nach seiner „Capitulation“ steht ihnen
+        <lb/>{~~kein~~ ~~Befugnis~~ ~~zu~~, ~~liebt~~ ~~sein~~ ~~Commandorecht~~ ~~allerdings~~ ~~durch~~ ~~die~~}
+        <lb/>{~~Hafmeister~~ ~~des~~ ~~Königs~~ ~~unbeeinträchtigt~~. ~~Wie~~ ~~aber~~, ~~wenn~~ ~~es~~ ~~wahr~~}
+        <lb/>{~~wäre~~, ~~was~~ ~~dieser~~ ~~Schaft~~ ~~so~~ ~~perfid~~ ~~andeutet~~, ~~dass~~ ~~Juan~~ ~~de~~ ~~Cartagena~~,}
+        <lb/>{~~Luis~~ ~~de~~ ~~Mendoza~~ ~~und~~ ~~Gaspar~~ ~~Quesada~~ ~~noch~~ ~~geheime~~ ~~Instructionen~~}
+        <lb/>{~~hätten~~, ~~ihn~~, ~~um~~ ~~den~~ ~~suspecten~~ ~~Portugiesen~~, ~~zu~~ ~~überwachen~~? ~~Wäre~~ ~~nicht~~}
+        <lb/>{~~Hat~~ ~~nicht~~ ~~schon~~ ~~einmal~~ ~~der~~ ~~Kaiser~~ ~~gegen~~ ~~den~~ ~~Wortlaut~~ ~~der~~ ~~Capitula~~}
+        <lb/>{~~tion~~ ~~gehandelt~~, ~~indem~~ ~~er~~ ~~ihm~~ ~~untersagte~~ ~~Portugiesische~~ ~~Officere~~ ~~an~~}
+        <lb/>{~~Bord~~ ~~zu~~ ~~nehmen~~? ~~Jetzt~~ ~~stehen~~ ~~vier~~ ~~spanische~~ ~~Capitane~~ ~~—~~ ~~wäre~~ ~~es~~}
+        <lb/>{~~wahr~~, ~~sie~~ ~~lieben~~ ~~ihn~~ ~~nicht~~ ~~—~~ ~~gegen~~ ~~ihn~~. ~~Aber~~ ~~vielmehr~~, ~~wenn~~ ~~er~~}
+        <lb/>{~~dann~~ ~~auf~~ ~~dem~~ ~~offenen~~ ~~Meere~~ ~~sein~~ ~~wird~~, ~~werden~~ ~~sie~~ ~~vier~~ ~~gegen~~}
+        <lb/>{~~einen~~ ~~stehen~~; ~~sie~~ ~~werden~~ ~~vielleicht~~ ~~gedeckt~~ ~~durch~~ ~~geheime~~ ~~Ordre~~ ~~—~~}
+        <lb/>{~~das~~ ~~Recht~~ ~~der~~ ~~Mehrheit~~ ~~erzwingen~~ ~~gegen~~ ~~das~~ ~~Recht~~ ~~seines~~ ~~gesiegelten~~}
+        <lb/>{~~Vertrags~~; ~~und~~ ~~dann~~ ~~wird~~ ~~es~~ ~~„zu~~ ~~spät~~ ~~sein~~ ~~für~~ ~~seine~~ ~~Ehre~~“. ~~Fürchterliche~~}
+        <lb/>{~~Wahrscheinlichkeit~~ ~~liegt~~ ~~in~~ ~~der~~ ~~perfiden~~ ~~Insinuation~~ ~~dieses~~ ~~wohl~~ ~~inform~~}
+        <lb/>{~~ierten~~ ~~Spions~~. ~~Denn~~ ~~der~~ ~~alles~~ ~~für~~ ~~diese~~ ~~Fahrt~~ ~~genau~~ ~~errechnet~~ ~~und~~}
+        <lb/>{~~bedacht~~, ~~sieht~~ ~~dass~~ ~~ihm~~ ~~etwas~~ ~~was~~ ~~ist~~ ~~möglicher~~ ~~Weise~~ ~~gegen~~ ~~das~~}
+        <lb/>{~~Unternehmen~~ ~~sich~~ ~~vorbereitet~~, ~~selbst~~ ~~ihn~~ ~~nicht~~ ~~vorbereiten~~ ~~kann~~ ~~—~~}
+        <lb/>{~~Gefühl~~ ~~eines~~ ~~Menschen~~, ~~der~~ ~~allein~~ ~~mit~~ ~~Unbekannten~~ ~~sich~~ ~~an~~ ~~den~~}
+        <lb/>{~~Spieltisch~~ ~~setzt~~ ~~und~~ ~~ehe~~ ~~er~~ ~~zur~~ ~~Karte~~ ~~greift~~, ~~schon~~ ~~von~~ ~~dem~~ ~~Verdacht~~}
+        <lb/>{~~verwirrt~~ ~~ist~~, ~~dass~~ ~~sie~~ ~~Falschspieler~~ ~~nur~~ ~~alle~~ ~~zusammen~~ ~~gegen~~ ~~ihn~~ ~~ver~~}
+        <lb/>{~~schworen~~ ~~sind~~.}
+        <lb/>{~~Was~~ ~~Magellan~~ ~~in~~ ~~dieser~~ ~~Stunde~~ ~~erlebt~~, ~~ist~~ ~~die~~}
+        <lb/>{~~Tragödie~~ ~~Coriolans~~, ~~des~~ ~~Überläufers~~ ~~aus~~ ~~gekränkter~~}
+      </p>
+      <pb n="9" facs="#surf_9"/>
+      <p>
+        <lb/>Ehre, wie sie Shakespeare unvergesslich gestaltet hat. Coriolan ist
+        <lb/>gleich Magellan ein Mann, ein Patriot, der jahrelang seiner Heimat
+        <lb/>hingebend gedient hat der, von der Heimat ungerecht verstossen, um
+        <lb/>dieses Unrechts willen seine angestammte Kraft in den Dienst des
+        <lb/>Gegners stellt. Aber nichts hilft — in Rom war Sevilla — dem
+        <lb/>Überläufer die reinste Gesinnung. Wie ein Schatten hängt man
+        <lb/>{~~ja~~ ~~der~~ ~~Verdacht~~, ~~wer~~ ~~eine~~ ~~Fahne~~ ~~verlassen~~, ~~könne~~ ~~auch~~ ~~die~~ ~~zweite~~}
+        <lb/>{~~verraten~~, ~~wer~~ ~~einem~~ ~~König~~ ~~entflüchtet~~, ~~könne~~ ~~auch~~ ~~dem~~ ~~andern~~}
+        <lb/>{~~anbieten~~ ~~werden~~. ~~Verloren~~ ~~ist~~ ~~der~~ ~~Überläufer~~, ~~wenn~~ ~~er~~ ~~siegt~~, ~~verloren~~}
+        <lb/>{~~wenn~~ ~~er~~ ~~besiegt~~ ~~wird~~, ~~verhasst~~ ~~bei~~ ~~den~~ ~~einen~~, ~~verhasst~~ ~~bei~~ ~~den~~ ~~an~~}
+        <lb/>{~~dern~~; ~~immer~~ ~~wird~~ ~~er~~ ~~allein~~ ~~sein~~ ~~und~~ ~~allein~~ ~~gegen~~ ~~alle~~. ~~Immer~~ ~~be~~}
+        <lb/>{~~gründet~~ ~~eine~~ ~~Tragödie~~ ~~im~~ ~~Augenblick~~ ~~erst~~ ~~wahrhaft~~, ~~da~~ ~~ihr~~ ~~Held~~ ~~das~~}
+        <lb/>{~~Tragische~~ ~~seiner~~ ~~Situation~~ ~~erkennt~~; ~~vielleicht~~ ~~hat~~ ~~in~~ ~~dieser~~ ~~Secunde~~}
+        <lb/>{~~Magellan~~ ~~schon~~ ~~alles~~ ~~Unheil~~ ~~vorausgewusst~~.}
+        <lb/>{~~Aber~~ ~~Held~~ ~~sein~~ ~~heisst~~: ~~gegen~~ ~~das~~ ~~Schicksal~~}
+        <lb/>{~~kämpfen~~. ~~Entschlossen~~ ~~wehrt~~ ~~Magellan~~ ~~ab~~, ~~Nein~~, ~~er~~ ~~werde~~ ~~nicht~~}
+        <lb/>{~~mit~~ ~~König~~ ~~Manuel~~ ~~pactieren~~. ~~Er~~ ~~stehe~~ ~~treu~~ ~~zu~~ ~~seinem~~ ~~Eid~~, ~~an~~ ~~König~~ ~~Manuel~~.}
+        <lb/>{~~Missmutig~~ ~~muss~~ ~~Alvarez~~ ~~abziehen~~; ~~nur~~ ~~dem~~ ~~Tor~~ ~~sieht~~ ~~er~~, ~~kann~~}
+        <lb/>{~~diesem~~ ~~ehern~~ ~~Manne~~ ~~den~~ ~~Willen~~ ~~brechen~~ ~~und~~ ~~so~~ ~~erkennt~~ ~~er~~ ~~den~~}
+        <lb/>{~~Bericht~~ ~~über~~ ~~dies~~ ~~vergebliche~~ ~~Gespräch~~ ~~mit~~ ~~dem~~ ~~frommen~~}
+        <lb/>{~~Wunsch~~, ~~„Möge~~ ~~es~~ ~~Gott~~ ~~dem~~ ~~Allmächtigen~~ ~~gefallen~~, ~~dass~~ ~~sie~~ ~~doch~~}
+        <lb/>{~~eine~~ ~~Reise~~ ~~machen~~ ~~wie~~ ~~die~~ ~~Cortereals~~“ ~~—~~ ~~das~~ ~~heisst~~, ~~dass~~ ~~Magellan~~}
+        <lb/>{~~und~~ ~~seine~~ ~~Flotte~~ ~~so~~ ~~spurlos~~ ~~in~~ ~~der~~ ~~unbekannten~~ ~~See~~ ~~verschwinden~~}
+        <lb/>{~~möge~~ ~~wie~~ ~~die~~ ~~kühnen~~ ~~Cortereals~~, ~~deren~~ ~~Grab~~ ~~als~~ ~~Untergang~~ ~~Geheim~~}
+        <lb/>{~~nis~~ ~~geblieben~~ ~~ist~~. ~~Erfülle~~ ~~mit~~ ~~dieser~~ ~~sein~~ ~~frommer~~ ~~Wunsch~~, ~~dann~~}
+        <lb/>{~~könne~~ ~~Eure~~ ~~Hoheit~~ ~~ohne~~ ~~Sorge~~ ~~sein~~ ~~und~~ ~~werde~~ ~~beneidet~~ ~~bleiben~~}
+        <lb/>{~~von~~ ~~allen~~ ~~Fürsten~~ ~~dieser~~ ~~Erde~~“ × ×}
+      </p>
+      <pb n="10" facs="#surf_10"/>
+      <p>
+        <lb/>Der Pfeil hat getroffen. Er hat Magellan nicht nieder-
+        <lb/>gestreckt und nicht zurückweichen lassen. Aber sein Gift, das
+        <lb/>{~~brennende~~ ~~Gift~~ ~~des~~ ~~Misstrauens~~ ~~wird~~ ~~von~~ ~~nun~~}
+        <lb/>{~~ab~~ ~~in~~ ~~Magellans~~ ~~Seele~~ ~~alwären~~. ~~Er~~ ~~weiss~~ ~~aber~~ ~~meint~~ ~~sich~~ ~~langsam~~ ~~auf~~}
+        <lb/>{~~den~~ ~~eigenen~~ ~~Schiffen~~ ~~von~~ ~~Feinden~~ ~~umstellt~~, ~~doch~~ ~~dies~~ ~~Gefühl~~ ~~der~~ ~~Unsicher~~}
+        <lb/>{~~heit~~ ~~macht~~ ~~ihn~~ ~~nicht~~ ~~schwach~~, ~~es~~ ~~stärkt~~ ~~nur~~ ~~seinen~~ ~~Willen~~ ~~und~~ ~~steigert~~}
+        <lb/>{~~seine~~ ~~Wachsamkeit~~. ~~Wer~~ ~~einen~~ ~~Sturm~~ ~~kommen~~ ~~sieht~~, ~~weiss~~, ~~dass~~ ~~nur~~}
+        <lb/>{~~eines~~ ~~das~~ ~~Schiff~~ ~~und~~ ~~Mannschaft~~ ~~retten~~ ~~kann~~: ~~wenn~~ ~~der~~ ~~Capitän~~}
+        <lb/>{~~allein~~ ~~das~~ ~~Steuer~~ ~~in~~ ~~der~~ ~~Hand~~ ~~hält~~ ~~und~~ ~~vor~~ ~~allem~~, ~~wenn~~ ~~er~~ ~~es~~}
+        <lb/>{~~allein~~ ~~in~~ ~~der~~ ~~Hand~~ ~~hält~~.}
+        <lb/>4
+      </p>
+      <pb n="11" facs="#surf_11"/>
+      </div>
+    </body>
+  </text>
+</TEI>

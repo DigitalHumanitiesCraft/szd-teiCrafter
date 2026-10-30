@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Histoire de l'idée européenne</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/W-H172.3</idno>
+            <idno type="objectId">o_szd.2934</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="fr"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.2934/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.2934/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.2934/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.2934/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.2934/IMG.5"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.2934">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>- 22 -
+      </p>
+      <p>
+        <lb/>Grâce à des décrets, à des mesures économiques ou autarchiques, un
+        <lb/>état s'isole de intentionnellement des autres. Mais tout en s'isolant,
+        <lb/>il reste persuadé que l'économie et la politique européenne ont un
+        <lb/>destin commun, qu'aucun pays ne pourra se soustraire à une crise
+        <lb/>mondiale, parce que, comme le dit Goethe dans la seconde partie de
+        <lb/>Faust : "les soucis ne s'arrêtent pas devant les portes fermées, ils
+        <lb/>pénètrent{à travers} par le trou de la serrure." Le nationalisme et le surna-
+        <lb/>tionalisme luttent maintenant dans un corps à corps qui sera décisif
+        <lb/>Il n'y a plus moyen de reculer. Le problème de savoir si les États
+        <lb/>d'Europe devront rester divisés par l'inimitié économique et poli-
+        <lb/>tique ou si, renonçant à ce conflit qui use leurs forces, ils s'u-
+        <lb/>niront définitivement pour ne former qu'un grand organisme au-dessus
+        <lb/>des états, ce problème va être résolu. Tous, nous sentons l'électri-
+        <lb/>cité dont l'air est chargé et les étincelles qui jaillissent sans
+        <lb/>cesse du choc des contrastes; tous, nous sentons qu'une de ces deux
+        <lb/>tendances devra prendre le dessus. Laquelle sera victorieuse ? L'Eu-
+        <lb/>rope continuera-t-elle son oeuvre autodestructive ou deviendra-t-elle
+        <lb/>u n e ? Ne m'en veuillez pas si je ne dis pas, comme beaucoup d'entre
+        <lb/>vous le désireraient : la raison vaincra, demain, après-demain nous
+        <lb/>aurons une Europe unie où il n'y aura plus de guerres, plus de politi-
+        <lb/>que jalousement circonscrite, plus de haines destructrices! Hélas, non
+        <lb/>je n'ose pas vous le promettre, pardonnez-moi ce manque d'audace! Mais
+        <lb/>notre génération qui depuis un quart de siècle constate que les évè-
+        <lb/>nements politiques vont à l'encontre de la raison, notre génération qui
+        <lb/>voit sans cesse différer les décisions les plus pressantes en attendant
+        <lb/>qu'il soit trop tard, notre génération tant éprouvée et tant déçue par
+        <lb/>les folies de la guerre et les errements d'après guerre, n'a plus cette
+        <lb/>foi enfantine, cet espoir solide en un clair et rapide dénoûment . Elle
+        <lb/>connait la puissance des forces adverses, le pouvoir des intérêts mes-
+        <lb/>quins et immédiats qui s'opposent aux grandes idées nécessaires, indis
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>- 23 -
+      </p>
+      <p>
+        <lb/>pensables, elle connait enfin la force de l'égoïsme contre l'esprit
+        <lb/>qui prêche la fraternité. Non, ce n'est pas encore demain que nous ver-
+        <lb/>rons une Europe unie. Peut-être devrons-nous attendre dix ans, vingt
+        <lb/>ans encore, peut-être ne sera-t-il pas donné à notre génération de le
+        <lb/>voir. Mais notre conviction n'a pas besoin d'être confirmée par les f
+        <lb/>faits pour que nous la sentions juste; aussi chacun peut-il dès au-
+        <lb/>jourd'hui et par lui-même se naturaliser européen, se dire citoyen
+        <lb/>de cet état non encore créé. Il peut malgré les frontières toujours
+        <lb/>existantes considérer notre monde si divers comme une seule unité qui
+        <lb/>fraternise. Fantasmagorie peut-être, mais celui qui sait ne pas voir
+        <lb/>l'état de choses actuel et ses usages vieillis atteint au moins
+        <lb/>à une liberté personnelle en opposition avec notre époque insensée.
+        <lb/>Il peut sourire des artifices vains et mensongers d'une diplomatie di-
+        <lb/>latoire, il peut mépriser l'hostilité haineuse des journaux de tous
+        <lb/>les partis et les provocations de nation à nation, il peut constater
+        <lb/>avec pitié la maladive a irascibilité d'un peuple contre l'autre. Libre,
+        <lb/>il pourra défendre son âme de cette haine pestiférée qui tel un nuage
+        <lb/>de gaz asphyxiants plane sur notre terre. Volontairement hors du con-
+        <lb/>flit il sera en mesure de mieux comprendre l'élément essentiellement
+        <lb/>humain de la question, il sera un Juste qui ne connaissant pas de pré-
+        <lb/>jugés pourra selon l'admirable mot de Goethe "Etre sensible au destin
+        <lb/>de chaque nation comme au sien propre.
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>- 22 -
+      </p>
+      <p>
+        <lb/>Grâce à des décrets, à des mesures économiques ou autarchiques, un
+        <lb/>état s'isole de intentionnellement des autres. Mais tout en s'isolant,
+        <lb/>il reste persuadé que l'économie et la politique européenne ont un
+        <lb/>destin commun, qu'aucun pays ne pourra se soustraire à une crise
+        <lb/>mondiale, parce que, comme le dit Goethe dans la seconde partie de
+        <lb/>Faust : "les soucis ne s'arrêtent pas devant les portes fermées, ils
+        <lb/>pénètrent{à travers} par le trou de la serrure." Le nationalisme et le surna-
+        <lb/>tionalisme luttent maintenant dans un corps à corps qui sera décisif
+        <lb/>Il n'y a plus moyen de reculer. Le problème de savoir si les États
+        <lb/>d'Europe devront rester divisés par l'inimitié économique et poli-
+        <lb/>tique ou si, renonçant à ce conflit qui use leurs forces, ils s'u-
+        <lb/>niront définitivement pour ne former qu'un grand organisme au-dessus
+        <lb/>des états, ce problème va être résolu. Tous, nous sentons l'électri-
+        <lb/>cité dont l'air est chargé et les étincelles qui jaillissent sans
+        <lb/>cesse du choc des contrastes; tous, nous sentons qu'une de ces deux
+        <lb/>tendances devra prendre le dessus. Laquelle sera victorieuse ? L'Eu-
+        <lb/>rope continuera-t-elle son oeuvre autodestructive ou deviendra-t-elle
+        <lb/>u n e ? Ne m'en veuillez pas si je ne dis pas, comme beaucoup d'entre
+        <lb/>vous le désireraient : la raison vaincra, demain, après-demain nous
+        <lb/>aurons une Europe unie où il n'y aura plus de guerres, plus de politi-
+        <lb/>que jalousement circonscrite, plus de haines destructrices! Hélas, non
+        <lb/>je n'ose pas vous le promettre, pardonnez-moi ce manque d'audace! Mais
+        <lb/>notre génération qui depuis un quart de siècle constate que les évè-
+        <lb/>nements politiques vont à l'encontre de la raison, notre génération qui
+        <lb/>voit sans cesse différer les décisions les plus pressantes en attendant
+        <lb/>qu'il soit trop tard, notre génération tant éprouvée et tant déçue par
+        <lb/>les folies de la guerre et les errements d'après guerre, n'a plus cette
+        <lb/>foi enfantine, cet espoir solide en un clair et rapide dénoûment . Elle
+        <lb/>connait la puissance des forces adverses, le pouvoir des intérêts mes-
+        <lb/>quins et immédiats qui s'opposent aux grandes idées nécessaires, indis
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

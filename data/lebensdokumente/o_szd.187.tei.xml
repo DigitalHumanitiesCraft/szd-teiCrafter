@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Mitteilung des britischen Home Office</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/L-S7.2</idno>
+            <idno type="objectId">o_szd.187</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="en"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.187/IMG.1"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.187">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Any communication on the
+        <lb/>subject of this letter should be
+        <lb/>addressed to—
+        <lb/>THE UNDER SECRETARY OF STATE,
+        <lb/>ALIENS DEPARTMENT,
+        <lb/>HOME OFFICE,
+        <lb/>LONDON, S.W.I.
+        <lb/>and the following number quoted:—
+        <lb/>Z. 33.
+      </p>
+      <p>
+        <lb/>                                     A 2 / 6   Z 33 1
+      </p>
+      <p>
+        <lb/>                                     HOME OFFICE,
+        <lb/>                                     WHITEHALL.
+      </p>
+      <p>
+        <lb/>                                     29th June, 1934.
+      </p>
+      <p>
+        <lb/>With reference to the application made on your
+        <lb/>behalf by Mr. E. H. Carr; I am directed by the Secretary of
+        <lb/>State to say that he does not desire to raise objection to
+        <lb/>your prolonging your stay in this country provided that you
+        <lb/>do not take employment.
+      </p>
+      <p>
+        <lb/>                                     I am,
+      </p>
+      <p>
+        <lb/>                                     Sir,
+      </p>
+      <p>
+        <lb/>                                     Your obedient Servant,
+      </p>
+      <p>
+        <lb/>                                     J. Hounes[?]
+      </p>
+      <p>
+        <lb/>Mr. S. Zweig,
+        <lb/>11, Portland Place,
+        <lb/>W.1.
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

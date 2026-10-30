@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Brief an Stefan Zweig vom 10. Juli 1939, SZ-LAS/B2.6</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.1404</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="fr"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1404/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1404/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1404">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Grandcour
+        <lb/>Saint-Avertin
+        <lb/>Indre-et-Loire
+      </p>
+      <p>
+        <lb/>Saint-Avertin, le 10 Juillet 1939
+      </p>
+      <p>
+        <lb/>Mon cher Ami,
+      </p>
+      <p>
+        <lb/>Je viens de recevoir votre lettre du 6 Juillet. Je suis
+        <lb/>bien content d'avoir de vos nouvelles, de savoir qu'elles
+        <lb/>sont bonnes et d'apprendre que vous espérez bientôt venir à
+        <lb/>Paris. Nous serons, ma femme et moi, enchantés de vous re-
+        <lb/>voir; mais nous espérons que votre voyage n'aura pas lieu
+        <lb/>avant le mois d'Octobre, car nous-mêmes serons absents de
+        <lb/>Paris jusqu'à cette époque.
+      </p>
+      <p>
+        <lb/>Je suis évidemment un peu ennuyé de ce que vous m'appre-
+        <lb/>nez au sujet de "Volpone". A mon avis, et pour mettre, à
+        <lb/>toute éventualité, les meilleures chances de votre côté,
+        <lb/>il est indispensable que vous écriviez à cet agent américain
+        <lb/>quelque chose ceci:
+      </p>
+      <p>
+        <lb/>"J'ignorais complètement que mon agent Felix Bloch
+        <lb/>Erben s'était permis sans m'en dire un mot et sans avoir
+        <lb/>le droit de les céder, d'engager une partie de mes droits de
+        <lb/>film. Je proteste contre ce qu'il a fait, et je tiens à
+        <lb/>déclarer que je considère cet engagement comme nul et non
+        <lb/>avenu, puisqu'il a été pris par quelqu'un qui n'avait pas
+        <lb/>le droit de le prendre. C'est à Felix Bloch Erben seul que
+        <lb/>devront demander {éventuellement} réparation ceux qui s'estimeraient lésés."
+      </p>
+      <p>
+        <lb/>Cette lettre, dont naturellement vous garderiez le double,
+        <lb/>et dont vous m'enverriez aussi une copie, nous serait d'une
+        <lb/>très grande utilité, le jour où quelqu'un en Amérique essaye-
+        <lb/>rait de soulever des difficultés à propos du film, et elle
+        <lb/>serait de nature à faire hésiter ceux qui chercheraient à
+        <lb/>vous créer ces difficultés. Elle me serait également très uti-
+        <lb/>le à l'égard de la société qui va tourner le film en France,
+        <lb/>le jour où elle me demanderait des explications, pour montrer
+        <lb/>que vous avez été entièrement de bonne foi.
+      </p>
+      <p>
+        <lb/>La société en question vient d'effectuer le règlement
+        <lb/>de l'avance dont je vous ai parlé. Vous recevrez votre part
+        <lb/>sous très peu de temps par les soins de l'agence Bloch de la
+        <lb/>Société des Auteurs. f
+      </p>
+      <p>
+        <lb/>Recevez toutes nos amitiés.
+      </p>
+      <p>
+        <lb/>Jules Romains
+      </p>
+      <p>
+        <lb/>[Randnotiz links, vertikal geschrieben]:
+        <lb/>+ La somme brute qui vous revient (à déduire la taxe) s'élève à 29.000 francs -
+        <lb/>nous aurons, d'ici quelque temps, à régler de frais d'avocat, mais je prendrai sur les
+        <lb/>versements ultérieurs. Et ils ne seront pas bien élevés.
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      </div>
+    </body>
+  </text>
+</TEI>

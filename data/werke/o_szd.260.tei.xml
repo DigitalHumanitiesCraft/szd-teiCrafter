@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Autobiographischer Aufsatz</title>
+        <respStmt><resp>contributor</resp><persName>Stefan Zweig</persName></respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>Reed Library – Stefan Zweig Collection</repository>
+            <idno type="shelfmark">SZ-AP2/W-H33a</idno>
+            <idno type="objectId">o_szd.260</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <person xml:id="pers_stefan_zweig">
+        <persName>Stefan Zweig</persName>
+        <idno type="GND">http://d-nb.info/gnd/118637479</idno>
+      </person>
+    </listPerson>
+  </standOff>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.260/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.260/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.260">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Ich bin am 28.November 1881 in Wien geboren,
+        <lb/>studierte dann Philosophie. Aber mein wirkliches Studium
+        <lb/>begann mit weiten Reisen durch ganz Europa, Amerika, Indien,
+        <lb/>meine innere Belehrung durch die Freundschaft mit den wesent-
+        <lb/>lichen Führern meiner Generation, Verhaeren, Romain Rolland,
+        <lb/>Freud und Rilke. Grundzug meines Wesens ist immer eine star-
+        <lb/>ke psychologische Neugier gewesen; ich versuchte sie zuerst
+        <lb/>in novellistischen Darstellungen von Einzelschicksalen frucht-
+        <lb/>bar zu machen (Amok, Verwirrung der Gefühle und literarische
+        <lb/>Einzelstudien wie Dostojewski, Tolstoi, Balzac). Erst mit dem
+        <lb/>Kriege, der für mich eine tiefe seelische Erschütterung und
+        <lb/>stärkste moralische Lehre war, begann mich die Geschichte an-
+        <lb/>zuziehen; ich wandte ihr ein neues Studium entgegen, um bes-
+        <lb/>ser unsere Gegenwart zu begreifen und besonders die kritischen
+        <lb/>Unsturzepochen der Vergangenheit gaben mir Analogien zur Ge-
+        <lb/>genwart (Fouché, Marie Antoinette, Erasmus). - Nach dem Kriege
+        <lb/>lebte ich viele Jahre in Salzburg, und erst vor einigen Jahren
+        <lb/>habe ich mich nach London zurückgezogen, wo ich einen grossen
+        <lb/>Teil des Jahres lebe, um ruhig zu arbeiten. Die übrige Zeit
+        <lb/>unternehme ich grössere und kleinere Reisen, die mir immer
+        <lb/>wieder neue Anregung und Belehrung geben. - Seit dem Kriege
+        <lb/>habe ich die Verpflichtung gefühlt, möglichst ausschliesslich
+        <lb/>in einem Sinne zu schaffen, der unserer Zeit förderlich sein
+        <lb/>kann: durch Erhellung der Vergangenheit, durch Anruf an die
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>Gegenwart, denn ich glaube, dass nur jene Leistung als
+        <lb/>gültige betrachtet werden kann, welche die Vereinheitlichung
+        <lb/>der Menschheit fördert und das gegenseitige Verständnis von
+        <lb/>Völkern und Nationen steigert. Ich habe rein instinktiv von
+        <lb/>allem Anbeginn an immer auf das Allmenschliche geblickt und
+        <lb/>übernational gedacht; ich empfinde es darum (ohne jeden
+        <lb/>Stolz) als besondere Beglückung, dass die Wirkung meiner
+        <lb/>Bücher auch eine übernationale geworden ist, und so wie
+        <lb/>ich selbst die ganze Welt als meine Heimat fühle, auch
+        <lb/>meine Bücher in allen Sprachen der Erde Heimat und Freund-
+        <lb/>schaft gefunden haben.
+      </p>
+      <p>
+        <lb/>Stefan Zweig
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>
