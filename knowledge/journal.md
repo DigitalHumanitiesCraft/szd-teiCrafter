@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Selection, suggestion and process defaults
+
+- Trigger: operator review of a person annotation in the browser, and the request for a process view in which only real operator decisions are asked.
+- Found: the native selection recoloured selected text in dark mode, the base theme's lavender beat the editor theme in light mode, the person dialog kept its error after a valid choice, and lobid ranks persons matching only in relations above name matches.
+- Corrected: drawn selection with matching specificity, Person suggested for a capitalised selection, the error cleared by a valid identifier, GND hits filtered to the best name match.
+- Decided: operator: „Was heißt ‚empfohlen'? Also brauchst du jetzt wirklich meine Meinung, oder ist das eh klar?“ The session set ADR-010 and ADR-011 as reversible defaults. Only the editorial rules remain with the operator and the partners.
+- Evidence: `test/browser-check.mjs`, all checks passing on 2026-10-30, commit `e4c227f`.
+
 ### 2026-10-30 Curation and milestone plan
 
 - Trigger: operator: „kuratiere einmal das gesamte Wissen“, then a plan of projects, milestones, acceptance and verification, and a rule for when to research and when to ask.

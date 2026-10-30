@@ -113,8 +113,8 @@ Verification adds browser cases for a file changed on disk, a file with conflict
 
 ## Open decisions and dependencies
 
-- How much of szd-htr is imported, a working set per collection for building and showing, or all documents, and whether this repository then becomes the authoritative place of the corrected TEI while szd-htr stays the raw source, before S3.
-- Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`), and who may accept, before S2.
+- The import scope and the authoritative place (ADR-010) and the place of the working state (ADR-011) are set as reversible defaults awaiting the operator's confirmation. Who may accept belongs to S4.
+- The editorial rules, for example whether a title such as „Dr.“ stands inside `persName` and how hand and reason are given on `add`, `del` and `unclear`, are settled with the project partners on example letters, before S4.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
 - Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.

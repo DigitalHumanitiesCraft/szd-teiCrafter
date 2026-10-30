@@ -211,3 +211,23 @@ Choice. Operator, 2026-10-30: the SZD editor is developed as the real editor for
 Rationale. One source configuration per edition keeps ADR-002 intact, and the differing TEI profiles of the holdings already test the collection model.
 
 Effect. The scope of the first import is open in [plan](plan.md#open-decisions-and-dependencies).
+
+### ADR-010 This repository holds the corrected TEI, starting from a working set
+
+Context. szd-htr produces machine TEI for the four collections. Correcting it in a second place raises the question which copy is authoritative and how much enters the editor at first.
+
+Choice. Taken by the session as a reversible default on 2026-10-30, after the operator left recommended defaults to the session, open to the operator's confirmation. A document imported from szd-htr is from then on maintained here, and szd-htr stays the producer of raw transcriptions without receiving corrections back. The first import is a working set of about ten documents per collection, chosen for the variety of their TEI profiles.
+
+Rationale. One authoritative place avoids duplicate versions that drift apart. A working set is enough to settle the editorial rules on cases before the whole holdings are imported.
+
+Effect. The import tool records the szd-htr commit it read from. Delivery to GAMS stays open until S5.
+
+### ADR-011 The working state lives in revisionDesc
+
+Context. ADR-006 distinguishes documents in progress from accepted ones, and ADR-008 requires the state to be visible.
+
+Choice. Taken by the session as a reversible default on 2026-10-30, open to the operator's confirmation. `revisionDesc/@status` carries `draft` or `approved`, and acceptance adds a `change` naming who accepted and when. The checked state between them is computed by the editor and not stored.
+
+Rationale. The state travels with the file, and Git shows an acceptance as a diff of the document itself, so no second list has to be kept in step.
+
+Effect. Who may accept is part of the editorial rules of S4.
