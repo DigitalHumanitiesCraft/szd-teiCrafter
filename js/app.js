@@ -229,10 +229,10 @@ function selectionProblem() {
   return "";
 }
 
-/** The wrap whose marker syntax the whole selection carries, if any. */
+/** The wrap whose marker syntax the selection carries, else person for a capitalised selection. */
 function suggestedAction() {
   const { text } = editor.selection();
-  return source.wraps.find((w) => w.strip(text) !== text)?.key ?? null;
+  return source.wraps.find((w) => w.strip(text) !== text)?.key ?? (/^\p{Lu}/u.test(text.trim()) ? "person" : null);
 }
 
 function positionMenu() {
@@ -333,6 +333,8 @@ function chosenRef() {
 
 function updatePreview() {
   const ref = chosenRef();
+  // A valid choice answers an earlier "please choose" message.
+  if (ref && $("person-status").dataset.state === "error") setStatus($("person-status"), "", "");
   $("person-preview").textContent = ref ? source.person.markup(pending.text, ref) : "";
 }
 

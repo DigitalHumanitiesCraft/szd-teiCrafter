@@ -51,9 +51,14 @@ const chrome = EditorView.theme({
   ".cm-gutters": { backgroundColor: "var(--surface)", color: "var(--muted)", borderRight: "1px solid var(--line)" },
   ".cm-activeLine, .cm-activeLineGutter": { backgroundColor: "color-mix(in oklch, var(--blue) 9%, transparent)" },
   ".cm-cursor, .cm-dropCursor": { borderLeftColor: "var(--text)" },
-  "&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection": {
-    backgroundColor: "color-mix(in oklch, var(--blue) 30%, transparent)",
+  // The drawn selection layer carries the colour; its selector matches the base
+  // theme's specificity, which would otherwise keep its own lavender. The native
+  // selection stays invisible, so the text keeps its highlighting colours.
+  "&.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .cm-selectionLayer .cm-selectionBackground": {
+    backgroundColor: "color-mix(in oklch, var(--blue) 38%, transparent)",
+    borderRadius: "2px",
   },
+  ".cm-line ::selection, .cm-line::selection": { backgroundColor: "transparent", color: "inherit" },
   ".cm-selectionMatch": { backgroundColor: "color-mix(in oklch, var(--orange) 22%, transparent)" },
   ".cm-matchingBracket": { backgroundColor: "color-mix(in oklch, var(--blue) 20%, transparent)", outline: "none" },
   ".cm-tooltip, .cm-panels": { backgroundColor: "var(--surface)", color: "var(--text)", border: "1px solid var(--line)" },
