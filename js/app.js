@@ -61,7 +61,10 @@ const editor = createEditor($("editor"), {
 
 const viewer = createViewer($("viewer"), (index, count) => {
   const label = pageLabels[index] ?? String(index + 1);
-  $("page-label").textContent = `Seite ${label} von ${count}`;
+  // The short form stands in for the sentence in a narrow pane (css/app.css).
+  const short = Object.assign(document.createElement("span"), { className: "page-short", textContent: `${label}/${count}` });
+  short.setAttribute("aria-hidden", "true");
+  $("page-label").replaceChildren(Object.assign(document.createElement("span"), { className: "page-long", textContent: `Seite ${label} von ${count}` }), short);
   $("page-prev").disabled = index === 0;
   $("page-next").disabled = index === count - 1;
 });
@@ -306,6 +309,8 @@ document.addEventListener("keydown", (e) => {
 // Opening a document
 
 function documentOpened() {
+  // The check below covers the new text; the one the edit scheduled is redundant.
+  clearTimeout(checkTimer);
   validatedOnce = false;
   acceptedText = null;
   const facts = checkSource();

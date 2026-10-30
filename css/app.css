@@ -2,7 +2,7 @@
 
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
-  body, h1, h2, p, ul, pre { margin: 0; }
+  body, h1, h2, h3, p, ul { margin: 0; }
   /* The hidden attribute must win over any display a component sets. An
      !important in the first layer beats every later layer. */
   [hidden] { display: none !important; }
@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
   }
-  button, input, textarea { font: inherit; color: inherit; }
+  button, input, select { font: inherit; color: inherit; }
   button {
     display: inline-flex;
     align-items: center;
@@ -125,13 +125,14 @@
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0 var(--space-3);
+    flex: 1 1 24rem;
     min-inline-size: 0;
     & h1 { font-size: 1.15rem; }
   }
-  .doc-id { flex: 1 1 24rem; }
   .doc-meta { color: var(--muted); font-size: 0.9rem; }
   .doc-work { display: flex; align-items: center; gap: var(--space-2); }
-  .header-tools { flex-wrap: nowrap; }
+  /* File actions stay at the right edge, also when the header wraps. */
+  .header-tools { flex-wrap: nowrap; margin-inline-start: auto; }
 
   /* The working state as a badge; its words carry the state, colour adds to it. */
   .doc-state {
@@ -154,30 +155,6 @@
   .page-label { white-space: nowrap; font-variant-numeric: tabular-nums; }
   .source-form { padding-block-end: var(--space-1); }
 
-  /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
-     state colour plus their accessible label, which stays readable to
-     assistive technology and on hover. */
-  @container (width < 38rem) {
-    .check .label {
-      position: absolute;
-      inline-size: 1px;
-      block-size: 1px;
-      overflow: hidden;
-      clip-path: inset(50%);
-      white-space: nowrap;
-    }
-  }
-  /* The reset button for the code size is the first to give way; Ctrl+0 is not
-     needed, the size buttons and the wheel remain. */
-  @container (width < 48rem) {
-    .zoom-label { display: none; }
-  }
-  @container (width < 30rem) {
-    .toolbar-sep { display: none; }
-    .toolbar { gap: var(--space-1); }
-    .icon-button { inline-size: 2rem; }
-  }
-
   /* Action menu at the selection. */
   .actions {
     position: fixed;
@@ -189,11 +166,11 @@
     border-radius: var(--radius);
     background: var(--surface);
     box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+    flex-wrap: wrap;
+    max-inline-size: min(36rem, calc(100vi - 1rem));
     & button { border-color: transparent; background: none; font-size: 0.9rem; }
     & button:hover { background: color-mix(in oklch, var(--blue) 12%, transparent); }
     & button[data-suggested] { border-color: var(--orange); font-weight: 600; }
-    flex-wrap: wrap;
-    max-inline-size: min(36rem, calc(100vi - 1rem));
   }
   .actions-quote {
     flex-basis: 100%;
@@ -203,16 +180,8 @@
     color: var(--muted);
     overflow-wrap: anywhere;
   }
-  /* The unsaved mark is a dot on the save button; the text stays for assistive
-     technology and the tooltip names it. */
-  .save-state {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
+  /* The unsaved mark is a dot on the save button; the visually hidden
+     #save-state names it for assistive technology, and the tooltip names it too. */
   #tei-save[data-unsaved] {
     border-color: var(--orange);
     &::before {
@@ -236,7 +205,6 @@
     gap: var(--space-2);
   }
   .toolbar-gap { flex: 1; }
-  .pane-heading { font-size: 1rem; margin-inline-end: var(--space-2); }
 
   .icon-button {
     position: relative;
@@ -265,18 +233,6 @@
   [data-tip]:hover::after, [data-tip]:focus-visible::after, [data-tip]:focus-within::after { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { [data-tip]::after { transition: none; } }
 
-  .file-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    cursor: pointer;
-    &:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
-    & input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-  }
-
   /* Check buttons carry their state in icon shape and label, colour adds to it. */
   .check {
     font-weight: 600;
@@ -292,11 +248,9 @@
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: var(--surface);
-    &:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
-  }
-  /* CodeMirror fills the code box; colours inside come from its theme in editor.js. */
-  .code {
     overflow: hidden;
+    &:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+    /* CodeMirror fills the code box; colours inside come from its theme in editor.js. */
     & .cm-editor { block-size: 100%; outline: none; }
   }
   .hint { color: var(--muted); font-size: 0.85rem; min-block-size: 1.2em; }
@@ -304,34 +258,7 @@
   .zoom-label { min-inline-size: 4rem; justify-content: center; font-variant-numeric: tabular-nums; }
   [aria-pressed="true"].icon-button { background: color-mix(in oklch, var(--blue) 18%, var(--surface)); border-color: var(--blue); }
 
-  .person-dialog {
-    inline-size: min(40rem, calc(100vi - 2rem));
-    max-block-size: calc(100dvb - 4rem);
-    padding: var(--space-3);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    color: var(--text);
-    &::backdrop { background: rgb(0 0 0 / 0.4); }
-    & h2 { font-size: 1.05rem; margin-block-end: var(--space-2); }
-    & form { display: flex; flex-direction: column; gap: var(--space-2); }
-    & input {
-      inline-size: 100%;
-      min-block-size: 2.25rem;
-      padding-inline: var(--space-2);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--bg);
-    }
-    & .grow { flex: 1; }
-    & .manual { display: flex; flex-direction: column; gap: var(--space-1); font-weight: 600; }
-    & .manual input { font-weight: 400; font-family: var(--font-code); }
-    & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
-    & .dialog-actions { justify-content: flex-end; }
-    /* An empty status takes no room, so the results follow the search field. */
-    & .status:empty { min-block-size: 0; margin-block-start: calc(-1 * var(--space-2)); }
-  }
-  .diff-dialog, .ask-dialog, .docs-dialog {
+  dialog {
     padding: var(--space-3);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -340,7 +267,30 @@
     &::backdrop { background: rgb(0 0 0 / 0.4); }
     & h2 { font-size: 1.05rem; }
     & form { display: flex; flex-direction: column; gap: var(--space-2); min-block-size: 0; }
+    & .grow { flex: 1; }
     & .dialog-actions { justify-content: flex-end; }
+  }
+  /* Text fields and selects; the dialogs set them on the page colour. */
+  :is(dialog, .iiif-field) :is(input, select) {
+    inline-size: 100%;
+    min-block-size: 2.25rem;
+    padding-inline: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+  }
+  .iiif-field { flex: 1 1 12rem; display: flex; }
+  .iiif-field input { background: var(--surface); }
+
+  .person-dialog {
+    inline-size: min(40rem, calc(100vi - 2rem));
+    max-block-size: calc(100dvb - 4rem);
+    & h2 { margin-block-end: var(--space-2); }
+    & .manual { display: flex; flex-direction: column; gap: var(--space-1); font-weight: 600; }
+    & .manual input { font-weight: 400; font-family: var(--font-code); }
+    & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
+    /* An empty status takes no room, so the results follow the search field. */
+    & .status:empty { min-block-size: 0; margin-block-start: calc(-1 * var(--space-2)); }
   }
   .ask-dialog {
     inline-size: min(32rem, calc(100vi - 2rem));
@@ -356,15 +306,6 @@
     inline-size: min(48rem, calc(100vi - 2rem));
     block-size: min(44rem, calc(100dvb - 4rem));
     & form { block-size: 100%; }
-    & input, & select {
-      inline-size: 100%;
-      min-block-size: 2.25rem;
-      padding-inline: var(--space-2);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--bg);
-    }
-    & .grow { flex: 1; }
   }
   .chips { display: flex; flex-wrap: wrap; gap: var(--space-1); }
   .chip {
@@ -425,7 +366,7 @@
     &[data-kind="del"] .diff-sign { color: var(--error); font-weight: 600; }
     &[data-kind="add"] .diff-sign { color: var(--ok); font-weight: 600; }
   }
-  .results-heading { font-size: 0.85rem; color: var(--muted); font-weight: 600; margin: 0; }
+  .results-heading { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
   .results {
     list-style: none;
     padding: 0;
@@ -469,16 +410,6 @@
     text-decoration: underline;
   }
 
-  .iiif-field { flex: 1 1 12rem; display: flex; }
-  .iiif-field input {
-    inline-size: 100%;
-    min-block-size: 2.25rem;
-    padding-inline: var(--space-2);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-  }
-
   .viewer {
     flex: 1;
     min-block-size: 0;
@@ -507,7 +438,33 @@
     border-start-end-radius: 0;
     border-end-end-radius: 0;
     border-inline-end: 0;
-    &[hidden] { display: none; }
+  }
+
+  .page-short { display: none; }
+  /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
+     state colour, the page label to its short form, and the full words stay
+     readable to assistive technology. These queries follow the rules they
+     override, because source order decides within a layer. */
+  @container (width < 38rem) {
+    .page-short { display: inline; }
+    .check .label, .page-long {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
+  /* The reset button for the code size is the first to give way; Ctrl+0 is not
+     needed, the size buttons and the wheel remain. */
+  @container (width < 48rem) {
+    .zoom-label { display: none; }
+  }
+  @container (width < 30rem) {
+    .toolbar-sep { display: none; }
+    .toolbar { gap: var(--space-1); }
+    .icon-button { inline-size: 2rem; }
   }
 
   /* Stacked panes have no fixed height to fill, so each gets its own; this sits
