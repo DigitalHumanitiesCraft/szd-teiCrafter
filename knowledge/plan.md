@@ -17,119 +17,105 @@ template:
   version: 0.3
   url: https://dhcraft.org/Promptotyping/promptotyping-document/plan
   alias: https://dhcraft.org/Promptotyping/#promptotyping-document-plan
-related: [specification, journal, INDEX]
+related: [specification, journal, testing, INDEX]
 ---
 
 # Plan
 
-This plan orders the accepted next steps of the editor. Decisions taken along the way move into [specification](specification.md#decisions), and completed transitions into [journal](journal.md).
+This plan orders the work on the SZD editor in milestones, each with its deliverable, its verification and the point where the operator accepts it. Decisions taken along the way move into [specification](specification.md#decisions), completed transitions into [journal](journal.md).
 
 ## Target state
 
-- An editor team works on real letters in a shared repository, divides documents and commits valid TEI without leaving the browser for XML work.
-- The annotation actions cover the open work in the HTR output, persons, deletions, uncertain readings and additions.
+- An edition team works on the documents of the Stefan Zweig Digital collections in a shared repository, saves at any point and sees per document whether it is well-formed, valid, free of open spots and accepted.
+- The annotation actions cover the open work in the HTR output and link persons to the edition's person index.
 - The derivation contract is clear enough that the generic modules can move into the teiCrafter base and another edition can derive its editor by writing a source configuration.
 
-## Phases and milestones
+## Projects in this work
 
-| Phase | Milestones | Quality gate |
+- teiCrafter SZD, this repository, carries the milestones below.
+- teiCrafter base (`ResearchTools/teiCrafter`) receives findings through its handoff and owns the derivation contract with its case register, milestone S6.
+- Wenzelsbibel derivation (`wenzelsbibel-teiCrafter`) runs as its own project and only exchanges findings through handoffs.
+- The vault mirrors the state in ACTIVE-WORK (entries Stefan Zweig Digital and teiCrafter) and in the teiCrafter hub, written back at each milestone close.
+
+## How work is verified and accepted
+
+Each milestone passes three checks in this order.
+
+1. Automated check: `test/browser-check.mjs` gains a case for every promised behaviour and passes in full.
+2. Independent review: a fresh agent receives the user tasks, the requirements and the running editor, without the implementer's verdict, drives it with pointer and keyboard and reports findings with screenshots. Material findings are fixed and rechecked before the operator sees the milestone.
+3. Operator acceptance: a short acceptance list of tasks the operator performs in the running editor, in Chrome or Edge, closing with the result named in the milestone.
+
+## Who decides what
+
+- Settled without asking and reported afterwards: technical and reversible choices, fixes of observed defects, wording and layout within the design rules.
+- Researched before asking: facts that live in the vault, the SZD repositories, GAMS or the web, such as reference forms, licences, existing registers or service behaviour. The person index of 2026-10-30 is the model case.
+- Asked as one question with a recommendation: methodology and data authority, rights, what counts as finished, scope of a milestone, and every outward or irreversible action such as pushing, publishing or deleting.
+- The operator stays in the loop at each milestone start (scope confirmed), after the independent review (findings and fixes reported) and at acceptance.
+
+## Milestones
+
+| Milestone | Deliverable | Operator acceptance |
 |---|---|---|
-| Phase 1 — Working editor | M1 editor and person annotation | operator acceptance |
-| Phase 2 — Annotation set | M2 person register, M3 HTR marker actions, M4 toolbar order | browser check extended |
-| Phase 3 — Team workflow | M8 safe round trip, M9 project page, M5 repository and Pages, M6 partner trial | partner acceptance |
-| Phase 4 — Back into the base | M7 derivation contract in teiCrafter | base checks |
+| S1 Editor core | editing, checks, facsimile, person and marker annotation | annotate, save into the clone, `git diff` shows only the edits |
+| S2 Visible state and safe round trip | state ladder, save always possible, overwrite and conflict protection | interrupt work in a broken state, reopen, see the state, finish |
+| S3 Collections and project page | SZD collections with per-document state, switching, partner guide | find unfinished documents of each collection and work through one |
+| S4 Editorial rule layer | project rules for remaining markers and person references | a document the check calls clean has no open work |
+| S5 Publication and partner trial | remote repository, Pages, a partner working through Git | the partner's commits arrive and are correct |
+| S6 Derivation contract in the base | case register and contract in teiCrafter | the base names what any derivation must hold |
 
-### Phase 1 — Working editor
+### S1 Editor core
 
-Goal: the editing task chain works on the example letter.
+Built: CodeMirror editor with checks for well-formedness and TEI All, IIIF facsimile following the caret, action menu with HTR marker actions and F8 queue, person annotation against the SZD person index, saving in place with unsaved-work protection. The independent review of 2026-10-30 ran and its findings are fixed.
 
-#### Milestone 1 — Editor and person annotation
+Open: operator acceptance with a real save into the clone of this repository.
 
-Exit condition (M1): the operator has annotated persons, saved into the clone and confirmed with `git diff` that only the annotations changed (FR-06, FR-07).
+### S2 Visible state and safe round trip
 
-### Phase 2 — Annotation set
-
-Goal: the actions match the open work in the letters.
-
-#### Milestone 2 — Project person register
-
-Entry condition: M1 accepted.
-
-- A person register of the edition, kept as TEI `listPerson` in the repository, so that persons without a GND record (such as the letter's addressee) get a stable project identifier and persons recur across letters without a new search.
-- The person dialog searches the register first and the GND second, with suggestions while typing, and offers to add a new register entry.
-- Annotation then writes `persName/@ref` to the register entry, which carries the GND URI where one exists.
-
-Exit condition (M2): a person without a GND record can be annotated and is found again in the next letter.
-
-#### Milestone 3 — HTR marker actions
-
-- Selection actions that turn `~~…~~` into `del`, `[?]` into `unclear` and `{…}` into `add`, and a project rule set that reports remaining markers as open work.
-
-Exit condition (M3): no marker survives unnoticed in a document the check calls clean.
-
-#### Milestone 4 — Toolbar order
-
-- One toolbar row per pane, container queries instead of viewport queries, the image source behind an icon, editor-styled zoom controls in place of OpenSeadragon's own buttons, a smaller navigator.
-
-Exit condition (M4): toolbars stay on one row at half width and remain usable in a narrow pane.
-
-### Phase 3 — Team workflow
-
-Goal: a letter goes from one team member through Git to another and back without lost work, and its state is visible in the project. Git stays outside the editor, which neither commits nor needs an access token.
-
-#### Milestone 8 — Safe round trip
-
-- Save rule: malformed XML is never written, a document with schema errors is written with a visible note on the open errors.
+- The state ladder of ADR-006 and ADR-008 shown in the header, in the save confirmation and as the colour and label of the check buttons.
 - Overwrite protection: before writing, the editor rereads the file and warns when it changed on disk since opening, for instance after a pull.
-- Changes since opening: a comparison of the current text with the opened version, the check before a commit.
-- Git conflict markers are recognised and explained as two versions of one passage.
-- Working state: in progress or accepted (ADR-006), shown in the editor and settable as accepted only when the machine conditions hold.
+- Changes since opening as a comparison view before a commit.
+- Git conflict markers recognised and explained as two versions of one passage.
+- Accepting a document, possible only when the machine conditions hold, written into the TEI.
 
-Exit condition (M8): the browser check covers each case, including a file changed on disk and a file with conflict markers.
+Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
 
-#### Milestone 9 — Project page
+### S3 Collections and project page
 
-- A separate view lists the letters of the released `data/` folder with title, working state, open spots and well-formedness, and opens a letter in the editor. The editor keeps exactly one document and gains a way back to the list.
-- A link to the version history of the open file on the Git platform, built from the repository address in `js/source.js` without an API.
-- A short guide for partners in the README covering clone, open, save, commit and push.
+- The four collections of the holdings (correspondence, life documents, works, essay files) as folders under `data/`, imported from szd-htr.
+- A project page listing per collection the documents with title, signature, pages and state, filterable by state, opening a document in the editor with a way back.
+- Collection-specific element suggestions where the TEI profiles differ, and existing `standOff` persons shown and checked against the index.
+- A link to the version history of the open file on the Git platform and a short partner guide in the README.
 
-Exit condition (M9): a partner reaches every letter from the list and sees which ones still need work.
+### S4 Editorial rule layer
 
-#### Milestone 5 — Repository and Pages
+- A project rule set that reports remaining HTR markers and person references outside the index as open work, in the editing and review phases the Wenzelsbibel derivation uses.
+- German framing for parser and schema messages.
+
+### S5 Publication and partner trial
 
 - The operator creates `DigitalHumanitiesCraft/szd-teiCrafter`, pushes and enables Pages.
+- A project partner works on a set of documents through clone, edit, commit and push.
 
-#### Milestone 6 — Partner trial
+### S6 Derivation contract in the base
 
-- A project partner works on a set of letters through clone, edit, commit and push.
-
-### Phase 4 — Back into the base
-
-#### Milestone 7 — Derivation contract in teiCrafter
-
-- The generic modules and the source configuration contract are offered to the teiCrafter base through its handoff, and the base decides how derivations are structured.
+- `knowledge/derivation.md` in the teiCrafter base with the two observed derivation forms, the inherited invariants, the integration traps and the checks every derivation runs, as requested in the base handoff.
 
 ## Status tracker
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M1 — Editor and person annotation | in progress | browser check green, operator acceptance open |
-| M2 — Person register | completed | the SZD person index replaces a register of our own (ADR-007) |
-| M3 — HTR marker actions | in progress | actions, counter and F8 built; rule set for remaining markers open |
-| M4 — Toolbar order | completed | one row per pane at half width; a very narrow facsimile pane still wraps |
-| M8 — Safe round trip | pending | next step |
-| M9 — Project page | pending | person register (M2) follows it on the project page |
-| M5 — Repository and Pages | pending | operator action |
-| M6 — Partner trial | pending | |
-| M7 — Derivation contract in the base | pending | handoff to teiCrafter sent 2026-10-30 |
+| S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
+| S2 Visible state and safe round trip | pending | next |
+| S3 Collections and project page | pending | import scope open |
+| S4 Editorial rule layer | pending | |
+| S5 Publication and partner trial | pending | operator action |
+| S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |
 
 ## Open decisions and dependencies
 
-- Whether the register lives in one `persons.xml` or in the `standOff` of each letter, before M2.
-- Whether derivations stay build-free with vendored bundles or move to the Vite stack of the teiCrafter base, before M7. ADR-003 keeps both open.
-- Whether the save rule of M8 (never malformed, schema errors with a note) is accepted, which departs from the fail-closed gate of the base and the Wenzelsbibel derivation, before M8.
-- Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`) so that Git diff, project page and editor read the same value, and who may accept, before M8.
-- Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before M6.
-- Whether the narrow view gets a switch between text and facsimile as separate views, which the usability review of 2026-10-30 proposed because stacked panes separate the passage from its image, before M6.
-- How collections are modelled, so that a project holds several collections (SZD letters, a medieval manuscript) whose objects show their working state and can be switched, before M9. Operator request of 2026-10-30.
-- Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before M6.
+- How much of szd-htr is imported, a working set per collection for building and showing, or all documents, and whether this repository then becomes the authoritative place of the corrected TEI while szd-htr stays the raw source, before S3.
+- Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`), and who may accept, before S2.
+- Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
+- Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.
+- Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.
+- Whether derivations stay build-free with vendored bundles or move to the Vite stack of the base, before S6. ADR-003 keeps both open.

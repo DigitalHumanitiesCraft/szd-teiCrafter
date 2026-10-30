@@ -31,11 +31,11 @@ related: [specification, data, design]
 
 # Project
 
-teiCrafter SZD is a browser editor in which a researcher corrects and annotates the TEI of a Stefan Zweig letter next to its facsimile, and it is the first derivation that tests whether teiCrafter can be adapted to one edition through a single configuration file.
+teiCrafter SZD is a browser editor in which a researcher corrects and annotates the TEI of documents from the Stefan Zweig Digital collections next to their facsimile. It is developed as the working editor of that project and is the first lean derivation that tests whether teiCrafter can be adapted to one edition through a single configuration file.
 
 ## Data basis
 
-The working material is machine-generated TEI from the szd-htr pipeline, which transcribes Stefan Zweig Digital objects with an LLM (Large Language Model) and leaves structure and transcription unreviewed. The example letter `o_szd.1222` carries the typical open work, uncertain readings, deletions, handwritten additions and unidentified persons. Facsimiles stay at GAMS and are loaded through IIIF, and person identifiers come from the GND. Sources, licences and encoding are described in [data](data.md).
+The working material is machine-generated TEI from the szd-htr pipeline, which transcribes Stefan Zweig Digital objects with an LLM (Large Language Model) and leaves structure and transcription unreviewed. The documents fall into four collections of the holdings, and the example letter `o_szd.1222` carries the typical open work, uncertain readings, deletions, handwritten additions and unidentified persons. Facsimiles stay at GAMS and are loaded through IIIF, and person identifiers come from the edition's person index, with the GND for persons outside it. Sources, licences and encoding are described in [data](data.md).
 
 ## Context
 
@@ -49,7 +49,7 @@ Editing a digital edition means closing the gap between a machine transcription 
 
 - Encoding: TEI P5, validated against TEI All 4.11.0.
 - Facsimiles: IIIF Presentation API 2 and 3 for manifests, IIIF Image API for deep zoom.
-- Persons: GND identifiers as URIs in `persName/@ref`, searched through lobid-gnd.
+- Persons: entries of the Stefan Zweig Digital person index in `persName/@ref`, GND URIs for persons outside it.
 - Versioning and exchange: Git, with research data under `data/` kept byte-exact (no line-ending conversion).
 
 Each standard keeps the edited files usable outside the editor. A file saved by the editor stays plain TEI that any XML tool reads, and the facsimile and person links resolve without it.
@@ -62,7 +62,7 @@ The editor is a static web page without a build step. Generic modules handle the
 
 - TEI source editing with highlighting, line numbers, folding, search, element suggestions and code zoom.
 - A facsimile that follows the caret from page break to page break.
-- Person annotation with GND lookup.
+- Person annotation against the Stefan Zweig Digital person index, with the GND as fallback.
 - Checks for well-formedness and validity against TEI All.
 - Saving back into the opened file.
 

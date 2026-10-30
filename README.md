@@ -1,6 +1,6 @@
 # teiCrafter SZD
 
-A minimal TEI editing environment for letters of [Stefan Zweig Digital](https://stefanzweig.digital),
+A TEI editing environment for the documents of [Stefan Zweig Digital](https://stefanzweig.digital),
 derived from the idea of [teiCrafter](https://github.com/DigitalHumanitiesCraft/teiCrafter):
 TEI source on the left, the facsimile in an OpenSeadragon viewer on the right.
 

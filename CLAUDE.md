@@ -2,7 +2,7 @@
 
 # Project instructions for teiCrafter SZD
 
-teiCrafter SZD is a browser editor for TEI letters of Stefan Zweig Digital with an IIIF facsimile, and a derivation of teiCrafter. Work follows Promptotyping, the documents in `knowledge/` hold specification and domain knowledge, and implementation follows from them. The operator decides on scope, design and acceptance.
+teiCrafter SZD is a browser editor for TEI documents of the Stefan Zweig Digital collections with an IIIF facsimile, and a derivation of teiCrafter. Work follows Promptotyping, the documents in `knowledge/` hold specification and domain knowledge, and implementation follows from them. The operator decides on scope, design and acceptance.
 
 ## Knowledge base
 
@@ -53,6 +53,7 @@ Check available tools, runtimes and network access before dependent steps, and n
 - Syntax: `node --check js/<module>.js` for every changed module.
 - Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour.
 - CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
+- Person index: `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from GAMS.
 
 ### Conventions
 

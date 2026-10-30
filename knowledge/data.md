@@ -29,11 +29,11 @@ related: [project, specification]
 
 # Data
 
-The editor works on letters of Stefan Zweig Digital in machine-generated TEI, with facsimiles from GAMS and person identifiers from the GND.
+The editor works on documents of the Stefan Zweig Digital collections in machine-generated TEI, with facsimiles from GAMS and person identifiers from the edition's person index and the GND.
 
 ## Subject
 
-The material is Stefan Zweig's correspondence as held by the Literaturarchiv Salzburg. The example letter `o_szd.1222` is a typed business letter to his secretary in Vienna, dated Nice, 4 January 1935, signature SZ-SAM/B7.52, with handwritten additions and a postscript.
+The material is the holdings of Stefan Zweig as kept by the Literaturarchiv Salzburg, transcribed by szd-htr in four collections, correspondence, life documents, works and essay files, whose TEI profiles differ (works run over many pages, life documents and essay files partly carry persons in `standOff`). The example letter `o_szd.1222` is a typed business letter to his secretary in Vienna, dated Nice, 4 January 1935, signature SZ-SAM/B7.52, with handwritten additions and a postscript.
 
 ## Sources
 
@@ -51,11 +51,11 @@ The HTR (Handwritten Text Recognition) output marks open editorial work in plain
 - `[?]` after an uncertain reading, the later `unclear`.
 - `{…}` for a handwritten addition, the later `add`.
 
-The editor adds `persName` with a GND URI in `@ref`.
+The editor adds `persName` whose `@ref` points to the person index entry, or to the GND for persons outside the index.
 
 ## Limits
 
-The transcription is unreviewed LLM output and contains reading errors. Because the HTR markers are plain text, validation against TEI All cannot see them, so a valid document may still hold open work. Persons without a GND record have no identifier source yet.
+The transcription is unreviewed LLM output and contains reading errors. Because the HTR markers are plain text, validation against TEI All cannot see them, so a valid document may still hold open work. Persons in neither the person index nor the GND have no identifier source.
 
 ## Authority data and links
 
@@ -68,7 +68,7 @@ The transcription is unreviewed LLM output and contains reading errors. Because 
 ```xml
 <pb n="2" facs="#surf_2"/>
 <p>
-  <lb/>Herr <persName ref="https://d-nb.info/gnd/1057079499">Relgis</persName> habe ich, bitte eintragen, Autorisation für
+  <lb/>Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName> habe ich, bitte eintragen, Autorisation für
   <lb/>Lesung durch den Geist erteilt
 </p>
 ```

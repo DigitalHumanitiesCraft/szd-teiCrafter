@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Curation and milestone plan
+
+- Trigger: operator: „kuratiere einmal das gesamte Wissen“, then a plan of projects, milestones, acceptance and verification, and a rule for when to research and when to ask.
+- Decided: operator on saving: „Man muss schon immer speichern können, aber es muss irgendwie klar sein, was gültig ist“ (ADR-008). Operator on collections: the SZD editor becomes the working editor of the project, editions are not mixed, its collections follow the holdings (ADR-009). The medieval source is set aside until a derivation of its own is taken up.
+- Corrected: the plan described a register of our own after ADR-007 had replaced it, kept the save gate the operator rejected, and listed answered decisions as open. Requirements now run in order, the person dialog section, NFR-02 and the user story on checking reflect the current editor, and project, data, INDEX, README and the action layer speak of the collections and the person index.
+- Changed: [plan](plan.md) rewritten as milestones S1 to S6 with a three-step verification (browser check, independent agent review, operator acceptance) and a decision rule. Earlier milestone names M1 to M9 in entries below refer to the previous plan.
+- Evidence: commit of this entry.
+
 ### 2026-10-30 Usability review by an independent agent
 
 - Trigger: operator asked that subagents use the editor themselves and report what they learn, instead of the operator sending screenshots.

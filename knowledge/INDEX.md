@@ -23,7 +23,7 @@ related: [project, specification, data, design, testing, plan, handoff, journal]
 
 # Index
 
-This knowledge base describes teiCrafter SZD, a browser editor for TEI letters of Stefan Zweig Digital with an IIIF facsimile beside the source, and the first source-specific derivation of the teiCrafter idea. The shared document schema version is kept here once (`version` above), and the other documents inherit it.
+This knowledge base describes teiCrafter SZD, a browser editor for TEI documents of the Stefan Zweig Digital collections with an IIIF facsimile beside the source, and the first lean derivation of teiCrafter. The shared document schema version is kept here once (`version` above), and the other documents inherit it.
 
 ## Documents
 
@@ -31,7 +31,7 @@ This knowledge base describes teiCrafter SZD, a browser editor for TEI letters o
 |---|---|---|---|
 | [project](project.md) | Charter | What is this editor, for whom, on which material? | when identity or scope changes |
 | [specification](specification.md) | Specification | What must the editor do, and which decisions shape it? | when a requirement or decision changes |
-| [data](data.md) | Material | What do the letter, the facsimile service and the GND deliver? | when a source or the encoding changes |
+| [data](data.md) | Material | What do the documents, the facsimile service, the person index and the GND deliver? | when a source or the encoding changes |
 | [design](design.md) | Design | How does the interface look and behave? | when the design system or an interaction pattern changes |
 | [testing](testing.md) | Quality Assurance | What is checked, how, and what stays unchecked? | when a check is added or its scope changes |
 | [plan](plan.md) | Planning | What comes next, in which order? | when a step is accepted, done or reordered |
@@ -59,6 +59,10 @@ This knowledge base follows the Promptotyping Documents convention, mirrored at 
 
 ## Terms
 
+### Collection
+
+A group of documents of the Stefan Zweig Digital holdings with a common TEI profile, namely correspondence, life documents, works and essay files, kept as a folder under `data/`.
+
 ### Derivation
 
 An editor built for one edition from the generic teiCrafter modules plus a source configuration. teiCrafter SZD and the Wenzelsbibel editor are derivations.
@@ -69,7 +73,11 @@ Geisteswissenschaftliches Asset Management System of the University of Graz, the
 
 ### GND
 
-Gemeinsame Normdatei of the German National Library, the authority file whose identifiers the editor writes into `persName/@ref`.
+Gemeinsame Normdatei of the German National Library. The editor writes a GND URI into `persName/@ref` for persons outside the person index, and the index itself carries GND links where it has them.
+
+### Person index
+
+The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, whose entries carry identifiers of the form `SZDPER.n`. Annotations point to its entries, see ADR-007 in the specification.
 
 ### Source configuration
 
@@ -77,4 +85,8 @@ The file `js/source.js`. It holds everything specific to one edition, such as wh
 
 ### SZD
 
-Stefan Zweig Digital, the digital edition of the Literaturarchiv Salzburg whose letters this editor works on.
+Stefan Zweig Digital, the digital edition of the Literaturarchiv Salzburg whose collections this editor works on.
+
+### Working state
+
+Where a document stands on the way to finished, from not well-formed through well-formed, valid and free of open spots to accepted. Saving is possible in every state, and the state is shown, see ADR-006 and ADR-008 in the specification.
