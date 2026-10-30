@@ -127,7 +127,9 @@
     gap: 0 var(--space-3);
     flex: 1 1 24rem;
     min-inline-size: 0;
-    & h1 { font-size: 1.15rem; }
+    /* The title keeps one line; the full text stays in the document. */
+    & h1 { font-size: 1.15rem; min-inline-size: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    & .doc-meta { white-space: nowrap; }
   }
   .doc-meta { color: var(--muted); font-size: 0.9rem; }
   .doc-work { display: flex; align-items: center; gap: var(--space-2); }
@@ -153,7 +155,11 @@
   }
   .doc-state-detail { font-weight: 400; color: var(--muted); &:not(:empty)::before { content: "| "; } }
   .page-label { white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .source-form { padding-block-end: var(--space-1); }
+  /* The facsimile bar is one row: the image source field replaces the view
+     controls while it is open. */
+  .facs-bar, .facs-bar > .toolbar { flex-wrap: nowrap; }
+  .source-form { display: flex; flex: 1; gap: var(--space-2); min-inline-size: 0; }
+  #source-toggle[aria-expanded="true"] { background: color-mix(in oklch, var(--blue) 18%, var(--surface)); border-color: var(--blue); }
 
   /* Action menu at the selection. */
   .actions {
@@ -205,6 +211,7 @@
     gap: var(--space-2);
   }
   .toolbar-gap { flex: 1; }
+  .source-form:not([hidden]) + .toolbar-gap { display: none; }
 
   .icon-button {
     position: relative;
@@ -232,6 +239,9 @@
   }
   [data-tip]:hover::after, [data-tip]:focus-visible::after, [data-tip]:focus-within::after { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { [data-tip]::after { transition: none; } }
+  /* Check buttons sit at the left edge, so their longer tips open to the right and wrap. */
+  .check[data-tip] { position: relative; }
+  .check[data-tip]::after { inset-inline: 0 auto; inline-size: max-content; max-inline-size: 22rem; white-space: normal; font-weight: 400; }
 
   /* Check buttons carry their state in icon shape and label, colour adds to it. */
   .check {
@@ -253,7 +263,6 @@
     /* CodeMirror fills the code box; colours inside come from its theme in editor.js. */
     & .cm-editor { block-size: 100%; outline: none; }
   }
-  .hint { color: var(--muted); font-size: 0.85rem; min-block-size: 1.2em; }
   .toolbar-sep { inline-size: 1px; align-self: stretch; margin-inline: var(--space-1); background: var(--line); }
   .zoom-label { min-inline-size: 4rem; justify-content: center; font-variant-numeric: tabular-nums; }
   [aria-pressed="true"].icon-button { background: color-mix(in oklch, var(--blue) 18%, var(--surface)); border-color: var(--blue); }
@@ -389,6 +398,7 @@
   }
   button.primary { background: var(--blue); color: var(--bg); border-color: var(--blue); font-weight: 600; }
 
+  .status[data-hint]:empty::before { content: attr(data-hint); color: var(--muted); font-size: 0.85rem; }
   .status {
     font-size: 0.9rem;
     min-block-size: 1.4em;

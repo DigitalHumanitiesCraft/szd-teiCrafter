@@ -86,8 +86,7 @@
         </button>
       </div>
       <div id="editor" class="code"></div>
-      <p class="hint">Text markieren, dann annotieren im Menü an der Markierung oder mit Strg+.</p>
-      <div id="xml-status" class="status" role="status"></div>
+      <div id="xml-status" class="status" role="status" data-hint="Markieren, dann annotieren (Strg+.) | F8: nächste offene Stelle"></div>
     </section>
 
     <div id="splitter" class="splitter" role="separator" tabindex="0" aria-orientation="vertical"
@@ -96,31 +95,40 @@
 
     <section id="image-pane" class="pane pane-image" aria-labelledby="image-heading">
       <h2 id="image-heading" class="visually-hidden">Faksimile</h2>
-      <div class="toolbar">
-        <button id="page-prev" class="icon-button" type="button" aria-label="Vorherige Seite" data-tip="Vorherige Seite">
-          <svg class="icon"><use href="#i-prev"/></svg>
-        </button>
-        <span id="page-label" class="page-label" aria-live="polite"></span>
-        <button id="page-next" class="icon-button" type="button" aria-label="Nächste Seite" data-tip="Nächste Seite">
-          <svg class="icon"><use href="#i-next"/></svg>
-        </button>
-        <span class="toolbar-sep"></span>
-        <button id="img-out" class="icon-button" type="button" aria-label="Bild verkleinern" data-tip="Verkleinern">
-          <svg class="icon"><use href="#i-minus"/></svg>
-        </button>
-        <button id="img-fit" class="icon-button" type="button" aria-label="Bild einpassen" data-tip="Einpassen">
-          <svg class="icon"><use href="#i-fit"/></svg>
-        </button>
-        <button id="img-in" class="icon-button" type="button" aria-label="Bild vergrößern" data-tip="Vergrößern">
-          <svg class="icon"><use href="#i-plus"/></svg>
-        </button>
-        <span class="toolbar-sep"></span>
-        <button id="rot-left" class="icon-button" type="button" aria-label="Bild nach links drehen" data-tip="Nach links drehen">
-          <svg class="icon"><use href="#i-rot-left"/></svg>
-        </button>
-        <button id="rot-right" class="icon-button" type="button" aria-label="Bild nach rechts drehen" data-tip="Nach rechts drehen">
-          <svg class="icon"><use href="#i-rot-right"/></svg>
-        </button>
+      <div class="toolbar facs-bar">
+        <div id="view-tools" class="toolbar">
+          <button id="page-prev" class="icon-button" type="button" aria-label="Vorherige Seite" data-tip="Vorherige Seite">
+            <svg class="icon"><use href="#i-prev"/></svg>
+          </button>
+          <span id="page-label" class="page-label" aria-live="polite"></span>
+          <button id="page-next" class="icon-button" type="button" aria-label="Nächste Seite" data-tip="Nächste Seite">
+            <svg class="icon"><use href="#i-next"/></svg>
+          </button>
+          <span class="toolbar-sep"></span>
+          <button id="img-out" class="icon-button" type="button" aria-label="Bild verkleinern" data-tip="Verkleinern">
+            <svg class="icon"><use href="#i-minus"/></svg>
+          </button>
+          <button id="img-fit" class="icon-button" type="button" aria-label="Bild einpassen" data-tip="Einpassen">
+            <svg class="icon"><use href="#i-fit"/></svg>
+          </button>
+          <button id="img-in" class="icon-button" type="button" aria-label="Bild vergrößern" data-tip="Vergrößern">
+            <svg class="icon"><use href="#i-plus"/></svg>
+          </button>
+          <span class="toolbar-sep"></span>
+          <button id="rot-left" class="icon-button" type="button" aria-label="Bild nach links drehen" data-tip="Nach links drehen">
+            <svg class="icon"><use href="#i-rot-left"/></svg>
+          </button>
+          <button id="rot-right" class="icon-button" type="button" aria-label="Bild nach rechts drehen" data-tip="Nach rechts drehen">
+            <svg class="icon"><use href="#i-rot-right"/></svg>
+          </button>
+        </div>
+        <form id="iiif-form" class="source-form" hidden>
+          <label class="iiif-field">
+            <span class="visually-hidden">IIIF-Manifest, info.json oder Bild-URL</span>
+            <input id="iiif-url" type="url" required placeholder="IIIF-Manifest, info.json oder Bild-URL">
+          </label>
+          <button type="submit">Laden</button>
+        </form>
         <span class="toolbar-gap"></span>
         <button id="source-toggle" class="icon-button" type="button" aria-expanded="false" aria-controls="iiif-form"
           aria-label="Bildquelle" data-tip="Bildquelle (IIIF)">
@@ -130,13 +138,6 @@
           <svg class="icon"><use href="#i-hide"/></svg>
         </button>
       </div>
-      <form id="iiif-form" class="toolbar source-form" hidden>
-        <label class="iiif-field">
-          <span class="visually-hidden">IIIF-Manifest, info.json oder Bild-URL</span>
-          <input id="iiif-url" type="url" required placeholder="IIIF-Manifest, info.json oder Bild-URL">
-        </label>
-        <button type="submit">Laden</button>
-      </form>
       <div id="viewer" class="viewer" role="img" aria-label="Faksimile"></div>
       <p id="iiif-status" class="status" role="status"></p>
     </section>

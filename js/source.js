@@ -66,6 +66,12 @@ export const source = {
   },
 
   /**
+   * What counts as open work in this edition. Each derivation defines its own
+   * queue; here it is the HTR markers the wraps below resolve.
+   */
+  openWork: "Nicht aufgelöste HTR-Marker",
+
+  /**
    * Wrapping actions on a selection. The szd-htr transcription writes open
    * editorial work as plain-text markers; `marker` finds them in the text,
    * `strip` removes the marker syntax when the selection carries it, so a

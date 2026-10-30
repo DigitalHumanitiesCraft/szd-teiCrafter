@@ -23,6 +23,8 @@ const iiifInput = /** @type {HTMLInputElement} */ ($("iiif-url"));
 const wfButton = $("wf-button");
 const validButton = $("valid-button");
 const workButton = $("work-button");
+// The counter names what this edition counts as open work.
+workButton.dataset.tip = `${source.openWork}: ${source.wraps.map((w) => w.label).join(", ")}. F8 springt zur nächsten.`;
 
 /** @type {string[]} */
 let pageLabels = [];
@@ -343,22 +345,34 @@ async function loadImages(url) {
     pageLabels = resolved.pages.map((p) => p.label);
     viewer.load(resolved.pages);
     setStatus(iiifStatus, "", "");
+    toggleSource(false);
   } catch (err) {
     setStatus(iiifStatus, "error", err instanceof Error ? err.message : String(err));
     toggleSource(true);
   }
 }
 
-/** @param {boolean} [open] */
+/**
+ * The image source field takes the place of the view controls in the same
+ * row, so the toolbar never grows a second line; its button opens and closes it.
+ * @param {boolean} [open]
+ */
 function toggleSource(open) {
   const form = $("iiif-form");
   const show = open ?? form.hidden;
   form.hidden = !show;
+  $("view-tools").hidden = show;
   $("source-toggle").setAttribute("aria-expanded", String(show));
   if (show && open === undefined) iiifInput.focus();
 }
 
 $("source-toggle").addEventListener("click", () => toggleSource());
+iiifInput.addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
+  if (e.key !== "Escape") return;
+  e.preventDefault();
+  toggleSource(false);
+  $("source-toggle").focus();
+});
 $("iiif-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
   e.preventDefault();
   loadImages(iiifInput.value.trim());
