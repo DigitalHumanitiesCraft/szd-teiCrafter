@@ -60,6 +60,10 @@ This knowledge base follows the Promptotyping Documents convention, mirrored at 
 
 ## Terms
 
+### Action registry
+
+The file `data/actions.json`, which lists the annotation actions of the edition with element, attributes, dialog, views and the HTR marker each resolves. The menu, the dialogs, the open-work count and the settings view „Aktionen“ read it, see ADR-013 in the specification.
+
 ### Collection
 
 A group of documents of the Stefan Zweig Digital holdings with a common TEI profile, namely correspondence, life documents, works and essay files, kept as a folder under `data/`.
@@ -86,15 +90,19 @@ The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, w
 
 ### Source configuration
 
-The file `js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, which elements the editor suggests and how an annotation is written.
+The file `js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, the collections, the text view settings, the person and place references, and the paths of the action registry and the schema.
 
 ### SZD
 
 Stefan Zweig Digital, the digital edition of the Literaturarchiv Salzburg whose collections this editor works on.
 
+### Text view
+
+The presentation of the open document without visible markup, on the same editor state as the XML view, in lines or flowing paragraphs, see ADR-012 in the specification.
+
 ### Working set
 
-The selection of documents imported from szd-htr into this repository, about ten per collection chosen for the variety of their TEI profiles, listed with reasons in `tools/working-set.json` and with provenance in `data/IMPORT.md`. From the import on, this repository holds their authoritative copy, see ADR-010 in the specification.
+The selection of documents imported from szd-htr into this repository, about ten per collection chosen for the variety of their TEI profiles, listed with reasons in `tools/working-set.json` and with provenance in `data/IMPORT.md`. From the import on, this repository is authoritative for their transcription body and SZD-split for their header and catalogue description, see ADR-010 in the specification.
 
 ### Working state
 

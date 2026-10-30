@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Text view, action registry and revised documents dialog, paused for review
+
+- Trigger: the Human User's decisions on the reading view („Nein, XML zuerst“, lines by `lb`, places „gleich mit“), his feedback on the documents dialog, and a scope extension for a date action and the actions as data.
+- Changed: `js/textview.js` hides markup on the one CodeMirror state, configured by `source.textView` (ADR-012). `data/actions.json` with `js/actions.js` and `js/schema.js` makes the actions data, checked against the schema at load, with the settings view `js/settings.js` (ADR-013). New actions Ort (`js/place.js`, GND places through lobid-gnd) and Datum (`js/dates.js`, `js/datedialog.js`), the mark card `js/markcard.js`, the concept tooltips `js/concepts.js`, and the documents dialog with collections from `source.collections`, which both tools now read. The CodeMirror bundle was rebuilt with `StateField`, `StateEffect`, `Prec`, `RangeSet` and `WidgetType`, after the unchanged entry had rebuilt byte-identical. A selection across markup no longer reports in red on every pointer selection. ADR-010 now records the authority by part decided by the Human User and recorded in SZD-split `knowledge/governance.md` at `d2da6db4`, header and catalogue there, body here, merged and validated against the project ODD of SZD-split.
+- Decided: the layout choice is remembered per kind of document, with and without `lb`, so the default by the document and the remembered choice both hold. The letters of the action registry's `key` field are menu keys active while the menu holds the focus. GeoNames stays out, because its API needs a registered user name. Below a 46rem pane the validation label and the layout labels give way to icons, and in the text view the well-formedness label as well. Refusals of harmless edits and selections use the neutral status tone.
+- Evidence: `npm run check` in `test/` passing in full on 2026-10-30, 45 unit tests and 202 browser checks in about three minutes, after two runs that stopped on a slow GAMS manifest. Screenshots of the text view in lines, flowing and dark, the card, the place and date dialogs, the settings view and the documents dialog were written by the browser check and read.
+- Open: the resume steps in [plan](plan.md#where-to-resume), from the Human User's review of the menu, the documents dialog and the actions dialog. The text view rebuilds its decorations on every edit, untimed in the largest works.
+
 ### 2026-10-30 Data safety of the save path and open work beyond the HTR markers
 
 - Trigger: an adversarial review of the save path with repro scripts, and a role test in which documents with dozens of open spots read „Bereit zur Abnahme“.

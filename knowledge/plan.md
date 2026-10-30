@@ -52,6 +52,16 @@ Each milestone passes three checks in this order.
 - Asked as one question with a recommendation: methodology and data authority, rights, what counts as finished, scope of a milestone, and every outward or irreversible action such as pushing, publishing or deleting.
 - The operator stays in the loop at each milestone start (scope confirmed), after the independent review (findings and fixes reported) and at acceptance.
 
+## Where to resume
+
+The Lab was paused on 2026-10-30 after the text view, the action registry with its settings view, the place and date actions and the revised documents dialog were built and checked. The next steps, in this order, come from the Human User's review of that state, recorded verbatim in [design](design.md#requirements-from-the-human-user).
+
+1. Action menu. Think through how each semantic annotation is best represented, standard icons for deletion, addition, emphasis and uncertainty, text only where an icon does not explain itself. Drop the visible key letters, and name keys, if any stay, in the tooltip. Keep the menu on one line. Snap selections that start or end inside a word to word boundaries before actions are offered.
+2. Documents dialog. A definition for each state icon and a mark of its own for accepted, no repeated counts or headings, a visible sort order, „Sammlungen“ or the configured term instead of „Collections“, and document date and last edit as compact meta.
+3. Actions dialog. Markers in words with the pattern in a tooltip, the key fields labelled or moved to a tooltip, an icon column, a plain statement that TEI All constrains little until the ODD exists, saving to the configured location as the primary button, and one introductory sentence with a defining tooltip.
+4. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, point `source.schema` to it, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013).
+5. Align with the szd operator on the editorial rules for places, dates and the default attributes of the actions (S4).
+
 ## Milestones
 
 | Milestone | Deliverable | Operator acceptance |
@@ -98,12 +108,15 @@ Built on 2026-10-30: the working set of about ten documents per collection in on
 
 The browser check now covers the list with search, collection chip, state filter and the question before switching, the start at the first page break, the hanging indent, and every working-set document loading well-formed from the list, and it fails when `data/index.json` is stale.
 
+The documents dialog was revised on 2026-10-30 after the Human User's feedback, with collections from `source.collections` used by the dialog and both tools, a chip that explains how a collection is set up, concept tooltips from `js/concepts.js`, state icons with accessible names, a formal count line per collection, the last search selected on reopening and Escape closing at once. His further points on it are resume step 2.
+
 Open: the signature as a field of its own in the index (it is part of the title now), rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, the version-history link and the partner guide.
 
 ### S4 Editorial rule layer
 
 - A project rule set that reports remaining HTR markers and person references outside the index as open work, in the editing and review phases the Wenzelsbibel derivation uses.
 - Actions for the open-work kinds that are counted since 2026-10-30 but have no encoding rule yet, namely the gap `[...]` and `[...n...]` (an action that writes `gap`, see [data](data.md#model)), the standalone `[?]` and `[?n?]`, and the bracketed HTR remarks such as `[Randnotiz links:]`, `[Durchgestrichen: …]`, `[eingefügt: …]` and `[Unterschrift]`, which may become `note`, `del`, `add` or a signature encoding. Each gets its action in `js/source.js` once the rule is settled. Until then F8 selects them and the menu names the open rule, and documents with them are not ready for acceptance.
+- Editorial rules for the actions built on 2026-10-30, which places are marked and with which authority, how dates are normalised, and which attributes `add`, `del` and `unclear` carry by default. They are aligned with the szd operator and the Human User and end up in the project ODD of SZD-split (ADR-010).
 - German framing for parser and schema messages.
 
 ### S5 Publication and partner trial
@@ -120,7 +133,6 @@ Open: the signature as a field of its own in the index (it is part of the title 
 These items are accepted as direction and not yet placed in a milestone.
 
 - Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
-- A reading view without visible XML. Options are hiding tags inside the code editor through decorations, a separate rendered annotation view, and a full structured editor. The session recommends hiding tags in the code editor first, because it keeps one text, one undo history and byte-exact saving. The operator wants to work this out step by step.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
 - Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validateTeiAll` into a worker is the upgrade path named in `js/validate.js`.
 
@@ -131,7 +143,7 @@ These items are accepted as direction and not yet placed in a milestone.
 | S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
 | S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge, acceptance and the data safety fixes built and checked, while the state in the save confirmation, a case for saving a malformed document, review and acceptance are open |
 | S3 Collections and project page | in progress | working set imported, document list with search and filters built and in the browser check, while collection-specific suggestions, standOff persons, the version-history link and the partner guide are open |
-| S4 Editorial rule layer | pending | |
+| S4 Editorial rule layer | pending | text view, action registry, place and date actions built on 2026-10-30, their editorial rules open |
 | S5 Publication and partner trial | pending | operator action |
 | S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |
 
@@ -142,5 +154,6 @@ These items are accepted as direction and not yet placed in a milestone.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
 - Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.
-- How the reading view without visible XML is built, worked out with the operator step by step, see [Later](#later).
+- The text view was decided by the Human User on 2026-10-30 and built as ADR-012. Its remaining form questions are the resume steps above.
+- The merge of the SZD-split header with the body corrected here, and where it runs, depends on SZD-split and the project ODD (ADR-010).
 - Whether derivations stay build-free with vendored bundles or move to the Vite stack of the base, before S6. ADR-003 keeps both open.
