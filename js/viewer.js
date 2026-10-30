@@ -1,4 +1,5 @@
-// Thin wrapper around the vendored OpenSeadragon, one page at a time.
+// Thin wrapper around the vendored OpenSeadragon, one page at a time. The
+// viewer's own button set is off; the application toolbar drives it.
 
 /** @typedef {import("./iiif.js").Page} Page */
 
@@ -15,8 +16,11 @@ export function createViewer(element, onPage) {
   const viewer = OSD({
     element,
     prefixUrl: "vendor/openseadragon/images/",
+    showNavigationControl: false,
     showNavigator: true,
     navigatorPosition: "BOTTOM_RIGHT",
+    navigatorSizeRatio: 0.14,
+    navigatorAutoFade: true,
     gestureSettingsMouse: { clickToZoom: false },
     crossOriginPolicy: "Anonymous",
   });
@@ -43,6 +47,17 @@ export function createViewer(element, onPage) {
     /** @param {number} degrees positive turns clockwise */
     rotate(degrees) {
       viewer.viewport.setRotation((viewer.viewport.getRotation() + degrees + 360) % 360);
+    },
+    /** @param {number} factor above 1 zooms in */
+    zoom(factor) {
+      viewer.viewport.zoomBy(factor);
+      viewer.viewport.applyConstraints();
+    },
+    fit() {
+      viewer.viewport.goHome();
+    },
+    get zoomLevel() {
+      return viewer.viewport.getZoom();
     },
     /** @param {(message: string) => void} handler */
     onError(handler) {

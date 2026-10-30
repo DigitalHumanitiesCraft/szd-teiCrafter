@@ -24,6 +24,15 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Actions at the selection and the open-work queue
+
+- Trigger: operator: „was kannst du alles im UI direkt implementieren? und was testen wir dann? setze das um“.
+- Decided: the action menu at the selection with Ctrl+., the HTR marker actions with suggestion and the F8 queue, and the toolbar order of M4. The person register waits for the operator's decision on its place.
+- Found: the `hidden` attribute lost against `display: flex` of a toolbar, so the image source form was always visible while its check passed. A read-only comparison with the base and the Wenzelsbibel derivation found that auto-closing tags and the ungated save diverge from base invariants.
+- Corrected: `[hidden]` is enforced in the reset layer and the check now asserts the hidden start state. `project.md` no longer claims LF normalisation for all files.
+- Changed: [specification](specification.md) FR-09 and FR-10, [design](design.md#interaction-patterns), [plan](plan.md) open decisions on save gate and auto-closing tags.
+- Evidence: `test/browser-check.mjs`, all checks passing on 2026-10-30.
+
 ### 2026-10-30 Knowledge base and back-flow
 
 - Trigger: operator: „einen Knowledge-Ordner anlegen … quasi ein eigenes Promptotyping-Projekt“, and that the findings should flow back into the other teiCrafter repositories.

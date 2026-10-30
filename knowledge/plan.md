@@ -95,8 +95,8 @@ Exit condition (M4): toolbars stay on one row at half width and remain usable in
 |---|---|---|
 | M1 — Editor and person annotation | in progress | browser check green, operator acceptance open |
 | M2 — Person register | pending | |
-| M3 — HTR marker actions | pending | |
-| M4 — Toolbar order | pending | |
+| M3 — HTR marker actions | in progress | actions, counter and F8 built; rule set for remaining markers open |
+| M4 — Toolbar order | completed | one row per pane at half width; a very narrow facsimile pane still wraps |
 | M5 — Repository and Pages | pending | operator action |
 | M6 — Partner trial | pending | |
 | M7 — Derivation contract in the base | pending | handoff to teiCrafter sent 2026-10-30 |
@@ -105,3 +105,5 @@ Exit condition (M4): toolbars stay on one row at half width and remain usable in
 
 - Whether the register lives in one `persons.xml` or in the `standOff` of each letter, before M2.
 - Whether derivations stay build-free with vendored bundles or move to the Vite stack of the teiCrafter base, before M7. ADR-003 keeps both open.
+- Whether saving stays ungated or follows the fail-closed save gate of the base and the Wenzelsbibel derivation (only valid TEI is written), before M6.
+- Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before M6.

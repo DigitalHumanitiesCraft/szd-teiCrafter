@@ -50,7 +50,7 @@ Editing a digital edition means closing the gap between a machine transcription 
 - Encoding: TEI P5, validated against TEI All 4.11.0.
 - Facsimiles: IIIF Presentation API 2 and 3 for manifests, IIIF Image API for deep zoom.
 - Persons: GND identifiers as URIs in `persName/@ref`, searched through lobid-gnd.
-- Versioning and exchange: Git, with LF line endings fixed in `.gitattributes`.
+- Versioning and exchange: Git, with research data under `data/` kept byte-exact (no line-ending conversion).
 
 Each standard keeps the edited files usable outside the editor. A file saved by the editor stays plain TEI that any XML tool reads, and the facsimile and person links resolve without it.
 

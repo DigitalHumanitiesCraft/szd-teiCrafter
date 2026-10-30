@@ -36,6 +36,8 @@ The editor serves one task chain, opening a letter, correcting and annotating it
 - FR-05: The facsimile follows the caret. Acceptance criterion: the shown page is the one whose `pb` precedes the caret.
 - FR-06: A marked name becomes `<persName ref="https://d-nb.info/gnd/ID">` after a GND search or a manually entered GND id. Acceptance criterion: the saved file differs from the original only by the inserted elements.
 - FR-07: Saving writes back into the opened file where the browser supports the File System Access API, and downloads the file elsewhere. Acceptance criterion: after saving, `git diff` shows only the edits.
+- FR-09: A text selection offers its annotation actions in a menu at the selection (Person, Streichung, Unsicher, Ergänzung), reachable with Ctrl+. and arrow keys. When the selection carries an HTR marker, the matching action is suggested and the marker syntax is removed on wrapping. Acceptance criterion: `~~x~~` becomes `<del>x</del>`, `x[?]` becomes `<unclear>x</unclear>`, `{x}` becomes `<add>x</add>`.
+- FR-10: The remaining HTR markers are counted, and F8 or the counter selects the next one and offers its action. Acceptance criterion: working through the example letter with F8 and Enter leaves no marker, and the saved file equals the original transformed by the marker rules.
 - FR-08: Text and facsimile share the width through a movable split, and the facsimile can be hidden and restored. Acceptance criterion: dragging to the right edge hides it, and an always visible edge button restores it.
 
 ### Non-functional requirements
@@ -89,7 +91,7 @@ Purpose. Editing the TEI source.
 
 Data. The opened TEI file, see [data](data.md).
 
-Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, optional line wrapping, check buttons for well-formedness and validation, and the person action on a selection.
+Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, optional line wrapping, check buttons for well-formedness and validation, the open-spot counter with F8, and the action menu at a selection.
 
 Limits. Suggestions cover the element set of the source configuration. Schema-driven suggestions for all of TEI are not implemented.
 
@@ -99,7 +101,7 @@ Purpose. Reading the original beside the source.
 
 Data. Images from the IIIF manifest of the object.
 
-Interaction. Page navigation, deep zoom and rotation in 90 degree steps, following the caret, hiding and restoring through the split.
+Interaction. Page navigation, zoom in, zoom out and fit from the toolbar, rotation in 90 degree steps, following the caret, the image source behind an icon, hiding and restoring through the split.
 
 Limits. Text and image are linked by page. Zones within a page are not linked.
 

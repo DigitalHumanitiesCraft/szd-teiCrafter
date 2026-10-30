@@ -38,7 +38,9 @@ Source and facsimile are the content, and everything else is a control serving t
 
 ## Interaction patterns
 
-- Selection then action. The user marks text and chooses an action from the toolbar, which opens a short modal dialog that previews the resulting markup before inserting it. Person annotation is the first such action.
+- Action at the selection. Marking text opens a small menu right below it with the annotation actions. The wrapping actions apply at once, while Person opens a short modal dialog that previews the resulting markup. Ctrl+. opens the menu from the keyboard, arrow keys move, Enter applies, Escape returns to the text.
+- Open work as a queue. A counter in the text toolbar shows the HTR markers still in the text. F8 selects the next one and focuses its suggested action, so the letter is worked through with F8 and Enter.
+- One toolbar row per pane. Each pane is a size container. In a narrow pane the check buttons keep icon and state colour and move their label to assistive technology, and file actions live in the header.
 - Check buttons as status. The well-formedness and validation buttons show their state by icon and label and lead to the error on activation.
 - Caret follows facsimile. Moving through the source turns the facsimile to the page of the preceding `pb`.
 - Split as visibility control. Dragging the separator resizes the facsimile, dragging it to the edge hides it, and an edge button brings it back. The separator works with arrow keys, Home and End.

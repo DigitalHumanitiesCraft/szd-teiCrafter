@@ -66,9 +66,9 @@ const ZOOM_STEPS =[70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 /**
  * @typedef {{ message: string, line: number, column: number, severity?: "error" | "warning" }} Problem
  * @param {HTMLElement} parent
- * @param {{ elements: any[], onChange: (text: string) => void, onCaret: (offset: number) => void, onZoom: (percent: number) => void }} options
+ * @param {{ elements: any[], keys: { key: string, run: () => boolean }[], onChange: (text: string) => void, onCaret: (offset: number) => void, onZoom: (percent: number) => void, onScroll: () => void }} options
  */
-export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
+export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
   // The document keeps the line endings of the opened file, so saving changes
@@ -104,6 +104,8 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
         lineEnding.of(EditorState.lineSeparator.of("\n")),
         wrapping.of([]),
         fontSize.of(sizeTheme(zoom)),
+        // Application commands first, so they win over defaults with the same key.
+        keymap.of(keys),
         keymap.of([
           ...closeBracketsKeymap,
           ...defaultKeymap,
@@ -131,8 +133,11 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
     }),
   });
 
+  // Scroll events do not bubble, so they are taken from the scroll container.
+  view.scrollDOM.addEventListener("scroll", onScroll, { passive: true });
+
   /** @param {number} line @param {number} column */
-  const posOf = (line, column) => {
+  const posOf =(line, column) => {
     const doc = view.state.doc;
     const l = doc.line(Math.min(Math.max(line, 1), doc.lines));
     return Math.min(l.to, l.from + Math.max(column - 1, 0));
@@ -149,6 +154,24 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
     /** @param {number} from @param {number} to */
     slice(from, to) {
       return view.state.sliceDoc(from, to);
+    },
+    /** The text with LF breaks, whose string offsets equal document positions. */
+    docText() {
+      return view.state.doc.toString();
+    },
+    /** @param {number} from @param {number} to */
+    select(from, to) {
+      view.dispatch({ selection: { anchor: from, head: to }, effects: EditorView.scrollIntoView(from, { y: "center" }) });
+      view.focus();
+    },
+    /** Screen rectangle of the selection start, or null when it is scrolled out. */
+    selectionCoords() {
+      const { from, to } = view.state.selection.main;
+      const start = view.coordsAtPos(from);
+      const end = view.coordsAtPos(to) ?? start;
+      const box = view.scrollDOM.getBoundingClientRect();
+      if (!start || start.bottom < box.top || start.top > box.bottom) return null;
+      return { left: start.left, top: start.top, bottom: end.bottom };
     },
     /** @param {string} text */
     setText(text) {

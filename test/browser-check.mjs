@@ -61,12 +61,22 @@ async function doubleClickWord(page, lineText, word) {
     delete window.showSaveFilePicker;
   });
   check("line numbers shown", (await page.locator(".cm-lineNumbers .cm-gutterElement").count()) > 20);
-  check("person button disabled without selection", await page.isDisabled("#person-button"));
-  check("hint explains why", (await label(page, "#selection-hint")).startsWith("Zum Annotieren"));
+  check("action menu hidden without selection", await page.isHidden("#actions"));
+  check("open spots counted", /^\d+ offene Stellen?$/.test(await label(page, "#work-label")), await label(page, "#work-label"));
+  const rowHeight = async (sel) => (await page.locator(sel).first().boundingBox()).height;
+  check("text toolbar on one row at half width", (await rowHeight(".pane-text .toolbar")) < 50);
+  check("facsimile toolbar on one row at half width", (await rowHeight(".pane-image .toolbar")) < 50);
+  check("viewer's own buttons replaced", (await page.locator("#viewer [title='Zoom in']").count()) === 0);
+  check("image source hidden at start", await page.isHidden("#iiif-url"));
+  await page.click("#source-toggle");
+  check("image source opens on demand", await page.isVisible("#iiif-url"));
+  await page.click("#source-toggle");
+  check("image source closes again", await page.isHidden("#iiif-url"));
 
   await doubleClickWord(page, "Herr Reichner", "Reichner");
-  check("person button enabled with selection", !(await page.isDisabled("#person-button")));
-  await page.click("#person-button");
+  await page.waitForTimeout(300);
+  check("action menu appears at the selection", await page.isVisible("#actions"));
+  await page.click("#actions [data-action='person']");
   await page.waitForSelector("#person-results .result", { timeout: 20000 });
   check("dialog opens with the selection as query", (await page.inputValue("#person-query")) === "Reichner");
   const hit = page.locator("#person-results .result", { hasText: "116402873" });
@@ -77,8 +87,11 @@ async function doubleClickWord(page, lineText, word) {
   await page.waitForTimeout(600);
   check("still well-formed", (await label(page, "#wf-label")) === "Wohlgeformt");
 
+  // Keyboard path: Ctrl+. opens the menu with focus, Enter takes Person.
   await doubleClickWord(page, "Herr Relgis", "Relgis");
-  await page.click("#person-button");
+  await page.keyboard.press("Control+.");
+  check("Ctrl+. focuses the menu", await page.evaluate(() => document.activeElement?.dataset.action === "person"));
+  await page.keyboard.press("Enter");
   await page.waitForTimeout(1500);
   await page.fill("#person-gnd", "1057079499");
   await page.keyboard.press("Enter");
@@ -140,7 +153,8 @@ async function doubleClickWord(page, lineText, word) {
   await page.click("#tei-open");
   await page.waitForTimeout(800);
   await doubleClickWord(page, "Herrn Fuchs", "Fuchs");
-  await page.click("#person-button");
+  await page.waitForTimeout(300);
+  await page.click("#actions [data-action='person']");
   await page.waitForTimeout(1200);
   await page.fill("#person-gnd", "1234567");
   await page.click("#person-apply");
@@ -178,6 +192,54 @@ async function doubleClickWord(page, lineText, word) {
   const crlf = ORIGINAL.replace(/\r?\n/g, "\r\n");
   check("CRLF file saved unchanged", written === crlf, `${written?.length} vs ${crlf.length}`);
   check("no console errors (CRLF run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Run 4: work through every HTR marker with F8 and Enter, then compare the
+// saved file with the original transformed by the same rules, earliest marker
+// first, so the check proves that the interface applied exactly these edits.
+{
+  const { source } = await import("../js/source.js");
+  let expected = ORIGINAL;
+  for (;;) {
+    const spots = source.wraps
+      .flatMap((w) => [...expected.matchAll(w.marker)].map((m) => ({ w, from: m.index, text: m[0] })))
+      .sort((a, b) => a.from - b.from || b.text.length - a.text.length);
+    if (!spots.length) break;
+    const { w, from, text } = spots[0];
+    expected = `${expected.slice(0, from)}<${w.element}>${w.strip(text)}</${w.element}>${expected.slice(from + text.length)}`;
+  }
+
+  const { page, errors } = await open({}, () => {
+    delete window.showOpenFilePicker;
+    delete window.showSaveFilePicker;
+  });
+  const initial = await label(page, "#work-label");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+Home");
+  let steps = 0;
+  while ((await label(page, "#work-label")) !== "Keine offenen Stellen" && steps < 20) {
+    await page.keyboard.press("F8");
+    await page.waitForTimeout(150);
+    if (steps === 0) {
+      const suggested = await page.evaluate(() => document.activeElement?.dataset.action);
+      check("F8 selects a marker and focuses its suggested action", ["del", "unclear", "add"].includes(suggested), suggested);
+    }
+    await page.keyboard.press("Enter");
+    await page.waitForTimeout(450);
+    steps++;
+  }
+  check("all open spots resolved by F8 and Enter", (await label(page, "#work-label")) === "Keine offenen Stellen", `${initial}, ${steps} steps`);
+  check("still well-formed after marker edits", (await label(page, "#wf-label")) === "Wohlgeformt");
+  await page.click("#valid-button");
+  await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
+  check("valid against TEI All after marker edits", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#xml-status"));
+  const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
+  const saved = readFileSync(await download.path(), "utf8");
+  check("saved file equals the rule-transformed original", saved === expected, `${saved.length} vs ${expected.length}`);
+
+  await page.click("#img-in");
+  await page.click("#img-fit");
+  check("no console errors (marker run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
 console.log(results.join("\n"));

@@ -14,11 +14,15 @@
     <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
     <symbol id="i-error" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
     <symbol id="i-validate" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
-    <symbol id="i-load" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="i-task" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1 1 2-2M3.5 12h3M3.5 18h3"/></symbol>
+    <symbol id="i-source" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
     <symbol id="i-rot-left" viewBox="0 0 24 24"><path d="M4 4v6h6"/><path d="M4.5 10A8 8 0 1 1 6 16.5"/></symbol>
     <symbol id="i-rot-right" viewBox="0 0 24 24"><path d="M20 4v6h-6"/><path d="M19.5 10A8 8 0 1 0 18 16.5"/></symbol>
     <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
     <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6M11 8v6"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
     <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
     <symbol id="i-zoom-in" viewBox="0 0 24 24"><path d="M5 19 10 6h1l5 13M7 15h7"/><path d="M18 4v6M15 7h6"/></symbol>
     <symbol id="i-zoom-out" viewBox="0 0 24 24"><path d="M5 19 10 6h1l5 13M7 15h7"/><path d="M15 7h6"/></symbol>
@@ -28,22 +32,33 @@
   </svg>
 
   <header class="app-header">
-    <h1 id="doc-title">teiCrafter SZD</h1>
-    <p id="doc-meta" class="doc-meta"></p>
+    <div class="doc-id">
+      <h1 id="doc-title">teiCrafter SZD</h1>
+      <p id="doc-meta" class="doc-meta"></p>
+    </div>
+    <div class="toolbar">
+      <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
+        <svg class="icon"><use href="#i-open"/></svg>
+      </button>
+      <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" hidden>
+      <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern">
+        <svg class="icon"><use href="#i-save"/></svg>
+      </button>
+    </div>
   </header>
 
   <main id="workspace" class="workspace">
     <section class="pane pane-text" aria-labelledby="text-heading">
+      <h2 id="text-heading" class="visually-hidden">TEI-Quelltext</h2>
       <div class="toolbar">
-        <h2 id="text-heading" class="pane-heading">TEI</h2>
         <button id="wf-button" class="check" type="button" aria-describedby="xml-status">
-          <svg class="icon"><use href="#i-ok"/></svg><span id="wf-label">Wohlgeformt</span>
+          <svg class="icon"><use href="#i-ok"/></svg><span id="wf-label" class="label">Wohlgeformt</span>
         </button>
         <button id="valid-button" class="check" type="button" aria-describedby="xml-status">
-          <svg class="icon"><use href="#i-validate"/></svg><span id="valid-label">Validieren</span>
+          <svg class="icon"><use href="#i-validate"/></svg><span id="valid-label" class="label">Validieren</span>
         </button>
-        <button id="person-button" type="button" aria-describedby="selection-hint">
-          <svg class="icon"><use href="#i-person"/></svg><span>Person annotieren</span>
+        <button id="work-button" class="check" type="button" data-tip="Nächste offene Stelle (F8)">
+          <svg class="icon"><use href="#i-task"/></svg><span id="work-label" class="label">offene Stellen</span>
         </button>
         <span class="toolbar-gap"></span>
         <button id="zoom-out" class="icon-button" type="button" aria-label="Code verkleinern" data-tip="Code verkleinern (Strg + Mausrad)">
@@ -56,17 +71,9 @@
         <button id="wrap-toggle" class="icon-button" type="button" aria-pressed="false" aria-label="Zeilenumbruch" data-tip="Zeilenumbruch">
           <svg class="icon"><use href="#i-wrap"/></svg>
         </button>
-        <span class="toolbar-sep"></span>
-        <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
-          <svg class="icon"><use href="#i-open"/></svg>
-        </button>
-        <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" hidden>
-        <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern">
-          <svg class="icon"><use href="#i-save"/></svg>
-        </button>
       </div>
       <div id="editor" class="code"></div>
-      <p id="selection-hint" class="hint"></p>
+      <p class="hint">Text markieren, dann annotieren im Menü an der Markierung oder mit Strg+.</p>
       <div id="xml-status" class="status" role="status"></div>
     </section>
 
@@ -75,36 +82,48 @@
       aria-valuemin="20" aria-valuemax="100" aria-valuenow="50"></div>
 
     <section id="image-pane" class="pane pane-image" aria-labelledby="image-heading">
-      <form id="iiif-form" class="toolbar">
-        <h2 id="image-heading" class="pane-heading">Faksimile</h2>
-        <label class="iiif-field">
-          <span class="visually-hidden">IIIF-Manifest, info.json oder Bild-URL</span>
-          <input id="iiif-url" type="url" required
-            placeholder="IIIF-Manifest, info.json oder Bild-URL">
-        </label>
-        <button class="icon-button" type="submit" aria-label="Bilder laden" data-tip="Bilder laden">
-          <svg class="icon"><use href="#i-load"/></svg>
-        </button>
-        <button id="facs-hide" class="icon-button" type="button" aria-label="Faksimile ausblenden" data-tip="Faksimile ausblenden">
-          <svg class="icon"><use href="#i-hide"/></svg>
-        </button>
-      </form>
+      <h2 id="image-heading" class="visually-hidden">Faksimile</h2>
       <div class="toolbar">
         <button id="page-prev" class="icon-button" type="button" aria-label="Vorherige Seite" data-tip="Vorherige Seite">
           <svg class="icon"><use href="#i-prev"/></svg>
         </button>
-        <span id="page-label" aria-live="polite"></span>
+        <span id="page-label" class="page-label" aria-live="polite"></span>
         <button id="page-next" class="icon-button" type="button" aria-label="Nächste Seite" data-tip="Nächste Seite">
           <svg class="icon"><use href="#i-next"/></svg>
         </button>
-        <span class="toolbar-gap"></span>
+        <span class="toolbar-sep"></span>
+        <button id="img-out" class="icon-button" type="button" aria-label="Bild verkleinern" data-tip="Verkleinern">
+          <svg class="icon"><use href="#i-minus"/></svg>
+        </button>
+        <button id="img-fit" class="icon-button" type="button" aria-label="Bild einpassen" data-tip="Einpassen">
+          <svg class="icon"><use href="#i-fit"/></svg>
+        </button>
+        <button id="img-in" class="icon-button" type="button" aria-label="Bild vergrößern" data-tip="Vergrößern">
+          <svg class="icon"><use href="#i-plus"/></svg>
+        </button>
+        <span class="toolbar-sep"></span>
         <button id="rot-left" class="icon-button" type="button" aria-label="Bild nach links drehen" data-tip="Nach links drehen">
           <svg class="icon"><use href="#i-rot-left"/></svg>
         </button>
         <button id="rot-right" class="icon-button" type="button" aria-label="Bild nach rechts drehen" data-tip="Nach rechts drehen">
           <svg class="icon"><use href="#i-rot-right"/></svg>
         </button>
+        <span class="toolbar-gap"></span>
+        <button id="source-toggle" class="icon-button" type="button" aria-expanded="false" aria-controls="iiif-form"
+          aria-label="Bildquelle" data-tip="Bildquelle (IIIF)">
+          <svg class="icon"><use href="#i-source"/></svg>
+        </button>
+        <button id="facs-hide" class="icon-button" type="button" aria-label="Faksimile ausblenden" data-tip="Faksimile ausblenden">
+          <svg class="icon"><use href="#i-hide"/></svg>
+        </button>
       </div>
+      <form id="iiif-form" class="toolbar source-form" hidden>
+        <label class="iiif-field">
+          <span class="visually-hidden">IIIF-Manifest, info.json oder Bild-URL</span>
+          <input id="iiif-url" type="url" required placeholder="IIIF-Manifest, info.json oder Bild-URL">
+        </label>
+        <button type="submit">Laden</button>
+      </form>
       <div id="viewer" class="viewer" role="img" aria-label="Faksimile"></div>
       <p id="iiif-status" class="status" role="status"></p>
     </section>
@@ -114,6 +133,13 @@
       <svg class="icon"><use href="#i-show"/></svg>
     </button>
   </main>
+
+  <div id="actions" class="actions" role="menu" aria-label="Annotieren" hidden>
+    <button type="button" role="menuitem" data-action="person"><svg class="icon"><use href="#i-person"/></svg>Person</button>
+    <button type="button" role="menuitem" data-action="del">Streichung</button>
+    <button type="button" role="menuitem" data-action="unclear">Unsicher</button>
+    <button type="button" role="menuitem" data-action="add">Ergänzung</button>
+  </div>
 
   <dialog id="person-dialog" class="person-dialog" aria-labelledby="person-title">
     <form id="person-form" method="dialog">
@@ -129,7 +155,7 @@
       <ul id="person-results" class="results"></ul>
       <label class="manual">
         GND-ID
-        <input id="person-gnd" type="text" inputmode="text" autocomplete="off" required
+        <input id="person-gnd" type="text" autocomplete="off" required
           pattern="[0-9Xx\-]{6,12}" placeholder="z. B. 116402873">
       </label>
       <p id="person-preview" class="preview"></p>

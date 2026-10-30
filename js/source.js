@@ -36,9 +36,38 @@ export const source = {
 
   /** How a person annotation with a GND id is written into the text. */
   person: {
-    /** @param {string} gndId */
-    ref: (gndId) => `${GND_PREFIX}${gndId}`,
     /** @param {string} text @param {string} gndId */
     markup: (text, gndId) => `<persName ref="${GND_PREFIX}${gndId}">${text}</persName>`,
   },
+
+  /**
+   * Wrapping actions on a selection. The szd-htr transcription writes open
+   * editorial work as plain-text markers; `marker` finds them in the text,
+   * `strip` removes the marker syntax when the selection carries it, so a
+   * marked "~~amb~~" becomes <del>amb</del> and an unmarked selection is
+   * wrapped as it is.
+   */
+  wraps: [
+    {
+      key: "del",
+      label: "Streichung",
+      element: "del",
+      marker: /~~[^~\n<>]+?~~/g,
+      strip: (/** @type {string} */ t) => t.replace(/^~~([\s\S]*)~~$/, "$1"),
+    },
+    {
+      key: "unclear",
+      label: "Unsicher",
+      element: "unclear",
+      marker: /[^\s<>[\]{}]+\[\?\]/g,
+      strip: (/** @type {string} */ t) => t.replace(/^([\s\S]*)\[\?\]$/, "$1"),
+    },
+    {
+      key: "add",
+      label: "Ergänzung",
+      element: "add",
+      marker: /\{[^{}\n<>]+\}/g,
+      strip: (/** @type {string} */ t) => t.replace(/^\{([\s\S]*)\}$/, "$1"),
+    },
+  ],
 };
