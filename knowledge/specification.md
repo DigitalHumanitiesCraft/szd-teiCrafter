@@ -39,6 +39,9 @@ The editor serves one task chain, opening a document of the Stefan Zweig Digital
 - FR-08: Text and facsimile share the width through a movable split, and the facsimile can be hidden and restored. Acceptance criterion: dragging to the right edge hides it, and an always visible edge button restores it.
 - FR-09: A text selection offers its annotation actions in a menu at the selection (Person, Streichung, Unsicher, Ergänzung), reachable with Ctrl+. and arrow keys. When the selection carries an HTR marker, the matching action is suggested and the marker syntax is removed on wrapping. Acceptance criterion: `~~x~~` becomes `<del>x</del>`, `x[?]` becomes `<unclear>x</unclear>`, `{x}` becomes `<add>x</add>`.
 - FR-10: The remaining HTR markers are counted, and F8 or the counter selects the next one and offers its action. Acceptance criterion: working through the example letter with F8 and Enter leaves no marker, and the saved file equals the original transformed by the marker rules.
+- FR-11: The changes since the document was opened or last saved can be shown as a line comparison before a commit. Acceptance criterion: after one annotation the view lists exactly one removed and one added line with their old and new line numbers, a line link returns to the text, and after saving the view reports no changes.
+- FR-12: Git conflict markers (lines starting with `<<<<<<<`, `=======` or `>>>>>>>`) are recognised when a file is opened and while editing, and explained as two versions of one passage. Acceptance criterion: the check button and the status name the first marker line, each marker line is listed with a link and underlined, and deleting one version with its markers leaves a well-formed document.
+- FR-13: Saving in place never overwrites a file that changed on disk since it was opened or last saved without asking. Acceptance criterion: after the file's modification time changes, saving asks with the choices cancel, save as a new file and overwrite. Cancelling writes nothing and keeps the editor's text, overwriting writes it, and the next save writes without asking again.
 
 ### Non-functional requirements
 
@@ -92,9 +95,9 @@ Purpose. Editing the TEI source.
 
 Data. The opened TEI file, see [data](data.md).
 
-Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, line wrapping on by default, check buttons for well-formedness and validation, the open-spot counter with F8, the action menu at a pointer selection or with Ctrl+., and saving with Ctrl+S.
+Interaction. Typing with auto-closing tags and element suggestions after `<`, search with Ctrl+F, folding, code zoom by buttons or Ctrl and mouse wheel, line wrapping on by default, check buttons for well-formedness and validation, the open-spot counter with F8, the action menu at a pointer selection or with Ctrl+., the comparison with the text as opened or last saved, and saving with Ctrl+S. Questions before discarding or overwriting work appear in a modal dialog whose first, focused choice is the safe one.
 
-Limits. Suggestions cover the element set of the source configuration. Schema-driven suggestions for all of TEI are not implemented.
+Limits. Suggestions cover the element set of the source configuration. Schema-driven suggestions for all of TEI are not implemented. The comparison is line-based and compares with the text as opened or last saved in this session, not with a Git revision. Git conflicts appear in the problem list rather than the F8 queue, because they make the document malformed and are resolved by deleting lines, not by an annotation action. Overwrite protection compares the file's modification time, so it covers changes made on disk but not a file replaced with identical bytes and an earlier time.
 
 ### Facsimile pane
 

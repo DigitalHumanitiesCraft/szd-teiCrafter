@@ -24,6 +24,13 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Safe round trip, first part of S2
+
+- Trigger: brief from the coordinating session to secure the fixes of `e4c227f` by regression checks and to build the S2 parts that need no further decision.
+- Found: the fixes of `e4c227f` had no browser case, and the GND ranking depended on the live service. A stubbed file without a fixed modification time reads as changed on every save, so the stubs now carry one. A malformed file left the previous file name in the header.
+- Changed: a line comparison with the text as opened or last saved (`js/diff.js`, button in the text toolbar), Git conflict markers explained in the problem list instead of the parser error, overwrite protection by the file's modification time with the choices cancel, save as new file and overwrite, and one question dialog that also replaced `confirm()` before discarding unsaved work. Conflicts went to the problem list rather than the F8 queue, because they make the document malformed and are resolved by deleting lines.
+- Evidence: `test/browser-check.mjs`, all checks passing on 2026-10-30, including a lobid answer fixed by Playwright routing, and screenshots of the comparison and the conflict state in dark and light read by the implementer, commit `fe06885`.
+
 ### 2026-10-30 Selection, suggestion and process defaults
 
 - Trigger: operator review of a person annotation in the browser, and the request for a process view in which only real operator decisions are asked.

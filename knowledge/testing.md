@@ -47,6 +47,14 @@ The tests prove the editing task end to end in a real browser, because the risks
 | The annotated letter is valid against TEI All | browser check |
 | Code zoom, element suggestions, the facsimile split and its edge button work | browser check |
 | The narrow view has no horizontal page scroll | browser check at 390 px |
+| The drawn selection is the theme's blue mix and selected element names keep their colour, in dark and light | browser check, computed styles of the selection layer and of `::selection` |
+| A capitalised selection without markers suggests Person | browser check |
+| The person dialog's request for a hit disappears once a valid identifier is typed | browser check |
+| GND hits are limited to the best name matches | browser check against a fixed lobid answer routed by Playwright |
+| The line comparison finds replaced, removed and added lines, and the view shows the annotated line before and after | Node assertions on `js/diff.js` and browser check |
+| Unsaved work is not discarded by opening another file without a question | browser check |
+| A file changed on disk is not overwritten without a question, cancelling writes nothing and keeps the text | browser check with a stubbed handle whose modification time changes |
+| Git conflict markers are named, linked and underlined, and resolving them yields the chosen version byte for byte | browser check with a stubbed conflicted file |
 
 ## Acceptance
 
@@ -59,7 +67,7 @@ The tests prove the editing task end to end in a real browser, because the risks
 - The real file dialog of the File System Access API cannot be automated. The stubbed handle covers the code path, and the operator's acceptance covers the real dialog.
 - Firefox and Safari are not driven. Their save path is the download, which run 1 covers in Chromium.
 - 200 percent page zoom is not automated and belongs to the manual review.
-- Ranking of GND hits is not asserted beyond the presence of the expected identity.
+- Ranking of the live lobid service is not asserted beyond the presence of the expected identity; the ranking rule itself runs against the fixed answer.
 
 ## How to run
 
@@ -69,4 +77,4 @@ cd test && npm install && npx playwright install chromium   # once
 npm run check                        # in test/, BASE_URL overrides the address
 ```
 
-The check needs network access to GAMS and lobid.org and exits non-zero on any failure.
+The check needs network access to GAMS and lobid.org and exits non-zero on any failure. With `SHOTS_DIR` set it writes screenshots of the comparison view, the overwrite question and the conflict state for the visual review.

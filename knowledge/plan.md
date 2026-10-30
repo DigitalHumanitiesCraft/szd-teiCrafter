@@ -77,6 +77,10 @@ Open: operator acceptance with a real save into the clone of this repository.
 - Git conflict markers recognised and explained as two versions of one passage.
 - Accepting a document, possible only when the machine conditions hold, written into the TEI.
 
+Built on 2026-10-30: changes since opening as a line comparison, Git conflict markers explained in the problem list, overwrite protection with a question dialog that also replaced the browser's confirm before discarding unsaved work, each with browser cases.
+
+Open: the state ladder, acceptance into `revisionDesc` (ADR-011), and a browser case for saving a malformed document.
+
 Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
 
 ### S3 Collections and project page
@@ -105,7 +109,7 @@ Verification adds browser cases for a file changed on disk, a file with conflict
 | Milestone | Status | Notes |
 |---|---|---|
 | S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
-| S2 Visible state and safe round trip | pending | next |
+| S2 Visible state and safe round trip | in progress | comparison, conflict markers and overwrite protection built; state ladder and acceptance open |
 | S3 Collections and project page | pending | import scope open |
 | S4 Editorial rule layer | pending | |
 | S5 Publication and partner trial | pending | operator action |

@@ -45,6 +45,9 @@ Source and facsimile are the content, and everything else is a control serving t
 - Caret follows facsimile. Moving through the source turns the facsimile to the page of the preceding `pb`.
 - Split as visibility control. Dragging the separator resizes the facsimile, dragging it to the edge hides it, and an edge button brings it back. The separator works with arrow keys, Home and End.
 - Saving writes back. Saving targets the opened file and confirms where it wrote. Unsaved work is named in the header until it is saved, Ctrl+S saves, and closing the tab with unsaved work asks first.
+- Questions protect work. Opening another document over unsaved work and saving over a file that changed on disk ask in a modal dialog. The safe choice comes first and holds the focus, so Enter and Escape never lose text, and the editor's text survives every answer.
+- Changes before a commit. An icon button in the text toolbar opens the line comparison with the text as opened or last saved. Removed and added lines carry a minus or plus sign beside their colour, old and new line numbers, and each changed passage starts with a link to its line.
+- A conflict reads as two versions. Git conflict markers take the place of the parser error on the check button and in the problem list, which names each marker line with its role and a link, and the status sentence says how to resolve them.
 - The judged text stays readable. The action menu quotes the selection, sits below the line or above it when there is no room, and long lines wrap by default with a hanging indent.
 - A menu appears for a pointer selection, Ctrl+. or F8, and not for selections made by search or undo.
 
