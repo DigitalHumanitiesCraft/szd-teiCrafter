@@ -1,7 +1,9 @@
 // End-to-end check of the editing task in a real browser: open the example
 // letter, annotate persons with GND ids, validate, save, and compare the saved
-// bytes with the original. Needs the app served at BASE_URL and network access
-// to GAMS (facsimile) and lobid-gnd (person search). See knowledge/testing.md.
+// bytes with the original; then the document list, the working state with
+// acceptance, and every document of the working set. Needs the app served at
+// BASE_URL and network access to GAMS (facsimile) and lobid-gnd (person
+// search). See knowledge/testing.md.
 
 import { mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -27,6 +29,25 @@ const shot = (page, name) => SHOTS_DIR && page.screenshot({ path: join(SHOTS_DIR
   check("conflict markers found with their lines", JSON.stringify(conflictMarkers("a\n<<<<<<< HEAD\nb\n=======\nc\n>>>>>>> x\n")) === '[{"line":2,"kind":"start"},{"line":4,"kind":"middle"},{"line":6,"kind":"end"}]');
 }
 
+// The document list is generated; a stale data/index.json would show wrong
+// titles, pages or states.
+{
+  const { buildIndex, INDEX_FILE } = await import("../tools/build-document-index.mjs");
+  const stored = readFileSync(INDEX_FILE, "utf8").replace(/\r\n/g, "\n");
+  check("data/index.json is in step with the files (node tools/build-document-index.mjs)", (await buildIndex()) === stored);
+}
+
+// Acceptance into an empty revisionDesc, which the browser runs cannot load
+// because such a document is not valid TEI.
+{
+  const { acceptanceEdits } = await import("../js/state.js");
+  const text = '<TEI>\n  <teiHeader>\n    <revisionDesc status="draft"/>\n  </teiHeader>\n</TEI>';
+  const [edit, more] = acceptanceEdits(text, { date: "2026-10-30", note: "ok" });
+  const result = `${text.slice(0, edit.from)}${edit.insert}${text.slice(edit.to)}`;
+  const ok = !more && result === '<TEI>\n  <teiHeader>\n    <revisionDesc status="approved">\n      <change when="2026-10-30" status="approved">ok</change>\n    </revisionDesc>\n  </teiHeader>\n</TEI>';
+  check("acceptance fills an empty revisionDesc", ok, ok ? "" : JSON.stringify(result));
+}
+
 const browser = await chromium.launch();
 
 async function open(contextOptions, initScript, initArg) {
@@ -40,6 +61,38 @@ async function open(contextOptions, initScript, initArg) {
   await page.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
   await page.waitForTimeout(1500);
   return { page, errors };
+}
+
+// The badge's words as read: label, then the detail after the separator that
+// css/app.css draws.
+const docState = (page) =>
+  page.evaluate(() => [document.getElementById("doc-state-label").textContent, document.getElementById("doc-state-detail").textContent].filter(Boolean).join(" | "));
+const unsavedDot = (page) =>
+  page.evaluate(() => {
+    const save = document.getElementById("tei-save");
+    return save.hasAttribute("data-unsaved") && getComputedStyle(save, "::before").content !== "none";
+  });
+async function validate(page) {
+  await page.click("#valid-button");
+  await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
+  return label(page, "#valid-label");
+}
+
+// Screenshots of a state in both schemes at the wide and the narrow working
+// width; afterwards the page returns to the given scheme at 1440 x 900.
+async function shotAll(page, name, scheme) {
+  if (!SHOTS_DIR) return;
+  for (const colorScheme of ["dark", "light"]) {
+    await page.emulateMedia({ colorScheme });
+    for (const [width, height] of [[1440, 900], [900, 800]]) {
+      await page.setViewportSize({ width, height });
+      await page.waitForTimeout(500);
+      await shot(page, `${name}-${colorScheme}-${width}`);
+    }
+  }
+  await page.emulateMedia({ colorScheme: scheme });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.waitForTimeout(300);
 }
 
 // Real pointer double-click on a word in the editor, after scrolling its line
@@ -126,6 +179,9 @@ const LOBID_FIXTURE = {
   check("page fits the viewport", (await page.evaluate(() => document.documentElement.scrollHeight)) <= 900);
   check("long lines wrap by default", (await page.getAttribute("#wrap-toggle", "aria-pressed")) === "true");
   check("no unsaved mark at start", (await label(page, "#save-state")) === "");
+  const caretLine = await page.locator(".cm-activeLine").textContent();
+  check("caret starts at the first page break", caretLine.trim().startsWith("<pb "), caretLine.trim());
+  check("working state names the open spots", (await docState(page)) === "In Bearbeitung | 7 offene Stellen", await docState(page));
   check("action menu hidden without selection", await page.isHidden("#actions"));
   check("open spots counted", /^\d+ offene Stellen?$/.test(await label(page, "#work-label")), await label(page, "#work-label"));
   const rowHeight = async (sel) => (await page.locator(sel).first().boundingBox()).height;
@@ -182,6 +238,7 @@ const LOBID_FIXTURE = {
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
   check("valid against TEI All", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#xml-status"));
   check("annotations mark the document unsaved", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
+  check("the save button carries the unsaved dot", await unsavedDot(page));
   await page.click("#diff-button");
   check(
     "changes view lists the two annotated lines as replaced",
@@ -201,7 +258,7 @@ const LOBID_FIXTURE = {
     'Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName>',
   );
   check("saved file is the original plus exactly the two annotations", saved === expected);
-  check("saving clears the unsaved mark", (await label(page, "#save-state")) === "");
+  check("saving clears the unsaved mark and the dot", (await label(page, "#save-state")) === "" && !(await unsavedDot(page)));
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
   await page.keyboard.type(" ");
@@ -466,6 +523,223 @@ const LOBID_FIXTURE = {
   check("no console errors (conflict run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
+const INDEX = JSON.parse(readFileSync(new URL("../data/index.json", import.meta.url), "utf8"));
+const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
+const REICHNER = ALL_DOCS.find((d) => d.objectId === "o_szd.1750");
+const REICHNER_TEXT = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
+const lf = (text) => text.replace(/\r\n/g, "\n");
+
+/** Opens a document from the list by its object id; the list closes on the way. */
+async function chooseDocument(page, objectId) {
+  await page.click("#docs-button");
+  await page.fill("#docs-query", objectId);
+  const meta = new RegExp(`^${objectId.replace(".", "\\.")} \\|`);
+  await page.locator(".doc-item").filter({ has: page.locator("span", { hasText: meta }) }).click();
+}
+
+// Run 6: the document list, the hanging indent, and the working state from
+// validation through acceptance to an edit after it.
+{
+  const { page, errors } = await open({ colorScheme: "dark" }, () => {
+    delete window.showOpenFilePicker;
+    delete window.showSaveFilePicker;
+  });
+  await shotAll(page, "start", "dark");
+
+  // At the narrow working width long lines wrap and the facsimile pane is about 26rem.
+  await page.setViewportSize({ width: 900, height: 800 });
+  await page.waitForTimeout(500);
+  check("facsimile toolbar on one row at 900 px", (await page.locator(".pane-image .toolbar").first().boundingBox()).height < 50);
+  const hang = await page.evaluate(() => {
+    const range = document.createRange();
+    for (const line of document.querySelectorAll(".cm-line")) {
+      const chars = [];
+      const walker = document.createTreeWalker(line, NodeFilter.SHOW_TEXT);
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+        for (let i = 0; i < n.data.length; i++) {
+          if (!n.data[i].trim()) continue;
+          range.setStart(n, i);
+          range.setEnd(n, i + 1);
+          const r = range.getClientRects()[0];
+          if (r) chars.push(r);
+        }
+      }
+      const start = chars[0];
+      const continuation = start && chars.find((r) => r.top > start.top + start.height / 2);
+      if (continuation) return { line: line.textContent.trim().slice(0, 30), content: Math.round(start.left), continuation: Math.round(continuation.left) };
+    }
+    return null;
+  });
+  check("a wrapped line continues right of its content start", !!hang && hang.continuation > hang.content, JSON.stringify(hang));
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.waitForTimeout(300);
+
+  await page.click("#docs-button");
+  check("document list opens with every document", (await page.isVisible("#docs-dialog")) && (await label(page, "#docs-count")) === `${ALL_DOCS.length} Dokumente`, await label(page, "#docs-count"));
+  check("the open document is marked in the list", (await page.locator(".doc-item[aria-current='true']", { hasText: "o_szd.1222" }).count()) === 1);
+  await shotAll(page, "docs", "dark");
+  await page.fill("#docs-query", "Reichner");
+  check("search filters the list", (await page.locator(".doc-item").count()) === 1 && (await label(page, "#docs-count")) === `1 von ${ALL_DOCS.length} Dokumenten`, await label(page, "#docs-count"));
+  await page.fill("#docs-query", "");
+  await page.click("#docs-collections .chip >> text=Werke");
+  const werke = INDEX.collections.find((c) => c.key === "werke").documents.length;
+  const headings = await page.locator("#docs-list h3").allTextContents();
+  check("a collection chip shows that collection only", (await page.locator(".doc-item").count()) === werke && headings.length === 1 && headings[0].startsWith("Werke"), headings.join(" | "));
+  check("the pressed chip keeps the focus", await page.evaluate(() => document.activeElement?.textContent === "Werke"));
+  await page.click("#docs-collections .chip >> text=Alle");
+  await page.selectOption("#docs-state", "open");
+  check("the state filter keeps documents with open spots", (await page.locator(".doc-item").count()) === ALL_DOCS.filter((d) => d.open > 0).length);
+  await page.selectOption("#docs-state", "approved");
+  check("the state filter for accepted documents", (await page.locator(".doc-item").count()) === ALL_DOCS.filter((d) => d.status === "approved").length);
+  await page.selectOption("#docs-state", "");
+  await page.click("#docs-dialog .dialog-actions button");
+
+  // Unsaved work is not replaced without a question.
+  await page.locator(".cm-content").click();
+  await page.keyboard.type(" ");
+  await chooseDocument(page, "o_szd.1750");
+  await page.waitForTimeout(200);
+  check("switching documents with unsaved work asks first", (await page.isVisible("#ask-dialog")) && (await label(page, "#ask-title")) === "Ungespeicherte Änderungen");
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(200);
+  check("cancelling keeps the open document and its edit", (await label(page, "#doc-title")).startsWith("Brief an Anna Meingast") && (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
+
+  const manifest = page.waitForRequest((r) => r.url().includes("o:szd.1750/sdef:IIIF/getManifest"), { timeout: 30000 }).catch(() => null);
+  await chooseDocument(page, "o_szd.1750");
+  await page.click("#ask-actions button[value='discard']");
+  await page.waitForFunction(() => document.getElementById("doc-meta").textContent.startsWith("o_szd.1750"), null, { timeout: 30000 });
+  // The facsimile loads after the text; its page label shows the new page count.
+  await page
+    .waitForFunction((pages) => document.querySelector("#page-label .page-long")?.textContent === `Seite 1 von ${pages}`, REICHNER.pages, { timeout: 30000 })
+    .catch(() => {});
+  check(
+    "choosing an entry loads that document",
+    (await label(page, "#doc-title")) === REICHNER.title && (await label(page, "#doc-meta")).startsWith("o_szd.1750.tei.xml") && (await label(page, "#save-state")) === "",
+    await label(page, "#doc-title"),
+  );
+  check("the facsimile follows the chosen document", !!(await manifest) && (await label(page, "#page-label .page-long")) === `Seite 1 von ${REICHNER.pages}`, await label(page, "#page-label .page-long"));
+
+  check("a document without open spots asks for validation", (await docState(page)) === "In Bearbeitung | noch nicht validiert", await docState(page));
+  check("the chosen document is valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+  check(
+    "a valid document without open spots is ready for acceptance",
+    (await docState(page)) === "Bereit zur Abnahme" && (await page.isVisible("#accept")) && (await label(page, "#accept")) === "Abnehmen",
+    await docState(page),
+  );
+  await shotAll(page, "ready", "dark");
+  await page.click("#accept");
+  await page.waitForTimeout(300);
+  check("acceptance shows Abgenommen", (await docState(page)) === "Abgenommen" && (await page.isHidden("#accept")), await docState(page));
+  const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
+  const accepted = lf(readFileSync(await download.path(), "utf8"));
+  const block = /[ \t]*<revisionDesc status="approved">\n[ \t]*<change when="\d{4}-\d{2}-\d{2}" status="approved">[^<]+<\/change>\n[ \t]*<\/revisionDesc>\n/;
+  check(
+    "acceptance adds one revisionDesc with an approving change and nothing else",
+    accepted.match(/<revisionDesc\b/g)?.length === 1 && block.test(accepted) && accepted.replace(block, "") === REICHNER_TEXT,
+  );
+  check("the accepted document stays valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+  check("validation keeps the accepted state", (await docState(page)) === "Abgenommen", await docState(page));
+  await shotAll(page, "accepted", "dark");
+  await page.click("#docs-button");
+  check("the list shows the accepted state", (await label(page, ".doc-item[aria-current='true'] .doc-tag")) === "Abgenommen");
+  await page.click("#docs-dialog .dialog-actions button");
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.waitForTimeout(500);
+  check("an edit after acceptance is named", (await docState(page)) === "Abgenommen | seither geändert", await docState(page));
+  check("no console errors (document list run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Run 7: a document that already has a revisionDesc gets its status set
+// instead of a second revisionDesc, and opens as accepted afterwards.
+{
+  const fixture = REICHNER_TEXT.replace(/\n([ \t]*)<\/teiHeader>/, (_, indent) =>
+    [
+      "",
+      `${indent}  <revisionDesc status="draft">`,
+      `${indent}    <listChange>`,
+      `${indent}      <change when="2026-10-01">Import aus szd-htr.</change>`,
+      `${indent}    </listChange>`,
+      `${indent}  </revisionDesc>`,
+      `${indent}</teiHeader>`,
+    ].join("\n"),
+  );
+  const { page, errors } = await open(
+    { colorScheme: "light" },
+    (text) => {
+      window.__writes = [];
+      const handle = {
+        name: "revision.tei.xml",
+        getFile: async () => new File([window.__writes.at(-1) ?? text], "revision.tei.xml", { lastModified: 1761800000000 + window.__writes.length }),
+        createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => {} }),
+      };
+      window.showOpenFilePicker = async () => [handle];
+      window.showSaveFilePicker = async () => handle;
+    },
+    fixture,
+  );
+  await page.click("#tei-open");
+  await page.waitForTimeout(800);
+  check("a draft revisionDesc is in progress", (await docState(page)).startsWith("In Bearbeitung"), await docState(page));
+  check("the fixture with revisionDesc is valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+  await page.click("#accept");
+  await page.waitForTimeout(300);
+  await page.click("#tei-save");
+  await page.waitForTimeout(400);
+  const written = lf((await page.evaluate(() => window.__writes))[0] ?? "");
+  const desc = /<revisionDesc\b[^>]*>[\s\S]*?<\/revisionDesc>/.exec(written)?.[0] ?? "";
+  const kept =
+    written.match(/<revisionDesc\b/g)?.length === 1 &&
+    desc.startsWith('<revisionDesc status="approved">') &&
+    desc.match(/<change\b/g)?.length === 2 &&
+    /<change when="\d{4}-\d{2}-\d{2}" status="approved">[^<]+<\/change>\n[ \t]*<\/listChange>/.test(desc);
+  check("acceptance sets the status of the existing revisionDesc", kept, kept ? "" : JSON.stringify(desc));
+  check("the accepted fixture stays valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
+  await page.click("#tei-open");
+  await page.waitForTimeout(800);
+  check("an accepted file opens as accepted", (await docState(page)) === "Abgenommen" && (await page.isHidden("#accept")), await docState(page));
+  check("no console errors (revisionDesc run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Run 8: every document of the working set loads from the list, well-formed
+// and without console errors. Load time runs from the click to the first frame
+// after the checked text is shown; typing time covers ten keystrokes.
+const timings = [];
+{
+  const { page, errors } = await open({ colorScheme: "light" });
+  const frame = () => page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => resolve())));
+  const problems = [];
+  // The open document cannot be chosen again, so the default comes last.
+  for (const d of [...ALL_DOCS.slice(1), ALL_DOCS[0]]) {
+    const before = errors.length;
+    const file = d.path.split("/").pop();
+    const started = Date.now();
+    await chooseDocument(page, d.objectId);
+    await page.waitForFunction((meta) => document.getElementById("doc-meta").textContent.startsWith(meta), `${file} |`, { timeout: 30000 });
+    await frame();
+    const load = Date.now() - started;
+    const typed = Date.now();
+    await page.keyboard.type("abcdefghij");
+    await frame();
+    const typing = Date.now() - typed;
+    for (let i = 0; i < 5 && (await label(page, "#save-state")); i++) await page.keyboard.press("Control+z");
+    await page.waitForTimeout(350);
+    const wf = await label(page, "#wf-label");
+    const title = (await label(page, "#doc-title")).replace(/\s+/g, " ");
+    timings.push({ id: d.objectId, kb: Math.round(Buffer.byteLength(readFileSync(new URL(`../${d.path}`, import.meta.url))) / 1024), load, typing });
+    if (wf !== "Wohlgeformt" || errors.length > before || (await label(page, "#save-state")) || title !== d.title) {
+      problems.push(`${d.objectId}: ${wf}, ${errors.slice(before).join(" ") || "no errors"}, title "${title}"`);
+    }
+  }
+  check(`all ${ALL_DOCS.length} documents load well-formed without console errors`, problems.length === 0, problems.slice(0, 4).join(" | "));
+  const slow = timings.filter((t) => t.load > 3000);
+  check("no document takes more than 3 s to load", slow.length === 0, slow.map((t) => `${t.id} ${t.load} ms`).join(", "));
+}
+
 console.log(results.join("\n"));
 await browser.close();
+const largest = [...timings].sort((a, b) => b.kb - a.kb).slice(0, 5);
+console.log(`\nLoad and typing times, largest documents: ${largest.map((t) => `${t.id} ${t.kb} KB ${t.load}/${t.typing} ms`).join(", ")}`);
+console.log(`Slowest load: ${timings.reduce((a, b) => (b.load > a.load ? b : a), { load: 0 }).id ?? "-"}, median ${[...timings].sort((a, b) => a.load - b.load)[Math.floor(timings.length / 2)]?.load} ms`);
 process.exitCode = results.some((r) => r.startsWith("FAIL")) ? 1 : 0;
