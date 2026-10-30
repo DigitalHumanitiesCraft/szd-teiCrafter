@@ -34,7 +34,8 @@ const editor = createEditor($("editor"), {
     checkTimer = window.setTimeout(checkSource, 300);
   },
   onCaret(offset) {
-    viewer.show(pageAtOffset(editor.text, offset));
+    const before = editor.slice(0, offset);
+    viewer.show(pageAtOffset(before, before.length));
     updatePersonButton();
   },
   onZoom(percent) {
@@ -235,7 +236,7 @@ $("person-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
   }
   // The document may have changed while the dialog was open; only apply if the
   // marked text is still where it was.
-  if (editor.text.slice(pending.from, pending.to) !== pending.text) {
+  if (editor.slice(pending.from, pending.to) !== pending.text) {
     setStatus(xmlStatus, "error", "Der markierte Text hat sich verändert; bitte erneut markieren.");
     return;
   }

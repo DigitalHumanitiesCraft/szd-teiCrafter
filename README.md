@@ -52,6 +52,11 @@ python -m http.server 8000
 
 then http://localhost:8000/.
 
+## Project knowledge
+
+Requirements, decisions, data, design, checks and the plan are kept in `knowledge/`, starting at
+`knowledge/INDEX.md`. The browser check is described in `knowledge/testing.md`.
+
 ## Licence
 
 Code under MIT, see `LICENSE`. The example letter is CC BY 4.0, see `data/NOTICE.md`.

@@ -71,6 +71,9 @@ const ZOOM_STEPS =[70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
+  // The document keeps the line endings of the opened file, so saving changes
+  // no byte the user did not edit, whatever platform the file came from.
+  const lineEnding = new Compartment();
   let zoom = 100;
   let wrapped = false;
 
@@ -98,6 +101,7 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
         chrome,
         xml({ elements, autoCloseTags: true }),
         EditorState.tabSize.of(2),
+        lineEnding.of(EditorState.lineSeparator.of("\n")),
         wrapping.of([]),
         fontSize.of(sizeTheme(zoom)),
         keymap.of([
@@ -111,7 +115,7 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
         ]),
         EditorView.contentAttributes.of({ "aria-label": "TEI-Quelltext", spellcheck: "false" }),
         EditorView.updateListener.of((u) => {
-          if (u.docChanged) onChange(u.state.doc.toString());
+          if (u.docChanged) onChange(u.state.sliceDoc());
           if (u.selectionSet || u.docChanged) onCaret(u.state.selection.main.head);
         }),
         // Ctrl + mouse wheel zooms the code only, not the page.
@@ -136,11 +140,20 @@ export function createEditor(parent, { elements, onChange, onCaret, onZoom }) {
 
   const api = {
     view,
+    // sliceDoc joins lines with the configured separator; doc.toString() would
+    // always use LF. Positions below are document positions, in which a line
+    // break counts as one character whatever the separator.
     get text() {
-      return view.state.doc.toString();
+      return view.state.sliceDoc();
+    },
+    /** @param {number} from @param {number} to */
+    slice(from, to) {
+      return view.state.sliceDoc(from, to);
     },
     /** @param {string} text */
     setText(text) {
+      const separator = text.includes("\r\n") ? "\r\n" : "\n";
+      view.dispatch({ effects: lineEnding.reconfigure(EditorState.lineSeparator.of(separator)) });
       view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text }, selection: { anchor: 0 } });
       view.scrollDOM.scrollTop = 0;
     },
