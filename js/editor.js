@@ -8,6 +8,7 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   Compartment,
+  Decoration,
   completionKeymap,
   defaultKeymap,
   drawSelection,
@@ -26,10 +27,12 @@ import {
   keymap,
   lineNumbers,
   lintGutter,
+  RangeSetBuilder,
   searchKeymap,
   setDiagnostics,
   syntaxHighlighting,
   tags,
+  ViewPlugin,
   xml,
 } from "../vendor/codemirror/codemirror.js";
 
@@ -66,10 +69,46 @@ const chrome = EditorView.theme({
   ".cm-panels input, .cm-panels button": { color: "var(--text)" },
 });
 
-// Wrapped continuation lines hang under the first, so the markup stays readable.
-const hangingIndent = EditorView.theme({
-  "&.cm-lineWrapping .cm-line": { paddingLeft: "2.5em", textIndent: "-2em" },
-});
+// Wrapped continuation lines hang two columns under the start of their own
+// line's content, so nested markup keeps its shape when a long line wraps.
+// The first visual line keeps its place (padding and negative indent cancel).
+const lineIndent = new Map();
+/** @param {number} columns */
+function indentDecoration(columns) {
+  if (!lineIndent.has(columns)) {
+    const hang = columns + 2;
+    lineIndent.set(columns, Decoration.line({ attributes: { style: `padding-left: calc(${hang}ch + 6px); text-indent: -${hang}ch` } }));
+  }
+  return lineIndent.get(columns);
+}
+/** @param {EditorView} view */
+function hangingDecorations(view) {
+  const builder = new RangeSetBuilder();
+  const tab = view.state.tabSize;
+  for (const { from, to } of view.visibleRanges) {
+    for (let pos = from; pos <= to; ) {
+      const line = view.state.doc.lineAt(pos);
+      const lead = /^[ 	]*/.exec(line.text)[0];
+      const columns = [...lead].reduce((n, c) => n + (c === "	" ? tab : 1), 0);
+      builder.add(line.from, line.from, indentDecoration(columns));
+      pos = line.to + 1;
+    }
+  }
+  return builder.finish();
+}
+const hangingIndent = ViewPlugin.fromClass(
+  class {
+    /** @param {EditorView} view */
+    constructor(view) {
+      this.decorations = hangingDecorations(view);
+    }
+    /** @param {import("../vendor/codemirror/codemirror.js").ViewUpdate} u */
+    update(u) {
+      if (u.docChanged || u.viewportChanged) this.decorations = hangingDecorations(u.view);
+    }
+  },
+  { decorations: (v) => v.decorations },
+);
 
 // German interface strings for search, folding and diagnostics.
 const germanPhrases = EditorState.phrases.of({
