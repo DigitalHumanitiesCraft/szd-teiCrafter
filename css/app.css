@@ -64,6 +64,7 @@
 @layer layout {
   .app-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-1) var(--space-3);
@@ -127,14 +128,47 @@
     min-inline-size: 0;
     & h1 { font-size: 1.15rem; }
   }
+  .doc-id { flex: 1 1 24rem; }
   .doc-meta { color: var(--muted); font-size: 0.9rem; }
+  .doc-work { display: flex; align-items: center; gap: var(--space-2); }
+  .header-tools { flex-wrap: nowrap; }
+
+  /* The working state as a badge; its words carry the state, colour adds to it. */
+  .doc-state {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    &:empty, &:has(span:empty:first-child) { display: none; }
+    &[data-state="approved"] { color: var(--ok); border-color: color-mix(in oklch, var(--ok) 50%, var(--line)); }
+    &[data-state="ready"] { color: var(--blue); border-color: color-mix(in oklch, var(--blue) 50%, var(--line)); }
+    &[data-state="changed"] { color: var(--orange); border-color: color-mix(in oklch, var(--orange) 50%, var(--line)); }
+    &[data-state="error"] { color: var(--error); border-color: color-mix(in oklch, var(--error) 50%, var(--line)); }
+  }
+  .doc-state-detail { font-weight: 400; color: var(--muted); &:not(:empty)::before { content: "| "; } }
+  .doc-pick select {
+    inline-size: min(22rem, 40vi);
+    min-block-size: 2.25rem;
+    padding-inline: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    text-overflow: ellipsis;
+  }
   .page-label { white-space: nowrap; font-variant-numeric: tabular-nums; }
   .source-form { padding-block-end: var(--space-1); }
 
   /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
      state colour plus their accessible label, which stays readable to
      assistive technology and on hover. */
-  @container (width < 46rem) {
+  @container (width < 38rem) {
     .check .label {
       position: absolute;
       inline-size: 1px;
@@ -143,10 +177,16 @@
       clip-path: inset(50%);
       white-space: nowrap;
     }
+  }
+  /* The reset button for the code size is the first to give way; Ctrl+0 is not
+     needed, the size buttons and the wheel remain. */
+  @container (width < 48rem) {
     .zoom-label { display: none; }
   }
-  @container (width < 26rem) {
+  @container (width < 30rem) {
     .toolbar-sep { display: none; }
+    .toolbar { gap: var(--space-1); }
+    .icon-button { inline-size: 2rem; }
   }
 
   /* Action menu at the selection. */
@@ -277,6 +317,8 @@
     & .manual input { font-weight: 400; font-family: var(--font-code); }
     & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
     & .dialog-actions { justify-content: flex-end; }
+    /* An empty status takes no room, so the results follow the search field. */
+    & .status:empty { min-block-size: 0; margin-block-start: calc(-1 * var(--space-2)); }
   }
   .diff-dialog, .ask-dialog {
     padding: var(--space-3);

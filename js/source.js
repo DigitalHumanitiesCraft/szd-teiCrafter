@@ -10,6 +10,8 @@ const GND_PREFIX = "http://d-nb.info/gnd/";
 export const source = {
   name: "Stefan Zweig Digital",
   defaultDocument: "data/o_szd.1222.tei.xml",
+  /** The document list by collection, built by tools/build-document-index.mjs. */
+  documents: "data/index.json",
 
   /**
    * GAMS serves a IIIF Presentation manifest per SZD object. The TEI carries

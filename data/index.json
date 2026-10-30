@@ -1,0 +1,228 @@
+{
+  "collections": [
+    {
+      "key": "korrespondenzen",
+      "label": "Korrespondenzen",
+      "documents": [
+        {
+          "path": "data/o_szd.1222.tei.xml",
+          "objectId": "o_szd.1222",
+          "title": "Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1437.tei.xml",
+          "objectId": "o_szd.1437",
+          "title": "Brief an Stefan Zweig vom 27. Juni 1944, SZ-AAP/B14"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1786.tei.xml",
+          "objectId": "o_szd.1786",
+          "title": "Brief an Stefan Zweig vom 10. Mai 1938, SZ-AAP/B1.220"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1481.tei.xml",
+          "objectId": "o_szd.1481",
+          "title": "Deckblatt \"Copyr. Bureau Korresp. 1939\", o. D., SZ-AAP/B3.0"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.504.tei.xml",
+          "objectId": "o_szd.504",
+          "title": "Unidentified an Stefan Zweig, 1906-11-23, SZ-SAM/AK.214"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.406.tei.xml",
+          "objectId": "o_szd.406",
+          "title": "Jüdischer Jugendverein (Düsseldorf) an Stefan Zweig, 1930-06-18, SZ-SAM/AK.125"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1267.tei.xml",
+          "objectId": "o_szd.1267",
+          "title": "Brief an Stefan Zweig vom 8. März 1938, SZ-SAM/B4.4"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1750.tei.xml",
+          "objectId": "o_szd.1750",
+          "title": "Brief an Herbert Reichner vom 7. Oktober 1937, SZ-AAP/B1.103"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1079.tei.xml",
+          "objectId": "o_szd.1079",
+          "title": "Brief an Max Fleischer vom 22. Mai 1901, SZ-LAS/B3.1"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1404.tei.xml",
+          "objectId": "o_szd.1404",
+          "title": "Brief an Stefan Zweig vom 10. Juli 1939, SZ-LAS/B2.6"
+        }
+      ]
+    },
+    {
+      "key": "lebensdokumente",
+      "label": "Lebensdokumente",
+      "documents": [
+        {
+          "path": "data/lebensdokumente/o_szd.187.tei.xml",
+          "objectId": "o_szd.187",
+          "title": "Mitteilung des britischen Home Office"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.100.tei.xml",
+          "objectId": "o_szd.100",
+          "title": "Agreement Longmans, Green &amp; Co. Inc."
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.141.tei.xml",
+          "objectId": "o_szd.141",
+          "title": "Notizbuch Russlandreise"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.72.tei.xml",
+          "objectId": "o_szd.72",
+          "title": "Tagebuch 1918"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.134.tei.xml",
+          "objectId": "o_szd.134",
+          "title": "Vertrag Aktiebolaget Skoglunds Bokförlag"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.153.tei.xml",
+          "objectId": "o_szd.153",
+          "title": "Briefkarte blanko"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.184.tei.xml",
+          "objectId": "o_szd.184",
+          "title": "Liste mit wichtigen Daten und persönlichen Papieren"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.192.tei.xml",
+          "objectId": "o_szd.192",
+          "title": "Bescheid über die Judenvermögensabgabe"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.194.tei.xml",
+          "objectId": "o_szd.194",
+          "title": "Briefregister [I]"
+        },
+        {
+          "path": "data/lebensdokumente/o_szd.152.tei.xml",
+          "objectId": "o_szd.152",
+          "title": "Abwesenheitsnotiz I"
+        }
+      ]
+    },
+    {
+      "key": "werke",
+      "label": "Werke",
+      "documents": [
+        {
+          "path": "data/werke/o_szd.260.tei.xml",
+          "objectId": "o_szd.260",
+          "title": "Autobiographischer Aufsatz"
+        },
+        {
+          "path": "data/werke/o_szd.218.tei.xml",
+          "objectId": "o_szd.218",
+          "title": "Vortrag über Dostojewski II [Beilage]"
+        },
+        {
+          "path": "data/werke/o_szd.263.tei.xml",
+          "objectId": "o_szd.263",
+          "title": "Worte am Sarge Sigmund Freuds [Fragment I]"
+        },
+        {
+          "path": "data/werke/o_szd.320.tei.xml",
+          "objectId": "o_szd.320",
+          "title": "VI Capitel Ein Wille gegen tausend Widerstände"
+        },
+        {
+          "path": "data/werke/o_szd.368.tei.xml",
+          "objectId": "o_szd.368",
+          "title": "Kleist"
+        },
+        {
+          "path": "data/werke/o_szd.229.tei.xml",
+          "objectId": "o_szd.229",
+          "title": "Werknotizen 3"
+        },
+        {
+          "path": "data/werke/o_szd.273.tei.xml",
+          "objectId": "o_szd.273",
+          "title": "Montaigne"
+        },
+        {
+          "path": "data/werke/o_szd.2856.tei.xml",
+          "objectId": "o_szd.2856",
+          "title": "Manifest"
+        },
+        {
+          "path": "data/werke/o_szd.2934.tei.xml",
+          "objectId": "o_szd.2934",
+          "title": "Histoire de l'idée européenne"
+        },
+        {
+          "path": "data/werke/o_szd.1890.tei.xml",
+          "objectId": "o_szd.1890",
+          "title": "Dank an die Bücher"
+        }
+      ]
+    },
+    {
+      "key": "aufsatzablage",
+      "label": "Aufsatzablage",
+      "documents": [
+        {
+          "path": "data/aufsatzablage/o_szd.2215.tei.xml",
+          "objectId": "o_szd.2215",
+          "title": "Aus der Werkstatt der Dichter"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2478.tei.xml",
+          "objectId": "o_szd.2478",
+          "title": "Alter Anfang für eine Legende \"Mitleiden\""
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2846.tei.xml",
+          "objectId": "o_szd.2846",
+          "title": "Mitleiden, SZ-AAP/W-AA119.1"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2322.tei.xml",
+          "objectId": "o_szd.2322",
+          "title": "Richard Specht"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2375.tei.xml",
+          "objectId": "o_szd.2375",
+          "title": "Josef Roth: \"Rechts und Links\"."
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2290.tei.xml",
+          "objectId": "o_szd.2290",
+          "title": "Salzburg. Die Stadt als Rahmen"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2325.tei.xml",
+          "objectId": "o_szd.2325",
+          "title": "Scharlach."
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2414.tei.xml",
+          "objectId": "o_szd.2414",
+          "title": "A Marcel Martinet"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2296.tei.xml",
+          "objectId": "o_szd.2296",
+          "title": "Hugo Steiner-Prag"
+        },
+        {
+          "path": "data/aufsatzablage/o_szd.2412.tei.xml",
+          "objectId": "o_szd.2412",
+          "title": "Martinet, Marcel"
+        }
+      ]
+    }
+  ]
+}

@@ -36,9 +36,17 @@
     <div class="doc-id">
       <h1 id="doc-title">teiCrafter SZD</h1>
       <p id="doc-meta" class="doc-meta"></p>
+    </div>
+    <div class="doc-work">
+      <p id="doc-state" class="doc-state" role="status"><span id="doc-state-label"></span><span id="doc-state-detail" class="doc-state-detail"></span></p>
+      <button id="accept" type="button" class="primary" hidden>Abnehmen</button>
       <p id="save-state" class="save-state" role="status"></p>
     </div>
-    <div class="toolbar">
+    <div class="toolbar header-tools">
+      <label class="doc-pick">
+        <span class="visually-hidden">Dokument wählen</span>
+        <select id="doc-pick"></select>
+      </label>
       <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
         <svg class="icon"><use href="#i-open"/></svg>
       </button>

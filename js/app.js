@@ -35,6 +35,10 @@ let savedBy = "Öffnen";
 /** lastModified of the opened file on disk at open or last save, null without a handle. */
 let diskModified = /** @type {number | null} */ (null);
 let validatedOnce = false;
+/** revisionDesc/@status of the last well-formed parse (ADR-011). */
+let docStatus = "";
+/** The text at acceptance, so a later edit shows as a change after acceptance. */
+let acceptedText = /** @type {string | null} */ (null);
 
 const editor = createEditor($("editor"), {
   elements: source.elements,
@@ -111,6 +115,7 @@ function checkSource() {
   const conflicts = conflictMarkers(editor.text);
   if (conflicts.length) {
     showConflicts(conflicts);
+    updateDocState();
     return null;
   }
   if (!doc) {
@@ -118,6 +123,7 @@ function checkSource() {
     const problem = { message: `Nicht wohlgeformt: ${error?.message}`, line: error?.line ?? 0, column: error?.column ?? 0 };
     showMessages([problem]);
     editor.setProblems([problem]);
+    updateDocState();
     return null;
   }
   setCheck(wfButton, "ok", "Wohlgeformt");
@@ -125,8 +131,75 @@ function checkSource() {
   editor.setProblems([]);
   const facts = documentFacts(doc);
   $("doc-title").textContent = facts.title || "teiCrafter SZD";
+  docStatus = doc.getElementsByTagNameNS("*", "revisionDesc")[0]?.getAttribute("status") ?? "";
+  updateDocState();
   return facts;
 }
+
+// Working state (ADR-006, ADR-008, ADR-011): from not well-formed through open
+// spots and validation to accepted. Saving stays possible in every state.
+
+function updateDocState() {
+  const open = openSpots().length;
+  const wellFormed = !xmlError;
+  const valid = validButton.dataset.state === "ok";
+  /** @type {[string, string, string]} state, label, detail */
+  let view;
+  if (docStatus === "approved" && wellFormed) {
+    view = acceptedText === null || editor.text === acceptedText
+      ? ["approved", "Abgenommen", ""]
+      : ["changed", "Abgenommen", "seither geändert"];
+  } else if (!wellFormed) {
+    view = ["error", "In Bearbeitung", "nicht wohlgeformt"];
+  } else if (open) {
+    view = ["draft", "In Bearbeitung", open === 1 ? "1 offene Stelle" : `${open} offene Stellen`];
+  } else if (!valid) {
+    view = ["draft", "In Bearbeitung", "noch nicht validiert"];
+  } else {
+    view = ["ready", "Bereit zur Abnahme", ""];
+  }
+  const [state, label, detail] = view;
+  $("doc-state").dataset.state = state;
+  $("doc-state-label").textContent = label;
+  $("doc-state-detail").textContent = detail;
+  $("accept").hidden = state !== "ready";
+}
+
+/**
+ * Records the acceptance in the TEI: revisionDesc/@status="approved" and a
+ * change with the date. Who accepted is left to the editorial rules of S4.
+ */
+function accept() {
+  const date = new Date().toISOString().slice(0, 10);
+  const change = `<change when="${date}" status="approved">Abgenommen im teiCrafter SZD.</change>`;
+  const text = editor.docText();
+  const open = /<revisionDesc\b[^>]*>/.exec(text);
+  if (open) {
+    const close = text.indexOf("</revisionDesc>", open.index);
+    const list = text.lastIndexOf("</listChange>", close);
+    const at = list > open.index ? list : close;
+    if (at < 0) return;
+    const indent = /[ \t]*$/.exec(text.slice(0, at))?.[0] ?? "";
+    editor.replace(at, at, `  ${change}\n${indent}`);
+    const tag = open[0].includes("status=")
+      ? open[0].replace(/status="[^"]*"/, 'status="approved"')
+      : open[0].replace(/<revisionDesc\b/, '<revisionDesc status="approved"');
+    editor.replace(open.index, open.index + open[0].length, tag);
+  } else {
+    const end = text.indexOf("</teiHeader>");
+    if (end < 0) return;
+    const lineStart = text.lastIndexOf("\n", end) + 1;
+    const indent = /^[ \t]*/.exec(text.slice(lineStart))?.[0] ?? "";
+    editor.replace(lineStart, lineStart, `${indent}  <revisionDesc status="approved">\n${indent}    ${change}\n${indent}  </revisionDesc>\n`);
+  }
+  clearTimeout(checkTimer);
+  checkSource();
+  acceptedText = editor.text;
+  updateDocState();
+  setStatus(xmlStatus, "ok", "Abgenommen. Speichern hält die Abnahme in der Datei fest.");
+}
+
+$("accept").addEventListener("click", accept);
 
 /**
  * Lists messages below the editor; each one with a position jumps there.
@@ -206,6 +279,7 @@ validButton.addEventListener("click", async () => {
       setCheck(validButton, "ok", "TEI-konform");
       showMessages([], "Gültig gegen TEI All (P5 4.11.0).");
     }
+    updateDocState();
   } catch (err) {
     setCheck(validButton, "error", "Prüfung fehlgeschlagen");
     showMessages([{ message: err instanceof Error ? err.message : String(err), line: 0, column: 0 }]);
@@ -628,7 +702,17 @@ function openText(text) {
   savedBy = "Öffnen";
   validatedOnce = false;
   updateSaveState();
+  acceptedText = null;
   const facts = checkSource();
+  if (docStatus === "approved") {
+    acceptedText = editor.text;
+    updateDocState();
+  }
+  // Work happens in the text, so the caret starts at its first page break.
+  const lines = editor.docText().split("\n");
+  const start = lines.findIndex((l) => /<pb\b/.test(l));
+  const body = lines.findIndex((l) => /<body\b/.test(l));
+  if (start >= 0 || body >= 0) editor.jumpTo((start >= 0 ? start : body) + 1, 1);
   const manifest = facts && source.manifestFor(facts.idnos);
   if (manifest) {
     iiifInput.value = manifest;
@@ -668,6 +752,7 @@ $("tei-open").addEventListener("click", async () => {
     fileName = file.name;
     diskModified = file.lastModified;
     openText(await file.text());
+    showUnlisted();
   } catch (err) {
     if (/** @type {any} */ (err)?.name !== "AbortError") setStatus(xmlStatus, "error", `Öffnen fehlgeschlagen: ${err}`);
   }
@@ -679,6 +764,7 @@ $("tei-file").addEventListener("change", async (/** @type {Event} */ e) => {
   diskModified = null;
   fileName = file.name;
   openText(await file.text());
+  showUnlisted();
 });
 
 /**
@@ -781,10 +867,55 @@ window.addEventListener("beforeunload", (e) => {
   if (editor.text !== savedText) e.preventDefault();
 });
 
-fetch(source.defaultDocument)
-  .then((r) => {
+// Documents of the repository, by collection. A document loaded from the list
+// is saved by download or to a chosen file; opening it from the local clone
+// with the open button saves it in place.
+
+const picker = /** @type {HTMLSelectElement} */ ($("doc-pick"));
+
+/** @param {string} path */
+async function loadDocument(path) {
+  try {
+    const r = await fetch(path);
     if (!r.ok) throw new Error(`Status ${r.status}`);
-    return r.text();
+    const text = await r.text();
+    fileHandle = null;
+    diskModified = null;
+    fileName = path.split("/").pop() ?? fileName;
+    openText(text);
+    picker.value = path;
+  } catch (err) {
+    setStatus(xmlStatus, "error", `Dokument nicht geladen: ${err instanceof Error ? err.message : err}`);
+  }
+}
+
+/** A file opened from disk is no entry of the list, so the list shows none. */
+function showUnlisted() {
+  picker.value = "";
+  picker.dataset.current = "";
+}
+
+picker.addEventListener("change", async () => {
+  const path = picker.value;
+  if (!(await mayDiscard())) {
+    picker.value = picker.dataset.current ?? "";
+    return;
+  }
+  picker.dataset.current = path;
+  loadDocument(path);
+});
+
+fetch(source.documents)
+  .then((r) => (r.ok ? r.json() : { collections: [] }))
+  .then((/** @type {{ collections: { label: string, documents: { path: string, objectId: string, title: string }[] }[] }} */ index) => {
+    for (const c of index.collections) {
+      const group = Object.assign(document.createElement("optgroup"), { label: c.label });
+      for (const d of c.documents) group.append(new Option(d.title, d.path));
+      picker.append(group);
+    }
+    picker.value = source.defaultDocument;
+    picker.dataset.current = source.defaultDocument;
   })
-  .then(openText)
-  .catch((err) => setStatus(xmlStatus, "error", `Beispieldokument nicht geladen: ${err.message}`));
+  .catch(() => (picker.hidden = true));
+
+loadDocument(source.defaultDocument);
