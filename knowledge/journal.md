@@ -24,6 +24,13 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Definition of done, team round trip and learning from cases
+
+- Trigger: three conceptual questions to the operator on finished letters, derivation forms and person identity.
+- Decided: operator: „Ein Brief ist fertig, wenn er formal wohlgeformt, gültig und genau ist und wenn er abgespeichert ist, also quasi abgenommen ist.“ Two working states, in progress and accepted (ADR-006). On derivations, operator: „Wenn wir ein paar Fälle haben, können wir die qualitativ beobachten, analysieren, diskutieren, ableiten, generalisieren und dadurch das insgesamt verbessern.“ Both forms stay as cases, and the teiCrafter base receives a case register through its handoff.
+- Changed: [plan](plan.md) gains M8 safe round trip and M9 project page with their open decisions, [specification](specification.md#adr-006-definition-of-done-and-two-working-states) ADR-006.
+- Evidence: the question on an existing Stefan Zweig Digital person register stays open with the operator.
+
 ### 2026-10-30 Actions at the selection and the open-work queue
 
 - Trigger: operator: „was kannst du alles im UI direkt implementieren? und was testen wir dann? setze das um“.

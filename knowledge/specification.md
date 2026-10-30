@@ -168,3 +168,13 @@ Choice. `<persName ref="https://d-nb.info/gnd/ID">`, the identifier as full URI,
 Rationale. The URI resolves without the editor and is the common TEI practice for authority links. lobid-gnd needs no key and allows browser requests, and the teiCrafter base uses it as well.
 
 Effect. A live request goes to lobid.org only when the user searches, which is a deliberate exception to the rule of no live API calls, because looking up an identity is the editing act itself.
+
+### ADR-006 Definition of done and two working states
+
+Context. The project list, the save rule and a later project rule set all need to know when a letter counts as finished.
+
+Choice. Operator, 2026-10-30: „Ein Brief ist fertig, wenn er formal wohlgeformt, gültig und genau ist und wenn er abgespeichert ist, also quasi abgenommen ist.“ A letter is either in progress or accepted. Well-formed, valid against TEI All and free of open HTR spots are machine-checkable conditions. Accuracy against the facsimile is a human judgement, and acceptance is the act that records it.
+
+Rationale. Two states reflect the working status without a workflow engine, and the machine conditions let the editor offer acceptance only when they hold.
+
+Effect. Where the state is encoded and who may accept are open in [plan](plan.md#open-decisions-and-dependencies).

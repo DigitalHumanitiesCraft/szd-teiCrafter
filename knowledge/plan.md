@@ -36,7 +36,7 @@ This plan orders the accepted next steps of the editor. Decisions taken along th
 |---|---|---|
 | Phase 1 — Working editor | M1 editor and person annotation | operator acceptance |
 | Phase 2 — Annotation set | M2 person register, M3 HTR marker actions, M4 toolbar order | browser check extended |
-| Phase 3 — Team workflow | M5 repository and Pages, M6 partner trial | partner acceptance |
+| Phase 3 — Team workflow | M8 safe round trip, M9 project page, M5 repository and Pages, M6 partner trial | partner acceptance |
 | Phase 4 — Back into the base | M7 derivation contract in teiCrafter | base checks |
 
 ### Phase 1 — Working editor
@@ -75,6 +75,26 @@ Exit condition (M4): toolbars stay on one row at half width and remain usable in
 
 ### Phase 3 — Team workflow
 
+Goal: a letter goes from one team member through Git to another and back without lost work, and its state is visible in the project. Git stays outside the editor, which neither commits nor needs an access token.
+
+#### Milestone 8 — Safe round trip
+
+- Save rule: malformed XML is never written, a document with schema errors is written with a visible note on the open errors.
+- Overwrite protection: before writing, the editor rereads the file and warns when it changed on disk since opening, for instance after a pull.
+- Changes since opening: a comparison of the current text with the opened version, the check before a commit.
+- Git conflict markers are recognised and explained as two versions of one passage.
+- Working state: in progress or accepted (ADR-006), shown in the editor and settable as accepted only when the machine conditions hold.
+
+Exit condition (M8): the browser check covers each case, including a file changed on disk and a file with conflict markers.
+
+#### Milestone 9 — Project page
+
+- A separate view lists the letters of the released `data/` folder with title, working state, open spots and well-formedness, and opens a letter in the editor. The editor keeps exactly one document and gains a way back to the list.
+- A link to the version history of the open file on the Git platform, built from the repository address in `js/source.js` without an API.
+- A short guide for partners in the README covering clone, open, save, commit and push.
+
+Exit condition (M9): a partner reaches every letter from the list and sees which ones still need work.
+
 #### Milestone 5 — Repository and Pages
 
 - The operator creates `DigitalHumanitiesCraft/szd-teiCrafter`, pushes and enables Pages.
@@ -97,6 +117,8 @@ Exit condition (M4): toolbars stay on one row at half width and remain usable in
 | M2 — Person register | pending | |
 | M3 — HTR marker actions | in progress | actions, counter and F8 built; rule set for remaining markers open |
 | M4 — Toolbar order | completed | one row per pane at half width; a very narrow facsimile pane still wraps |
+| M8 — Safe round trip | pending | next step |
+| M9 — Project page | pending | person register (M2) follows it on the project page |
 | M5 — Repository and Pages | pending | operator action |
 | M6 — Partner trial | pending | |
 | M7 — Derivation contract in the base | pending | handoff to teiCrafter sent 2026-10-30 |
@@ -105,5 +127,8 @@ Exit condition (M4): toolbars stay on one row at half width and remain usable in
 
 - Whether the register lives in one `persons.xml` or in the `standOff` of each letter, before M2.
 - Whether derivations stay build-free with vendored bundles or move to the Vite stack of the teiCrafter base, before M7. ADR-003 keeps both open.
-- Whether saving stays ungated or follows the fail-closed save gate of the base and the Wenzelsbibel derivation (only valid TEI is written), before M6.
+- Whether the save rule of M8 (never malformed, schema errors with a note) is accepted, which departs from the fail-closed gate of the base and the Wenzelsbibel derivation, before M8.
+- Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`) so that Git diff, project page and editor read the same value, and who may accept, before M8.
+- Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before M6.
+- Whether Stefan Zweig Digital already keeps a person register to link to instead of a project register, before M2.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before M6.
