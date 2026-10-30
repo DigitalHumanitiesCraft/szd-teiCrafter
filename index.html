@@ -7,27 +7,59 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+  <!-- Icon sprite: stroke icons drawn in currentColor, referenced with <use>. -->
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v1H7.5a2 2 0 0 0-1.9 1.4L3.5 18"/><path d="M3.5 18 6 11h16l-2.4 7a2 2 0 0 1-1.9 1H5a2 2 0 0 1-1.5-1z"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-error" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+    <symbol id="i-validate" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-load" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="i-rot-left" viewBox="0 0 24 24"><path d="M4 4v6h6"/><path d="M4.5 10A8 8 0 1 1 6 16.5"/></symbol>
+    <symbol id="i-rot-right" viewBox="0 0 24 24"><path d="M20 4v6h-6"/><path d="M19.5 10A8 8 0 1 0 18 16.5"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
+    <symbol id="i-show" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
+  </svg>
+
   <header class="app-header">
     <h1 id="doc-title">teiCrafter SZD</h1>
     <p id="doc-meta" class="doc-meta"></p>
   </header>
 
-  <main class="workspace">
+  <main id="workspace" class="workspace">
     <section class="pane pane-text" aria-labelledby="text-heading">
       <div class="toolbar">
         <h2 id="text-heading" class="pane-heading">TEI</h2>
-        <label class="file-button">
-          TEI öffnen
-          <input id="tei-file" type="file" accept=".xml,application/xml,text/xml">
+        <button id="wf-button" class="check" type="button" aria-describedby="xml-status">
+          <svg class="icon"><use href="#i-ok"/></svg><span id="wf-label">Wohlgeformt</span>
+        </button>
+        <button id="valid-button" class="check" type="button" aria-describedby="xml-status">
+          <svg class="icon"><use href="#i-validate"/></svg><span id="valid-label">Validieren</span>
+        </button>
+        <span class="toolbar-gap"></span>
+        <label class="icon-button file-button" data-tip="TEI-Datei öffnen">
+          <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg>
+          <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" aria-label="TEI-Datei öffnen">
         </label>
-        <button id="tei-save" type="button">TEI speichern</button>
+        <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern (Download)" data-tip="TEI speichern (Download)">
+          <svg class="icon"><use href="#i-save"/></svg>
+        </button>
       </div>
-      <textarea id="tei-source" spellcheck="false" aria-label="TEI-Quelltext"
-        aria-describedby="xml-status"></textarea>
-      <p id="xml-status" class="status" role="status"></p>
+      <div class="code">
+        <pre id="tei-highlight" class="code-layer" aria-hidden="true"></pre>
+        <textarea id="tei-source" class="code-layer" spellcheck="false" aria-label="TEI-Quelltext"
+          aria-describedby="xml-status"></textarea>
+      </div>
+      <div id="xml-status" class="status" role="status"></div>
     </section>
 
-    <section class="pane pane-image" aria-labelledby="image-heading">
+    <div id="splitter" class="splitter" role="separator" tabindex="0" aria-orientation="vertical"
+      aria-controls="image-pane" aria-label="Breite des Faksimiles"
+      aria-valuemin="20" aria-valuemax="100" aria-valuenow="50"></div>
+
+    <section id="image-pane" class="pane pane-image" aria-labelledby="image-heading">
       <form id="iiif-form" class="toolbar">
         <h2 id="image-heading" class="pane-heading">Faksimile</h2>
         <label class="iiif-field">
@@ -35,16 +67,37 @@
           <input id="iiif-url" type="url" required
             placeholder="IIIF-Manifest, info.json oder Bild-URL">
         </label>
-        <button type="submit">Laden</button>
+        <button class="icon-button" type="submit" aria-label="Bilder laden" data-tip="Bilder laden">
+          <svg class="icon"><use href="#i-load"/></svg>
+        </button>
+        <button id="facs-hide" class="icon-button" type="button" aria-label="Faksimile ausblenden" data-tip="Faksimile ausblenden">
+          <svg class="icon"><use href="#i-hide"/></svg>
+        </button>
       </form>
-      <div class="page-nav">
-        <button id="page-prev" type="button" aria-label="Vorherige Seite">&larr;</button>
+      <div class="toolbar">
+        <button id="page-prev" class="icon-button" type="button" aria-label="Vorherige Seite" data-tip="Vorherige Seite">
+          <svg class="icon"><use href="#i-prev"/></svg>
+        </button>
         <span id="page-label" aria-live="polite"></span>
-        <button id="page-next" type="button" aria-label="Nächste Seite">&rarr;</button>
+        <button id="page-next" class="icon-button" type="button" aria-label="Nächste Seite" data-tip="Nächste Seite">
+          <svg class="icon"><use href="#i-next"/></svg>
+        </button>
+        <span class="toolbar-gap"></span>
+        <button id="rot-left" class="icon-button" type="button" aria-label="Bild nach links drehen" data-tip="Nach links drehen">
+          <svg class="icon"><use href="#i-rot-left"/></svg>
+        </button>
+        <button id="rot-right" class="icon-button" type="button" aria-label="Bild nach rechts drehen" data-tip="Nach rechts drehen">
+          <svg class="icon"><use href="#i-rot-right"/></svg>
+        </button>
       </div>
       <div id="viewer" class="viewer" role="img" aria-label="Faksimile"></div>
       <p id="iiif-status" class="status" role="status"></p>
     </section>
+
+    <button id="facs-show" class="icon-button facs-show" type="button" aria-label="Faksimile einblenden"
+      data-tip="Faksimile einblenden" hidden>
+      <svg class="icon"><use href="#i-show"/></svg>
+    </button>
   </main>
 
   <!-- OpenSeadragon ships as UMD, so it loads as a classic script that sets

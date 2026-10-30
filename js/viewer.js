@@ -40,6 +40,10 @@ export function createViewer(element, onPage) {
     get index() {
       return current;
     },
+    /** @param {number} degrees positive turns clockwise */
+    rotate(degrees) {
+      viewer.viewport.setRotation((viewer.viewport.getRotation() + degrees + 360) % 360);
+    },
     /** @param {(message: string) => void} handler */
     onError(handler) {
       viewer.addHandler("open-failed", (/** @type {any} */ e) => handler(String(e.message ?? "Bild konnte nicht geöffnet werden.")));

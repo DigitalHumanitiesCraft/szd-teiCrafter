@@ -2,10 +2,11 @@
 
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
-  body, h1, h2, p { margin: 0; }
+  body, h1, h2, p, ul, pre { margin: 0; }
 }
 
-/* Neutral placeholder palette until a design document fixes colours and fonts. */
+/* Neutral surfaces until a design document fixes colours and fonts; the
+   blue/orange pair carries the XML highlighting and the accent. */
 @layer tokens {
   :root {
     color-scheme: light dark;
@@ -14,14 +15,20 @@
     --text: light-dark(oklch(22% 0 0), oklch(92% 0 0));
     --muted: light-dark(oklch(45% 0 0), oklch(72% 0 0));
     --line: light-dark(oklch(86% 0 0), oklch(38% 0 0));
-    --accent: light-dark(oklch(48% 0.12 250), oklch(75% 0.11 250));
+    --blue: light-dark(oklch(47% 0.15 255), oklch(76% 0.12 245));
+    --orange: light-dark(oklch(55% 0.16 50), oklch(78% 0.14 60));
+    --accent: var(--blue);
     --ok: light-dark(oklch(45% 0.12 150), oklch(75% 0.13 150));
-    --error: light-dark(oklch(48% 0.18 28), oklch(72% 0.16 28));
+    --error: light-dark(oklch(50% 0.19 28), oklch(72% 0.16 28));
+    --hl-punct: color-mix(in oklch, var(--blue) 55%, var(--muted));
+    --hl-value: color-mix(in oklch, var(--orange) 70%, var(--text));
+    --hl-comment: var(--muted);
     --font-ui: system-ui, sans-serif;
     --font-code: ui-monospace, "Cascadia Mono", Consolas, monospace;
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 1rem;
+    --radius: 4px;
   }
 }
 
@@ -36,13 +43,17 @@
   }
   button, input, textarea { font: inherit; color: inherit; }
   button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
     padding-block: var(--space-1);
     padding-inline: var(--space-2);
     min-block-size: 2rem;
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: var(--surface);
     cursor: pointer;
+    &:disabled { cursor: default; opacity: 0.55; }
   }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 }
@@ -58,90 +69,223 @@
     background: var(--surface);
   }
   .workspace {
+    --facs-share: 50%;
+    position: relative;
     flex: 1;
     min-block-size: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 0.5rem minmax(0, var(--facs-share));
+    &[data-facs="hidden"] {
+      grid-template-columns: minmax(0, 1fr);
+      & .splitter, & .pane-image { display: none; }
+    }
+    &[data-dragging] { cursor: col-resize; user-select: none; }
   }
   .pane {
     display: flex;
     flex-direction: column;
     min-block-size: 0;
+    min-inline-size: 0;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-3);
   }
-  .pane-text { border-inline-end: 1px solid var(--line); }
 
-  /* Narrow screens stack text above image; each pane keeps a usable height. */
+  /* Narrow screens stack text above image; the splitter has no role there. */
   @media (width < 50rem) {
     body { block-size: auto; }
-    .workspace { grid-template-columns: minmax(0, 1fr); }
-    .pane-text { border-inline-end: 0; border-block-end: 1px solid var(--line); }
+    .workspace, .workspace[data-facs="shown"] { grid-template-columns: minmax(0, 1fr); }
+    .splitter { display: none; }
+    .pane-text { border-block-end: 1px solid var(--line); }
   }
 }
 
 @layer components {
+  .sprite { display: none; }
+  .icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+
   .app-header h1 { font-size: 1.15rem; }
   .doc-meta { color: var(--muted); font-size: 0.9rem; }
+
   .toolbar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-2);
   }
-  .pane-heading { font-size: 1rem; margin-inline-end: auto; }
-  .file-button {
+  .toolbar-gap { flex: 1; }
+  .pane-heading { font-size: 1rem; margin-inline-end: var(--space-2); }
+
+  .icon-button {
     position: relative;
-    padding-block: var(--space-1);
-    padding-inline: var(--space-2);
+    justify-content: center;
+    inline-size: 2.25rem;
+    min-block-size: 2.25rem;
+    padding: 0;
+  }
+  /* Tooltip from data-tip, shown on hover and on keyboard focus alike. */
+  [data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    inset-block-start: calc(100% + 0.35rem);
+    inset-inline-end: 0;
+    z-index: 10;
+    padding: 0.2rem 0.45rem;
+    border-radius: var(--radius);
+    background: var(--text);
+    color: var(--bg);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s 0.25s;
+  }
+  [data-tip]:hover::after, [data-tip]:focus-visible::after, [data-tip]:focus-within::after { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { [data-tip]::after { transition: none; } }
+
+  .file-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: var(--surface);
     cursor: pointer;
     &:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
     & input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
   }
-  #tei-source {
+
+  /* Check buttons carry their state in icon shape and label, colour adds to it. */
+  .check {
+    font-weight: 600;
+    &[data-state="ok"] { color: var(--ok); border-color: color-mix(in oklch, var(--ok) 45%, var(--line)); }
+    &[data-state="error"] { color: var(--error); border-color: color-mix(in oklch, var(--error) 55%, var(--line)); }
+    &[data-state="stale"], &[data-state="busy"] { color: var(--text); font-weight: 400; }
+  }
+
+  .code {
+    position: relative;
     flex: 1;
     min-block-size: 0;
-    inline-size: 100%;
-    resize: none;
-    padding: var(--space-2);
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: var(--surface);
+    &:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+  }
+  .code-layer {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    padding: var(--space-2);
+    border: 0;
     font-family: var(--font-code);
     font-size: 0.9rem;
     line-height: 1.5;
     tab-size: 2;
     white-space: pre;
+    overflow: auto;
   }
-  .iiif-field { flex: 1 1 16rem; display: flex; }
+  #tei-highlight {
+    overflow: hidden;
+    color: var(--text);
+    /* Room for the textarea's scrollbars, so both layers can scroll as far. */
+    padding-block-end: calc(var(--space-2) + 1.5rem);
+    padding-inline-end: calc(var(--space-2) + 1.5rem);
+  }
+  #tei-source {
+    resize: none;
+    background: transparent;
+    color: transparent;
+    caret-color: var(--text);
+    outline: none;
+    &::selection { background: color-mix(in oklch, var(--blue) 30%, transparent); color: transparent; }
+  }
+  .x-tag { color: var(--blue); font-weight: 600; }
+  .x-punct { color: var(--hl-punct); }
+  .x-attr { color: var(--orange); }
+  .x-value { color: var(--hl-value); }
+  .x-entity { color: var(--orange); font-weight: 600; }
+  .x-comment { color: var(--hl-comment); font-style: italic; }
+  .x-meta { color: var(--hl-comment); }
+
+  .status {
+    font-size: 0.9rem;
+    min-block-size: 1.4em;
+    max-block-size: 9rem;
+    overflow: auto;
+    &[data-state="ok"] { color: var(--ok); }
+    &[data-state="error"] { color: var(--error); }
+    & ul { padding-inline-start: 1.2rem; }
+    & li + li { margin-block-start: 0.15rem; }
+  }
+  .link {
+    display: inline;
+    min-block-size: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .iiif-field { flex: 1 1 12rem; display: flex; }
   .iiif-field input {
     inline-size: 100%;
-    min-block-size: 2rem;
+    min-block-size: 2.25rem;
     padding-inline: var(--space-2);
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: var(--surface);
   }
-  .page-nav { display: flex; align-items: center; gap: var(--space-2); }
+
   .viewer {
     flex: 1;
     min-block-size: 0;
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: light-dark(oklch(93% 0 0), oklch(15% 0 0));
   }
+
+  .splitter {
+    cursor: col-resize;
+    touch-action: none;
+    background: linear-gradient(var(--line), var(--line)) center / 1px 100% no-repeat;
+    &:hover, &:focus-visible, .workspace[data-dragging] & {
+      background-image: linear-gradient(var(--accent), var(--accent));
+      background-size: 3px 100%;
+    }
+    &:focus-visible { outline-offset: -2px; }
+  }
+
+  /* Always-visible handle at the right edge while the facsimile is hidden. */
+  .facs-show {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
+    translate: 0 -50%;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    border-inline-end: 0;
+    &[hidden] { display: none; }
+  }
+
   /* Stacked panes have no fixed height to fill, so each gets its own; this sits
      in the components layer because the zero minimum above would win otherwise. */
   @media (width < 50rem) {
-    #tei-source { flex: none; block-size: 60dvb; }
+    .code { flex: none; block-size: 60dvb; }
     .viewer { flex: none; block-size: 70dvb; }
   }
-  .status { font-size: 0.9rem; min-block-size: 1.4em; }
-  .status[data-state="ok"] { color: var(--ok); }
-  .status[data-state="error"] { color: var(--error); font-weight: 600; }
 }
 
 @layer utilities {

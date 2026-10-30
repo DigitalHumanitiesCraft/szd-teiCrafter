@@ -4,19 +4,20 @@
 const TEI_NS = "http://www.tei-c.org/ns/1.0";
 
 /**
+ * @typedef {{ message: string, line: number, column: number }} XmlError
  * @param {string} text
- * @returns {{ doc: Document | null, error: string | null }}
+ * @returns {{ doc: Document | null, error: XmlError | null }}
  */
 export function parseXml(text) {
   const doc = new DOMParser().parseFromString(text, "application/xml");
   const err = doc.querySelector("parsererror");
+  if (!err) return { doc, error: null };
   // Chromium wraps the message in boilerplate and puts it in a child <div>;
   // Firefox puts it directly in the parsererror element.
-  if (err) {
-    const message = (err.querySelector("div") ?? err).textContent ?? "";
-    return { doc: null, error: message.trim().split("\n")[0] };
-  }
-  return { doc, error: null };
+  const message = ((err.querySelector("div") ?? err).textContent ?? "").trim().split("\n")[0];
+  const pos =
+    message.match(/line (\d+) at column (\d+)/i) ?? (err.textContent ?? "").match(/Line Number (\d+), Column (\d+)/i);
+  return { doc: null, error: { message, line: Number(pos?.[1] ?? 0), column: Number(pos?.[2] ?? 0) } };
 }
 
 /**
@@ -44,4 +45,18 @@ export function documentFacts(doc) {
 export function pageAtOffset(text, offset) {
   const matches = text.slice(0, offset).match(/<pb[\s/>]/g);
   return Math.max(0, (matches?.length ?? 0) - 1);
+}
+
+/**
+ * Character offset of a 1-based line and column.
+ * @param {string} text @param {number} line @param {number} column
+ */
+export function offsetOf(text, line, column) {
+  let offset = 0;
+  for (let i = 1; i < line; i++) {
+    const next = text.indexOf("\n", offset);
+    if (next < 0) break;
+    offset = next + 1;
+  }
+  return Math.min(text.length, offset + Math.max(0, column - 1));
 }
