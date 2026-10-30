@@ -7,52 +7,82 @@
         {
           "path": "data/o_szd.1222.tei.xml",
           "objectId": "o_szd.1222",
-          "title": "Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52"
+          "title": "Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52",
+          "pages": 2,
+          "open": 7,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1437.tei.xml",
           "objectId": "o_szd.1437",
-          "title": "Brief an Stefan Zweig vom 27. Juni 1944, SZ-AAP/B14"
+          "title": "Brief an Stefan Zweig vom 27. Juni 1944, SZ-AAP/B14",
+          "pages": 25,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1786.tei.xml",
           "objectId": "o_szd.1786",
-          "title": "Brief an Stefan Zweig vom 10. Mai 1938, SZ-AAP/B1.220"
+          "title": "Brief an Stefan Zweig vom 10. Mai 1938, SZ-AAP/B1.220",
+          "pages": 6,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1481.tei.xml",
           "objectId": "o_szd.1481",
-          "title": "Deckblatt \"Copyr. Bureau Korresp. 1939\", o. D., SZ-AAP/B3.0"
+          "title": "Deckblatt \"Copyr. Bureau Korresp. 1939\", o. D., SZ-AAP/B3.0",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.504.tei.xml",
           "objectId": "o_szd.504",
-          "title": "Unidentified an Stefan Zweig, 1906-11-23, SZ-SAM/AK.214"
+          "title": "Unidentified an Stefan Zweig, 1906-11-23, SZ-SAM/AK.214",
+          "pages": 3,
+          "open": 42,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.406.tei.xml",
           "objectId": "o_szd.406",
-          "title": "Jüdischer Jugendverein (Düsseldorf) an Stefan Zweig, 1930-06-18, SZ-SAM/AK.125"
+          "title": "Jüdischer Jugendverein (Düsseldorf) an Stefan Zweig, 1930-06-18, SZ-SAM/AK.125",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1267.tei.xml",
           "objectId": "o_szd.1267",
-          "title": "Brief an Stefan Zweig vom 8. März 1938, SZ-SAM/B4.4"
+          "title": "Brief an Stefan Zweig vom 8. März 1938, SZ-SAM/B4.4",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1750.tei.xml",
           "objectId": "o_szd.1750",
-          "title": "Brief an Herbert Reichner vom 7. Oktober 1937, SZ-AAP/B1.103"
+          "title": "Brief an Herbert Reichner vom 7. Oktober 1937, SZ-AAP/B1.103",
+          "pages": 2,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1079.tei.xml",
           "objectId": "o_szd.1079",
-          "title": "Brief an Max Fleischer vom 22. Mai 1901, SZ-LAS/B3.1"
+          "title": "Brief an Max Fleischer vom 22. Mai 1901, SZ-LAS/B3.1",
+          "pages": 5,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/korrespondenzen/o_szd.1404.tei.xml",
           "objectId": "o_szd.1404",
-          "title": "Brief an Stefan Zweig vom 10. Juli 1939, SZ-LAS/B2.6"
+          "title": "Brief an Stefan Zweig vom 10. Juli 1939, SZ-LAS/B2.6",
+          "pages": 2,
+          "open": 1,
+          "status": "draft"
         }
       ]
     },
@@ -63,52 +93,82 @@
         {
           "path": "data/lebensdokumente/o_szd.187.tei.xml",
           "objectId": "o_szd.187",
-          "title": "Mitteilung des britischen Home Office"
+          "title": "Mitteilung des britischen Home Office",
+          "pages": 1,
+          "open": 1,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.100.tei.xml",
           "objectId": "o_szd.100",
-          "title": "Agreement Longmans, Green &amp; Co. Inc."
+          "title": "Agreement Longmans, Green &amp; Co. Inc.",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.141.tei.xml",
           "objectId": "o_szd.141",
-          "title": "Notizbuch Russlandreise"
+          "title": "Notizbuch Russlandreise",
+          "pages": 84,
+          "open": 130,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.72.tei.xml",
           "objectId": "o_szd.72",
-          "title": "Tagebuch 1918"
+          "title": "Tagebuch 1918",
+          "pages": 39,
+          "open": 1,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.134.tei.xml",
           "objectId": "o_szd.134",
-          "title": "Vertrag Aktiebolaget Skoglunds Bokförlag"
+          "title": "Vertrag Aktiebolaget Skoglunds Bokförlag",
+          "pages": 3,
+          "open": 7,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.153.tei.xml",
           "objectId": "o_szd.153",
-          "title": "Briefkarte blanko"
+          "title": "Briefkarte blanko",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.184.tei.xml",
           "objectId": "o_szd.184",
-          "title": "Liste mit wichtigen Daten und persönlichen Papieren"
+          "title": "Liste mit wichtigen Daten und persönlichen Papieren",
+          "pages": 2,
+          "open": 4,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.192.tei.xml",
           "objectId": "o_szd.192",
-          "title": "Bescheid über die Judenvermögensabgabe"
+          "title": "Bescheid über die Judenvermögensabgabe",
+          "pages": 2,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.194.tei.xml",
           "objectId": "o_szd.194",
-          "title": "Briefregister [I]"
+          "title": "Briefregister [I]",
+          "pages": 135,
+          "open": 10,
+          "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.152.tei.xml",
           "objectId": "o_szd.152",
-          "title": "Abwesenheitsnotiz I"
+          "title": "Abwesenheitsnotiz I",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         }
       ]
     },
@@ -119,52 +179,82 @@
         {
           "path": "data/werke/o_szd.260.tei.xml",
           "objectId": "o_szd.260",
-          "title": "Autobiographischer Aufsatz"
+          "title": "Autobiographischer Aufsatz",
+          "pages": 2,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.218.tei.xml",
           "objectId": "o_szd.218",
-          "title": "Vortrag über Dostojewski II [Beilage]"
+          "title": "Vortrag über Dostojewski II [Beilage]",
+          "pages": 2,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.263.tei.xml",
           "objectId": "o_szd.263",
-          "title": "Worte am Sarge Sigmund Freuds [Fragment I]"
+          "title": "Worte am Sarge Sigmund Freuds [Fragment I]",
+          "pages": 2,
+          "open": 8,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.320.tei.xml",
           "objectId": "o_szd.320",
-          "title": "VI Capitel Ein Wille gegen tausend Widerstände"
+          "title": "VI Capitel Ein Wille gegen tausend Widerstände",
+          "pages": 11,
+          "open": 2075,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.368.tei.xml",
           "objectId": "o_szd.368",
-          "title": "Kleist"
+          "title": "Kleist",
+          "pages": 29,
+          "open": 1719,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.229.tei.xml",
           "objectId": "o_szd.229",
-          "title": "Werknotizen 3"
+          "title": "Werknotizen 3",
+          "pages": 165,
+          "open": 62,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.273.tei.xml",
           "objectId": "o_szd.273",
-          "title": "Montaigne"
+          "title": "Montaigne",
+          "pages": 238,
+          "open": 252,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.2856.tei.xml",
           "objectId": "o_szd.2856",
-          "title": "Manifest"
+          "title": "Manifest",
+          "pages": 5,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.2934.tei.xml",
           "objectId": "o_szd.2934",
-          "title": "Histoire de l'idée européenne"
+          "title": "Histoire de l'idée européenne",
+          "pages": 5,
+          "open": 2,
+          "status": "draft"
         },
         {
           "path": "data/werke/o_szd.1890.tei.xml",
           "objectId": "o_szd.1890",
-          "title": "Dank an die Bücher"
+          "title": "Dank an die Bücher",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         }
       ]
     },
@@ -175,52 +265,82 @@
         {
           "path": "data/aufsatzablage/o_szd.2215.tei.xml",
           "objectId": "o_szd.2215",
-          "title": "Aus der Werkstatt der Dichter"
+          "title": "Aus der Werkstatt der Dichter",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2478.tei.xml",
           "objectId": "o_szd.2478",
-          "title": "Alter Anfang für eine Legende \"Mitleiden\""
+          "title": "Alter Anfang für eine Legende \"Mitleiden\"",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2846.tei.xml",
           "objectId": "o_szd.2846",
-          "title": "Mitleiden, SZ-AAP/W-AA119.1"
+          "title": "Mitleiden, SZ-AAP/W-AA119.1",
+          "pages": 15,
+          "open": 71,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2322.tei.xml",
           "objectId": "o_szd.2322",
-          "title": "Richard Specht"
+          "title": "Richard Specht",
+          "pages": 7,
+          "open": 277,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2375.tei.xml",
           "objectId": "o_szd.2375",
-          "title": "Josef Roth: \"Rechts und Links\"."
+          "title": "Josef Roth: \"Rechts und Links\".",
+          "pages": 9,
+          "open": 152,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2290.tei.xml",
           "objectId": "o_szd.2290",
-          "title": "Salzburg. Die Stadt als Rahmen"
+          "title": "Salzburg. Die Stadt als Rahmen",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2325.tei.xml",
           "objectId": "o_szd.2325",
-          "title": "Scharlach."
+          "title": "Scharlach.",
+          "pages": 45,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2414.tei.xml",
           "objectId": "o_szd.2414",
-          "title": "A Marcel Martinet"
+          "title": "A Marcel Martinet",
+          "pages": 3,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2296.tei.xml",
           "objectId": "o_szd.2296",
-          "title": "Hugo Steiner-Prag"
+          "title": "Hugo Steiner-Prag",
+          "pages": 5,
+          "open": 0,
+          "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2412.tei.xml",
           "objectId": "o_szd.2412",
-          "title": "Martinet, Marcel"
+          "title": "Martinet, Marcel",
+          "pages": 7,
+          "open": 0,
+          "status": "draft"
         }
       ]
     }

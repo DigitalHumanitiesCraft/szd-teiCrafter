@@ -2,7 +2,7 @@ import { conflictMarkers, hunks, lineDiff } from "./diff.js";
 import { createEditor } from "./editor.js";
 import { isGndId, searchPersons } from "./gnd.js";
 import { resolveIiif } from "./iiif.js";
-import { cleanQuery, searchRegister } from "./register.js";
+import { cleanQuery, fold, searchRegister } from "./register.js";
 import { source } from "./source.js";
 import { attachSplit } from "./split.js";
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
@@ -692,7 +692,10 @@ function ask({ title, text, choices }) {
 
 /** Shows whether the text differs from what was last opened or saved. */
 function updateSaveState() {
-  $("save-state").textContent = editor.text === savedText ? "" : "Ungespeicherte Änderungen";
+  const unsaved = editor.text !== savedText;
+  $("save-state").textContent = unsaved ? "Ungespeicherte Änderungen" : "";
+  $("tei-save").toggleAttribute("data-unsaved", unsaved);
+  $("tei-save").dataset.tip = unsaved ? "Ungespeicherte Änderungen speichern (Strg+S)" : "TEI speichern (Strg+S)";
 }
 
 /** @param {string} text */
@@ -867,11 +870,18 @@ window.addEventListener("beforeunload", (e) => {
   if (editor.text !== savedText) e.preventDefault();
 });
 
-// Documents of the repository, by collection. A document loaded from the list
-// is saved by download or to a chosen file; opening it from the local clone
-// with the open button saves it in place.
+// Documents of the repository by collection, from data/index.json. The list
+// carries title, pages, open spots and working state per document, so it stays
+// usable with many documents without reading every file. A document loaded
+// from the list is saved by download or to a chosen file; opening it from the
+// local clone with the open button saves it in place.
 
-const picker = /** @type {HTMLSelectElement} */ ($("doc-pick"));
+/** @typedef {{ path: string, objectId: string, title: string, pages: number, open: number, status: string }} DocEntry */
+/** @type {{ key: string, label: string, documents: DocEntry[] }[]} */
+let collections = [];
+let currentPath = "";
+let collectionFilter = "";
+const docsDialog = /** @type {HTMLDialogElement} */ ($("docs-dialog"));
 
 /** @param {string} path */
 async function loadDocument(path) {
@@ -882,40 +892,119 @@ async function loadDocument(path) {
     fileHandle = null;
     diskModified = null;
     fileName = path.split("/").pop() ?? fileName;
+    currentPath = path;
     openText(text);
-    picker.value = path;
   } catch (err) {
     setStatus(xmlStatus, "error", `Dokument nicht geladen: ${err instanceof Error ? err.message : err}`);
   }
 }
 
-/** A file opened from disk is no entry of the list, so the list shows none. */
+/** A file opened from disk is no entry of the list. */
 function showUnlisted() {
-  picker.value = "";
-  picker.dataset.current = "";
+  currentPath = "";
 }
 
-picker.addEventListener("change", async () => {
-  const path = picker.value;
-  if (!(await mayDiscard())) {
-    picker.value = picker.dataset.current ?? "";
-    return;
+/** Keeps the list entry of the open document in step with the editor. */
+function syncCurrentEntry() {
+  const entry = collections.flatMap((c) => c.documents).find((d) => d.path === currentPath);
+  if (!entry) return;
+  entry.open = openSpots().length;
+  entry.status = docStatus || "draft";
+}
+
+const STATE_LABEL = { approved: "Abgenommen", draft: "In Bearbeitung" };
+
+function renderDocs() {
+  const words = fold($("docs-query").value).split(/\s+/).filter(Boolean);
+  const state = $("docs-state").value;
+  const list = $("docs-list");
+  list.replaceChildren();
+  let shown = 0;
+  let total = 0;
+  for (const c of collections) {
+    total += c.documents.length;
+    if (collectionFilter && c.key !== collectionFilter) continue;
+    const docs = c.documents.filter((d) => {
+      const hay = fold(`${d.title} ${d.objectId}`);
+      if (!words.every((w) => hay.includes(w))) return false;
+      if (state === "open") return d.open > 0;
+      return !state || d.status === state;
+    });
+    if (!docs.length) continue;
+    shown += docs.length;
+    const approved = c.documents.filter((d) => d.status === "approved").length;
+    const section = document.createElement("section");
+    const heading = Object.assign(document.createElement("h3"), { className: "results-heading" });
+    heading.append(c.label, Object.assign(document.createElement("span"), { className: "docs-progress", textContent: `${approved} von ${c.documents.length} abgenommen` }));
+    const ul = Object.assign(document.createElement("ul"), { className: "results" });
+    for (const d of docs) {
+      const b = Object.assign(document.createElement("button"), { type: "button", className: "result doc-item" });
+      if (d.path === currentPath) b.setAttribute("aria-current", "true");
+      const meta = [d.objectId, d.pages === 1 ? "1 Seite" : `${d.pages} Seiten`, d.open ? `${d.open} offen` : ""].filter(Boolean).join(" | ");
+      const tag = Object.assign(document.createElement("em"), { className: "doc-tag", textContent: STATE_LABEL[d.status] ?? d.status });
+      tag.dataset.state = d.status;
+      b.append(Object.assign(document.createElement("strong"), { textContent: d.title }), Object.assign(document.createElement("span"), { textContent: meta }), tag);
+      b.addEventListener("click", async () => {
+        docsDialog.close();
+        if (d.path === currentPath || !(await mayDiscard())) return;
+        loadDocument(d.path);
+      });
+      const li = document.createElement("li");
+      li.append(b);
+      ul.append(li);
+    }
+    section.append(heading, ul);
+    list.append(section);
   }
-  picker.dataset.current = path;
-  loadDocument(path);
+  $("docs-count").textContent = shown === total ? `${total} Dokumente` : `${shown} von ${total} Dokumenten`;
+}
+
+function renderCollectionChips() {
+  const box = $("docs-collections");
+  box.replaceChildren();
+  for (const [key, label] of [["", "Alle"], ...collections.map((c) => [c.key, c.label])]) {
+    const b = Object.assign(document.createElement("button"), { type: "button", className: "chip", textContent: label });
+    b.setAttribute("aria-pressed", String(key === collectionFilter));
+    b.addEventListener("click", () => {
+      collectionFilter = key;
+      renderCollectionChips();
+      renderDocs();
+    });
+    box.append(b);
+  }
+}
+
+$("docs-button").addEventListener("click", () => {
+  syncCurrentEntry();
+  renderCollectionChips();
+  renderDocs();
+  docsDialog.showModal();
+  $("docs-query").focus();
+});
+$("docs-query").addEventListener("input", renderDocs);
+$("docs-state").addEventListener("change", renderDocs);
+$("docs-query").addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    /** @type {HTMLElement | null} */ (docsDialog.querySelector(".doc-item"))?.focus();
+  }
+});
+docsDialog.addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
+  const current = /** @type {HTMLElement} */ (e.target);
+  if (!current.classList?.contains("doc-item") || !["ArrowDown", "ArrowUp"].includes(e.key)) return;
+  e.preventDefault();
+  const all = /** @type {HTMLElement[]} */ ([...docsDialog.querySelectorAll(".doc-item")]);
+  const i = all.indexOf(current);
+  if (e.key === "ArrowUp" && i === 0) $("docs-query").focus();
+  else all[Math.min(Math.max(i + (e.key === "ArrowDown" ? 1 : -1), 0), all.length - 1)].focus();
 });
 
 fetch(source.documents)
   .then((r) => (r.ok ? r.json() : { collections: [] }))
-  .then((/** @type {{ collections: { label: string, documents: { path: string, objectId: string, title: string }[] }[] }} */ index) => {
-    for (const c of index.collections) {
-      const group = Object.assign(document.createElement("optgroup"), { label: c.label });
-      for (const d of c.documents) group.append(new Option(d.title, d.path));
-      picker.append(group);
-    }
-    picker.value = source.defaultDocument;
-    picker.dataset.current = source.defaultDocument;
+  .then((index) => {
+    collections = index.collections ?? [];
+    $("docs-button").hidden = !collections.length;
   })
-  .catch(() => (picker.hidden = true));
+  .catch(() => ($("docs-button").hidden = true));
 
 loadDocument(source.defaultDocument);

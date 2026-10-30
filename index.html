@@ -29,7 +29,8 @@
     <symbol id="i-wrap" viewBox="0 0 24 24"><path d="M4 6h16M4 12h13a3 3 0 0 1 0 6h-4"/><path d="m15 16-2 2 2 2"/><path d="M4 18h5"/></symbol>
     <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
     <symbol id="i-diff" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 9.5h6M12 6.5v6M9 16.5h6"/></symbol>
-    <symbol id="i-show" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
+    <symbol id="i-docs" viewBox="0 0 24 24"><path d="M8 3h9l3 3v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M4 7v13a1 1 0 0 0 1 1h11"/><path d="M10 9h7M10 13h7"/></symbol>
+    <symbol id="i-show"viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
   </svg>
 
   <header class="app-header">
@@ -43,10 +44,9 @@
       <p id="save-state" class="save-state" role="status"></p>
     </div>
     <div class="toolbar header-tools">
-      <label class="doc-pick">
-        <span class="visually-hidden">Dokument wählen</span>
-        <select id="doc-pick"></select>
-      </label>
+      <button id="docs-button" type="button" aria-haspopup="dialog">
+        <svg class="icon"><use href="#i-docs"/></svg>Dokumente
+      </button>
       <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
         <svg class="icon"><use href="#i-open"/></svg>
       </button>
@@ -182,7 +182,34 @@
     </form>
   </dialog>
 
-  <dialog id="diff-dialog" class="diff-dialog" aria-labelledby="diff-title">
+  <dialog id="docs-dialog" class="docs-dialog" aria-labelledby="docs-title">
+    <form method="dialog">
+      <h2 id="docs-title">Dokumente</h2>
+      <div class="toolbar">
+        <label class="grow">
+          <span class="visually-hidden">Dokumente durchsuchen</span>
+          <input id="docs-query" type="search" autocomplete="off" placeholder="Titel, Signatur oder Objekt-ID">
+        </label>
+        <label>
+          <span class="visually-hidden">Arbeitsstand</span>
+          <select id="docs-state">
+            <option value="">Alle Stände</option>
+            <option value="open">Mit offenen Stellen</option>
+            <option value="draft">In Bearbeitung</option>
+            <option value="approved">Abgenommen</option>
+          </select>
+        </label>
+      </div>
+      <div id="docs-collections" class="chips" role="group" aria-label="Sammlung"></div>
+      <p id="docs-count" class="docs-count" role="status"></p>
+      <div id="docs-list" class="docs-list"></div>
+      <div class="toolbar dialog-actions">
+        <button type="submit">Schließen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="diff-dialog"class="diff-dialog" aria-labelledby="diff-title">
     <form method="dialog">
       <h2 id="diff-title">Änderungen seit dem Öffnen</h2>
       <p id="diff-summary" class="diff-summary"></p>
