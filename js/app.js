@@ -1,28 +1,46 @@
-import { attachHighlight } from "./highlight.js";
+import { createEditor } from "./editor.js";
+import { isGndId, searchPersons } from "./gnd.js";
 import { resolveIiif } from "./iiif.js";
 import { source } from "./source.js";
 import { attachSplit } from "./split.js";
-import { documentFacts, offsetOf, pageAtOffset, parseXml } from "./tei.js";
+import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
 import { validateTeiAll } from "./validate.js";
 import { createViewer } from "./viewer.js";
 
 const $ = (/** @type {string} */ id) => /** @type {any} */ (document.getElementById(id));
 
-const editor = /** @type {HTMLTextAreaElement} */ ($("tei-source"));
 const xmlStatus = $("xml-status");
 const iiifStatus = $("iiif-status");
 const iiifInput = /** @type {HTMLInputElement} */ ($("iiif-url"));
 const pageLabel = $("page-label");
 const wfButton = $("wf-button");
 const validButton = $("valid-button");
+const personButton = $("person-button");
+const selectionHint = $("selection-hint");
 
 let fileName = source.defaultDocument.split("/").pop() ?? "dokument.tei.xml";
+/** File handle when the document was opened through the File System Access API. */
+let fileHandle = /** @type {any} */ (null);
 /** @type {string[]} */
 let pageLabels = [];
 /** @type {import("./tei.js").XmlError | null} */
 let xmlError = null;
+let checkTimer = 0;
 
-const renderHighlight = attachHighlight(editor, $("tei-highlight"));
+const editor = createEditor($("editor"), {
+  elements: source.elements,
+  onChange() {
+    clearTimeout(checkTimer);
+    checkTimer = window.setTimeout(checkSource, 300);
+  },
+  onCaret(offset) {
+    viewer.show(pageAtOffset(editor.text, offset));
+    updatePersonButton();
+  },
+  onZoom(percent) {
+    $("zoom-reset").textContent = `${percent} %`;
+  },
+});
 
 const viewer = createViewer($("viewer"), (index, count) => {
   const label = pageLabels[index] ?? String(index + 1);
@@ -52,33 +70,25 @@ function setCheck(button, state, label) {
   button.querySelector("use").setAttribute("href", icon);
 }
 
-/** @param {number} line @param {number} column */
-function jumpTo(line, column) {
-  const offset = offsetOf(editor.value, line, column);
-  editor.focus();
-  editor.setSelectionRange(offset, offset);
-  // Scroll the line into the middle of the textarea.
-  const lineHeight = Number.parseFloat(getComputedStyle(editor).lineHeight) || 20;
-  editor.scrollTop = Math.max(0, (line - 1) * lineHeight - editor.clientHeight / 2);
-  followCaret();
-}
-
 /** Re-reads the source after each edit; facts update only while well-formed. */
 function checkSource() {
-  const { doc, error } = parseXml(editor.value);
+  const { doc, error } = parseXml(editor.text);
   xmlError = error;
   // Any edit makes an earlier validation result stale.
   setCheck(validButton, "stale", "Validieren");
   if (!doc) {
     setCheck(wfButton, "error", error?.line ? `Fehler Zeile ${error.line}` : "Nicht wohlgeformt");
-    showMessages([{ message: `Nicht wohlgeformt: ${error?.message}`, line: error?.line ?? 0, column: error?.column ?? 0 }]);
+    const problem = { message: `Nicht wohlgeformt: ${error?.message}`, line: error?.line ?? 0, column: error?.column ?? 0 };
+    showMessages([problem]);
+    editor.setProblems([problem]);
     return null;
   }
   setCheck(wfButton, "ok", "Wohlgeformt");
   showMessages([]);
+  editor.setProblems([]);
   const facts = documentFacts(doc);
   $("doc-title").textContent = facts.title || "teiCrafter SZD";
-  $("doc-meta").textContent = [facts.idnos.objectId, source.name].filter(Boolean).join(" | ");
+  $("doc-meta").textContent = [fileName, source.name].filter(Boolean).join(" | ");
   return facts;
 }
 
@@ -100,7 +110,7 @@ function showMessages(items, summary = "") {
       b.type = "button";
       b.className = "link";
       b.textContent = `Zeile ${item.line}`;
-      b.addEventListener("click", () => jumpTo(item.line, item.column));
+      b.addEventListener("click", () => editor.jumpTo(item.line, item.column));
       li.append(b, ` ${item.message}`);
     } else {
       li.textContent = item.message;
@@ -113,7 +123,7 @@ function showMessages(items, summary = "") {
 
 wfButton.addEventListener("click", () => {
   checkSource();
-  if (xmlError?.line) jumpTo(xmlError.line, xmlError.column);
+  if (xmlError?.line) editor.jumpTo(xmlError.line, xmlError.column);
 });
 
 validButton.addEventListener("click", async () => {
@@ -121,15 +131,16 @@ validButton.addEventListener("click", async () => {
     setCheck(validButton, "error", "Nicht prüfbar");
     return;
   }
-  const text = editor.value;
+  const text = editor.text;
   setCheck(validButton, "busy", "Prüfe …");
   validButton.disabled = true;
   try {
     const problems = await validateTeiAll(text);
-    if (editor.value !== text) return; // edited meanwhile; result no longer applies
+    if (editor.text !== text) return; // edited meanwhile; result no longer applies
     if (problems.length) {
       setCheck(validButton, "error", `${problems.length} Schemafehler`);
       showMessages(problems);
+      editor.setProblems(problems);
     } else {
       setCheck(validButton, "ok", "TEI-konform");
       showMessages([], "Gültig gegen TEI All (P5 4.11.0).");
@@ -140,6 +151,99 @@ validButton.addEventListener("click", async () => {
   } finally {
     validButton.disabled = false;
   }
+});
+
+// Person annotation: the selection must be plain text inside one text node.
+function selectionProblem() {
+  const { text } = editor.selection();
+  if (!text.trim()) return "Zum Annotieren einen Namen im Text markieren.";
+  if (/[<>]/.test(text)) return "Die Markierung enthält Markup; nur reinen Text markieren.";
+  return "";
+}
+
+function updatePersonButton() {
+  const problem = selectionProblem();
+  personButton.disabled = Boolean(problem);
+  selectionHint.textContent = problem;
+}
+
+const dialog = /** @type {HTMLDialogElement} */ ($("person-dialog"));
+const gndInput = /** @type {HTMLInputElement} */ ($("person-gnd"));
+let pending = { from: 0, to: 0, text: "" };
+
+function updatePreview() {
+  const id = gndInput.value.trim();
+  $("person-preview").textContent = isGndId(id) ? source.person.markup(pending.text, id) : "";
+}
+
+async function runPersonSearch() {
+  const query = $("person-query").value.trim();
+  const list = $("person-results");
+  list.replaceChildren();
+  if (!query) return;
+  setStatus($("person-status"), "", "Suche in der GND …");
+  try {
+    const persons = await searchPersons(query);
+    setStatus($("person-status"), "", persons.length ? "" : "Keine Treffer. Suchbegriff ändern oder GND-ID direkt eingeben.");
+    for (const p of persons) {
+      const li = document.createElement("li");
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "result";
+      const name = Object.assign(document.createElement("strong"), { textContent: p.name });
+      const meta = Object.assign(document.createElement("span"), { textContent: [p.dates, p.info, `GND ${p.id}`].filter(Boolean).join(" | ") });
+      b.append(name, meta);
+      b.addEventListener("click", () => {
+        gndInput.value = p.id;
+        for (const other of list.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
+        b.setAttribute("aria-pressed", "true");
+        updatePreview();
+      });
+      li.append(b);
+      list.append(li);
+    }
+  } catch (err) {
+    setStatus($("person-status"), "error", err instanceof Error ? err.message : String(err));
+  }
+}
+
+personButton.addEventListener("click", () => {
+  if (selectionProblem()) return;
+  pending = editor.selection();
+  $("person-text").textContent = pending.text;
+  $("person-query").value = pending.text.trim();
+  gndInput.value = "";
+  updatePreview();
+  dialog.showModal();
+  runPersonSearch();
+});
+$("person-search").addEventListener("click", runPersonSearch);
+$("person-query").addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    runPersonSearch();
+  }
+});
+gndInput.addEventListener("input", updatePreview);
+$("person-cancel").addEventListener("click", () => dialog.close());
+$("person-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
+  const id = gndInput.value.trim();
+  if (!isGndId(id)) {
+    e.preventDefault();
+    setStatus($("person-status"), "error", "Bitte einen Treffer wählen oder eine gültige GND-ID eingeben.");
+    return;
+  }
+  // The document may have changed while the dialog was open; only apply if the
+  // marked text is still where it was.
+  if (editor.text.slice(pending.from, pending.to) !== pending.text) {
+    setStatus(xmlStatus, "error", "Der markierte Text hat sich verändert; bitte erneut markieren.");
+    return;
+  }
+  editor.replace(pending.from, pending.to, source.person.markup(pending.text, id));
+});
+dialog.addEventListener("close", () => {
+  personButton.focus();
+  updatePersonButton();
 });
 
 /** @param {string} url */
@@ -158,30 +262,15 @@ async function loadImages(url) {
 
 /** @param {string} text */
 function openText(text) {
-  editor.value = text;
-  editor.setSelectionRange(0, 0);
-  editor.scrollTop = 0;
-  renderHighlight();
+  editor.setText(text);
   const facts = checkSource();
   const manifest = facts && source.manifestFor(facts.idnos);
   if (manifest) {
     iiifInput.value = manifest;
     loadImages(manifest);
   }
+  updatePersonButton();
 }
-
-// The facsimile follows the caret: the page is the last <pb> before it.
-function followCaret() {
-  viewer.show(pageAtOffset(editor.value, editor.selectionStart));
-}
-
-let debounce = 0;
-editor.addEventListener("input", () => {
-  clearTimeout(debounce);
-  debounce = window.setTimeout(checkSource, 300);
-});
-editor.addEventListener("keyup", followCaret);
-editor.addEventListener("click", followCaret);
 
 $("iiif-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
   e.preventDefault();
@@ -191,23 +280,70 @@ $("page-prev").addEventListener("click", () => viewer.show(viewer.index - 1));
 $("page-next").addEventListener("click", () => viewer.show(viewer.index + 1));
 $("rot-left").addEventListener("click", () => viewer.rotate(-90));
 $("rot-right").addEventListener("click", () => viewer.rotate(90));
+$("zoom-in").addEventListener("click", () => editor.zoomBy(1));
+$("zoom-out").addEventListener("click", () => editor.zoomBy(-1));
+$("zoom-reset").addEventListener("click", () => editor.zoomBy(0));
+$("wrap-toggle").addEventListener("click", () => {
+  $("wrap-toggle").setAttribute("aria-pressed", String(editor.toggleWrap()));
+});
 
+// Opening and saving. Where the File System Access API exists, a file opened
+// from a local clone of the data repository is saved back in place, ready to
+// commit; elsewhere the input element opens and a download saves.
+const canWriteInPlace = "showOpenFilePicker" in window;
+const XML_TYPES = [{ description: "TEI/XML", accept: { "application/xml": [".xml"] } }];
+
+$("tei-open").addEventListener("click", async () => {
+  if (!canWriteInPlace) {
+    $("tei-file").click();
+    return;
+  }
+  try {
+    const [handle] = await /** @type {any} */ (window).showOpenFilePicker({ types: XML_TYPES });
+    const file = await handle.getFile();
+    fileHandle = handle;
+    fileName = file.name;
+    openText(await file.text());
+  } catch (err) {
+    if (/** @type {any} */ (err)?.name !== "AbortError") setStatus(xmlStatus, "error", `Öffnen fehlgeschlagen: ${err}`);
+  }
+});
 $("tei-file").addEventListener("change", async (/** @type {Event} */ e) => {
   const file = /** @type {HTMLInputElement} */ (e.target).files?.[0];
   if (!file) return;
+  fileHandle = null;
   fileName = file.name;
   openText(await file.text());
 });
 
-// Download is the save path in every browser; in-place writing via the File
-// System Access API is a later enhancement behind a capability check.
-$("tei-save").addEventListener("click", () => {
-  const blob = new Blob([editor.value], { type: "application/xml" });
+$("tei-save").addEventListener("click", async () => {
+  // Run the pending check now, so it cannot overwrite the save confirmation.
+  clearTimeout(checkTimer);
+  checkSource();
+  const text = editor.text;
+  if (canWriteInPlace) {
+    try {
+      fileHandle ??= await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: fileName, types: XML_TYPES });
+      const writable = await fileHandle.createWritable();
+      await writable.write(text);
+      await writable.close();
+      fileName = fileHandle.name;
+      setStatus(xmlStatus, "ok", `Gespeichert in ${fileName}.`);
+      $("doc-meta").textContent = [fileName, source.name].join(" | ");
+      return;
+    } catch (err) {
+      if (/** @type {any} */ (err)?.name === "AbortError") return;
+      setStatus(xmlStatus, "error", `Speichern fehlgeschlagen: ${err}`);
+      return;
+    }
+  }
+  const blob = new Blob([text], { type: "application/xml" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = fileName;
   a.click();
   URL.revokeObjectURL(a.href);
+  setStatus(xmlStatus, "ok", `Als ${fileName} heruntergeladen.`);
 });
 
 fetch(source.defaultDocument)

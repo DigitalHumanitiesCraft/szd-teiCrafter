@@ -19,6 +19,10 @@
     <symbol id="i-rot-right" viewBox="0 0 24 24"><path d="M20 4v6h-6"/><path d="M19.5 10A8 8 0 1 0 18 16.5"/></symbol>
     <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
     <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+    <symbol id="i-zoom-in" viewBox="0 0 24 24"><path d="M5 19 10 6h1l5 13M7 15h7"/><path d="M18 4v6M15 7h6"/></symbol>
+    <symbol id="i-zoom-out" viewBox="0 0 24 24"><path d="M5 19 10 6h1l5 13M7 15h7"/><path d="M15 7h6"/></symbol>
+    <symbol id="i-wrap" viewBox="0 0 24 24"><path d="M4 6h16M4 12h13a3 3 0 0 1 0 6h-4"/><path d="m15 16-2 2 2 2"/><path d="M4 18h5"/></symbol>
     <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
     <symbol id="i-show" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
   </svg>
@@ -38,20 +42,31 @@
         <button id="valid-button" class="check" type="button" aria-describedby="xml-status">
           <svg class="icon"><use href="#i-validate"/></svg><span id="valid-label">Validieren</span>
         </button>
+        <button id="person-button" type="button" aria-describedby="selection-hint">
+          <svg class="icon"><use href="#i-person"/></svg><span>Person annotieren</span>
+        </button>
         <span class="toolbar-gap"></span>
-        <label class="icon-button file-button" data-tip="TEI-Datei öffnen">
-          <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg>
-          <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" aria-label="TEI-Datei öffnen">
-        </label>
-        <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern (Download)" data-tip="TEI speichern (Download)">
+        <button id="zoom-out" class="icon-button" type="button" aria-label="Code verkleinern" data-tip="Code verkleinern (Strg + Mausrad)">
+          <svg class="icon"><use href="#i-zoom-out"/></svg>
+        </button>
+        <button id="zoom-reset" class="zoom-label" type="button" aria-label="Codegröße zurücksetzen" data-tip="Codegröße zurücksetzen">100 %</button>
+        <button id="zoom-in" class="icon-button" type="button" aria-label="Code vergrößern" data-tip="Code vergrößern (Strg + Mausrad)">
+          <svg class="icon"><use href="#i-zoom-in"/></svg>
+        </button>
+        <button id="wrap-toggle" class="icon-button" type="button" aria-pressed="false" aria-label="Zeilenumbruch" data-tip="Zeilenumbruch">
+          <svg class="icon"><use href="#i-wrap"/></svg>
+        </button>
+        <span class="toolbar-sep"></span>
+        <button id="tei-open" class="icon-button" type="button" aria-label="TEI-Datei öffnen" data-tip="TEI-Datei öffnen">
+          <svg class="icon"><use href="#i-open"/></svg>
+        </button>
+        <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" hidden>
+        <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern">
           <svg class="icon"><use href="#i-save"/></svg>
         </button>
       </div>
-      <div class="code">
-        <pre id="tei-highlight" class="code-layer" aria-hidden="true"></pre>
-        <textarea id="tei-source" class="code-layer" spellcheck="false" aria-label="TEI-Quelltext"
-          aria-describedby="xml-status"></textarea>
-      </div>
+      <div id="editor" class="code"></div>
+      <p id="selection-hint" class="hint"></p>
       <div id="xml-status" class="status" role="status"></div>
     </section>
 
@@ -99,6 +114,31 @@
       <svg class="icon"><use href="#i-show"/></svg>
     </button>
   </main>
+
+  <dialog id="person-dialog" class="person-dialog" aria-labelledby="person-title">
+    <form id="person-form" method="dialog">
+      <h2 id="person-title">Person annotieren: <span id="person-text"></span></h2>
+      <div class="toolbar">
+        <label class="grow">
+          <span class="visually-hidden">Suche in der GND</span>
+          <input id="person-query" type="search" placeholder="Name in der GND suchen">
+        </label>
+        <button id="person-search" type="button">Suchen</button>
+      </div>
+      <p id="person-status" class="status" role="status"></p>
+      <ul id="person-results" class="results"></ul>
+      <label class="manual">
+        GND-ID
+        <input id="person-gnd" type="text" inputmode="text" autocomplete="off" required
+          pattern="[0-9Xx\-]{6,12}" placeholder="z. B. 116402873">
+      </label>
+      <p id="person-preview" class="preview"></p>
+      <div class="toolbar dialog-actions">
+        <button type="button" id="person-cancel">Abbrechen</button>
+        <button type="submit" id="person-apply" class="primary" value="apply">Annotieren</button>
+      </div>
+    </form>
+  </dialog>
 
   <!-- OpenSeadragon ships as UMD, so it loads as a classic script that sets
        window.OpenSeadragon for the modules below. -->

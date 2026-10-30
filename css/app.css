@@ -180,43 +180,62 @@
     background: var(--surface);
     &:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
   }
-  .code-layer {
-    position: absolute;
-    inset: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    margin: 0;
-    padding: var(--space-2);
-    border: 0;
-    font-family: var(--font-code);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    tab-size: 2;
-    white-space: pre;
-    overflow: auto;
-  }
-  #tei-highlight {
+  /* CodeMirror fills the code box; colours inside come from its theme in editor.js. */
+  .code {
     overflow: hidden;
+    & .cm-editor { block-size: 100%; outline: none; }
+  }
+  .hint { color: var(--muted); font-size: 0.85rem; min-block-size: 1.2em; }
+  .toolbar-sep { inline-size: 1px; align-self: stretch; margin-inline: var(--space-1); background: var(--line); }
+  .zoom-label { min-inline-size: 4rem; justify-content: center; font-variant-numeric: tabular-nums; }
+  [aria-pressed="true"].icon-button { background: color-mix(in oklch, var(--blue) 18%, var(--surface)); border-color: var(--blue); }
+
+  .person-dialog {
+    inline-size: min(40rem, calc(100vi - 2rem));
+    max-block-size: calc(100dvb - 4rem);
+    padding: var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
     color: var(--text);
-    /* Room for the textarea's scrollbars, so both layers can scroll as far. */
-    padding-block-end: calc(var(--space-2) + 1.5rem);
-    padding-inline-end: calc(var(--space-2) + 1.5rem);
+    &::backdrop { background: rgb(0 0 0 / 0.4); }
+    & h2 { font-size: 1.05rem; margin-block-end: var(--space-2); }
+    & form { display: flex; flex-direction: column; gap: var(--space-2); }
+    & input {
+      inline-size: 100%;
+      min-block-size: 2.25rem;
+      padding-inline: var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+    & .grow { flex: 1; }
+    & .manual { display: flex; flex-direction: column; gap: var(--space-1); font-weight: 600; }
+    & .manual input { font-weight: 400; font-family: var(--font-code); }
+    & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
+    & .dialog-actions { justify-content: flex-end; }
   }
-  #tei-source {
-    resize: none;
-    background: transparent;
-    color: transparent;
-    caret-color: var(--text);
-    outline: none;
-    &::selection { background: color-mix(in oklch, var(--blue) 30%, transparent); color: transparent; }
+  .results {
+    list-style: none;
+    padding: 0;
+    max-block-size: 18rem;
+    overflow: auto;
+    & li + li { border-block-start: 1px solid var(--line); }
   }
-  .x-tag { color: var(--blue); font-weight: 600; }
-  .x-punct { color: var(--hl-punct); }
-  .x-attr { color: var(--orange); }
-  .x-value { color: var(--hl-value); }
-  .x-entity { color: var(--orange); font-weight: 600; }
-  .x-comment { color: var(--hl-comment); font-style: italic; }
-  .x-meta { color: var(--hl-comment); }
+  .result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    inline-size: 100%;
+    gap: 0.1rem;
+    border: 0;
+    border-radius: 0;
+    text-align: start;
+    background: none;
+    & span { color: var(--muted); font-size: 0.85rem; }
+    &[aria-pressed="true"] { background: color-mix(in oklch, var(--blue) 15%, transparent); }
+  }
+  button.primary { background: var(--blue); color: var(--bg); border-color: var(--blue); font-weight: 600; }
 
   .status {
     font-size: 0.9rem;
