@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>teiCrafter SZD</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 id="doc-title">teiCrafter SZD</h1>
+    <p id="doc-meta" class="doc-meta"></p>
+  </header>
+
+  <main class="workspace">
+    <section class="pane pane-text" aria-labelledby="text-heading">
+      <div class="toolbar">
+        <h2 id="text-heading" class="pane-heading">TEI</h2>
+        <label class="file-button">
+          TEI öffnen
+          <input id="tei-file" type="file" accept=".xml,application/xml,text/xml">
+        </label>
+        <button id="tei-save" type="button">TEI speichern</button>
+      </div>
+      <textarea id="tei-source" spellcheck="false" aria-label="TEI-Quelltext"
+        aria-describedby="xml-status"></textarea>
+      <p id="xml-status" class="status" role="status"></p>
+    </section>
+
+    <section class="pane pane-image" aria-labelledby="image-heading">
+      <form id="iiif-form" class="toolbar">
+        <h2 id="image-heading" class="pane-heading">Faksimile</h2>
+        <label class="iiif-field">
+          <span class="visually-hidden">IIIF-Manifest, info.json oder Bild-URL</span>
+          <input id="iiif-url" type="url" required
+            placeholder="IIIF-Manifest, info.json oder Bild-URL">
+        </label>
+        <button type="submit">Laden</button>
+      </form>
+      <div class="page-nav">
+        <button id="page-prev" type="button" aria-label="Vorherige Seite">&larr;</button>
+        <span id="page-label" aria-live="polite"></span>
+        <button id="page-next" type="button" aria-label="Nächste Seite">&rarr;</button>
+      </div>
+      <div id="viewer" class="viewer" role="img" aria-label="Faksimile"></div>
+      <p id="iiif-status" class="status" role="status"></p>
+    </section>
+  </main>
+
+  <!-- OpenSeadragon ships as UMD, so it loads as a classic script that sets
+       window.OpenSeadragon for the modules below. -->
+  <script src="vendor/openseadragon/openseadragon.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
