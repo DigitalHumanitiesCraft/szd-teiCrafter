@@ -34,7 +34,7 @@ The editor serves one task chain, opening a letter, correcting and annotating it
 - FR-03: The document can be validated against TEI All. Acceptance criterion: each schema error is listed with a line link and underlined in the text, and any later edit marks the result as outdated.
 - FR-04: The facsimile loads from a IIIF Presentation manifest (v2 or v3), a IIIF Image API service or a plain image URL, and for SZD objects the manifest is derived from the TEI. Acceptance criterion: the example letter shows its GAMS images without user input.
 - FR-05: The facsimile follows the caret. Acceptance criterion: the shown page is the one whose `pb` precedes the caret.
-- FR-06: A marked name becomes `<persName ref="https://d-nb.info/gnd/ID">` after a GND search or a manually entered GND id. Acceptance criterion: the saved file differs from the original only by the inserted elements.
+- FR-06: A marked name becomes `<persName ref="…">` pointing to the entry of the Stefan Zweig Digital person index, found while typing, or to the GND for persons outside the index (ADR-007). Acceptance criterion: the saved file differs from the original only by the inserted elements.
 - FR-07: Saving writes back into the opened file where the browser supports the File System Access API, and downloads the file elsewhere. Acceptance criterion: after saving, `git diff` shows only the edits.
 - FR-09: A text selection offers its annotation actions in a menu at the selection (Person, Streichung, Unsicher, Ergänzung), reachable with Ctrl+. and arrow keys. When the selection carries an HTR marker, the matching action is suggested and the marker syntax is removed on wrapping. Acceptance criterion: `~~x~~` becomes `<del>x</del>`, `x[?]` becomes `<unclear>x</unclear>`, `{x}` becomes `<add>x</add>`.
 - FR-10: The remaining HTR markers are counted, and F8 or the counter selects the next one and offers its action. Acceptance criterion: working through the example letter with F8 and Enter leaves no marker, and the saved file equals the original transformed by the marker rules.
@@ -178,3 +178,13 @@ Choice. Operator, 2026-10-30: „Ein Brief ist fertig, wenn er formal wohlgeform
 Rationale. Two states reflect the working status without a workflow engine, and the machine conditions let the editor offer acceptance only when they hold.
 
 Effect. Where the state is encoded and who may accept are open in [plan](plan.md#open-decisions-and-dependencies).
+
+### ADR-007 The person index of Stefan Zweig Digital as the person source
+
+Context. ADR-005 wrote GND URIs directly. The question who owns a person's identity was answered by research on 2026-10-30: Stefan Zweig Digital keeps its own person index (`o:szd.personen`, CC BY 4.0) with index identifiers, GND and Wikidata links, life dates and name variants, and its holdings point to it as `https://gams.uni-graz.at/o:szd.personen#SZDPER.n`.
+
+Choice. Annotation points to the index entry. The GND is the fallback for persons outside the index, written as `http://d-nb.info/gnd/ID` like the holdings. The index is prebuilt into `data/register/szd-persons.json` by `tools/build-person-index.mjs` and searched while typing, with forms of address ignored.
+
+Rationale. The edition's own register carries persons without a GND record, corrects a wrong GND link in one place and is the form the Stefan Zweig Digital views resolve. A project register of our own would duplicate it. This supersedes ADR-005.
+
+Effect. All three persons of the example letter, including the addressee whose GND search had failed on "Frau Meingast", are found in the index.

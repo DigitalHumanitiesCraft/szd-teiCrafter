@@ -1,6 +1,7 @@
 import { createEditor } from "./editor.js";
 import { isGndId, searchPersons } from "./gnd.js";
 import { resolveIiif } from "./iiif.js";
+import { cleanQuery, searchRegister } from "./register.js";
 import { source } from "./source.js";
 import { attachSplit } from "./split.js";
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
@@ -297,43 +298,79 @@ menu.addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
   }
 });
 
-// Person dialog
+// Person dialog: the source's person register first, the GND second.
 
 const dialog = /** @type {HTMLDialogElement} */ ($("person-dialog"));
-const gndInput = /** @type {HTMLInputElement} */ ($("person-gnd"));
+const refInput = /** @type {HTMLInputElement} */ ($("person-gnd"));
 let pending = { from: 0, to: 0, text: "" };
+let registerTimer = 0;
 
-function updatePreview() {
-  const id = gndInput.value.trim();
-  $("person-preview").textContent = isGndId(id) ? source.person.markup(pending.text, id) : "";
+/** The reference the typed or chosen identifier stands for, or "". */
+function chosenRef() {
+  const id = refInput.value.trim();
+  if (source.person.isRegisterId(id)) return source.person.registerRef(id);
+  if (isGndId(id)) return source.person.gndRef(id);
+  return "";
 }
 
-async function runPersonSearch() {
-  const query = $("person-query").value.trim();
-  const list = $("person-results");
+function updatePreview() {
+  const ref = chosenRef();
+  $("person-preview").textContent = ref ? source.person.markup(pending.text, ref) : "";
+}
+
+/**
+ * @param {HTMLElement} list
+ * @param {{ id: string, title: string, meta: string }[]} items
+ */
+function renderResults(list, items) {
   list.replaceChildren();
+  for (const item of items) {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "result";
+    b.dataset.id = item.id;
+    b.append(
+      Object.assign(document.createElement("strong"), { textContent: item.title }),
+      Object.assign(document.createElement("span"), { textContent: item.meta }),
+    );
+    b.addEventListener("click", () => {
+      refInput.value = item.id;
+      for (const other of dialog.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
+      b.setAttribute("aria-pressed", "true");
+      updatePreview();
+    });
+    li.append(b);
+    list.append(li);
+  }
+}
+
+async function runRegisterSearch() {
+  const query = $("person-query").value;
+  try {
+    const hits = await searchRegister(source.person.register, query, source.person.ignore);
+    $("register-heading").textContent = `${source.person.registerLabel}${hits.length ? "" : ": keine Treffer"}`;
+    renderResults(
+      $("register-results"),
+      hits.map((p) => ({ id: p.id, title: p.name, meta: [p.dates, p.gnd && `GND ${p.gnd}`, p.id].filter(Boolean).join(" | ") })),
+    );
+  } catch (err) {
+    setStatus($("person-status"), "error", err instanceof Error ? err.message : String(err));
+  }
+}
+
+async function runGndSearch() {
+  const query = cleanQuery($("person-query").value, source.person.ignore);
   if (!query) return;
+  $("gnd-heading").hidden = false;
   setStatus($("person-status"), "", "Suche in der GND …");
   try {
     const persons = await searchPersons(query);
-    setStatus($("person-status"), "", persons.length ? "" : "Keine Treffer. Suchbegriff ändern oder GND-ID direkt eingeben.");
-    for (const p of persons) {
-      const li = document.createElement("li");
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "result";
-      const name = Object.assign(document.createElement("strong"), { textContent: p.name });
-      const meta = Object.assign(document.createElement("span"), { textContent: [p.dates, p.info, `GND ${p.id}`].filter(Boolean).join(" | ") });
-      b.append(name, meta);
-      b.addEventListener("click", () => {
-        gndInput.value = p.id;
-        for (const other of list.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
-        b.setAttribute("aria-pressed", "true");
-        updatePreview();
-      });
-      li.append(b);
-      list.append(li);
-    }
+    setStatus($("person-status"), "", persons.length ? "" : "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben.");
+    renderResults(
+      $("person-results"),
+      persons.map((p) => ({ id: p.id, title: p.name, meta: [p.dates, p.info, `GND ${p.id}`].filter(Boolean).join(" | ") })),
+    );
   } catch (err) {
     setStatus($("person-status"), "error", err instanceof Error ? err.message : String(err));
   }
@@ -343,27 +380,36 @@ async function runPersonSearch() {
 function openPersonDialog(sel) {
   pending = sel;
   $("person-text").textContent = sel.text;
-  $("person-query").value = sel.text.trim();
-  gndInput.value = "";
+  $("person-query").value = cleanQuery(sel.text.trim(), source.person.ignore) || sel.text.trim();
+  refInput.value = "";
+  $("person-results").replaceChildren();
+  $("gnd-heading").hidden = true;
+  setStatus($("person-status"), "", "");
   updatePreview();
   dialog.showModal();
-  runPersonSearch();
+  runRegisterSearch();
 }
 
-$("person-search").addEventListener("click", runPersonSearch);
+// Typing searches the register at once; the GND is asked on request, since
+// it is a network service and the register covers the edition's persons.
+$("person-query").addEventListener("input", () => {
+  clearTimeout(registerTimer);
+  registerTimer = window.setTimeout(runRegisterSearch, 150);
+});
+$("person-search").addEventListener("click", runGndSearch);
 $("person-query").addEventListener("keydown", (/** @type {KeyboardEvent} */ e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    runPersonSearch();
+    runGndSearch();
   }
 });
-gndInput.addEventListener("input", updatePreview);
+refInput.addEventListener("input", updatePreview);
 $("person-cancel").addEventListener("click", () => dialog.close());
 $("person-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
-  const id = gndInput.value.trim();
-  if (!isGndId(id)) {
+  const ref = chosenRef();
+  if (!ref) {
     e.preventDefault();
-    setStatus($("person-status"), "error", "Bitte einen Treffer wählen oder eine gültige GND-ID eingeben.");
+    setStatus($("person-status"), "error", "Bitte einen Treffer wählen oder eine Kennung eingeben, etwa SZDPER.2188 oder eine GND-ID.");
     return;
   }
   // The document may have changed while the dialog was open; only apply if the
@@ -372,7 +418,7 @@ $("person-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
     setStatus(xmlStatus, "error", "Der markierte Text hat sich verändert; bitte erneut markieren.");
     return;
   }
-  editor.replace(pending.from, pending.to, source.person.markup(pending.text, id));
+  editor.replace(pending.from, pending.to, source.person.markup(pending.text, ref));
 });
 dialog.addEventListener("close", () => editor.focus());
 

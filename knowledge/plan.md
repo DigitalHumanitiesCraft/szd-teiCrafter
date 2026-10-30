@@ -114,7 +114,7 @@ Exit condition (M9): a partner reaches every letter from the list and sees which
 | Milestone | Status | Notes |
 |---|---|---|
 | M1 — Editor and person annotation | in progress | browser check green, operator acceptance open |
-| M2 — Person register | pending | |
+| M2 — Person register | completed | the SZD person index replaces a register of our own (ADR-007) |
 | M3 — HTR marker actions | in progress | actions, counter and F8 built; rule set for remaining markers open |
 | M4 — Toolbar order | completed | one row per pane at half width; a very narrow facsimile pane still wraps |
 | M8 — Safe round trip | pending | next step |
@@ -130,5 +130,5 @@ Exit condition (M9): a partner reaches every letter from the list and sees which
 - Whether the save rule of M8 (never malformed, schema errors with a note) is accepted, which departs from the fail-closed gate of the base and the Wenzelsbibel derivation, before M8.
 - Where the working state lives, proposed as `revisionDesc/@status` in the TEI (`draft`, `approved`) so that Git diff, project page and editor read the same value, and who may accept, before M8.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before M6.
-- Whether Stefan Zweig Digital already keeps a person register to link to instead of a project register, before M2.
+- How collections are modelled, so that a project holds several collections (SZD letters, a medieval manuscript) whose objects show their working state and can be switched, before M9. Operator request of 2026-10-30.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before M6.

@@ -262,10 +262,11 @@
     & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
     & .dialog-actions { justify-content: flex-end; }
   }
+  .results-heading { font-size: 0.85rem; color: var(--muted); font-weight: 600; margin: 0; }
   .results {
     list-style: none;
     padding: 0;
-    max-block-size: 18rem;
+    max-block-size: 12rem;
     overflow: auto;
     & li + li { border-block-start: 1px solid var(--line); }
   }

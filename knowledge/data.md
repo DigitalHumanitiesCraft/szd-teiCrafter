@@ -39,7 +39,7 @@ The material is Stefan Zweig's correspondence as held by the Literaturarchiv Sal
 
 - TEI letter: `data/o_szd.1222.tei.xml`, copied from `results/korrespondenzen/` of the szd-htr repository. The szd-htr pipeline transcribed the page images with gemini-3.1-flash-lite-preview into Page-JSON and converted that into TEI. Its header states that structure and transcription are unreviewed. Licence CC BY 4.0 per Stefan Zweig Digital, attribution in `data/NOTICE.md`.
 - Facsimile: the IIIF Presentation 2 manifest `https://gams.uni-graz.at/o:szd.1222/sdef:IIIF/getManifest`, whose canvases point to IIIF Image API level 2 services under `https://gams.uni-graz.at/iiif/`. GAMS answers with permissive CORS headers. Images are not copied into the repository.
-- Persons: the GND through the lobid-gnd search API, queried only when the user searches.
+- Persons: the person index of Stefan Zweig Digital (`o:szd.personen`, CC BY 4.0), prebuilt into `data/register/szd-persons.json` with its own `NOTICE.md`, and the GND through the lobid-gnd search API for persons outside the index, queried only on request.
 
 ## Model
 
@@ -59,7 +59,8 @@ The transcription is unreviewed LLM output and contains reading errors. Because 
 
 ## Authority data and links
 
-- GND URIs in `persName/@ref`, form `https://d-nb.info/gnd/{id}`.
+- Person index entries in `persName/@ref`, form `https://gams.uni-graz.at/o:szd.personen#SZDPER.{n}`, the fragment being required for the person view.
+- GND URIs for persons outside the index, form `http://d-nb.info/gnd/{id}` as in the holdings.
 - IIIF manifests derived from the object id by `source.manifestFor` in `js/source.js`.
 
 ## Examples

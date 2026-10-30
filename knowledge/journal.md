@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 Person index of Stefan Zweig Digital
+
+- Trigger: operator: „gibt es Dinge, die du einfach selber durch Recherchen beantworten kannst?“ on the open question of person identity.
+- Found: GAMS publishes the person index `o:szd.personen` under CC BY 4.0, and the SZD data repository references it as `https://gams.uni-graz.at/o:szd.personen#SZDPER.n`, with the fragment rule recorded in the vault document on the SZD data architecture. The first build read only part of the index, because some entries carry `corresp` before `xml:id`.
+- Decided: ADR-007 supersedes ADR-005, annotation points to the index and falls back to the GND.
+- Corrected: the build tool reads `xml:id` from any attribute position and reports skipped entries.
+- Evidence: `test/browser-check.mjs`, all checks passing on 2026-10-30.
+
 ### 2026-10-30 Definition of done, team round trip and learning from cases
 
 - Trigger: three conceptual questions to the operator on finished letters, derivation forms and person identity.

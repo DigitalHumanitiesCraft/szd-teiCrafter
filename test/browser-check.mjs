@@ -77,12 +77,15 @@ async function doubleClickWord(page, lineText, word) {
   await page.waitForTimeout(300);
   check("action menu appears at the selection", await page.isVisible("#actions"));
   await page.click("#actions [data-action='person']");
-  await page.waitForSelector("#person-results .result", { timeout: 20000 });
+  await page.waitForSelector("#register-results .result", { timeout: 20000 });
   check("dialog opens with the selection as query", (await page.inputValue("#person-query")) === "Reichner");
-  const hit = page.locator("#person-results .result", { hasText: "116402873" });
-  check("GND search lists the publisher", (await hit.count()) === 1);
+  const hit = page.locator("#register-results .result", { hasText: "SZDPER.2188" });
+  check("person index lists the publisher with his GND", (await hit.count()) === 1 && (await hit.textContent()).includes("116402873"));
+  await page.click("#person-search");
+  await page.waitForSelector("#person-results .result", { timeout: 20000 });
+  check("GND search on request lists him too", (await page.locator("#person-results .result", { hasText: "116402873" }).count()) === 1);
   await hit.click();
-  check("preview shows the markup", (await label(page, "#person-preview")) === '<persName ref="https://d-nb.info/gnd/116402873">Reichner</persName>');
+  check("preview shows the index reference", (await label(page, "#person-preview")) === '<persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>');
   await page.click("#person-apply");
   await page.waitForTimeout(600);
   check("still well-formed", (await label(page, "#wf-label")) === "Wohlgeformt");
@@ -96,7 +99,17 @@ async function doubleClickWord(page, lineText, word) {
   await page.fill("#person-gnd", "1057079499");
   await page.keyboard.press("Enter");
   await page.waitForTimeout(500);
-  check("manual GND id applied", (await page.locator(".cm-line", { hasText: 'gnd/1057079499">Relgis</persName>' }).count()) === 1);
+  check("manual GND id applied in the holdings' form", (await page.locator(".cm-line", { hasText: 'http://d-nb.info/gnd/1057079499">Relgis</persName>' }).count()) === 1);
+
+  // A form of address in the selection is ignored by the search.
+  await doubleClickWord(page, "Liebe Frau Meingast", "Frau");
+  await page.keyboard.press("Shift+Control+ArrowRight");
+  await page.waitForTimeout(300);
+  await page.click("#actions [data-action='person']");
+  await page.waitForSelector("#register-results .result", { timeout: 20000 });
+  check("'Frau' is dropped from the query", (await page.inputValue("#person-query")) === "Meingast");
+  check("the addressee is the first index hit", (await page.locator("#register-results .result").first().textContent()).includes("SZDPER.1575"));
+  await page.click("#person-cancel");
 
   await page.click("#valid-button");
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
@@ -104,9 +117,9 @@ async function doubleClickWord(page, lineText, word) {
 
   const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
   const saved = readFileSync(await download.path(), "utf8");
-  const expected = ORIGINAL.replace("Herr Reichner", 'Herr <persName ref="https://d-nb.info/gnd/116402873">Reichner</persName>').replace(
+  const expected = ORIGINAL.replace("Herr Reichner", 'Herr <persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>').replace(
     "Herr Relgis",
-    'Herr <persName ref="https://d-nb.info/gnd/1057079499">Relgis</persName>',
+    'Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName>',
   );
   check("saved file is the original plus exactly the two annotations", saved === expected);
 

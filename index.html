@@ -146,17 +146,19 @@
       <h2 id="person-title">Person annotieren: <span id="person-text"></span></h2>
       <div class="toolbar">
         <label class="grow">
-          <span class="visually-hidden">Suche in der GND</span>
-          <input id="person-query" type="search" placeholder="Name in der GND suchen">
+          <span class="visually-hidden">Name suchen</span>
+          <input id="person-query" type="search" autocomplete="off" placeholder="Name suchen">
         </label>
-        <button id="person-search" type="button">Suchen</button>
+        <button id="person-search" type="button">Auch in der GND suchen</button>
       </div>
       <p id="person-status" class="status" role="status"></p>
-      <ul id="person-results" class="results"></ul>
+      <h3 id="register-heading" class="results-heading"></h3>
+      <ul id="register-results" class="results" aria-labelledby="register-heading"></ul>
+      <h3 id="gnd-heading" class="results-heading" hidden>GND</h3>
+      <ul id="person-results" class="results" aria-labelledby="gnd-heading"></ul>
       <label class="manual">
-        GND-ID
-        <input id="person-gnd" type="text" autocomplete="off" required
-          pattern="[0-9Xx\-]{6,12}" placeholder="z. B. 116402873">
+        Kennung (Personenindex oder GND)
+        <input id="person-gnd" type="text" autocomplete="off" required placeholder="z. B. SZDPER.2188 oder 116402873">
       </label>
       <p id="person-preview" class="preview"></p>
       <div class="toolbar dialog-actions">

@@ -1,7 +1,11 @@
 // Source-specific configuration for Stefan Zweig Digital. A derivation for
 // another edition replaces this file; the generic modules stay untouched.
 
-const GND_PREFIX = "https://d-nb.info/gnd/";
+// Reference forms of the Stefan Zweig Digital holdings: persons point to the
+// entry of the person index with a fragment, because a reference without it
+// never reaches the person view; GND URIs use http as in the holdings.
+const PERSON_INDEX = "https://gams.uni-graz.at/o:szd.personen#";
+const GND_PREFIX = "http://d-nb.info/gnd/";
 
 export const source = {
   name: "Stefan Zweig Digital",
@@ -34,10 +38,22 @@ export const source = {
     { name: "p" },
   ],
 
-  /** How a person annotation with a GND id is written into the text. */
+  /**
+   * Person annotation: the SZD person index first, the GND for persons not
+   * in it. `ignore` lists words of address that a marked name often carries.
+   */
   person: {
-    /** @param {string} text @param {string} gndId */
-    markup: (text, gndId) => `<persName ref="${GND_PREFIX}${gndId}">${text}</persName>`,
+    register: "data/register/szd-persons.json",
+    registerLabel: "SZD-Personenindex",
+    ignore: ["Frau", "Fräulein", "Herr", "Herrn", "Dr", "Doktor", "Professor", "Prof"],
+    /** @param {string} id e.g. SZDPER.2188 */
+    registerRef: (id) => `${PERSON_INDEX}${id}`,
+    /** @param {string} id */
+    gndRef: (id) => `${GND_PREFIX}${id}`,
+    /** @param {string} value */
+    isRegisterId: (value) => /^SZDPER\.\d+$/.test(value.trim()),
+    /** @param {string} text @param {string} ref */
+    markup: (text, ref) => `<persName ref="${ref}">${text}</persName>`,
   },
 
   /**
