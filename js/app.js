@@ -1,3 +1,4 @@
+import { conflictMarkers, hunks, lineDiff } from "./diff.js";
 import { createEditor } from "./editor.js";
 import { isGndId, searchPersons } from "./gnd.js";
 import { resolveIiif } from "./iiif.js";
@@ -29,6 +30,10 @@ let xmlError = null;
 let checkTimer = 0;
 /** The text as last opened or saved; any difference is unsaved work. */
 let savedText = "";
+/** Whether savedText comes from opening or from saving, for the comparison title. */
+let savedBy = "Öffnen";
+/** lastModified of the opened file on disk at open or last save, null without a handle. */
+let diskModified = /** @type {number | null} */ (null);
 let validatedOnce = false;
 
 const editor = createEditor($("editor"), {
@@ -101,6 +106,13 @@ function checkSource() {
   setCheck(validButton, "stale", validatedOnce ? "Neu validieren" : "Validieren", "#i-validate");
   validButton.toggleAttribute("data-was-checked", validatedOnce);
   updateOpenWork();
+  // The file name is known even when the document cannot be parsed.
+  $("doc-meta").textContent = [fileName, source.name].filter(Boolean).join(" | ");
+  const conflicts = conflictMarkers(editor.text);
+  if (conflicts.length) {
+    showConflicts(conflicts);
+    return null;
+  }
   if (!doc) {
     setCheck(wfButton, "error", error?.line ? `Fehler Zeile ${error.line}` : "Nicht wohlgeformt");
     const problem = { message: `Nicht wohlgeformt: ${error?.message}`, line: error?.line ?? 0, column: error?.column ?? 0 };
@@ -113,7 +125,6 @@ function checkSource() {
   editor.setProblems([]);
   const facts = documentFacts(doc);
   $("doc-title").textContent = facts.title || "teiCrafter SZD";
-  $("doc-meta").textContent = [fileName, source.name].filter(Boolean).join(" | ");
   return facts;
 }
 
@@ -144,6 +155,29 @@ function showMessages(items, summary = "") {
   }
   if (items.length > 20) list.append(Object.assign(document.createElement("li"), { textContent: `… und ${items.length - 20} weitere` }));
   xmlStatus.append(list);
+}
+
+const CONFLICT_PARTS = {
+  start: "Beginn eines Git-Konflikts, darunter die eigene Fassung",
+  middle: "Trennlinie, darunter die andere Fassung",
+  end: "Ende des Git-Konflikts",
+};
+
+/**
+ * Git conflict markers make the document malformed, but the parser would name
+ * them as a cryptic syntax error, so they are explained as two versions instead.
+ * @param {{ line: number, kind: "start" | "middle" | "end" }[]} conflicts
+ */
+function showConflicts(conflicts) {
+  const first = conflicts[0].line;
+  xmlError = { message: "Git-Konflikt", line: first, column: 1 };
+  setCheck(wfButton, "error", `Git-Konflikt Zeile ${first}`);
+  const problems = conflicts.map((c) => ({ message: CONFLICT_PARTS[c.kind], line: c.line, column: 1 }));
+  showMessages(
+    problems,
+    `Git-Konflikt ab Zeile ${first}: Die Datei enthält hier zwei Fassungen derselben Stelle. Eine Fassung behalten oder beide zusammenführen, dann die Markierungszeilen löschen.`,
+  );
+  editor.setProblems(problems);
 }
 
 wfButton.addEventListener("click", () => {
@@ -214,7 +248,7 @@ function nextOpenSpot() {
 
 workButton.addEventListener("click", nextOpenSpot);
 document.addEventListener("keydown", (e) => {
-  if (e.key === "F8" && !e.defaultPrevented && !$("person-dialog").open) {
+  if (e.key === "F8" && !e.defaultPrevented && !document.querySelector("dialog[open]")) {
     e.preventDefault();
     nextOpenSpot();
   }
@@ -507,6 +541,77 @@ $("wrap-toggle").addEventListener("click", () => {
   $("wrap-toggle").setAttribute("aria-pressed", String(editor.toggleWrap()));
 });
 
+// Changes since opening or saving, as a line comparison before a commit.
+
+const diffDialog = /** @type {HTMLDialogElement} */ ($("diff-dialog"));
+
+function showChanges() {
+  const lines = lineDiff(savedText, editor.text);
+  const groups = hunks(lines);
+  const removed = lines.filter((l) => l.kind === "del").length;
+  const added = lines.filter((l) => l.kind === "add").length;
+  $("diff-title").textContent = `Änderungen seit dem ${savedBy}`;
+  $("diff-summary").textContent = groups.length
+    ? `${removed} ${removed === 1 ? "Zeile" : "Zeilen"} entfernt, ${added} hinzugefügt, an ${groups.length} ${groups.length === 1 ? "Stelle" : "Stellen"}.`
+    : `Keine Änderungen seit dem ${savedBy}.`;
+  /** @type {Record<string, [string, string]>} */
+  const sign = { same: ["", ""], del: ["−", "entfernt"], add: ["+", "hinzugefügt"] };
+  const body = $("diff-body");
+  body.replaceChildren();
+  for (const group of groups) {
+    const section = document.createElement("section");
+    const at = group.find((l) => l.kind !== "same") ?? group[0];
+    // The jump goes to the current text; a removed line points to where it stood.
+    const line = at.b || (group.filter((l) => l.b && l.a < at.a).pop()?.b ?? 0) + 1;
+    const jump = Object.assign(document.createElement("button"), { type: "button", className: "link", textContent: `Zeile ${line}` });
+    jump.addEventListener("click", () => {
+      diffDialog.close();
+      editor.jumpTo(line, 1);
+    });
+    section.append(jump);
+    for (const l of group) {
+      const row = document.createElement("div");
+      row.className = "diff-row";
+      row.dataset.kind = l.kind;
+      const [mark, word] = sign[l.kind];
+      const signEl = Object.assign(document.createElement("span"), { className: "diff-sign", textContent: mark });
+      signEl.setAttribute("aria-hidden", "true");
+      row.append(
+        Object.assign(document.createElement("span"), { className: "diff-no", textContent: l.a ? String(l.a) : "" }),
+        Object.assign(document.createElement("span"), { className: "diff-no", textContent: l.b ? String(l.b) : "" }),
+        signEl,
+        Object.assign(document.createElement("span"), { className: "diff-text", textContent: l.text }),
+      );
+      if (word) row.prepend(Object.assign(document.createElement("span"), { className: "visually-hidden", textContent: `${word}: ` }));
+      section.append(row);
+    }
+    body.append(section);
+  }
+  diffDialog.showModal();
+}
+
+$("diff-button").addEventListener("click", showChanges);
+
+/**
+ * Asks a question in a modal dialog and resolves to the value of the chosen
+ * button, or "" when it is dismissed with Escape. The first choice is the
+ * safe one and receives the focus.
+ * @param {{ title: string, text: string, choices: { value: string, label: string, primary?: boolean }[] }} question
+ * @returns {Promise<string>}
+ */
+function ask({ title, text, choices }) {
+  const box = /** @type {HTMLDialogElement} */ ($("ask-dialog"));
+  $("ask-title").textContent = title;
+  $("ask-text").textContent = text;
+  $("ask-actions").replaceChildren(
+    ...choices.map((c) => Object.assign(document.createElement("button"), { type: "submit", value: c.value, textContent: c.label, className: c.primary ? "primary" : "" })),
+  );
+  box.returnValue = "";
+  box.showModal();
+  /** @type {HTMLElement} */ (box.querySelector("button")).focus();
+  return new Promise((resolve) => box.addEventListener("close", () => resolve(box.returnValue), { once: true }));
+}
+
 // Opening and saving. Where the File System Access API exists, a file opened
 // from a local clone of the data repository is saved back in place, ready to
 // commit; elsewhere the input element opens and a download saves.
@@ -520,6 +625,7 @@ function updateSaveState() {
 function openText(text) {
   editor.setText(text);
   savedText = editor.text;
+  savedBy = "Öffnen";
   validatedOnce = false;
   updateSaveState();
   const facts = checkSource();
@@ -535,17 +641,22 @@ function openText(text) {
 const canWriteInPlace = "showOpenFilePicker" in window;
 const XML_TYPES = [{ description: "TEI/XML", accept: { "application/xml": [".xml"] } }];
 
-/**
- * Asks before replacing unsaved work with another document. Deliberate
- * shortcut: the browser's confirm(); a <dialog> with the same two choices is
- * the upgrade path once the project page opens documents too.
- */
-function mayDiscard() {
-  return editor.text === savedText || window.confirm("Ungespeicherte Änderungen verwerfen?");
+/** Asks before replacing unsaved work with another document. */
+async function mayDiscard() {
+  if (editor.text === savedText) return true;
+  const choice = await ask({
+    title: "Ungespeicherte Änderungen",
+    text: `${fileName} enthält Änderungen, die noch nicht gespeichert sind. Beim Öffnen einer anderen Datei gehen sie verloren.`,
+    choices: [
+      { value: "", label: "Abbrechen" },
+      { value: "discard", label: "Verwerfen und öffnen" },
+    ],
+  });
+  return choice === "discard";
 }
 
 $("tei-open").addEventListener("click", async () => {
-  if (!mayDiscard()) return;
+  if (!(await mayDiscard())) return;
   if (!canWriteInPlace) {
     $("tei-file").click();
     return;
@@ -555,6 +666,7 @@ $("tei-open").addEventListener("click", async () => {
     const file = await handle.getFile();
     fileHandle = handle;
     fileName = file.name;
+    diskModified = file.lastModified;
     openText(await file.text());
   } catch (err) {
     if (/** @type {any} */ (err)?.name !== "AbortError") setStatus(xmlStatus, "error", `Öffnen fehlgeschlagen: ${err}`);
@@ -564,23 +676,78 @@ $("tei-file").addEventListener("change", async (/** @type {Event} */ e) => {
   const file = /** @type {HTMLInputElement} */ (e.target).files?.[0];
   if (!file) return;
   fileHandle = null;
+  diskModified = null;
   fileName = file.name;
   openText(await file.text());
 });
 
+/**
+ * Before writing in place, the file on disk is compared with the state seen
+ * at opening or last saving, since a pull or another program may have changed
+ * it. Resolves to the handle to write to, or null when the user keeps the file.
+ * @param {any} handle
+ */
+async function confirmTarget(handle) {
+  if (diskModified === null) return handle;
+  let current = Number.NaN;
+  try {
+    current = (await handle.getFile()).lastModified;
+  } catch {
+    // Moved or deleted on disk; asking is the safe answer.
+  }
+  if (current === diskModified) return handle;
+  const changed = Number.isNaN(current)
+    ? `${handle.name} ist auf der Festplatte nicht mehr lesbar, vielleicht verschoben oder gelöscht.`
+    : `${handle.name} wurde seit dem ${savedBy} auf der Festplatte geändert, zuletzt am ${new Date(current).toLocaleString("de-AT")}, etwa durch einen Git-Pull.`;
+  const choice = await ask({
+    title: "Datei auf der Festplatte geändert",
+    text: `${changed} Überschreiben ersetzt diese Fassung durch den Text im Editor. Der Text im Editor bleibt in jedem Fall erhalten.`,
+    choices: [
+      { value: "", label: "Abbrechen" },
+      { value: "copy", label: "Als neue Datei speichern" },
+      { value: "overwrite", label: "Überschreiben", primary: true },
+    ],
+  });
+  if (choice === "overwrite") return handle;
+  if (choice === "copy") return /** @type {any} */ (window).showSaveFilePicker({ suggestedName: handle.name, types: XML_TYPES });
+  return null;
+}
+
+let saving = false;
+
 async function save() {
+  // A second Ctrl+S while the question is open must not ask twice.
+  if (saving) return;
+  saving = true;
+  try {
+    await saveNow();
+  } finally {
+    saving = false;
+  }
+}
+
+async function saveNow() {
   // Run the pending check now, so it cannot overwrite the save confirmation.
   clearTimeout(checkTimer);
   checkSource();
-  const text = editor.text;
   if (canWriteInPlace) {
     try {
-      fileHandle ??= await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: fileName, types: XML_TYPES });
-      const writable = await fileHandle.createWritable();
+      const target = fileHandle
+        ? await confirmTarget(fileHandle)
+        : await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: fileName, types: XML_TYPES });
+      if (!target) {
+        setStatus(xmlStatus, "error", "Nicht gespeichert. Der Text im Editor ist unverändert erhalten.");
+        return;
+      }
+      const text = editor.text;
+      const writable = await target.createWritable();
       await writable.write(text);
       await writable.close();
+      fileHandle = target;
       fileName = fileHandle.name;
+      diskModified = (await fileHandle.getFile()).lastModified;
       savedText = text;
+      savedBy = "Speichern";
       updateSaveState();
       setStatus(xmlStatus, "ok", `Gespeichert in ${fileName}.`);
       $("doc-meta").textContent = [fileName, source.name].join(" | ");
@@ -589,6 +756,7 @@ async function save() {
     }
     return;
   }
+  const text = editor.text;
   const blob = new Blob([text], { type: "application/xml" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
@@ -596,6 +764,7 @@ async function save() {
   a.click();
   URL.revokeObjectURL(a.href);
   savedText = text;
+  savedBy = "Speichern";
   updateSaveState();
   setStatus(xmlStatus, "ok", `Als ${fileName} heruntergeladen.`);
 }

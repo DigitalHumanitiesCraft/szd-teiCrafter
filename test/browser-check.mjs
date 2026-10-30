@@ -3,7 +3,8 @@
 // bytes with the original. Needs the app served at BASE_URL and network access
 // to GAMS (facsimile) and lobid-gnd (person search). See knowledge/testing.md.
 
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
@@ -12,11 +13,25 @@ const results = [];
 const check = (name, ok, detail = "") => results.push(`${ok ? "PASS" : "FAIL"} ${name}${detail ? ` (${detail})` : ""}`);
 const label = (page, sel) => page.textContent(sel).then((s) => s.trim());
 
+// Screenshots of the changed states are written only when SHOTS_DIR is set.
+const SHOTS_DIR = process.env.SHOTS_DIR;
+if (SHOTS_DIR) mkdirSync(SHOTS_DIR, { recursive: true });
+const shot = (page, name) => SHOTS_DIR && page.screenshot({ path: join(SHOTS_DIR, `${name}.png`) });
+
+// The line comparison itself, independent of the interface.
+{
+  const { lineDiff, conflictMarkers } = await import("../js/diff.js");
+  const marks = (d) => d.map((l) => `${l.kind === "same" ? " " : l.kind === "del" ? "-" : "+"}${l.text}`).join(",");
+  check("line diff finds replaced, removed and added lines", marks(lineDiff("a\nb\nc\nd\ne", "a\nB\nc\ne\nf")) === " a,-b,+B, c,-d, e,+f");
+  check("line diff of equal texts has no changes", lineDiff("x\r\ny", "x\r\ny").every((l) => l.kind === "same"));
+  check("conflict markers found with their lines", JSON.stringify(conflictMarkers("a\n<<<<<<< HEAD\nb\n=======\nc\n>>>>>>> x\n")) === '[{"line":2,"kind":"start"},{"line":4,"kind":"middle"},{"line":6,"kind":"end"}]');
+}
+
 const browser = await chromium.launch();
 
-async function open(contextOptions, initScript) {
+async function open(contextOptions, initScript, initArg) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true, ...contextOptions });
-  if (initScript) await ctx.addInitScript(initScript);
+  if (initScript) await ctx.addInitScript(initScript, initArg);
   const page = await ctx.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e)));
@@ -54,6 +69,53 @@ async function doubleClickWord(page, lineText, word) {
   await page.waitForTimeout(300);
 }
 
+// The drawn selection carries the theme's blue mix, and the native selection
+// is transparent and keeps the token's colour, so selected markup stays legible.
+async function checkSelection(page, scheme) {
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+Home");
+  for (let i = 0; i < 6; i++) await page.keyboard.press("Shift+ArrowDown");
+  await page.waitForTimeout(200);
+  const r = await page.evaluate(() => {
+    const probe = document.createElement("div");
+    probe.style.background = "color-mix(in oklch, var(--blue) 38%, transparent)";
+    probe.style.color = "var(--blue)";
+    document.body.append(probe);
+    const expected = getComputedStyle(probe).backgroundColor;
+    const blue = getComputedStyle(probe).color;
+    probe.remove();
+    const layer = document.querySelector(".cm-selectionBackground");
+    const sel = getSelection();
+    const token = [...document.querySelectorAll(".cm-line span")].find((s) => sel.containsNode(s, true) && getComputedStyle(s).color === blue);
+    return {
+      background: layer && getComputedStyle(layer).backgroundColor,
+      expected,
+      token: token?.textContent,
+      selected: token && getComputedStyle(token, "::selection").color,
+      nativeBackground: token && getComputedStyle(token, "::selection").backgroundColor,
+      blue,
+    };
+  });
+  check(`selection background is the blue mix (${scheme})`, r.background === r.expected, `${r.background} vs ${r.expected}`);
+  check(
+    `selected element name keeps its colour (${scheme})`,
+    !!r.token && r.selected === r.blue && r.nativeBackground === "rgba(0, 0, 0, 0)",
+    `${r.token}: ${r.selected} on ${r.nativeBackground}`,
+  );
+  await page.keyboard.press("Control+Home");
+}
+
+// lobid answers with persons matching the query only in relations or
+// biography as well; a fixed answer makes the ranking checkable.
+const LOBID_FIXTURE = {
+  member: [
+    { gndIdentifier: "1001", preferredName: "Böing, Itai", biographicalOrHistoricalInformation: ["Briefpartner von Eugen Wolbe"] },
+    { gndIdentifier: "1002", preferredName: "Wolber, Eugen", dateOfBirth: ["1880"] },
+    { gndIdentifier: "1003", preferredName: "Thoma, Hans", variantName: ["Thoma, J."], biographicalOrHistoricalInformation: ["Verleger, kannte Eugen Wolbe"] },
+    { gndIdentifier: "1004", preferredName: "Wolbe, Eugen", dateOfBirth: ["1873"], dateOfDeath: ["1938"] },
+  ],
+};
+
 // Run 1: download path, as in browsers without the File System Access API.
 {
   const { page, errors } = await open({ colorScheme: "dark" }, () => {
@@ -75,10 +137,12 @@ async function doubleClickWord(page, lineText, word) {
   check("image source opens on demand", await page.isVisible("#iiif-url"));
   await page.click("#source-toggle");
   check("image source closes again", await page.isHidden("#iiif-url"));
+  await checkSelection(page, "dark");
 
   await doubleClickWord(page, "Herr Reichner", "Reichner");
   await page.waitForTimeout(300);
   check("action menu appears at the selection", await page.isVisible("#actions"));
+  check("a capitalised name without markers suggests Person", (await page.locator("#actions [data-action='person'][data-suggested]").count()) === 1);
   await page.click("#actions [data-action='person']");
   await page.waitForSelector("#register-results .result", { timeout: 20000 });
   check("dialog opens with the selection as query", (await page.inputValue("#person-query")) === "Reichner");
@@ -118,6 +182,17 @@ async function doubleClickWord(page, lineText, word) {
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
   check("valid against TEI All", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#xml-status"));
   check("annotations mark the document unsaved", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
+  await page.click("#diff-button");
+  check(
+    "changes view lists the two annotated lines as replaced",
+    (await page.locator("#diff-body .diff-row[data-kind='del']").count()) === 2 &&
+      (await page.locator("#diff-body .diff-row[data-kind='add']", { hasText: "SZDPER.2188" }).count()) === 1 &&
+      (await page.locator("#diff-body .diff-row[data-kind='add']", { hasText: "gnd/1057079499" }).count()) === 1,
+    await label(page, "#diff-summary"),
+  );
+  await shot(page, "diff-dark");
+  await page.keyboard.press("Escape");
+  check("Escape closes the changes view", !(await page.isVisible("#diff-dialog")));
 
   const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
   const saved = readFileSync(await download.path(), "utf8");
@@ -168,27 +243,89 @@ async function doubleClickWord(page, lineText, word) {
 {
   const { page, errors } = await open({ colorScheme: "light" }, () => {
     window.__writes = [];
+    // Modification time on the stubbed disk; writing advances it like a real file.
+    window.__mtime = 1761800000000;
     const handle = {
       name: "o_szd.1222.tei.xml",
-      getFile: async () => new File([await (await fetch("data/o_szd.1222.tei.xml")).text()], "o_szd.1222.tei.xml"),
-      createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => {} }),
+      getFile: async () => new File([await (await fetch("data/o_szd.1222.tei.xml")).text()], "o_szd.1222.tei.xml", { lastModified: window.__mtime }),
+      createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => (window.__mtime += 1000) }),
     };
     window.showOpenFilePicker = async () => [handle];
     window.showSaveFilePicker = async () => handle;
   });
+  await page.route("https://lobid.org/gnd/search**", (route) => route.fulfill({ json: LOBID_FIXTURE }));
   await page.click("#tei-open");
   await page.waitForTimeout(800);
+  await checkSelection(page, "light");
   await doubleClickWord(page, "Herrn Fuchs", "Fuchs");
   await page.waitForTimeout(300);
   await page.click("#actions [data-action='person']");
   await page.waitForTimeout(1200);
-  await page.fill("#person-gnd", "1234567");
+  await page.fill("#person-query", "Eugen Wolbe");
+  await page.click("#person-search");
+  await page.waitForSelector("#person-results .result", { timeout: 10000 });
+  const gndNames = await page.locator("#person-results .result strong").allTextContents();
+  check("GND hits are limited to name matches", gndNames.join(" | ") === "Wolber, Eugen | Wolbe, Eugen", gndNames.join(" | "));
   await page.click("#person-apply");
+  check("applying without a choice asks for one", (await label(page, "#person-status")).startsWith("Bitte einen Treffer wählen"));
+  await page.fill("#person-gnd", "1234567");
+  check("a valid identifier clears that request", (await label(page, "#person-status")) === "");
+  await page.click("#person-apply");
+  await page.waitForTimeout(300);
+  await page.click("#diff-button");
+  check("changes view names one replaced line", (await label(page, "#diff-summary")) === "1 Zeile entfernt, 1 hinzugefügt, an 1 Stelle.", await label(page, "#diff-summary"));
+  check(
+    "changes view shows the old and the annotated line",
+    (await page.locator("#diff-body .diff-row[data-kind='del']", { hasText: "Herrn Fuchs" }).count()) === 1 &&
+      (await page.locator("#diff-body .diff-row[data-kind='add']", { hasText: 'gnd/1234567">Fuchs</persName>' }).count()) === 1,
+  );
+  await shot(page, "diff-light");
+  await page.click("#diff-body .link");
+  check("a line link closes the view and returns to the text", !(await page.isVisible("#diff-dialog")) && (await page.evaluate(() => document.activeElement?.classList.contains("cm-content"))));
   await page.click("#tei-save");
   await page.waitForTimeout(500);
   const writes = await page.evaluate(() => window.__writes);
   check("in-place save writes once into the opened file", writes.length === 1 && writes[0].includes('gnd/1234567">Fuchs</persName>'));
   check("status confirms the in-place save", (await label(page, "#xml-status")) === "Gespeichert in o_szd.1222.tei.xml.");
+  await page.click("#diff-button");
+  check("after saving the view compares with the saved text", (await label(page, "#diff-summary")) === "Keine Änderungen seit dem Speichern.");
+  await page.keyboard.press("Escape");
+
+  // Opening another file with unsaved work asks first, and cancelling keeps the text.
+  await page.locator(".cm-content").click();
+  await page.keyboard.press("Control+End");
+  await page.keyboard.type(" ");
+  await page.click("#tei-open");
+  await page.waitForTimeout(200);
+  check("opening with unsaved work asks first", (await page.isVisible("#ask-dialog")) && (await label(page, "#ask-title")) === "Ungespeicherte Änderungen");
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(200);
+  check("cancelling keeps the unsaved text", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
+
+  // The file changes on disk, for instance through a pull, before the next save.
+  await page.evaluate(() => (window.__mtime += 60000));
+  await page.click("#tei-save");
+  await page.waitForTimeout(300);
+  check(
+    "a file changed on disk asks before it is overwritten",
+    (await page.isVisible("#ask-dialog")) && (await label(page, "#ask-title")) === "Datei auf der Festplatte geändert" && (await page.evaluate(() => window.__writes.length)) === 1,
+  );
+  await shot(page, "overwrite-light");
+  await page.click("#ask-actions button[value='']");
+  await page.waitForTimeout(200);
+  check(
+    "cancelling writes nothing and keeps the editor text",
+    (await page.evaluate(() => window.__writes.length)) === 1 && (await label(page, "#save-state")) === "Ungespeicherte Änderungen" && (await label(page, "#xml-status")).startsWith("Nicht gespeichert"),
+  );
+  await page.click("#tei-save");
+  await page.waitForTimeout(200);
+  await page.click("#ask-actions button[value='overwrite']");
+  await page.waitForTimeout(400);
+  const after = await page.evaluate(() => window.__writes);
+  check("overwriting after confirmation writes the editor text", after.length === 2 && after[1].endsWith(" ") && (await label(page, "#save-state")) === "");
+  await page.click("#tei-save");
+  await page.waitForTimeout(300);
+  check("the next save writes without asking again", (await page.evaluate(() => window.__writes.length)) === 3 && !(await page.isVisible("#ask-dialog")));
   await page.setViewportSize({ width: 390, height: 844 });
   await page.waitForTimeout(800);
   check("no horizontal scroll at 390px", !(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)));
@@ -203,7 +340,7 @@ async function doubleClickWord(page, lineText, word) {
       name: "crlf.tei.xml",
       getFile: async () => {
         const text = (await (await fetch("data/o_szd.1222.tei.xml")).text()).replace(/\r?\n/g, "\r\n");
-        return new File([text], "crlf.tei.xml");
+        return new File([text], "crlf.tei.xml", { lastModified: 1761800000000 });
       },
       createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => {} }),
     };
@@ -277,6 +414,56 @@ async function doubleClickWord(page, lineText, word) {
   await page.click("#img-in");
   await page.click("#img-fit");
   check("no console errors (marker run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+}
+
+// Run 5: a file with Git conflict markers is explained and can be resolved.
+{
+  const lines = ORIGINAL.split("\n");
+  const at = lines.findIndex((l) => l.includes("Herr Reichner"));
+  const theirs = lines[at].replace("Herr Reichner", "Herrn Reichner");
+  const conflicted = [...lines.slice(0, at), "<<<<<<< HEAD", lines[at], "=======", theirs, ">>>>>>> origin/main", ...lines.slice(at + 1)].join("\n");
+  const resolved = [...lines.slice(0, at), theirs, ...lines.slice(at + 1)].join("\n");
+  const { page, errors } = await open(
+    { colorScheme: "dark" },
+    (text) => {
+      window.__writes = [];
+      const handle = {
+        name: "konflikt.tei.xml",
+        getFile: async () => new File([text], "konflikt.tei.xml", { lastModified: 1761800000000 }),
+        createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => {} }),
+      };
+      window.showOpenFilePicker = async () => [handle];
+      window.showSaveFilePicker = async () => handle;
+    },
+    conflicted,
+  );
+  await page.click("#tei-open");
+  await page.waitForTimeout(800);
+  const first = at + 1;
+  check("conflict named on the check button", (await label(page, "#wf-label")) === `Git-Konflikt Zeile ${first}`, await label(page, "#wf-label"));
+  check("status explains the conflict from its first line", (await label(page, "#xml-status")).startsWith(`Git-Konflikt ab Zeile ${first}:`));
+  check("each marker line is listed with a link", (await page.locator("#xml-status button.link").allTextContents()).join(",") === `Zeile ${first},Zeile ${first + 2},Zeile ${first + 4}`);
+  await page.click("#xml-status button.link");
+  await page.waitForTimeout(200);
+  check("conflict markers underlined", (await page.locator(".cm-lintRange-error").count()) >= 1);
+  await page.waitForTimeout(200);
+  await shot(page, "conflict-dark");
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.waitForTimeout(200);
+  await shot(page, "conflict-light");
+  // Keep the other version: delete the start marker, the own version and the separator, then the end marker.
+  for (let i = 0; i < 3; i++) await page.keyboard.press("Control+Shift+K");
+  await page.waitForTimeout(500);
+  check("the remaining marker is still listed", (await page.locator("#xml-status button.link").allTextContents()).join(",") === `Zeile ${first + 1}`);
+  await page.click("#xml-status button.link");
+  await page.keyboard.press("Control+Shift+K");
+  await page.waitForTimeout(500);
+  check("resolving the conflict makes the document well-formed", (await label(page, "#wf-label")) === "Wohlgeformt");
+  await page.click("#tei-save");
+  await page.waitForTimeout(400);
+  const [written] = await page.evaluate(() => window.__writes);
+  check("the resolved file keeps exactly the chosen version", written === resolved, `${written?.length} vs ${resolved.length}`);
+  check("no console errors (conflict run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
 console.log(results.join("\n"));

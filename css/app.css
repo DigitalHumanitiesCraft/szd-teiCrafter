@@ -278,6 +278,48 @@
     & .preview { font-family: var(--font-code); font-size: 0.85rem; color: var(--blue); overflow-wrap: anywhere; }
     & .dialog-actions { justify-content: flex-end; }
   }
+  .diff-dialog, .ask-dialog {
+    padding: var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    &::backdrop { background: rgb(0 0 0 / 0.4); }
+    & h2 { font-size: 1.05rem; }
+    & form { display: flex; flex-direction: column; gap: var(--space-2); min-block-size: 0; }
+    & .dialog-actions { justify-content: flex-end; }
+  }
+  .ask-dialog {
+    inline-size: min(32rem, calc(100vi - 2rem));
+    & p { max-inline-size: 70ch; }
+  }
+  .diff-dialog {
+    inline-size: min(64rem, calc(100vi - 2rem));
+    max-block-size: calc(100dvb - 4rem);
+    & form { max-block-size: calc(100dvb - 6rem); }
+  }
+  .diff-summary { color: var(--muted); }
+  .diff-body {
+    min-block-size: 0;
+    overflow: auto;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    & section + section { margin-block-start: var(--space-3); }
+    & .link { font-family: var(--font-ui); margin-block-end: var(--space-1); }
+  }
+  /* Old number, new number, sign, text; the sign carries the kind, colour adds to it. */
+  .diff-row {
+    display: grid;
+    grid-template-columns: 3.5ch 3.5ch 2ch minmax(0, 1fr);
+    gap: 0 var(--space-2);
+    padding-inline: var(--space-1);
+    & .diff-no { color: var(--muted); text-align: end; font-variant-numeric: tabular-nums; }
+    & .diff-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+    &[data-kind="del"] { background: color-mix(in oklch, var(--error) 14%, transparent); }
+    &[data-kind="add"] { background: color-mix(in oklch, var(--ok) 16%, transparent); }
+    &[data-kind="del"] .diff-sign { color: var(--error); font-weight: 600; }
+    &[data-kind="add"] .diff-sign { color: var(--ok); font-weight: 600; }
+  }
   .results-heading { font-size: 0.85rem; color: var(--muted); font-weight: 600; margin: 0; }
   .results {
     list-style: none;

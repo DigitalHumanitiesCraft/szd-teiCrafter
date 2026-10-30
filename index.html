@@ -28,6 +28,7 @@
     <symbol id="i-zoom-out" viewBox="0 0 24 24"><path d="M5 19 10 6h1l5 13M7 15h7"/><path d="M15 7h6"/></symbol>
     <symbol id="i-wrap" viewBox="0 0 24 24"><path d="M4 6h16M4 12h13a3 3 0 0 1 0 6h-4"/><path d="m15 16-2 2 2 2"/><path d="M4 18h5"/></symbol>
     <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
+    <symbol id="i-diff" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 9.5h6M12 6.5v6M9 16.5h6"/></symbol>
     <symbol id="i-show" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m10 10-2 2 2 2"/></symbol>
   </svg>
 
@@ -62,6 +63,9 @@
           <svg class="icon"><use href="#i-task"/></svg><span id="work-label" class="label">offene Stellen</span>
         </button>
         <span class="toolbar-gap"></span>
+        <button id="diff-button" class="icon-button" type="button" aria-haspopup="dialog" aria-label="Änderungen seit dem Öffnen" data-tip="Änderungen seit dem Öffnen">
+          <svg class="icon"><use href="#i-diff"/></svg>
+        </button>
         <button id="zoom-out" class="icon-button" type="button" aria-label="Code verkleinern" data-tip="Code verkleinern (Strg + Mausrad)">
           <svg class="icon"><use href="#i-zoom-out"/></svg>
         </button>
@@ -167,6 +171,25 @@
         <button type="button" id="person-cancel">Abbrechen</button>
         <button type="submit" id="person-apply" class="primary" value="apply">Annotieren</button>
       </div>
+    </form>
+  </dialog>
+
+  <dialog id="diff-dialog" class="diff-dialog" aria-labelledby="diff-title">
+    <form method="dialog">
+      <h2 id="diff-title">Änderungen seit dem Öffnen</h2>
+      <p id="diff-summary" class="diff-summary"></p>
+      <div id="diff-body" class="diff-body"></div>
+      <div class="toolbar dialog-actions">
+        <button type="submit" class="primary">Schließen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="ask-dialog" class="ask-dialog" aria-labelledby="ask-title" aria-describedby="ask-text">
+    <form method="dialog">
+      <h2 id="ask-title"></h2>
+      <p id="ask-text"></p>
+      <div id="ask-actions" class="toolbar dialog-actions"></div>
     </form>
   </dialog>
 
