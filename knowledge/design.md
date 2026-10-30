@@ -39,9 +39,11 @@ Source and facsimile are the content, and everything else is a control serving t
 ## Interaction patterns
 
 - Action at the selection. Marking text opens a small menu right below it with the annotation actions. The wrapping actions apply at once, while Person opens a short modal dialog that previews the resulting markup. Ctrl+. opens the menu from the keyboard, arrow keys move, Enter applies, Escape returns to the text.
-- Open work as a queue. A counter in the text toolbar shows the HTR markers still in the text. F8 selects the next one and focuses its suggested action, so the letter is worked through with F8 and Enter.
+- Open work as a queue. A counter in the text toolbar shows what the edition counts as open work, here the HTR markers still in the text. Its tooltip names that definition from the source configuration, so each derivation explains its own queue. F8 selects the next spot and focuses its suggested action, so the letter is worked through with F8 and Enter.
 - One toolbar row per pane. Each pane is a size container. In a narrow pane the check buttons keep icon and state colour and move their label to assistive technology, and the page label of the facsimile shortens to the form „1/2“, while the full sentence „Seite 1 von 2“ stays readable to screen readers. The container queries follow the rules they override, because source order decides within a CSS layer.
-- File actions in the header. Document list, open and save sit in the header and stay together at its right edge, also when the header wraps onto a second row.
+- The facsimile bar stays one row. The image source button opens the source field in the same row, where it takes the place of the page, zoom and rotation controls. The pressed button, Escape and a successful load close it again, so no second control is needed to fold it away.
+- One status line per pane. Below the editor a single line carries messages, and while there is none it shows a short usage hint without shortcuts, because a written „Strg+.“ was read as Ctrl and plus and zoomed the code. Both panes therefore end at the same height.
+- File actions in the header. Document list, open and save sit in the header and stay together at its right edge, also when the header wraps onto a second row. The document title keeps one line and shortens with an ellipsis.
 - Check buttons as status. The well-formedness and validation buttons show their state by icon and label and lead to the error on activation.
 - Caret follows facsimile. Moving through the source turns the facsimile to the page of the preceding `pb`.
 - Split as visibility control. Dragging the separator resizes the facsimile, dragging it to the edge hides it, and an edge button brings it back. The separator works with arrow keys, Home and End.
@@ -59,7 +61,7 @@ Source and facsimile are the content, and everything else is a control serving t
 
 ## Open questions
 
-- In a narrow pane the three check buttons in their ok state show the same check icon with the state colour. Well-formedness and validation have no tooltip, and the open-spot button has one that names its action rather than its state, so the three can only be told apart by position or by a screen reader. A distinct icon per check or a tooltip naming the state would resolve it.
+- In a narrow pane the three check buttons in their ok state show the same check icon with the state colour. Well-formedness and validation have no tooltip, and the open-spot button has one that names what counts as open work rather than its state, so the three can only be told apart by position or by a screen reader. A distinct icon per check or a tooltip naming the state would resolve it.
 
 ## Connection to the action layer
 

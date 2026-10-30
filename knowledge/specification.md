@@ -120,7 +120,7 @@ Purpose. Reading the original beside the source.
 
 Data. Images from the IIIF manifest of the object.
 
-Interaction. Page navigation, zoom in, zoom out and fit from the toolbar, rotation in 90 degree steps, following the caret, the image source behind an icon, hiding and restoring through the split.
+Interaction. Page navigation, zoom in, zoom out and fit from the toolbar, rotation in 90 degree steps, following the caret, the image source behind an icon that opens its field in the toolbar row in place of the view controls, hiding and restoring through the split.
 
 Limits. Text and image are linked by page. Zones within a page are not linked.
 
@@ -162,7 +162,7 @@ Effect. Since the refactoring of 2026-10-30 the code is cut as follows.
 - `js/docs.js` is the document list, `js/menu.js` the action menu at the selection, `js/person.js` the person dialog, `js/changes.js` the comparison dialog, and `js/ui.js` the shared helpers `$`, `setStatus`, `ask` and `arrowNavigation`.
 - `js/editor.js`, `js/tei.js`, `js/iiif.js`, `js/viewer.js`, `js/validate.js`, `js/split.js`, `js/gnd.js`, `js/register.js` and `js/diff.js` are the generic modules for code editor, TEI facts, IIIF resolution, image viewer, schema validation, split, GND search, register search and line comparison.
 
-The SZD knowledge, including the person index added on 2026-10-30, has stayed in `js/source.js` and the data it points to. The product name, the browser storage key and the example identifier of the person index are configuration values there too, so the generic modules name neither product nor edition. `index.html` remains the edition's page and carries its title and placeholders.
+The SZD knowledge, including the person index added on 2026-10-30, has stayed in `js/source.js` and the data it points to. The product name, the browser storage key, the example identifier of the person index and the definition of open work are configuration values there too, so the generic modules name neither product nor edition. `index.html` remains the edition's page and carries its title and placeholders.
 
 ### ADR-003 CodeMirror 6 as a vendored bundle
 

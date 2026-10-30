@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-30 One facsimile row, one status line, open work defined by the edition
+
+- Trigger: operator, on the facsimile bar and the source field below it: „Ich glaube, dass man das elegant in eine Linie alles bringen kann“, asked for a better header and footer, and asked what an open spot means, since every derivation has its own annotation functions.
+- Decided: open work is a definition of the edition held in `js/source.js`, here the HTR markers, and the counter's tooltip states it. This is a point where a derivation adapts the editor, recorded for the case register of the base.
+- Changed: the source field opens inside the facsimile row in place of the view controls, the usage hint is the resting content of the status line and carries no shortcut, the title keeps one line, and product name, storage key and register example moved into the source configuration. [design](design.md#interaction-patterns).
+- Corrected: the hint „Strg+.“ was read as Ctrl and plus, which zooms the code.
+- Evidence: commits `c604952`, `feed71c`, `778d6a7`, `test/browser-check.mjs` passing on 2026-10-30.
+
 ### 2026-10-30 Module cut, new browser checks and knowledge in step
 
 - Trigger: brief from the coordinating session to bring the knowledge base in step with the refactoring of `afbda2c`, the layout fix of `8efbfef` and the checks of `3082fea`.
