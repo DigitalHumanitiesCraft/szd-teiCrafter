@@ -1,0 +1,4 @@
+# The editor writes LF line endings; keeping every checkout on LF means a saved
+# file differs from the committed one only where it was actually edited.
+* text=auto eol=lf
+*.png binary
