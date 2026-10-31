@@ -24,6 +24,15 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Neutral check of the calibration letter
+
+- Trigger: the four agent runs on the calibration letter `o_szd.1222` were to be compared by a check that does not know which agent proposed what, before the author decides in the review mode.
+- Changed: outside the repository, in `szd-teiCrafter-probelauf/review/o_szd.1222/`, a review packet built deterministically from the four proposal files merges 91 proposals into 23 items, three of them with alternative candidates. The packet hides origin, frequency and reasoning, which `provenance.json` keeps for the reconciliation.
+- Found: two independently instructed LLM agents checked the packet without knowing the proposals' origin and agreed on all 23 items. They accepted 20, rejected Hotel Westminster in the letter head and "New York" in the telegram address "Vikpress New York", and left the Kultusgemeinde open because the letter does not say which community is meant. Both named one missing mark, "Verlag" in „in den Verlag aufnimmt“ as Herbert Reichner Verlag (SZDORG.24), which none of the four annotation runs proposed. The rule already names „den Verlag“ as a generic word marked where the context settles the body, and the hybrid agent listed the passage as not marked because it is a generic word, so this is a rule not applied, not a gap in the rules.
+- Found: the hybrid agent's proposal file contradicts its own record for the Kultusgemeinde. The proposal file carries `@ref` GND 123152-2, while its working copy, its decision record and its protocol remove the reference and leave the mark open. The packet followed the proposal file.
+- Changed: a reconciled proposal file `o_szd.1222.vorschlaege.json` holds the 23 items and the missing mark, with the two rejections and the open Kultusgemeinde as `needs_expert` carrying both checks' reasons. The editor's importer places all 24, none stale, none refused.
+- Evidence: agreement of two checks run with the same model is machine evidence only and accepts nothing. The author's decisions in the review mode are pending.
+
 ### 2026-10-31 Session close: all agent results reviewable
 
 - Trigger: operator asked to close the session in order, finish what can be finished and update the knowledge bases and ACTIVE-WORK.
