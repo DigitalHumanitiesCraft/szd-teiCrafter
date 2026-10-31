@@ -245,7 +245,7 @@ const LOBID_FIXTURE = {
   await page.waitForSelector("#person-results .result", { timeout: 20000 });
   check("GND search on request lists him too", (await page.locator("#person-results .result", { hasText: "116402873" }).count()) === 1);
   await hit.click();
-  check("preview shows the index reference", (await label(page, "#person-preview")) === '<persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>');
+  check("preview shows the index reference", (await label(page, "#person-preview")) === '<persName ref="#SZDPER.2188">Reichner</persName>');
   await page.click("#person-apply");
   await page.waitForTimeout(600);
   check("still well-formed", (await label(page, "#wf-label")) === "Wohlgeformt");
@@ -296,7 +296,7 @@ const LOBID_FIXTURE = {
 
   const [download] = await Promise.all([page.waitForEvent("download"), page.click("#tei-save")]);
   const saved = readFileSync(await download.path(), "utf8");
-  const expected = ORIGINAL.replace("Herr Reichner", 'Herr <persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>').replace(
+  const expected = ORIGINAL.replace("Herr Reichner", 'Herr <persName ref="#SZDPER.2188">Reichner</persName>').replace(
     "Herr Relgis",
     'Herr <persName ref="http://d-nb.info/gnd/1057079499">Relgis</persName>',
   );
@@ -1195,7 +1195,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.locator("#register-results .result", { hasText: "SZDPER.2188" }).click();
   await page.click("#person-apply");
   await page.waitForTimeout(400);
-  const person = 'Herr <persName ref="https://gams.uni-graz.at/o:szd.personen#SZDPER.2188">Reichner</persName>';
+  const person = 'Herr <persName ref="#SZDPER.2188">Reichner</persName>';
   const annotated = ORIGINAL.replace("Herr Reichner", person);
   check("a person annotated in the text view is the same markup", (await editorText(page)) === annotated);
   check("the person shows underlined in blue", (await page.locator(".tv-el-persName", { hasText: "Reichner" }).count()) === 1);

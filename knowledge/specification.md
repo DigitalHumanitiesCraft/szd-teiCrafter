@@ -264,7 +264,7 @@ Effect. ADR-011 places the state in `revisionDesc`, and the editor offers accept
 
 ### ADR-007 The person index of Stefan Zweig Digital as the person source
 
-Context. ADR-005 wrote GND URIs directly. The question who owns a person's identity was answered by research on 2026-10-30: Stefan Zweig Digital keeps its own person index (`o:szd.personen`, CC BY 4.0) with index identifiers, GND and Wikidata links, life dates and name variants, and its holdings point to it as `https://gams.uni-graz.at/o:szd.personen#SZDPER.n`.
+Context. ADR-005 wrote GND URIs directly. The question who owns a person's identity was answered by research on 2026-10-30: Stefan Zweig Digital keeps its own person index (`o:szd.personen`, CC BY 4.0) with index identifiers, GND and Wikidata links, life dates and name variants, and its holdings point to it as `#SZDPER.n`. A check on 2026-10-31 corrected the full URI first recorded here: `persName/@ref` in the holdings carries only `#SZDPER.n` or a GND URI, and the GAMS RDF transform appends `@ref` to the index URI.
 
 Choice. Annotation points to the index entry. The GND is the fallback for persons outside the index, written as `http://d-nb.info/gnd/ID` like the holdings. The index is prebuilt into `data/register/szd-persons.json` by `tools/build-person-index.mjs` and searched while typing, with forms of address ignored.
 

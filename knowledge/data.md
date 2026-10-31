@@ -75,7 +75,7 @@ The editor adds `persName` whose `@ref` points to the person index entry, or to 
 
 ## Authority data and links
 
-- Person index entries in `persName/@ref`, form `https://gams.uni-graz.at/o:szd.personen#SZDPER.{n}`, the fragment being required for the person view.
+- Person index entries in `persName/@ref`, form `#SZDPER.{n}` as in the holdings. The GAMS RDF transform (`szd-TORDF.xsl` in SZD-split) appends `@ref` to `https://gams.uni-graz.at/o:szd.personen`, so a full URI would yield a broken resource. The editor still reads the full URI that its earlier versions wrote.
 - GND URIs for persons outside the index, form `http://d-nb.info/gnd/{id}` as in the holdings.
 - IIIF manifests derived from the object id by `source.manifestFor` in `js/source.js`.
 

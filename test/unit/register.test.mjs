@@ -22,3 +22,11 @@ test("forms of address are ignored", async () => {
   const hits = await searchRegister("persons.json", "Herr Fuchs", ["Herr"]);
   assert.match(hits[0].name, /^Fuchs/);
 });
+
+test("person references use the form of the holdings and read the older full URI", async () => {
+  const { source } = await import("../../js/source.js");
+  assert.equal(source.person.registerRef("SZDPER.2188"), "#SZDPER.2188");
+  assert.equal(source.person.registerIdOf("#SZDPER.2188"), "SZDPER.2188");
+  assert.equal(source.person.registerIdOf("https://gams.uni-graz.at/o:szd.personen#SZDPER.2188"), "SZDPER.2188");
+  assert.equal(source.person.registerIdOf("http://d-nb.info/gnd/118636758"), "");
+});

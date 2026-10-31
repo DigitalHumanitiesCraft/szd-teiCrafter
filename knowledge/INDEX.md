@@ -32,6 +32,7 @@ This knowledge base describes teiCrafter SZD, a browser editor for TEI documents
 | [project](project.md) | Charter | What is this editor, for whom, on which material? | when identity or scope changes |
 | [specification](specification.md) | Specification | What must the editor do, and which decisions shape it? | when a requirement or decision changes |
 | [data](data.md) | Material | What do the documents, the facsimile service, the person index and the GND deliver? | when a source or the encoding changes |
+| [annotation](annotation.md) | Editorial rules | How are persons, places, organisations and dates marked, with which references? | when an annotation rule or reference form changes |
 | [design](design.md) | Design | How does the interface look and behave? | when the design system or an interaction pattern changes |
 | [testing](testing.md) | Quality Assurance | What is checked, how, and what stays unchecked? | when a check is added or its scope changes |
 | [plan](plan.md) | Planning | What comes next, in which order? | when a step is accepted, done or reordered |

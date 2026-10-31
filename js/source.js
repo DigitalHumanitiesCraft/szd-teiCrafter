@@ -6,9 +6,9 @@ import { markerDetectors } from "./actions.js";
 import { matchesOf } from "./state.js";
 
 // Reference forms of the Stefan Zweig Digital holdings: persons point to the
-// entry of the person index with a fragment, because a reference without it
-// never reaches the person view; GND URIs use http as in the holdings.
-const PERSON_INDEX = "https://gams.uni-graz.at/o:szd.personen#";
+// person index as "#SZDPER.n", because the GAMS RDF transform appends @ref to
+// the index URI (szd-TORDF.xsl of SZD-split); GND URIs use http as in the
+// holdings.
 const GND_PREFIX = "http://d-nb.info/gnd/";
 
 export const source = {
@@ -77,13 +77,16 @@ export const source = {
     idExample: "SZDPER.2188",
     ignore: ["Frau", "Fräulein", "Herr", "Herrn", "Dr", "Doktor", "Professor", "Prof"],
     /** @param {string} id e.g. SZDPER.2188 */
-    registerRef: (id) => `${PERSON_INDEX}${id}`,
+    registerRef: (id) => `#${id}`,
     /** GND URIs carry the check character in upper case. @param {string} id */
     gndRef: (id) => `${GND_PREFIX}${id.trim().toUpperCase()}`,
     /** @param {string} value */
     isRegisterId: (value) => /^SZDPER\.\d+$/.test(value.trim()),
-    /** The register id of a reference, or "". @param {string} ref */
-    registerIdOf: (ref) => (ref.startsWith(PERSON_INDEX) ? ref.slice(PERSON_INDEX.length) : ""),
+    /**
+     * The register id of a reference, or "". The full URI that earlier
+     * versions of the editor wrote is still read. @param {string} ref
+     */
+    registerIdOf: (ref) => /^(?:https:\/\/gams\.uni-graz\.at\/o:szd\.personen)?#(SZDPER\.\d+)$/.exec(ref.trim())?.[1] ?? "",
     /** The GND id of a reference, or "". @param {string} ref */
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
     /** The marked text without HTR marker syntax, as a search query. @param {string} text */
