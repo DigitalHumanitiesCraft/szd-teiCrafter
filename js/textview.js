@@ -48,9 +48,9 @@ class Label extends WidgetType {
     this.tip = tip;
     this.onClick = onClick;
   }
-  /** @param {Label} other */
+  /** A clickable label is never reused, since its handler holds the position of its own build. @param {Label} other */
   eq(other) {
-    return other.text === this.text && other.cls === this.cls && other.tip === this.tip && !!other.onClick === !!this.onClick;
+    return !this.onClick && !other.onClick && other.text === this.text && other.cls === this.cls && other.tip === this.tip;
   }
   toDOM() {
     const el = document.createElement("span");

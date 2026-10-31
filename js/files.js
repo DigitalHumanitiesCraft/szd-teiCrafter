@@ -290,7 +290,8 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
     a.href = URL.createObjectURL(new Blob([encodeXml(text, bom)], { type: "application/xml" }));
     a.download = name;
     a.click();
-    URL.revokeObjectURL(a.href);
+    // Revoked later, since some browsers still read the URL after the click.
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
     handedOver = text;
     updateMark();
     report("ok", `${note ? `${note} ` : ""}${name} wurde dem Browser als Download übergeben. Ob die Datei ankam, kann der Editor nicht prüfen, daher gilt der Text weiter als ungespeichert.`);

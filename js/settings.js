@@ -130,7 +130,8 @@ export function createSettings({ path, load, onChange }) {
       a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
       a.download = /** @type {string} */ (path.split("/").at(-1));
       a.click();
-      URL.revokeObjectURL(a.href);
+      // Revoked later, since some browsers still read the URL after the click.
+      setTimeout(() => URL.revokeObjectURL(a.href), 10000);
       setStatus(status, "ok", `Als Download übergeben. Die Datei ersetzt ${path} im Repository.`);
       return;
     }
