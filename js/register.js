@@ -1,4 +1,4 @@
-// Search in a prebuilt person register (data/register/*.json). Matching is a
+// Search in a prebuilt register of persons or organisations (data/register/*.json). Matching is a
 // substring test on precomputed folded fields, so no search library is needed.
 
 /** NFD diacritic strip plus German umlaut folding, shared with the build tool. */
@@ -13,7 +13,10 @@ export function fold(/** @type {string} */ s) {
     .replace(/[̀-ͯ]/g, "");
 }
 
-/** @typedef {{ id: string, name: string, gnd: string, dates: string, search: string }} RegisterPerson */
+/**
+ * @typedef {{ id: string, name: string, gnd: string, dates: string, search: string }} RegisterPerson
+ * `dates` holds a person's life dates or an organisation's seat.
+ */
 
 /** @type {Map<string, Promise<RegisterPerson[]>>} */
 const cache = new Map();
@@ -22,8 +25,8 @@ const cache = new Map();
 function load(url) {
   if (!cache.has(url)) {
     const request = fetch(url).then((r) => {
-      if (!r.ok) throw new Error(`Personenregister nicht geladen (Status ${r.status}).`);
-      return r.json().then((j) => j.persons);
+      if (!r.ok) throw new Error(`Register nicht geladen (Status ${r.status}).`);
+      return r.json().then((j) => j.persons ?? j.entries);
     });
     request.catch(() => cache.delete(url));
     cache.set(url, request);

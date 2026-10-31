@@ -7,18 +7,18 @@ import { $ } from "./ui.js";
 
 /**
  * What the card says about a marked passage, from the action that writes its
- * element: the identity of a linked person or place, the values of a date, and
+ * element: the identity of a linked person, organisation or place, the values of a date, and
  * the attributes the card does not show.
  * @param {import("./textview.js").Mark} mark
  * @param {import("./actions.js").LoadedAction | undefined} action
- * @param {{ fallbackTitle: string, identify: (dialog: "person" | "place", ref: string) => Promise<string> }} options
+ * @param {{ fallbackTitle: string, identify: (dialog: "person" | "organisation" | "place", ref: string) => Promise<string> }} options
  */
 export async function describeMark(mark, action, { fallbackTitle, identify }) {
   const shown = new Set(action?.attributes.map((a) => a.name) ?? []);
   const extra = [...mark.attrs.matchAll(/([\w:.-]+)\s*=/g)].map((m) => m[1]).filter((n) => !shown.has(n));
   let detail = "";
   let unlinked = false;
-  if (action?.dialog === "person" || action?.dialog === "place") {
+  if (action?.dialog === "person" || action?.dialog === "organisation" || action?.dialog === "place") {
     const ref = attributeOf(mark.attrs, "ref");
     unlinked = !ref;
     detail = ref ? await identify(action.dialog, ref) : "noch nicht verknüpft";
@@ -28,8 +28,9 @@ export async function describeMark(mark, action, { fallbackTitle, identify }) {
       .filter(([, v]) => v)
       .map(([n, v]) => `@${n} ${v}`)
       .join(" | ");
-    unlinked = !detail;
-    detail ||= "ohne Datumswert";
+    // Certainty qualifies a value and is none itself.
+    unlinked = ![...shown].some((n) => n !== "cert" && attributeOf(mark.attrs, n));
+    if (unlinked) detail = ["ohne Datumswert", detail].filter(Boolean).join(" | ");
   }
   return {
     title: action?.label || fallbackTitle,

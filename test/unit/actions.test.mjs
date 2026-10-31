@@ -12,20 +12,21 @@ import { source } from "../../js/source.js";
 const FILE = new URL("../../data/actions.json", import.meta.url);
 const text = readFileSync(FILE, "utf8");
 const registry = JSON.parse(text);
+const byId = (/** @type {string} */ id) => registry.actions.find((/** @type {any} */ a) => a.id === id);
 const problem = schemaChecker(readFileSync(new URL(`../../${source.schemas.at(-1).url}`, import.meta.url), "utf8"));
 
 test("the registry loads, and the schema knows every action", () => {
   const actions = checkAgainstSchema(loadActions(registry), problem);
   assert.deepEqual(
     actions.map((a) => `${a.id}:${a.element}:${a.refused}`),
-    ["person:persName:", "place:placeName:", "date:date:", "del:del:", "unclear:unclear:", "add:add:"],
+    ["person:persName:", "place:placeName:", "organisation:orgName:", "date:date:", "del:del:", "unclear:unclear:", "add:add:"],
   );
 });
 
 test("an element or attribute the schema does not know is refused with a reason", () => {
   const extra = [
-    { ...registry.actions[3], id: "foo", key: "f", element: "foobar" },
-    { ...registry.actions[3], id: "bar", key: "b", attributes: [{ name: "bogus" }] },
+    { ...byId("del"), id: "foo", key: "f", element: "foobar" },
+    { ...byId("del"), id: "bar", key: "b", attributes: [{ name: "bogus" }] },
   ];
   const actions = checkAgainstSchema(loadActions({ actions: [...registry.actions, ...extra] }), problem);
   assert.equal(actions.find((a) => a.id === "foo")?.refused, "Das Schema kennt kein Element <foobar>.");
@@ -35,10 +36,10 @@ test("an element or attribute the schema does not know is refused with a reason"
 test("malformed entries, duplicate ids and keys are refused, not thrown", () => {
   const actions = loadActions({
     actions: [
-      { ...registry.actions[3], element: "a b" },
-      { ...registry.actions[3] },
-      { ...registry.actions[4], key: "s" },
-      { ...registry.actions[4], dialog: "macro" },
+      { ...byId("del"), element: "a b" },
+      { ...byId("del") },
+      { ...byId("unclear"), key: "s" },
+      { ...byId("unclear"), dialog: "macro" },
     ],
   });
   assert.match(actions[0].refused, /XML-Name/);

@@ -124,3 +124,9 @@ test("open work counts marker syntax that runs over a line break", () => {
   assert.deepEqual(kinds(doc("{~~a raison\n<lb/>de nouvelles~~\n<lb/>~~Kein~~ ok}")), ["stray:{", "stray:~~", "stray:~~", "del:~~Kein~~", "stray:}"]);
   assert.deepEqual(kinds(doc("~~Wort~~ {Zusatz}")), ["del:~~Wort~~", "add:{Zusatz}"], "resolved markers count once");
 });
+
+test("marks without their reference or date value are open spots, outside the header", () => {
+  const doc = `<TEI><teiHeader><date>1935</date></teiHeader><text><body><p>Herr <persName>Fuchs</persName>, <persName ref="#SZDPER.2188">Reichner</persName>, <orgName ref=" ">Verlag</orgName>, <placeName ref="http://www.geonames.org/2761367">Wien</placeName>, <date when="1935-01-04">4.Januar</date>, <date cert="low">am 10.</date></p></body></text></TEI>`;
+  const unlinked = openSpots(doc, openWork).filter((s) => s.key === "unlinked").map((s) => doc.slice(s.from, s.to));
+  assert.deepEqual(unlinked, ["Fuchs", "Verlag", "am 10."]);
+});

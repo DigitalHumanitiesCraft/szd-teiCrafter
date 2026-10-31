@@ -30,6 +30,7 @@
     <symbol id="i-hide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/><path d="m8 10 2 2-2 2"/></symbol>
     <symbol id="i-diff" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 9.5h6M12 6.5v6M9 16.5h6"/></symbol>
     <symbol id="i-docs" viewBox="0 0 24 24"><path d="M8 3h9l3 3v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M4 7v13a1 1 0 0 0 1 1h11"/><path d="M10 9h7M10 13h7"/></symbol>
+    <symbol id="i-org" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-6h6v6"/></symbol>
     <symbol id="i-place" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
     <symbol id="i-date" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
     <symbol id="i-draft" viewBox="0 0 24 24"><path d="m4 20 1-4L16 5l3 3L8 19z"/></symbol>
@@ -184,7 +185,7 @@
 
   <dialog id="person-dialog" class="person-dialog" aria-labelledby="person-title">
     <form id="person-form" method="dialog">
-      <h2 id="person-title">Person annotieren: <span id="person-text"></span></h2>
+      <h2 id="person-title"><span id="person-kind">Person</span> annotieren: <span id="person-text"></span></h2>
       <div class="toolbar">
         <label class="grow">
           <span class="visually-hidden">Name suchen</span>
@@ -198,7 +199,7 @@
       <h3 id="gnd-heading" class="results-heading" hidden>GND</h3>
       <ul id="person-results" class="results" aria-labelledby="gnd-heading"></ul>
       <label class="manual">
-        Kennung (Personenindex oder GND)
+        <span id="person-manual">Kennung (SZD-Personenindex oder GND)</span>
         <input id="person-gnd" type="text" autocomplete="off" placeholder="z. B. SZDPER.2188 oder 116402873">
       </label>
       <p id="person-preview" class="preview"></p>
@@ -259,8 +260,8 @@
       <p id="place-status" class="status" role="status"></p>
       <ul id="place-results" class="results" aria-label="Orte in der GND"></ul>
       <label class="manual">
-        GND-Kennung (optional)
-        <input id="place-id" type="text" autocomplete="off" placeholder="z. B. 4075416-9">
+        GND-Kennung, mit GeoNames als gn:Kennung (optional)
+        <input id="place-id" type="text" autocomplete="off" placeholder="z. B. 4066009-6 gn:2761367">
       </label>
       <p id="place-preview" class="preview"></p>
       <p id="place-unlinked" class="dialog-hint">Ohne Kennung wird der Ort markiert und als noch nicht verknüpft gezeigt.</p>
@@ -292,6 +293,7 @@
         <label>frühestens <code>@notBefore</code><input id="date-notBefore" type="text" autocomplete="off" placeholder="JJJJ"></label>
         <label>spätestens <code>@notAfter</code><input id="date-notAfter" type="text" autocomplete="off" placeholder="JJJJ"></label>
       </div>
+      <label id="date-cert-row" class="check-row"><input id="date-cert" type="checkbox"><span>Erschlossen, nicht gelesen (<code>@cert="low"</code>)</span></label>
       <p id="date-status" class="status" role="status"></p>
       <p id="date-preview" class="preview"></p>
       <div class="toolbar dialog-actions">

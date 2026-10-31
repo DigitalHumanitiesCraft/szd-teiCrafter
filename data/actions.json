@@ -51,6 +51,31 @@
       "enabled": true
     },
     {
+      "id": "organisation",
+      "label": "Organisation",
+      "key": "g",
+      "icon": "org",
+      "element": "orgName",
+      "attributes": [
+        {
+          "name": "ref",
+          "required": true
+        }
+      ],
+      "dialog": "organisation",
+      "lookup": {
+        "register": true,
+        "gnd": "CorporateBody"
+      },
+      "views": [
+        "xml",
+        "text"
+      ],
+      "suggest": null,
+      "resolves": null,
+      "enabled": true
+    },
+    {
       "id": "date",
       "label": "Datum",
       "key": "d",
@@ -75,6 +100,10 @@
         },
         {
           "name": "notAfter",
+          "required": false
+        },
+        {
+          "name": "cert",
           "required": false
         }
       ],

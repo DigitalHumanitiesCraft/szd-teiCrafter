@@ -9,3 +9,15 @@ Literaturarchiv Salzburg with the Austrian Centre for Digital Humanities, Univer
 - Built by `node tools/build-person-index.mjs`; the retrieval date is recorded in the file.
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), as stated in the index TEI.
   Attribution: Stefan Zweig Digital, Literaturarchiv Salzburg.
+
+# NOTICE: szd-organisations.json
+
+`szd-organisations.json` is derived from the organisation index of Stefan Zweig Digital (GAMS
+object `o:szd.organisation`, https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE), published
+by the same institutions.
+
+- Content per entry: index identifier (`SZDORG.n`), name, GND identifier where the index has
+  one, seat (settlement and country), and a folded search field built from name and variants.
+- Built by `node tools/build-organisation-index.mjs`; the retrieval date is recorded in the file.
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), as stated in the index TEI.
+  Attribution: Stefan Zweig Digital, Literaturarchiv Salzburg.

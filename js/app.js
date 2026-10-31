@@ -244,8 +244,8 @@ const actionForElement = (/** @type {string} */ element) => actions.find((a) => 
 const openPersonDialog = createPersonDialog({
   editor,
   person: source.person,
-  markup: (text, ref) => {
-    const a = actionFor("person");
+  markup: (text, ref, authority) => {
+    const a = actionFor(authority === source.organisation ? "organisation" : "person");
     return a ? wrap(a, text, { ref }) : text;
   },
   onStale: stale,
@@ -263,6 +263,7 @@ const menu = createActionMenu({
   editor,
   onDialog(action, sel) {
     if (action.dialog === "person") openPersonDialog(sel);
+    else if (action.dialog === "organisation") openPersonDialog(sel, undefined, source.organisation);
     else if (action.dialog === "place") openPlaceDialog(sel, action);
     else if (action.dialog === "date") openDateDialog(sel, action);
   },
@@ -540,6 +541,14 @@ function nextOpenSpot() {
   const next = spots.find((s) => s.from > from) ?? spots[0];
   editor.select(next.from, next.to);
   const kind = openWork.find((d) => d.key === next.key);
+  if (next.key === "unlinked") {
+    // A mark is linked through its card, which the text view opens; the XML
+    // view names the way there.
+    const mark = tv?.markAt(editor.state, next.from) ?? null;
+    if (mark && mode === "text") card.openWithFocus(mark);
+    else menu.open(true, `${kind?.label}: In der Textansicht öffnet F8 hier die Karte, über die sich die Auszeichnung verknüpfen lässt.`);
+    return true;
+  }
   const usable = kind?.action && offered(actions, mode).some((a) => a.id === kind.action);
   menu.open(true, usable ? "" : openRuleNote(kind));
   return true;
@@ -562,13 +571,15 @@ const card = createMarkCard({
     describeMark(mark, actionForElement(mark.name), {
       fallbackTitle: source.textView.marks[/** @type {keyof typeof source.textView.marks} */ (mark.name)] ?? mark.name,
       async identify(dialog, ref) {
-        const id = dialog === "person" ? source.person.registerIdOf(ref) : "";
-        if (id) {
-          const entry = await registerEntry(source.person.register, id).catch(() => null);
+        const authority = dialog === "person" ? source.person : dialog === "organisation" ? source.organisation : null;
+        const id = authority?.registerIdOf(ref) ?? "";
+        if (authority && id) {
+          const entry = await registerEntry(authority.register, id).catch(() => null);
           return [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
         }
-        const gnd = (dialog === "person" ? source.person : source.place).gndOf(ref);
-        return gnd ? `GND ${gnd}` : ref;
+        const gnd = (authority ?? source.place).gndOf(ref);
+        const geonames = dialog === "place" ? source.place.geonamesOf(ref) : "";
+        return [gnd && `GND ${gnd}`, geonames && `GeoNames ${geonames}`].filter(Boolean).join(" | ") || ref;
       },
     }),
   onChange(mark) {
@@ -585,6 +596,7 @@ const card = createMarkCard({
       editor.replace(mark.openFrom, mark.openTo, withAttributes(tag, changes));
     };
     if (action.dialog === "person") openPersonDialog(sel, (ref) => change({ ref }));
+    else if (action.dialog === "organisation") openPersonDialog(sel, (ref) => change({ ref }), source.organisation);
     else if (action.dialog === "place") openPlaceDialog(sel, action, (ref) => change({ ref: ref || null }));
     else if (action.dialog === "date") {
       const attrs = Object.fromEntries(action.attributes.map(({ name }) => [name, attributeOf(mark.attrs, name)]));

@@ -10,6 +10,8 @@ import { matchesOf } from "./state.js";
 // the index URI (szd-TORDF.xsl of SZD-split); GND URIs use http as in the
 // holdings.
 const GND_PREFIX = "http://d-nb.info/gnd/";
+const GEONAMES_PREFIX = "http://www.geonames.org/";
+const ORGANISATION_INDEX = "https://gams.uni-graz.at/o:szd.organisation#";
 
 export const source = {
   name: "Stefan Zweig Digital",
@@ -91,19 +93,54 @@ export const source = {
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
     /** The marked text without HTR marker syntax, as a search query. @param {string} text */
     nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
+    title: "Person",
+    gndType: "Person",
+    /** What a register hit puts into the identifier field. @param {{ id: string }} entry */
+    choiceOf: (entry) => entry.id,
   },
 
   /**
-   * Places: marked as placeName, with a GND reference when one is chosen.
-   * Without one the place stays „noch nicht verknüpft“. Which places are
-   * marked and how belongs to the editorial rules (S4 in knowledge/plan.md).
-   * GeoNames is not configured, because its API needs a registered user name.
+   * Organisation annotation: the SZD organisation index, written as the GND
+   * of its entry like the holdings, or as the index URI for a body without a
+   * GND (SZD-split knowledge/collections.md); the GND for bodies outside it.
    */
-  place: {
+  organisation: {
+    register: "data/register/szd-organisations.json",
+    registerLabel: "SZD-Organisationsindex",
+    idExample: "SZDORG.42",
+    ignore: ["der", "die", "das", "dem", "den", "des"],
+    /** @param {string} id e.g. SZDORG.42 */
+    registerRef: (id) => `${ORGANISATION_INDEX}${id}`,
     /** @param {string} id */
     gndRef: (id) => `${GND_PREFIX}${id.trim().toUpperCase()}`,
-    /** The GND id of a reference, or "". @param {string} ref */
+    /** @param {string} value */
+    isRegisterId: (value) => /^SZDORG\.\d+$/.test(value.trim()),
+    /** @param {string} ref */
+    registerIdOf: (ref) => (ref.startsWith(ORGANISATION_INDEX) ? ref.slice(ORGANISATION_INDEX.length) : ""),
+    /** @param {string} ref */
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
+    /** @param {string} text */
+    nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
+    title: "Organisation",
+    gndType: "CorporateBody",
+    /** An entry with a GND is referenced by it. @param {{ id: string, gnd: string }} entry */
+    choiceOf: (entry) => entry.gnd || entry.id,
+  },
+
+  /**
+   * Places (knowledge/annotation.md): placeName with the GND and, where its
+   * record links one, GeoNames in one @ref, separated by a space. GeoNames is
+   * read from the GND record's sameAs, since its own API needs a registered
+   * user name; a place without a GND record may carry GeoNames alone.
+   */
+  place: {
+    /** @param {string} gnd @param {string} geonames either may be "" */
+    ref: (gnd, geonames) =>
+      [gnd && `${GND_PREFIX}${gnd.trim().toUpperCase()}`, geonames && `${GEONAMES_PREFIX}${geonames.trim()}`].filter(Boolean).join(" "),
+    /** The GND id of a reference, or "". @param {string} ref */
+    gndOf: (ref) => ref.split(/\s+/).find((r) => r.startsWith(GND_PREFIX))?.slice(GND_PREFIX.length) ?? "",
+    /** The GeoNames id of a reference, or "". @param {string} ref */
+    geonamesOf: (ref) => /geonames\.org\/(\d+)/.exec(ref)?.[1] ?? "",
   },
 
   /**
@@ -116,9 +153,9 @@ export const source = {
     pageBreak: "pb",
     blocks: ["div", "p", "head", "ab", "lg", "l", "list", "item", "opener", "closer", "dateline", "salute", "signed", "postscript", "note", "table", "row", "fw"],
     /** Element labels for the card of a marked passage. */
-    marks: { persName: "Person", placeName: "Ort", date: "Datum", del: "Streichung", add: "Ergänzung", unclear: "Unsicher" },
+    marks: { persName: "Person", placeName: "Ort", orgName: "Organisation", date: "Datum", del: "Streichung", add: "Ergänzung", unclear: "Unsicher" },
     /** Elements that point to an authority with @ref; without it they show as not yet linked. */
-    linked: ["persName", "placeName"],
+    linked: ["persName", "placeName", "orgName"],
     /** Parts of open spots drawn as a badge instead of their marker text. */
     badges: [
       { pattern: "\\[\\?(?:\\d+\\?)?\\]", text: "?", tip: "Unsicher gelesen, noch offen" },
@@ -177,5 +214,29 @@ export function openWorkFor(actions) {
       return matchesOf(/~~|[{}]/g)(text).filter((r) => !resolved.some((c) => c.from <= r.from && r.to <= c.to));
     },
   };
-  return [...markers, ...unresolved, stray];
+  return [...markers, ...unresolved, stray, unlinked];
 }
+
+/**
+ * Marks still without their authority or value (knowledge/annotation.md): a
+ * linked element without @ref, a date without an ISO value. They block
+ * acceptance like the HTR markers, and F8 opens their card to link them.
+ * @type {import("./state.js").Detector}
+ */
+const unlinked = {
+  key: "unlinked",
+  label: "Noch nicht verknüpft",
+  find(text) {
+    const names = [...source.textView.linked, "date"].join("|");
+    const ranges = [];
+    for (const m of text.matchAll(new RegExp(`<(${names})(?=[\\s>/])([^>]*?)(/?)>`, "g"))) {
+      if (m[3]) continue;
+      const linked = m[1] === "date" ? /\s(?:when|from|to|notBefore|notAfter)="[^"]+"/.test(m[2]) : /\sref="\s*\S[^"]*"/.test(m[2]);
+      if (linked) continue;
+      const from = (m.index ?? 0) + m[0].length;
+      const close = text.indexOf(`</${m[1]}>`, from);
+      if (close >= 0) ranges.push({ from, to: close });
+    }
+    return ranges;
+  },
+};

@@ -1,20 +1,16 @@
 import { fold } from "./register.js";
 
-// GND search through lobid-gnd (keyless, CORS-enabled) for persons and
-// places. The lookup is user-triggered while editing; nothing is fetched on
-// page load.
+// GND search through lobid-gnd (keyless, CORS-enabled) for persons, bodies
+// and places. The lookup is user-triggered while editing; nothing is fetched
+// on page load.
 
 /**
- * @typedef {{ id: string, name: string, dates: string, info: string }} GndPerson
+ * @typedef {{ id: string, name: string, dates: string, info: string, geonames: string }} GndHit
+ * `geonames` is the GeoNames id the record links to in sameAs, or "", so a
+ * place gets both references without a GeoNames account.
  * @param {string} query
- * @returns {Promise<GndPerson[]>}
- */
-export const searchPersons = (query) => searchGnd(query, "Person");
-
-/**
- * @param {string} query
- * @param {string} type a lobid-gnd entity type such as Person or PlaceOrGeographicName
- * @returns {Promise<GndPerson[]>}
+ * @param {string} type a lobid-gnd entity type such as Person, CorporateBody or PlaceOrGeographicName
+ * @returns {Promise<GndHit[]>}
  */
 export async function searchGnd(query, type) {
   if (!/^[A-Za-z]+$/.test(type)) throw new Error(`Unbekannter GND-Typ ${type}.`);
@@ -41,11 +37,21 @@ export async function searchGnd(query, type) {
     .map(({ m }) => ({
       id: String(m.gndIdentifier ?? ""),
       name: String(m.preferredName ?? ""),
-      dates: [m.dateOfBirth?.[0], m.dateOfDeath?.[0]].filter(Boolean).join("–"),
+      dates: [m.dateOfBirth?.[0] ?? m.dateOfEstablishment?.[0], m.dateOfDeath?.[0] ?? m.dateOfTermination?.[0]].filter(Boolean).join("–"),
       info: [m.biographicalOrHistoricalInformation?.[0], m.professionOrOccupation?.[0]?.label ?? m.geographicAreaCode?.[0]?.label]
         .filter(Boolean)
         .join(" | "),
+      geonames: geonamesOf(m),
     }));
+}
+
+/** The GeoNames id a lobid-gnd record links to, or "". @param {any} record */
+export function geonamesOf(record) {
+  for (const s of record.sameAs ?? []) {
+    const id = /geonames\.org\/(\d+)/.exec(String(s.id ?? s))?.[1];
+    if (id) return id;
+  }
+  return "";
 }
 
 /** GND identifiers: digits with an optional check character, plain or after a hyphen. */

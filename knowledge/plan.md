@@ -54,14 +54,16 @@ Each milestone passes three checks in this order.
 
 ## Where to resume
 
-On 2026-10-31 two independent code reviews were worked through, see [journal](journal.md). The next step is the operator's trial run, the steps after it come from the Human User's review of the interface, recorded verbatim in [design](design.md#requirements-from-the-human-user).
+On 2026-10-31 four LLM agents annotated working copies of nine documents in the trial run by the rules of [annotation](annotation.md), directly in TEI, through the editor and in a hybrid way (ADR-015). Their findings drive the first steps, and the operator's trial run follows them.
 
-1. Trial run. The operator works through a simulated project, a local copy of this repository with a local remote and a second clone as a team member, following the partner guide in the README. It doubles as the operator acceptance of S1 and S2.
-2. Action menu. Think through how each semantic annotation is best represented, standard icons for deletion, addition, emphasis and uncertainty, text only where an icon does not explain itself. Drop the visible key letters, and name keys, if any stay, in the tooltip. Keep the menu on one line. Snap selections that start or end inside a word to word boundaries before actions are offered.
-3. Documents dialog. A definition for each state icon and a mark of its own for accepted, no repeated counts or headings, a visible sort order, „Sammlungen“ or the configured term instead of „Collections“, and document date and last edit as compact meta.
-4. Actions dialog. Markers in words with the pattern in a tooltip, the key fields labelled or moved to a tooltip, an icon column, a plain statement that TEI All constrains little until the ODD exists, saving to the configured location as the primary button, and one introductory sentence with a defining tooltip.
-5. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, add the schema as first entry of `source.schemas` before the TEI All fallback, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013, ADR-014).
-6. Align with the szd operator on the editorial rules for places, dates and the default attributes of the actions (S4).
+1. Agent run evaluated. The four results compared on the calibration letter `o_szd.1222`, mark by mark, and the cost and failure of each way recorded, as material for the paper section the operator plans.
+2. Proposal import and review. Agent proposals arrive as a file, show in the editor as proposals of a named producer, and a person accepts or rejects each one. The provenance in the TEI follows the three-stage contract of zbz-ocr-tei (deterministic, agentic, verified by a person) as far as it fits.
+3. Dates from the letter date. The date dialog proposes values for incomplete and relative expressions from the document's own date, marked uncertain, and reads the forms the working set holds, such as two-digit years, English and French dates and seasons.
+4. Marking across a line break in the text view, linking all occurrences of a name in one step, and a warning when a person hit can be a work title.
+5. Register report. Which person, organisation and place occurs in which documents, with contradicting links of the same name, and register errors handed to SZD-split.
+6. Operator review of the agent results in the editor, the step that verifies them, then the trial run, which doubles as the operator acceptance of S1 and S2.
+7. Action menu, documents dialog and actions dialog after the Human User's review, recorded verbatim in [design](design.md#requirements-from-the-human-user): standard icons, no visible key letters, the menu on one line, selections snapped to word boundaries, a definition for each state icon, „Sammlungen“ instead of „Collections“, and the actions dialog's labels, tooltips and primary button.
+8. Project ODD. When SZD-split provides it, pin its generated RELAX NG and action catalogue, add the schema as first entry of `source.schemas`, and add the drift check against `data/actions.json` (ADR-010, ADR-013, ADR-014). The rules of [annotation](annotation.md) become part of it, with Schematron where RELAX NG cannot express them.
 
 ## Milestones
 
@@ -119,10 +121,9 @@ Open: rebuilding the index without a manual step after state changes, collection
 
 ### S4 Editorial rule layer
 
-- A project rule set that reports remaining HTR markers and person references outside the index as open work, in the editing and review phases the Wenzelsbibel derivation uses.
-- Actions for the open-work kinds that are counted since 2026-10-30 but have no encoding rule yet, namely the gap `[...]` and `[...n...]` (an action that writes `gap`, see [data](data.md#model)), the standalone `[?]` and `[?n?]`, and the bracketed HTR remarks such as `[Randnotiz links:]`, `[Durchgestrichen: …]`, `[eingefügt: …]` and `[Unterschrift]`, which may become `note`, `del`, `add` or a signature encoding. Each gets its action in `js/source.js` once the rule is settled. Until then F8 selects them and the menu names the open rule, and documents with them are not ready for acceptance.
-- Editorial rules for the actions built on 2026-10-30, which places are marked and with which authority, how dates are normalised, and which attributes `add`, `del` and `unclear` carry by default. They are aligned with the szd operator and the Human User and end up in the project ODD of SZD-split (ADR-010).
-- German framing for parser and schema messages.
+- Annotation rules for persons, organisations, places and dates in [annotation](annotation.md), since 2026-10-31, with unlinked marks counted as open work and actions for all four. They are to be discussed with the szd team on the annotated example letters.
+- Actions for the open-work kinds without an encoding rule yet, the gap `[...]`, the standalone `[?]` and the bracketed HTR remarks such as `[Randnotiz links:]`, which may become `gap`, `note`, `del`, `add` or a signature encoding. Until then F8 selects them and the menu names the open rule.
+- The default attributes of `add`, `del` and `unclear`, and German framing for parser and schema messages.
 
 ### S5 Publication and partner trial
 
@@ -137,7 +138,8 @@ Open: rebuilding the index without a manual step after state changes, collection
 
 These items are accepted as direction and not yet placed in a milestone.
 
-- Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
+- A quiet working-state display beyond the badge: a count line of persons, places, organisations and dates with their unlinked share, a strip per facsimile page, and the counts in the document list.
+- Works as a fourth entity against the SZD work index, and the letter metadata of SZD-split's `correspDesc` shown beside the body for comparison.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
 - Documents beyond the size limit of NFR-05. Opening a large document is fast, while every check after a typing pause and every edit in the text view work on the whole text. Research items, each to be measured with `test/size-check.mjs`:
   - Live well-formedness from the incremental syntax tree CodeMirror already keeps, with the full parse only on demand.
@@ -154,14 +156,14 @@ These items are accepted as direction and not yet placed in a milestone.
 | S1 Editor core | in progress | browser check green, independent reviews fixed, operator acceptance open in the trial run |
 | S2 Visible state and safe round trip | in progress | built and checked, including the state in the save confirmation and the withdrawal of a stale acceptance, while a case for saving a malformed document and acceptance are open |
 | S3 Collections and project page | in progress | working set imported, document list with search and filters, shelf marks and partner guide, while collection-specific suggestions, standOff persons and the version-history link are open |
-| S4 Editorial rule layer | pending | text view, action registry, place and date actions built on 2026-10-30, their editorial rules open |
+| S4 Editorial rule layer | in progress | annotation rules for persons, organisations, places and dates with their actions and open-spot detection, rules for the remaining markers open |
 | S5 Publication and partner trial | pending | operator action |
 | S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |
 
 ## Open decisions and dependencies
 
 - The import scope and the authoritative place (ADR-010), the place of the working state and the withdrawal of a stale acceptance (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
-- The editorial rules, for example whether a title such as „Dr.“ stands inside `persName` how hand and reason are given on `add`, `del` and `unclear`, and how `gap` records the extent of a passage, are settled with the project partners on example letters, before S4.
+- The editorial rules for `add`, `del`, `unclear` and `gap`, and the annotation rules of 2026-10-31, are discussed with the project partners on example letters, before S4 closes.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
 - Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.

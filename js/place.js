@@ -1,6 +1,7 @@
-// Place dialog: a marked place becomes a placeName, linked to the GND when an
-// identifier is chosen and left as „noch nicht verknüpft“ otherwise. The GND
-// is asked only on request and only where the action configures a lookup.
+// Place dialog: a marked place becomes a placeName, linked to the GND and,
+// where the GND record names one, to GeoNames, and left as „noch nicht
+// verknüpft“ otherwise. The GND is asked only on request and only where the
+// action configures a lookup.
 
 import { isGndId, searchGnd } from "./gnd.js";
 import { $, arrowNavigation, renderResults, setStatus } from "./ui.js";
@@ -31,11 +32,20 @@ export function createPlaceDialog({ editor, place, nameOf, markup: write, onStal
   /** Counts dialog openings and closings, so a late answer for another place is dropped. */
   let session = 0;
 
-  /** The reference for the typed or chosen identifier; "" for none, null for an invalid one. */
+  /**
+   * The reference for the typed or chosen identifiers, a GND id and a GeoNames
+   * id written as "gn:ID" or a GeoNames URL; "" for none, null for an invalid one.
+   */
   function chosenRef() {
-    const id = idInput.value.trim();
-    if (!id) return "";
-    return isGndId(id) ? place.gndRef(id) : null;
+    let gnd = "";
+    let geonames = "";
+    for (const token of idInput.value.trim().split(/\s+/).filter(Boolean)) {
+      const gn = /^gn:(\d+)$/i.exec(token)?.[1] ?? /geonames\.org\/(\d+)/.exec(token)?.[1];
+      if (gn && !geonames) geonames = gn;
+      else if (isGndId(token) && !gnd) gnd = token;
+      else return null;
+    }
+    return place.ref(gnd, geonames);
   }
 
   const markup = (/** @type {string} */ ref) => (action ? write(action, pending.text, ref) : "");
@@ -44,7 +54,7 @@ export function createPlaceDialog({ editor, place, nameOf, markup: write, onStal
     const ref = chosenRef();
     if (ref === null) {
       $("place-preview").textContent = "";
-      setStatus(status, "error", "Das ist keine GND-Kennung. Das Feld leer lassen markiert den Ort ohne Verknüpfung.");
+      setStatus(status, "error", "Erwartet wird eine GND-Kennung, auf Wunsch mit GeoNames als gn:Kennung. Das Feld leer lassen markiert den Ort ohne Verknüpfung.");
       return;
     }
     if (status.dataset.state === "error") setStatus(status, "", "");
@@ -65,7 +75,11 @@ export function createPlaceDialog({ editor, place, nameOf, markup: write, onStal
       renderResults(
         list,
         list,
-        hits.map((h) => ({ id: h.id, title: h.name, meta: [h.info, `GND ${h.id}`].filter(Boolean).join(" | ") })),
+        hits.map((h) => ({
+          id: [h.id, h.geonames && `gn:${h.geonames}`].filter(Boolean).join(" "),
+          title: h.name,
+          meta: [h.info, `GND ${h.id}`, h.geonames && `GeoNames ${h.geonames}`].filter(Boolean).join(" | "),
+        })),
         (id) => {
           idInput.value = id;
           updatePreview();

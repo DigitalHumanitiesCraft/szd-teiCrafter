@@ -30,3 +30,15 @@ test("person references use the form of the holdings and read the older full URI
   assert.equal(source.person.registerIdOf("https://gams.uni-graz.at/o:szd.personen#SZDPER.2188"), "SZDPER.2188");
   assert.equal(source.person.registerIdOf("http://d-nb.info/gnd/118636758"), "");
 });
+
+test("place references hold the GND and GeoNames, organisations their index URI or GND", async () => {
+  const { source } = await import("../../js/source.js");
+  const ref = source.place.ref("4066009-6", "2761367");
+  assert.equal(ref, "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367");
+  assert.equal(source.place.gndOf(ref), "4066009-6");
+  assert.equal(source.place.geonamesOf(ref), "2761367");
+  assert.equal(source.place.ref("", "2761367"), "http://www.geonames.org/2761367");
+  assert.equal(source.organisation.registerRef("SZDORG.2"), "https://gams.uni-graz.at/o:szd.organisation#SZDORG.2");
+  assert.equal(source.organisation.choiceOf({ id: "SZDORG.61", gnd: "10102943-3" }), "10102943-3");
+  assert.equal(source.organisation.choiceOf({ id: "SZDORG.9", gnd: "" }), "SZDORG.9");
+});

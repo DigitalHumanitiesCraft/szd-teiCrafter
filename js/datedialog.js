@@ -1,8 +1,9 @@
 // Date dialog: proposes ISO values for a marked date, in one of three forms,
 // an exact or partial date (@when), a range (@from, @to) or an uncertain span
 // (@notBefore, @notAfter). The user confirms or edits; only ISO values are
-// written. A selection with words before or after the date is offered
-// trimmed to the date part.
+// written. A date inferred rather than read, such as „am 10.“ dated from the
+// letter, is marked @cert="low" where the action declares @cert. A selection
+// with words before or after the date is offered trimmed to the date part.
 
 import { isIsoDate, parseDate } from "./dates.js";
 import { wrap } from "./actions.js";
@@ -27,6 +28,7 @@ export function createDateDialog({ editor, onStale }) {
   /** @type {((attrs: Record<string, string | null>) => void) | null} */
   let change = null;
 
+  const cert = /** @type {HTMLInputElement} */ ($("date-cert"));
   const form = () => /** @type {keyof typeof FIELDS} */ (/** @type {HTMLInputElement} */ (dialog.querySelector("input[name='date-form']:checked")).value);
   const trimmed = () => !$("date-trim-row").hidden && /** @type {HTMLInputElement} */ ($("date-trim")).checked;
   /** The text the element will hold, and where it stands. */
@@ -43,6 +45,7 @@ export function createDateDialog({ editor, onStale }) {
     }
     const names = Object.keys(attrs);
     if (!names.length) return { error: "Bitte ein Datum eintragen, etwa 1935-01-04, 1935-01 oder 1935." };
+    if (!$("date-cert-row").hidden && cert.checked) attrs.cert = "low";
     const [a, b] = FIELDS[form()].map((n) => attrs[n]);
     // Compared at their common precision, so 1935-05 to 1935 counts as one year.
     const common = Math.min(a?.length ?? 0, b?.length ?? 0);
@@ -76,6 +79,7 @@ export function createDateDialog({ editor, onStale }) {
     if (change) {
       /** @type {Record<string, string | null>} */
       const attrs = Object.fromEntries(ALL.map((n) => [n, result.attrs?.[n] ?? null]));
+      if (!$("date-cert-row").hidden) attrs.cert = result.attrs?.cert ?? null;
       change(attrs);
       return;
     }
@@ -95,6 +99,8 @@ export function createDateDialog({ editor, onStale }) {
     $("date-text").textContent = sel.text;
     $("date-apply").textContent = current ? "Ändern" : "Auszeichnen";
     for (const n of ALL) input(n).value = "";
+    $("date-cert-row").hidden = !dateAction.attributes.some((a) => a.name === "cert");
+    cert.checked = current?.attrs.cert === "low";
     let chosenForm = "when";
     if (current) {
       for (const n of ALL) input(n).value = current.attrs[n] ?? "";

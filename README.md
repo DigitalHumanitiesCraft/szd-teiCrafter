@@ -15,9 +15,12 @@ exchanges the results by commit and push.
 - Edits TEI in a CodeMirror 6 code editor with highlighting, folding, search, element
   suggestions, code zoom and line wrapping, or in a text view of the same document that hides
   the markup and sets the text in lines or flowing paragraphs.
-- Annotates at the selection. A menu offers person, place, date, deletion, uncertain reading and
-  addition. Persons are found in the Stefan Zweig Digital person index or in the GND through
-  lobid-gnd, places in the GND, and dates are proposed as ISO values. The actions are data in
+- Annotates at the selection by the rules in `knowledge/annotation.md`. A menu offers person,
+  place, organisation, date, deletion, uncertain reading and addition. Persons and organisations
+  are found in the Stefan Zweig Digital indexes or in the GND through lobid-gnd, places in the GND
+  with their GeoNames link, and dates are proposed as ISO values, marked uncertain where inferred.
+  A person, organisation or place without a reference and a date without a value count as open
+  spots. The actions are data in
   `data/actions.json` and can be switched in the settings view. The HTR markers `~~…~~`, `[?]`
   and `{…}` and the other open work of the machine transcription are counted, and F8 walks
   through them.
@@ -64,8 +67,8 @@ markers, the editor names them and the passage can be resolved in the XML view.
 - `node tools/import-working-set.mjs [path to szd-htr]` imports the working set. It never
   overwrites a file that has been corrected here.
 - `node tools/build-document-index.mjs` rebuilds `data/index.json`, the document list.
-- `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from the person
-  index at GAMS.
+- `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild
+  `data/register/szd-persons.json` and `szd-organisations.json` from the indexes at GAMS.
 
 ## Structure
 

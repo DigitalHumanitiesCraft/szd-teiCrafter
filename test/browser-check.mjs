@@ -1076,7 +1076,7 @@ async function chooseDocument(page, objectId) {
 // original plus exactly the expected edits.
 const lobidPlaces = {
   member: [
-    { gndIdentifier: "4005728-8", preferredName: "Berlin", type: ["PlaceOrGeographicName"], geographicAreaCode: [{ label: "Deutschland" }] },
+    { gndIdentifier: "4005728-8", preferredName: "Berlin", type: ["PlaceOrGeographicName"], geographicAreaCode: [{ label: "Deutschland" }], sameAs: [{ id: "https://sws.geonames.org/2950159" }] },
     { gndIdentifier: "1234567-1", preferredName: "Berlin-Mitte", type: ["PlaceOrGeographicName"] },
   ],
 };
@@ -1298,9 +1298,24 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.click("#place-search");
   await page.waitForSelector("#place-results .result", { timeout: 10000 });
   await page.locator("#place-results .result", { hasText: "4005728-8" }).click();
-  check("a GND place fills the preview", (await label(page, "#place-preview")) === '<placeName ref="http://d-nb.info/gnd/4005728-8">Berlin</placeName>');
+  check("a GND place fills the preview with its GeoNames link", (await label(page, "#place-preview")) === '<placeName ref="http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950159">Berlin</placeName>');
   await shot(page, "place-dialog-light");
   await page.click("#place-apply");
+  await page.waitForTimeout(300);
+
+  // An organisation from the SZD index is referenced by the GND of its entry.
+  await selectText(page, "Viking Press", 0, "Viking Press".length);
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("g");
+  await page.waitForSelector("#register-results .result", { timeout: 5000 });
+  check(
+    "the organisation dialog offers the index entry first",
+    (await label(page, "#person-kind")) === "Organisation" && (await page.locator("#register-results .result").first().textContent()).includes("SZDORG.61"),
+    await page.locator("#register-results .result").first().textContent(),
+  );
+  await page.locator("#register-results .result").first().click();
+  check("its preview uses the GND of the entry", (await label(page, "#person-preview")) === '<orgName ref="http://d-nb.info/gnd/10102943-3">Viking Press</orgName>', await label(page, "#person-preview"));
+  await page.click("#person-apply");
   await page.waitForTimeout(300);
 
   // A date with words around it is trimmed to the date and given an ISO value.
@@ -1322,10 +1337,11 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.waitForTimeout(300);
   const placesAndDate = afterF8
     .replace("Westminster                                Nizza, den 4.Januar 1935.", 'Westminster                                <placeName>Nizza</placeName>, den <date when="1935-01-04">4.Januar 1935</date>.')
-    .replace("Berlin N.W.21", '<placeName ref="http://d-nb.info/gnd/4005728-8">Berlin</placeName> N.W.21');
+    .replace("Berlin N.W.21", '<placeName ref="http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950159">Berlin</placeName> N.W.21')
+    .replace("die Viking Press,", 'die <orgName ref="http://d-nb.info/gnd/10102943-3">Viking Press</orgName>,');
   await page.keyboard.press("Control+s");
   await page.waitForTimeout(400);
-  check("places and the date are saved as exactly these elements", (await lastWrite()) === placesAndDate);
+  check("places, the organisation and the date are saved as exactly these elements", (await lastWrite()) === placesAndDate);
   check("the places and the date are valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
 
   // The layout follows the document, and a choice is remembered for its kind.

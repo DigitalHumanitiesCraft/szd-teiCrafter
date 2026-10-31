@@ -9,7 +9,7 @@
  * @typedef {{ kind: string, label: string, marker: string }} Resolves
  * @typedef {{
  *   id: string, label: string, key: string, icon: string | null, element: string,
- *   attributes: ActionAttribute[], dialog: "none" | "person" | "place" | "date",
+ *   attributes: ActionAttribute[], dialog: "none" | "person" | "organisation" | "place" | "date",
  *   lookup: { register?: boolean, gnd?: string } | null, views: ("xml" | "text")[],
  *   suggest: string | null, resolves: Resolves | null, enabled: boolean,
  * }} Action
@@ -18,7 +18,7 @@
  */
 
 const NAME = /^[A-Za-z_][\w.-]*$/;
-const DIALOGS = ["none", "person", "place", "date"];
+const DIALOGS = ["none", "person", "organisation", "place", "date"];
 const VIEWS = ["xml", "text"];
 
 /**
