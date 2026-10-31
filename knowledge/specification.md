@@ -341,3 +341,13 @@ Choice. Operator, 2026-10-31: „Mit einem kleineren Schema könnten wir hier di
 Rationale. A strict schema is smaller, so it compiles faster, and it rejects what the edition does not allow. The worker keeps the interface responsive whatever the schema costs, and preparing it at start means the first validation usually finds it ready. The action registry is checked against the same schema, so an action the project schema forbids is refused.
 
 Effect. Until SZD-split provides the ODD, the list holds TEI All alone and every valid result says that it was checked against the fallback. Constraints of the ODD that RELAX NG cannot express, such as Schematron rules, would need a separate check. Whether acceptance should require the project schema once it exists is open in [plan](plan.md#open-decisions-and-dependencies).
+
+### ADR-015 An agentic layer beside the editor
+
+Context. On 2026-10-31 four LLM agents, started from a coding harness, annotated working copies of letters in the background by the rules of [annotation](annotation.md), some by editing the TEI directly, some by driving the editor headless, one by proposing first and applying through the editor. They read the same files, registers and authority services the editor uses and are measured by the same checks.
+
+Choice. Operator, 2026-10-31: „Wir haben jetzt dieses Tool, und wir können über den AI Harness jetzt auch hineingehen und Agents beauftragen, die im Hintergrund die Daten updaten und uns damit die Schnittstelle erlauben. Wir haben hier einen agentischen Layer, den wir verwenden und überprüfen können. […] Das ist eine zusätzliche Funktionalität, man muss es aber nicht so verwenden.“ Agents work on the files in the repository from outside the editor, and the editor is the place where a person reviews, corrects and accepts their work. The editor needs nothing from the agents and stays fully usable without them.
+
+Rationale. Files in Git, rules in the knowledge base and machine checks that run outside the browser give an agent the same interface a person has, so no agent integration has to be built into the editor. The editor keeps what an agent cannot provide, the reading against the facsimile and the act of acceptance (ADR-006).
+
+Effect. Agent results stay in working copies outside `data/` until a person has reviewed them ([annotation](annotation.md#producer)). How the editor shows that an annotation came from an agent, and how a person accepts or rejects it, follows from the experiment and is planned in [plan](plan.md).

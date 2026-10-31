@@ -24,6 +24,15 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Annotation rules and the agentic layer
+
+- Trigger: operator asked how persons, places and dates are annotated, then for agents that annotate documents through the editor, directly in TEI or in a hybrid way, to improve both the editor and the understanding of agent-supported annotation.
+- Decided: the operator accepted the recommendations for the first stage, namely persons, organisations, places and dates without works, places referenced by GND and GeoNames together, unlinked entities as open spots that block acceptance, and incomplete dates inferred from the letter date with `@cert="low"`, recorded in [annotation](annotation.md). The operator named the agents working beside the editor an agentic layer that is optional (ADR-015).
+- Found: `persName/@ref` in the Stefan Zweig Digital holdings carries only `#SZDPER.n` or a GND URI, and the GAMS RDF transform appends `@ref` to the person index URI.
+- Corrected: the editor wrote the full index URI, which ADR-007 had recorded as the holdings' form. It now writes `#SZDPER.n` and still reads the full form.
+- Changed: four agents annotate working copies under the trial run folder, with a shared check that compares the text with the original and loads the file in the editor.
+- Evidence: commit `98679a8`, unit tests and browser check passing on 2026-10-31.
+
 ### 2026-10-31 Validation in a worker, schemas strictest first, size limits named
 
 - Trigger: the operator found the first validation slow and asked how large documents the browser can take. A measurement with synthetic documents up to 50 MB showed that the wait came from compiling TEI All on the main thread, independent of the document, and that the check after each typing pause and the text view grow with the whole text.

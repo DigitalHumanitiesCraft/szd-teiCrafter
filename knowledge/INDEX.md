@@ -65,6 +65,10 @@ This knowledge base follows the Promptotyping Documents convention, mirrored at 
 
 The file `data/actions.json`, which lists the annotation actions of the edition with element, attributes, dialog, views and the HTR marker each resolves. The menu, the dialogs, the open-work count and the settings view „Aktionen“ read it, see ADR-013 in the specification.
 
+### Agentic layer
+
+LLM agents started from a coding harness that work on the repository's files in the background by the same rules and checks as a person, while the editor stays the place of review and acceptance. It is optional, see ADR-015 in the specification.
+
 ### Collection
 
 A group of documents of the Stefan Zweig Digital holdings with a common TEI profile, namely correspondence, life documents, works and essay files, kept as a folder under `data/`.
@@ -87,7 +91,7 @@ Gemeinsame Normdatei of the German National Library. The editor writes a GND URI
 
 ### Person index
 
-The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, whose entries carry identifiers of the form `SZDPER.n`. Annotations point to its entries, see ADR-007 in the specification.
+The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, whose entries carry identifiers of the form `SZDPER.n`. Annotations point to its entries as `#SZDPER.n`, see ADR-007 in the specification.
 
 ### Schema list
 
