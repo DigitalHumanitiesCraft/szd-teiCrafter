@@ -11,7 +11,7 @@ import { Decoration, EditorSelection, EditorState, EditorView, keymap, Prec, Ran
 /**
  * @typedef {{
  *   root: string, lineBreak: string, pageBreak: string, blocks: string[],
- *   marks: Record<string, string>,
+ *   marks: Record<string, string>, linked: string[],
  *   badges: { pattern: string, text: string, tip: string }[],
  * }} TextViewConfig the part of the source configuration this module reads
  * @typedef {{
@@ -246,7 +246,7 @@ function build(state, config, hooks, layout) {
 
   for (const m of marks) {
     if (m.closeFrom <= m.openTo) continue;
-    const unlinked = (m.name === "persName" || m.name === "placeName") && !attributeOf(m.attrs, "ref");
+    const unlinked = config.linked.includes(m.name) && !attributeOf(m.attrs, "ref");
     decos.push(Decoration.mark({ class: `tv-mark tv-el-${m.name}${unlinked ? " tv-unlinked" : ""}`, attributes: { "data-el": m.name } }).range(m.openTo, m.closeFrom));
   }
   // Open spots: orange, with badges in place of their marker where configured.

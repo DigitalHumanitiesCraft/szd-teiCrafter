@@ -9,7 +9,7 @@ import { wrap } from "./actions.js";
 import { $, setStatus } from "./ui.js";
 
 const FIELDS = { when: ["when"], range: ["from", "to"], span: ["notBefore", "notAfter"] };
-const ALL = ["when", "from", "to", "notBefore", "notAfter"];
+const ALL = Object.values(FIELDS).flat();
 
 /**
  * @param {{ editor: ReturnType<typeof import("./editor.js").createEditor>, onStale: (message: string) => void }} options

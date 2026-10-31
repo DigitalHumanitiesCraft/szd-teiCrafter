@@ -3,7 +3,7 @@
 // is asked only on request and only where the action configures a lookup.
 
 import { isGndId, searchGnd } from "./gnd.js";
-import { $, arrowNavigation, setStatus } from "./ui.js";
+import { $, arrowNavigation, renderResults, setStatus } from "./ui.js";
 
 /**
  * @param {{
@@ -62,24 +62,16 @@ export function createPlaceDialog({ editor, place, nameOf, markup: write, onStal
       if (asked !== session) return;
       setStatus(status, "", hits.length ? "" : "Keine GND-Treffer. Suchbegriff ändern, eine Kennung eingeben oder ohne Verknüpfung markieren.");
       const list = $("place-results");
-      list.replaceChildren();
-      for (const h of hits) {
-        const b = Object.assign(document.createElement("button"), { type: "button", className: "result" });
-        b.append(
-          Object.assign(document.createElement("strong"), { textContent: h.name }),
-          Object.assign(document.createElement("span"), { textContent: [h.info, `GND ${h.id}`].filter(Boolean).join(" | ") }),
-        );
-        b.addEventListener("click", () => {
-          idInput.value = h.id;
-          for (const other of list.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
-          b.setAttribute("aria-pressed", "true");
+      renderResults(
+        list,
+        list,
+        hits.map((h) => ({ id: h.id, title: h.name, meta: [h.info, `GND ${h.id}`].filter(Boolean).join(" | ") })),
+        (id) => {
+          idInput.value = id;
           updatePreview();
           $("place-apply").focus();
-        });
-        const li = document.createElement("li");
-        li.append(b);
-        list.append(li);
-      }
+        },
+      );
     } catch (err) {
       setStatus(status, "error", err instanceof Error ? err.message : String(err));
     }

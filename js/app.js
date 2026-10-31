@@ -11,7 +11,7 @@ import { createDocumentList } from "./docs.js";
 import { createEditor } from "./editor.js";
 import { createFiles } from "./files.js";
 import { resolveIiif } from "./iiif.js";
-import { createMarkCard } from "./markcard.js";
+import { createMarkCard, describeMark } from "./markcard.js";
 import { createActionMenu } from "./menu.js";
 import { createPersonDialog } from "./person.js";
 import { createPlaceDialog } from "./place.js";
@@ -222,6 +222,7 @@ const files = createFiles({
 });
 
 const actionFor = (/** @type {string} */ dialog) => actions.find((a) => a.dialog === dialog && !a.refused);
+const actionForElement = (/** @type {string} */ element) => actions.find((a) => a.element === element && !a.refused);
 const openPersonDialog = createPersonDialog({
   editor,
   person: source.person,
@@ -539,42 +540,21 @@ document.addEventListener("keydown", (e) => {
 const card = createMarkCard({
   editor,
   markAt: (pos) => tv?.markAt(editor.state, pos) ?? null,
-  async describe(mark) {
-    const ref = attributeOf(mark.attrs, "ref");
-    const action = actions.find((a) => a.element === mark.name && !a.refused);
-    const known = new Set(action?.attributes.map((a) => a.name) ?? []);
-    const extra = [...mark.attrs.matchAll(/([\w:.-]+)\s*=/g)].map((m) => m[1]).filter((n) => !known.has(n));
-    let detail = "";
-    let unlinked = false;
-    if (mark.name === "persName" || mark.name === "placeName") {
-      const id = mark.name === "persName" ? source.person.registerIdOf(ref) : "";
-      const gnd = (mark.name === "persName" ? source.person : source.place).gndOf(ref);
-      if (!ref) {
-        detail = "noch nicht verknüpft";
-        unlinked = true;
-      } else if (id) {
-        const entry = await registerEntry(source.person.register, id).catch(() => null);
-        detail = [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
-      } else detail = gnd ? `GND ${gnd}` : ref;
-    } else if (mark.name === "date") {
-      detail = ["when", "from", "to", "notBefore", "notAfter"]
-        .map((n) => [n, attributeOf(mark.attrs, n)])
-        .filter(([, v]) => v)
-        .map(([n, v]) => `@${n} ${v}`)
-        .join(" | ");
-      unlinked = !detail;
-      detail ||= "ohne Datumswert";
-    }
-    return {
-      title: source.textView.marks[/** @type {keyof typeof source.textView.marks} */ (mark.name)] ?? mark.name,
-      detail,
-      note: extra.length ? `Weitere Attribute (${extra.map((n) => `@${n}`).join(", ")}) stehen in der XML-Ansicht.` : "",
-      unlinked,
-      changeable: !!action && action.dialog !== "none",
-    };
-  },
+  describe: (mark) =>
+    describeMark(mark, actionForElement(mark.name), {
+      fallbackTitle: source.textView.marks[/** @type {keyof typeof source.textView.marks} */ (mark.name)] ?? mark.name,
+      async identify(dialog, ref) {
+        const id = dialog === "person" ? source.person.registerIdOf(ref) : "";
+        if (id) {
+          const entry = await registerEntry(source.person.register, id).catch(() => null);
+          return [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
+        }
+        const gnd = (dialog === "person" ? source.person : source.place).gndOf(ref);
+        return gnd ? `GND ${gnd}` : ref;
+      },
+    }),
   onChange(mark) {
-    const action = actions.find((a) => a.element === mark.name && !a.refused);
+    const action = actionForElement(mark.name);
     if (!action) return;
     const tag = editor.slice(mark.openFrom, mark.openTo);
     const sel = { from: mark.openTo, to: mark.closeFrom, text: editor.slice(mark.openTo, mark.closeFrom) };
@@ -589,7 +569,7 @@ const card = createMarkCard({
     if (action.dialog === "person") openPersonDialog(sel, (ref) => change({ ref }));
     else if (action.dialog === "place") openPlaceDialog(sel, action, (ref) => change({ ref: ref || null }));
     else if (action.dialog === "date") {
-      const attrs = Object.fromEntries(["when", "from", "to", "notBefore", "notAfter"].map((n) => [n, attributeOf(mark.attrs, n)]));
+      const attrs = Object.fromEntries(action.attributes.map(({ name }) => [name, attributeOf(mark.attrs, name)]));
       openDateDialog(sel, action, { attrs, apply: change });
     }
   },

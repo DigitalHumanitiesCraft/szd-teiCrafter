@@ -6,7 +6,7 @@
 // stream opens, an aborted stream on failure), and downloads it otherwise.
 
 import { serializeRegistry } from "./actions.js";
-import { mayWrite } from "./files.js";
+import { guardedWrite, mayWrite } from "./files.js";
 import { $, ask, setStatus } from "./ui.js";
 
 /**
@@ -103,9 +103,11 @@ export function createSettings({ path, load, onChange }) {
     for (const p of parts.slice(0, -1)) dir = await dir.getDirectoryHandle(p);
     const target = await dir.getFileHandle(/** @type {string} */ (parts.at(-1)));
     if (!(await mayWrite(target))) return "Nicht gespeichert: Der Browser hat das Schreiben nicht erlaubt.";
-    const disk = async () => (await target.getFile()).text();
-    for (let expected = savedText; ; ) {
-      if ((await disk()) !== expected) {
+    // The registry is small, so its content is the state compared.
+    const written = await guardedWrite(target, text, {
+      expected: savedText,
+      stamp: async (/** @type {any} */ t) => (await t.getFile()).text(),
+      confirm: async (/** @type {any} */ t) => {
         const choice = await ask({
           title: "Aktionen auf der Festplatte geändert",
           text: `${path} wurde seit dem Laden geändert, etwa durch einen Git-Pull. Überschreiben ersetzt diese Fassung durch die Aktionen im Editor.`,
@@ -114,23 +116,10 @@ export function createSettings({ path, load, onChange }) {
             { value: "overwrite", label: "Überschreiben", primary: true },
           ],
         });
-        if (choice !== "overwrite") return "Nicht gespeichert. Die Aktionen im Editor bleiben erhalten.";
-        expected = await disk();
-      }
-      const writable = await target.createWritable();
-      if ((await disk()) !== expected) {
-        await writable.abort?.();
-        continue;
-      }
-      try {
-        await writable.write(text);
-        await writable.close();
-      } catch (err) {
-        await writable.abort?.().catch(() => {});
-        throw err;
-      }
-      return "";
-    }
+        return choice === "overwrite" ? t : null;
+      },
+    });
+    return written ? "" : "Nicht gespeichert. Die Aktionen im Editor bleiben erhalten.";
   }
 
   async function save() {

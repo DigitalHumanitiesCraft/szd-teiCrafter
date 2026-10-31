@@ -2,7 +2,43 @@
 // identity where it has one, and the actions „Ändern“ and „Entfernen“. It
 // appears on hover and, with the focus, on Enter; Escape returns to the text.
 
+import { attributeOf } from "./textview.js";
 import { $ } from "./ui.js";
+
+/**
+ * What the card says about a marked passage, from the action that writes its
+ * element: the identity of a linked person or place, the values of a date, and
+ * the attributes the card does not show.
+ * @param {import("./textview.js").Mark} mark
+ * @param {import("./actions.js").LoadedAction | undefined} action
+ * @param {{ fallbackTitle: string, identify: (dialog: "person" | "place", ref: string) => Promise<string> }} options
+ */
+export async function describeMark(mark, action, { fallbackTitle, identify }) {
+  const shown = new Set(action?.attributes.map((a) => a.name) ?? []);
+  const extra = [...mark.attrs.matchAll(/([\w:.-]+)\s*=/g)].map((m) => m[1]).filter((n) => !shown.has(n));
+  let detail = "";
+  let unlinked = false;
+  if (action?.dialog === "person" || action?.dialog === "place") {
+    const ref = attributeOf(mark.attrs, "ref");
+    unlinked = !ref;
+    detail = ref ? await identify(action.dialog, ref) : "noch nicht verknüpft";
+  } else if (action?.dialog === "date") {
+    detail = [...shown]
+      .map((n) => [n, attributeOf(mark.attrs, n)])
+      .filter(([, v]) => v)
+      .map(([n, v]) => `@${n} ${v}`)
+      .join(" | ");
+    unlinked = !detail;
+    detail ||= "ohne Datumswert";
+  }
+  return {
+    title: action?.label || fallbackTitle,
+    detail,
+    note: extra.length ? `Weitere Attribute (${extra.map((n) => `@${n}`).join(", ")}) stehen in der XML-Ansicht.` : "",
+    unlinked,
+    changeable: !!action && action.dialog !== "none",
+  };
+}
 
 /**
  * @typedef {import("./textview.js").Mark} Mark

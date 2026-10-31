@@ -52,3 +52,27 @@ export function ask({ title, text, choices }) {
   /** @type {HTMLElement} */ (box.querySelector("button")).focus();
   return new Promise((resolve) => box.addEventListener("close", () => resolve(box.returnValue), { once: true }));
 }
+
+/**
+ * Fills a result list with one button per item; choosing one marks it as
+ * pressed, unmarks earlier choices within `scope`, and hands its id on.
+ * @param {HTMLElement} list @param {HTMLElement} scope
+ * @param {{ id: string, title: string, meta: string }[]} items
+ * @param {(id: string) => void} onPick
+ */
+export function renderResults(list, scope, items, onPick) {
+  list.replaceChildren();
+  for (const item of items) {
+    const b = Object.assign(document.createElement("button"), { type: "button", className: "result" });
+    b.dataset.id = item.id;
+    b.append(Object.assign(document.createElement("strong"), { textContent: item.title }), Object.assign(document.createElement("span"), { textContent: item.meta }));
+    b.addEventListener("click", () => {
+      for (const other of scope.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
+      b.setAttribute("aria-pressed", "true");
+      onPick(item.id);
+    });
+    const li = document.createElement("li");
+    li.append(b);
+    list.append(li);
+  }
+}

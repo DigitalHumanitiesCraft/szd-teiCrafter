@@ -5,7 +5,7 @@
 
 import { isGndId, searchPersons } from "./gnd.js";
 import { cleanQuery, searchRegister } from "./register.js";
-import { $, arrowNavigation, setStatus } from "./ui.js";
+import { $, arrowNavigation, renderResults, setStatus } from "./ui.js";
 
 /**
  * @param {{
@@ -46,29 +46,14 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     $("person-preview").textContent = ref ? markup(pending.text, ref) : "";
   }
 
-  /** @param {HTMLElement} list @param {{ id: string, title: string, meta: string }[]} items */
-  function renderResults(list, items) {
-    list.replaceChildren();
-    for (const item of items) {
-      const b = Object.assign(document.createElement("button"), { type: "button", className: "result" });
-      b.dataset.id = item.id;
-      b.append(
-        Object.assign(document.createElement("strong"), { textContent: item.title }),
-        Object.assign(document.createElement("span"), { textContent: item.meta }),
-      );
-      b.addEventListener("click", () => {
-        refInput.value = item.id;
-        for (const other of dialog.querySelectorAll(".result")) other.removeAttribute("aria-pressed");
-        b.setAttribute("aria-pressed", "true");
-        updatePreview();
-        // The next Enter applies the choice.
-        $("person-apply").focus();
-      });
-      const li = document.createElement("li");
-      li.append(b);
-      list.append(li);
-    }
-  }
+  /** Both result lists share one choice. @param {HTMLElement} list @param {{ id: string, title: string, meta: string }[]} items */
+  const showResults = (list, items) =>
+    renderResults(list, dialog, items, (id) => {
+      refInput.value = id;
+      updatePreview();
+      // The next Enter applies the choice.
+      $("person-apply").focus();
+    });
 
   async function runRegisterSearch() {
     const asked = session;
@@ -76,7 +61,7 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
       const hits = await searchRegister(person.register, query.value, person.ignore);
       if (asked !== session) return;
       $("register-heading").textContent = `${person.registerLabel}${hits.length ? "" : ": keine Treffer"}`;
-      renderResults(
+      showResults(
         $("register-results"),
         hits.map((p) => ({ id: p.id, title: p.name, meta: [p.dates, p.gnd && `GND ${p.gnd}`, p.id].filter(Boolean).join(" | ") })),
       );
@@ -95,7 +80,7 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
       const persons = await searchPersons(cleaned);
       if (asked !== session) return;
       setStatus(status, "", persons.length ? "" : "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben.");
-      renderResults(
+      showResults(
         $("person-results"),
         persons.map((p) => ({ id: p.id, title: p.name, meta: [p.dates, p.info, `GND ${p.id}`].filter(Boolean).join(" | ") })),
       );

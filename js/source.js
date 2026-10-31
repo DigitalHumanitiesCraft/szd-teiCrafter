@@ -108,6 +108,8 @@ export const source = {
     blocks: ["div", "p", "head", "ab", "lg", "l", "list", "item", "opener", "closer", "dateline", "salute", "signed", "postscript", "note", "table", "row", "fw"],
     /** Element labels for the card of a marked passage. */
     marks: { persName: "Person", placeName: "Ort", date: "Datum", del: "Streichung", add: "Ergänzung", unclear: "Unsicher" },
+    /** Elements that point to an authority with @ref; without it they show as not yet linked. */
+    linked: ["persName", "placeName"],
     /** Parts of open spots drawn as a badge instead of their marker text. */
     badges: [
       { pattern: "\\[\\?(?:\\d+\\?)?\\]", text: "?", tip: "Unsicher gelesen, noch offen" },

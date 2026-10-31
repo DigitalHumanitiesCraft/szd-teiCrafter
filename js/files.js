@@ -53,6 +53,54 @@ export async function mayWrite(target) {
   return (await target.requestPermission({ mode: "readwrite" })) === "granted";
 }
 
+/**
+ * Writes into a file handle without overwriting a version the user has not
+ * seen. `stamp` reads what identifies the file's state on disk (a modification
+ * time, the content), `expected` is that state as last seen, or null to skip
+ * the comparison. A differing state goes to `confirm`, which resolves to the
+ * handle to write to or null to keep the file. The state is read again once
+ * the stream is open, since another program may write in between; then
+ * nothing is written and the comparison repeats. A failed write aborts the
+ * stream, so the file on disk stays as it was. Write permission is the
+ * caller's, before this, so a permission prompt cannot fall between the
+ * comparison and the writing.
+ * @template T
+ * @param {any} target
+ * @param {string} data
+ * @param {{ expected: T | null, stamp: (target: any) => Promise<T>, confirm: (target: any, current: T) => Promise<any> }} guard
+ * @returns {Promise<any>} the handle written to, or null when nothing was written
+ */
+export async function guardedWrite(target, data, { expected, stamp, confirm }) {
+  for (;;) {
+    let seen = expected;
+    if (expected !== null) {
+      const current = await stamp(target);
+      if (!Object.is(current, expected)) {
+        const next = await confirm(target, current);
+        if (!next) return null;
+        if (next !== target) {
+          target = next;
+          expected = null;
+        }
+        seen = expected === null ? null : current;
+      }
+    }
+    const writable = await target.createWritable();
+    if (seen !== null && !Object.is(await stamp(target), seen)) {
+      await writable.abort?.();
+      continue;
+    }
+    try {
+      await writable.write(data);
+      await writable.close();
+    } catch (err) {
+      await writable.abort?.().catch(() => {});
+      throw err;
+    }
+    return target;
+  }
+}
+
 /** The text as written to disk, with the byte order mark the file had. @param {string} text @param {boolean} bom */
 export const encodeXml = (text, bom) => (bom ? BOM + text : text);
 
@@ -200,17 +248,12 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
   }
 
   /**
-   * Before writing in place, the file on disk is compared with the state seen
-   * at opening or last saving, since a pull or another program may have changed
-   * it. Resolves to the handle to write to with the modification time the
-   * decision rests on, or null when the user keeps the file.
-   * @param {any} target
-   * @returns {Promise<{ target: any, seen: number | null } | null>}
+   * Asks what to do with a file changed on disk since opening or last saving,
+   * as after a pull. Resolves to the handle to write to, or null when the user
+   * keeps the file.
+   * @param {any} target @param {number} current its modification time, NaN when unreadable
    */
-  async function confirmTarget(target) {
-    if (diskModified === null || target !== handle) return { target, seen: null };
-    const current = await modifiedOf(target);
-    if (current === diskModified) return { target, seen: current };
+  async function confirmChanged(target, current) {
     const changed = Number.isNaN(current)
       ? `${target.name} ist auf der Festplatte nicht mehr lesbar, vielleicht verschoben oder gelöscht.`
       : `${target.name} wurde seit dem ${savedBy} auf der Festplatte geändert, zuletzt am ${new Date(current).toLocaleString("de-AT")}, etwa durch einen Git-Pull.`;
@@ -223,8 +266,8 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
         { value: "overwrite", label: "Überschreiben", primary: true },
       ],
     });
-    if (choice === "overwrite") return { target, seen: current };
-    if (choice === "copy") return { target: await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: target.name, types: XML_TYPES }), seen: null };
+    if (choice === "overwrite") return target;
+    if (choice === "copy") return /** @type {any} */ (window).showSaveFilePicker({ suggestedName: target.name, types: XML_TYPES });
     return null;
   }
 
@@ -263,46 +306,32 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
       download(text, note);
       return;
     }
-    let writtenTo = "";
     try {
-      let target = handle ?? (await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: name, types: XML_TYPES }));
+      const target = handle ?? (await /** @type {any} */ (window).showSaveFilePicker({ suggestedName: name, types: XML_TYPES }));
       if (!(await mayWrite(target))) {
         report("error", `Nicht gespeichert: Der Browser hat das Schreiben in ${target.name} nicht erlaubt. Der Text im Editor ist unverändert erhalten.`);
         return;
       }
-      for (;;) {
-        const decision = await confirmTarget(target);
-        if (!decision) {
-          report("error", "Nicht gespeichert. Der Text im Editor ist unverändert erhalten.");
-          return;
-        }
-        target = decision.target;
-        const writable = await target.createWritable();
-        // The file may change between the comparison and the opened stream; then
-        // nothing is written and the comparison runs again, asking the user.
-        if (decision.seen !== null && (await modifiedOf(target)) !== decision.seen) {
-          await writable.abort?.();
-          continue;
-        }
-        try {
-          await writable.write(encodeXml(text, bom));
-          await writable.close();
-        } catch (err) {
-          // An aborted stream leaves the file on disk as it was.
-          await writable.abort?.().catch(() => {});
-          throw err;
-        }
-        writtenTo = target.name;
-        if (opened !== generation) break;
-        handle = target;
-        name = target.name;
-        diskModified = await modifiedOf(target);
+      // Only the opened file is compared; a newly chosen one has no earlier state.
+      const written = await guardedWrite(target, encodeXml(text, bom), {
+        expected: diskModified !== null && target === handle ? diskModified : null,
+        stamp: modifiedOf,
+        confirm: confirmChanged,
+      });
+      if (!written) {
+        report("error", "Nicht gespeichert. Der Text im Editor ist unverändert erhalten.");
+        return;
+      }
+      if (opened === generation) {
+        handle = written;
+        name = written.name;
+        diskModified = await modifiedOf(written);
         markSaved(text);
         report("ok", [`Gespeichert in ${name}.`, note, stateNote()].filter(Boolean).join(" "));
         onSaved();
         return;
       }
-      report("ok", `${writtenTo} wurde gespeichert. Inzwischen ist ein anderes Dokument geöffnet, das davon unberührt bleibt.`);
+      report("ok", `${written.name} wurde gespeichert. Inzwischen ist ein anderes Dokument geöffnet, das davon unberührt bleibt.`);
     } catch (err) {
       if (/** @type {any} */ (err)?.name !== "AbortError") report("error", `Speichern fehlgeschlagen: ${err}`);
     }
