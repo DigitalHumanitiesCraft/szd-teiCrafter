@@ -1,100 +1,87 @@
 # teiCrafter SZD
 
 A TEI editing environment for the documents of [Stefan Zweig Digital](https://stefanzweig.digital),
-derived from the idea of [teiCrafter](https://github.com/DigitalHumanitiesCraft/teiCrafter):
-TEI source on the left, the facsimile in an OpenSeadragon viewer on the right.
+derived from [teiCrafter](https://github.com/DigitalHumanitiesCraft/teiCrafter): the TEI source
+on the left, the facsimile in an OpenSeadragon viewer on the right. Editor and research data live
+in one Git repository, so an edition team divides the documents, edits them in the browser and
+exchanges the results by commit and push.
 
 ## What it does
 
 - Lists the documents of the repository by collection (correspondence, life documents, works,
-  essay files) in a searchable dialog with title, object id, pages, open spots and working state,
-  filterable by collection and state. The example letter `data/o_szd.1222.tei.xml` loads on start,
-  and an opened document starts at its first page break.
-- Edits TEI in a CodeMirror 6 code editor: blue/orange XML highlighting, line numbers, folding,
-  auto-closing tags, search (Ctrl+F), element suggestions after `<` from the source configuration,
-  code zoom (buttons or Ctrl + mouse wheel) and line wrapping with a hanging indent.
-- Annotates at the selection: a menu offers Person, deletion, uncertain reading and addition.
-  Persons are found in the Stefan Zweig Digital person index while typing, or in the GND through
-  lobid-gnd, and become `<persName ref="…">`. The HTR markers `~~…~~`, `[?]` and `{…}` are counted,
-  and F8 walks through them with the matching action suggested.
-- Checks well-formedness while you type and validates against TEI All (P5 4.11.0) in the browser;
-  each error links to its line. Git conflict markers are explained as two versions of a passage.
-- Shows the working state of the document in the header, from in progress (with its reason) to
-  ready for acceptance and accepted. A document that is well-formed, free of open spots and valid
-  can be accepted, which writes `revisionDesc/@status="approved"` and a dated `change` into the TEI.
-- Loads images into the viewer from a IIIF Presentation manifest (v2 or v3), a IIIF Image API
-  `info.json` or service URL, or a plain image URL. For SZD documents the GAMS manifest is
-  derived from `idno[@type="objectId"]`. The facsimile follows the caret page by page, can be
-  turned and rotated, and the split between text and facsimile can be dragged, moved with the
-  arrow keys or used to hide the facsimile.
-- Saves in place where the browser supports the File System Access API (Chromium): a file opened
-  from a local clone of this repository is written back, ready to commit, and a file changed on
-  disk is not overwritten without asking. Elsewhere saving downloads the file. Saving works in
-  every state, unsaved work is marked on the save button, and the changes since opening or saving
-  can be compared line by line before a commit.
+  essay files) in a searchable dialog with title, object id, shelf mark, pages, open spots and
+  working state. The example letter `data/o_szd.1222.tei.xml` loads on start, and an opened
+  document starts at its first page break.
+- Edits TEI in a CodeMirror 6 code editor with highlighting, folding, search, element
+  suggestions, code zoom and line wrapping, or in a text view of the same document that hides
+  the markup and sets the text in lines or flowing paragraphs.
+- Annotates at the selection. A menu offers person, place, date, deletion, uncertain reading and
+  addition. Persons are found in the Stefan Zweig Digital person index or in the GND through
+  lobid-gnd, places in the GND, and dates are proposed as ISO values. The actions are data in
+  `data/actions.json` and can be switched in the settings view. The HTR markers `~~…~~`, `[?]`
+  and `{…}` and the other open work of the machine transcription are counted, and F8 walks
+  through them.
+- Checks well-formedness while typing and validates against TEI All (P5 4.11.0) in the browser.
+  Each error links to its line, and Git conflict markers are explained as two versions of a
+  passage.
+- Shows the working state of the document, from in progress (with its reason) to ready for
+  acceptance and accepted. Accepting writes `revisionDesc/@status="approved"` and a dated `change`
+  into the TEI. A document saved after a change since its acceptance is stored as in progress
+  again.
+- Loads the facsimile from the GAMS IIIF manifest derived from `idno[@type="objectId"]`, or from
+  any IIIF manifest, IIIF Image API service or image URL, and follows the caret page by page.
+- Saves in place where the browser supports the File System Access API (Chrome, Edge): a file
+  opened from a local clone is written back, ready to commit, and a file changed on disk is not
+  overwritten without asking. Elsewhere saving downloads the file. Saving works in every state,
+  names the working state, and the changes since opening can be compared line by line.
 
-## Working with Git
+## Working as a team member
 
-Editor and research data live in the same repository. Each person clones it, opens a file from
-`data/`, edits and saves it, then commits and pushes. This is not simultaneous collaboration, but
-it lets a team divide documents and keeps every change versioned, on GitHub or a self-hosted
-GitLab alike. A document chosen from the list is saved by download or to a chosen file. To save
-it in place, open it from the clone with the open button.
+1. Clone the repository and serve its root, for instance with `python -m http.server 8000`, then
+   open http://localhost:8000/ in Chrome or Edge.
+2. Find a document with the document list. To save into your clone, open the file itself with
+   the open button from `data/<collection>/` of your clone; a document chosen from the list is
+   saved by download or to a chosen file.
+3. Edit and annotate. Save with Ctrl+S at any point, also in an unfinished state; the status line
+   names the state the file was saved in.
+4. Check your changes with `git diff`, commit them with a message naming the document, and push.
+   Pull before you start the next document, so that a colleague's commits arrive first. If a pull
+   changed the file you have open, the editor asks before overwriting it.
+5. When a document is free of open spots and valid, accept it and save. After commits that change
+   a document's state, rebuild the document list with `node tools/build-document-index.mjs` and
+   commit `data/index.json` with them.
+
+Two people should not edit the same file at the same time. If a merge produces Git conflict
+markers, the editor names them and the passage can be resolved in the XML view.
 
 ## Data and tools
 
 - `data/<collection>/`: a working set of about ten documents per collection, imported byte-exact
   from the szd-htr pipeline. `tools/working-set.json` lists the selection with a reason per
-  document, and `data/IMPORT.md` records per document the szd-htr commit and the SHA-256 of the
-  source, because most szd-htr results are not tracked in git. From the import on, the documents
-  are maintained here.
-- `node tools/import-working-set.mjs [path to szd-htr]` imports the working set and writes
-  `data/IMPORT.md`. It never overwrites a file that has been corrected here.
-- `node tools/build-document-index.mjs` rebuilds `data/index.json`, the document list with title,
-  pages, open spots and working state, with character references in titles resolved. Run it
-  after an import and after commits that change a document's state.
+  document, and `data/IMPORT.md` records the szd-htr commit and the SHA-256 of each source. From
+  the import on, the documents are corrected here.
+- `node tools/import-working-set.mjs [path to szd-htr]` imports the working set. It never
+  overwrites a file that has been corrected here.
+- `node tools/build-document-index.mjs` rebuilds `data/index.json`, the document list.
 - `node tools/build-person-index.mjs` rebuilds `data/register/szd-persons.json` from the person
   index at GAMS.
 
 ## Structure
 
-- `js/app.js`: the composition root, which connects editor, viewer and dialogs and keeps the
-  checks, the problem list, the working-state badge, the open spots with F8 and the facsimile
-  of the open document.
-- `js/`: generic modules for the code editor (`editor.js`), TEI facts (`tei.js`), IIIF
-  (`iiif.js`), the image viewer (`viewer.js`), validation (`validate.js`), the split
-  (`split.js`), GND and register search (`gnd.js`, `register.js`), the line comparison
-  (`diff.js`) and its dialog (`changes.js`), the working state (`state.js`), opening and saving
-  (`files.js`), the document list (`docs.js`), the action menu (`menu.js`), the person dialog
-  (`person.js`) and shared interface helpers (`ui.js`).
-- `js/source.js` holds everything specific to Stefan Zweig Digital (GAMS manifest, element
-  suggestions, HTR marker actions, person index and reference forms). Another edition replaces
-  this file.
-- `tools/`: the Node scripts that import the working set and build the document and person
-  indexes. The browser check imports `tools/build-document-index.mjs` and fails when
-  `data/index.json` is not in step with the files.
-- `vendor/codemirror/`, `vendor/openseadragon/`, `vendor/libxml2-wasm/`, `schemas/tei-p5-4.11.0/`:
-  vendored third-party material, each with its `NOTICE.md`. CodeMirror is a prebuilt bundle; its
-  rebuild recipe is in `vendor/codemirror/NOTICE.md`.
-- `test/`: the browser check, the only place that needs Node packages.
-
-## Run
-
-No build step. Serve the repository root and open it in a browser:
-
-```
-python -m http.server 8000
-```
-
-then http://localhost:8000/.
-
-## Project knowledge
-
-Requirements, decisions, data, design, checks and the plan are kept in `knowledge/`, starting at
-`knowledge/INDEX.md`. The browser check is described in `knowledge/testing.md`.
+- `index.html`, `css/`, `js/`: the editor, native ES modules without a build step. `js/source.js`
+  and `data/actions.json` hold everything specific to Stefan Zweig Digital; another edition
+  replaces these two files. The responsibilities of the modules are listed in ADR-002 of
+  `knowledge/specification.md`.
+- `tools/`: Node scripts for import and indexes.
+- `vendor/`, `schemas/`: vendored CodeMirror, OpenSeadragon, libxml2-wasm and the TEI schema, each
+  with its `NOTICE.md`.
+- `test/`: unit tests and the browser check, the only place that needs Node packages
+  (`cd test && npm install && npm run check`, with the server running).
+- `knowledge/`: requirements, decisions, data, design, checks and the plan, starting at
+  `knowledge/INDEX.md`.
 
 ## Licence
 
 Code under MIT, see `LICENSE`. The TEI documents are CC BY 4.0 per Stefan Zweig Digital, see
-`data/NOTICE.md` and `data/IMPORT.md`.
-CodeMirror is MIT, OpenSeadragon BSD-3-Clause, libxml2-wasm MIT, the TEI schema CC BY 3.0 / BSD-2-Clause.
+`data/NOTICE.md` and `data/IMPORT.md`. CodeMirror is MIT, OpenSeadragon BSD-3-Clause,
+libxml2-wasm MIT, the TEI schema CC BY 3.0 / BSD-2-Clause.

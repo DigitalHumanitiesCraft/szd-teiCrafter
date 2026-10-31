@@ -6,7 +6,7 @@ project:
 status: draft
 language: en
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -77,4 +77,4 @@ The constitutive terms, derivation and source configuration among them, are defi
 
 ## Licence
 
-Code is under MIT (`LICENSE`). The example letter is CC BY 4.0 with attribution to Stefan Zweig Digital, Literaturarchiv Salzburg (`data/NOTICE.md`). Vendored libraries and the TEI schema keep their own licences, each documented in its `NOTICE.md`.
+Code is under MIT (`LICENSE`). The TEI documents are CC BY 4.0 with attribution to Stefan Zweig Digital, Literaturarchiv Salzburg (`data/NOTICE.md`, `data/IMPORT.md`). Vendored libraries and the TEI schema keep their own licences, each documented in its `NOTICE.md`.

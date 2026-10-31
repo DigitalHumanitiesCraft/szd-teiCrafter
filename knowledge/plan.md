@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -54,13 +54,14 @@ Each milestone passes three checks in this order.
 
 ## Where to resume
 
-The Lab was paused on 2026-10-30 after the text view, the action registry with its settings view, the place and date actions and the revised documents dialog were built and checked. The next steps, in this order, come from the Human User's review of that state, recorded verbatim in [design](design.md#requirements-from-the-human-user).
+On 2026-10-31 two independent code reviews were worked through, see [journal](journal.md). The next step is the operator's trial run, the steps after it come from the Human User's review of the interface, recorded verbatim in [design](design.md#requirements-from-the-human-user).
 
-1. Action menu. Think through how each semantic annotation is best represented, standard icons for deletion, addition, emphasis and uncertainty, text only where an icon does not explain itself. Drop the visible key letters, and name keys, if any stay, in the tooltip. Keep the menu on one line. Snap selections that start or end inside a word to word boundaries before actions are offered.
-2. Documents dialog. A definition for each state icon and a mark of its own for accepted, no repeated counts or headings, a visible sort order, „Sammlungen“ or the configured term instead of „Collections“, and document date and last edit as compact meta.
-3. Actions dialog. Markers in words with the pattern in a tooltip, the key fields labelled or moved to a tooltip, an icon column, a plain statement that TEI All constrains little until the ODD exists, saving to the configured location as the primary button, and one introductory sentence with a defining tooltip.
-4. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, point `source.schema` to it, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013).
-5. Align with the szd operator on the editorial rules for places, dates and the default attributes of the actions (S4).
+1. Trial run. The operator works through a simulated project, a local copy of this repository with a local remote and a second clone as a team member, following the partner guide in the README. It doubles as the operator acceptance of S1 and S2.
+2. Action menu. Think through how each semantic annotation is best represented, standard icons for deletion, addition, emphasis and uncertainty, text only where an icon does not explain itself. Drop the visible key letters, and name keys, if any stay, in the tooltip. Keep the menu on one line. Snap selections that start or end inside a word to word boundaries before actions are offered.
+3. Documents dialog. A definition for each state icon and a mark of its own for accepted, no repeated counts or headings, a visible sort order, „Sammlungen“ or the configured term instead of „Collections“, and document date and last edit as compact meta.
+4. Actions dialog. Markers in words with the pattern in a tooltip, the key fields labelled or moved to a tooltip, an icon column, a plain statement that TEI All constrains little until the ODD exists, saving to the configured location as the primary button, and one introductory sentence with a defining tooltip.
+5. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, point `source.schema` to it, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013).
+6. Align with the szd operator on the editorial rules for places, dates and the default attributes of the actions (S4).
 
 ## Milestones
 
@@ -93,7 +94,9 @@ After the refactoring of the interface code into modules (ADR-002), the browser 
 
 An adversarial review of the save path on 2026-10-30 found data-loss and corruption risks, all fixed with regression checks and recorded as [data safety guarantees](specification.md#data-safety-guarantees). A save keeps its document while another is chosen, undo stays within the open document, only UTF-8 opens and a byte order mark survives, a download keeps the text unsaved, write permission comes before the disk comparison and a change while the write stream opens aborts it, inserted line breaks follow the file and mixed endings stay, acceptance waits for the pending check and only reaches a real `revisionDesc`, and a validation result belongs to its exact text. The fast unit tests under `test/unit/` now run before the browser check.
 
-Open: the save confirmation does not yet name the state, as ADR-008 asks. Saving a malformed document has no browser case yet, see [testing](testing.md#gaps). Independent review and operator acceptance of the milestone.
+The save confirmation names the working state since 2026-10-31, and a document changed since its acceptance is saved as in progress.
+
+Open: saving a malformed document has no browser case yet, see [testing](testing.md#gaps). Operator acceptance of the milestone in the trial run.
 
 Verification adds browser cases for a file changed on disk, a file with conflict markers and saving a malformed document.
 
@@ -110,7 +113,9 @@ The browser check now covers the list with search, collection chip, state filter
 
 The documents dialog was revised on 2026-10-30 after the Human User's feedback, with collections from `source.collections` used by the dialog and both tools, a chip that explains how a collection is set up, concept tooltips from `js/concepts.js`, state icons with accessible names, a formal count line per collection, the last search selected on reopening and Escape closing at once. His further points on it are resume step 2.
 
-Open: the signature as a field of its own in the index (it is part of the title now), rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, the version-history link and the partner guide.
+The shelf mark is a field of the index and searchable since 2026-10-31, and the README carries a partner guide.
+
+Open: rebuilding the index without a manual step after state changes, collection-specific element suggestions, `standOff` persons shown and checked against the index, and the version-history link.
 
 ### S4 Editorial rule layer
 
@@ -134,22 +139,22 @@ These items are accepted as direction and not yet placed in a milestone.
 
 - Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
-- Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validateTeiAll` into a worker is the upgrade path named in `js/validate.js`.
+- Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validate` into a worker is the upgrade path named in `js/validate.js`.
 
 ## Status tracker
 
 | Milestone | Status | Notes |
 |---|---|---|
-| S1 Editor core | in progress | browser check green, independent review fixed, operator acceptance open |
-| S2 Visible state and safe round trip | in progress | comparison, conflict markers, overwrite protection, state badge, acceptance and the data safety fixes built and checked, while the state in the save confirmation, a case for saving a malformed document, review and acceptance are open |
-| S3 Collections and project page | in progress | working set imported, document list with search and filters built and in the browser check, while collection-specific suggestions, standOff persons, the version-history link and the partner guide are open |
+| S1 Editor core | in progress | browser check green, independent reviews fixed, operator acceptance open in the trial run |
+| S2 Visible state and safe round trip | in progress | built and checked, including the state in the save confirmation and the withdrawal of a stale acceptance, while a case for saving a malformed document and acceptance are open |
+| S3 Collections and project page | in progress | working set imported, document list with search and filters, shelf marks and partner guide, while collection-specific suggestions, standOff persons and the version-history link are open |
 | S4 Editorial rule layer | pending | text view, action registry, place and date actions built on 2026-10-30, their editorial rules open |
 | S5 Publication and partner trial | pending | operator action |
 | S6 Derivation contract in the base | pending | handoff in the base since 2026-10-30 |
 
 ## Open decisions and dependencies
 
-- The import scope and the authoritative place (ADR-010) and the place of the working state (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
+- The import scope and the authoritative place (ADR-010), the place of the working state and the withdrawal of a stale acceptance (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
 - The editorial rules, for example whether a title such as „Dr.“ stands inside `persName` how hand and reason are given on `add`, `del` and `unclear`, and how `gap` records the extent of a passage, are settled with the project partners on example letters, before S4.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.
 - Whether the narrow view gets a switch between text and facsimile, proposed by the usability review because stacked panes separate a passage from its image, before S5.

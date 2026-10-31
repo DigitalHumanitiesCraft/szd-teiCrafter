@@ -22,7 +22,8 @@ Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, t
 - Handoff: read `knowledge/handoff.md` at session start, verify source and target of every point used, integrate durable content first, write the journal entry, then remove the point.
 - Journal: one entry per coherent transition with the fields that have content. Status, open tasks and detailed results belong in their own documents.
 - Keep edition specifics in `js/source.js` and the annotation actions in `data/actions.json`. A generic module that needs to know about Stefan Zweig Digital is a design error, report it.
-- Place a change in the module that owns it, following the module cut in ADR-002 of `knowledge/specification.md`. `js/app.js` is the composition root for checks, problem list, badge, open spots and facsimile, `js/files.js` owns opening and saving, `js/state.js` the pure working-state functions, `js/actions.js` and `js/schema.js` the action registry and its schema check, `js/textview.js` the text view, `js/docs.js`, `js/menu.js`, `js/person.js`, `js/place.js`, `js/datedialog.js`, `js/markcard.js`, `js/settings.js` and `js/changes.js` their dialogs and panels, `js/concepts.js` the defined terms of the tooltips, and `js/ui.js` the shared helpers.
+- Place a change in the module that owns it. The module map in ADR-002 of `knowledge/specification.md` is the one list of module responsibilities; update it when a responsibility moves.
+- Edits the application makes go through `editor.replace` or `editor.dispatch`, which mark them as application edits. The text view refuses every other command that changes the text unless it is typing, pasting, dropping, replacing or deleting.
 - Never alter research data beyond the requested edit. Saving must keep every untouched byte, and the browser check proves it.
 - No volatile numbers in this file or in `knowledge/`. Future work goes to `knowledge/plan.md`.
 

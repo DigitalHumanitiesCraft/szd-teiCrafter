@@ -9,7 +9,7 @@ method:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 template:
@@ -23,6 +23,15 @@ related: [project, specification, handoff]
 # Journal
 
 ## Entries
+
+### 2026-10-31 Two code reviews worked through, knowledge curated, trial run prepared
+
+- Trigger: the operator asked for an understanding of the whole editor, for its problems and for refactoring. Two independent reviewers read the modules in two halves without the implementer's verdict, and the operator asked to implement every proposal, to curate the knowledge base and to prepare a trial run as a simulated project.
+- Found: the text view guard let through every transaction without a typing, deleting or moving event, so commenting out or copying a source line acted on hidden markup. The mark card removed tags at the positions of the moment it opened. Acceptance took two undo steps, could place a new `revisionDesc` before header content sharing its line, and was dated in UTC. The stored acceptance outlived later edits. Further defects lay in the register ranking, the comparison jump line, late facsimile, list and GND answers, CRLF offsets in the date dialog, the document index's status regex, open work across line breaks and the import record on a failed rerun.
+- Changed: each defect fixed in its owning module with a unit or browser case, and three copies replaced by shared code, the guarded write loop for documents and registry, the result list of the person and place dialogs, and the mark description taken from the registry action. The specification's module map in ADR-002 is now the single list of module responsibilities, which CLAUDE.md and the README point to.
+- Decided: the text view guard is an allow-list, because a deny-list misses every command CodeMirror adds. A text changed since its acceptance is saved as `draft`, as a reversible default under ADR-011, so the file never claims more than holds. Documents keep comparing the modification time before overwriting, because the stubbed handles of the browser check model disk changes by time, and moving to a content comparison would rebuild the safety cases for a rare gain. Leftover markers are counted as open work without an action, since resolving a deletion across lines needs the XML view.
+- Evidence: `npm run check` passing in full after each step, unit tests first.
+- Open: the operator's trial run, which also stands for the acceptance of S1 and S2, then the resume steps in [plan](plan.md#where-to-resume).
 
 ### 2026-10-30 Text view, action registry and revised documents dialog, paused for review
 

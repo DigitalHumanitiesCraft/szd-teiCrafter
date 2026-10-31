@@ -7,7 +7,7 @@ status: draft
 language: en
 version: 0.1
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -106,4 +106,4 @@ The selection of documents imported from szd-htr into this repository, about ten
 
 ### Working state
 
-Where a document stands on the way to finished, from not well-formed through well-formed, valid and free of open spots to accepted. Saving is possible in every state, and the state is shown. Only in progress and accepted are stored, in `revisionDesc/@status`, and the steps between are computed by the editor, see ADR-006, ADR-008 and ADR-011 in the specification.
+Where a document stands on the way to finished, from not well-formed through well-formed, valid and free of open spots to accepted. Saving is possible in every state, and the state is shown. Only in progress and accepted are stored, in `revisionDesc/@status`, and the steps between are computed by the editor. A document saved after a change since its acceptance is stored as in progress again, see ADR-006, ADR-008 and ADR-011 in the specification.
