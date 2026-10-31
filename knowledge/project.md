@@ -45,6 +45,19 @@ teiCrafter is DHCraft's browser tool for TEI work. Its base repository holds the
 
 Editing a digital edition means closing the gap between a machine transcription and an encoded, checked text. The editor supports this as a working environment with source and image side by side, live well-formedness, validation against TEI All and annotation actions that write correct TEI. Research data and editor live in one Git repository, so that team members divide documents, commit their work and exchange it through GitHub or a self-hosted GitLab without a server of their own.
 
+## Research use
+
+The editor is also a case for the operator's research on agent-based edition workflows, continuing the experiment on the writings of Jeanne Hersch reported in the SIDE contribution the operator is writing with a co-author from the Zentralbibliothek Zürich. That contribution divides entity annotation between deterministic rules, an AI agent and a person's verification. teiCrafter SZD adds the tool as a further variable, which turns the division into configurations that can be compared:
+
+| Configuration | Decides | Writes the markup | Checks |
+|---|---|---|---|
+| Deterministic (Hersch, stage 1) | rule and entity list | matcher | tests, then a person |
+| Tool alone | person | editor actions | editor checks, person |
+| Agent with tool | agent | editor actions | editor checks, then a person |
+| Agent directly in TEI | agent | agent | shared check, then a person |
+
+The agent run of 2026-10-31 compared the last two (ADR-015). On the calibration letter four agents agreed on all but three marks, which shows stability under one model, rule set and source set, not correctness. A person's review of the proposals (ADR-016) is the next evidence, and an agent run on the Hersch data with review in its curation frontend would carry the comparison back to the original experiment, subject to the co-author's consent.
+
 ## Standards
 
 - Encoding: TEI P5, validated against the strictest available schema, the project schema generated from the ODD once it exists and TEI All 4.11.0 as the fallback.

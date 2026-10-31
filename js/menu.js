@@ -4,7 +4,7 @@
 // registry (js/actions.js). Actions without a dialog wrap at once; the others
 // hand over to their dialog.
 
-import { stripMarker, suggests, wrap } from "./actions.js";
+import { lineBreakPattern, stripMarker, suggests, wrap } from "./actions.js";
 import { $ } from "./ui.js";
 
 /**
@@ -22,7 +22,7 @@ import { $ } from "./ui.js";
  * may span, so a name broken across lines becomes one element
  */
 export function createActionMenu({ editor, onDialog, onNext, report, markupNote, lineBreak }) {
-  const crossable = lineBreak ? new RegExp(`<${lineBreak}(?:\s[^<>]*)?/>`, "g") : null;
+  const crossable = lineBreak ? lineBreakPattern(lineBreak) : null;
   const menu = $("actions");
   const box = $("actions-items");
   /** @type {import("./actions.js").LoadedAction[]} */

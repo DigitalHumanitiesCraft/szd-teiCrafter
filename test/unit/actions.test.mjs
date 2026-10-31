@@ -4,7 +4,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { checkAgainstSchema, loadActions, markerDetectors, serializeRegistry, stripMarker, withAttributes, wrap } from "../../js/actions.js";
+import { checkAgainstSchema, lineBreakPattern, loadActions, markerDetectors, serializeRegistry, stripMarker, withAttributes, wrap } from "../../js/actions.js";
 import { dateContext, isIsoDate, parseDate } from "../../js/dates.js";
 import { schemaChecker } from "../../js/schema.js";
 import { source } from "../../js/source.js";
@@ -147,4 +147,11 @@ test("the document date comes from the title, and „o. D.“ names none", () =>
   assert.equal(source.documentDate(doc("Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52")), "1935-01-04");
   assert.equal(source.documentDate(doc("Postkarte, 1906-11-23, Palermo")), "1906-11-23");
   assert.equal(source.documentDate(doc('Deckblatt "Copyr. Bureau Korresp. 1939", o. D.')), null);
+});
+
+test("a passage may span line breaks with or without attributes, and nothing else", () => {
+  const strip = (/** @type {string} */ t) => t.replace(lineBreakPattern("lb"), "");
+  assert.equal(strip('H~~amb~~[?]\n        <lb/>Goetzfried'), "H~~amb~~[?]\n        Goetzfried");
+  assert.equal(strip('Goetz-\n<lb n="12" break="no"/>fried'), "Goetz-\nfried");
+  assert.equal(strip("a<lbx/>b<p/>"), "a<lbx/>b<p/>");
 });

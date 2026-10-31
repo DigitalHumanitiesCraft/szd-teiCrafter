@@ -92,7 +92,7 @@ An outside producer, such as an LLM agent, hands its annotations to the editor a
 - `producer` or `run`, whose `kind` and `model` the card names.
 - `proposals`, each with `id`, `text` exactly as in the source, `element` and `attributes` as they belong into the opening tag, optional `offset` (`from`, `to`) or `range`, `context` (`before`, `after`) and `occurrence` to anchor it, `basis` as a list of `kind`, `id`, `label` and `source`, and `doubt`.
 
-A proposal is placed at its offsets when the text there is unchanged, else by context, else by occurrence. A state other than proposed (`status` or `verdict`), a `reviewer`, an attribute `resp` or one outside the action of its element refuse the proposal, and `verdict: "reject"` skips it. The agents of 2026-10-31 wrote format `teicrafter-proposals/0.1`, which the editor reads. Saving the review writes `<object id>.pruefung.json` with the proposal file, the producer and each decision as `accepted`, `rejected` or `edited` with its time.
+A proposal is placed at its offsets when the text there is unchanged, else by context, else by occurrence. A state other than proposed (`status` or `verdict`), a `reviewer`, an attribute `resp` or one outside the action of its element refuse the proposal, and `verdict: "reject"` skips it. The agents of 2026-10-31 wrote format `teicrafter-proposals/0.1`, which the editor reads, and `tools/proposals-from-copy.mjs` turns an annotated working copy into format 0.2, refusing a copy whose transcription differs from the original. Saving the review writes `<object id>.pruefung.json` with the proposal file, the producer and each decision as `accepted`, `rejected` or `edited` with its time.
 
 ## Examples
 

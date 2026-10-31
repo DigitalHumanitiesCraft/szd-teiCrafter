@@ -89,9 +89,17 @@ Geisteswissenschaftliches Asset Management System of the University of Graz, the
 
 Gemeinsame Normdatei of the German National Library. The editor writes a GND URI into `persName/@ref` for persons outside the person index, and the index itself carries GND links where it has them.
 
+### Proposal file
+
+A JSON file in which an outside producer, such as an LLM agent, hands annotations of one document to the editor, each to be accepted, changed or rejected by a person. Its format is described in [data](data.md#proposal-files), the review in ADR-016 of the specification.
+
 ### Person index
 
 The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, whose entries carry identifiers of the form `SZDPER.n`. Annotations point to its entries as `#SZDPER.n`, see ADR-007 in the specification.
+
+### Review log
+
+The JSON file the editor saves after a review of proposals, naming the proposal file, its producer and each decision as accepted, rejected or edited with its time. It is the evidence of the person's review beside the TEI, see ADR-016.
 
 ### Schema list
 

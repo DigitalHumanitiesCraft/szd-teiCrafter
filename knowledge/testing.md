@@ -73,6 +73,8 @@ The browser check covers these categories, each with real pointer and keyboard a
 - The accept handler's refusal when acceptance edits do not yield `status="approved"` has no browser case. The state guard after a save that ends with another document open is unreachable from the interface while opening is refused during saving, and stays without a case.
 - The races of a list load against typing, of a late facsimile and of a late GND answer are guarded in code without a browser case, since they depend on network timing.
 - Rendering of minority line breaks as placeholders in a mixed file is only seen in a screenshot.
+- Undoing an acceptance restores the text but not the proposal, and a rejection cannot be undone except by loading the file again. Both are by design of the state field and have no case.
+- `tools/proposals-from-copy.mjs` has no automated test. On 2026-10-31 it converted the nine annotated copies of the agent run, and the importer placed every resulting proposal.
 - The browser runs wait for the GAMS manifest of the example letter. A slow answer makes a run time out with a message naming the facsimile status, and a rerun then passes.
 
 ## Acceptance

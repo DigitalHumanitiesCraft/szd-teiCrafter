@@ -141,7 +141,14 @@ export function suggests(a, text) {
 }
 
 /** @param {string} value */
-export const escapeAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+/**
+ * The empty line-break element, with or without attributes, that an
+ * annotated passage may span, so a name broken across lines becomes one
+ * element. @param {string} name e.g. lb
+ */
+export const lineBreakPattern = (name) => new RegExp(`<${name}(?:\\s[^<>]*)?/>`, "g");
+
+export const escapeAttribute =(value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 /**
  * The element of an action around a text, with the given attributes in order.

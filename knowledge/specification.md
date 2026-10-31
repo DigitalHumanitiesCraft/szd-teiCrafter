@@ -245,15 +245,7 @@ Effect. Simultaneous editing of one file is not supported, which the team handle
 
 ### ADR-005 GND URIs in persName/@ref
 
-Superseded by ADR-007 on 2026-10-30.
-
-Context. Person annotation needs a stable identifier.
-
-Choice. `<persName ref="https://d-nb.info/gnd/ID">`, the identifier as full URI, searched through lobid-gnd.
-
-Rationale. The URI resolves without the editor and is the common TEI practice for authority links. lobid-gnd needs no key and allows browser requests, and the teiCrafter base uses it as well.
-
-Effect. A live request goes to lobid.org only when the user searches, which is a deliberate exception to the rule of no live API calls, because looking up an identity is the editing act itself.
+Superseded by ADR-007 on 2026-10-30. It wrote `https://d-nb.info/gnd/ID` found through lobid-gnd. What survives is the reason for the live request: a lookup goes to lobid.org only when the user searches, because looking up an identity is the editing act itself.
 
 ### ADR-006 Definition of done and two working states
 

@@ -70,6 +70,8 @@ markers, the editor names them and the passage can be resolved in the XML view.
 - `node tools/import-working-set.mjs [path to szd-htr]` imports the working set. It never
   overwrites a file that has been corrected here.
 - `node tools/build-document-index.mjs` rebuilds `data/index.json`, the document list.
+- `node tools/proposals-from-copy.mjs <annotated copy>` turns a working copy an agent annotated
+  directly into a proposal file, so its annotations can be reviewed one by one in the editor.
 - `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild
   `data/register/szd-persons.json` and `szd-organisations.json` from the indexes at GAMS.
 

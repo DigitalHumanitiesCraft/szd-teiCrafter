@@ -59,6 +59,7 @@ Check available tools, runtimes and network access before dependent steps, and n
 - CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
 - Registers: `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild `data/register/szd-persons.json` and `szd-organisations.json` from GAMS.
 - Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `data/IMPORT.md`. It keeps files corrected here.
+- Proposals from an annotated copy: `node tools/proposals-from-copy.mjs <copy> --producer "llm-agent, model"` writes a proposal file beside the copy for review in the editor (ADR-016).
 - Document index: `node tools/build-document-index.mjs` rebuilds `data/index.json` after an import or a commit that changes a document's state.
 
 ### Conventions

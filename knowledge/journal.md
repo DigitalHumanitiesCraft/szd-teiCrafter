@@ -24,6 +24,13 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Session close: all agent results reviewable
+
+- Trigger: operator asked to close the session in order, finish what can be finished and update the knowledge bases and ACTIVE-WORK.
+- Found: an assessment of refactoring, curation and evaluation candidates found that the menu's pattern for spanning line breaks lost its backslash in a template string, so a `<lb>` with attributes was not spanned.
+- Changed: one `lineBreakPattern` shared by menu and proposals, with a test. `tools/proposals-from-copy.mjs` turned the nine annotated copies of the direct and browser agents into proposal files, so all nine objects of the run, the calibration letter in four versions, can be reviewed in the editor. Plan, specification, testing, design, index and data were brought to this state, the superseded ADR-005 shortened, and handoffs written to the teiCrafter base and SZD-split.
+- Evidence: unit tests and browser check passing on 2026-10-31, and every converted proposal placed by the importer.
+
 ### 2026-10-31 Review of agent proposals
 
 - Trigger: operator accepted the recommendations of the provenance research with „ja“: roles declared in `titleStmt`, one review role, a changed proposal becomes the person's own annotation, dating only in the review log, proposal files beside the working copies.

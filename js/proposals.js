@@ -6,6 +6,7 @@
 // an edition: the actions and the declarations come from the caller.
 
 import { Decoration, EditorView, StateEffect, StateField } from "../vendor/codemirror/codemirror.js";
+import { lineBreakPattern } from "./actions.js";
 
 /**
  * @typedef {{ kind: string, id?: string, label?: string, source?: string }} Basis
@@ -124,7 +125,7 @@ function anchor(raw, text, crossable) {
 export function readProposals(json, text, { documentId, actions, lineBreak = "lb" }) {
   if (!json || typeof json !== "object" || !Array.isArray(json.proposals)) throw new Error("Das ist keine Vorschlagsdatei: Es fehlt die Liste „proposals“.");
   if (json.document && documentId && json.document !== documentId) throw new Error(`Die Vorschläge gehören zu ${json.document}, geöffnet ist ${documentId}.`);
-  const crossable = new RegExp(`<${lineBreak}(?:\\s[^<>]*)?/>`, "g");
+  const crossable = lineBreakPattern(lineBreak);
   /** @type {Proposal[]} */
   const placed = [];
   const stale = [];
