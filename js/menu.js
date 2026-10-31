@@ -14,12 +14,15 @@ import { $ } from "./ui.js";
  *   onNext: () => void,
  *   report: (message: string) => void,
  *   markupNote: () => string,
+ *   lineBreak?: string,
  * }} options `onDialog` opens the dialog an action names, `onNext` selects
  * the next open spot, `report` names a refusal in a calm tone, `markupNote`
  * says in the words of the current view why a selection with markup cannot
- * be annotated
+ * be annotated, `lineBreak` names the empty line-break element a selection
+ * may span, so a name broken across lines becomes one element
  */
-export function createActionMenu({ editor, onDialog, onNext, report, markupNote }) {
+export function createActionMenu({ editor, onDialog, onNext, report, markupNote, lineBreak }) {
+  const crossable = lineBreak ? new RegExp(`<${lineBreak}(?:\s[^<>]*)?/>`, "g") : null;
   const menu = $("actions");
   const box = $("actions-items");
   /** @type {import("./actions.js").LoadedAction[]} */
@@ -67,7 +70,8 @@ export function createActionMenu({ editor, onDialog, onNext, report, markupNote 
   function selectionProblem() {
     const { from, to, text } = editor.selection();
     if (!text.trim()) return "empty";
-    if (/[<>]/.test(text) || insideMarkup(from) || insideMarkup(to)) return markupNote();
+    const plain = crossable ? text.replace(crossable, "") : text;
+    if (/[<>]/.test(plain) || insideMarkup(from) || insideMarkup(to)) return markupNote();
     return "";
   }
 
@@ -106,10 +110,12 @@ export function createActionMenu({ editor, onDialog, onNext, report, markupNote 
       if (!menu.contains(document.activeElement)) menu.hidden = true;
       return !!problem;
     }
-    if (problem) {
-      report(problem);
-      return true;
-    }
+    if (problem) report(problem);
+    // A refused keyboard request still opens the menu, with its actions
+    // disabled, so the action letter typed next lands there instead of
+    // replacing the selected text.
+    if (problem) note = problem;
+    for (const b of items) b.disabled = !!problem;
     const suggested = note ? null : suggestedAction();
     // The marked text is quoted in the menu, so the judgement is made on what is
     // actually selected even where the menu covers part of the line.

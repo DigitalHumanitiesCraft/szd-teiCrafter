@@ -329,7 +329,9 @@ const LOBID_FIXTURE = {
     const { EditorView } = await import("./vendor/codemirror/codemirror.js");
     const view = EditorView.findFromDOM(document.querySelector(".cm-editor"));
     const { head } = view.state.selection.main;
-    view.dispatch({ selection: { anchor: view.state.doc.lineAt(head).from, head } });
+    // Back into the line above, so the selection takes in the opening <p>;
+    // an <lb/> alone may be spanned.
+    view.dispatch({ selection: { anchor: view.state.doc.line(view.state.doc.lineAt(head).number - 1).from, head } });
   });
   await page.keyboard.press("Enter");
   await page.waitForTimeout(300);
@@ -1150,8 +1152,9 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   check("the toolbar stays one row in the text view", (await page.locator(".pane-text .toolbar").first().boundingBox()).height < 50);
   await shot(page, "text-lines-light");
 
-  // A pointer selection across a line break is ordinary reading: no menu, no
+  // A pointer selection across paragraphs is ordinary reading: no menu, no
   // message. Asking for the menu explains it calmly in the words of the view.
+  // A selection across a line break alone may be annotated, see below.
   const wordPoint = (word) =>
     page.locator(".cm-line", { hasText: word }).first().evaluate((el, w) => {
       const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
@@ -1166,8 +1169,8 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
       }
       return null;
     }, word);
-  await page.locator(".cm-line", { hasText: "dem Conte" }).first().scrollIntoViewIfNeeded();
-  const [p1, p2] = [await wordPoint("Conte"), await wordPoint("Savoia")];
+  await page.locator(".cm-line", { hasText: "Liebe Frau" }).first().scrollIntoViewIfNeeded();
+  const [p1, p2] = [await wordPoint("Meingast"), await wordPoint("allem")];
   const statusBefore = await label(page, "#xml-status");
   await page.mouse.move(p1.x, p1.y);
   await page.mouse.down();
@@ -1175,7 +1178,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.mouse.up();
   await page.waitForTimeout(300);
   check(
-    "a pointer selection across a line opens no menu and no message",
+    "a pointer selection across paragraphs opens no menu and no message",
     (await page.isHidden("#actions")) && (await label(page, "#xml-status")) === statusBefore && (await page.getAttribute("#xml-status", "data-state")) !== "error",
     await label(page, "#xml-status"),
   );
@@ -1183,9 +1186,12 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.waitForTimeout(200);
   check(
     "asking for the menu there explains it calmly in the words of the text view",
-    (await label(page, "#xml-status")).startsWith("Die Auswahl reicht über eine Zeile oder eine Auszeichnung hinaus.") && (await page.getAttribute("#xml-status", "data-state")) === "",
+    (await label(page, "#xml-status")).startsWith("Die Auswahl reicht über einen Absatz oder eine Auszeichnung hinaus.") && (await page.getAttribute("#xml-status", "data-state")) === "",
     await label(page, "#xml-status"),
   );
+  check("the refused menu takes the next letter with its actions disabled", (await page.isVisible("#actions")) && (await page.locator("#actions [data-action='person']").isDisabled()));
+  await page.keyboard.press("p");
+  await page.keyboard.press("Escape");
 
   // Annotating a person in the text view writes the same markup as in XML.
   await doubleClickWord(page, "Herr Reichner", "Reichner");
@@ -1318,6 +1324,18 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.click("#person-apply");
   await page.waitForTimeout(300);
 
+  // A name broken across lines becomes one element holding the <lb/>, here
+  // marked without a reference, which leaves it an open spot.
+  const brokenFrom = ORIGINAL.indexOf("H~~amb~~[?]");
+  await selectText(page, "H~~amb~~[?]", 0, ORIGINAL.indexOf("Goetzfried") + "Goetzfried".length - brokenFrom);
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("p");
+  await page.waitForTimeout(300);
+  check("a selection across a line break opens the person dialog with the plain name", (await label(page, "#person-text")) === "Hamb Goetzfried", await label(page, "#person-text"));
+  await page.click("#person-unlinked");
+  await page.waitForTimeout(300);
+  check("the broken name is marked as one person without reference", (await page.locator(".tv-el-persName", { hasText: "Goetzfried" }).count()) >= 1);
+
   // A date with words around it is trimmed to the date and given an ISO value.
   await selectText(page, "Nizza</placeName>, den 4.Januar 1935.", "Nizza</placeName>, ".length, "den 4.Januar 1935.".length);
   await page.keyboard.press("Control+.");
@@ -1335,10 +1353,24 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await page.fill("#date-when", "1935-01-04");
   await page.click("#date-apply");
   await page.waitForTimeout(300);
+  // An incomplete date is completed from the letter's date and marked inferred.
+  await selectText(page, "am 10. mit", 3, 3);
+  await page.keyboard.press("Control+.");
+  await page.keyboard.press("d");
+  await page.waitForTimeout(300);
+  check(
+    "„10.“ is proposed from the letter date as inferred",
+    (await page.inputValue("#date-when")) === "1935-01-10" && (await page.isChecked("#date-cert")) && (await label(page, "#date-preview")) === '<date when="1935-01-10" cert="low">10.</date>',
+    await label(page, "#date-preview"),
+  );
+  await page.click("#date-apply");
+  await page.waitForTimeout(300);
   const placesAndDate = afterF8
     .replace("Westminster                                Nizza, den 4.Januar 1935.", 'Westminster                                <placeName>Nizza</placeName>, den <date when="1935-01-04">4.Januar 1935</date>.')
     .replace("Berlin N.W.21", '<placeName ref="http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950159">Berlin</placeName> N.W.21')
-    .replace("die Viking Press,", 'die <orgName ref="http://d-nb.info/gnd/10102943-3">Viking Press</orgName>,');
+    .replace("die Viking Press,", 'die <orgName ref="http://d-nb.info/gnd/10102943-3">Viking Press</orgName>,')
+    .replace("am 10. mit", 'am <date when="1935-01-10" cert="low">10.</date> mit')
+    .replace("H~~amb~~[?]\n        <lb/>Goetzfried", "<persName>H~~amb~~[?]\n        <lb/>Goetzfried</persName>");
   await page.keyboard.press("Control+s");
   await page.waitForTimeout(400);
   check("places, the organisation and the date are saved as exactly these elements", (await lastWrite()) === placesAndDate);

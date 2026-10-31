@@ -50,7 +50,7 @@ test("a separator line counts only inside an open conflict", () => {
 });
 
 test("GND ids need digits", () => {
-  for (const id of ["116402873", "1057079499", "4062901-6", "118540238X", "1234567"]) assert.ok(isGndId(id), id);
+  for (const id of ["116402873", "1057079499", "4062901-6", "118540238X", "1234567", "63291-0", "35565-3"]) assert.ok(isGndId(id), id);
   for (const id of ["------", "XXXXXX", "1-2-3-4", "12345"]) assert.ok(!isGndId(id), id);
 });
 

@@ -257,10 +257,11 @@ const openPlaceDialog = createPlaceDialog({
   markup: (action, text, ref) => wrap(action, text, { ref }),
   onStale: stale,
 });
-const openDateDialog = createDateDialog({ editor, onStale: stale });
+const openDateDialog = createDateDialog({ editor, onStale: stale, documentDate: () => source.documentDate(editor.docText()) });
 
 const menu = createActionMenu({
   editor,
+  lineBreak: source.textView.lineBreak,
   onDialog(action, sel) {
     if (action.dialog === "person") openPersonDialog(sel);
     else if (action.dialog === "organisation") openPersonDialog(sel, undefined, source.organisation);
@@ -272,8 +273,8 @@ const menu = createActionMenu({
   report: (message) => setStatus(xmlStatus, "", message),
   markupNote: () =>
     mode === "text"
-      ? "Die Auswahl reicht über eine Zeile oder eine Auszeichnung hinaus. Bitte innerhalb einer Zeile und außerhalb bestehender Auszeichnungen markieren."
-      : "Die Markierung enthält Markup. Nur reinen Text markieren.",
+      ? "Die Auswahl reicht über einen Absatz oder eine Auszeichnung hinaus. Bitte innerhalb eines Absatzes und außerhalb bestehender Auszeichnungen markieren."
+      : "Die Markierung enthält Markup. Nur Text und Zeilenumbrüche markieren.",
 });
 menu.setActions(offered(actions, mode));
 editorReady = true;
@@ -595,9 +596,10 @@ const card = createMarkCard({
       }
       editor.replace(mark.openFrom, mark.openTo, withAttributes(tag, changes));
     };
-    if (action.dialog === "person") openPersonDialog(sel, (ref) => change({ ref }));
-    else if (action.dialog === "organisation") openPersonDialog(sel, (ref) => change({ ref }), source.organisation);
-    else if (action.dialog === "place") openPlaceDialog(sel, action, (ref) => change({ ref: ref || null }));
+    const ref = attributeOf(mark.attrs, "ref");
+    if (action.dialog === "person") openPersonDialog(sel, (r) => change({ ref: r || null }), source.person, ref);
+    else if (action.dialog === "organisation") openPersonDialog(sel, (r) => change({ ref: r || null }), source.organisation, ref);
+    else if (action.dialog === "place") openPlaceDialog(sel, action, (r) => change({ ref: r || null }), ref);
     else if (action.dialog === "date") {
       const attrs = Object.fromEntries(action.attributes.map(({ name }) => [name, attributeOf(mark.attrs, name)]));
       openDateDialog(sel, action, { attrs, apply: change });

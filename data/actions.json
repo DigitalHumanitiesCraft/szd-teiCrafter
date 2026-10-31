@@ -10,7 +10,7 @@
       "attributes": [
         {
           "name": "ref",
-          "required": true
+          "required": false
         }
       ],
       "dialog": "person",
@@ -59,7 +59,7 @@
       "attributes": [
         {
           "name": "ref",
-          "required": true
+          "required": false
         }
       ],
       "dialog": "organisation",

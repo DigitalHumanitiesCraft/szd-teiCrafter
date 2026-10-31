@@ -26,13 +26,18 @@ export async function searchGnd(query, type) {
   // lobid also matches on relations and biography, so persons whose names
   // carry every query word come first, and the rest only when none does.
   const words = fold(query).split(/[^a-z0-9-]+/).filter(Boolean);
+  // A record named exactly as asked, such as the city for „Nizza“, comes
+  // before records that merely contain the words.
+  const asked = fold(query).trim();
   const members = (json.member ?? []).map((/** @type {any} */ m) => {
-    const names = fold([m.preferredName, ...(m.variantName ?? [])].join(" "));
-    return { m, hits: words.filter((w) => names.includes(w)).length };
+    const all = [m.preferredName, ...(m.variantName ?? [])].map((n) => fold(String(n ?? "")));
+    const names = all.join(" ");
+    return { m, hits: words.filter((w) => names.includes(w)).length, exact: all.includes(asked) };
   });
   const best = Math.max(0, ...members.map((x) => x.hits));
   return members
     .filter((x) => x.hits === best)
+    .sort((a, b) => Number(b.exact) - Number(a.exact))
     .slice(0, 8)
     .map(({ m }) => ({
       id: String(m.gndIdentifier ?? ""),
@@ -54,5 +59,9 @@ export function geonamesOf(record) {
   return "";
 }
 
-/** GND identifiers: digits with an optional check character, plain or after a hyphen. */
-export const isGndId = (/** @type {string} */ value) => /^\d{6,11}(?:-?[\dX])?$/i.test(value.trim());
+/**
+ * GND identifiers: digits with a check character, plain or, in the older
+ * records of bodies and places, after a hyphen, where the digits may be few
+ * (63291-0 Komotau, 35565-3 Home Office).
+ */
+export const isGndId = (/** @type {string} */ value) => /^(?:\d{1,10}-[\dX]|\d{6,10}[\dX])$/i.test(value.trim());

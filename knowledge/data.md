@@ -69,6 +69,8 @@ The editor adds `persName` whose `@ref` points to the person index entry, or to 
 
 - The transcription is unreviewed LLM (Large Language Model) output and contains reading errors. Because the HTR markers are plain text, validation against TEI All cannot see them, so a valid document may still hold open work.
 - Persons in neither the person index nor the GND have no identifier source.
+- The SZD indexes carry errors that the agent run of 2026-10-31 met and that belong to SZD-split: the person entry `SZDPER.2226` (Weisflog, Heinrich) carries the GND of Herbert Reichner, the organisation entry `SZDORG.15` names a private autograph dealer with „The British Museum“ as its variants, and seventeen organisation entries record superseded `SZDPER` identifiers that the person index no longer holds.
+- The person index lists several names that also stand for Zweig's works (`Erasmus`, `Maria Stuart`, `Jeremias`), and its substring search finds persons for place names and common words (`Rom`, `Bern`, `August`). A register hit alone does not decide that a passage names a person.
 - Some GAMS manifests are invalid JSON, because quotation marks in range labels are not escaped (`o_szd.67`, `o_szd.174`). Their facsimile cannot load, so the two documents were left out of the working set.
 - The manifest may hold a different number of canvases than the TEI has pages. `o_szd.2934` has a sixth canvas after the five pages of its TEI. The editor turns to the canvas at the position of the preceding `pb`, so a surplus canvas at the end only adds a page without text, while one before the end would shift text and image apart.
 - A few life documents in szd-htr outside the working set carry `language/@ident="deu"` where the others use `de`.

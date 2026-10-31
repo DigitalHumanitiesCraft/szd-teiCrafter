@@ -5,7 +5,7 @@
 // letter, is marked @cert="low" where the action declares @cert. A selection
 // with words before or after the date is offered trimmed to the date part.
 
-import { isIsoDate, parseDate } from "./dates.js";
+import { dateContext, isIsoDate, parseDate } from "./dates.js";
 import { wrap } from "./actions.js";
 import { $, setStatus } from "./ui.js";
 
@@ -13,11 +13,13 @@ const FIELDS = { when: ["when"], range: ["from", "to"], span: ["notBefore", "not
 const ALL = Object.values(FIELDS).flat();
 
 /**
- * @param {{ editor: ReturnType<typeof import("./editor.js").createEditor>, onStale: (message: string) => void }} options
+ * @param {{ editor: ReturnType<typeof import("./editor.js").createEditor>, onStale: (message: string) => void, documentDate?: () => string | null }} options
+ * `documentDate` gives the ISO date of the open document, from which an
+ * incomplete date is completed and proposed as inferred
  * @returns {(sel: { from: number, to: number, text: string }, action: import("./actions.js").Action, current?: { attrs: Record<string, string>, apply: (attrs: Record<string, string | null>) => void }) => void}
  * opens the dialog for a selection; with `current` it edits the attributes of an existing date
  */
-export function createDateDialog({ editor, onStale }) {
+export function createDateDialog({ editor, onStale, documentDate }) {
   const dialog = /** @type {HTMLDialogElement} */ ($("date-dialog"));
   const status = $("date-status");
   const input = (/** @type {string} */ name) => /** @type {HTMLInputElement} */ ($(`date-${name}`));
@@ -27,6 +29,7 @@ export function createDateDialog({ editor, onStale }) {
   let action = null;
   /** @type {((attrs: Record<string, string | null>) => void) | null} */
   let change = null;
+  let partialNote = "";
 
   const cert = /** @type {HTMLInputElement} */ ($("date-cert"));
   const form = () => /** @type {keyof typeof FIELDS} */ (/** @type {HTMLInputElement} */ (dialog.querySelector("input[name='date-form']:checked")).value);
@@ -62,7 +65,7 @@ export function createDateDialog({ editor, onStale }) {
       setStatus(status, input(FIELDS[form()][0]).value || form() !== "when" ? "error" : "", result.error ?? "");
       return;
     }
-    setStatus(status, "", "");
+    setStatus(status, "", partialNote);
     $("date-preview").textContent = action ? wrap(action, editor.slice(from, to), result.attrs) : "";
   }
 
@@ -99,6 +102,7 @@ export function createDateDialog({ editor, onStale }) {
     $("date-text").textContent = sel.text;
     $("date-apply").textContent = current ? "Ändern" : "Auszeichnen";
     for (const n of ALL) input(n).value = "";
+    partialNote = "";
     $("date-cert-row").hidden = !dateAction.attributes.some((a) => a.name === "cert");
     cert.checked = current?.attrs.cert === "low";
     let chosenForm = "when";
@@ -107,18 +111,28 @@ export function createDateDialog({ editor, onStale }) {
       chosenForm = current.attrs.from || current.attrs.to ? "range" : current.attrs.notBefore || current.attrs.notAfter ? "span" : "when";
       $("date-trim-row").hidden = true;
     } else {
-      const parsed = parseDate(sel.text);
+      const parsed = parseDate(sel.text, dateContext(documentDate?.()));
       part = parsed ? parsed.at : { from: 0, to: sel.text.length };
       if (parsed?.form === "range") {
         input("from").value = parsed.from;
         input("to").value = parsed.to;
         chosenForm = "range";
+      } else if (parsed?.form === "span") {
+        input("notBefore").value = parsed.notBefore;
+        input("notAfter").value = parsed.notAfter;
+        chosenForm = "span";
       } else if (parsed) input("when").value = parsed.when;
-      // Words around the date, as in „Nizza, den 4.Januar 1935.“, stay outside by default.
+      if (parsed?.inferred) cert.checked = true;
       const around = !!parsed && (part.from > 0 || part.to < sel.text.length);
+      // Words around the date, as in „Nizza, den 4.Januar 1935.“, stay outside
+      // by default; digits or numerals left outside mean the date was read only
+      // in part, as „1 4 СЕН 1928“ read as 1928, so nothing is trimmed unasked.
+      const rest = sel.text.slice(0, part.from) + sel.text.slice(part.to);
+      const partial = around && /\d|(?<![\p{L}])[IVX]{1,4}(?![\p{L}])/u.test(rest.replace(/<[^>]*>/g, ""));
       $("date-trim-row").hidden = !around;
       $("date-part").textContent = parsed ? sel.text.slice(part.from, part.to) : "";
-      /** @type {HTMLInputElement} */ ($("date-trim")).checked = around;
+      /** @type {HTMLInputElement} */ ($("date-trim")).checked = around && !partial;
+      partialNote = partial ? `Nur „${sel.text.slice(part.from, part.to)}“ wurde als Datum erkannt. Bitte den Wert prüfen.` : "";
     }
     /** @type {HTMLInputElement} */ (dialog.querySelector(`input[name='date-form'][value='${chosenForm}']`)).checked = true;
     setStatus(status, "", "");

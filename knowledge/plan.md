@@ -162,6 +162,7 @@ These items are accepted as direction and not yet placed in a milestone.
 
 ## Open decisions and dependencies
 
+- Proposal and review (resume step 2), before it is built: whether the editor writes the `respStmt` declarations into `titleStmt` or points to a declaration list held in SZD-split, one review role or one per reviewer with a name, whether a person who changes a proposal before accepting it makes it their own annotation, whether a review is dated per element with `@change` or only in the review log, where proposal files and review logs are kept, and whether agents are restricted to register and GND candidates as in zbz-ocr-tei. The SZD-split ODD would have to allow `@resp` and `respStmt`.
 - The import scope and the authoritative place (ADR-010), the place of the working state and the withdrawal of a stale acceptance (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
 - The editorial rules for `add`, `del`, `unclear` and `gap`, and the annotation rules of 2026-10-31, are discussed with the project partners on example letters, before S4 closes.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.

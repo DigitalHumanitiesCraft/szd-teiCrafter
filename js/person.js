@@ -17,7 +17,7 @@ import { $, arrowNavigation, renderResults, setStatus } from "./ui.js";
  * }} options `person` is the authority the dialog opens with unless told
  * otherwise, `markup` writes the element of the authority's action, `onStale`
  * reports that the marked text changed while the dialog was open.
- * @returns {(sel: { from: number, to: number, text: string }, apply?: (ref: string) => void, authority?: Authority) => void}
+ * @returns {(sel: { from: number, to: number, text: string }, apply?: (ref: string) => void, authority?: Authority, currentRef?: string) => void}
  * opens the dialog for a selection; with `apply` it changes an existing
  * reference instead of wrapping the selection
  */
@@ -77,6 +77,8 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     const cleaned = cleanQuery(query.value, authority.ignore);
     if (!cleaned) return;
     $("gnd-heading").hidden = false;
+    // Hits of an earlier query must not be chosen while this one runs.
+    $("person-results").replaceChildren();
     setStatus(status, "", "Suche in der GND …");
     const asked = session;
     try {
@@ -106,6 +108,14 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
   $("person-search").addEventListener("click", runGndSearch);
   refInput.addEventListener("input", updatePreview);
   $("person-cancel").addEventListener("click", () => dialog.close());
+  // A name that cannot be identified yet is marked without a reference and
+  // counts as an open spot (knowledge/annotation.md).
+  $("person-unlinked").addEventListener("click", () => {
+    if (change) change("");
+    else if (editor.slice(pending.from, pending.to) !== pending.text) onStale("Der markierte Text hat sich verändert; bitte erneut markieren.");
+    else editor.replace(pending.from, pending.to, markup(pending.text, "", authority));
+    dialog.close();
+  });
   $("person-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
     const ref = chosenRef();
     if (!ref) {
@@ -130,7 +140,10 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     editor.focus();
   });
 
-  return (sel, apply, chosen = person) => {
+  /** The identifier a reference stands for, to prefill a change. @param {Authority} a @param {string} ref */
+  const idOf = (a, ref) => a.registerIdOf(ref) || a.gndOf(ref);
+
+  return (sel, apply, chosen = person, currentRef = "") => {
     session++;
     pending = sel;
     change = apply ?? null;
@@ -139,12 +152,14 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     $("person-manual").textContent = `Kennung (${chosen.registerLabel} oder GND)`;
     /** @type {HTMLInputElement} */ (refInput).placeholder = `z. B. ${chosen.idExample} oder eine GND-ID`;
     $("person-apply").textContent = apply ? "Ändern" : "Annotieren";
-    $("person-text").textContent = sel.text;
+    $("person-text").textContent = chosen.nameOf(sel.text);
     // Marker syntax and forms of address are no part of a name.
     const name = chosen.nameOf(sel.text);
     query.value = cleanQuery(name, chosen.ignore) || name;
-    refInput.value = "";
+    refInput.value = currentRef ? idOf(chosen, currentRef) : "";
     $("person-results").replaceChildren();
+    $("register-results").replaceChildren();
+    $("register-heading").textContent = "";
     $("gnd-heading").hidden = true;
     setStatus(status, "", "");
     updatePreview();

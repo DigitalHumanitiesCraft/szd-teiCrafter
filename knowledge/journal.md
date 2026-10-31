@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Agent annotation run and the editor changes it called for
+
+- Trigger: operator: „Direkt alles, was wir jetzt sofort umsetzen können, umsetzen“, after four LLM agents had annotated working copies of nine documents in the trial run, two directly in TEI, one through the editor alone and one proposing first and applying through the editor.
+- Decided: operator, on the cases the agents left open: hotels, ships and streets are not marked in this stage, a place is linked for what is meant (`Amerika` as the United States), and a generic word for a body is marked only where the context makes the body unambiguous. The remaining cases follow the agents' common practice, recorded in [annotation](annotation.md).
+- Found: on the calibration letter `o_szd.1222` the four agents agreed on the element, span and value of all but three of its marks. They differed on whether a hotel in the letterhead is a body, whether „Kultusgemeinde“ may be linked to Vienna by inference, and which of two GND records of the Austrian postal savings bank applies in 1935. All four used the same model, rules and sources, so agreement does not establish correctness. Every agent met the same gaps in the editor: unlinked marks were not counted as open spots, organisations had no action, the place and date dialogs could not write the GeoNames link or `@cert`, selections across a line break were refused, persons could not be marked without a reference, and short GND identifiers such as `63291-0` were refused.
+- Changed: unlinked marks count as open spots and F8 opens their card, the action Organisation searches the SZD organisation index, places get GND and GeoNames from the GND record, selections may span line breaks, persons and organisations can be marked without a reference, a change prefills the existing reference, exact GND hits come first, the date parser reads English, French and Roman forms and completes incomplete dates from the document date as inferred, and the document date comes from the title.
+- Evidence: unit tests and browser check passing on 2026-10-31. The agents' results and protocols lie in the trial run folder outside the repository.
+
 ### 2026-10-31 Annotation rules and the agentic layer
 
 - Trigger: operator asked how persons, places and dates are annotated, then for agents that annotate documents through the editor, directly in TEI or in a hybrid way, to improve both the editor and the understanding of agent-supported annotation.

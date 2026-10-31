@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { checkAgainstSchema, loadActions, markerDetectors, serializeRegistry, stripMarker, withAttributes, wrap } from "../../js/actions.js";
-import { isIsoDate, parseDate } from "../../js/dates.js";
+import { dateContext, isIsoDate, parseDate } from "../../js/dates.js";
 import { schemaChecker } from "../../js/schema.js";
 import { source } from "../../js/source.js";
 
@@ -111,4 +111,40 @@ test("no date, and an impossible one, propose nothing", () => {
 test("only ISO dates that exist pass", () => {
   for (const ok of ["1935", "1935-01", "1935-01-04", "1936-02-29"]) assert.ok(isIsoDate(ok), ok);
   for (const bad of ["35", "1935-13", "1935-02-29", "1935-1-4", "4.1.1935", ""]) assert.ok(!isIsoDate(bad), bad);
+});
+
+test("dates of the working set in German, English, French and Roman forms", () => {
+  const value = (/** @type {string} */ t, /** @type {any} */ ctx = null) => {
+    const p = parseDate(t, ctx);
+    return p && (p.form === "when" ? p.when : p.form === "range" ? `${p.from}/${p.to}` : `${p.notBefore}..${p.notAfter}`) + (p.inferred ? " inferred" : "");
+  };
+  // Forms with their year, from the bodies of the working set.
+  assert.equal(value("3 Juni 1936"), "1936-06-03");
+  assert.equal(value("10 Juillet 1939"), "1939-07-10");
+  assert.equal(value("June 6th. 1944"), "1944-06-06");
+  assert.equal(value("October 31, 1938"), "1938-10-31");
+  assert.equal(value("29th June, 1934"), "1934-06-29");
+  assert.equal(value("18.VI.1930"), "1930-06-18");
+  assert.equal(value("1906-11-23"), "1906-11-23");
+  assert.equal(value("Spring 1944"), "1944-03..1944-05");
+  assert.equal(value("1.-10. März\n        <lb/>1938"), "1938-03-01/1938-03-10");
+  // Incomplete forms need the document date and are reported as inferred.
+  const letter = dateContext("1935-01-04");
+  assert.equal(value("am 10."), null);
+  assert.equal(value("am 10.", letter), "1935-01-10 inferred");
+  assert.equal(value("8.Oktober", letter), "1935-10-08 inferred");
+  assert.equal(value("27.6.44", dateContext("1944-06-27")), "1944-06-27 inferred");
+  assert.equal(value("6.I.36", dateContext("1936")), "1936-01-06 inferred");
+  assert.equal(value("im Herbst", letter), "1935-09..1935-11 inferred");
+  assert.equal(value("über den Winter", letter), "1935-12..1936-02 inferred");
+  assert.equal(value("gestern", letter), "1935-01-03 inferred");
+  assert.equal(value("gestern", dateContext("1935")), null);
+  assert.equal(value("vom 5. ds.", dateContext("1938-03-02")), "1938-03-05 inferred");
+});
+
+test("the document date comes from the title, and „o. D.“ names none", () => {
+  const doc = (/** @type {string} */ title) => `<TEI><teiHeader><fileDesc><titleStmt><title>${title}</title></titleStmt></fileDesc></teiHeader></TEI>`;
+  assert.equal(source.documentDate(doc("Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52")), "1935-01-04");
+  assert.equal(source.documentDate(doc("Postkarte, 1906-11-23, Palermo")), "1906-11-23");
+  assert.equal(source.documentDate(doc('Deckblatt "Copyr. Bureau Korresp. 1939", o. D.')), null);
 });

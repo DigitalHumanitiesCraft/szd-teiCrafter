@@ -3,6 +3,7 @@
 // modules stay untouched.
 
 import { markerDetectors } from "./actions.js";
+import { parseDate } from "./dates.js";
 import { matchesOf } from "./state.js";
 
 // Reference forms of the Stefan Zweig Digital holdings: persons point to the
@@ -44,6 +45,20 @@ export const source = {
     const id = idnos.objectId;
     if (!id || !/^o_szd\.\d+$/.test(id)) return null;
     return `https://gams.uni-graz.at/${id.replace("_", ":")}/sdef:IIIF/getManifest`;
+  },
+
+  /**
+   * The date of a document, from which the date dialog completes incomplete
+   * dates (knowledge/annotation.md): the converter writes it into the title,
+   * „vom 4. Januar 1935“ or „1906-11-23“, and „o. D.“ (ohne Datum) names none.
+   * @param {string} xml
+   * @returns {string | null} an ISO value
+   */
+  documentDate(xml) {
+    const title = /<titleStmt\b[\s\S]*?<title\b[^>]*>([\s\S]*?)<\/title>/.exec(xml)?.[1].replace(/<[^>]*>/g, "") ?? "";
+    if (!title || /\bo\.\s*D\./.test(title)) return null;
+    const date = parseDate(title);
+    return date?.form === "when" && !date.inferred ? date.when : null;
   },
 
   /**
@@ -91,8 +106,8 @@ export const source = {
     registerIdOf: (ref) => /^(?:https:\/\/gams\.uni-graz\.at\/o:szd\.personen)?#(SZDPER\.\d+)$/.exec(ref.trim())?.[1] ?? "",
     /** The GND id of a reference, or "". @param {string} ref */
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
-    /** The marked text without HTR marker syntax, as a search query. @param {string} text */
-    nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
+    /** The marked text without line breaks and HTR marker syntax, as a search query. @param {string} text */
+    nameOf: (text) => text.replace(/<[^>]*>/g, " ").replace(/~~|\[\?\]|[{}]/g, "").replace(/\s+/g, " ").trim(),
     title: "Person",
     gndType: "Person",
     /** What a register hit puts into the identifier field. @param {{ id: string }} entry */
@@ -120,7 +135,7 @@ export const source = {
     /** @param {string} ref */
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
     /** @param {string} text */
-    nameOf: (text) => text.replace(/~~|\[\?\]|[{}]/g, "").trim(),
+    nameOf: (text) => text.replace(/<[^>]*>/g, " ").replace(/~~|\[\?\]|[{}]/g, "").replace(/\s+/g, " ").trim(),
     title: "Organisation",
     gndType: "CorporateBody",
     /** An entry with a GND is referenced by it. @param {{ id: string, gnd: string }} entry */

@@ -15,7 +15,7 @@ import { $, arrowNavigation, renderResults, setStatus } from "./ui.js";
  *   onStale: (message: string) => void,
  * }} options `nameOf` turns the selection into a search query, `markup`
  * writes the element of the place action
- * @returns {(sel: { from: number, to: number, text: string }, action: import("./actions.js").Action, apply?: (ref: string) => void) => void}
+ * @returns {(sel: { from: number, to: number, text: string }, action: import("./actions.js").Action, apply?: (ref: string) => void, currentRef?: string) => void}
  * opens the dialog for a selection with the place action; with `apply` it
  * changes the reference of an existing placeName
  */
@@ -122,17 +122,19 @@ export function createPlaceDialog({ editor, place, nameOf, markup: write, onStal
     editor.focus();
   });
 
-  return (sel, placeAction, apply) => {
+  return (sel, placeAction, apply, currentRef = "") => {
     session++;
     pending = sel;
     action = placeAction;
     change = apply ?? null;
-    $("place-text").textContent = sel.text;
+    $("place-text").textContent = nameOf(sel.text);
     $("place-apply").textContent = apply ? "Ändern" : "Markieren";
     const lookup = !!placeAction.lookup?.gnd;
     $("place-lookup").hidden = !lookup;
     query.value = nameOf(sel.text);
-    idInput.value = "";
+    // A change starts from the links the place already has.
+    const gn = place.geonamesOf(currentRef);
+    idInput.value = [place.gndOf(currentRef), gn && `gn:${gn}`].filter(Boolean).join(" ");
     $("place-results").replaceChildren();
     setStatus(status, "", "");
     updatePreview();
