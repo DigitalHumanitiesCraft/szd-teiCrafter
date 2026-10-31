@@ -69,6 +69,16 @@ const bareLf = (text) => (text.match(/(^|[^\r])\n/g) ?? []).length;
 
 async function open(contextOptions, initScript, initArg) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true, ...contextOptions });
+  // The longest stall of the main thread since the last reset, from a 50 ms heartbeat.
+  await ctx.addInitScript(() => {
+    window.__maxStall = 0;
+    let last = performance.now();
+    setInterval(() => {
+      const now = performance.now();
+      window.__maxStall = Math.max(window.__maxStall, now - last - 50);
+      last = now;
+    }, 50);
+  });
   if (initScript) await ctx.addInitScript(initScript, initArg);
   const page = await ctx.newPage();
   const errors = [];
@@ -261,9 +271,15 @@ const LOBID_FIXTURE = {
   check("the addressee is the first index hit", (await page.locator("#register-results .result").first().textContent()).includes("SZDPER.1575"));
   await page.click("#person-cancel");
 
+  await page.evaluate(() => (window.__maxStall = 0));
   await page.click("#valid-button");
   await page.waitForFunction(() => document.getElementById("valid-label").textContent !== "Prüfe …", null, { timeout: 60000 });
   check("valid against TEI All", (await label(page, "#valid-label")) === "TEI-konform", await label(page, "#xml-status"));
+  {
+    const stall = Math.round(await page.evaluate(() => window.__maxStall));
+    check("the first validation of the session leaves the editor responsive", stall < 500, `${stall} ms longest stall`);
+  }
+  check("a valid result names the fallback schema", (await label(page, "#xml-status")).includes("Rückfallschema"), await label(page, "#xml-status"));
   check("annotations mark the document unsaved", (await label(page, "#save-state")) === "Ungespeicherte Änderungen");
   check("the save button carries the unsaved dot", await unsavedDot(page));
   await page.click("#diff-button");

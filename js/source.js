@@ -57,8 +57,14 @@ export const source = {
    * action whose markup it does not know when the editor loads.
    */
   actions: "data/actions.json",
-  schema: "schemas/tei-p5-4.11.0/tei_all.rng",
-  schemaLabel: "TEI All (P5 4.11.0)",
+  /**
+   * The schemas, strictest first (ADR-014). The editor validates against the
+   * first one that loads. The project schema is the RELAX NG generated from
+   * the ODD of SZD-split, pinned here once it exists (ADR-010); TEI All is
+   * the fallback, which constrains little and compiles slowly.
+   * @type {import("./validate.js").SchemaEntry[]}
+   */
+  schemas: [{ url: "schemas/tei-p5-4.11.0/tei_all.rng", label: "TEI All (P5 4.11.0)", fallback: true }],
 
   /**
    * Person annotation: the SZD person index first, the GND for persons not

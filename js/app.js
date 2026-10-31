@@ -24,7 +24,7 @@ import { acceptanceEdits, openSpots, withdrawalEdits, workingState } from "./sta
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
 import { attributeOf, hasLineBreaks, textView } from "./textview.js";
 import { $, setStatus } from "./ui.js";
-import { validate } from "./validate.js";
+import { chooseSchema, createValidator } from "./validate.js";
 import { createViewer } from "./viewer.js";
 
 const xmlStatus = $("xml-status");
@@ -57,6 +57,20 @@ let actions = [];
 /** @type {import("./state.js").Detector[]} */
 let openWork = openWorkFor([]);
 
+// The schema: the strictest of the source configuration that loads (ADR-014).
+// The worker compiles it right away, so the first validation finds it ready.
+const validator = createValidator();
+const schemaReady = chooseSchema(source.schemas);
+schemaReady.then((schema) => validator.prepare(schema.url)).catch(() => {});
+const schemaNames = source.schemas.map((s) => s.label).join(", ");
+
+/** What a valid result says about the schema it was checked against. @param {Awaited<typeof schemaReady>} schema */
+function schemaNote(schema) {
+  if (!schema.fallback) return `Gültig gegen ${schema.label}.`;
+  const missing = schema.skipped.length ? ` Nicht geladen: ${schema.skipped.join(", ")}.` : " Ein Projektschema ist noch nicht hinterlegt.";
+  return `Gültig gegen ${schema.label}, das Rückfallschema, das nur wenig einschränkt.${missing}`;
+}
+
 /** Reads data/actions.json and refuses the actions the schema does not know. */
 async function loadRegistry() {
   const text = await fetch(source.actions).then((r) => (r.ok ? r.text() : Promise.reject(new Error(`Status ${r.status}`))));
@@ -68,10 +82,9 @@ async function loadRegistry() {
   }
   const loaded = loadActions(json);
   try {
-    const rng = await fetch(source.schema).then((r) => (r.ok ? r.text() : Promise.reject(new Error(`Status ${r.status}`))));
-    checkAgainstSchema(loaded, schemaChecker(rng));
+    checkAgainstSchema(loaded, schemaChecker((await schemaReady).text));
   } catch (err) {
-    for (const a of loaded) a.refused ||= `Das Schema ${source.schemaLabel} ist nicht geladen (${err instanceof Error ? err.message : err}), daher bleibt die Aktion aus.`;
+    for (const a of loaded) a.refused ||= `Kein Schema geladen (${schemaNames}) ${err instanceof Error ? `: ${err.message}` : ""}, daher bleibt die Aktion aus.`;
   }
   return { text, actions: loaded, comment: json.$comment };
 }
@@ -103,7 +116,10 @@ function applyActions(list) {
 
 let editorReady = false;
 const settings = createSettings({ path: source.actions, load: loadRegistry, onChange: applyActions });
-$("actions-intro").textContent = `${concepts.action} Ausgeschaltete Aktionen fehlen im Menü, ihre HTR-Marker zählen weiter als offene Stellen. Geprüft gegen ${source.schemaLabel}.`;
+const actionsIntro = (/** @type {string} */ label) =>
+  ($("actions-intro").textContent = `${concepts.action} Ausgeschaltete Aktionen fehlen im Menü, ihre HTR-Marker zählen weiter als offene Stellen. Geprüft gegen ${label}.`);
+actionsIntro(schemaNames);
+schemaReady.then((schema) => actionsIntro(schema.label)).catch(() => {});
 try {
   await settings.init();
 } catch (err) {
@@ -123,7 +139,9 @@ let checkTimer = 0;
 let validation = null;
 /** Counts opened documents, so a validation finishing later is not applied to another one. */
 let opened = 0;
-const VALID_SUMMARY = `Gültig gegen ${source.schemaLabel}.`;
+/** The sentence a valid result shows, set once the schema is chosen. */
+let validSummary = "Gültig.";
+schemaReady.then((schema) => (validSummary = schemaNote(schema))).catch(() => {});
 /** revisionDesc/@status of the last well-formed parse (ADR-011). */
 let docStatus = "";
 /** The text at acceptance, so a later edit shows as a change after acceptance. */
@@ -328,7 +346,7 @@ function checkSource() {
   }
   setCheck(wfButton, "ok", "Wohlgeformt");
   if (validation && validated()) {
-    showMessages(validation.problems, validation.problems.length ? "" : VALID_SUMMARY);
+    showMessages(validation.problems, validation.problems.length ? "" : validSummary);
     editor.setProblems(validation.problems);
   } else {
     showMessages([]);
@@ -416,7 +434,7 @@ async function runValidation() {
   setCheck(validButton, "busy", "Prüfe …", "#i-validate");
   validButton.disabled = true;
   try {
-    const problems = await validate(text, source.schema);
+    const problems = await validator.validate(text, (await schemaReady).url);
     // A result for a document opened meanwhile would only coincide by text.
     if (openedAt === opened) validation = { text, problems };
   } catch (err) {
@@ -487,7 +505,7 @@ $("accept").addEventListener("click", async () => {
   updateDocState();
   report("ok", "Abgenommen. Speichern hält die Abnahme in der Datei fest.");
   // Only the header changed; validating again shows the accepted text as valid.
-  if (await runValidation()) report("ok", `Abgenommen und gültig gegen ${source.schemaLabel}. Speichern hält die Abnahme in der Datei fest.`);
+  if (await runValidation()) report("ok", `Abgenommen und gültig gegen ${(await schemaReady).label}. Speichern hält die Abnahme in der Datei fest.`);
   else report("error", "Abgenommen, aber der Text mit der Abnahme ist nicht gültig. Strg+Z nimmt die Abnahme zurück; die Fehler stehen unten.");
 });
 

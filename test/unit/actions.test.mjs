@@ -12,7 +12,7 @@ import { source } from "../../js/source.js";
 const FILE = new URL("../../data/actions.json", import.meta.url);
 const text = readFileSync(FILE, "utf8");
 const registry = JSON.parse(text);
-const problem = schemaChecker(readFileSync(new URL(`../../${source.schema}`, import.meta.url), "utf8"));
+const problem = schemaChecker(readFileSync(new URL(`../../${source.schemas.at(-1).url}`, import.meta.url), "utf8"));
 
 test("the registry loads, and the schema knows every action", () => {
   const actions = checkAgainstSchema(loadActions(registry), problem);

@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "unit": "node --test \"unit/*.test.mjs\"",
-    "check": "node --test \"unit/*.test.mjs\" && node browser-check.mjs"
+    "check": "node --test \"unit/*.test.mjs\" && node browser-check.mjs",
+    "size": "node size-check.mjs"
   },
   "devDependencies": {
     "playwright": "^1.56.0"

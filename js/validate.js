@@ -1,52 +1,81 @@
-// Schema validation against a RelaxNG schema with the vendored libxml2-wasm.
-// The source configuration names the schema; runtime and compiled schema load
-// on first use and are cached per schema afterwards.
-// Runs on the main thread; a worker is the upgrade path for large documents.
+// Schema validation for the editor. The work runs in a module worker
+// (js/validate-worker.js), so compiling a large schema, which takes seconds for
+// TEI All, never blocks typing or the interface. `prepare` compiles the schema
+// ahead of the first validation, and the worker keeps it for the session.
+// Which schema is used is decided by `chooseSchema` from the source
+// configuration: the strictest one that loads, with TEI All as the fallback.
 
 /** @typedef {{ message: string, line: number, column: number }} Diagnostic */
-
-/** @type {Map<string, Promise<{ validator: any, XmlDocument: any }>>} */
-const compiled = new Map();
-
-/** @param {string} schemaUrl */
-function load(schemaUrl) {
-  let ready = compiled.get(schemaUrl);
-  if (ready) return ready;
-  ready = (async () => {
-    const [runtime, schemaText] = await Promise.all([
-      import("../vendor/libxml2-wasm/lib/index.mjs"),
-      fetch(schemaUrl).then((r) => {
-        if (!r.ok) throw new Error(`Schema nicht geladen (Status ${r.status}).`);
-        return r.text();
-      }),
-    ]);
-    const schemaDoc = runtime.XmlDocument.fromString(schemaText);
-    return { validator: runtime.RelaxNGValidator.fromDoc(schemaDoc), XmlDocument: runtime.XmlDocument };
-  })();
-  ready.catch(() => compiled.delete(schemaUrl));
-  compiled.set(schemaUrl, ready);
-  return ready;
-}
+/** @typedef {{ url: string, label: string, fallback?: boolean }} SchemaEntry an entry of source.schemas */
 
 /**
- * @param {string} xml a well-formed document @param {string} schemaUrl a RelaxNG schema
- * @returns {Promise<Diagnostic[]>} empty when valid
+ * The first schema of the list, ordered strictest first, whose file loads,
+ * with its RELAX NG text for the check of the action registry.
+ * @param {SchemaEntry[]} schemas
+ * @returns {Promise<SchemaEntry & { text: string, skipped: string[] }>}
  */
-export async function validate(xml, schemaUrl) {
-  const { validator, XmlDocument } = await load(schemaUrl);
-  const doc = XmlDocument.fromString(xml);
-  try {
-    validator.validate(doc);
-    return [];
-  } catch (error) {
-    const details = Array.isArray(/** @type {any} */ (error)?.details) ? /** @type {any} */ (error).details : [];
-    if (!details.length) return [{ message: String(error), line: 0, column: 0 }];
-    return details.map((/** @type {any} */ d) => ({
-      message: String(d.message ?? "").trim(),
-      line: Number(d.line ?? 0),
-      column: Number(d.col ?? 0),
-    }));
-  } finally {
-    doc.dispose();
+export async function chooseSchema(schemas) {
+  const skipped = [];
+  for (const entry of schemas) {
+    try {
+      // Absolute, since the worker would resolve a relative URL against js/.
+      const url = new URL(entry.url, document.baseURI).href;
+      const r = await fetch(url);
+      if (r.ok) return { ...entry, url, text: await r.text(), skipped };
+      skipped.push(`${entry.label} (Status ${r.status})`);
+    } catch {
+      skipped.push(`${entry.label} (nicht erreichbar)`);
+    }
   }
+  throw new Error(`Kein Schema geladen: ${skipped.join(", ")}.`);
+}
+
+export function createValidator() {
+  /** @type {Worker | null} */
+  let worker = null;
+  let serial = 0;
+  /** @type {Map<number, { resolve: (p: Diagnostic[]) => void, reject: (e: Error) => void }>} */
+  const pending = new Map();
+
+  function ensureWorker() {
+    if (worker) return worker;
+    const w = new Worker(new URL("./validate-worker.js", import.meta.url), { type: "module" });
+    w.addEventListener("message", (/** @type {MessageEvent} */ e) => {
+      const job = pending.get(e.data.id);
+      if (!job) return;
+      pending.delete(e.data.id);
+      if ("error" in e.data) job.reject(new Error(e.data.error));
+      else job.resolve(e.data.problems);
+    });
+    // A crashed worker fails its jobs and is replaced on the next request.
+    w.addEventListener("error", (e) => {
+      e.preventDefault();
+      w.terminate();
+      if (worker === w) worker = null;
+      for (const [id, job] of pending) {
+        pending.delete(id);
+        job.reject(new Error(`Die Prüfung ist abgebrochen: ${e.message || "Fehler im Prüfprozess"}.`));
+      }
+    });
+    worker = w;
+    return w;
+  }
+
+  return {
+    /** Compiles the schema in the background, so the first validation does not wait for it. @param {string} schemaUrl */
+    prepare(schemaUrl) {
+      ensureWorker().postMessage({ type: "prepare", schemaUrl });
+    },
+    /**
+     * @param {string} xml a well-formed document @param {string} schemaUrl
+     * @returns {Promise<Diagnostic[]>} empty when valid
+     */
+    validate(xml, schemaUrl) {
+      const id = ++serial;
+      return new Promise((resolve, reject) => {
+        pending.set(id, { resolve, reject });
+        ensureWorker().postMessage({ type: "validate", id, xml, schemaUrl });
+      });
+    },
+  };
 }
