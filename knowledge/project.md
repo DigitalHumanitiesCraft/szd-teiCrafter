@@ -47,7 +47,7 @@ Editing a digital edition means closing the gap between a machine transcription 
 
 ## Standards
 
-- Encoding: TEI P5, validated against TEI All 4.11.0.
+- Encoding: TEI P5, validated against the strictest available schema, the project schema generated from the ODD once it exists and TEI All 4.11.0 as the fallback.
 - Facsimiles: IIIF Presentation API 2 and 3 for manifests, IIIF Image API for deep zoom.
 - Persons: entries of the Stefan Zweig Digital person index in `persName/@ref`, GND URIs for persons outside it.
 - Versioning and exchange: Git, with research data under `data/` kept byte-exact (no line-ending conversion).

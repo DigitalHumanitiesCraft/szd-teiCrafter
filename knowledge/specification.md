@@ -31,7 +31,7 @@ The editor serves one task chain, opening a document of the Stefan Zweig Digital
 
 - FR-01: The editor opens a TEI file in UTF-8 and shows its source with XML highlighting, line numbers and folding. Each opened document starts with its own undo history. Acceptance criterion: the example letter loads on start, a file opened through the open action replaces it, undo after opening another document leaves that document unchanged, and a file that is not UTF-8 or declares another encoding is refused with a message while the open document stays.
 - FR-02: Well-formedness is checked while typing. Acceptance criterion: a malformed position is underlined in the text, the check button names the line, and activating it moves the caret there.
-- FR-03: The document can be validated against TEI All. Acceptance criterion: each schema error is listed with a line link and underlined in the text, and any later edit marks the result as outdated. The result belongs to the exact text it ran on, so undoing back to that text shows it again, and a check pending from typing does not discard it.
+- FR-03: The document can be validated against the strictest configured schema that loads, with TEI All as the fallback (ADR-014). Validation runs in a worker, and the schema is prepared there right after the editor starts, so the interface stays responsive while it compiles. A valid result names the schema, and a fallback result says that it constrains little. Acceptance criterion: the first validation of a session leaves the editor responsive, each schema error is listed with a line link and underlined in the text, and any later edit marks the result as outdated. The result belongs to the exact text it ran on, so undoing back to that text shows it again, and a check pending from typing does not discard it.
 - FR-04: The facsimile loads from a IIIF Presentation manifest (v2 or v3), a IIIF Image API service or a plain image URL, and for SZD objects the manifest is derived from the TEI. Acceptance criterion: the example letter shows its GAMS images without user input.
 - FR-05: The facsimile follows the caret. Acceptance criterion: the shown page is the one whose `pb` precedes the caret.
 - FR-06: A marked name becomes `<persName ref="…">` pointing to the entry of the Stefan Zweig Digital person index, found while typing, or to the GND for persons outside the index (ADR-007). Acceptance criterion: the saved file differs from the original only by the inserted elements.
@@ -60,6 +60,7 @@ The editor serves one task chain, opening a document of the Stefan Zweig Digital
 - NFR-02: No runtime CDN and no API key. Measure: all libraries and the person index are local files, and network calls go only to the IIIF service of the opened document and, on request, to lobid-gnd.
 - NFR-03: Saving preserves every byte the user did not edit. Measure: the browser check compares the saved file with the original.
 - NFR-04: Keyboard operation for every action, visible focus, light and dark mode, and a usable narrow view without horizontal page scrolling. Measure: the browser check and the acceptance list in [testing](testing.md).
+- NFR-05: Document size. The editor is meant for documents up to about 1 MB, where checking, validation and the text view respond without a noticeable stall. Up to about 5 MB the XML view stays workable with a short stall after each typing pause, while the text view becomes sluggish. From about 20 MB the check after each pause takes seconds and the text view is unusable, so such documents are outside the editor's range until the research items in [plan](plan.md#later) are done. The largest document of the szd-htr results is well below 1 MB. Measure: `test/size-check.mjs`, last run on 2026-10-31.
 
 ### Data safety guarantees
 
@@ -195,7 +196,7 @@ Effect. The repository runs by serving its root. The browser check needs Node an
 
 Context. The editor is meant as a derivation of teiCrafter that other editions can repeat.
 
-Choice. All edition-specific knowledge lives in `js/source.js` and the data it points to, `data/actions.json` among them. The source configuration holds the product name and storage key, the collections, the IIIF manifest rule, the element suggestions, the schema and its label, the person index with its reference forms, the place references, the text view settings and the definition of open work. The other modules know no edition and name neither product nor element names of the edition.
+Choice. All edition-specific knowledge lives in `js/source.js` and the data it points to, `data/actions.json` among them. The source configuration holds the product name and storage key, the collections, the IIIF manifest rule, the element suggestions, the ordered list of schemas, the person index with its reference forms, the place references, the text view settings and the definition of open work. The other modules know no edition and name neither product nor element names of the edition.
 
 Rationale. A derivation for another edition replaces one file and the registry, and the generic modules can later move into the teiCrafter base.
 
@@ -211,7 +212,8 @@ Effect. This module map is the one place that says which module owns what. A cha
 | `js/markcard.js` | The card of a marked passage, described from its registry action |
 | `js/docs.js`, `js/menu.js`, `js/person.js`, `js/place.js`, `js/datedialog.js`, `js/settings.js`, `js/changes.js` | Document list, action menu, person, place and date dialogs, action settings and comparison dialog |
 | `js/editor.js` | The CodeMirror editor, its theme and the marking of application edits |
-| `js/tei.js`, `js/iiif.js`, `js/viewer.js`, `js/validate.js`, `js/split.js`, `js/gnd.js`, `js/register.js`, `js/diff.js`, `js/dates.js` | TEI facts, IIIF resolution, image viewer, schema validation, split, GND search, register search, line comparison, German date parsing |
+| `js/validate.js`, `js/validate-worker.js` | Choosing the schema of the source configuration (ADR-014) and validating against it in a module worker that keeps the compiled schema for the session |
+| `js/tei.js`, `js/iiif.js`, `js/viewer.js`, `js/split.js`, `js/gnd.js`, `js/register.js`, `js/diff.js`, `js/dates.js` | TEI facts, IIIF resolution, image viewer, split, GND search, register search, line comparison, German date parsing |
 | `js/concepts.js`, `js/ui.js` | The defined terms of the tooltips, and shared helpers (`$`, `setStatus`, `ask`, `arrowNavigation`, `renderResults`) |
 
 Open work is a list of detectors, each with a key, a label, a `find` function and an optional menu action, which `openWorkFor(actions)` in `js/source.js` builds from the markers of the action registry, the kinds without an encoding rule and the marker syntax the actions leave unresolved (ADR-013). `index.html` remains the edition's page and carries its title and placeholders.
@@ -329,3 +331,13 @@ Choice. `data/actions.json` lists per action its id, label, letter key, icon, el
 Rationale. A derivation changes its actions without code, the menu, dialogs, F8 notes and document index read one source, and refusing unknown markup at load keeps an action from writing what validation would reject.
 
 Effect. `source.wraps` and `source.openWork` gave way to `openWorkFor(actions)` in `js/source.js`, which the editor, the document index tool and the tests use. A switched-off action leaves its markers counted as open work, and F8 names the switch. The mark card takes its title, the attributes it shows and its dialog from the action that writes the element, and the place dialog writes through `wrap` like every other action. Which attributes the actions should write by default, such as `add/@place`, `del/@rend`, `unclear/@reason` and the normalisation of dates, are editorial rules for the ODD (S4) and stay undecided.
+
+### ADR-014 The strictest available schema, TEI All as the fallback
+
+Context. The first validation of a session froze the editor for several seconds. A measurement on 2026-10-31 showed that the time went into compiling TEI All, a RELAX NG of about one megabyte, while validating a letter against the compiled schema took a fraction of a second. TEI All also allows almost everything, so a document valid against it says little about the edition's rules.
+
+Choice. Operator, 2026-10-31: „Mit einem kleineren Schema könnten wir hier die Ladezeit verkürzen, weil wir nur das Schema verwenden, das man sozusagen verwenden möchte. Je strenger ein Schema ist, desto besser. Also TEI All wäre eigentlich der Fallback.“ `source.schemas` lists the schemas strictest first, and the editor validates against the first one that loads. The project schema is the RELAX NG generated from the ODD, and the ODD itself stays in SZD-split as source and documentation, since validation needs only the generated schema. TEI All is the last entry, marked as fallback. Validation and the compilation of the schema run in a module worker, which the editor asks to prepare the schema as soon as it starts.
+
+Rationale. A strict schema is smaller, so it compiles faster, and it rejects what the edition does not allow. The worker keeps the interface responsive whatever the schema costs, and preparing it at start means the first validation usually finds it ready. The action registry is checked against the same schema, so an action the project schema forbids is refused.
+
+Effect. Until SZD-split provides the ODD, the list holds TEI All alone and every valid result says that it was checked against the fallback. Constraints of the ODD that RELAX NG cannot express, such as Schematron rules, would need a separate check. Whether acceptance should require the project schema once it exists is open in [plan](plan.md#open-decisions-and-dependencies).

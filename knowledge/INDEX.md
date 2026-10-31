@@ -88,9 +88,13 @@ Gemeinsame Normdatei of the German National Library. The editor writes a GND URI
 
 The register of persons of Stefan Zweig Digital, GAMS object `o:szd.personen`, whose entries carry identifiers of the form `SZDPER.n`. Annotations point to its entries, see ADR-007 in the specification.
 
+### Schema list
+
+The schemas of the source configuration, ordered strictest first, against which the editor validates the first one that loads. The project schema is the RELAX NG generated from the edition's ODD, and TEI All is the fallback, see ADR-014 in the specification.
+
 ### Source configuration
 
-The file `js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, the collections, the text view settings, the person and place references, and the paths of the action registry and the schema.
+The file `js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, the collections, the text view settings, the person and place references, the path of the action registry and the schema list.
 
 ### SZD
 

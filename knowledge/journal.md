@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Validation in a worker, schemas strictest first, size limits named
+
+- Trigger: the operator found the first validation slow and asked how large documents the browser can take. A measurement with synthetic documents up to 50 MB showed that the wait came from compiling TEI All on the main thread, independent of the document, and that the check after each typing pause and the text view grow with the whole text.
+- Changed: validation and schema compilation run in a module worker, which prepares the schema when the editor starts. The source configuration lists schemas strictest first, TEI All as the marked fallback, and a valid result names the schema it was checked against. `test/size-check.mjs` makes the measurement repeatable, and the browser check asserts that the first validation leaves the editor responsive.
+- Decided: the operator set the schema principle, the strictest available schema with TEI All as the last resort (ADR-014). Validation needs only the RELAX NG generated from the ODD, so the ODD stays in SZD-split. The size limits are stated as ranges in NFR-05, owned there, because the szd-htr results stay well below them and a redesign for very large documents is research, listed in the plan.
+- Evidence: `npm run check` passing in full, and `npm run size` on 2026-10-31.
+- Open: whether acceptance requires the project schema once it exists, and the research items for documents beyond the limit.
+
 ### 2026-10-31 Two code reviews worked through, knowledge curated, trial run prepared
 
 - Trigger: the operator asked for an understanding of the whole editor, for its problems and for refactoring. Two independent reviewers read the modules in two halves without the implementer's verdict, and the operator asked to implement every proposal, to curate the knowledge base and to prepare a trial run as a simulated project.

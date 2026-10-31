@@ -21,8 +21,9 @@ exchanges the results by commit and push.
   `data/actions.json` and can be switched in the settings view. The HTR markers `~~…~~`, `[?]`
   and `{…}` and the other open work of the machine transcription are counted, and F8 walks
   through them.
-- Checks well-formedness while typing and validates against TEI All (P5 4.11.0) in the browser.
-  Each error links to its line, and Git conflict markers are explained as two versions of a
+- Checks well-formedness while typing and validates in the browser against the strictest schema
+  configured in `js/source.js`, today TEI All (P5 4.11.0) as the fallback until the project schema
+  exists. Validation runs in the background, so the editor never freezes. Each error links to its line, and Git conflict markers are explained as two versions of a
   passage.
 - Shows the working state of the document, from in progress (with its reason) to ready for
   acceptance and accepted. Accepting writes `revisionDesc/@status="approved"` and a dated `change`
@@ -75,8 +76,10 @@ markers, the editor names them and the passage can be resolved in the XML view.
 - `tools/`: Node scripts for import and indexes.
 - `vendor/`, `schemas/`: vendored CodeMirror, OpenSeadragon, libxml2-wasm and the TEI schema, each
   with its `NOTICE.md`.
-- `test/`: unit tests and the browser check, the only place that needs Node packages
-  (`cd test && npm install && npm run check`, with the server running).
+- `test/`: unit tests, the browser check and the size check, the only place that needs Node
+  packages (`cd test && npm install && npm run check`, with the server running). The editor is
+  meant for documents up to about 1 MB and stays workable up to about 5 MB, see NFR-05 in
+  `knowledge/specification.md`.
 - `knowledge/`: requirements, decisions, data, design, checks and the plan, starting at
   `knowledge/INDEX.md`.
 

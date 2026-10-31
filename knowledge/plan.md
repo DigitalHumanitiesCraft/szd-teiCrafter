@@ -60,7 +60,7 @@ On 2026-10-31 two independent code reviews were worked through, see [journal](jo
 2. Action menu. Think through how each semantic annotation is best represented, standard icons for deletion, addition, emphasis and uncertainty, text only where an icon does not explain itself. Drop the visible key letters, and name keys, if any stay, in the tooltip. Keep the menu on one line. Snap selections that start or end inside a word to word boundaries before actions are offered.
 3. Documents dialog. A definition for each state icon and a mark of its own for accepted, no repeated counts or headings, a visible sort order, „Sammlungen“ or the configured term instead of „Collections“, and document date and last edit as compact meta.
 4. Actions dialog. Markers in words with the pattern in a tooltip, the key fields labelled or moved to a tooltip, an icon column, a plain statement that TEI All constrains little until the ODD exists, saving to the configured location as the primary button, and one introductory sentence with a defining tooltip.
-5. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, point `source.schema` to it, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013).
+5. Project ODD. When SZD-split provides the ODD, pin its generated RELAX NG and action catalogue here, add the schema as first entry of `source.schemas` before the TEI All fallback, and add the drift check of the catalogue against `data/actions.json` (ADR-010, ADR-013, ADR-014).
 6. Align with the szd operator on the editorial rules for places, dates and the default attributes of the actions (S4).
 
 ## Milestones
@@ -139,7 +139,13 @@ These items are accepted as direction and not yet placed in a milestone.
 
 - Plausibility review of annotations by an LLM in the background. A person annotation can be valid TEI with a valid GND id and still be wrong, such as the word „Herbst“ annotated as a person, and deterministic checks cannot see this. The review would follow the proposal layer of the teiCrafter base, marking its findings as proposals with `@resp` naming the LLM, so that a human decides each one.
 - Scaling. Assigning documents to persons, a way to the next open document, and performance on very large documents, where the longest works of the working set are the test case.
-- Validation off the main thread. The first validation of a session waits several seconds, about 8 s in the session measurement of 2026-10-30, because libxml2-wasm compiles the TEI All schema on the main thread, and the interface does not respond meanwhile. Later validations reuse the compiled schema. Moving `validate` into a worker is the upgrade path named in `js/validate.js`.
+- Documents beyond the size limit of NFR-05. Opening a large document is fast, while every check after a typing pause and every edit in the text view work on the whole text. Research items, each to be measured with `test/size-check.mjs`:
+  - Live well-formedness from the incremental syntax tree CodeMirror already keeps, with the full parse only on demand.
+  - Open work counted only in the changed lines instead of the whole text.
+  - Text view decorations built for the visible part only.
+  - Parse and open work moved into the worker, with results that may arrive a moment later.
+  - Editing one section of a very large document at a time, cut out by its offsets and spliced back byte-exact, as the teiCrafter base edits by offset splices.
+  - Where the browser stops altogether, namely the memory of one tab and the address space of WebAssembly, which bounds validation inside the worker.
 
 ## Status tracker
 
@@ -161,4 +167,5 @@ These items are accepted as direction and not yet placed in a milestone.
 - Whether auto-closing tags stay, since the base requires that typing inserts exactly the typed characters, before S5.
 - The text view was decided by the Human User on 2026-10-30 and built as ADR-012. Its remaining form questions are the resume steps above.
 - The merge of the SZD-split header with the body corrected here, and where it runs, depends on SZD-split and the project ODD (ADR-010).
+- Whether acceptance requires the project schema once it exists, or whether a result against the TEI All fallback still suffices (ADR-014).
 - Whether derivations stay build-free with vendored bundles or move to the Vite stack of the base, before S6. ADR-003 keeps both open.
