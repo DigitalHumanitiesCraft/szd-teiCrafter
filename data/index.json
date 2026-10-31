@@ -7,6 +7,7 @@
         {
           "path": "data/o_szd.1222.tei.xml",
           "objectId": "o_szd.1222",
+          "shelfmark": "",
           "title": "Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52",
           "pages": 2,
           "open": 7,
@@ -15,6 +16,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1437.tei.xml",
           "objectId": "o_szd.1437",
+          "shelfmark": "",
           "title": "Brief an Stefan Zweig vom 27. Juni 1944, SZ-AAP/B14",
           "pages": 25,
           "open": 0,
@@ -23,6 +25,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1786.tei.xml",
           "objectId": "o_szd.1786",
+          "shelfmark": "",
           "title": "Brief an Stefan Zweig vom 10. Mai 1938, SZ-AAP/B1.220",
           "pages": 6,
           "open": 0,
@@ -31,6 +34,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1481.tei.xml",
           "objectId": "o_szd.1481",
+          "shelfmark": "",
           "title": "Deckblatt \"Copyr. Bureau Korresp. 1939\", o. D., SZ-AAP/B3.0",
           "pages": 3,
           "open": 0,
@@ -39,6 +43,7 @@
         {
           "path": "data/korrespondenzen/o_szd.504.tei.xml",
           "objectId": "o_szd.504",
+          "shelfmark": "",
           "title": "Unidentified an Stefan Zweig, 1906-11-23, SZ-SAM/AK.214",
           "pages": 3,
           "open": 43,
@@ -47,6 +52,7 @@
         {
           "path": "data/korrespondenzen/o_szd.406.tei.xml",
           "objectId": "o_szd.406",
+          "shelfmark": "",
           "title": "Jüdischer Jugendverein (Düsseldorf) an Stefan Zweig, 1930-06-18, SZ-SAM/AK.125",
           "pages": 3,
           "open": 70,
@@ -55,6 +61,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1267.tei.xml",
           "objectId": "o_szd.1267",
+          "shelfmark": "",
           "title": "Brief an Stefan Zweig vom 8. März 1938, SZ-SAM/B4.4",
           "pages": 3,
           "open": 15,
@@ -63,6 +70,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1750.tei.xml",
           "objectId": "o_szd.1750",
+          "shelfmark": "",
           "title": "Brief an Herbert Reichner vom 7. Oktober 1937, SZ-AAP/B1.103",
           "pages": 2,
           "open": 0,
@@ -71,6 +79,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1079.tei.xml",
           "objectId": "o_szd.1079",
+          "shelfmark": "",
           "title": "Brief an Max Fleischer vom 22. Mai 1901, SZ-LAS/B3.1",
           "pages": 5,
           "open": 0,
@@ -79,6 +88,7 @@
         {
           "path": "data/korrespondenzen/o_szd.1404.tei.xml",
           "objectId": "o_szd.1404",
+          "shelfmark": "",
           "title": "Brief an Stefan Zweig vom 10. Juli 1939, SZ-LAS/B2.6",
           "pages": 2,
           "open": 2,
@@ -93,6 +103,7 @@
         {
           "path": "data/lebensdokumente/o_szd.187.tei.xml",
           "objectId": "o_szd.187",
+          "shelfmark": "SZ-AP2/L-S7.2",
           "title": "Mitteilung des britischen Home Office",
           "pages": 1,
           "open": 1,
@@ -101,6 +112,7 @@
         {
           "path": "data/lebensdokumente/o_szd.100.tei.xml",
           "objectId": "o_szd.100",
+          "shelfmark": "SZ-AAP/L13.23",
           "title": "Agreement Longmans, Green & Co. Inc.",
           "pages": 3,
           "open": 4,
@@ -109,6 +121,7 @@
         {
           "path": "data/lebensdokumente/o_szd.141.tei.xml",
           "objectId": "o_szd.141",
+          "shelfmark": "SZ-SAH/L1",
           "title": "Notizbuch Russlandreise",
           "pages": 84,
           "open": 913,
@@ -117,6 +130,7 @@
         {
           "path": "data/lebensdokumente/o_szd.72.tei.xml",
           "objectId": "o_szd.72",
+          "shelfmark": "SZ-AAP/L6",
           "title": "Tagebuch 1918",
           "pages": 39,
           "open": 1,
@@ -125,6 +139,7 @@
         {
           "path": "data/lebensdokumente/o_szd.134.tei.xml",
           "objectId": "o_szd.134",
+          "shelfmark": "SZ-AAP/L13.57",
           "title": "Vertrag Aktiebolaget Skoglunds Bokförlag",
           "pages": 3,
           "open": 8,
@@ -133,6 +148,7 @@
         {
           "path": "data/lebensdokumente/o_szd.153.tei.xml",
           "objectId": "o_szd.153",
+          "shelfmark": "SZ-SAM/L3",
           "title": "Briefkarte blanko",
           "pages": 3,
           "open": 0,
@@ -141,6 +157,7 @@
         {
           "path": "data/lebensdokumente/o_szd.184.tei.xml",
           "objectId": "o_szd.184",
+          "shelfmark": "SZ-AP2/L-S7.13",
           "title": "Liste mit wichtigen Daten und persönlichen Papieren",
           "pages": 2,
           "open": 4,
@@ -149,6 +166,7 @@
         {
           "path": "data/lebensdokumente/o_szd.192.tei.xml",
           "objectId": "o_szd.192",
+          "shelfmark": "SZ-AP2/L-S7.8",
           "title": "Bescheid über die Judenvermögensabgabe",
           "pages": 2,
           "open": 0,
@@ -157,14 +175,16 @@
         {
           "path": "data/lebensdokumente/o_szd.194.tei.xml",
           "objectId": "o_szd.194",
+          "shelfmark": "SZ-AP2/L-S9.1",
           "title": "Briefregister [I]",
           "pages": 135,
-          "open": 10,
+          "open": 16,
           "status": "draft"
         },
         {
           "path": "data/lebensdokumente/o_szd.152.tei.xml",
           "objectId": "o_szd.152",
+          "shelfmark": "SZ-SAM/L2",
           "title": "Abwesenheitsnotiz I",
           "pages": 3,
           "open": 0,
@@ -179,6 +199,7 @@
         {
           "path": "data/werke/o_szd.260.tei.xml",
           "objectId": "o_szd.260",
+          "shelfmark": "SZ-AP2/W-H33a",
           "title": "Autobiographischer Aufsatz",
           "pages": 2,
           "open": 0,
@@ -187,6 +208,7 @@
         {
           "path": "data/werke/o_szd.218.tei.xml",
           "objectId": "o_szd.218",
+          "shelfmark": "",
           "title": "Vortrag über Dostojewski II [Beilage]",
           "pages": 2,
           "open": 0,
@@ -195,6 +217,7 @@
         {
           "path": "data/werke/o_szd.263.tei.xml",
           "objectId": "o_szd.263",
+          "shelfmark": "SZ-AP2/W-H206",
           "title": "Worte am Sarge Sigmund Freuds [Fragment I]",
           "pages": 2,
           "open": 8,
@@ -203,14 +226,16 @@
         {
           "path": "data/werke/o_szd.320.tei.xml",
           "objectId": "o_szd.320",
+          "shelfmark": "SZ-AP2/W-G503.3",
           "title": "VI Capitel Ein Wille gegen tausend Widerstände",
           "pages": 11,
-          "open": 2075,
+          "open": 2078,
           "status": "draft"
         },
         {
           "path": "data/werke/o_szd.368.tei.xml",
           "objectId": "o_szd.368",
+          "shelfmark": "SZ-SAM/W5",
           "title": "Kleist",
           "pages": 29,
           "open": 3470,
@@ -219,6 +244,7 @@
         {
           "path": "data/werke/o_szd.229.tei.xml",
           "objectId": "o_szd.229",
+          "shelfmark": "SZ-AAP/W41",
           "title": "Werknotizen 3",
           "pages": 165,
           "open": 585,
@@ -227,14 +253,16 @@
         {
           "path": "data/werke/o_szd.273.tei.xml",
           "objectId": "o_szd.273",
+          "shelfmark": "SZ-AAP/W4.3",
           "title": "Montaigne",
           "pages": 238,
-          "open": 324,
+          "open": 350,
           "status": "draft"
         },
         {
           "path": "data/werke/o_szd.2856.tei.xml",
           "objectId": "o_szd.2856",
+          "shelfmark": "SZ-AP2/W-H160a.3",
           "title": "Manifest",
           "pages": 5,
           "open": 0,
@@ -243,6 +271,7 @@
         {
           "path": "data/werke/o_szd.2934.tei.xml",
           "objectId": "o_szd.2934",
+          "shelfmark": "SZ-AP2/W-H172.3",
           "title": "Histoire de l'idée européenne",
           "pages": 5,
           "open": 2,
@@ -251,6 +280,7 @@
         {
           "path": "data/werke/o_szd.1890.tei.xml",
           "objectId": "o_szd.1890",
+          "shelfmark": "SZ-AP2/W-H124",
           "title": "Dank an die Bücher",
           "pages": 3,
           "open": 0,
@@ -265,6 +295,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2215.tei.xml",
           "objectId": "o_szd.2215",
+          "shelfmark": "SZ-AAP/W-AA215.1",
           "title": "Aus der Werkstatt der Dichter",
           "pages": 3,
           "open": 0,
@@ -273,6 +304,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2478.tei.xml",
           "objectId": "o_szd.2478",
+          "shelfmark": "SZ-AAP/W-AA119.0",
           "title": "Alter Anfang für eine Legende \"Mitleiden\"",
           "pages": 3,
           "open": 0,
@@ -281,6 +313,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2846.tei.xml",
           "objectId": "o_szd.2846",
+          "shelfmark": "",
           "title": "Mitleiden, SZ-AAP/W-AA119.1",
           "pages": 15,
           "open": 323,
@@ -289,6 +322,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2322.tei.xml",
           "objectId": "o_szd.2322",
+          "shelfmark": "SZ-AAP/W-AA175.2",
           "title": "Richard Specht",
           "pages": 7,
           "open": 277,
@@ -297,14 +331,16 @@
         {
           "path": "data/aufsatzablage/o_szd.2375.tei.xml",
           "objectId": "o_szd.2375",
+          "shelfmark": "SZ-AAP/W-AA168.1",
           "title": "Josef Roth: \"Rechts und Links\".",
           "pages": 9,
-          "open": 152,
+          "open": 164,
           "status": "draft"
         },
         {
           "path": "data/aufsatzablage/o_szd.2290.tei.xml",
           "objectId": "o_szd.2290",
+          "shelfmark": "SZ-AAP/W-AA183.1",
           "title": "Salzburg. Die Stadt als Rahmen",
           "pages": 3,
           "open": 2,
@@ -313,6 +349,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2325.tei.xml",
           "objectId": "o_szd.2325",
+          "shelfmark": "SZ-AAP/W-AA177.1",
           "title": "Scharlach.",
           "pages": 45,
           "open": 0,
@@ -321,6 +358,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2414.tei.xml",
           "objectId": "o_szd.2414",
+          "shelfmark": "SZ-AAP/W-AA136.2",
           "title": "A Marcel Martinet",
           "pages": 3,
           "open": 0,
@@ -329,6 +367,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2296.tei.xml",
           "objectId": "o_szd.2296",
+          "shelfmark": "SZ-AAP/W-AA185.1",
           "title": "Hugo Steiner-Prag",
           "pages": 5,
           "open": 0,
@@ -337,6 +376,7 @@
         {
           "path": "data/aufsatzablage/o_szd.2412.tei.xml",
           "objectId": "o_szd.2412",
+          "shelfmark": "SZ-AAP/W-AA136.0",
           "title": "Martinet, Marcel",
           "pages": 7,
           "open": 0,

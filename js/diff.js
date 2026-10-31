@@ -85,6 +85,18 @@ export function hunks(lines, context = 2) {
 }
 
 /**
+ * The line of the current text a group of changes points to: the first
+ * changed line, and for a removed line the line that now stands in its place.
+ * @param {DiffLine[]} group
+ */
+export function jumpLine(group) {
+  const first = Math.max(0, group.findIndex((l) => l.kind !== "same"));
+  const after = group.slice(first).find((l) => l.b);
+  if (after) return after.b;
+  return (group.slice(0, first).findLast((l) => l.b)?.b ?? 0) + 1;
+}
+
+/**
  * Git conflict marker lines, in document order. Start and end take Git's form,
  * seven signs followed by a space and a label or by the line end, and count on
  * their own, so a marker left over from a partial resolution is still found.

@@ -105,7 +105,8 @@ const chrome = EditorView.theme({
   ".tv-el-persName": { textDecorationLine: "underline", textDecorationColor: "var(--blue)" },
   ".tv-el-placeName": { textDecorationLine: "underline", textDecorationStyle: "double", textDecorationColor: "var(--blue)", textDecorationThickness: "1px" },
   ".tv-el-date": { textDecorationLine: "underline", textDecorationColor: "var(--muted)", textDecorationThickness: "1px" },
-  ".tv-unlinked": { textDecorationColor: "var(--muted)" },
+  // Not yet linked: grey and wavy, so the difference does not rest on colour alone.
+  ".tv-unlinked": { textDecorationColor: "var(--muted)", textDecorationStyle: "wavy", textDecorationThickness: "1px" },
   ".tv-el-del": { textDecorationLine: "line-through", textDecorationThickness: "1px" },
   ".tv-el-add": { position: "relative", top: "-0.45em", fontSize: "0.85em" },
   ".tv-el-unclear": { textDecorationLine: "underline", textDecorationStyle: "dotted", textDecorationColor: "var(--text)" },
@@ -200,6 +201,9 @@ const germanPhrases = EditorState.phrases.of({
   Diagnostics: "Befunde",
   "No diagnostics": "Keine Befunde",
 });
+
+/** The user event of edits the application makes, as opposed to typing or editor commands. */
+export const APP_EDIT = "app.edit";
 
 const ZOOM_STEPS = [70, 80, 90, 100, 110, 125, 140, 160, 180, 200];
 
@@ -356,15 +360,20 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
 
   const api = {
     view,
-    // sliceDoc joins lines with the configured separator; doc.toString() would
-    // always use LF. Positions below are document positions, in which a line
-    // break counts as one character whatever the separator.
+    // The text as saved: sliceDoc joins lines with the configured separator,
+    // where doc.toString() would always use LF.
     get text() {
       return view.state.sliceDoc();
     },
-    /** @param {number} from @param {number} to */
+    /**
+     * A part of the document with LF breaks, so string offsets in it are
+     * document positions, in which a line break counts as one character
+     * whatever the separator. Inserted text gets the separator back from
+     * sameLineBreaks.
+     * @param {number} from @param {number} to
+     */
     slice(from, to) {
-      return view.state.sliceDoc(from, to);
+      return view.state.doc.sliceString(from, to);
     },
     /** The text with LF breaks, whose string offsets equal document positions. */
     docText() {
@@ -420,11 +429,17 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
     },
     selection() {
       const { from, to } = view.state.selection.main;
-      return { from, to, text: view.state.sliceDoc(from, to) };
+      return { from, to, text: view.state.doc.sliceString(from, to) };
     },
-    /** @param {number} from @param {number} to @param {string} insert */
+    /**
+     * An edit of the application, such as an annotation. The caret goes after
+     * the inserted text, counted in the new document, where a line break is one
+     * position whatever the separator.
+     * @param {number} from @param {number} to @param {string} insert
+     */
     replace(from, to, insert) {
-      view.dispatch({ changes: { from, to, insert }, selection: { anchor: from + insert.length } });
+      const changes = view.state.changes({ from, to, insert });
+      view.dispatch({ changes, selection: { anchor: changes.mapPos(to, 1) }, userEvent: APP_EDIT });
       view.focus();
     },
     /** @param {number} direction +1 larger, -1 smaller, 0 reset */
@@ -446,9 +461,13 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
       shown = extension ?? xmlChrome;
       view.dispatch({ effects: presentation.reconfigure(shown) });
     },
-    /** @param {import("../vendor/codemirror/codemirror.js").TransactionSpec} spec */
+    /**
+     * A transaction of the application; one that changes the text counts as an
+     * application edit, which the text view lets pass.
+     * @param {import("../vendor/codemirror/codemirror.js").TransactionSpec} spec
+     */
     dispatch(spec) {
-      view.dispatch(spec);
+      view.dispatch(spec.changes && !spec.userEvent ? { ...spec, userEvent: APP_EDIT } : spec);
     },
     /** The document position at the top of the visible text. */
     topPos() {

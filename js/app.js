@@ -20,11 +20,11 @@ import { schemaChecker } from "./schema.js";
 import { createSettings } from "./settings.js";
 import { openWorkFor, source } from "./source.js";
 import { attachSplit } from "./split.js";
-import { acceptanceEdits, openSpots, workingState } from "./state.js";
+import { acceptanceEdits, openSpots, withdrawalEdits, workingState } from "./state.js";
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
 import { attributeOf, hasLineBreaks, textView } from "./textview.js";
 import { $, setStatus } from "./ui.js";
-import { validateTeiAll } from "./validate.js";
+import { validate } from "./validate.js";
 import { createViewer } from "./viewer.js";
 
 const xmlStatus = $("xml-status");
@@ -76,6 +76,15 @@ async function loadRegistry() {
   return { text, actions: loaded, comment: json.$comment };
 }
 
+/** @type {{ text: string | null, work: import("./state.js").Detector[], spots: ReturnType<typeof openSpots> }} */
+let spotsCache = { text: null, work: openWork, spots: [] };
+/** Open spots of a text, computed once per text and registry, since each check and the text view ask for them. @param {string} text */
+function spotsOf(text) {
+  if (text !== spotsCache.text || spotsCache.work !== openWork) spotsCache = { text, work: openWork, spots: openSpots(text, openWork) };
+  return spotsCache.spots;
+}
+const currentSpots = () => spotsOf(editor.docText());
+
 /** Hands an edited or loaded registry to menu, counter and tooltips. @param {import("./actions.js").LoadedAction[]} list */
 function applyActions(list) {
   actions = list;
@@ -114,7 +123,7 @@ let checkTimer = 0;
 let validation = null;
 /** Counts opened documents, so a validation finishing later is not applied to another one. */
 let opened = 0;
-const VALID_SUMMARY = "Gültig gegen TEI All (P5 4.11.0).";
+const VALID_SUMMARY = `Gültig gegen ${source.schemaLabel}.`;
 /** revisionDesc/@status of the last well-formed parse (ADR-011). */
 let docStatus = "";
 /** The text at acceptance, so a later edit shows as a change after acceptance. */
@@ -134,6 +143,8 @@ const editor = createEditor($("editor"), {
     { key: "Mod-s", run: () => (files.save(), true) },
   ],
   onChange() {
+    // A card describes positions of the text it opened on.
+    card.close();
     clearTimeout(checkTimer);
     checkTimer = window.setTimeout(checkSource, 300);
     files.updateMark();
@@ -188,9 +199,24 @@ const files = createFiles({
   report,
   onOpened: documentOpened,
   // Run the pending check now, so it cannot overwrite the save confirmation.
+  // A document changed since its acceptance is saved as in progress, so the
+  // file never claims an acceptance of a text nobody accepted.
   beforeSave() {
     clearTimeout(checkTimer);
     checkSource();
+    if (docStatus !== "approved" || acceptedText === null || editor.text === acceptedText) return "";
+    const edits = withdrawalEdits(editor.docText());
+    if (!edits.length) return "";
+    editor.dispatch({ changes: edits });
+    acceptedText = null;
+    clearTimeout(checkTimer);
+    checkSource();
+    return "Die Abnahme ist zurückgenommen, weil der Text seither geändert wurde.";
+  },
+  // The confirmation names the state the file was saved in (ADR-008).
+  stateNote() {
+    const facts = updateDocState();
+    return `Stand: ${facts.label}${facts.detail ? `, ${facts.detail}` : ""}.`;
   },
   onSaved: showMeta,
 });
@@ -205,7 +231,13 @@ const openPersonDialog = createPersonDialog({
   },
   onStale: stale,
 });
-const openPlaceDialog = createPlaceDialog({ editor, place: source.place, nameOf: source.person.nameOf, onStale: stale });
+const openPlaceDialog = createPlaceDialog({
+  editor,
+  place: source.place,
+  nameOf: source.person.nameOf,
+  markup: (action, text, ref) => wrap(action, text, { ref }),
+  onStale: stale,
+});
 const openDateDialog = createDateDialog({ editor, onStale: stale });
 
 const menu = createActionMenu({
@@ -229,7 +261,7 @@ editorReady = true;
 createDocumentList({
   index: source.documents,
   collections: source.collections,
-  current: () => ({ path: files.path, open: openSpots(editor.docText(), openWork).length, status: docStatus, ready: updateDocState().state === "ready" }),
+  current: () => ({ path: files.path, open: currentSpots().length, status: docStatus, ready: updateDocState().state === "ready" }),
   async choose(path) {
     if (await files.mayDiscard()) files.load(path);
   },
@@ -368,7 +400,7 @@ wfButton.addEventListener("click", () => {
 });
 
 /**
- * Validates the text against TEI All and records the result with the exact
+ * Validates the text against the schema of the source and records the result with the exact
  * text it ran on, so checkSource can show it for as long as the text is that.
  * @returns {Promise<boolean>} whether the editor text is now known to be valid
  */
@@ -383,7 +415,7 @@ async function runValidation() {
   setCheck(validButton, "busy", "Prüfe …", "#i-validate");
   validButton.disabled = true;
   try {
-    const problems = await validateTeiAll(text);
+    const problems = await validate(text, source.schema);
     // A result for a document opened meanwhile would only coincide by text.
     if (openedAt === opened) validation = { text, problems };
   } catch (err) {
@@ -408,7 +440,7 @@ function updateDocState() {
   const facts = workingState({
     wellFormed: !xmlError,
     valid: validated() && !validation?.problems.length,
-    open: openSpots(editor.docText(), openWork).length,
+    open: currentSpots().length,
     status: docStatus,
     changedSinceAcceptance: acceptedText !== null && editor.text !== acceptedText,
   });
@@ -417,6 +449,12 @@ function updateDocState() {
   $("doc-state-detail").textContent = facts.detail;
   $("accept").hidden = facts.state !== "ready";
   return facts;
+}
+
+/** Today in the local calendar, so an acceptance after midnight is not dated the day before. */
+function localDate() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 // Who accepted is left to the editorial rules of S4.
@@ -430,12 +468,13 @@ $("accept").addEventListener("click", async () => {
     report("error", `Nicht abgenommen: ${before.label}${before.detail ? `, ${before.detail}` : ""}.`);
     return;
   }
-  const edits = acceptanceEdits(editor.docText(), { date: new Date().toISOString().slice(0, 10), note: `Abgenommen im ${source.product}.` });
+  const edits = acceptanceEdits(editor.docText(), { date: localDate(), note: `Abgenommen im ${source.product}.` });
   if (!edits.length) {
     report("error", "Nicht abgenommen: Das Dokument hat keinen teiHeader, in dem die Abnahme stehen könnte.");
     return;
   }
-  for (const e of edits) editor.replace(e.from, e.to, e.insert);
+  // One transaction, so one undo takes the whole acceptance back.
+  editor.dispatch({ changes: [...edits].sort((a, b) => a.from - b.from) });
   clearTimeout(checkTimer);
   checkSource();
   // The edits count only if the parsed document now carries the status.
@@ -447,13 +486,14 @@ $("accept").addEventListener("click", async () => {
   updateDocState();
   report("ok", "Abgenommen. Speichern hält die Abnahme in der Datei fest.");
   // Only the header changed; validating again shows the accepted text as valid.
-  if (await runValidation()) report("ok", "Abgenommen und gültig gegen TEI All. Speichern hält die Abnahme in der Datei fest.");
+  if (await runValidation()) report("ok", `Abgenommen und gültig gegen ${source.schemaLabel}. Speichern hält die Abnahme in der Datei fest.`);
+  else report("error", "Abgenommen, aber der Text mit der Abnahme ist nicht gültig. Strg+Z nimmt die Abnahme zurück; die Fehler stehen unten.");
 });
 
 // Open work: what the detectors find, worked through with F8.
 
 function updateOpenWork() {
-  const count = openSpots(editor.docText(), openWork).length;
+  const count = currentSpots().length;
   if (count) setCheck(workButton, "stale", count === 1 ? "1 offene Stelle" : `${count} offene Stellen`, "#i-task");
   else setCheck(workButton, "ok", "Keine offenen Stellen");
 }
@@ -472,7 +512,7 @@ function openRuleNote(kind) {
  * action; a kind without one is named in the menu instead.
  */
 function nextOpenSpot() {
-  const spots = openSpots(editor.docText(), openWork);
+  const spots = currentSpots();
   if (!spots.length) {
     report("ok", "Keine offenen Stellen mehr.");
     return true;
@@ -556,7 +596,7 @@ const card = createMarkCard({
 });
 
 const hooks = {
-  openWork: (/** @type {string} */ text) => openSpots(text, openWork),
+  openWork: (/** @type {string} */ text) => spotsOf(text),
   // The refused edit did not happen, so the explanation is calm, not an error.
   onRefuse: (/** @type {string} */ message) => setStatus(xmlStatus, "", message),
   // A page divider turns the facsimile to its page.
@@ -660,35 +700,41 @@ function documentOpened() {
   const wanted = mode === "text" || remembered("view") === "text" ? "text" : "xml";
   if (wanted === "text" && !xmlError) setView("text", { remember: false });
   else if (mode === "text") setView("xml", { remember: false });
+  // The facsimile of the previous document must not stand beside this one,
+  // also while the new one loads or when it fails.
+  clearFacsimile();
   const manifest = facts && source.manifestFor(facts.idnos);
-  if (manifest) {
-    iiifInput.value = manifest;
-    loadImages(manifest);
-  } else {
-    // The facsimile of the previous document must not stand beside this one.
-    pageLabels = [];
-    viewer.clear();
-    iiifInput.value = "";
-    $("page-label").replaceChildren();
-    $("page-prev").disabled = true;
-    $("page-next").disabled = true;
-    toggleSource(true);
-  }
+  iiifInput.value = manifest || "";
+  if (manifest) loadImages(manifest);
+  else toggleSource(true);
+}
+
+function clearFacsimile() {
+  pageLabels = [];
+  viewer.clear();
+  $("page-label").replaceChildren();
+  $("page-prev").disabled = true;
+  $("page-next").disabled = true;
 }
 
 // Facsimile
 
 /** @param {string} url */
 async function loadImages(url) {
+  // A result for a document opened meanwhile is dropped.
+  const openedAt = opened;
   setStatus(iiifStatus, "", "Lade …");
   try {
     const resolved = await resolveIiif(url);
+    if (openedAt !== opened) return;
     if (!resolved.pages.length) throw new Error("Das Manifest enthält keine Bilder.");
     pageLabels = resolved.pages.map((p) => p.label);
     viewer.load(resolved.pages);
     setStatus(iiifStatus, "", "");
     toggleSource(false);
   } catch (err) {
+    if (openedAt !== opened) return;
+    clearFacsimile();
     setStatus(iiifStatus, "error", err instanceof Error ? err.message : String(err));
     toggleSource(true);
   }

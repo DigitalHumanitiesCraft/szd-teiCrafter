@@ -2,7 +2,7 @@
 
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { conflictMarkers } from "../../js/diff.js";
+import { conflictMarkers, hunks, jumpLine, lineDiff } from "../../js/diff.js";
 import { lineEndings, sameLineBreaks } from "../../js/editor.js";
 import { isGndId } from "../../js/gnd.js";
 import { labelText } from "../../js/iiif.js";
@@ -66,4 +66,16 @@ test("the document index accepts only TEI files under data/", () => {
   assert.throws(() => documentPath({ objectId: "o_szd.1", collection: "werke", target: "data/../x.tei.xml" }));
   assert.throws(() => documentPath({ objectId: "o_szd.1", collection: "werke", target: "js/app.js" }));
   assert.throws(() => documentPath({ objectId: "../o", collection: "werke" }));
+});
+
+test("the comparison jumps to the changed line of the current text", () => {
+  const before = "a\nb\nc\nd\ne\nf";
+  const [changed] = hunks(lineDiff(before, "a\nb\nc\nd\nE\nf"));
+  assert.equal(jumpLine(changed), 5);
+  const [removed] = hunks(lineDiff(before, "a\nb\nc\nd\nf"));
+  assert.equal(jumpLine(removed), 5, "a removed line points to the line now in its place");
+  const [added] = hunks(lineDiff(before, "a\nb\nX\nc\nd\ne\nf"));
+  assert.equal(jumpLine(added), 3);
+  const [atEnd] = hunks(lineDiff(before, "a\nb\nc\nd\ne"));
+  assert.equal(jumpLine(atEnd), 6);
 });

@@ -65,8 +65,11 @@ for (const doc of documents) {
     continue;
   }
   const target = join(REPO, file);
+  // A document that cannot be read this time keeps its earlier provenance row.
+  const keepRow = () => previous.has(file) && rows.push(previous.get(file));
   if (!existsSync(source)) {
     failed.push(`${doc.objectId}: ${relative} not found in ${SOURCE}`);
+    keepRow();
     continue;
   }
   const bytes = readFileSync(source);
@@ -74,6 +77,7 @@ for (const doc of documents) {
   const idno = text.match(/<idno type="objectId">([^<]*)<\/idno>/)?.[1];
   if (idno !== doc.objectId || !/<pb\b[^>]*\sfacs="/.test(text)) {
     failed.push(`${doc.objectId}: source lacks idno[@type="objectId"] = ${doc.objectId} or pb/@facs`);
+    keepRow();
     continue;
   }
 

@@ -7,7 +7,7 @@ import { test } from "node:test";
 import { readFileSync } from "node:fs";
 import { loadActions } from "../../js/actions.js";
 import { openWorkFor } from "../../js/source.js";
-import { acceptanceEdits, openSpots } from "../../js/state.js";
+import { acceptanceEdits, openSpots, storedStatus, withdrawalEdits } from "../../js/state.js";
 
 const CHANGE = { date: "2026-10-30", note: "ok" };
 const APPROVING = '<change when="2026-10-30" status="approved">ok</change>';
@@ -94,4 +94,33 @@ test("open work finds bracketed HTR remarks", () => {
 
 test("open work leaves supplied letters, numbers, the header and comments alone", () => {
   assert.deepEqual(kinds(doc("G[ro]d Hotel [3500] [I] <!-- [Randnotiz links:] [?] -->")), []);
+});
+
+test("acceptance puts a new revisionDesc after content sharing the line of </teiHeader>", () => {
+  const out = accept("<TEI><teiHeader><fileDesc/>\n    <profileDesc/></teiHeader><text/></TEI>");
+  assert.ok(out.indexOf("<profileDesc/>") < out.indexOf("<revisionDesc"), "revisionDesc stays the last child");
+  assert.ok(out.includes(`${APPROVING}`));
+  assert.ok(out.includes("</revisionDesc>\n    </teiHeader>"));
+});
+
+test("the stored status is read as the editor reads it", () => {
+  assert.equal(storedStatus('<revisionDesc status="approved">'), "approved");
+  assert.equal(storedStatus("<revisionDesc status='approved'>"), "approved");
+  assert.equal(storedStatus('<!-- <revisionDesc status="approved"> --><revisionDesc status="draft">'), "draft");
+  assert.equal(storedStatus('<revisionDesc n="a>b" status="approved">'), "approved");
+  assert.equal(storedStatus("<TEI/>"), "");
+});
+
+test("withdrawing an acceptance sets the status to draft and nothing else", () => {
+  const text = '<teiHeader><revisionDesc status="approved"><change/></revisionDesc></teiHeader>';
+  let out = text;
+  for (const e of withdrawalEdits(text)) out = `${out.slice(0, e.from)}${e.insert}${out.slice(e.to)}`;
+  assert.equal(out, '<teiHeader><revisionDesc status="draft"><change/></revisionDesc></teiHeader>');
+  assert.deepEqual(withdrawalEdits('<revisionDesc status="draft">'), []);
+  assert.deepEqual(withdrawalEdits("<TEI/>"), []);
+});
+
+test("open work counts marker syntax that runs over a line break", () => {
+  assert.deepEqual(kinds(doc("{~~a raison\n<lb/>de nouvelles~~\n<lb/>~~Kein~~ ok}")), ["stray:{", "stray:~~", "stray:~~", "del:~~Kein~~", "stray:}"]);
+  assert.deepEqual(kinds(doc("~~Wort~~ {Zusatz}")), ["del:~~Wort~~", "add:{Zusatz}"], "resolved markers count once");
 });

@@ -26,6 +26,9 @@ import { Decoration, EditorSelection, EditorState, EditorView, keymap, Prec, Ran
  */
 
 export const REFUSED = "Hier liegt eine Auszeichnung; zum Entfernen die Markierung öffnen.";
+const REFUSED_COMMAND = "Dieser Befehl arbeitet auf Quelltextzeilen und steht nur in der XML-Ansicht zur Verfügung.";
+// The edits the text view checks and lets through; see the guard below.
+const CHECKED_EDITS = ["input.type", "input.paste", "input.drop", "input.replace", "input.linebreak", "delete", "move.drop"];
 const REFUSED_OUTSIDE = "Außerhalb des Haupttexts lässt sich in der Textansicht nichts ändern. Die XML-Ansicht zeigt den ganzen Quelltext.";
 
 // Tags, comments, processing instructions, CDATA and text. Attribute values
@@ -325,9 +328,12 @@ export function textView(config, hooks, layout) {
     return built.marks.filter((m) => m.openTo <= pos && pos <= m.closeFrom).sort((a, b) => b.openTo - a.openTo)[0] ?? null;
   };
 
-  // Typing and pasting insert text, never markup, and nothing that would cut
-  // hidden markup or reach outside the shown part. Annotation actions, undo
-  // and the application's own edits carry no such user event and pass.
+  // Only edits on an allow-list reach the document: the application's own
+  // edits (user event "app"), undo and redo pass unchanged; typing, pasting,
+  // dropping, replacing and deleting are checked, so they insert text, never
+  // markup, and cut no hidden markup. Every other command, such as commenting
+  // out or copying a source line, is refused, because it works on source lines
+  // whose markup the view hides.
   const guard = EditorState.transactionFilter.of((tr) => {
     const built = info(tr.startState);
     if (!built) return tr;
@@ -339,11 +345,15 @@ export function textView(config, hooks, layout) {
       const h = built.hidden.find((x) => x.from === pos && tr.startState.doc.lineAt(pos).from === pos);
       return h ? [tr, { selection: EditorSelection.cursor(h.to), sequential: true }] : tr;
     }
-    if (!(tr.isUserEvent("input") || tr.isUserEvent("delete") || tr.isUserEvent("move"))) return tr;
+    if (tr.isUserEvent("app") || tr.isUserEvent("undo") || tr.isUserEvent("redo")) return tr;
+    if (!CHECKED_EDITS.some((e) => tr.isUserEvent(e))) {
+      queueMicrotask(() => hooks.onRefuse(REFUSED_COMMAND));
+      return [];
+    }
     let refusal = "";
     /** @type {{ from: number, to: number, insert: string }[]} */
     const changes = [];
-    let escaped = false;
+    let rewritten = false;
     tr.changes.iterChanges((fromA, toA, _fromB, _toB, inserted) => {
       if (refusal) return;
       const root = built.root;
@@ -361,19 +371,30 @@ export function textView(config, hooks, layout) {
       }
       const raw = inserted.toString();
       // Dragging a passage with its markup would turn the tags into text.
-      if (tr.isUserEvent("move") && /[<>&]/.test(raw)) {
+      if (tr.isUserEvent("move.drop") && /[<>&]/.test(raw)) {
         refusal = REFUSED;
         return;
       }
       const safe = tr.isUserEvent("input.linebreak") ? raw : escapeText(raw);
-      if (safe !== raw) escaped = true;
-      changes.push({ from: fromA, to: toA, insert: safe });
+      if (safe !== raw) rewritten = true;
+      // At the visual end of a line the caret may stand after hidden markup
+      // that closes the block, such as "</p><p>"; text typed there belongs
+      // before that markup, to the line it is seen on.
+      let at = fromA;
+      if (fromA === toA && tr.startState.doc.sliceString(fromA, fromA + 1) === "\n") {
+        const h = built.hidden.find((x) => x.to === fromA && x.from < x.to);
+        if (h) {
+          at = h.from;
+          rewritten = true;
+        }
+      }
+      changes.push({ from: at, to: at === fromA ? toA : at, insert: safe });
     });
     if (refusal) {
       queueMicrotask(() => hooks.onRefuse(refusal));
       return [];
     }
-    if (!escaped) return tr;
+    if (!rewritten) return tr;
     // The caret goes after the last insertion, counted in the new document.
     let shift = 0;
     for (const c of changes.slice(0, -1)) shift += c.insert.length - (c.to - c.from);
@@ -401,7 +422,10 @@ export function textView(config, hooks, layout) {
     extension: [
       field,
       guard,
-      Prec.high(keymap.of([{ key: "Enter", run: enter }])),
+      Prec.high(keymap.of([
+        { key: "Enter", run: enter },
+        { key: "Shift-Enter", run: enter },
+      ])),
       EditorView.lineWrapping,
       // Copying gives the text as read, without tags and source indentation.
       EditorView.clipboardOutputFilter.of((text) => plainText(text)),

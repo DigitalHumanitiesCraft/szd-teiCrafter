@@ -12,7 +12,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { loadActions } from "../js/actions.js";
 import { openWorkFor, source } from "../js/source.js";
-import { openSpots } from "../js/state.js";
+import { openSpots, storedStatus } from "../js/state.js";
 
 const ROOT = new URL("../", import.meta.url);
 export const INDEX_FILE = new URL("data/index.json", ROOT);
@@ -58,10 +58,12 @@ export async function buildIndex() {
     // The first title is the document title of the szd-htr conversion.
     const raw = /<title\b[^>]*>([\s\S]*?)<\/title>/.exec(xml)?.[1];
     const title = raw ? titleText(raw) : d.objectId;
-    const status = /<revisionDesc\b[^>]*\bstatus="([^"]*)"/.exec(xml)?.[1] ?? "draft";
+    // Read as the editor reads it, so the list and the editor agree.
+    const status = storedStatus(xml) || "draft";
+    const shelfmark = /<idno\b[^>]*\btype="shelfmark"[^>]*>([^<]*)<\/idno>/.exec(xml)?.[1]?.trim() ?? "";
     const open = openSpots(xml, openWork).length;
     const pages = xml.match(/<pb\b/g)?.length ?? 0;
-    collection.documents.push({ path, objectId: d.objectId, title, pages, open, status });
+    collection.documents.push({ path, objectId: d.objectId, shelfmark, title, pages, open, status });
   }
   return `${JSON.stringify({ collections }, null, 2)}\n`;
 }

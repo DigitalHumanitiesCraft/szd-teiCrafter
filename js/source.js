@@ -58,7 +58,7 @@ export const source = {
    */
   actions: "data/actions.json",
   schema: "schemas/tei-p5-4.11.0/tei_all.rng",
-  schemaLabel: "TEI All",
+  schemaLabel: "TEI All (P5 4.11.0)",
 
   /**
    * Person annotation: the SZD person index first, the GND for persons not
@@ -72,8 +72,8 @@ export const source = {
     ignore: ["Frau", "Fräulein", "Herr", "Herrn", "Dr", "Doktor", "Professor", "Prof"],
     /** @param {string} id e.g. SZDPER.2188 */
     registerRef: (id) => `${PERSON_INDEX}${id}`,
-    /** @param {string} id */
-    gndRef: (id) => `${GND_PREFIX}${id}`,
+    /** GND URIs carry the check character in upper case. @param {string} id */
+    gndRef: (id) => `${GND_PREFIX}${id.trim().toUpperCase()}`,
     /** @param {string} value */
     isRegisterId: (value) => /^SZDPER\.\d+$/.test(value.trim()),
     /** The register id of a reference, or "". @param {string} ref */
@@ -92,13 +92,10 @@ export const source = {
    */
   place: {
     /** @param {string} id */
-    gndRef: (id) => `${GND_PREFIX}${id}`,
+    gndRef: (id) => `${GND_PREFIX}${id.trim().toUpperCase()}`,
     /** The GND id of a reference, or "". @param {string} ref */
     gndOf: (ref) => (ref.startsWith(GND_PREFIX) ? ref.slice(GND_PREFIX.length) : ""),
   },
-
-  /** Name of the open work counter, followed by the labels of the detectors. */
-  openWorkName: "Offene HTR-Stellen",
 
   /**
    * The text view (js/textview.js): which part of the document it shows, how
@@ -153,4 +150,21 @@ const unresolved = [
  * @param {import("./actions.js").LoadedAction[]} actions
  * @returns {import("./state.js").Detector[]}
  */
-export const openWorkFor = (actions) => [...markerDetectors(actions), ...unresolved];
+export function openWorkFor(actions) {
+  const markers = markerDetectors(actions);
+  /**
+   * Marker syntax the actions do not resolve, such as a deletion running over
+   * a line break ("~~a raison<lb/>de nouvelles~~"): each leftover "~~", "{" or
+   * "}" counts, so such a document is not ready for acceptance.
+   * @type {import("./state.js").Detector}
+   */
+  const stray = {
+    key: "stray",
+    label: "HTR-Marker über eine Zeile hinaus",
+    find(text) {
+      const resolved = markers.flatMap((d) => d.find(text));
+      return matchesOf(/~~|[{}]/g)(text).filter((r) => !resolved.some((c) => c.from <= r.from && r.to <= c.to));
+    },
+  };
+  return [...markers, ...unresolved, stray];
+}

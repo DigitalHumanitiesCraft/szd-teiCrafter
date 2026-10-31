@@ -44,7 +44,9 @@ export function createDateDialog({ editor, onStale }) {
     const names = Object.keys(attrs);
     if (!names.length) return { error: "Bitte ein Datum eintragen, etwa 1935-01-04, 1935-01 oder 1935." };
     const [a, b] = FIELDS[form()].map((n) => attrs[n]);
-    if (a && b && a > b) return { error: "Das Ende liegt vor dem Anfang." };
+    // Compared at their common precision, so 1935-05 to 1935 counts as one year.
+    const common = Math.min(a?.length ?? 0, b?.length ?? 0);
+    if (a && b && a.slice(0, common) > b.slice(0, common)) return { error: "Das Ende liegt vor dem Anfang." };
     return { attrs };
   }
 

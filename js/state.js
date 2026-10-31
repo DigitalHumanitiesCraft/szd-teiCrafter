@@ -135,5 +135,47 @@ export function acceptanceEdits(text, { date, note }) {
   if (end < 0) return [];
   const lineStart = text.lastIndexOf("\n", end) + 1;
   const indent = /^[ \t]*/.exec(text.slice(lineStart))?.[0] ?? "";
-  return [{ from: lineStart, to: lineStart, insert: `${indent}  <revisionDesc status="approved">\n${indent}    ${change}\n${indent}  </revisionDesc>\n` }];
+  const element = `<revisionDesc status="approved">\n${indent}    ${change}\n${indent}  </revisionDesc>`;
+  // revisionDesc is the last child of the header, so it goes right before the
+  // closing tag, on a line of its own when that tag shares its line with content.
+  if (/^[ \t]*$/.test(text.slice(lineStart, end))) return [{ from: lineStart, to: lineStart, insert: `${indent}  ${element}\n` }];
+  return [{ from: end, to: end, insert: `\n${indent}  ${element}\n${indent}` }];
+}
+
+/** The opening revisionDesc tag outside comments and the like, with its attribute text. @param {string} text */
+function revisionDescTag(text) {
+  const markup = blank(text, nonMarkup(text));
+  const open = /<revisionDesc(?=[\s/>])((?:[^>"']|"[^"]*"|'[^']*')*?)(\/?)>/.exec(markup);
+  if (!open) return null;
+  const attrsFrom = open.index + "<revisionDesc".length;
+  return { attrsFrom, attrs: text.slice(attrsFrom, attrsFrom + open[1].length) };
+}
+
+const STATUS = /(\s)status\s*=\s*(?:"([^"]*)"|'([^']*)')/;
+
+/**
+ * The stored working state, revisionDesc/@status, read as the editor reads it:
+ * comments do not count and either quote works; "" without one. The document
+ * index tool uses it, so the list and the editor agree.
+ * @param {string} text
+ */
+export function storedStatus(text) {
+  const tag = revisionDescTag(text);
+  const m = tag && STATUS.exec(tag.attrs);
+  return m ? (m[2] ?? m[3] ?? "") : "";
+}
+
+/**
+ * The edit that withdraws an acceptance by setting revisionDesc/@status to
+ * "draft", so a file changed after its acceptance never claims it. Empty when
+ * the stored status is not "approved".
+ * @param {string} text
+ * @returns {{ from: number, to: number, insert: string }[]}
+ */
+export function withdrawalEdits(text) {
+  const tag = revisionDescTag(text);
+  const m = tag && STATUS.exec(tag.attrs);
+  if (!tag || !m || (m[2] ?? m[3]) !== "approved") return [];
+  const from = tag.attrsFrom + (m.index ?? 0);
+  return [{ from, to: from + m[0].length, insert: `${m[1]}status="draft"` }];
 }

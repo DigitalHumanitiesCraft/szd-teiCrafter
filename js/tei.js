@@ -46,17 +46,3 @@ export function pageAtOffset(text, offset) {
   const matches = text.slice(0, offset).match(/<pb[\s/>]/g);
   return Math.max(0, (matches?.length ?? 0) - 1);
 }
-
-/**
- * Character offset of a 1-based line and column.
- * @param {string} text @param {number} line @param {number} column
- */
-export function offsetOf(text, line, column) {
-  let offset = 0;
-  for (let i = 1; i < line; i++) {
-    const next = text.indexOf("\n", offset);
-    if (next < 0) break;
-    offset = next + 1;
-  }
-  return Math.min(text.length, offset + Math.max(0, column - 1));
-}

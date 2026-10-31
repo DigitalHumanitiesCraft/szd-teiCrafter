@@ -75,7 +75,13 @@ async function open(contextOptions, initScript, initArg) {
   page.on("pageerror", (e) => errors.push(String(e)));
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto(BASE_URL);
-  await page.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
+  try {
+    await page.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
+  } catch (err) {
+    // Name what the page shows, so a slow GAMS answer is told apart from an editor fault.
+    const shown = await page.evaluate(() => ["iiif-status", "xml-status"].map((id) => `${id}: ${document.getElementById(id)?.textContent ?? ""}`).join(" | "));
+    throw new Error(`The facsimile did not load within 30 s (${shown}; ${errors.join(" | ")})`, { cause: err });
+  }
   await page.waitForTimeout(1500);
   return { page, errors };
 }
@@ -410,7 +416,10 @@ const LOBID_FIXTURE = {
   await page.waitForTimeout(500);
   const writes = await page.evaluate(() => window.__writes);
   check("in-place save writes once into the opened file", writes.length === 1 && writes[0].includes('gnd/1234567">Fuchs</persName>'));
-  check("status confirms the in-place save", (await label(page, "#xml-status")) === "Gespeichert in o_szd.1222.tei.xml.");
+  {
+    const saved = await label(page, "#xml-status");
+    check("status confirms the in-place save and names the state", saved.startsWith("Gespeichert in o_szd.1222.tei.xml.") && saved.includes("Stand: In Bearbeitung"), saved);
+  }
   await page.click("#diff-button");
   check("after saving the view compares with the saved text", (await label(page, "#diff-summary")) === "Keine Änderungen seit dem Speichern.");
   await page.keyboard.press("Escape");
@@ -896,7 +905,7 @@ async function chooseDocument(page, objectId) {
   const first = await writes();
   check(
     "the held save completes into its own file",
-    first.length === 1 && first[0].key === "a" && first[0].data === `${ORIGINAL} ` && (await label(page, "#xml-status")) === "Gespeichert in A.tei.xml." && (await label(page, "#save-state")) === "",
+    first.length === 1 && first[0].key === "a" && first[0].data === `${ORIGINAL} ` && (await label(page, "#xml-status")).startsWith("Gespeichert in A.tei.xml.") && (await label(page, "#save-state")) === "",
     await label(page, "#xml-status"),
   );
   const log = await page.evaluate(() => window.__log);
@@ -981,6 +990,14 @@ async function chooseDocument(page, objectId) {
   check("the CRLF letter is valid against TEI All", (await validate(page)) === "TEI-konform", await label(page, "#xml-status"));
   await page.click("#accept");
   await page.waitForFunction(() => document.getElementById("valid-label").textContent === "TEI-konform", null, { timeout: 60000 }).catch(() => {});
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(400);
+  const acceptedWrite = (await writes()).at(-1)?.data ?? "";
+  check(
+    "a save right after acceptance keeps it, in CRLF",
+    bareLf(acceptedWrite) === 0 && acceptedWrite.includes('<revisionDesc status="approved">\r\n'),
+    `${bareLf(acceptedWrite)} bare LF`,
+  );
   await page.locator(".cm-content").click();
   await page.keyboard.press("Control+End");
   await paste(page, "\neins\nzwei\ndrei");
@@ -988,9 +1005,12 @@ async function chooseDocument(page, objectId) {
   await page.waitForTimeout(400);
   const crlfWrite = (await writes()).at(-1)?.data ?? "";
   check(
-    "acceptance and a pasted block keep CRLF throughout",
-    bareLf(crlfWrite) === 0 && crlfWrite.includes('<revisionDesc status="approved">\r\n') && crlfWrite.endsWith("\r\neins\r\nzwei\r\ndrei"),
-    `${bareLf(crlfWrite)} bare LF`,
+    "a save after a later edit withdraws the acceptance and keeps CRLF throughout",
+    bareLf(crlfWrite) === 0 &&
+      crlfWrite.includes('<revisionDesc status="draft">\r\n') &&
+      crlfWrite.endsWith("\r\neins\r\nzwei\r\ndrei") &&
+      (await label(page, "#xml-status")).includes("Die Abnahme ist zurückgenommen"),
+    `${bareLf(crlfWrite)} bare LF, ${await label(page, "#xml-status")}`,
   );
 
   // Mixed line endings: named on opening, error lines counted as the parser counts them, saved unchanged.

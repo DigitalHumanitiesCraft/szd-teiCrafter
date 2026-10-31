@@ -28,6 +28,8 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
   /** @type {((ref: string) => void) | null} */
   let change = null;
   let registerTimer = 0;
+  /** Counts dialog openings and closings, so a late answer for another name is dropped. */
+  let session = 0;
 
   /** The reference the typed or chosen identifier stands for, or "". */
   function chosenRef() {
@@ -69,8 +71,10 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
   }
 
   async function runRegisterSearch() {
+    const asked = session;
     try {
       const hits = await searchRegister(person.register, query.value, person.ignore);
+      if (asked !== session) return;
       $("register-heading").textContent = `${person.registerLabel}${hits.length ? "" : ": keine Treffer"}`;
       renderResults(
         $("register-results"),
@@ -86,8 +90,10 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     if (!cleaned) return;
     $("gnd-heading").hidden = false;
     setStatus(status, "", "Suche in der GND …");
+    const asked = session;
     try {
       const persons = await searchPersons(cleaned);
+      if (asked !== session) return;
       setStatus(status, "", persons.length ? "" : "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben.");
       renderResults(
         $("person-results"),
@@ -131,9 +137,13 @@ export function createPersonDialog({ editor, person, markup, onStale }) {
     }
     editor.replace(pending.from, pending.to, markup(pending.text, ref));
   });
-  dialog.addEventListener("close", () => editor.focus());
+  dialog.addEventListener("close", () => {
+    session++;
+    editor.focus();
+  });
 
   return (sel, apply) => {
+    session++;
     pending = sel;
     change = apply ?? null;
     $("person-apply").textContent = apply ? "Ändern" : "Annotieren";

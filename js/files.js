@@ -62,11 +62,13 @@ export const encodeXml = (text, bom) => (bom ? BOM + text : text);
  *   fallbackName: string,
  *   report: (state: "ok" | "error", message: string) => void,
  *   onOpened: () => void,
- *   beforeSave: () => void,
+ *   beforeSave: () => string,
+ *   stateNote: () => string,
  *   onSaved: () => void,
- * }} options
+ * }} options `beforeSave` may adjust the text and returns a note for the
+ *   confirmation; `stateNote` names the working state of the saved text.
  */
-export function createFiles({ editor, fallbackName, report, onOpened, beforeSave, onSaved }) {
+export function createFiles({ editor, fallbackName, report, onOpened, beforeSave, stateNote, onSaved }) {
   let name = fallbackName;
   /** Repository path of a document loaded from the server, "" for a file from disk. */
   let path = "";
@@ -83,6 +85,8 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
   let handedOver = /** @type {string | null} */ (null);
   /** Counts opened documents, so a save that finishes later can tell whether its document is still open. */
   let generation = 0;
+  /** Counts document requests from the list, so a slower earlier one cannot open after a later one. */
+  let loading = 0;
   let saving = false;
 
   const unsaved = () => editor.text !== savedText;
@@ -121,6 +125,8 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
       return;
     }
     generation++;
+    // A list request still in flight must not replace this document.
+    loading++;
     name = from.name;
     path = from.path ?? "";
     handle = from.handle ?? null;
@@ -166,10 +172,18 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
 
   /** @param {string} url a document of the repository */
   async function load(url) {
+    // Only the latest request opens, and text typed while it loads is not
+    // replaced without asking again.
+    const request = ++loading;
+    const before = editor.text;
     try {
       const r = await fetch(url);
       if (!r.ok) throw new Error(`Status ${r.status}`);
-      open(await r.arrayBuffer(), { name: url.split("/").pop() ?? name, path: url });
+      const bytes = await r.arrayBuffer();
+      if (request !== loading) return;
+      if (editor.text !== before && !(await mayDiscard())) return;
+      if (request !== loading) return;
+      open(bytes, { name: url.split("/").pop() ?? name, path: url });
     } catch (err) {
       report("error", `Dokument nicht geladen: ${err instanceof Error ? err.message : err}`);
     }
@@ -226,9 +240,9 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
    * A download is handed to the browser, which may ask where to put it or be
    * cancelled; the editor learns neither. The text therefore stays unsaved, and
    * leaving the page still asks.
-   * @param {string} text
+   * @param {string} text @param {string} [note] said before the download message
    */
-  function download(text) {
+  function download(text, note = "") {
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([encodeXml(text, bom)], { type: "application/xml" }));
     a.download = name;
@@ -236,17 +250,17 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
     URL.revokeObjectURL(a.href);
     handedOver = text;
     updateMark();
-    report("ok", `${name} wurde dem Browser als Download übergeben. Ob die Datei ankam, kann der Editor nicht prüfen, daher gilt der Text weiter als ungespeichert.`);
+    report("ok", `${note ? `${note} ` : ""}${name} wurde dem Browser als Download übergeben. Ob die Datei ankam, kann der Editor nicht prüfen, daher gilt der Text weiter als ungespeichert.`);
   }
 
   async function saveNow() {
-    beforeSave();
+    const note = beforeSave();
     // Text and document are fixed before the first wait: what is written is
     // what the user saved, and the state below is only updated for that document.
     const text = editor.text;
     const opened = generation;
     if (!canWriteInPlace()) {
-      download(text);
+      download(text, note);
       return;
     }
     let writtenTo = "";
@@ -284,7 +298,7 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
         name = target.name;
         diskModified = await modifiedOf(target);
         markSaved(text);
-        report("ok", `Gespeichert in ${name}.`);
+        report("ok", [`Gespeichert in ${name}.`, note, stateNote()].filter(Boolean).join(" "));
         onSaved();
         return;
       }

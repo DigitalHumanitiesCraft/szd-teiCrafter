@@ -10,13 +10,15 @@ import { $, arrowNavigation, setStatus } from "./ui.js";
  *   editor: ReturnType<typeof import("./editor.js").createEditor>,
  *   place: typeof import("./source.js").source.place,
  *   nameOf: (text: string) => string,
+ *   markup: (action: import("./actions.js").Action, text: string, ref: string) => string,
  *   onStale: (message: string) => void,
- * }} options `nameOf` turns the selection into a search query
+ * }} options `nameOf` turns the selection into a search query, `markup`
+ * writes the element of the place action
  * @returns {(sel: { from: number, to: number, text: string }, action: import("./actions.js").Action, apply?: (ref: string) => void) => void}
  * opens the dialog for a selection with the place action; with `apply` it
  * changes the reference of an existing placeName
  */
-export function createPlaceDialog({ editor, place, nameOf, onStale }) {
+export function createPlaceDialog({ editor, place, nameOf, markup: write, onStale }) {
   const dialog = /** @type {HTMLDialogElement} */ ($("place-dialog"));
   const query = /** @type {HTMLInputElement} */ ($("place-query"));
   const idInput = /** @type {HTMLInputElement} */ ($("place-id"));
@@ -26,6 +28,8 @@ export function createPlaceDialog({ editor, place, nameOf, onStale }) {
   let action = null;
   /** @type {((ref: string) => void) | null} */
   let change = null;
+  /** Counts dialog openings and closings, so a late answer for another place is dropped. */
+  let session = 0;
 
   /** The reference for the typed or chosen identifier; "" for none, null for an invalid one. */
   function chosenRef() {
@@ -34,10 +38,7 @@ export function createPlaceDialog({ editor, place, nameOf, onStale }) {
     return isGndId(id) ? place.gndRef(id) : null;
   }
 
-  function markup(/** @type {string} */ ref) {
-    const el = action?.element ?? "placeName";
-    return ref ? `<${el} ref="${ref}">${pending.text}</${el}>` : `<${el}>${pending.text}</${el}>`;
-  }
+  const markup = (/** @type {string} */ ref) => (action ? write(action, pending.text, ref) : "");
 
   function updatePreview() {
     const ref = chosenRef();
@@ -55,8 +56,10 @@ export function createPlaceDialog({ editor, place, nameOf, onStale }) {
     const type = action?.lookup?.gnd;
     if (!type || !query.value.trim()) return;
     setStatus(status, "", "Suche in der GND …");
+    const asked = session;
     try {
       const hits = await searchGnd(query.value.trim(), type);
+      if (asked !== session) return;
       setStatus(status, "", hits.length ? "" : "Keine GND-Treffer. Suchbegriff ändern, eine Kennung eingeben oder ohne Verknüpfung markieren.");
       const list = $("place-results");
       list.replaceChildren();
@@ -108,9 +111,13 @@ export function createPlaceDialog({ editor, place, nameOf, onStale }) {
     }
     editor.replace(pending.from, pending.to, markup(ref));
   });
-  dialog.addEventListener("close", () => editor.focus());
+  dialog.addEventListener("close", () => {
+    session++;
+    editor.focus();
+  });
 
   return (sel, placeAction, apply) => {
+    session++;
     pending = sel;
     action = placeAction;
     change = apply ?? null;

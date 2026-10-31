@@ -103,7 +103,7 @@ export function createDocumentList({ index, collections: configured, current, ch
       total += c.documents.length;
       if (collectionFilter && c.key !== collectionFilter) continue;
       const docs = c.documents.filter((d) => {
-        const hay = fold(`${d.title} ${d.objectId}`);
+        const hay = fold(`${d.title} ${d.objectId} ${d.shelfmark ?? ""}`);
         if (!words.every((w) => hay.includes(w))) return false;
         if (state === "open") return d.open > 0;
         return !state || d.status === state;

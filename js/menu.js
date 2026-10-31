@@ -56,10 +56,18 @@ export function createActionMenu({ editor, onDialog, onNext, report, markupNote 
     $("actions-empty").hidden = items.length > 0;
   }
 
+  /** Whether a position lies inside a tag or a character reference, where wrapping would break the markup. @param {number} pos */
+  function insideMarkup(pos) {
+    const before = editor.slice(Math.max(0, pos - 4000), pos);
+    const after = editor.slice(pos, pos + 40);
+    if (before.lastIndexOf("<") > before.lastIndexOf(">")) return true;
+    return /&[#\w]*$/.test(before) && /^[#\w]*;/.test(after);
+  }
+
   function selectionProblem() {
-    const { text } = editor.selection();
+    const { from, to, text } = editor.selection();
     if (!text.trim()) return "empty";
-    if (/[<>]/.test(text)) return markupNote();
+    if (/[<>]/.test(text) || insideMarkup(from) || insideMarkup(to)) return markupNote();
     return "";
   }
 

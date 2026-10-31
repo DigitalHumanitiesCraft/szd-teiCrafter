@@ -45,7 +45,8 @@ export async function searchRegister(url, query, ignore = []) {
   const persons = await load(url);
   return persons
     .filter((p) => words.every((w) => p.search.includes(w)))
-    .sort((a, b) => Number(!fold(b.name).startsWith(words[0])) - Number(!fold(a.name).startsWith(words[0])) || a.name.localeCompare(b.name))
+    // Names that begin with the first word come first, then alphabetically.
+    .sort((a, b) => Number(!fold(a.name).startsWith(words[0])) - Number(!fold(b.name).startsWith(words[0])) || a.name.localeCompare(b.name))
     .slice(0, 8);
 }
 

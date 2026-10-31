@@ -90,11 +90,31 @@ test("deleting a whole element and an <lb/> with its line passes", () => {
   assert.equal(joined, doc.slice(0, lineStart) + doc.slice(lb + 5));
 });
 
-test("edits outside the shown text are refused, programmatic ones pass", () => {
+test("edits outside the shown text are refused, application edits pass", () => {
   const { state } = stateWith(LETTER);
   const title = LETTER.indexOf("Brief an");
   assert.equal(state.update({ changes: { from: title, insert: "x" }, userEvent: "input.type" }).state.sliceDoc(), LETTER);
-  assert.notEqual(state.update({ changes: { from: title, insert: "x" } }).state.sliceDoc(), LETTER);
+  assert.notEqual(state.update({ changes: { from: title, insert: "x" }, userEvent: "app.edit" }).state.sliceDoc(), LETTER);
+});
+
+test("editor commands that work on source lines are refused", () => {
+  const { state } = stateWith(LETTER);
+  const at = LETTER.indexOf("Westminster");
+  const line = state.doc.lineAt(at);
+  // Commenting out a line (no user event) and copying a line would act on hidden markup.
+  assert.equal(state.update({ changes: { from: line.from, insert: "<!-- " } }).state.sliceDoc(), LETTER);
+  assert.equal(state.update({ changes: { from: line.to, insert: `\n${line.text}` }, userEvent: "input.copyline" }).state.sliceDoc(), LETTER);
+  assert.equal(state.update({ changes: { from: line.from, insert: "  " }, userEvent: "input.indent" }).state.sliceDoc(), LETTER);
+});
+
+test("text typed at the visual end of a paragraph stays in that paragraph", () => {
+  const { state } = stateWith(LETTER);
+  const end = LETTER.indexOf("</p>", LETTER.indexOf("<body>"));
+  const lastText = LETTER.slice(0, end).trimEnd().length;
+  // The caret position right before the kept line break after the hidden "</p>...<p>".
+  const keptBreak = LETTER.lastIndexOf("\n", LETTER.indexOf("<lb/>", end));
+  const out = state.update({ changes: { from: keptBreak, insert: "X" }, userEvent: "input.type" }).state.sliceDoc();
+  assert.equal(out, LETTER.slice(0, lastText) + "X" + LETTER.slice(lastText));
 });
 
 test("Enter writes a line break element in the document's line ending", () => {

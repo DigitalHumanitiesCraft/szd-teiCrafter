@@ -89,6 +89,10 @@ export function createMarkCard({ editor, markAt, describe, onChange }) {
     const mark = shown;
     close(true);
     if (!mark) return;
+    // The positions are those of the moment the card opened; a mark that is
+    // no longer where it was is left alone rather than cut.
+    const now = markAt(mark.openTo);
+    if (!now || now.name !== mark.name || now.openFrom !== mark.openFrom || now.closeTo !== mark.closeTo) return;
     // Unwrapping removes both tags in one step, so one undo restores them.
     editor.dispatch({
       changes: [

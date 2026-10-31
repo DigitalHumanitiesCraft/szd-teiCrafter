@@ -73,9 +73,6 @@ export function createViewer(element, onPage) {
     fit() {
       viewer.viewport.goHome();
     },
-    get zoomLevel() {
-      return viewer.viewport.getZoom();
-    },
     /** @param {(message: string) => void} handler */
     onError(handler) {
       viewer.addHandler("open-failed", (/** @type {any} */ e) => handler(String(e.message ?? "Bild konnte nicht geöffnet werden.")));

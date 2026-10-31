@@ -1,19 +1,21 @@
-// Schema validation against TEI All (RelaxNG) with the vendored libxml2-wasm.
-// Runtime and compiled schema load on first use and are cached afterwards.
+// Schema validation against a RelaxNG schema with the vendored libxml2-wasm.
+// The source configuration names the schema; runtime and compiled schema load
+// on first use and are cached per schema afterwards.
 // Runs on the main thread; a worker is the upgrade path for large documents.
-
-const SCHEMA_URL = "schemas/tei-p5-4.11.0/tei_all.rng";
 
 /** @typedef {{ message: string, line: number, column: number }} Diagnostic */
 
-/** @type {Promise<{ validator: any, XmlDocument: any }> | null} */
-let ready = null;
+/** @type {Map<string, Promise<{ validator: any, XmlDocument: any }>>} */
+const compiled = new Map();
 
-function load() {
-  ready ??= (async () => {
+/** @param {string} schemaUrl */
+function load(schemaUrl) {
+  let ready = compiled.get(schemaUrl);
+  if (ready) return ready;
+  ready = (async () => {
     const [runtime, schemaText] = await Promise.all([
       import("../vendor/libxml2-wasm/lib/index.mjs"),
-      fetch(SCHEMA_URL).then((r) => {
+      fetch(schemaUrl).then((r) => {
         if (!r.ok) throw new Error(`Schema nicht geladen (Status ${r.status}).`);
         return r.text();
       }),
@@ -21,18 +23,17 @@ function load() {
     const schemaDoc = runtime.XmlDocument.fromString(schemaText);
     return { validator: runtime.RelaxNGValidator.fromDoc(schemaDoc), XmlDocument: runtime.XmlDocument };
   })();
-  ready.catch(() => {
-    ready = null;
-  });
+  ready.catch(() => compiled.delete(schemaUrl));
+  compiled.set(schemaUrl, ready);
   return ready;
 }
 
 /**
- * @param {string} xml a well-formed document
+ * @param {string} xml a well-formed document @param {string} schemaUrl a RelaxNG schema
  * @returns {Promise<Diagnostic[]>} empty when valid
  */
-export async function validateTeiAll(xml) {
-  const { validator, XmlDocument } = await load();
+export async function validate(xml, schemaUrl) {
+  const { validator, XmlDocument } = await load(schemaUrl);
   const doc = XmlDocument.fromString(xml);
   try {
     validator.validate(doc);

@@ -1,6 +1,6 @@
 // The changes since opening or saving, as a line comparison before a commit.
 
-import { hunks, lineDiff } from "./diff.js";
+import { hunks, jumpLine, lineDiff } from "./diff.js";
 import { $ } from "./ui.js";
 
 /** @type {Record<string, [string, string]>} sign and its spoken word per line kind */
@@ -24,9 +24,7 @@ export function showChanges({ before, after, since, jumpTo }) {
   body.replaceChildren();
   for (const group of groups) {
     const section = document.createElement("section");
-    const at = group.find((l) => l.kind !== "same") ?? group[0];
-    // The jump goes to the current text; a removed line points to where it stood.
-    const line = at.b || (group.filter((l) => l.b && l.a < at.a).pop()?.b ?? 0) + 1;
+    const line = jumpLine(group);
     const jump = Object.assign(document.createElement("button"), { type: "button", className: "link", textContent: `Zeile ${line}` });
     jump.addEventListener("click", () => {
       dialog.close();
