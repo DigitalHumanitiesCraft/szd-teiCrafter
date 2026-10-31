@@ -24,6 +24,9 @@ exchanges the results by commit and push.
   `data/actions.json` and can be switched in the settings view. The HTR markers `~~…~~`, `[?]`
   and `{…}` and the other open work of the machine transcription are counted, and F8 walks
   through them.
+- Loads the proposals of an LLM agent from a proposal file and shows them in violet over the
+  text. Each is accepted, changed or rejected by a person; an accepted proposal names the agent
+  and the review in `@resp`, and the decisions can be saved as a review log.
 - Checks well-formedness while typing and validates in the browser against the strictest schema
   configured in `js/source.js`, today TEI All (P5 4.11.0) as the fallback until the project schema
   exists. Validation runs in the background, so the editor never freezes. Each error links to its line, and Git conflict markers are explained as two versions of a

@@ -50,17 +50,13 @@ A name or date broken across lines is marked as one element containing the `lb`.
 
 ## Producer
 
-Who produced an annotation is part of its evidence. Until the editor shows LLM suggestions as such, annotations produced by an LLM agent stay in a working copy outside `data/`, with a record of each decision and its basis, and enter the holdings only after a person has reviewed them.
-
-The proposed encoding, researched on 2026-10-31 and not yet decided, follows the provenance contract of zbz-ocr-tei (decision E131 there): `@resp` names the activities that produced a mark as pointers to `respStmt` declarations, and `@cert` keeps its meaning of an inferred date.
+Who produced an annotation is part of its evidence. An LLM agent delivers its annotations as a proposal file beside the working copy, never as markup in `data/`, and a person decides each proposal in the editor (ADR-016). The encoding follows the provenance contract of zbz-ocr-tei (decision E131 there): `@resp` names the activities that produced a mark as pointers to `respStmt` declarations in `titleStmt`, and `@cert` keeps its meaning of an inferred date.
 
 ```xml
-<!-- proposed by an agent, pending: only in working copies -->
-<persName ref="#SZDPER.1575" resp="#resp-agent-annotation">Meingast</persName>
 <!-- proposed by an agent and accepted by a person -->
 <persName ref="#SZDPER.2188" resp="#resp-agent-annotation #resp-editor-review">Reichner</persName>
-<!-- a person's own annotation -->
+<!-- a person's own annotation, also a proposal the person changed before accepting -->
 <persName ref="http://d-nb.info/gnd/117458201">Eugen Wolbe</persName>
 ```
 
-A pending proposal would count as open work, every `@resp` token would have to resolve to a declaration, since the schema does not check pointers, and an import that claims the review role would be refused. Run metadata, the basis of each proposal, candidate lists and rejected proposals stay in the proposal file beside the working copy. The open questions are listed in [plan](plan.md#open-decisions-and-dependencies).
+Run metadata, the basis of each proposal, candidate lists and rejected proposals stay in the proposal file and the review log, see [data](data.md#proposal-files).

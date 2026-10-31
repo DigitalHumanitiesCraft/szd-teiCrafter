@@ -20,6 +20,8 @@
     --line: light-dark(oklch(86% 0 0), oklch(38% 0 0));
     --blue: light-dark(oklch(47% 0.15 255), oklch(76% 0.12 245));
     --orange: light-dark(oklch(55% 0.16 50), oklch(78% 0.14 60));
+    /* Violet marks what an outside producer proposed and nobody has decided yet. */
+    --violet: light-dark(oklch(48% 0.17 300), oklch(76% 0.12 300));
     --accent: var(--blue);
     --ok: light-dark(oklch(45% 0.12 150), oklch(75% 0.13 150));
     --error: light-dark(oklch(50% 0.19 28), oklch(72% 0.16 28));
@@ -493,6 +495,9 @@
   .mark-card-title { font-weight: 600; }
   .mark-card-detail { font-size: 0.9rem; &[data-unlinked] { color: var(--muted); font-style: italic; } }
   .mark-card-note { font-size: 0.8rem; color: var(--muted); }
+  .proposal-card { border-color: var(--violet); }
+  .proposal-card-label { font-size: 0.75rem; color: var(--violet); font-weight: 600; }
+  .proposal-card-basis { font-size: 0.8rem; margin: 0; padding-inline-start: 1.1rem; }
 
   .dialog-hint { font-size: 0.85rem; color: var(--muted); }
   .check-row { display: flex; align-items: center; gap: var(--space-2); & input { inline-size: auto; min-block-size: 0; } }

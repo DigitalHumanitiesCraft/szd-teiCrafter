@@ -24,6 +24,14 @@ related: [project, specification, handoff]
 
 ## Entries
 
+### 2026-10-31 Review of agent proposals
+
+- Trigger: operator accepted the recommendations of the provenance research with „ja“: roles declared in `titleStmt`, one review role, a changed proposal becomes the person's own annotation, dating only in the review log, proposal files beside the working copies.
+- Decided: ADR-016. Proposals stay outside the text until a person decides each one, accepting writes `@resp` with producer and review, and the editor alone writes the review role.
+- Found: the research confirmed that TEI All accepts the three states and the declarations, and that it also accepts a `@resp` pointer to nothing, so resolution needs a check of its own. The proposal files the hybrid agent had written in its own format were all placed by the importer, 113 of 113.
+- Changed: `js/proposals.js` and `js/review.js`, a button that loads a proposal file, violet dashed proposals counted as open spots, the proposal card with Enter, Delete and „Ändern“, and the saved review log.
+- Evidence: unit tests for anchoring, refusal, declarations and withdrawal, and a review run in the browser check, passing on 2026-10-31.
+
 ### 2026-10-31 Agent annotation run and the editor changes it called for
 
 - Trigger: operator: „Direkt alles, was wir jetzt sofort umsetzen können, umsetzen“, after four LLM agents had annotated working copies of nine documents in the trial run, two directly in TEI, one through the editor alone and one proposing first and applying through the editor.

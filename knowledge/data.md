@@ -84,6 +84,16 @@ The editor adds `persName` whose `@ref` points to the person index entry, or to 
 - Places in `placeName/@ref` as the GND and `http://www.geonames.org/{id}` separated by a space, see [annotation](annotation.md#places).
 - IIIF manifests derived from the object id by `source.manifestFor` in `js/source.js`.
 
+## Proposal files
+
+An outside producer, such as an LLM agent, hands its annotations to the editor as one JSON file per document (ADR-016), named for instance `o_szd.1222.vorschlaege.json`, kept beside the working copy. The editor reads:
+
+- `document`, the object id the file belongs to, checked against the open document.
+- `producer` or `run`, whose `kind` and `model` the card names.
+- `proposals`, each with `id`, `text` exactly as in the source, `element` and `attributes` as they belong into the opening tag, optional `offset` (`from`, `to`) or `range`, `context` (`before`, `after`) and `occurrence` to anchor it, `basis` as a list of `kind`, `id`, `label` and `source`, and `doubt`.
+
+A proposal is placed at its offsets when the text there is unchanged, else by context, else by occurrence. A state other than proposed (`status` or `verdict`), a `reviewer`, an attribute `resp` or one outside the action of its element refuse the proposal, and `verdict: "reject"` skips it. The agents of 2026-10-31 wrote format `teicrafter-proposals/0.1`, which the editor reads. Saving the review writes `<object id>.pruefung.json` with the proposal file, the producer and each decision as `accepted`, `rejected` or `edited` with its time.
+
 ## Examples
 
 ```xml

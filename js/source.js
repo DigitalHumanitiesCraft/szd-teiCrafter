@@ -143,6 +143,24 @@ export const source = {
   },
 
   /**
+   * Review of outside proposals (js/proposals.js, knowledge/annotation.md):
+   * the roles an accepted proposal names in @resp, declared in titleStmt on
+   * its first acceptance, and the identifier a proposal file must name.
+   */
+  review: {
+    producer: {
+      id: "resp-agent-annotation",
+      xml: '<respStmt xml:id="resp-agent-annotation"><resp>Annotation proposed by an LLM agent under the annotation rules of teiCrafter SZD; run record in the proposal file</resp><name>LLM agent</name></respStmt>',
+    },
+    reviewer: {
+      id: "resp-editor-review",
+      xml: '<respStmt xml:id="resp-editor-review"><resp>Proposal reviewed and accepted in teiCrafter SZD</resp><name>Editorial review</name></respStmt>',
+    },
+    /** @param {Record<string, string>} idnos */
+    documentId: (idnos) => idnos.objectId ?? "",
+  },
+
+  /**
    * Places (knowledge/annotation.md): placeName with the GND and, where its
    * record links one, GeoNames in one @ref, separated by a space. GeoNames is
    * read from the GND record's sameAs, since its own API needs a registered

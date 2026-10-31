@@ -57,7 +57,7 @@ Each milestone passes three checks in this order.
 On 2026-10-31 four LLM agents annotated working copies of nine documents in the trial run by the rules of [annotation](annotation.md), directly in TEI, through the editor and in a hybrid way (ADR-015). Their findings drive the first steps, and the operator's trial run follows them.
 
 1. Agent run evaluated. The four results compared on the calibration letter `o_szd.1222`, mark by mark, and the cost and failure of each way recorded, as material for the paper section the operator plans.
-2. Proposal import and review. Agent proposals arrive as a file, show in the editor as proposals of a named producer, and a person accepts or rejects each one. The provenance in the TEI follows the three-stage contract of zbz-ocr-tei (deterministic, agentic, verified by a person) as far as it fits.
+2. Proposal import and review, built on 2026-10-31 (ADR-016, FR-26). Next: a run in which the agents write proposal files in the format of [data](data.md#proposal-files) instead of annotated copies, reviewed by the operator in the editor, and the card of a GND-linked person showing name and dates from lobid instead of the identifier alone.
 3. Dates from the letter date. The date dialog proposes values for incomplete and relative expressions from the document's own date, marked uncertain, and reads the forms the working set holds, such as two-digit years, English and French dates and seasons.
 4. Marking across a line break in the text view, linking all occurrences of a name in one step, and a warning when a person hit can be a work title.
 5. Register report. Which person, organisation and place occurs in which documents, with contradicting links of the same name, and register errors handed to SZD-split.
@@ -162,7 +162,7 @@ These items are accepted as direction and not yet placed in a milestone.
 
 ## Open decisions and dependencies
 
-- Proposal and review (resume step 2), before it is built: whether the editor writes the `respStmt` declarations into `titleStmt` or points to a declaration list held in SZD-split, one review role or one per reviewer with a name, whether a person who changes a proposal before accepting it makes it their own annotation, whether a review is dated per element with `@change` or only in the review log, where proposal files and review logs are kept, and whether agents are restricted to register and GND candidates as in zbz-ocr-tei. The SZD-split ODD would have to allow `@resp` and `respStmt`.
+- For SZD-split: the project ODD has to allow `@resp` and `respStmt` as ADR-016 writes them, with a Schematron rule that every `@resp` token resolves, and the register errors listed in [data](data.md#limits) await correction there.
 - The import scope and the authoritative place (ADR-010), the place of the working state and the withdrawal of a stale acceptance (ADR-011) are built as reversible defaults and await the operator's confirmation. Who may accept, and how the acceptance names that person, belongs to S4.
 - The editorial rules for `add`, `del`, `unclear` and `gap`, and the annotation rules of 2026-10-31, are discussed with the project partners on example letters, before S4 closes.
 - Whether partners are asked to use Chrome or Edge, the browsers that write files in place, before S5.

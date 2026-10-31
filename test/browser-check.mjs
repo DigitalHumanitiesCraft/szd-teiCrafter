@@ -1433,6 +1433,68 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   check("no console errors (text view run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
+// Review run: a proposal file for the example letter is loaded, F8 walks to
+// the proposals, Delete rejects one and Enter accepts the next, which writes
+// the markup with producer and review in @resp and declares both roles once;
+// a proposal that claims a review is refused, and the log names each decision.
+{
+  const { page, errors } = await open({ colorScheme: "light" });
+  const { source } = await import("../js/source.js");
+  const { producer, reviewer } = source.review;
+  const file = {
+    format: "teicrafter-proposals/0.2",
+    document: "o_szd.1222",
+    producer: { kind: "llm-agent", model: "test" },
+    proposals: [
+      { id: "v1", text: "Meingast", context: { before: "Liebe Frau ", after: "!" }, element: "persName", attributes: { ref: "#SZDPER.1575" }, basis: [{ kind: "register", id: "SZDPER.1575", label: "Meingast, Anna" }] },
+      { id: "v2", text: "Nizza", element: "placeName", attributes: { ref: "http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440" }, doubt: "Test" },
+      { id: "v3", text: "Fuchs", element: "persName", status: "accepted" },
+    ],
+  };
+  const before = await editorText(page);
+  await page.setInputFiles("#proposals-file", { name: "o_szd.1222.vorschlaege.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(file)) });
+  await page.waitForTimeout(400);
+  const loaded = await label(page, "#xml-status");
+  check("a proposal file loads its proposals and refuses one that claims a review", loaded.startsWith("2 Vorschläge geladen") && loaded.includes("1 abgewiesen"), loaded);
+  check("proposals show in violet without changing the text", (await page.locator(".cm-proposal").count()) >= 2 && (await editorText(page)) === before);
+  check("pending proposals count as open spots", (await label(page, "#work-label")) === "9 offene Stellen", await label(page, "#work-label"));
+  await page.keyboard.press("F8");
+  await page.waitForTimeout(400);
+  check(
+    "F8 opens the card of the next proposal with its doubt and the focus on Annehmen",
+    (await page.isVisible("#proposal-card")) && (await label(page, "#proposal-card-title")) === "Ort" && (await label(page, "#proposal-card-doubt")) === "Zweifel: Test" && (await page.evaluate(() => document.activeElement?.id === "proposal-accept")),
+    await label(page, "#proposal-card-title"),
+  );
+  await shot(page, "proposal-card-light");
+  await page.keyboard.press("Delete");
+  await page.waitForTimeout(400);
+  check(
+    "Delete rejects it without changing the text and the card moves on",
+    (await editorText(page)) === before && (await label(page, "#proposal-card-title")) === "Person" && (await label(page, "#proposal-card-detail")).includes("SZDPER.1575"),
+    await label(page, "#proposal-card-detail"),
+  );
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(400);
+  const expected = before
+    .replace("Liebe Frau Meingast!", `Liebe Frau <persName ref="#SZDPER.1575" resp="#${producer.id} #${reviewer.id}">Meingast</persName>!`)
+    .replace("      </titleStmt>", `        ${producer.xml}\n        ${reviewer.xml}\n      </titleStmt>`);
+  check("Enter accepts: the markup names producer and review, and both roles are declared", (await editorText(page)) === expected);
+  check(
+    "no proposal remains, the count is back and the log can be saved",
+    (await page.locator(".cm-proposal").count()) === 0 && (await page.isVisible("#proposals-log")) && (await label(page, "#work-label")) === "7 offene Stellen",
+  );
+  const [download] = await Promise.all([page.waitForEvent("download"), page.click("#proposals-log")]);
+  const log = JSON.parse(readFileSync(await download.path(), "utf8"));
+  check(
+    "the log names each decision",
+    download.suggestedFilename() === "o_szd.1222.pruefung.json" && log.decisions.map((d) => `${d.id}:${d.decision}`).join(" ") === "v2:rejected v1:accepted",
+    JSON.stringify(log.decisions),
+  );
+  check("the accepted proposal and its declarations are valid against TEI All", (await validate(page)) === "TEI-konform");
+  check("no console errors (review run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+  await page.context().close();
+}
+
 // Action registry run: the settings view, switching an action off and on,
 // saving the registry in place byte-stable, and refusing an action whose
 // element the schema does not know.

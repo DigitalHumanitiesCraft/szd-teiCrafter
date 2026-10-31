@@ -104,6 +104,8 @@ const chrome = EditorView.theme({
   ".tv-mark": { textUnderlineOffset: "0.22em", textDecorationThickness: "2px" },
   ".tv-el-persName": { textDecorationLine: "underline", textDecorationColor: "var(--blue)" },
   ".tv-el-placeName": { textDecorationLine: "underline", textDecorationStyle: "double", textDecorationColor: "var(--blue)", textDecorationThickness: "1px" },
+  // Organisations: a broad translucent underline, apart from persons by its shape.
+  ".tv-el-orgName": { textDecorationLine: "underline", textDecorationColor: "color-mix(in oklch, var(--blue) 45%, transparent)", textDecorationThickness: "4px" },
   ".tv-el-date": { textDecorationLine: "underline", textDecorationColor: "var(--muted)", textDecorationThickness: "1px" },
   // Not yet linked: grey and wavy, so the difference does not rest on colour alone.
   ".tv-unlinked": { textDecorationColor: "var(--muted)", textDecorationStyle: "wavy", textDecorationThickness: "1px" },
@@ -120,6 +122,16 @@ const chrome = EditorView.theme({
     backgroundColor: "color-mix(in oklch, var(--orange) 10%, transparent)",
   },
   ".tv-open-remark": { fontStyle: "italic" },
+  // A proposal of an outside producer, not yet decided (js/proposals.js):
+  // violet and dashed with a framed outline, in both views, so it reads as
+  // proposed without relying on colour.
+  ".cm-proposal": {
+    outline: "1px dashed var(--violet)",
+    outlineOffset: "1px",
+    borderRadius: "2px",
+    backgroundColor: "color-mix(in oklch, var(--violet) 12%, transparent)",
+    cursor: "pointer",
+  },
   ".tv-badge": {
     display: "inline-block",
     marginInline: "0.15em",
@@ -253,7 +265,7 @@ const xmlChrome = [lineNumbers(), foldGutter(), lintGutter(), highlightActiveLin
  * @param {HTMLElement} parent
  * @param {{ elements: any[], keys: { key: string, run: () => boolean }[], onChange: (text: string) => void, onCaret: (offset: number) => void, onZoom: (percent: number) => void, onScroll: () => void, onPointerSelect: () => void }} options
  */
-export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll, onPointerSelect }) {
+export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom, onScroll, onPointerSelect, extensions = [] }) {
   const wrapping = new Compartment();
   const fontSize = new Compartment();
   // XML chrome or the text view; both work on the same state and history.
@@ -300,6 +312,7 @@ export function createEditor(parent, { elements, keys, onChange, onCaret, onZoom
         // Application commands first, so they win over defaults with the same key.
         keymap.of(keys),
         presentation.of(shown),
+        extensions,
         keymap.of([
           ...closeBracketsKeymap,
           ...defaultKeymap,

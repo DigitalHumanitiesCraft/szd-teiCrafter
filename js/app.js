@@ -15,7 +15,9 @@ import { createMarkCard, describeMark } from "./markcard.js";
 import { createActionMenu } from "./menu.js";
 import { createPersonDialog } from "./person.js";
 import { createPlaceDialog } from "./place.js";
+import { declarationEdits, proposalField } from "./proposals.js";
 import { registerEntry } from "./register.js";
+import { createReview } from "./review.js";
 import { schemaChecker } from "./schema.js";
 import { createSettings } from "./settings.js";
 import { openWorkFor, source } from "./source.js";
@@ -96,7 +98,13 @@ function spotsOf(text) {
   if (text !== spotsCache.text || spotsCache.work !== openWork) spotsCache = { text, work: openWork, spots: openSpots(text, openWork) };
   return spotsCache.spots;
 }
-const currentSpots = () => spotsOf(editor.docText());
+/** Open spots of the document, pending proposals among them, in document order. */
+function currentSpots() {
+  const spots = spotsOf(editor.docText());
+  const pending = editor.state.field(proposalField, false) ?? [];
+  if (!pending.length) return spots;
+  return [...spots, ...pending.map((p) => ({ from: p.from, to: p.to, key: "proposal" }))].sort((a, b) => a.from - b.from || b.to - a.to);
+}
 
 /** Hands an edited or loaded registry to menu, counter and tooltips. @param {import("./actions.js").LoadedAction[]} list */
 function applyActions(list) {
@@ -160,9 +168,11 @@ const editor = createEditor($("editor"), {
     { key: "F8", run: () => nextOpenSpot() },
     { key: "Mod-s", run: () => (files.save(), true) },
   ],
+  extensions: [proposalField],
   onChange() {
     // A card describes positions of the text it opened on.
     card.close();
+    review.sync();
     clearTimeout(checkTimer);
     checkTimer = window.setTimeout(checkSource, 300);
     files.updateMark();
@@ -542,6 +552,11 @@ function nextOpenSpot() {
   const next = spots.find((s) => s.from > from) ?? spots[0];
   editor.select(next.from, next.to);
   const kind = openWork.find((d) => d.key === next.key);
+  if (next.key === "proposal") {
+    const p = review.pending().find((x) => x.from === next.from);
+    if (p) review.open(p, true);
+    return true;
+  }
   if (next.key === "unlinked") {
     // A mark is linked through its card, which the text view opens; the XML
     // view names the way there.
@@ -565,23 +580,30 @@ document.addEventListener("keydown", (e) => {
 
 // The text view: the same document with the markup hidden (js/textview.js).
 
+/**
+ * The identity a reference stands for: the register entry with its dates, or
+ * the GND and GeoNames identifiers.
+ * @param {"person" | "organisation" | "place"} dialog @param {string} ref
+ */
+async function identify(dialog, ref) {
+  const authority = dialog === "person" ? source.person : dialog === "organisation" ? source.organisation : null;
+  const id = authority?.registerIdOf(ref) ?? "";
+  if (authority && id) {
+    const entry = await registerEntry(authority.register, id).catch(() => null);
+    return [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
+  }
+  const gnd = (authority ?? source.place).gndOf(ref);
+  const geonames = dialog === "place" ? source.place.geonamesOf(ref) : "";
+  return [gnd && `GND ${gnd}`, geonames && `GeoNames ${geonames}`].filter(Boolean).join(" | ") || ref;
+}
+
 const card = createMarkCard({
   editor,
   markAt: (pos) => tv?.markAt(editor.state, pos) ?? null,
   describe: (mark) =>
     describeMark(mark, actionForElement(mark.name), {
       fallbackTitle: source.textView.marks[/** @type {keyof typeof source.textView.marks} */ (mark.name)] ?? mark.name,
-      async identify(dialog, ref) {
-        const authority = dialog === "person" ? source.person : dialog === "organisation" ? source.organisation : null;
-        const id = authority?.registerIdOf(ref) ?? "";
-        if (authority && id) {
-          const entry = await registerEntry(authority.register, id).catch(() => null);
-          return [entry?.name, entry?.dates, id].filter(Boolean).join(" | ");
-        }
-        const gnd = (authority ?? source.place).gndOf(ref);
-        const geonames = dialog === "place" ? source.place.geonamesOf(ref) : "";
-        return [gnd && `GND ${gnd}`, geonames && `GeoNames ${geonames}`].filter(Boolean).join(" | ") || ref;
-      },
+      identify,
     }),
   onChange(mark) {
     const action = actionForElement(mark.name);
@@ -604,6 +626,62 @@ const card = createMarkCard({
       const attrs = Object.fromEntries(action.attributes.map(({ name }) => [name, attributeOf(mark.attrs, name)]));
       openDateDialog(sel, action, { attrs, apply: change });
     }
+  },
+});
+
+// Proposals of an outside producer, decided one by one (ADR-016).
+
+const review = createReview({
+  editor,
+  documentId: () => {
+    const { doc } = parseXml(editor.text);
+    return doc ? source.review.documentId(documentFacts(doc).idnos) : "";
+  },
+  actions: () => actions.filter((a) => !a.refused),
+  lineBreak: source.textView.lineBreak,
+  async describe(p) {
+    const action = actionForElement(p.element);
+    const title = action?.label ?? p.element;
+    if (p.element === "date") {
+      const values = Object.entries(p.attributes).map(([n, v]) => `@${n} ${v}`);
+      return { title, detail: values.join(" | ") || "ohne Datumswert" };
+    }
+    const ref = p.attributes.ref ?? "";
+    const dialog = action?.dialog === "person" || action?.dialog === "organisation" || action?.dialog === "place" ? action.dialog : null;
+    return { title, detail: ref ? (dialog ? await identify(dialog, ref) : ref) : "noch nicht verknüpft" };
+  },
+  accept(p) {
+    const action = actionForElement(p.element);
+    const text = editor.docText();
+    if (!action || text.slice(p.from, p.to) !== p.text) return false;
+    const { producer, reviewer } = source.review;
+    const markup = wrap(action, p.text, { ...p.attributes, resp: `#${producer.id} #${reviewer.id}` });
+    // Markup and declarations in one transaction, so one undo takes both back.
+    editor.dispatch({ changes: [...declarationEdits(text, [producer, reviewer]), { from: p.from, to: p.to, insert: markup }].sort((a, b) => a.from - b.from) });
+    return true;
+  },
+  change(p) {
+    const action = actionForElement(p.element);
+    if (!action) return;
+    const sel = { from: p.from, to: p.to, text: p.text };
+    editor.select(p.from, p.to);
+    const ref = p.attributes.ref ?? "";
+    if (action.dialog === "person") openPersonDialog(sel, undefined, source.person, ref);
+    else if (action.dialog === "organisation") openPersonDialog(sel, undefined, source.organisation, ref);
+    else if (action.dialog === "place") openPlaceDialog(sel, action, undefined, ref);
+    else if (action.dialog === "date") openDateDialog(sel, action);
+  },
+  report,
+  onDecided() {
+    updateOpenWork();
+    updateDocState();
+  },
+  next: () => {
+    const p = review.pending().find((x) => x.from >= editor.selection().from) ?? review.pending()[0];
+    if (p) {
+      editor.select(p.from, p.to);
+      review.open(p, true);
+    } else report("ok", "Alle Vorschläge sind entschieden. Das Prüfprotokoll lässt sich speichern.");
   },
 });
 
@@ -691,6 +769,7 @@ for (const [id, value] of /** @type {const} */ ([["layout-lines", "lines"], ["la
 function documentOpened() {
   // The check below covers the new text; the one the edit scheduled is redundant.
   clearTimeout(checkTimer);
+  review.reset();
   opened++;
   validation = null;
   // Title and state of the previous document must not survive a new one that
