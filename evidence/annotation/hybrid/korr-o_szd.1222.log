@@ -1,0 +1,14 @@
+ok  o_szd.1222#v016 type-replace 
+{
+ "openWorkBefore": "7 offene Stellen",
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "openWork": "7 offene Stellen",
+ "state": "In Bearbeitung | 7 offene Stellen",
+ "diff": "1 Zeile entfernt, 1 hinzugefügt, an 1 Stelle.",
+ "diffRows": [
+  "hinzugefügt: 59+        <lb/>Den Brief an die <orgName>Kultusgemeinde</orgName> lege ich bei und ich bitte {sende ich selbst}"
+ ],
+ "downloadName": "o_szd.1222.tei.xml"
+}

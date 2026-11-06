@@ -1,0 +1,12 @@
+[
+  {
+    "proposal": "o_szd.1222#v016",
+    "decision": "changed",
+    "reason": "Der Text nennt nur „die Kultusgemeinde“; Wien ist aus dem Wohnort der Sekretärin erschlossen, Salzburg bleibt möglich. Eine falsche Verknüpfung wiegt schwerer als eine offene Stelle, daher ohne @ref.",
+    "how": "type-replace",
+    "find": "<orgName ref=\"http://d-nb.info/gnd/123152-2\">Kultusgemeinde</orgName>",
+    "old": " ref=\"http://d-nb.info/gnd/123152-2\"",
+    "value": "",
+    "expect": "<orgName>Kultusgemeinde</orgName>"
+  }
+]

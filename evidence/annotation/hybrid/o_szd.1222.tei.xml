@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Brief an Anna Meingast vom 4. Januar 1935, SZ-SAM/B7.52</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.1222</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1222/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1222/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1222">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/><orgName ref="http://d-nb.info/gnd/1259093344">Hotel Westminster</orgName>                                <placeName ref="http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440">Nizza</placeName>, den <date when="1935-01-04">4.Januar 1935</date>.
+      </p>
+      <p>
+        <lb/>Liebe Frau <persName ref="#SZDPER.1575">Meingast</persName>!
+      </p>
+      <p>
+        <lb/>Vor allem erinnere ich daran, dass ich am <date when="1935-01-10" cert="low">10.</date> mit dem Conte
+        <lb/>di Savoia nach <placeName ref="http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581">New York</placeName> fahre. Drüben ist meine Adresse selbst-
+        <lb/>verständlich die <orgName ref="http://d-nb.info/gnd/10102943-3">Viking Press</orgName>, <placeName ref="http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581">New York</placeName>, 18 East, 48th Street.
+        <lb/>Da ich aber noch nicht gewiss bin, so lange drüben zu bleiben,
+        <lb/>bis Post mir nachkommen kann, bringe ich für alle Fälle in Er-
+        <lb/>innerung, dass die Telegrammadresse Vikpress <placeName ref="http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581">New York</placeName> lautet
+        <lb/>und wichtigere Dinge allenfalls per Nachtbrief (nightletter)
+        <lb/>hinübertelegraphiert werden können. Im allgemeinen geben Sie
+        <lb/>bei allen Briefen jetzt Auskunft, dass ich zur Zeit in <placeName ref="http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001">Amerika</placeName>
+        <lb/>bin und eine Beantwortung vor längerer Frist nicht zu erwarten
+        <lb/>ist.
+      </p>
+      <p>
+        <lb/>Ein Exemplar des Erasmus wollen Sie freundlichst senden an
+        <lb/>Professor Dr. <persName ref="http://d-nb.info/gnd/117458201">Eugen Wolbe</persName>, <placeName ref="http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950157">Berlin</placeName> N.W.21, Dortmunderstr.11. Und
+        <lb/>wenn ich es noch nicht geschrieben habe, ein Exemplar an Dr. <persName>H~~amb~~[?]
+        <lb/>Goetzfried</persName> bei Professor <persName>Lob</persName>, La Margolaine, Avenue Primrose, <placeName ref="http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440">Nice</placeName>.
+        <lb/>Den Brief an die <orgName>Kultusgemeinde</orgName> lege ich bei und ich bitte {sende ich selbst}
+        <lb/>nur gleichwertig[?] 
+        <lb/>Sie, dann den Betrag per <orgName ref="http://d-nb.info/gnd/2001451-X">Postsparkasse</orgName> einzuzahlen.
+      </p>
+      <p>
+        <lb/>Ich möchte Sie noch informieren, damit Sie ungefähr wissen,
+        <lb/>was vorgeht. Herr <persName ref="#SZDPER.2188">Reichner</persName> hat unglückseligerweise (das sage ich
+        <lb/>Ihnen privat) in seiner Kleinlichkeit eine Reihe von Wünschen {wenn ich ihm meine Bücher gebe}
+        <lb/>nicht erfüllt, die ich an ihn als Bedingung stellte, so unter an-
+        <lb/>derm, dass er Herrn <persName>Fuchs</persName>, der jetzt postenlos ist, in den Verlag
+        <lb/>aufnimmt. Ich habe darum alles gestoppt, solange er nicht restlos
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>die Bedingungen erfüllt und wahrscheinlich kann das Buch erst im
+        <lb/><date notBefore="1935-09" notAfter="1935-11" cert="low">Herbst</date> erscheinen. Ich werde Sie also bitten, weiteres Manuskript
+        <lb/>nur auszufolgen, wenn ich Ihnen dazu telegraphische Order gegeben
+        <lb/>habe.
+      </p>
+      <p>
+        <lb/>Zum zweiten möchte ich Sie informieren, dass ich jetzt in
+        <lb/>ziemlich aussichtsreichen Verhandlungen bin, Maria Stuart für Vor-
+        <lb/>abdrucke, Uebersetzungen, soweit sie noch nicht vergeben sind und
+        <lb/>überhaupt alle Vertriebsangelegenheiten einem sehr grossen und {damit all das von mir abfällt}
+        <lb/>tüchtigen Agenten zu übergeben. Ich bitte also alle Anfragen auf
+        <lb/>Maria Stuart zunächst dahin zu beantworten, dass eine Entscheidung
+        <lb/>vorerst nicht getroffen werden kann.
+      </p>
+      <p>
+        <lb/>Mit besten Grüssen Ihr
+      </p>
+      <p>
+        <lb/><persName ref="#SZDPER.1560">Stefan[?]</persName>
+      </p>
+      <p>
+        <lb/>Ihre Gehalt lauft natürlich voll weiter, solange noch so
+        <lb/>viel zu tun ist. Wir besprechen dann alles in <date when="1935-02" cert="low">Februar</date> durch,
+        <lb/>ich sehe noch nicht was weiter geschieht
+      </p>
+      <p>
+        <lb/>Herr <persName ref="#SZDPER.1153">Relgis</persName> habe ich, bitte eintragen, Autorisation für
+        <lb/>Lesung durch den Geist erteilt
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,860 @@
+{
+  "note": "For reconciliation after the checks only. Reviewers do not read this file. Built deterministically from the proposal files below; no LLM call was involved.",
+  "document": "o_szd.1222",
+  "run": "szd-teiCrafter-probelauf, 2026-10-31",
+  "source": {
+    "path": "szd-teiCrafter/data/o_szd.1222.tei.xml",
+    "sha256": "5809b5bec61e5c9622497d60f427ba5279412c4f983c27aeedf47d68cfe02ddf",
+    "lineEnding": "LF",
+    "offsets": "UTF-16 code units in the file as read"
+  },
+  "files": {
+    "direkt-a": {
+      "path": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+      "format": "teicrafter-proposals/0.2",
+      "sha256": "dfff073134516685ae4bd9d30be14acc8800f6bb41a563b17b584ce6558077ed",
+      "proposals": 23
+    },
+    "direkt-b": {
+      "path": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+      "format": "teicrafter-proposals/0.2",
+      "sha256": "a05c4531043f3d3a18df71bdd5590b0ddffeaf0eb93c16b2211132fe908fd1b3",
+      "proposals": 23
+    },
+    "browser": {
+      "path": "annotation/browser/o_szd.1222.vorschlaege.json",
+      "format": "teicrafter-proposals/0.2",
+      "sha256": "f6bf67f78bd69b20dcf2c3fe7a6624031220bc6b7aa89e57c7e3b0544ffc8227",
+      "proposals": 22
+    },
+    "hybrid": {
+      "path": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+      "format": "teicrafter-proposals/0.1",
+      "sha256": "fe5ee7da17a3161580dc1c755c73a9adfb6ff8bd2574f7f790497a0c25b1945e",
+      "proposals": 23
+    }
+  },
+  "items": [
+    {
+      "item": "o_szd.1222.i01",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p001",
+              "status": "proposed-open"
+            }
+          ]
+        },
+        {
+          "candidate": "c2",
+          "proposals": [
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p001",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v001",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": [
+        "browser"
+      ]
+    },
+    {
+      "item": "o_szd.1222.i02",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p002",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p002",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p001",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v002",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i03",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p003",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p003",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p002",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v003",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i04",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p004",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p004",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p003",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v004",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i05",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p005",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p005",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p004",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v005",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i06",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p006",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p006",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p005",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v006",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i07",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p007",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p007",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p006",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v007",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i08",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p008",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p008",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p007",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v008",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i09",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p009",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p009",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p008",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v009",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i10",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p010",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p010",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p009",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v010",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i11",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p011",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p011",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p010",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v011",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i12",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p012",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p012",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p011",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v012",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i13",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p013",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p013",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p012",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v013",
+              "status": "proposed-open"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i14",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p014",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p014",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p013",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v014",
+              "status": "proposed-open"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i15",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p015",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p015",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p014",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v015",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i16",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p016",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p015",
+              "status": "proposed-open"
+            }
+          ]
+        },
+        {
+          "candidate": "c2",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p016",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v016",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i17",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p017",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v017",
+              "status": "proposed"
+            }
+          ]
+        },
+        {
+          "candidate": "c2",
+          "proposals": [
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p017",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p016",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i18",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p018",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p018",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p017",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v018",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i19",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p019",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p019",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p018",
+              "status": "proposed-open"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v019",
+              "status": "proposed-open"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i20",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p020",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p020",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p019",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v020",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i21",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p021",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p021",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p020",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v021",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i22",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p022",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p022",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p021",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v022",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    },
+    {
+      "item": "o_szd.1222.i23",
+      "candidates": [
+        {
+          "candidate": "c1",
+          "proposals": [
+            {
+              "agent": "direkt-a",
+              "file": "annotation/direkt-a/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p023",
+              "status": "proposed"
+            },
+            {
+              "agent": "direkt-b",
+              "file": "annotation/direkt-b/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p023",
+              "status": "proposed"
+            },
+            {
+              "agent": "browser",
+              "file": "annotation/browser/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#p022",
+              "status": "proposed"
+            },
+            {
+              "agent": "hybrid",
+              "file": "annotation/hybrid/o_szd.1222.vorschlaege.json",
+              "proposalId": "o_szd.1222#v023",
+              "status": "proposed"
+            }
+          ]
+        }
+      ],
+      "leftUnmarkedBy": []
+    }
+  ],
+  "remarks": [
+    "hybrid writes format 0.1 with producer.revised false; its proposal v016 (Kultusgemeinde) carries @ref http://d-nb.info/gnd/123152-2, while its working copy annotation/hybrid/o_szd.1222.tei.xml and its decision record o_szd.1222.entscheidungen.md leave the mark without @ref. The packet follows the proposal file.",
+    "hybrid's proposal file also lists notMarked passages with reasons (Conte di Savoia, 18 East 48th Street, Vikpress, Erasmus, Dortmunderstr.11, La Margolaine Avenue Primrose, Verlag, Maria Stuart twice, Lesung durch den Geist). No agent marked them, so they are not items.",
+    "The decision records name SZD person index candidates for the unlinked Fuchs (SZDPER.439, SZDPER.2122); they are agent reasoning and stay out of the packet."
+  ]
+}

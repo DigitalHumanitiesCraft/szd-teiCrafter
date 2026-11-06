@@ -1,0 +1,741 @@
+{
+  "cards": [
+    {
+      "line": 48,
+      "element": "persName",
+      "inner": "H. WEISFLOG",
+      "attrs": "ref=\"#SZDPER.2226\"",
+      "title": "Person",
+      "detail": "Weisflog, Heinrich | SZDPER.2226",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 50,
+      "element": "persName",
+      "inner": "WERNER WEISFLOG",
+      "attrs": "ref=\"http://d-nb.info/gnd/1214668852\"",
+      "title": "Person",
+      "detail": "GND 1214668852",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 53,
+      "element": "persName",
+      "inner": "ARNOLD HAUSER",
+      "attrs": "",
+      "title": "Person",
+      "detail": "noch nicht verknüpft",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 55,
+      "element": "placeName",
+      "inner": "ZURICH",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 58,
+      "element": "persName",
+      "inner": "Weisflog",
+      "attrs": "ref=\"#SZDPER.2226\"",
+      "title": "Person",
+      "detail": "Weisflog, Heinrich | SZDPER.2226",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 58,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 62,
+      "element": "placeName",
+      "inner": "ZURICH",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 62,
+      "element": "date",
+      "inner": "10. Mai 1938",
+      "attrs": "when=\"1938-05-10\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-10",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 66,
+      "element": "persName",
+      "inner": "Stefan Z w e i g",
+      "attrs": "ref=\"#SZDPER.1560\"",
+      "title": "Person",
+      "detail": "Zweig, Stefan | 1881-11-28–1942-02-23 | SZDPER.1560",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 68,
+      "element": "placeName",
+      "inner": "L o n d o n",
+      "attrs": "ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\"",
+      "title": "Ort",
+      "detail": "GND 4074335-4 http://www.geonames.org/2643743",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 69,
+      "element": "placeName",
+      "inner": "E n g l a n d",
+      "attrs": "ref=\"http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131\"",
+      "title": "Ort",
+      "detail": "GND 4014770-8 http://www.geonames.org/6269131",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 72,
+      "element": "persName",
+      "inner": "Herbert Reichner",
+      "attrs": "ref=\"#SZDPER.2188\"",
+      "title": "Person",
+      "detail": "Reichner, Herbert | 1899-03-04–1971 | SZDPER.2188",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 73,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 75,
+      "element": "date",
+      "inner": "4.",
+      "attrs": "when=\"1938-05-04\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-04",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 75,
+      "element": "date",
+      "inner": "5. ds.",
+      "attrs": "when=\"1938-05-05\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-05",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 77,
+      "element": "date",
+      "inner": "5. ds.",
+      "attrs": "when=\"1938-05-05\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-05",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 81,
+      "element": "date",
+      "inner": "5. ds.",
+      "attrs": "when=\"1938-05-05\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-05",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 91,
+      "element": "date",
+      "inner": "20. April a.c.",
+      "attrs": "when=\"1938-04-20\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1938-04-20",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 96,
+      "element": "placeName",
+      "inner": "England",
+      "attrs": "ref=\"http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131\"",
+      "title": "Ort",
+      "detail": "GND 4014770-8 http://www.geonames.org/6269131",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 110,
+      "element": "persName",
+      "inner": "Herbert Reichner",
+      "attrs": "ref=\"#SZDPER.2188\"",
+      "title": "Person",
+      "detail": "Reichner, Herbert | 1899-03-04–1971 | SZDPER.2188",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 111,
+      "element": "orgName",
+      "inner": "Verlag Herbert Reichner",
+      "attrs": "ref=\"http://d-nb.info/gnd/10119809-7\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 111,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 117,
+      "element": "persName",
+      "inner": "Herbert Reichner",
+      "attrs": "ref=\"#SZDPER.2188\"",
+      "title": "Person",
+      "detail": "Reichner, Herbert | 1899-03-04–1971 | SZDPER.2188",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 119,
+      "element": "placeName",
+      "inner": "Leipzig",
+      "attrs": "ref=\"http://d-nb.info/gnd/4035206-7 http://www.geonames.org/2879139\"",
+      "title": "Ort",
+      "detail": "GND 4035206-7 http://www.geonames.org/2879139",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 119,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 119,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 120,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 121,
+      "element": "date",
+      "inner": "1935",
+      "attrs": "when=\"1935\"",
+      "title": "Datum",
+      "detail": "@when 1935",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 126,
+      "element": "placeName",
+      "inner": "Schweiz",
+      "attrs": "ref=\"http://d-nb.info/gnd/4053881-3 http://www.geonames.org/2658434\"",
+      "title": "Ort",
+      "detail": "GND 4053881-3 http://www.geonames.org/2658434",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 136,
+      "element": "orgName",
+      "inner": "Schweizerische Vereins-Sortiment",
+      "attrs": "ref=\"http://d-nb.info/gnd/2021755-9\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 136,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 142,
+      "element": "persName",
+      "inner": "H. WEISFLOG",
+      "attrs": "ref=\"#SZDPER.2226\"",
+      "title": "Person",
+      "detail": "Weisflog, Heinrich | SZDPER.2226",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 142,
+      "element": "persName",
+      "inner": "WERNER WEISFLOG",
+      "attrs": "ref=\"http://d-nb.info/gnd/1214668852\"",
+      "title": "Person",
+      "detail": "GND 1214668852",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 143,
+      "element": "placeName",
+      "inner": "ZÜRICH",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 144,
+      "element": "date",
+      "inner": "10. Mai 1938",
+      "attrs": "when=\"1938-05-10\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-10",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 144,
+      "element": "placeName",
+      "inner": "London",
+      "attrs": "ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\"",
+      "title": "Ort",
+      "detail": "GND 4074335-4 http://www.geonames.org/2643743",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 153,
+      "element": "persName",
+      "inner": "Josef Geiringer",
+      "attrs": "ref=\"#SZDPER.1891\"",
+      "title": "Person",
+      "detail": "Geiringer, Josef | SZDPER.1891",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 165,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 171,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 171,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 177,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 180,
+      "element": "placeName",
+      "inner": "Zürich",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 184,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 187,
+      "element": "placeName",
+      "inner": "London",
+      "attrs": "ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\"",
+      "title": "Ort",
+      "detail": "GND 4074335-4 http://www.geonames.org/2643743",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 192,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 201,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 202,
+      "element": "placeName",
+      "inner": "deutschen Reiches",
+      "attrs": "ref=\"http://d-nb.info/gnd/2008993-4\"",
+      "title": "Ort",
+      "detail": "GND 2008993-4",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 203,
+      "element": "orgName",
+      "inner": "Schweizerischen Vereins-Sorti- | ment",
+      "attrs": "ref=\"http://d-nb.info/gnd/2021755-9\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 204,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 207,
+      "element": "orgName",
+      "inner": "Schwei- | zerischen Vereins-Sortiment",
+      "attrs": "ref=\"http://d-nb.info/gnd/2021755-9\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 215,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 217,
+      "element": "orgName",
+      "inner": "Herbert Reichner-Verlages",
+      "attrs": "ref=\"http://d-nb.info/gnd/10119809-7\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 223,
+      "element": "persName",
+      "inner": "H. WEISFLOG",
+      "attrs": "ref=\"#SZDPER.2226\"",
+      "title": "Person",
+      "detail": "Weisflog, Heinrich | SZDPER.2226",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 223,
+      "element": "persName",
+      "inner": "WERNER WEISFLOG",
+      "attrs": "ref=\"http://d-nb.info/gnd/1214668852\"",
+      "title": "Person",
+      "detail": "GND 1214668852",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 224,
+      "element": "placeName",
+      "inner": "ZÜRICH",
+      "attrs": "ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\"",
+      "title": "Ort",
+      "detail": "GND 4068038-1 http://www.geonames.org/2657896",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 225,
+      "element": "date",
+      "inner": "10. Mai 1938",
+      "attrs": "when=\"1938-05-10\"",
+      "title": "Datum",
+      "detail": "@when 1938-05-10",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 225,
+      "element": "placeName",
+      "inner": "London",
+      "attrs": "ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\"",
+      "title": "Ort",
+      "detail": "GND 4074335-4 http://www.geonames.org/2643743",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 236,
+      "element": "orgName",
+      "inner": "Schweizerischen | Vereins-Sortiment",
+      "attrs": "ref=\"http://d-nb.info/gnd/2021755-9\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 243,
+      "element": "orgName",
+      "inner": "Home Office",
+      "attrs": "ref=\"http://d-nb.info/gnd/35565-3\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 244,
+      "element": "placeName",
+      "inner": "London",
+      "attrs": "ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\"",
+      "title": "Ort",
+      "detail": "GND 4074335-4 http://www.geonames.org/2643743",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 250,
+      "element": "date",
+      "inner": "1. März 1938",
+      "attrs": "when=\"1938-03-01\"",
+      "title": "Datum",
+      "detail": "@when 1938-03-01",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 251,
+      "element": "date",
+      "inner": "1.-10. März | 1938",
+      "attrs": "from=\"1938-03-01\" to=\"1938-03-10\"",
+      "title": "Datum",
+      "detail": "@from 1938-03-01 | @to 1938-03-10",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 258,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 260,
+      "element": "placeName",
+      "inner": "Olten",
+      "attrs": "ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\"",
+      "title": "Ort",
+      "detail": "GND 4043506-4 http://www.geonames.org/2659297",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 261,
+      "element": "orgName",
+      "inner": "Schweizerische Vereins-Sorti- | ment",
+      "attrs": "ref=\"http://d-nb.info/gnd/2021755-9\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 277,
+      "element": "orgName",
+      "inner": "Gestapo",
+      "attrs": "ref=\"http://d-nb.info/gnd/4757614-5\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 277,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 298,
+      "element": "persName",
+      "inner": "H. Weisflog",
+      "attrs": "ref=\"#SZDPER.2226\"",
+      "title": "Person",
+      "detail": "Weisflog, Heinrich | SZDPER.2226",
+      "note": "",
+      "change": true
+    }
+  ],
+  "f8": [
+    {
+      "line": 44,
+      "selected": "",
+      "note": "",
+      "suggested": null
+    }
+  ],
+  "checks": {
+    "openWorkBefore": "Keine offenen Stellen",
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "openWork": "Keine offenen Stellen",
+    "state": "Bereit zur Abnahme | ",
+    "diff": "4 Zeilen entfernt, 4 hinzugefügt, an 4 Stellen.",
+    "diffRows": [
+      "hinzugefügt: 97+        <lb/>höre, ist Ihr hiesiger Anwalt Herr Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>,",
+      "hinzugefügt: 122+        <lb/>Klienten als Allein-Inhaber und Herrn Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>",
+      "hinzugefügt: 144+        <lb/>2. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>.",
+      "hinzugefügt: 225+        <lb/>3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>."
+    ],
+    "downloadName": "o_szd.1786.tei.xml"
+  },
+  "corrections": [
+    {
+      "proposal": "o_szd.1786#v020",
+      "decision": "completed",
+      "reason": "Im Anwendungslauf schloss sich das Menü (Auswahl am Ende einer langen umbrochenen Zeile); im Review erneut über das Menü angewendet.",
+      "how": "menu-person",
+      "find": "Herr Dr. Werner D.Stauffacher,",
+      "target": "Werner D.Stauffacher",
+      "value": "SZDPER.2206",
+      "expect": "Herr Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>,",
+      "preview": "<persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>",
+      "result": true
+    },
+    {
+      "proposal": "o_szd.1786#v030",
+      "decision": "completed",
+      "reason": "wie v020",
+      "how": "menu-person",
+      "find": "Herrn Dr. Werner D.Stauffacher",
+      "target": "Werner D.Stauffacher",
+      "value": "SZDPER.2206",
+      "expect": "Herrn Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>",
+      "preview": "<persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>",
+      "result": true
+    },
+    {
+      "proposal": "o_szd.1786#v038",
+      "decision": "completed",
+      "reason": "wie v020",
+      "how": "menu-person",
+      "find": "2. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. Stefan Zweig",
+      "target": "Stefan Zweig",
+      "value": "SZDPER.1560",
+      "expect": "1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "result": true
+    },
+    {
+      "proposal": "o_szd.1786#v060",
+      "decision": "completed",
+      "reason": "wie v020",
+      "how": "menu-person",
+      "find": "3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. Stefan Zweig",
+      "target": "Stefan Zweig",
+      "value": "SZDPER.1560",
+      "expect": "3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "result": true
+    }
+  ],
+  "errors": []
+}

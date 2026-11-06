@@ -1,0 +1,34 @@
+ok  o_szd.1079#v018 menu+person-dialog 
+ok  o_szd.1079#v017 typed (over a line break) 
+ok  o_szd.1079#v016 typed (no orgName action) 
+ok  o_szd.1079#v015 menu+person-dialog 
+ok  o_szd.1079#v014 typed (over a line break) 
+ok  o_szd.1079#v013 typed (no orgName action) 
+ok  o_szd.1079#v012 menu+place-dialog 
+ok  o_szd.1079#v011 typed (over a line break) 
+ok  o_szd.1079#v010 menu+place-dialog 
+ok  o_szd.1079#v009 menu+place-dialog 
+ok  o_szd.1079#v008 menu+place-dialog 
+ok  o_szd.1079#v007 menu+person-dialog 
+ok  o_szd.1079#v006 menu+person-dialog 
+ok  o_szd.1079#v005 menu+person-dialog 
+ok  o_szd.1079#v004 menu+person-dialog 
+ok  o_szd.1079#v003 menu+place-dialog 
+ERR o_szd.1079#v002 menu+place-dialog TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#place-dialog[open]') to be detached[22m
+[2m    63 × locator resolved to visible <dialog open="" id="place-dialog" class="person-dialog" aria-labelledby="place-title">…</dialog>[22m
+
+ok  o_szd.1079#v001 menu+person-dialog 
+{
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "openWork": "Keine offenen Stellen",
+ "state": "Bereit zur Abnahme | ",
+ "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "diff": "20 Zeilen entfernt, 20 hinzugefügt, an 4 Stellen.",
+ "downloadName": "o_szd.1079.tei.xml",
+ "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+ "errors": []
+}
+17/18 applied as proposed

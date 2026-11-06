@@ -1,0 +1,10 @@
+{
+ "openWorkBefore": "Keine offenen Stellen",
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "openWork": "Keine offenen Stellen",
+ "state": "Bereit zur Abnahme | ",
+ "diff": "Keine Änderungen seit dem Öffnen.",
+ "diffRows": []
+}

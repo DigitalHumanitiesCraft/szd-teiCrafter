@@ -1,0 +1,23 @@
+{"kind":"place","text":"Nizza","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"date","text":"4.Januar 1935","ok":true,"wf":"Wohlgeformt","actions":2}
+{"kind":"person","text":"Meingast","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"date","text":"10.","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"place","text":"New York","ok":true,"wf":"Wohlgeformt","actions":8}
+{"kind":"org","text":"Viking Press","ok":true,"wf":"Fehler Zeile 53","actions":5}
+{"kind":"place","text":"New York","ok":true,"wf":"Wohlgeformt","actions":8}
+{"kind":"place","text":"New York","ok":true,"wf":"Wohlgeformt","actions":8}
+{"kind":"place","text":"Amerika","ok":true,"wf":"Wohlgeformt","actions":8}
+{"kind":"person","text":"Eugen Wolbe","ok":true,"wf":"Wohlgeformt","actions":5}
+{"kind":"place","text":"Berlin","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"personTyped","text":"H~~amb~~[?]","ok":true,"wf":"Fehler Zeile 62","actions":6}
+{"kind":"person","text":"Lob","ok":true,"wf":"Fehler Zeile 62","actions":9}
+{"kind":"place","text":"Nice","ok":true,"wf":"Wohlgeformt","actions":8}
+{"kind":"org","text":"Kultusgemeinde","ok":true,"wf":"Fehler Zeile 62","actions":6}
+{"kind":"org","text":"Postsparkasse","ok":true,"wf":"Fehler Zeile 62","actions":6}
+{"kind":"person","text":"Reichner","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"person","text":"Fuchs","ok":true,"wf":"Wohlgeformt","actions":9}
+{"kind":"date","text":"Herbst","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"person","text":"Stefan[?]","ok":true,"wf":"Wohlgeformt","actions":5}
+{"kind":"date","text":"Februar","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"person","text":"Relgis","ok":true,"wf":"Wohlgeformt","actions":4}
+{"id":"o_szd.1222","work":"7 offene Stellen","valid":"TEI-konform","state":"In Bearbeitung | 7 offene Stellen","xmlStatus":"Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.","suggested":"o_szd.1222.tei.xml","closeTypedByHand":["H~~amb~~[?]","Kultusgemeinde","Postsparkasse"],"actions":133,"seconds":120}

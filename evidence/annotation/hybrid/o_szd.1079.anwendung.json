@@ -1,0 +1,223 @@
+{
+  "checks": {
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "openWork": "Keine offenen Stellen",
+    "state": "Bereit zur Abnahme | ",
+    "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "diff": "20 Zeilen entfernt, 20 hinzugefügt, an 4 Stellen.",
+    "downloadName": "o_szd.1079.tei.xml",
+    "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+    "errors": []
+  },
+  "log": [
+    {
+      "id": "o_szd.1079#v001",
+      "line": 51,
+      "text": "Max Fleischer",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.403\">Max Fleischer</persName>",
+      "registerFirstHit": "Fleischer, Max1880-01-31–1941 | GND 11660090X | SZDPER.403",
+      "written": "<persName ref=\"#SZDPER.403\">Max Fleischer</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v002",
+      "line": 55,
+      "text": "Komotau",
+      "element": "placeName",
+      "steps": [],
+      "path": "menu+place-dialog",
+      "preview": "",
+      "ok": false,
+      "error": "TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#place-dialog[open]') to be detached\u001b[22m\n\u001b[2m    63 × locator resolved to visible <dialog open=\"\" id=\"place-dialog\" class=\"person-dialog\" aria-labelledby=\"place-title\">…</dialog>\u001b[22m\n"
+    },
+    {
+      "id": "o_szd.1079#v003",
+      "line": 56,
+      "text": "Böhmen",
+      "element": "placeName",
+      "steps": [],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4007467-5\">Böhmen</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4007467-5\">Böhmen</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v004",
+      "line": 60,
+      "text": "STEFAN ZWEIG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1560\">STEFAN ZWEIG</persName>",
+      "registerFirstHit": "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+      "written": "<persName ref=\"#SZDPER.1560\">STEFAN ZWEIG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v005",
+      "line": 64,
+      "text": "Fleischer",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.403\">Fleischer</persName>",
+      "registerFirstHit": "Fleischer, Max1880-01-31–1941 | GND 11660090X | SZDPER.403",
+      "written": "<persName ref=\"#SZDPER.403\">Fleischer</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v006",
+      "line": 69,
+      "text": "Donath",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1860\">Donath</persName>",
+      "registerFirstHit": "Donath, AdolphGND 11947042X | SZDPER.1860",
+      "written": "<persName ref=\"#SZDPER.1860\">Donath</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v007",
+      "line": 74,
+      "text": "Donath",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1860\">Donath</persName>",
+      "registerFirstHit": "Donath, AdolphGND 11947042X | SZDPER.1860",
+      "written": "<persName ref=\"#SZDPER.1860\">Donath</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v008",
+      "line": 75,
+      "text": "Karlsbad",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4029705-6\">Karlsbad</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803\">Karlsbad</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v009",
+      "line": 77,
+      "text": "Marienbad",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4037541-9\">Marienbad</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4037541-9 http://www.geonames.org/3071024\">Marienbad</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v010",
+      "line": 79,
+      "text": "Karlsbad",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4029705-6\">Karlsbad</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803\">Karlsbad</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v011",
+      "line": 83,
+      "text": "Franz | Evers",
+      "element": "persName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<persName ref=\"#SZDPER.373\">Franz\n        <lb/>Evers</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v012",
+      "line": 92,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v013",
+      "line": 100,
+      "text": "Schuster &amp; Löffler",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/5325296-2\">Schuster &amp; Löffler</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v014",
+      "line": 101,
+      "text": "dieser | Woche",
+      "element": "date",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<date notBefore=\"1901-05-20\" notAfter=\"1901-05-26\" cert=\"low\">dieser\n        <lb/>Woche</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v015",
+      "line": 107,
+      "text": "Stefan Zweig",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "registerFirstHit": "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+      "written": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v016",
+      "line": 113,
+      "text": "Schuster &amp; Löffler",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/5325296-2\">Schuster &amp; Löffler</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v017",
+      "line": 114,
+      "text": "dieser | Woche",
+      "element": "date",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<date notBefore=\"1901-05-20\" notAfter=\"1901-05-26\" cert=\"low\">dieser\n        <lb/>Woche</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1079#v018",
+      "line": 120,
+      "text": "Stefan Zweig",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "registerFirstHit": "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+      "written": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+      "ok": true
+    }
+  ]
+}

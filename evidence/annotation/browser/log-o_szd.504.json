@@ -1,0 +1,212 @@
+{
+ "summary": {
+  "id": "o_szd.504",
+  "work": "43 offene Stellen",
+  "valid": "TEI-konform",
+  "state": "In Bearbeitung | 43 offene Stellen",
+  "xmlStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+  "suggested": "o_szd.504.tei.xml",
+  "actions": 53,
+  "seconds": 50
+ },
+ "steps": [
+  {
+   "kind": "date",
+   "line": "23/11. 16",
+   "text": "23/11. 16",
+   "when": "1906-11-23",
+   "cert": "low",
+   "certLine": "23/11. 16",
+   "proposed": {
+    "when": "",
+    "trimVisible": false,
+    "part": "",
+    "preview": ""
+   },
+   "whenTypedInDialog": true,
+   "preview": "<date when=\"1906-11-23\">23/11. 16</date>",
+   "ok": true,
+   "actions": 4,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "G[ro]d Hotel Villa",
+   "text": "Palermo",
+   "query": "Palermo",
+   "hit": "4044402-8",
+   "geonames": "2523920",
+   "suggestedQuery": "Palermo",
+   "hits": [
+    "PalermoHauptstadt der gleichnamigen Provinz u. der Region Sizilien, Ende 7. Jh. v.Chr. als phönik. Panormos gegründet | Italien | GND 4044402-8",
+    "Dom Palermo (Palermo)Italien | GND 4283101-5",
+    "Hafen Palermo (Palermo)Italien | GND 4761262-9"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4044402-8\">Palermo</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "gewünscht und",
+   "text": "Genua",
+   "query": "Genua",
+   "hit": "4020185-5",
+   "geonames": "3176219",
+   "suggestedQuery": "Genua",
+   "hits": [
+    "GenuaHauptstadt der gleichnamigen Provinz u. der Region Ligurien | Italien | GND 4020185-5",
+    "Kathedrale Genua (Genua)Italien | GND 4231472-0",
+    "Hotelbau Miramare, Genua (Genua)Nach Hotelschliessung als Kasernengebäude genutzt, heute Appartmentanlage | Italien | GND 133615442X"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4020185-5\">Genua</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "und bleibe",
+   "text": "Rom",
+   "query": "Rom",
+   "hit": "4050471-2",
+   "geonames": "3169070",
+   "suggestedQuery": "Rom",
+   "hits": [
+    "RomHauptstadt Italiens in der Region Latium | Italien | GND 4050471-2",
+    "Engelsburg Rom (Rom) / ApollosaalItalien | GND 4749650-2",
+    "Pantheon Rom (Rom)Kuppelbau 118/128 n.Chr. unter Hadrian neu erbaut, seit 609 christliche Kirche | Römisches Reich | GND 4115786-2"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4050471-2\">Rom</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "und bleibe",
+   "text": "Neapel",
+   "query": "Neapel",
+   "hit": "4041476-0",
+   "geonames": "3172394",
+   "suggestedQuery": "Neapel",
+   "hits": [
+    "NeapelHauptstadt der gleichnamigen Metropolitanstadt und der Region Kampanien, im 5. Jh. v.Chr. als Neapolis gegründet | Italien | GND 4041476-0",
+    "Dom Neapel (Neapel) / BaptisteriumBaptiserium im 4./5. Jh. an S. Restituta angebaut | Italien | GND 4456869-1",
+    "Hafen Neapel (Neapel)Italien | GND 4391252-7"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4041476-0\">Neapel</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "über den Winter",
+   "text": "Palermo",
+   "query": "Palermo",
+   "hit": "4044402-8",
+   "geonames": "2523920",
+   "suggestedQuery": "Palermo",
+   "hits": [
+    "PalermoHauptstadt der gleichnamigen Provinz u. der Region Sizilien, Ende 7. Jh. v.Chr. als phönik. Panormos gegründet | Italien | GND 4044402-8",
+    "Dom Palermo (Palermo)Italien | GND 4283101-5",
+    "Hafen Palermo (Palermo)Italien | GND 4761262-9"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4044402-8\">Palermo</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "person",
+   "line": "Signore Dr",
+   "text": "Stefan Zweig",
+   "hit": "SZDPER.1560",
+   "suggestedQuery": "Stefan Zweig",
+   "register": [
+    "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+    "Zweig, StefanieSZDPER.2239"
+   ],
+   "preview": "<persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>",
+   "ok": true,
+   "actions": 4,
+   "wf": "Wohlgeformt"
+  },
+  {
+   "kind": "place",
+   "line": "Vienna",
+   "text": "Vienna",
+   "query": "Vienna",
+   "hit": "4066009-6",
+   "geonames": "2761367",
+   "shot": "vienna",
+   "suggestedQuery": "Vienna",
+   "hits": [
+    "Vienna, Va.USA | GND 5011056-1",
+    "Campus Vienna Biocenter (Wien)räumlicher Zusammenschluss für verschiedene universitäre und außeruniversitäre Forschungseinrichtungen, eine Fachhocschule und versch. biotechnologische Unternehmen aus dem Bereich der Biowissenschaften | Wien | GND 1048452530",
+    "VienneStadt an der Rhône, Dep. Isère, galloröm. Vienna | Frankreich | GND 4119422-6"
+   ],
+   "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Vienna</placeName>",
+   "ok": true,
+   "actions": 7,
+   "wf": "Wohlgeformt"
+  }
+ ],
+ "actionsLog": [
+  "open document list, search o_szd.504, click entry",
+  "select \"23/11. 16\" with the mouse",
+  "Ctrl+. then d",
+  "click into \"when=\"1906-11-23\">\" at 17",
+  "type \" cert=\\\"low\\\"\"",
+  "select \"Palermo\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4044402-8",
+  "click Markieren",
+  "click into \"4044402-8\"\" at 9",
+  "type \" http://www.geonames.org/2523920\"",
+  "select \"Genua\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4020185-5",
+  "click Markieren",
+  "click into \"4020185-5\"\" at 9",
+  "type \" http://www.geonames.org/3176219\"",
+  "select \"Rom\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4050471-2",
+  "click Markieren",
+  "click into \"4050471-2\"\" at 9",
+  "type \" http://www.geonames.org/3169070\"",
+  "select \"Neapel\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4041476-0",
+  "click Markieren",
+  "click into \"4041476-0\"\" at 9",
+  "type \" http://www.geonames.org/3172394\"",
+  "select \"Palermo\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4044402-8",
+  "click Markieren",
+  "click into \"4044402-8\"\" at 9",
+  "type \" http://www.geonames.org/2523920\"",
+  "select \"Stefan Zweig\" with the mouse",
+  "Ctrl+. then p",
+  "click hit containing SZDPER.1560",
+  "click Annotieren",
+  "select \"Vienna\" with the mouse",
+  "Ctrl+. then o",
+  "click 'In der GND suchen'",
+  "click place hit GND 4066009-6",
+  "click Markieren",
+  "click into \"4066009-6\"\" at 9",
+  "type \" http://www.geonames.org/2761367\"",
+  "click validate",
+  "click save (download)"
+ ]
+}

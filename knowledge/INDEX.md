@@ -7,7 +7,7 @@ status: draft
 language: en
 version: 0.1
 created: 2026-10-30
-updated: 2026-10-31
+updated: 2026-11-06
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -45,7 +45,8 @@ The action layer is [CLAUDE.md](../CLAUDE.md) in the repository root.
 
 - `knowledge/` holds these documents.
 - `data/` holds the research data, the TEI files edited with the tool in one folder per collection, with their provenance in `data/IMPORT.md`, the generated document index and the person index, each third-party object with a `NOTICE.md`.
-- `tools/` holds the Node scripts that import the working set and build the document and person indexes.
+- `tools/` holds the Node scripts that import the working set and build the document and person indexes, the check of agent-annotated copies, and under `tools/trial-run/` the scripts and guide of the local trial run, whose sandbox lies in the ignored folder `trial-run/`.
+- `evidence/` holds the frozen results of the agent runs and of the reviews, each folder with a checksum manifest, see `evidence/README.md`.
 - `vendor/` and `schemas/` hold vendored third-party code and the TEI schema, each with its `NOTICE.md`.
 - `test/` holds the browser check and its only dependency.
 

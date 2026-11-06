@@ -1,0 +1,580 @@
+{
+  "format": "teicrafter-proposals/0.1",
+  "document": "o_szd.1079",
+  "source": {
+    "path": "data/korrespondenzen/o_szd.1079.tei.xml",
+    "sha256": "7564514a46dd1a098b6e01b6e7e5518844e03970c1a31011efe5daa6b1b5314e",
+    "lineEnding": "LF",
+    "offsets": "UTF-16 code units in the file as read, LF line breaks"
+  },
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5",
+    "revised": false,
+    "created": "2026-10-31",
+    "rules": "szd-teiCrafter/knowledge/annotation.md"
+  },
+  "letterDate": {
+    "value": "1901-05-22",
+    "basis": "teiHeader/titleStmt/title"
+  },
+  "proposals": [
+    {
+      "id": "o_szd.1079#v001",
+      "line": 51,
+      "text": "Max Fleischer",
+      "shown": "Max Fleischer",
+      "occurrence": 1,
+      "offset": {
+        "from": 1821,
+        "to": 1834
+      },
+      "context": {
+        "before": " <p>\n        <lb/>Herrn ",
+        "after": "\n        <lb/>Schriftste"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.403"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.403",
+          "label": "Fleischer, Max (1880-01-31–1941)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v002",
+      "line": 55,
+      "text": "Komotau",
+      "shown": "Komotau",
+      "occurrence": 1,
+      "offset": {
+        "from": 1897,
+        "to": 1904
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "\n        <lb/>Böhmen\n   "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/63291-0 http://www.geonames.org/3077685"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "63291-0",
+          "label": "Chomutov (Komotau)",
+          "source": "https://lobid.org/gnd/63291-0.json",
+          "geonames": "https://sws.geonames.org/3077685",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v003",
+      "line": 56,
+      "text": "Böhmen",
+      "shown": "Böhmen",
+      "occurrence": 1,
+      "offset": {
+        "from": 1918,
+        "to": 1924
+      },
+      "context": {
+        "before": "b/>Komotau\n        <lb/>",
+        "after": "\n      </p>\n      <pb n="
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4007467-5"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4007467-5",
+          "label": "Böhmen",
+          "source": "https://lobid.org/gnd/4007467-5.json",
+          "geonames": null
+        }
+      ],
+      "doubt": "GND-Satz ohne GeoNames-Link.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v004",
+      "line": 60,
+      "text": "STEFAN ZWEIG",
+      "shown": "STEFAN ZWEIG",
+      "occurrence": 1,
+      "offset": {
+        "from": 1992,
+        "to": 2004
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      <pb n="
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v005",
+      "line": 64,
+      "text": "Fleischer",
+      "shown": "Fleischer",
+      "occurrence": 1,
+      "offset": {
+        "from": 2084,
+        "to": 2093
+      },
+      "context": {
+        "before": "       <lb/>Lieber Herr ",
+        "after": "! Ich hoffe Sie werden s"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.403"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.403",
+          "label": "Fleischer, Max (1880-01-31–1941)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v006",
+      "line": 69,
+      "text": "Donath",
+      "shown": "Donath",
+      "occurrence": 1,
+      "offset": {
+        "from": 2470,
+        "to": 2476
+      },
+      "context": {
+        "before": "Freude\n        <lb/>bei ",
+        "after": " durch und schrieb eine "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1860"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1860",
+          "label": "Donath, Adolph"
+        }
+      ],
+      "doubt": "Index-Eintrag Donath, Adolph ohne Lebensdaten; Zuordnung über den Wiener Dichterkreis um 1901 erschlossen.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v007",
+      "line": 74,
+      "text": "Donath",
+      "shown": "Donath",
+      "occurrence": 1,
+      "offset": {
+        "from": 2816,
+        "to": 2822
+      },
+      "context": {
+        "before": "  <lb/>Ihre Absicht mit ",
+        "after": " ist wunderbar, nur glau"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1860"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1860",
+          "label": "Donath, Adolph"
+        }
+      ],
+      "doubt": "wie Zeile 69",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v008",
+      "line": 75,
+      "text": "Karlsbad",
+      "shown": "Karlsbad",
+      "occurrence": 1,
+      "offset": {
+        "from": 2884,
+        "to": 2892
+      },
+      "context": {
+        "before": "/>ich nicht daß er nach ",
+        "after": " wird abkommen können,\n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4029705-6",
+          "label": "Karlsbad",
+          "source": "https://lobid.org/gnd/4029705-6.json",
+          "geonames": "https://sws.geonames.org/3073803",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v009",
+      "line": 77,
+      "text": "Marienbad",
+      "shown": "Marienbad",
+      "occurrence": 1,
+      "offset": {
+        "from": 3032,
+        "to": 3041
+      },
+      "context": {
+        "before": "schlagene 16 Jahre nach ",
+        "after": " gehen muß\n        <lb/>"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4037541-9 http://www.geonames.org/3071024"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4037541-9",
+          "label": "Marienbad",
+          "source": "https://lobid.org/gnd/4037541-9.json",
+          "geonames": "https://sws.geonames.org/3071024",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v010",
+      "line": 79,
+      "text": "Karlsbad",
+      "shown": "Karlsbad",
+      "occurrence": 1,
+      "offset": {
+        "from": 3150,
+        "to": 3158
+      },
+      "context": {
+        "before": "      <lb/>Abstecher zu ",
+        "after": " gar keinem Falle hier n"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4029705-6",
+          "label": "Karlsbad",
+          "source": "https://lobid.org/gnd/4029705-6.json",
+          "geonames": "https://sws.geonames.org/3073803",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v011",
+      "line": 83,
+      "text": "Franz\n        <lb/>Evers",
+      "shown": "Franz | Evers",
+      "occurrence": 1,
+      "offset": {
+        "from": 3427,
+        "to": 3451
+      },
+      "context": {
+        "before": "r zu einem Aufsatz über ",
+        "after": " (für die Stimmen der Ge"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.373"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.373",
+          "label": "Evers, Franz (1871-07-10–1947-09-14)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v012",
+      "line": 92,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 3957,
+        "to": 3961
+      },
+      "context": {
+        "before": "   <lb/>ein als hier in ",
+        "after": ", wo ich mich total verb"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v013",
+      "line": 100,
+      "text": "Schuster &amp; Löffler",
+      "shown": "Schuster &amp; Löffler",
+      "occurrence": 1,
+      "offset": {
+        "from": 4339,
+        "to": 4361
+      },
+      "context": {
+        "before": "<lb/>ich noch nicht von ",
+        "after": " bekommen, aber\n        "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/5325296-2"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "5325296-2",
+          "label": "Schuster & Loeffler (Berlin)",
+          "source": "https://lobid.org/gnd/5325296-2.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v014",
+      "line": 101,
+      "text": "dieser\n        <lb/>Woche",
+      "shown": "dieser | Woche",
+      "occurrence": 1,
+      "offset": {
+        "from": 4433,
+        "to": 4458
+      },
+      "context": {
+        "before": "ie bekommen es im Laufe ",
+        "after": ". Für die Schrift es bed"
+      },
+      "element": "date",
+      "attributes": {
+        "notBefore": "1901-05-20",
+        "notAfter": "1901-05-26",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„im Laufe dieser Woche“: Woche des Briefdatums 1901-05-22 (Mittwoch), Montag bis Sonntag"
+        }
+      ],
+      "doubt": "Briefdatum nur aus dem Titel im Header; die Woche als Fenster gewählt.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v015",
+      "line": 107,
+      "text": "Stefan Zweig",
+      "shown": "Stefan Zweig",
+      "occurrence": 1,
+      "offset": {
+        "from": 4642,
+        "to": 4654
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      <pb n="
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v016",
+      "line": 113,
+      "text": "Schuster &amp; Löffler",
+      "shown": "Schuster &amp; Löffler",
+      "occurrence": 1,
+      "offset": {
+        "from": 4878,
+        "to": 4900
+      },
+      "context": {
+        "before": "<lb/>ich noch nicht von ",
+        "after": " bekommen, aber\n        "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/5325296-2"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "5325296-2",
+          "label": "Schuster & Loeffler (Berlin)",
+          "source": "https://lobid.org/gnd/5325296-2.json"
+        }
+      ],
+      "doubt": "Seite 5 wiederholt Seite 4 wörtlich (vermutlich doppelte Transkription); gleich behandelt.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v017",
+      "line": 114,
+      "text": "dieser\n        <lb/>Woche",
+      "shown": "dieser | Woche",
+      "occurrence": 1,
+      "offset": {
+        "from": 4972,
+        "to": 4997
+      },
+      "context": {
+        "before": "ie bekommen es im Laufe ",
+        "after": ". Für die Schrift es bed"
+      },
+      "element": "date",
+      "attributes": {
+        "notBefore": "1901-05-20",
+        "notAfter": "1901-05-26",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "wie Zeile 101"
+        }
+      ],
+      "doubt": "Wiederholung von Seite 4.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1079#v018",
+      "line": 120,
+      "text": "Stefan Zweig",
+      "shown": "Stefan Zweig",
+      "occurrence": 1,
+      "offset": {
+        "from": 5181,
+        "to": 5193
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      </div>"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    }
+  ],
+  "notMarked": [
+    {
+      "line": 48,
+      "text": "Wohlgeboren",
+      "reason": "Anrede."
+    },
+    {
+      "line": 69,
+      "text": "Residenzblatt",
+      "reason": "Periodikum, Werkstufe."
+    },
+    {
+      "line": 76,
+      "text": "nach fahren",
+      "reason": "Ortsname fehlt in der Transkription."
+    },
+    {
+      "line": 77,
+      "text": "16 Jahre",
+      "reason": "Dauer."
+    },
+    {
+      "line": 84,
+      "text": "Stimmen der Gegenwart",
+      "reason": "Periodikum, Werkstufe."
+    },
+    {
+      "line": 99,
+      "text": "nächstens",
+      "reason": "Unbestimmte Zeitangabe ohne erschließbaren Wert."
+    }
+  ]
+}

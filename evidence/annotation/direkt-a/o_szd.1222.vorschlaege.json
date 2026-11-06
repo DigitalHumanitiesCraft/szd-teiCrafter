@@ -1,0 +1,398 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.1222",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, direkt-a"
+  },
+  "derivedFrom": "o_szd.1222.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.1222#p001",
+      "text": "Hotel Westminster",
+      "offset": {
+        "from": 1096,
+        "to": 1113
+      },
+      "context": {
+        "before": "f_1\"/>\n      <p>\n        <lb/>",
+        "after": "                              "
+      },
+      "element": "orgName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#p002",
+      "text": "Nizza",
+      "offset": {
+        "from": 1145,
+        "to": 1150
+      },
+      "context": {
+        "before": "                              ",
+        "after": ", den 4.Januar 1935.\n      </p"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p003",
+      "text": "4.Januar 1935",
+      "offset": {
+        "from": 1156,
+        "to": 1169
+      },
+      "context": {
+        "before": "                   Nizza, den ",
+        "after": ".\n      </p>\n      <p>\n       "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-01-04"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p004",
+      "text": "Meingast",
+      "offset": {
+        "from": 1216,
+        "to": 1224
+      },
+      "context": {
+        "before": "  <p>\n        <lb/>Liebe Frau ",
+        "after": "!\n      </p>\n      <p>\n       "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1575"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p005",
+      "text": "10.",
+      "offset": {
+        "from": 1302,
+        "to": 1305
+      },
+      "context": {
+        "before": "innere ich daran, dass ich am ",
+        "after": " mit dem Conte\n        <lb/>di"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-01-10",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p006",
+      "text": "New York",
+      "offset": {
+        "from": 1348,
+        "to": 1356
+      },
+      "context": {
+        "before": "e\n        <lb/>di Savoia nach ",
+        "after": " fahre. Drüben ist meine Adres"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p007",
+      "text": "Viking Press",
+      "offset": {
+        "from": 1427,
+        "to": 1439
+      },
+      "context": {
+        "before": "        <lb/>verständlich die ",
+        "after": ", New York, 18 East, 48th Stre"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/10102943-3"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p008",
+      "text": "New York",
+      "offset": {
+        "from": 1441,
+        "to": 1449
+      },
+      "context": {
+        "before": "erständlich die Viking Press, ",
+        "after": ", 18 East, 48th Street.\n      "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p009",
+      "text": "New York",
+      "offset": {
+        "from": 1683,
+        "to": 1691
+      },
+      "context": {
+        "before": "die Telegrammadresse Vikpress ",
+        "after": " lautet\n        <lb/>und wicht"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p010",
+      "text": "Amerika",
+      "offset": {
+        "from": 1915,
+        "to": 1922
+      },
+      "context": {
+        "before": "uskunft, dass ich zur Zeit in ",
+        "after": "\n        <lb/>bin und eine Bea"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p011",
+      "text": "Eugen Wolbe",
+      "offset": {
+        "from": 2137,
+        "to": 2148
+      },
+      "context": {
+        "before": "an\n        <lb/>Professor Dr. ",
+        "after": ", Berlin N.W.21, Dortmunderstr"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/117458201"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p012",
+      "text": "Berlin",
+      "offset": {
+        "from": 2150,
+        "to": 2156
+      },
+      "context": {
+        "before": "b/>Professor Dr. Eugen Wolbe, ",
+        "after": " N.W.21, Dortmunderstr.11. Und"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950157"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p013",
+      "text": "H~~amb~~[?]\n        <lb/>Goetzfried",
+      "offset": {
+        "from": 2261,
+        "to": 2296
+      },
+      "context": {
+        "before": "ben habe, ein Exemplar an Dr. ",
+        "after": " bei Professor Lob, La Margola"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#p014",
+      "text": "Lob",
+      "offset": {
+        "from": 2311,
+        "to": 2314
+      },
+      "context": {
+        "before": "<lb/>Goetzfried bei Professor ",
+        "after": ", La Margolaine, Avenue Primro"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#p015",
+      "text": "Nice",
+      "offset": {
+        "from": 2348,
+        "to": 2352
+      },
+      "context": {
+        "before": " Margolaine, Avenue Primrose, ",
+        "after": ".\n        <lb/>Den Brief an di"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p016",
+      "text": "Kultusgemeinde",
+      "offset": {
+        "from": 2384,
+        "to": 2398
+      },
+      "context": {
+        "before": "        <lb/>Den Brief an die ",
+        "after": " lege ich bei und ich bitte {s"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/123152-2"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p017",
+      "text": "Postsparkasse",
+      "offset": {
+        "from": 2517,
+        "to": 2530
+      },
+      "context": {
+        "before": "<lb/>Sie, dann den Betrag per ",
+        "after": " einzuzahlen.\n      </p>\n     "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2001451-X"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p018",
+      "text": "Reichner",
+      "offset": {
+        "from": 2669,
+        "to": 2677
+      },
+      "context": {
+        "before": "       <lb/>was vorgeht. Herr ",
+        "after": " hat unglückseligerweise (das "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p019",
+      "text": "Fuchs",
+      "offset": {
+        "from": 2936,
+        "to": 2941
+      },
+      "context": {
+        "before": "     <lb/>derm, dass er Herrn ",
+        "after": ", der jetzt postenlos ist, in "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#p020",
+      "text": "Herbst",
+      "offset": {
+        "from": 3206,
+        "to": 3212
+      },
+      "context": {
+        "before": "das Buch erst im\n        <lb/>",
+        "after": " erscheinen. Ich werde Sie als"
+      },
+      "element": "date",
+      "attributes": {
+        "notBefore": "1935-09",
+        "notAfter": "1935-11",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p021",
+      "text": "Stefan[?]",
+      "offset": {
+        "from": 4028,
+        "to": 4037
+      },
+      "context": {
+        "before": "  </p>\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p022",
+      "text": "Februar",
+      "offset": {
+        "from": 4188,
+        "to": 4195
+      },
+      "context": {
+        "before": " Wir besprechen dann alles in ",
+        "after": " durch,\n        <lb/>ich sehe "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-02",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#p023",
+      "text": "Relgis",
+      "offset": {
+        "from": 4296,
+        "to": 4302
+      },
+      "context": {
+        "before": ">\n      <p>\n        <lb/>Herr ",
+        "after": " habe ich, bitte eintragen, Au"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1153"
+      },
+      "status": "proposed"
+    }
+  ]
+}

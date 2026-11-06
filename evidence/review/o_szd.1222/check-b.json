@@ -1,0 +1,179 @@
+{
+  "document": "o_szd.1222",
+  "checker": {
+    "kind": "llm-agent",
+    "label": "b"
+  },
+  "items": [
+    {
+      "item": "o_szd.1222.i23",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Facsimile p.2 shows 'Herr Relgis' in the autograph postscript; the index entry Eugen Relgis (1895-1987), Romanian writer in Zweig's circle, fits a request for a reading authorisation.",
+      "basis": "annotation.md, Persons, bullet 5; szd-persons.json SZDPER.1153"
+    },
+    {
+      "item": "o_szd.1222.i22",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Handwritten 'in Februar' after a letter of 4 January 1935 refers to February 1935; month without year is inferred and marked low.",
+      "basis": "annotation.md, Dates, bullets 2 and 4"
+    },
+    {
+      "item": "o_szd.1222.i21",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Autograph signature reads 'Stefan Z...' in the facsimile; the signature is a naming of the writer, marked with the HTR marker inside the element.",
+      "basis": "annotation.md, Persons, bullets 2 and 5; Line breaks and open spots"
+    },
+    {
+      "item": "o_szd.1222.i20",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'erst im Herbst erscheinen' in January 1935 means autumn 1935; season as meteorological window September to November, year inferred so cert low.",
+      "basis": "annotation.md, Dates, bullet 4"
+    },
+    {
+      "item": "o_szd.1222.i19",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Herrn Fuchs, der jetzt postenlos ist' is a named person; the index holds Rudolf Fuchs and Emil Fuchs and nothing in the letter decides between them or a third person, so the mark stays without @ref as an open spot.",
+      "basis": "annotation.md, Scope, paragraph 2; Persons, bullet 6"
+    },
+    {
+      "item": "o_szd.1222.i18",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Herr Reichner' with Verlag and Zweig's books is the publisher Herbert Reichner, present in the person index.",
+      "basis": "annotation.md, Persons, bullets 1 and 5; szd-persons.json SZDPER.2188"
+    },
+    {
+      "item": "o_szd.1222.i17",
+      "decision": "accept",
+      "candidate": "c2",
+      "reason": "Payment 'per Postsparkasse' in Austria 1935 means the Austrian postal savings institution acting as body; of the competing GND records, 2001451-X starts 1970, while 2029439-6 (Österreichisches Postsparkassenamt, Wien, successor of Postsparkassen-Amt, name change 1926) covers 1935.",
+      "basis": "annotation.md, Organisations, bullets 1 and 6; https://lobid.org/gnd/2029439-6.json; https://lobid.org/gnd/2001451-X.json"
+    },
+    {
+      "item": "o_szd.1222.i16",
+      "decision": "open",
+      "reason": "'die Kultusgemeinde' names a concrete body Zweig owes a payment to, but the letter does not say whether the Vienna or the Salzburg community is meant (Zweig had just left Salzburg, the secretary works in Austria); whether the generic word counts as unambiguous, and if so whether c1 or c2, needs evidence about Zweig's community membership in January 1935 that the packet sources do not give.",
+      "basis": "annotation.md, Organisations, bullet 2; Scope, paragraph 2; https://lobid.org/gnd/123152-2.json"
+    },
+    {
+      "item": "o_szd.1222.i15",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Nice' closes the postal address of Goetzfried and names the city of Nice; the settlement is marked, while street and house name stay unmarked.",
+      "basis": "annotation.md, Places, bullets 1, 2 and 4; https://lobid.org/gnd/4075416-9.json (sameAs geonames 2990440)"
+    },
+    {
+      "item": "o_szd.1222.i14",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Professor Lob' in Nice is a named person; GND search gives no matching record and the person index has no entry, so the mark stays without @ref.",
+      "basis": "annotation.md, Persons, bullets 1 and 6; lobid-gnd search 'Lob Nizza' (no hit)"
+    },
+    {
+      "item": "o_szd.1222.i13",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Facsimile shows typed 'H' completed by hand to 'Hans' before 'Goetzfried' on the next line; the name crosses the line break and keeps the HTR markers inside; no GND or index record for a Hans Goetzfried was found.",
+      "basis": "annotation.md, Persons, bullet 6; Line breaks and open spots; lobid-gnd search 'Goetzfried'"
+    },
+    {
+      "item": "o_szd.1222.i12",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Berlin N.W.21' in Wolbe's address: the city is a settlement and is marked, the postal district stays outside; GND and GeoNames match.",
+      "basis": "annotation.md, Places, bullets 1, 2 and 4; https://lobid.org/gnd/4005728-8.json"
+    },
+    {
+      "item": "o_szd.1222.i11",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'Professor Dr. Eugen Wolbe, Berlin' matches the Berlin historian and publicist Eugen Wolbe (1873-1938); he is not in the SZD index, so the GND is used, titles stay outside.",
+      "basis": "annotation.md, Persons, bullets 1 and 5; https://lobid.org/gnd/117458201.json"
+    },
+    {
+      "item": "o_szd.1222.i10",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'zur Zeit in Amerika' after the voyage to New York means the United States, linked to the USA record.",
+      "basis": "annotation.md, Places, bullet 3; https://lobid.org/gnd/4078704-7.json"
+    },
+    {
+      "item": "o_szd.1222.i09",
+      "decision": "reject",
+      "reason": "In the facsimile 'Vikpress New York' is underlined as one unit, the telegram address; it is a cable code, not a geographic mention, and telegram addresses are not marked.",
+      "basis": "annotation.md, Organisations, bullet 4; Places, bullet 2"
+    },
+    {
+      "item": "o_szd.1222.i08",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'New York' in the Viking Press address names the city; only street and number are excluded, the settlement is marked; reading 'addresses' in the rule as covering the city as well would turn this into a reject.",
+      "basis": "annotation.md, Places, bullets 1, 2 and 4; https://lobid.org/gnd/4042011-5.json"
+    },
+    {
+      "item": "o_szd.1222.i07",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'die Viking Press' is the publisher, receiving Zweig's mail as a firm; it is in the SZD organisation index with this GND, whose dates 1925-1975 cover 1935.",
+      "basis": "annotation.md, Organisations, bullets 1 and 5; szd-organisations.json SZDORG.61; https://lobid.org/gnd/10102943-3.json"
+    },
+    {
+      "item": "o_szd.1222.i06",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "'nach New York fahre' names the destination city.",
+      "basis": "annotation.md, Places, bullets 1 and 4; https://lobid.org/gnd/4042011-5.json"
+    },
+    {
+      "item": "o_szd.1222.i05",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Facsimile has 'am lo.' (typed l for 1); the day is completed from the letter date to 10 January 1935, cert low, preposition outside.",
+      "basis": "annotation.md, Dates, bullets 1 and 4"
+    },
+    {
+      "item": "o_szd.1222.i04",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Salutation 'Liebe Frau Meingast!' names the addressee Anna Meingast, Zweig's secretary; form of address stays outside.",
+      "basis": "annotation.md, Persons, bullets 1, 2 and 5; szd-persons.json SZDPER.1575"
+    },
+    {
+      "item": "o_szd.1222.i03",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Full letter date '4.Januar 1935', facsimile confirms 1935, without the article 'den'.",
+      "basis": "annotation.md, Dates, bullets 1 and 2"
+    },
+    {
+      "item": "o_szd.1222.i02",
+      "decision": "accept",
+      "candidate": "c1",
+      "reason": "Place of writing Nizza; GND and GeoNames from sameAs match.",
+      "basis": "annotation.md, Places, bullets 1 and 4; https://lobid.org/gnd/4075416-9.json"
+    },
+    {
+      "item": "o_szd.1222.i01",
+      "decision": "reject",
+      "reason": "'Hotel Westminster' stands as sender's address and place of stay in the dateline, not as a body acting; the GND record 1259093344 exists but hotels in this function are not marked in this stage.",
+      "basis": "annotation.md, Organisations, bullet 3"
+    }
+  ],
+  "missing": [
+    {
+      "line": 68,
+      "text": "Verlag",
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/10119809-7"
+      },
+      "reason": "'in den Verlag aufnimmt', with Reichner as subject, makes the generic word unambiguous: Herbert Reichner Verlag, in the SZD organisation index.",
+      "basis": "annotation.md, Organisations, bullets 2 and 5; szd-organisations.json SZDORG.24"
+    }
+  ]
+}

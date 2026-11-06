@@ -1,0 +1,178 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.1437",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, direkt-b"
+  },
+  "derivedFrom": "o_szd.1437.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.1437#p001",
+      "text": "Llangranog",
+      "offset": {
+        "from": 3676,
+        "to": 3686
+      },
+      "context": {
+        "before": "   <lb/>Bodwenog\n        <lb/>",
+        "after": "\n        <lb/>Llandyssul\n     "
+      },
+      "element": "placeName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1437#p002",
+      "text": "Llandyssul",
+      "offset": {
+        "from": 3700,
+        "to": 3710
+      },
+      "context": {
+        "before": " <lb/>Llangranog\n        <lb/>",
+        "after": "\n        <lb/>Cards.\n        <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/7517583-6"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p003",
+      "text": "Cards.",
+      "offset": {
+        "from": 3724,
+        "to": 3730
+      },
+      "context": {
+        "before": " <lb/>Llandyssul\n        <lb/>",
+        "after": "\n        <lb/>27.6.44\n      </"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4069856-7"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p004",
+      "text": "27.6.44",
+      "offset": {
+        "from": 3744,
+        "to": 3751
+      },
+      "context": {
+        "before": "     <lb/>Cards.\n        <lb/>",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1944-06-27"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p005",
+      "text": "Zweig",
+      "offset": {
+        "from": 3794,
+        "to": 3799
+      },
+      "context": {
+        "before": "     <p>\n        <lb/>Dear Mr ",
+        "after": ",\n      </p>\n      <p>\n       "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p006",
+      "text": "Betty Cohen",
+      "offset": {
+        "from": 5518,
+        "to": 5529
+      },
+      "context": {
+        "before": "s very sincerely\n        <lb/>",
+        "after": "\n        <lb/>(Mrs Meyer Cohen"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2102"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p007",
+      "text": "Meyer Cohen",
+      "offset": {
+        "from": 5548,
+        "to": 5559
+      },
+      "context": {
+        "before": "Betty Cohen\n        <lb/>(Mrs ",
+        "after": ")\n      </p>\n      <pb n=\"6\" f"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1437#p008",
+      "text": "1944",
+      "offset": {
+        "from": 7285,
+        "to": 7289
+      },
+      "context": {
+        "before": "   <p>\n        <lb/>Ploughing ",
+        "after": ".\n      </p>\n      <p>\n       "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1944"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p009",
+      "text": "Spring 1944",
+      "offset": {
+        "from": 11403,
+        "to": 11414
+      },
+      "context": {
+        "before": "_19\"/>\n      <p>\n        <lb/>",
+        "after": ".\n        <lb/>There will come"
+      },
+      "element": "date",
+      "attributes": {
+        "notBefore": "1944-03",
+        "notAfter": "1944-05"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1437#p010",
+      "text": "June 6th. 1944",
+      "offset": {
+        "from": 13215,
+        "to": 13229
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>D-Day ",
+        "after": ".\n      </p>\n      <p>\n       "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1944-06-06"
+      },
+      "status": "proposed"
+    }
+  ]
+}

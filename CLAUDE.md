@@ -56,6 +56,8 @@ Check available tools, runtimes and network access before dependent steps, and n
 - Syntax: `node --check js/<module>.js` for every changed module.
 - Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour. It takes about three minutes and fails first when `data/index.json` is stale.
 - Size check: `npm run size` in `test/` with the server running, after a change that affects checking, validation or the text view; it is the source of the limits in NFR-05.
+- Trial run: `tools/trial-run/setup.ps1` builds a local team sandbox under the ignored `trial-run/`, the guide is `tools/trial-run/README.md`.
+- Agent copies: `node tools/check-annotated-copy.mjs <file>` with the server running checks an annotated copy against its original.
 - CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
 - Registers: `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild `data/register/szd-persons.json` and `szd-organisations.json` from GAMS.
 - Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `data/IMPORT.md`. It keeps files corrected here.

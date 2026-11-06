@@ -1,0 +1,20 @@
+ok  o_szd.1786#v020 menu-person 
+ok  o_szd.1786#v030 menu-person 
+ok  o_szd.1786#v038 menu-person 
+ok  o_szd.1786#v060 menu-person 
+{
+ "openWorkBefore": "Keine offenen Stellen",
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "openWork": "Keine offenen Stellen",
+ "state": "Bereit zur Abnahme | ",
+ "diff": "4 Zeilen entfernt, 4 hinzugefügt, an 4 Stellen.",
+ "diffRows": [
+  "hinzugefügt: 97+        <lb/>höre, ist Ihr hiesiger Anwalt Herr Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>,",
+  "hinzugefügt: 122+        <lb/>Klienten als Allein-Inhaber und Herrn Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>",
+  "hinzugefügt: 144+        <lb/>2. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>.",
+  "hinzugefügt: 225+        <lb/>3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>."
+ ],
+ "downloadName": "o_szd.1786.tei.xml"
+}

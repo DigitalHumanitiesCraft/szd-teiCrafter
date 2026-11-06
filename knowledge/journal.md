@@ -9,7 +9,7 @@ method:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-10-31
+updated: 2026-11-06
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 template:
@@ -23,6 +23,14 @@ related: [project, specification, handoff]
 # Journal
 
 ## Entries
+
+### 2026-11-06 Trial run and agent evidence moved into the repository
+
+- Trigger: operator: the trial run folder beside the repository and the repository were to be merged and tidied, and the repository is to become public with GitHub Pages.
+- Changed: the agent runs and the review of `o_szd.1222` moved unchanged from `szd-teiCrafter-probelauf` to `evidence/annotation/` and `evidence/review/`, both manifests verified after the move. The trial run scripts and guide moved to `tools/trial-run/` with English file names, and their sandbox is now the ignored folder `trial-run/` in the repository. The shared annotation check became `tools/check-annotated-copy.mjs`.
+- Decision: screenshots stay out of Git, because they show facsimile images whose licence is unconfirmed and the repository is to become public; they remain in the local clone. Earlier entries name the old folder as it was then.
+- Evidence: both manifests pass with `sha256sum -c`, `tools/trial-run/setup.ps1` and `colleague-works.ps1` ran from the new location on 2026-11-06, `node --check` passes on the new check.
+- Open: the old folder `szd-teiCrafter-probelauf` holds only the outdated sandbox clones and awaits deletion by the operator.
 
 ### 2026-10-31 Neutral check of the calibration letter
 

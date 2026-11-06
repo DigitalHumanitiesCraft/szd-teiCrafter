@@ -1,0 +1,206 @@
+{
+ "persons": {
+  "Franz Herriger": {
+   "register": [],
+   "gnd": [],
+   "status": "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben."
+  },
+  "Hans Morth": {
+   "register": [],
+   "gnd": [],
+   "status": "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben."
+  },
+  "Irene Spiess": {
+   "register": [],
+   "gnd": [
+    "Spieß, Irene1949–2021 | 1991 bis 2011 Abteilungsleiterin an der Universitätsbibliothek der TU Dresden (Kataloge/Informationsvermittlung), später SLUB Dresden (Benutzung und Information) | Wissenschaftliche Bibliothekarin | GND 1209338882"
+   ],
+   "status": ""
+  },
+  "Margot Engel": {
+   "register": [],
+   "gnd": [
+    "Engel, Margot1902 | Chemikerin | Land unbekannt | GND 1146502834",
+    "Engel, Margot1920-01-26 | Verfasserin einer Dissertation an der Universität Jena | Deutschland | GND 1188247921",
+    "Engelmann, MargotLand unbekannt | GND 125228112",
+    "Engelen, Margot1957 | Niederlande | GND 173926231"
+   ],
+   "status": ""
+  },
+  "Vries": {
+   "register": [],
+   "gnd": [
+    "Vries, Hans1904 | Musiklehrer | GND 132253143",
+    "De Vriestätig in Amsterdam | Kunstsammler | GND 174378858",
+    "Vries, Henry1873–1943 | Musiker | GND 131212877",
+    "Vries, Jan[19XX] | Theologe | GND 172725690",
+    "Vries, Peer1953 | Wirtschafts- und Sozialhistoriker; seit 2007 Prof. an der Univ. Wien | Historiker | GND 140213619",
+    "Vries, Annelieke1955 | studied Physical Geography with a major in Cartography at Utrecht University; PhD in Mathematics and Computer Science at Delft University; since 2010, she makes digital maps of historical subjects | Geografin | GND 172579538",
+    "Vries, JurgenMusiker | GND 135301009",
+    "Vries, Oebele1947-05-19 | Niederländ. Sprach- und Geschichtswiss.; Friesist, geb. in Westergeest | Historiker | GND 172436923"
+   ],
+   "status": ""
+  },
+  "Goetzfried Lob": {
+   "register": [],
+   "gnd": [],
+   "status": "Keine GND-Treffer. Suchbegriff ändern oder Kennung direkt eingeben."
+  },
+  "Hamb": {
+   "register": [],
+   "gnd": [
+    "Hambuch, August Karl1797–1834-08-25 | Sänger | GND 116422408"
+   ],
+   "status": ""
+  }
+ },
+ "places": {
+  "New York, NY": {
+   "hits": [
+    "New York- Yorkville, NYUSA | GND 16007905-6",
+    "New York, NYStadt im gleichnamigen Bundesstaat, 1626 als Fort Neu-Amsterdam gegründet, aktueller Name seit 1664 | USA | GND 4042011-5",
+    "New York- Woodside, NYUSA | GND 133246-6",
+    "New York, NY (Region)USA | GND 4122610-0",
+    "Bowery New York, NYUSA | GND 4101164-8",
+    "New York- Williamsburg, NYStadtteil im Norden des Stadtbezirks Brooklyn in New York City | USA | GND 1274480795",
+    "Wallstreet New York, NYUSA | GND 4122710-4",
+    "New York- Stapleton, NYNachbarschaft in Staten Island, New York City | USA | GND 1312881593"
+   ],
+   "status": ""
+  },
+  "Vereinigte Staaten": {
+   "hits": [
+    "Außengebiet der Vereinigten StaatenTerritorium der USA, das weder ein Bundesstaat noch ein Bundesdistrikt ist. Darunter fallen 3 Inseln in der Karibik und 11 im Pazifik. Bei zwei weiteren Inseln in der Karibik ist die Staatszugehörigkeit umstritten. | Amerikanische Überseeinseln | GND 1198323728",
+    "USA / NordoststaatenUSA | GND 4042559-9",
+    "USA / NordstaatenUSA | GND 4349429-8",
+    "USA / OststaatenUSA | GND 4265090-2",
+    "USA / SüdoststaatenUSA | GND 4078675-4",
+    "USA / WeststaatenUSA | GND 4135535-0",
+    "USA / SüdstaatenUSA | GND 4078674-2",
+    "Botschaftsgebäude der Botschaft der USA (Peking)China | GND 1077517041"
+   ],
+   "status": ""
+  },
+  "USA": {
+   "hits": [
+    "USAUSA | GND 4078704-7",
+    "Shin-UsaJapan | GND 5193762-1",
+    "USA / SüdoststaatenUSA | GND 4078675-4",
+    "Hispanophone USAUSA | GND 1060852705",
+    "USA / WeststaatenUSA | GND 4135535-0",
+    "USA / NordoststaatenUSA | GND 4042559-9",
+    "USA / NordstaatenUSA | GND 4349429-8",
+    "USA / ZentralstaatenUSA | GND 4446414-9"
+   ],
+   "status": ""
+  },
+  "Palermo": {
+   "hits": [
+    "PalermoHauptstadt der gleichnamigen Provinz u. der Region Sizilien, Ende 7. Jh. v.Chr. als phönik. Panormos gegründet | Italien | GND 4044402-8",
+    "Dom Palermo (Palermo)Italien | GND 4283101-5",
+    "Hafen Palermo (Palermo)Italien | GND 4761262-9",
+    "Palermo (Region)Italien | GND 4226108-9",
+    "Sant'Anna PalermoItalien | GND 7547649-6",
+    "Palermo- Sant'ErasmoStadtteil | Italien | GND 7668017-4",
+    "Palermo (Huila)Kolumbien | GND 16324594-0",
+    "Palermo-VucciriaAltstadtviertel | Italien | GND 7539270-7"
+   ],
+   "status": ""
+  },
+  "Genua": {
+   "hits": [
+    "GenuaHauptstadt der gleichnamigen Provinz u. der Region Ligurien | Italien | GND 4020185-5",
+    "Kathedrale Genua (Genua)Italien | GND 4231472-0",
+    "Hotelbau Miramare, Genua (Genua)Nach Hotelschliessung als Kasernengebäude genutzt, heute Appartmentanlage | Italien | GND 133615442X",
+    "Kathedrale Genua (Genua) / TäuferkapelleItalien | GND 7630415-2",
+    "Hafen Genua (Genua)Italien | GND 4446716-3",
+    "Sant'Andrea GenuaItalien | GND 4831279-4",
+    "Genua-MaddalenaQuartier in der Altstadt | Italien | GND 1044607017",
+    "Genua (Region)Italien | GND 4427084-7"
+   ],
+   "status": ""
+  },
+  "Rom": {
+   "hits": [
+    "RomHauptstadt Italiens in der Region Latium | Italien | GND 4050471-2",
+    "Engelsburg Rom (Rom) / ApollosaalItalien | GND 4749650-2",
+    "Pantheon Rom (Rom)Kuppelbau 118/128 n.Chr. unter Hadrian neu erbaut, seit 609 christliche Kirche | Römisches Reich | GND 4115786-2",
+    "Engelsburg Rom (Rom)Rundbau, 135/139 als Grabmal für Kaiser Hadrian erbaut, bis 211 als Mausoleum benutzt, dann zu Bastion ausgebaut, heutiger Name seit 590 von Papst Gregor d. Gr., im päpstl. Besitz Fluchtburg, heute Museum | Italien | GND 4104967-6",
+    "Palazzo della Zecca Rom (Rom)1911 eingeweiht. Nicht zu verwechseln mit dem älteren römischen Palazzo della Zecca, d.h. dem Palazzoa della Zecca Vecchia, auch Palazzo del Banco di Santo Spirito genannt. | Italien | GND 1272550605",
+    "Große Synagoge von Rom (Rom)größte Synagoge in Rom. Der historistische Bau in Form eines griechischen Kreuzes mit weithin sichtbarer Kuppel wurde von 1901 bis 1904 an der Stelle des früheren römischen Ghettos errichtet. Er gilt als Symbol der Emanzipation der Juden in Rom und der Annäherung zwischen Päpsten und Judentum nach 1945. | Italien | GND 4699880-9",
+    "Engelsburg Rom (Rom) / Sala PaolinaItalien | GND 4302605-9",
+    "Rom-MalborghettoItalien | GND 7553820-9"
+   ],
+   "status": ""
+  },
+  "Neapel": {
+   "hits": [
+    "NeapelHauptstadt der gleichnamigen Metropolitanstadt und der Region Kampanien, im 5. Jh. v.Chr. als Neapolis gegründet | Italien | GND 4041476-0",
+    "Dom Neapel (Neapel) / BaptisteriumBaptiserium im 4./5. Jh. an S. Restituta angebaut | Italien | GND 4456869-1",
+    "Hafen Neapel (Neapel)Italien | GND 4391252-7",
+    "Dom Neapel (Neapel) / SuccorpoKrypta 1497/1508 für die Reliqien des Hl. Januarius durch Kardinal Oliviero Carafa unter Hauptapsis erbaut | Italien | GND 7700824-8",
+    "Dom Neapel (Neapel)Doppelbasilika ursprüngl. im 13./14. Jh. got. neu erbaut, nach Erdbeben vielfach wiederhergestellt, Fassade 1876/1905 neogot. | Italien | GND 4216823-5",
+    "Römisches Theater Neapel (Neapel)Römisches Reich | GND 1023548119",
+    "Dom Neapel (Neapel) / Sagrestia MaggioreKapelle am Ende des linken Querschiffs | Italien | GND 7575183-5",
+    "Dom Neapel (Neapel) / Cappella Teodori2. Kapelle im Linken Seitenschiff | Italien | GND 7705188-9"
+   ],
+   "status": ""
+  },
+  "Wien": {
+   "hits": [
+    "WienHauptstadt u. Bundesland Österreichs, Ende 1. Jh. als röm. Legionslager Vindobona gegründet, 881 als Wenia wieder genannt, 1221 Stadtrecht; Mit Inkrafttreten der \"provisorischen Gemeindeordnung\" von 1850 wurden alle 34 Vorstädte, die heutigen Bezirke 2-9 u. 20 und ein Teil des heutigen 10. Bezirks eingemeindet, de facto dauerte Vollziehung dieser Eingemeindung bis 1860; ab 1890 Vereinigung der Vororte mit Wien, bis 1892 entstanden daraus die Bezirke 11-19; Wien bildete mit Niederösterreich ein gemeinsames Kronland, Trennung in 2 Bundesländer erfolgte mit 1.1.1922 | Wien | GND 4066009-6",
+    "Parlamentsgebäude Wien (Wien)Wien | GND 1047217260",
+    "Kleines Schauspielhaus Wien (Wien)Seit 1951 befindet sich in dem Haus das Metro-Kino, 2002 wurde es vom Filmarchiv Austria übernommen und dient seitdem als dessen Hauptspielstätte als Kino Kultur Haus. | Wien | GND 123131303X",
+    "Heilige Dreifaltigkeit Wien (Wien)Wien | GND 4654738-1",
+    "Lutherkirche Wien (Wien)Neogot. Backsteinbau, erbaut 1896-1898 | Wien | GND 4665997-3",
+    "Karlskirche Wien (Wien)Wien | GND 4376368-6",
+    "Votivkirche Wien (Wien)Wien | GND 4410516-2",
+    "Justizpalast Wien (Wien)Wien | GND 4277384-2"
+   ],
+   "status": ""
+  },
+  "Vienna": {
+   "hits": [
+    "Vienna, Va.USA | GND 5011056-1",
+    "Campus Vienna Biocenter (Wien)räumlicher Zusammenschluss für verschiedene universitäre und außeruniversitäre Forschungseinrichtungen, eine Fachhocschule und versch. biotechnologische Unternehmen aus dem Bereich der Biowissenschaften | Wien | GND 1048452530",
+    "VienneStadt an der Rhône, Dep. Isère, galloröm. Vienna | Frankreich | GND 4119422-6",
+    "UNO-City Wienerbaut 1973-1979 nach Plänen von Johann Staber | Wien | GND 4808578-9",
+    "WienHauptstadt u. Bundesland Österreichs, Ende 1. Jh. als röm. Legionslager Vindobona gegründet, 881 als Wenia wieder genannt, 1221 Stadtrecht; Mit Inkrafttreten der \"provisorischen Gemeindeordnung\" von 1850 wurden alle 34 Vorstädte, die heutigen Bezirke 2-9 u. 20 und ein Teil des heutigen 10. Bezirks eingemeindet, de facto dauerte Vollziehung dieser Eingemeindung bis 1860; ab 1890 Vereinigung der Vororte mit Wien, bis 1892 entstanden daraus die Bezirke 11-19; Wien bildete mit Niederösterreich ein gemeinsames Kronland, Trennung in 2 Bundesländer erfolgte mit 1.1.1922 | Wien | GND 4066009-6",
+    "Hotelbau Park Hyatt Wien (Wien)ursprünglich der Hauptsitz der Länderbank und die Zentrale für die Niederösterreichische Escompte-Gesellschaft. | Wien | GND 1076758568",
+    "Wien- Innere StadtNamensgleiche Katastralgemeinde | Wien | GND 4302711-8",
+    "Austria Center (Wien)Wien | GND 4409574-0"
+   ],
+   "status": ""
+  },
+  "Düsseldorf": {
+   "hits": [
+    "DüsseldorfHauptstadt von Nordrhein-Westfalen und des gleichnamigen Regierungsbezirks, um 1150 urkundlich erwähnt, 1288 Stadt | Nordrhein-Westfalen | GND 4013255-9",
+    "Hafen Düsseldorf (Düsseldorf)Nordrhein-Westfalen | GND 4261316-4",
+    "Schauspielhaus Düsseldorf (Düsseldorf)Das ehemalige Gebäude an der Carl-Theodor-Straße, Ecke Kasernenstraße wurde nach Zerstörung im 2. Weltkrieg nicht wieder aufgebaut, an seiner Stelle entstand die Industrie-Kreditbank IKB. Bis auf eine Gedenktafel am neuen Gebäude wurden somit sämtliche Spuren des Privattheaters von Gustav Lindemann und Louise Dumont aus dem Düsseldorfer Stadtbild beseitigt. | Nordrhein-Westfalen | GND 1222599325",
+    "Königsallee Düsseldorf (Düsseldorf)Luxuseinkaufsstraße im Stadtzentrum Düsseldorfs | Nordrhein-Westfalen | GND 4659595-8",
+    "Architektur Stilwerk, Düsseldorf (Düsseldorf)Nordrhein-Westfalen | GND 1336156465",
+    "Stadthaus Düsseldorf (Düsseldorf)um 1625 als Jesuitenkloster erbaut. Die Fassade 1823 nach Plänen von Karl Friedrich Schinkel umgestaltet. Das Haus wurde im Laufe der Jahrhunderte als Kloster, Schule, Sternwarte, Regierungs- und Verwaltungsgebäude, Polizeipräsidium und NS-Gedenkstätte genutzt. Heute ein Hotel. | Nordrhein-Westfalen | GND 1066937184",
+    "Justizzentrum Düsseldorf (Düsseldorf)2010 fertiggestelltes Gebäude, in dem Landgericht, Amtsgericht und Gerichtskasse untergebracht sind | Nordrhein-Westfalen | GND 104999244X",
+    "Düsseldorf-Seestern DüsseldorfGewerbegebiet in Düsseldorf-Lörick | Nordrhein-Westfalen | GND 7700280-5"
+   ],
+   "status": ""
+  },
+  "Salzburg": {
+   "hits": [
+    "SalzburgHauptstadt des gleichnamigen Bundeslandes, 1.-5. Jh. röm. Municipium Iuvavum, um 700 neu gegründet, 774 urkundl. erwähnt, 996 Markt- u. Münzrecht, 1368 Stadtrecht | Land Salzburg | GND 4076982-3",
+    "Residenz Salzburg (Salzburg) / SchwarzenbergkapelleLand Salzburg | GND 1289690863",
+    "Sankt Peter Salzburg (Salzburg)Land Salzburg | GND 4198973-9",
+    "Dom Salzburg (Salzburg)Land Salzburg | GND 4224677-5",
+    "Südtiroler Platz Salzburg (Salzburg)Land Salzburg | GND 4457555-5",
+    "Hauptbahnhof Salzburg (Salzburg)Land Salzburg | GND 4547027-3",
+    "Landeskrankenanstalten Salzburg (Salzburg) / InfektionsgebäudeLand Salzburg | GND 4570769-8",
+    "Marktbrunnen Salzburg (Salzburg)1488 | Land Salzburg | GND 4514228-2"
+   ],
+   "status": ""
+  },
+  "Schnellenburg": {
+   "hits": [],
+   "status": "Keine GND-Treffer. Suchbegriff ändern, eine Kennung eingeben oder ohne Verknüpfung markieren."
+  }
+ }
+}

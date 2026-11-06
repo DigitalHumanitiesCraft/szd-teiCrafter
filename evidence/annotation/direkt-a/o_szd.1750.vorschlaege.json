@@ -1,0 +1,212 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.1750",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, direkt-a"
+  },
+  "derivedFrom": "o_szd.1750.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.1750#p001",
+      "text": "7.Oktober 1937",
+      "offset": {
+        "from": 1101,
+        "to": 1115
+      },
+      "context": {
+        "before": "f_1\"/>\n      <p>\n        <lb/>",
+        "after": ".\n      </p>\n      <p>\n       "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1937-10-07"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p002",
+      "text": "Reichner",
+      "offset": {
+        "from": 1165,
+        "to": 1173
+      },
+      "context": {
+        "before": "p>\n        <lb/>Geehrter Herr ",
+        "after": "!\n      </p>\n      <p>\n       "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p003",
+      "text": "Kredel",
+      "offset": {
+        "from": 1226,
+        "to": 1232
+      },
+      "context": {
+        "before": "        <lb/>Der Umschlag von ",
+        "after": " scheint mir sehr\n        <lb/"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/118715852"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p004",
+      "text": "Magellan",
+      "offset": {
+        "from": 1851,
+        "to": 1859
+      },
+      "context": {
+        "before": " <lb/>seste Ahnung haben, wer ",
+        "after": " ist, und damit eine\n        <"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1565"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p005",
+      "text": "H.W.Allen",
+      "offset": {
+        "from": 2284,
+        "to": 2293
+      },
+      "context": {
+        "before": "p>\n      <p>\n        <lb/>Mit ",
+        "after": " werden Sie nicht direkt ver-\n"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1750#p006",
+      "text": "Deutschland",
+      "offset": {
+        "from": 2419,
+        "to": 2430
+      },
+      "context": {
+        "before": ">handeln können, weil er nach ",
+        "after": " gefahren ist, um\n        <lb/"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4011882-4 http://www.geonames.org/2921044"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p007",
+      "text": "Amerika",
+      "offset": {
+        "from": 2498,
+        "to": 2505
+      },
+      "context": {
+        "before": "rt seine Rückreisebillet nach ",
+        "after": " von dem zu-\n        <lb/>rück"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p008",
+      "text": "Curtis Brown",
+      "offset": {
+        "from": 2609,
+        "to": 2621
+      },
+      "context": {
+        "before": "kommen\n        <lb/>schon mit ",
+        "after": " am raschesten daran.\n      </"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/16020016-7"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p009",
+      "text": "8.Oktober",
+      "offset": {
+        "from": 2706,
+        "to": 2715
+      },
+      "context": {
+        "before": ">Die Illustrationen können am ",
+        "after": " ruhig\n        <lb/>in Druck g"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1937-10-08",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p010",
+      "text": "Melantrich",
+      "offset": {
+        "from": 2874,
+        "to": 2884
+      },
+      "context": {
+        "before": "en Briefe sehen\n        <lb/>(",
+        "after": ") immer neue Anfragen kommen, "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1239190-6"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1750#p011",
+      "text": "Jaffé",
+      "offset": {
+        "from": 3091,
+        "to": 3096
+      },
+      "context": {
+        "before": "wohlbehalten bei\n        <lb/>",
+        "after": ".\n      </p>\n      <p>\n       "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1750#p012",
+      "text": "Kredels",
+      "offset": {
+        "from": 3273,
+        "to": 3280
+      },
+      "context": {
+        "before": "t,\n        <lb/>sodass keines ",
+        "after": " Bilder dazu passen würden.\n  "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/118715852"
+      },
+      "status": "proposed"
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Brief an Stefan Zweig vom 10. Mai 1938, SZ-AAP/B1.220</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.1786</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.2"/>
+    </surface>
+    <surface xml:id="surf_3">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.3"/>
+    </surface>
+    <surface xml:id="surf_4">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.4"/>
+    </surface>
+    <surface xml:id="surf_5">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.5"/>
+    </surface>
+    <surface xml:id="surf_6">
+      <graphic url="https://gams.uni-graz.at/o:szd.1786/IMG.6"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1786">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>Dr <persName ref="#SZDPER.2226">H. WEISFLOG</persName>
+        <lb/>UND
+        <lb/>Dr <persName ref="http://d-nb.info/gnd/1214668852">WERNER WEISFLOG</persName>
+        <lb/>RECHTSANWÄLTE
+        <lb/>Ständiger Mitarbeiter:
+        <lb/>Dr <persName>ARNOLD HAUSER</persName>
+        <lb/>Rechtsanwalt
+        <lb/><placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">ZURICH</placeName> 1
+        <lb/>Talacker No. 48
+        <lb/>Telephon: 36.708
+        <lb/>Telegr.-Adresse: Dr. <persName ref="#SZDPER.2226">Weisflog</persName>, <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName>
+        <lb/>Postcheck- und Giro-Konto: VIII 1596
+      </p>
+      <p>
+        <lb/><placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">ZURICH</placeName>, den <date when="1938-05-10">10. Mai 1938</date>.
+      </p>
+      <p>
+        <lb/>Herrn
+        <lb/>Dr. <persName ref="#SZDPER.1560">Stefan Z w e i g</persName>,
+        <lb/>49, Hallam Street,
+        <lb/><placeName ref="http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743">L o n d o n</placeName> W. 1.
+        <lb/><placeName ref="http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131">E n g l a n d</placeName>.
+      </p>
+      <p>
+        <lb/>Namens des Herrn <persName ref="#SZDPER.2188">Herbert Reichner</persName>, Alleininhabers des
+        <lb/>gleichnamigen Verlages, handelsregisterlich <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName> 1, St. Peter-
+        <lb/>strasse 18, eingetragen, bestätige ich Ihnen den Empfang Ihrer
+        <lb/>beiden Zuschriften vom <date when="1938-05-04" cert="low">4.</date> und <date when="1938-05-05" cert="low">5. ds.</date> an den Unterzeichneten,
+        <lb/>letztere begleitet von einer Durchschlagskopie Ihrer an meinen
+        <lb/>Klienten gerichteten Zuschrift vom <date when="1938-05-05" cert="low">5. ds.</date>
+        <lb/>Hiemit gestatte ich mir, Ihnen sowohl auf die an meinen
+        <lb/>Klienten, als auf die an mich selbst gerichteten Zuschriften
+        <lb/>zu antworten was folgt:
+        <lb/>Sie schliessen Ihr Schreiben vom <date when="1938-05-05" cert="low">5. ds.</date> an meinen Klienten
+        <lb/>mit den Worten: "Meine Geduld ist zu Ende". Sie haben damit
+        <lb/>zufälligerweise auch die Auffassung zum Ausdruck gebracht,
+        <lb/>welche Ihre Korrespondenz in meinem Klienten und in dem Unter-
+        <lb/>zeichneten hervorgerufen hat, denn auch auf herwärtiger Seite
+        <lb/>ist die Geduld zu Ende.
+        <lb/>Diese Willensübereinstimmung ist insofern von grösster
+        <lb/>Wichtigkeit, als sie meinem Klienten die Hoffnung gibt, dass
+        <lb/>Sie Ihre frühere Androhung, gegen ihn sofort klagbar zu werden,
+        <lb/>sofern er nach Ihrer angeblich rechtsgültigen Kündigung vom
+        <lb/><date when="1938-04-20" cert="low">20. April a.c.</date> das "Verlagseigentum an Ihren Büchern" als das
+        <lb/>Seinige bezeichnen sollte, endlich ausführen werden. Diese
+        <lb/>Klage wird beiden Parteien die vorläufige Fortführung unfrucht-
+        <lb/>barer Korrespondenzen ersparen. Allerdings werden Sie sich da-
+        <lb/>für eines hiesigen Anwaltes bedienen müssen, da es wohl kaum
+        <lb/>angeht, dass Sie den Prozess von <placeName ref="http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131">England</placeName> aus führen. Wie ich
+        <lb/>höre, ist Ihr hiesiger Anwalt Herr Dr. Werner D.Stauffacher,
+        <lb/>der Sie in dieser Angelegenheit zweifellos ganz vorzüglich ver-
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>treten wird.
+        <lb/>In der Annahme, dass Sie Ihrem zu bestellenden Anwalte
+        <lb/>die zwischen Ihnen, meinem Klienten und dem Unterzeichneten
+        <lb/>gepflogene Korrespondenz zu dessen Instruktion zustellen werden,
+        <lb/>gestatte ich mir, Ihnen im Nachstehenden auf die Einzelheiten
+        <lb/>derselben, soweit sie sachlich von Bedeutung sind, folgendes
+        <lb/>zu antworten:
+        <lb/>Sie erklären in erster Linie, dass Sie die in Frage stehen-
+        <lb/>den Verlagsverträge nicht mit Herrn <persName ref="#SZDPER.2188">Herbert Reichner</persName> persön-
+        <lb/>lich, sondern mit dem "<orgName ref="http://d-nb.info/gnd/10119809-7">Verlag Herbert Reichner</orgName>, <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName>"abgeschlossen
+        <lb/>hätten und daher, nachdem behördliche Massnahmen gegen den
+        <lb/>letzteren erfolgt seien, welche Ihnen das Recht gäben, Ihren
+        <lb/>Rücktritt von den Verlagsverträgen zu erklären, nun davon Ge-
+        <lb/>brauch machen würden. Diese Auffassung ist vollständig rechts-
+        <lb/>irrtümlich. Sie haben Ihre Verlagsverträge nicht mit einer ju-
+        <lb/>ristischen Person, sondern mit Herrn <persName ref="#SZDPER.2188">Herbert Reichner</persName>, als
+        <lb/>Einzelfirma, abgeschlossen. Als Sitz dieser Einzelfirma wurden
+        <lb/>in den Verträgen drei Orte (<placeName ref="http://d-nb.info/gnd/4035206-7 http://www.geonames.org/2879139">Leipzig</placeName>, <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName>, <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName>) und als
+        <lb/>Hauptsitz <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName> bezeichnet. Die Zürcher Einzelfirma wurde be-
+        <lb/>reits <date when="1935">1935</date> auf Ihren eigenen, ausdrücklichen Wunsch mit meinem
+        <lb/>Klienten als Allein-Inhaber und Herrn Dr. Werner D.Stauffacher
+        <lb/>als Prokuristen ins Schweizerische Handelsregister eingetragen
+        <lb/>und ordnungsgemäss im Schweizerischen Handelsamtsblatt ver-
+        <lb/>öffentlicht. Ihre Annahme, dass für den Betrieb dieser Einzel-
+        <lb/>firma in der <placeName ref="http://d-nb.info/gnd/4053881-3 http://www.geonames.org/2658434">Schweiz</placeName> eine "Konzession" notwendig sei, ist eben-
+        <lb/>falls rechtsirrtümlich. Dasselbe ist der Fall bezüglich Ihrer
+        <lb/>weiteren Annahme, der Betrieb dieser Firma sei nicht möglich,
+        <lb/>weil meinem Klienten die fremdenpolizeiliche Bewilligung zur
+        <lb/>persönlichen Ausübung eines Berufes fehle. Verlagsgeschäfte
+        <lb/>brauchen bekanntlich nicht vom Verleger selber geführt zu wer-
+        <lb/>den; der Verleger ist, wie jeder andere Kaufmann, berechtigt,
+        <lb/>die Tätigkeit von Angestellten oder Vertretern in Anspruch zu
+        <lb/>nehmen, sofern nur diese den fremdenpolizeilichen Anforderungen
+        <lb/>entsprechen. Dies trifft im vorliegenden Falle zu, da mein
+        <lb/>Klient das <orgName ref="http://d-nb.info/gnd/2021755-9">Schweizerische Vereins-Sortiment</orgName>, <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName> mit der
+        <lb/>Ausführung aller für ihn eingehenden Bestellungen beauftragt hat.
+        <lb/>Vergl. Beilage.
+      </p>
+      <pb n="3" facs="#surf_3"/>
+      <p>
+        <lb/>Dr. <persName ref="#SZDPER.2226">H. WEISFLOG</persName> und Dr. <persName ref="http://d-nb.info/gnd/1214668852">WERNER WEISFLOG</persName>
+        <lb/><placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">ZÜRICH</placeName>
+        <lb/>2. BLATT zum BRIEF vom <date when="1938-05-10">10. Mai 1938</date> an Herrn Dr. Stefan Zweig, <placeName ref="http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743">London</placeName>.
+      </p>
+      <p>
+        <lb/>Sie wissen auch, dass nach den Verlagsverträgen die be-
+        <lb/>treffenden Abmachungen auch für die beiderseitigen Erben ver-
+        <lb/>bindlich sind. Dies schliesst natürlich aus, dass Sie einen
+        <lb/>Vertrag mit einer juristischen Person abgeschlossen hätten.
+        <lb/>Diese Bestimmung wurde von Ihnen bekanntlich als unbequem
+        <lb/>empfunden. Haben doch meinem Klienten durch Ihren Wiener
+        <lb/>Anwalt, Herrn Dr. <persName ref="#SZDPER.1891">Josef Geiringer</persName>, den schriftlichen Wunsch
+        <lb/>übermittelt, dass seine persönlichen Erben und speziell seine
+        <lb/>Gattin Ihre Rechte aus den Verträgen mit Ihnen nur unter Ihrer
+        <lb/>Aufsicht durch eine von Ihnen bestellte Kontrollperson ausüben
+        <lb/>sollten. Ihr heutiger Standpunkt, dass nicht mein Klient per-
+        <lb/>sönlich, sondern ein unpersönlicher Verlag, d.h. eine juristi-
+        <lb/>sche Person, Ihr Vertragspartner sei, ist mit diesen Fest-
+        <lb/>stellungen nicht in Uebereinstimmung zu bringen.
+        <lb/>Mein Klient hat Ihnen seine hiesige Wohnung nicht ange-
+        <lb/>geben. Dazu ist er auch nicht verpflichtet. Mein Klient ver-
+        <lb/>wendet in seiner Korrespondenz jedermann gegenüber die Post-
+        <lb/>adresse, weil er Wert darauf legt, seine Post nur unter dieser
+        <lb/>zu empfangen, um damit seinen Angehörigen in <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName> Schwierig-
+        <lb/>keiten zu ersparen. Für die Ausführung der mit Ihnen abge-
+        <lb/>schlossenen Verlagsverträge ist die Kenntnis der Wohnung meines
+        <lb/>Klienten für Sie durchaus belanglos, so wenig, als es Sie in-
+        <lb/>teressieren dürfte, wo der Unterzeichnete seine Privatwohnung
+        <lb/>besitzt. Korrespondenzen, welche Sie an die Geschäftsadresse
+        <lb/>Peterstrasse 18, <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName> 1, oder Hauptpostlagernd <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName> rich-
+        <lb/>ten, gelangen unfehlbar an meinen Klienten und werden ordnungs-
+        <lb/>gemäss erledigt. Dasselbe geschieht mit Bestellungen von Buch-
+        <lb/>händlern. Sie sind freundlichst eingeladen, die Probe aufs
+        <lb/>Exempel zu machen.
+        <lb/>Mein Klient hat aus Gründen, über die er Ihnen keine Rechen
+        <lb/>schaft schuldig ist, seinen persönlichen Wohnsitz nach <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName>
+        <lb/>verlegt, so dass er hier nun seine geschäftliche Niederlassung
+        <lb/>und seinen persönlichen Wohnsitz besitzt. In den Verträgen
+        <lb/>ist bekanntlich <placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">Zürich</placeName> ebenfalls als Verlagssitz bezeichnet,
+      </p>
+      <pb n="4" facs="#surf_4"/>
+      <p>
+        <lb/>während darin <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName> als Hauptsitz figuriert. Die Verlegung
+        <lb/>dieses Hauptsitzes nach einer anderen Oertlichkeit steht voll-
+        <lb/>ständig im Belieben meines Klienten. Es stünde ihm sogar frei,
+        <lb/>denselben nach <placeName ref="http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743">London</placeName> zu verlegen, ohne dass Sie daraus irgend
+        <lb/>welche Folgerungen ziehen könnten.
+        <lb/>So wenig wie diese Sitzverlegung, die nach den mit Ihnen
+        <lb/>abgeschlossenen Verträgen und nach der Eintragung der Firma
+        <lb/>meines Klienten im Schweizerischen Handelsregister zudem aus-
+        <lb/>drücklich vorgesehen war, gibt Ihnen die in <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName> angeordnete
+        <lb/>Beschlagnahme von Büchervorräten meines Klienten ein Kündigungs-
+        <lb/>recht. Darüber, wie derartige Beschlagnahmen zu behandeln sind,
+        <lb/>enthalten die Verlagsverträge eine ausdrückliche Bestimmung.
+        <lb/>Die Sperrung der Wiener-Niederlassung beruht nicht auf
+        <lb/>einem Verzichte meines Klienten. Er hat im Gegenteil durch ent-
+        <lb/>sprechende Handlungen deutlich genug zum Ausdrucke gebracht,
+        <lb/>dass er sich dadurch nicht davon abhalten lässt, seine Ver-
+        <lb/>legerpflichten, insbesondere auch Ihnen gegenüber, zu erfüllen.
+        <lb/>Hat er doch zu diesem Zwecke in <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName> ein Lager zur Belieferung
+        <lb/>des gesamten Buchhandels ausserhalb des <placeName ref="http://d-nb.info/gnd/2008993-4">deutschen Reiches</placeName> ange-
+        <lb/>legt. Die beiliegende Karte des <orgName ref="http://d-nb.info/gnd/2021755-9">Schweizerischen Vereins-Sorti-
+        <lb/>ment</orgName>, <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName>, zeigt Ihnen, dass der Verlag tatsächlich funk-
+        <lb/>tioniert. Die diesem zukommenden Bestellungen werden ausgeführt,
+        <lb/>falls nicht Kreditgründe oder Clearing-Hindernisse vorliegen.
+        <lb/>Das gesamte Auslandssortiment ist durch Zirkulare des <orgName ref="http://d-nb.info/gnd/2021755-9">Schwei-
+        <lb/>zerischen Vereins-Sortiment</orgName> samt Bestellkarten (vgl. Beilage)
+        <lb/>orientiert worden. Mein Klient hat somit auf seine Verleger-
+        <lb/>tätigkeit nicht verzichtet, so dass ein Rücktritt von den mit
+        <lb/>ihm abgeschlossenen Verträgen nicht in Frage kommt. Es wundert
+        <lb/>mich ausserordentlich, dass Sie deswegen meinem Klienten Schwie-
+        <lb/>rigkeiten machen wollen, anstatt sein Bestreben, für Sie weiter
+        <lb/>im Sinne der abgeschlossenen Verträge tätig zu sein, anzuerkennen
+        <lb/>Was die von meinem Klienten in <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName> eingelagerten Bücher
+        <lb/>anbelangt, so erlauben Sie sich völlig zu Unrecht die Bemerkung,
+        <lb/>er habe sich "Büchervorräte des <orgName ref="http://d-nb.info/gnd/10119809-7">Herbert Reichner-Verlages</orgName> zu
+        <lb/>seinen privaten Gunsten bemächtigt," sowie die andere Bemerkung,
+        <lb/>es handle sich zum grössten Teil um "Ihre Bücher!" Sie sind sich
+      </p>
+      <pb n="5" facs="#surf_5"/>
+      <p>
+        <lb/>Dr. <persName ref="#SZDPER.2226">H. WEISFLOG</persName> und Dr. <persName ref="http://d-nb.info/gnd/1214668852">WERNER WEISFLOG</persName>
+        <lb/><placeName ref="http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896">ZÜRICH</placeName>
+        <lb/>3. BLATT zum BRIEF vom <date when="1938-05-10">10. Mai 1938</date> an Herrn Dr. Stefan Zweig, <placeName ref="http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743">London</placeName>.
+      </p>
+      <p>
+        <lb/>wohl dessen zu wenig bewusst, dass Sie damit meinen Klienten
+        <lb/>einer rechtswidrigen und zwar strafbaren Handlung bezichtigen
+        <lb/>und dass Sie mit dieser Bezichtigung ein vom zürcherischen
+        <lb/>Strafgesetzbuche als Verleumdung bezeichnetes Vergehen be-
+        <lb/>gangen haben. Ich gebe Ihnen aber nun Gelegenheit, sich bei
+        <lb/>einem hiesigen Anwalte sich über das Ungehörige Ihrer Schreib-
+        <lb/>weise zu erkundigen und hernach diese Behauptungen unter dem
+        <lb/>Ausdrucke des Bedauern zurückzunehmen. Dabei muss ich verlangen,
+        <lb/>dass Sie diese Behauptungen auch gegenüber dem <orgName ref="http://d-nb.info/gnd/2021755-9">Schweizerischen
+        <lb/>Vereins-Sortiment</orgName> als irrtümlich erfolgt bezeichnen, ansonst
+        <lb/>Sie weitere Schritte zu gewärtigen haben. Sie sind sich viel-
+        <lb/>leicht auch nicht dessen bewusst, dass nicht nur mein Klient
+        <lb/>sich fremdenpolizeilichen Anordnungen zu unterziehen hat, son-
+        <lb/>dern dass auch Sie selbst in einem Gastlande wohnen, das für
+        <lb/>derartige Allüren eines Gastes wenig Verständnis wird auf-
+        <lb/>bringen können. Ich behalte mir denn auch vor, dem <orgName ref="http://d-nb.info/gnd/35565-3">Home Office</orgName>
+        <lb/><placeName ref="http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743">London</placeName> durch Vermittlung der hiesigen Gesandtschaft von Ihrer
+        <lb/>Korrespondenz mit meinem Mandanten Kenntnis zu geben, sofern
+        <lb/>Sie diese verleumderischen Behauptungen nicht in der kürzesten
+        <lb/>Zeit als auf einem bedauerlichen Irrtum beruhend zurücknehmen.
+        <lb/>Was das Abrechnungsverhältnis zwischen Ihnen und meinem
+        <lb/>Klienten anbelangt, so wissen Sie, dass Ihnen für die sämtlichen
+        <lb/>bis <date when="1938-03-01">1. März 1938</date> ausgelieferten Exemplare kein Honoraranspruch
+        <lb/>zusteht. Nicht honoriert sind lediglich die vom <date from="1938-03-01" to="1938-03-10">1.-10. März
+        <lb/>1938</date> ausgelieferten Exempare, deren Anzahl sehr gering ist. Für
+        <lb/>diesen Anspruch besitzen Sie volle Deckung dadurch, dass Sie
+        <lb/>meinem Klienten nahezu Schw. Franken 1000.-- auf Konto "Castellio
+        <lb/>gegen Calvin" schulden. Die Ursache dieser Schuld ist Ihnen
+        <lb/>bekannt.
+        <lb/>Da Sie meinen Klienten verdächtigen, dass er ausser dem
+        <lb/>Lager in <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName> im Auslande weitere Büchervorräte besitze, teile
+        <lb/>ich Ihnen andurch mit, dass diese Annahme unzutreffend ist. Die
+        <lb/>in <placeName ref="http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297">Olten</placeName> lagernden 4086 Bände Ihrer Werke sind erst nach erfolg-
+        <lb/>tem Verkauf honorarpflichtig. Das <orgName ref="http://d-nb.info/gnd/2021755-9">Schweizerische Vereins-Sorti-
+        <lb/>ment</orgName> hat Ihnen auf Veranlassung meines Klienten die Erklärung
+      </p>
+      <pb n="6" facs="#surf_6"/>
+      <p>
+        <lb/>abgegeben, dass es über seine Verkäufe Ihnen Abrechnung erteil-
+        <lb/>len und Ihnen das Ihnen zukommende Honorar direkt zustellen
+        <lb/>wird. Ihre Furcht, dass Sie genötigt sein könnten, ohne Rechen-
+        <lb/>schaft über diese Verkäufe zu bleiben, weil mein Klient womöglich
+        <lb/>bei Nacht und Nebel verschwinde, gehört zu den unschönen - um
+        <lb/>mich zart auszudrücken - Verirrungen Ihrer Korrespondenz. Auch
+        <lb/>wegen dieser Verdächtigung behält sich übrigens mein Klient alle
+        <lb/>Schritte Ihnen gegenüber vor.
+        <lb/>Was die Buchhaltungsbelege der Wiener Niederlassung anbe-
+        <lb/>langt, so stehen sie Ihnen im gleichen Momente zur Einsichtnahme
+        <lb/>zur Verfügung, in dem dies auch für meinen Klienten zutrifft.
+        <lb/>Wenn Sie sich dafür persönlich bei der <orgName ref="http://d-nb.info/gnd/4757614-5">Gestapo</orgName> in <placeName ref="http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367">Wien</placeName> verwenden
+        <lb/>wollten, so hätte mein Klient dagegen nichts einzuwenden.
+        <lb/>Ich lade Sie schliesslich ein, weitere Drohungen gegenüber
+        <lb/>meinem Klienten zur Erzielung eines widerrechtlichen Vorteils
+        <lb/>zu unterlassen, da Sie dadurch mit dem hiesigen Strafgesetze
+        <lb/>und dem schweizerisch-englischen Auslieferungsvertrage in Kon-
+        <lb/>flikt kommen könnten.
+        <lb/>Damit scheinen mir nun die nötigen Aufklärungen geschaffen,
+        <lb/>auf Grund deren Sie einen hiesigen Rechtsanwalt mit der Ein-
+        <lb/>bringung Ihrer Klage gegen meinen Klienten beauftragen können.
+        <lb/>Wie bereits erwähnt, hoffe ich, dass diese Klage weitere Kor-
+        <lb/>respondenzen erübrigen wird. Weder mein Klient, noch ich selbst
+        <lb/>wären denn auch in der Lage, solche von Ihnen weiter in Empfang
+        <lb/>zu nehmen, bevor Sie dem oben erwähnten Verlangen nach restloser
+        <lb/>Zurücknahme Ihrer unwahren Behauptungen und Ihrer Verdächtigungen
+        <lb/>nachgekommen sind.
+        <lb/>Hochachtungsvoll
+        <lb/>1 Beilage.
+        <lb/>Einschreiben.
+      </p>
+      <p>
+        <lb/>Dr. <persName ref="#SZDPER.2226">H. Weisflog</persName>
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>

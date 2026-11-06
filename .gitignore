@@ -1,2 +1,8 @@
 node_modules/
 test-results/
+
+# Local trial run sandbox, rebuilt by tools/trial-run/setup.ps1
+/trial-run/
+
+# Screenshots show facsimile images whose licence is unconfirmed, see evidence/README.md
+evidence/**/*.png

@@ -81,7 +81,9 @@ markers, the editor names them and the passage can be resolved in the XML view.
   and `data/actions.json` hold everything specific to Stefan Zweig Digital; another edition
   replaces these two files. The responsibilities of the modules are listed in ADR-002 of
   `knowledge/specification.md`.
-- `tools/`: Node scripts for import and indexes.
+- `tools/`: Node scripts for import and indexes, `check-annotated-copy.mjs` for agent-annotated
+  copies, and `trial-run/` with the PowerShell scripts and guide of the local trial run.
+- `evidence/`: frozen results of agent runs and reviews with checksum manifests.
 - `vendor/`, `schemas/`: vendored CodeMirror, OpenSeadragon, libxml2-wasm and the TEI schema, each
   with its `NOTICE.md`.
 - `test/`: unit tests, the browser check and the size check, the only place that needs Node

@@ -1,0 +1,306 @@
+{
+  "checks": {
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "openWork": "7 offene Stellen",
+    "state": "In Bearbeitung | 7 offene Stellen",
+    "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "diff": "18 Zeilen entfernt, 18 hinzugefügt, an 4 Stellen.",
+    "downloadName": "o_szd.1222.tei.xml",
+    "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+    "errors": []
+  },
+  "log": [
+    {
+      "id": "o_szd.1222#v001",
+      "line": 36,
+      "text": "Hotel Westminster",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/1259093344\">Hotel Westminster</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v002",
+      "line": 36,
+      "text": "Nizza",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4075416-9\">Nizza</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440\">Nizza</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v003",
+      "line": 36,
+      "text": "4.Januar 1935",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1935-01-04",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1935-01-04\">4.Januar 1935</date>",
+      "written": "<date when=\"1935-01-04\">4.Januar 1935</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v004",
+      "line": 39,
+      "text": "Meingast",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1575\">Meingast</persName>",
+      "registerFirstHit": "Meingast, Anna1881-05-13–1953-11-17 | GND 1080163751 | SZDPER.1575",
+      "written": "<persName ref=\"#SZDPER.1575\">Meingast</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v005",
+      "line": 42,
+      "text": "10.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1935-01-10\">10.</date>",
+      "written": "<date when=\"1935-01-10\" cert=\"low\">10.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v006",
+      "line": 43,
+      "text": "New York",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4042011-5\">New York</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\">New York</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v007",
+      "line": 44,
+      "text": "Viking Press",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/10102943-3\">Viking Press</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v008",
+      "line": 44,
+      "text": "New York",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4042011-5\">New York</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\">New York</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v009",
+      "line": 47,
+      "text": "New York",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4042011-5\">New York</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\">New York</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v010",
+      "line": 50,
+      "text": "Amerika",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4078704-7\">Amerika</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001\">Amerika</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v011",
+      "line": 56,
+      "text": "Eugen Wolbe",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"http://d-nb.info/gnd/117458201\">Eugen Wolbe</persName>",
+      "registerFirstHit": "",
+      "written": "<persName ref=\"http://d-nb.info/gnd/117458201\">Eugen Wolbe</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v012",
+      "line": 56,
+      "text": "Berlin",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4005728-8\">Berlin</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950157\">Berlin</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v013",
+      "line": 57,
+      "text": "H~~amb~~[?] | Goetzfried",
+      "element": "persName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<persName>H~~amb~~[?]\n        <lb/>Goetzfried</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v014",
+      "line": 58,
+      "text": "Lob",
+      "element": "persName",
+      "steps": [],
+      "path": "typed (person without reference)",
+      "written": "<persName>Lob</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v015",
+      "line": 58,
+      "text": "Nice",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4075416-9\">Nice</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440\">Nice</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v016",
+      "line": 59,
+      "text": "Kultusgemeinde",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/123152-2\">Kultusgemeinde</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v017",
+      "line": 61,
+      "text": "Postsparkasse",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2001451-X\">Postsparkasse</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v018",
+      "line": 65,
+      "text": "Reichner",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2188\">Reichner</persName>",
+      "registerFirstHit": "Reichner, Herbert1899-03-04–1971 | GND 116402873 | SZDPER.2188",
+      "written": "<persName ref=\"#SZDPER.2188\">Reichner</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v019",
+      "line": 68,
+      "text": "Fuchs",
+      "element": "persName",
+      "steps": [],
+      "path": "typed (person without reference)",
+      "written": "<persName>Fuchs</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v020",
+      "line": 74,
+      "text": "Herbst",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date notBefore=\"1935-09\" notAfter=\"1935-11\">Herbst</date>",
+      "written": "<date notBefore=\"1935-09\" notAfter=\"1935-11\" cert=\"low\">Herbst</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v021",
+      "line": 91,
+      "text": "Stefan[?]",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan[?]</persName>",
+      "registerFirstHit": "Stefan, Paul1879-11-25–1943-11-12 | GND 117225789 | SZDPER.1351",
+      "written": "<persName ref=\"#SZDPER.1560\">Stefan[?]</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v022",
+      "line": 95,
+      "text": "Februar",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1935-02\">Februar</date>",
+      "written": "<date when=\"1935-02\" cert=\"low\">Februar</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1222#v023",
+      "line": 99,
+      "text": "Relgis",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1153\">Relgis</persName>",
+      "registerFirstHit": "Relgis, Eugen1895–1987 | GND 1057079499 | SZDPER.1153",
+      "written": "<persName ref=\"#SZDPER.1153\">Relgis</persName>",
+      "ok": true
+    }
+  ]
+}

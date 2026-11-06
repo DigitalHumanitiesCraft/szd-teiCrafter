@@ -1,0 +1,742 @@
+{
+  "format": "teicrafter-proposals/0.1",
+  "document": "o_szd.1222",
+  "source": {
+    "path": "data/o_szd.1222.tei.xml",
+    "sha256": "5809b5bec61e5c9622497d60f427ba5279412c4f983c27aeedf47d68cfe02ddf",
+    "lineEnding": "LF",
+    "offsets": "UTF-16 code units in the file as read, LF line breaks"
+  },
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5",
+    "revised": false,
+    "created": "2026-10-31",
+    "rules": "szd-teiCrafter/knowledge/annotation.md"
+  },
+  "letterDate": {
+    "value": "1935-01-04",
+    "basis": "teiHeader/titleStmt/title"
+  },
+  "proposals": [
+    {
+      "id": "o_szd.1222#v001",
+      "line": 36,
+      "text": "Hotel Westminster",
+      "shown": "Hotel Westminster",
+      "occurrence": 1,
+      "offset": {
+        "from": 1096,
+        "to": 1113
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "                        "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1259093344"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "1259093344",
+          "label": "Hôtel Westminster, Nizza",
+          "source": "https://lobid.org/gnd/1259093344.json"
+        }
+      ],
+      "doubt": "Hotel als Firma ausgelegt; Briefkopfangabe, nicht Teil des Fließtexts.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v002",
+      "line": 36,
+      "text": "Nizza",
+      "shown": "Nizza",
+      "occurrence": 1,
+      "offset": {
+        "from": 1145,
+        "to": 1150
+      },
+      "context": {
+        "before": "                        ",
+        "after": ", den 4.Januar 1935.\n   "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4075416-9",
+          "label": "Nizza",
+          "source": "https://lobid.org/gnd/4075416-9.json",
+          "geonames": "https://sws.geonames.org/2990440",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v003",
+      "line": 36,
+      "text": "4.Januar 1935",
+      "shown": "4.Januar 1935",
+      "occurrence": 1,
+      "offset": {
+        "from": 1156,
+        "to": 1169
+      },
+      "context": {
+        "before": "             Nizza, den ",
+        "after": ".\n      </p>\n      <p>\n "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-01-04"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Datumszeile"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v004",
+      "line": 39,
+      "text": "Meingast",
+      "shown": "Meingast",
+      "occurrence": 1,
+      "offset": {
+        "from": 1216,
+        "to": 1224
+      },
+      "context": {
+        "before": "        <lb/>Liebe Frau ",
+        "after": "!\n      </p>\n      <p>\n "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1575"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1575",
+          "label": "Meingast, Anna (1881-05-13–1953-11-17)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v005",
+      "line": 42,
+      "text": "10.",
+      "shown": "10.",
+      "occurrence": 1,
+      "offset": {
+        "from": 1302,
+        "to": 1305
+      },
+      "context": {
+        "before": " ich daran, dass ich am ",
+        "after": " mit dem Conte\n        <"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-01-10",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "Tag ohne Monat, Monat und Jahr aus dem Briefdatum 1935-01-04"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v006",
+      "line": 43,
+      "text": "New York",
+      "shown": "New York",
+      "occurrence": 1,
+      "offset": {
+        "from": 1348,
+        "to": 1356
+      },
+      "context": {
+        "before": "    <lb/>di Savoia nach ",
+        "after": " fahre. Drüben ist meine"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4042011-5",
+          "label": "New York, NY",
+          "source": "https://lobid.org/gnd/4042011-5.json",
+          "geonames": "https://sws.geonames.org/5128581",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v007",
+      "line": 44,
+      "text": "Viking Press",
+      "shown": "Viking Press",
+      "occurrence": 1,
+      "offset": {
+        "from": 1427,
+        "to": 1439
+      },
+      "context": {
+        "before": "  <lb/>verständlich die ",
+        "after": ", New York, 18 East, 48t"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/10102943-3"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.61",
+          "label": "Viking Press, New York",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "10102943-3",
+          "label": "Viking Press, New York",
+          "source": "https://lobid.org/gnd/10102943-3.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v008",
+      "line": 44,
+      "text": "New York",
+      "shown": "New York",
+      "occurrence": 1,
+      "offset": {
+        "from": 1441,
+        "to": 1449
+      },
+      "context": {
+        "before": "dlich die Viking Press, ",
+        "after": ", 18 East, 48th Street.\n"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4042011-5",
+          "label": "New York, NY",
+          "source": "https://lobid.org/gnd/4042011-5.json",
+          "geonames": "https://sws.geonames.org/5128581",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v009",
+      "line": 47,
+      "text": "New York",
+      "shown": "New York",
+      "occurrence": 1,
+      "offset": {
+        "from": 1683,
+        "to": 1691
+      },
+      "context": {
+        "before": "legrammadresse Vikpress ",
+        "after": " lautet\n        <lb/>und"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4042011-5",
+          "label": "New York, NY",
+          "source": "https://lobid.org/gnd/4042011-5.json",
+          "geonames": "https://sws.geonames.org/5128581",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": "Teil der Telegrammadresse „Vikpress New York“; als Ortsnennung markiert.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v010",
+      "line": 50,
+      "text": "Amerika",
+      "shown": "Amerika",
+      "occurrence": 1,
+      "offset": {
+        "from": 1915,
+        "to": 1922
+      },
+      "context": {
+        "before": "t, dass ich zur Zeit in ",
+        "after": "\n        <lb/>bin und ei"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4078704-7",
+          "label": "USA",
+          "source": "https://lobid.org/gnd/4078704-7.json",
+          "geonames": "https://sws.geonames.org/6252001",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": "„Amerika“ meint hier die USA (Reiseziel New York); alternativ GND 4001670-5 Amerika (Kontinent, ohne GeoNames).",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v011",
+      "line": 56,
+      "text": "Eugen Wolbe",
+      "shown": "Eugen Wolbe",
+      "occurrence": 1,
+      "offset": {
+        "from": 2137,
+        "to": 2148
+      },
+      "context": {
+        "before": "     <lb/>Professor Dr. ",
+        "after": ", Berlin N.W.21, Dortmun"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/117458201"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "117458201",
+          "label": "Wolbe, Eugen (1873–1938), Historiker, Lehrer, Publizist, Wirkungsort Berlin",
+          "source": "https://lobid.org/gnd/117458201.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v012",
+      "line": 56,
+      "text": "Berlin",
+      "shown": "Berlin",
+      "occurrence": 1,
+      "offset": {
+        "from": 2150,
+        "to": 2156
+      },
+      "context": {
+        "before": "fessor Dr. Eugen Wolbe, ",
+        "after": " N.W.21, Dortmunderstr.1"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950157"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4005728-8",
+          "label": "Berlin",
+          "source": "https://lobid.org/gnd/4005728-8.json",
+          "geonames": "https://sws.geonames.org/2950157",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v013",
+      "line": 57,
+      "text": "H~~amb~~[?]\n        <lb/>Goetzfried",
+      "shown": "H~~amb~~[?] | Goetzfried",
+      "occurrence": 1,
+      "offset": {
+        "from": 2261,
+        "to": 2296
+      },
+      "context": {
+        "before": "be, ein Exemplar an Dr. ",
+        "after": " bei Professor Lob, La M"
+      },
+      "element": "persName",
+      "attributes": {},
+      "basis": [
+        {
+          "kind": "none",
+          "label": "nicht identifiziert"
+        }
+      ],
+      "doubt": "Vorname unsicher gelesen (H~~amb~~[?]); weder im Index noch in der GND identifizierbar.",
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#v014",
+      "line": 58,
+      "text": "Lob",
+      "shown": "Lob",
+      "occurrence": 1,
+      "offset": {
+        "from": 2311,
+        "to": 2314
+      },
+      "context": {
+        "before": "oetzfried bei Professor ",
+        "after": ", La Margolaine, Avenue "
+      },
+      "element": "persName",
+      "attributes": {},
+      "basis": [
+        {
+          "kind": "none",
+          "label": "nicht identifiziert"
+        }
+      ],
+      "doubt": "„Professor Lob“ in Nizza; weder im Index noch in der GND gefunden.",
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#v015",
+      "line": 58,
+      "text": "Nice",
+      "shown": "Nice",
+      "occurrence": 1,
+      "offset": {
+        "from": 2348,
+        "to": 2352
+      },
+      "context": {
+        "before": "laine, Avenue Primrose, ",
+        "after": ".\n        <lb/>Den Brief"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4075416-9",
+          "label": "Nizza",
+          "source": "https://lobid.org/gnd/4075416-9.json",
+          "geonames": "https://sws.geonames.org/2990440",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v016",
+      "line": 59,
+      "text": "Kultusgemeinde",
+      "shown": "Kultusgemeinde",
+      "occurrence": 1,
+      "offset": {
+        "from": 2384,
+        "to": 2398
+      },
+      "context": {
+        "before": "  <lb/>Den Brief an die ",
+        "after": " lege ich bei und ich bi"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/123152-2"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "123152-2",
+          "label": "Israelitische Kultusgemeinde Wien",
+          "source": "https://lobid.org/gnd/123152-2.json"
+        }
+      ],
+      "doubt": "Welche Kultusgemeinde gemeint ist, sagt der Text nicht; Wien aus dem Wohnort der Sekretärin erschlossen, Salzburg ist möglich.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v017",
+      "line": 61,
+      "text": "Postsparkasse",
+      "shown": "Postsparkasse",
+      "occurrence": 1,
+      "offset": {
+        "from": 2517,
+        "to": 2530
+      },
+      "context": {
+        "before": "ie, dann den Betrag per ",
+        "after": " einzuzahlen.\n      </p>"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2001451-X"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "2001451-X",
+          "label": "Österreichische Postsparkasse",
+          "source": "https://lobid.org/gnd/2001451-X.json"
+        }
+      ],
+      "doubt": "Österreichische Postsparkasse aus dem Kontext (Zahlung durch die Wiener Sekretärin) erschlossen.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v018",
+      "line": 65,
+      "text": "Reichner",
+      "shown": "Reichner",
+      "occurrence": 1,
+      "offset": {
+        "from": 2669,
+        "to": 2677
+      },
+      "context": {
+        "before": " <lb/>was vorgeht. Herr ",
+        "after": " hat unglückseligerweise"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2188",
+          "label": "Reichner, Herbert (1899-03-04–1971)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v019",
+      "line": 68,
+      "text": "Fuchs",
+      "shown": "Fuchs",
+      "occurrence": 1,
+      "offset": {
+        "from": 2936,
+        "to": 2941
+      },
+      "context": {
+        "before": "lb/>derm, dass er Herrn ",
+        "after": ", der jetzt postenlos is"
+      },
+      "element": "persName",
+      "attributes": {},
+      "basis": [
+        {
+          "kind": "none",
+          "label": "nicht identifiziert"
+        }
+      ],
+      "doubt": "Im Index stehen Fuchs, Rudolf (SZDPER.439) und Fuchs, Emil (SZDPER.2122); der Text („postenlos“, Aufnahme in den Verlag) entscheidet nicht.",
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1222#v020",
+      "line": 74,
+      "text": "Herbst",
+      "shown": "Herbst",
+      "occurrence": 1,
+      "offset": {
+        "from": 3206,
+        "to": 3212
+      },
+      "context": {
+        "before": "ch erst im\n        <lb/>",
+        "after": " erscheinen. Ich werde S"
+      },
+      "element": "date",
+      "attributes": {
+        "notBefore": "1935-09",
+        "notAfter": "1935-11",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "Jahreszeit, Jahr aus dem Briefdatum; Herbst als September bis November"
+        }
+      ],
+      "doubt": "Die Regeln nennen Jahreszeiten nicht; Fenster gewählt.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v021",
+      "line": 91,
+      "text": "Stefan[?]",
+      "shown": "Stefan[?]",
+      "occurrence": 1,
+      "offset": {
+        "from": 4028,
+        "to": 4037
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      <p>\n  "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v022",
+      "line": 95,
+      "text": "Februar",
+      "shown": "Februar",
+      "occurrence": 1,
+      "offset": {
+        "from": 4188,
+        "to": 4195
+      },
+      "context": {
+        "before": "esprechen dann alles in ",
+        "after": " durch,\n        <lb/>ich"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935-02",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "Monat ohne Jahr, Jahr aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1222#v023",
+      "line": 99,
+      "text": "Relgis",
+      "shown": "Relgis",
+      "occurrence": 1,
+      "offset": {
+        "from": 4296,
+        "to": 4302
+      },
+      "context": {
+        "before": "  <p>\n        <lb/>Herr ",
+        "after": " habe ich, bitte eintrag"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1153"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1153",
+          "label": "Relgis, Eugen (1895–1987)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    }
+  ],
+  "notMarked": [
+    {
+      "line": 42,
+      "text": "Conte di Savoia",
+      "reason": "Schiffsname; die Regeln kennen keine Schiffe."
+    },
+    {
+      "line": 44,
+      "text": "18 East, 48th Street",
+      "reason": "Straßenadresse; Straßen sind keine Orte im Sinn der Regeln."
+    },
+    {
+      "line": 47,
+      "text": "Vikpress",
+      "reason": "Telegrammkennung des Verlags, kein Name einer Körperschaft im Text."
+    },
+    {
+      "line": 55,
+      "text": "Erasmus",
+      "reason": "Werktitel (Buch), Werke sind eine spätere Stufe."
+    },
+    {
+      "line": 56,
+      "text": "Dortmunderstr.11",
+      "reason": "Straßenadresse."
+    },
+    {
+      "line": 58,
+      "text": "La Margolaine, Avenue Primrose",
+      "reason": "Villen- und Straßenname."
+    },
+    {
+      "line": 68,
+      "text": "Verlag",
+      "reason": "Gattungswort, kein Name."
+    },
+    {
+      "line": 80,
+      "text": "Maria Stuart",
+      "reason": "Werktitel (Buch), nicht die Person."
+    },
+    {
+      "line": 84,
+      "text": "Maria Stuart",
+      "reason": "Werktitel (Buch), nicht die Person."
+    },
+    {
+      "line": 100,
+      "text": "Lesung durch den Geist",
+      "reason": "Werktitel (vermutlich HTR-Fehler für „Heilung durch den Geist“)."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{"kind":"date","text":"23/11. 16","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"place","text":"Palermo","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"place","text":"Genua","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"place","text":"Rom","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"place","text":"Neapel","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"place","text":"Palermo","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"person","text":"Stefan Zweig","ok":true,"wf":"Wohlgeformt","actions":4}
+{"kind":"place","text":"Vienna","ok":true,"wf":"Wohlgeformt","actions":7}
+{"id":"o_szd.504","work":"43 offene Stellen","valid":"TEI-konform","state":"In Bearbeitung | 43 offene Stellen","xmlStatus":"Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.","suggested":"o_szd.504.tei.xml","actions":53,"seconds":50}

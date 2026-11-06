@@ -1,0 +1,185 @@
+{
+ "persons": {
+  "Meingast": {
+   "register": [
+    "Meingast, Anna1881-05-13–1953-11-17 | GND 1080163751 | SZDPER.1575",
+    "Meingast, WilliSZDPER.2162"
+   ],
+   "gnd": [
+    "Meingast, Anna1881-05-13–1953-11-17 | Sekretärin | GND 1080163751",
+    "Meingast, Erika1901-05-12–1972-10-07 | Schauspielerin | GND 1080163921",
+    "Meingast, Adalbert1845–1927 | Klassischer Philologe | GND 127729828",
+    "Meingast, Fritz1904–1990 | Schriftsteller | GND 1100724281",
+    "Meingast, Stefan1986 | Astronom | GND 1292591080",
+    "Meingast, Ulrich1971 | Ingenieur für Maschinenbau | GND 128509538",
+    "Meingast, MartinSchauspieler | GND 1062394798",
+    "Meingast, Tibor1959 | Jurist | GND 143928163"
+   ],
+   "status": ""
+  },
+  "Reichner": {
+   "register": [
+    "Reichner, Herbert1899-03-04–1971 | GND 116402873 | SZDPER.2188"
+   ],
+   "gnd": [
+    "Reichner1842-09-06 | Tänzer | GND 1147793107",
+    "Reichner, ElyashivIsrael | GND 1199509884",
+    "Reichner, Martin1870–1943 | Jurist | GND 138412650",
+    "Reichner, Wilhelm1885-05-10–1936-05-27 | Zeichner | GND 1014949696",
+    "Reichner, HannaLand unbekannt | GND 1159058881",
+    "Reichner, Klara1843-09-27–1913-12-27 | Kinder- und Jugendbuchautorin | Schriftstellerin | GND 1158441762",
+    "Reichner, Bickley1905–1989 | Komponist | GND 142140287",
+    "Reichner, Herbert1899-03-08–1971-11-06 | Österr. Verleger, emigrierte 1938 in die Schweiz, 1939 in die USA. | Verleger | GND 116402873"
+   ],
+   "status": ""
+  },
+  "Fuchs": {
+   "register": [
+    "Fuchs, EmilGND 1080041869 | SZDPER.2122",
+    "Fuchs, Rudolf1890-05-24–1942-02-17 | GND 116844876 | SZDPER.439",
+    "Gregorovius, Ferdinand1821-01-19–1891-05-01 | GND 118541951 | SZDPER.515"
+   ],
+   "gnd": [
+    "Reichner1842-09-06 | Tänzer | GND 1147793107",
+    "Reichner, ElyashivIsrael | GND 1199509884",
+    "Reichner, Martin1870–1943 | Jurist | GND 138412650",
+    "Reichner, Wilhelm1885-05-10–1936-05-27 | Zeichner | GND 1014949696",
+    "Reichner, HannaLand unbekannt | GND 1159058881",
+    "Reichner, Klara1843-09-27–1913-12-27 | Kinder- und Jugendbuchautorin | Schriftstellerin | GND 1158441762",
+    "Reichner, Bickley1905–1989 | Komponist | GND 142140287",
+    "Reichner, Herbert1899-03-08–1971-11-06 | Österr. Verleger, emigrierte 1938 in die Schweiz, 1939 in die USA. | Verleger | GND 116402873"
+   ],
+   "status": "Suche in der GND …"
+  },
+  "Eugen Wolbe": {
+   "register": [],
+   "gnd": [
+    "Wolbe, Eugen1873-04-06–1938-09-22 | Historiker | GND 117458201",
+    "Wolber, EugenSchweiz | GND 11745821X"
+   ],
+   "status": ""
+  },
+  "Goetzfried": {
+   "register": [],
+   "gnd": [
+    "Goetzfried, Wolfgang1948 | GND 17255344X",
+    "Goetzfried, YvonneÜbersetzerin | GND 1027163319",
+    "Goetzfried, Rita1913 | Promotion 1939, Univ. Bonn | Neuphilologin | GND 125604890",
+    "Götzfried, MarkusDrehbuchautor | GND 1172555915",
+    "Götzfried, Carlpeter1926 | Land unbekannt | GND 1146884567",
+    "Götzfried, MichaelDiss. Universität Passau, Wirtschaftswissenschaftliche Fakultät | GND 132317338",
+    "Götzfried, PhilippSportwissenschaftler | GND 1172643105",
+    "Götzfried, Karl1882 | Deutschland | GND 1146114087"
+   ],
+   "status": ""
+  },
+  "Lob": {
+   "register": [
+    "Bodenstedt, Friedrich1819-04-22–1892-04-18 | GND 118512293 | SZDPER.135",
+    "Börne, Ludwig1786–1837 | GND 118512749 | SZDPER.145",
+    "Fichte, Johann Gottlieb1762-05-19–1814-01-29 | GND 118532847 | SZDPER.394",
+    "Flaubert, Gustave1821-12-12–1880-05-08 | GND 118533754 | SZDPER.401",
+    "Haug, Friedrich1761-03-19–1829-01-30 | GND 118973649 | SZDPER.565",
+    "Klopstock, Friedrich Gottlieb1724-07-02–1803-03-14 | GND 118563386 | SZDPER.740",
+    "Meißner, Christian GottlobGND 1155033477 | SZDPER.1632"
+   ],
+   "gnd": [
+    "Lob, Jacques1932–1990 | Comicautor | GND 120714957",
+    "Lob, Eric1974 | Politologe | GND 1143163826",
+    "Lob, AlexanderDiss. Georessourcen und Materialtechnik | Ingenieur | GND 1020119039"
+   ],
+   "status": ""
+  },
+  "Stefan Zweig": {
+   "register": [
+    "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+    "Zweig, StefanieSZDPER.2239"
+   ],
+   "gnd": [
+    "Zweig, Stefan1881-11-28–1942-02-23 | Stefan Zweig hat Autographen und immer wieder Bücher gesammelt. Vom Londoner Exil aus betrieb er teilweise noch den Verkauf seiner Salzburger Büchersammlung. Bestände aus seinen Bibliotheken befinden sich heute in verschiedenen öffentlichen Einrichtungen und in Privatbesitz | Schriftsteller | GND 118637479",
+    "Zweig, Stefanie1894–1977 | Deutschland | GND 1396883126",
+    "Zweig, Stefan-Jerzy1941-01-28–2024-02-06 | 1942-1945 im KZ | Regisseur | GND 118829653",
+    "Zweig, Stefanie1932-09-19–2014-04-25 | Dt.-jüdische Journalistin und Schriftstellerin oberschlesischer Herkunft; 1938 - 1947 Exil in Kenia | Journalistin | GND 119368234",
+    "Zweig, Friderike Maria1882-12-04–1971-01-18 | Gründete 1934 das Writers' Service Center in New York. | Schriftstellerin | GND 118637460",
+    "Zweigle, Stefan1972-04-29 | Diss. Juristische Fakultät | Jurist | GND 124430864"
+   ],
+   "status": ""
+  },
+  "Relgis": {
+   "register": [
+    "Relgis, Eugen1895–1987 | GND 1057079499 | SZDPER.1153"
+   ],
+   "gnd": [
+    "Relgis, Eugen1895–1987 | Schriftsteller | GND 1057079499"
+   ],
+   "status": ""
+  }
+ },
+ "places": {
+  "Nizza": {
+   "hits": [
+    "NizzaHauptstadt des Dep. Alpes-Maritimes, Provence-Alpes-Côte d'Azur, im 6. Jh. v.Chr. als griech. Kolonie gegründet | Frankreich | GND 4075416-9",
+    "Nécropole Nizza (Nizza)1982-1986 erbauter Friedhof | Frankreich | GND 7512862-7",
+    "Provinz NizzaHistor. Verwaltungsgebiet | Italien | GND 4843797-9",
+    "Nizza (Region)Frankreich | GND 4117900-6",
+    "Nizza MonferratoOrt in Italien | Italien | GND 4267755-5",
+    "Ponte NizzaItalien | GND 7657317-5",
+    "Präfektur (Nizza)Palast wohl ursprüngl aus d. 16. Jh. (um 1550?), um 1610 als Palais der Familie Savoyen neu erbaut, 1818/25 umgebaut, seit 1860 Sitz der Präfektur Alpes-Maritimes, 1867-1908 erweitert u. modernisiert | Frankreich | GND 7741853-0",
+    "Franziskanerkirche NizzaEhem. Marien-Kirche d. Benediktiner, 1543 an d. Franziskaner abgetreten | Frankreich | GND 4659323-8"
+   ],
+   "status": ""
+  },
+  "New York": {
+   "hits": [
+    "New York Crystal Palace (New York, NY)USA | GND 1160333513",
+    "New York Times Building (New York, NY)USA | GND 7589525-0",
+    "Hafen New York- Manhattan (New York, NY)USA | GND 4525682-2",
+    "New York- FlushingStadtteil; Teil von Queens | USA | GND 4272726-1",
+    "New York- QueensStadtbezirk von New York auf Long Island | USA | GND 4101162-4",
+    "New York- HobokenUSA | GND 4440333-1",
+    "Staat New York (Nord)USA | GND 4472340-4",
+    "New York- BrownsvilleStadtteil von New York | USA | GND 4706837-1"
+   ],
+   "status": ""
+  },
+  "Amerika": {
+   "hits": [
+    "AmerikaAmerika | GND 4001670-5",
+    "Amerika (Nordost)Amerika | GND 4494561-9",
+    "Amerika (Ost)Amerika | GND 4747427-0",
+    "Russisch-AmerikaRussische Kolonien in Nordamerika (1799-1867), die Alaska, die Aleuten, Kodiak Island und Fort Ross in Kalifornien umfassten; 1841 wurden Fort Ross, 1867 die übrigen Gebiete an die USA verkauft | Russland | GND 4571886-6",
+    "Amerika (Nordwest)Amerika | GND 4279561-8",
+    "Penig-AmerikaSachsen | GND 1068414979",
+    "Konföderierte Staaten von AmerikaUSA | GND 33978-7",
+    "Bremen-Amerika-Bank (Bremen-Altstadt)Wachtstraße 32, Bremen-Altstadt | Bremen | GND 1318796253"
+   ],
+   "status": ""
+  },
+  "Berlin": {
+   "hits": [
+    "BerlinHauptstadt und Bundesland; 1237 (Cölln) bzw. 1244 (Berlin) urkundl. erwähnt, 1230/40 bzw. nach 1250 Stadtrecht, 1307 Union, 1370 gemeinsamer Rat, 1432 Vereinigung der Doppelstadt | Berlin | GND 4005728-8",
+    "Hafen Berlin (Berlin)Berlin | GND 4126722-9",
+    "Marienkirche Berlin-Mitte (Berlin)Kirche aus dem 11. Jh. erbaut am Neuen Markt (heute Karl-Liebknecht-Str.), ab 1893 Umbauarbeiten der Kirche aus dem 11. Jh. durch Hermann Blankenstein, welche heutiges Erscheinungsbild prägen. | Berlin | GND 4192773-4",
+    "Hauptbahnhof Berlin (Berlin)1995 begonnener Bau des neuen Hauptbahnhofes. Architektenbüro: Von Gerkan, Marg & Partner. Fertigstellung: 2006 | Berlin | GND 4849262-0",
+    "Dom Berlin (Berlin) / DenkmalskircheDie Kirche an der Nordseite des Doms, enthielt die Prunksarkophage der Hohenzollern und den Zugang zur Hohenzollerngruft Sie wurde 1975 gesprengt. | Berlin | GND 1211372286",
+    "Fürstenberg-Palais Berlin (Berlin)Deutschland | GND 1256146978",
+    "Hotelbau Palasthotel Berlin (Berlin)Berlin | GND 1271817985",
+    "Kongresshalle Berlin (Berlin)Berlin | GND 4220181-0"
+   ],
+   "status": ""
+  },
+  "Nice": {
+   "hits": [
+    "Diocèse (Nice)Frankreich | GND 5150986-6",
+    "Forschungsgebäude Observatoire de Nice (Nizza)1881-1887 von Charles Garnier auf dem Mont Gros erbaut, 1884/85 Kuppel von Gustave Eiffel | Frankreich | GND 1336157895",
+    "NiceyFrankreich | GND 4494932-7",
+    "NizzaHauptstadt des Dep. Alpes-Maritimes, Provence-Alpes-Côte d'Azur, im 6. Jh. v.Chr. als griech. Kolonie gegründet | Frankreich | GND 4075416-9",
+    "San Pier NicetoOrt in der Metropolitanstadt Messina (Sizilien) | Italien | GND 7699177-5",
+    "Palazzo Rocci (Piacenza)Via San Paolo 10 | Italien | GND 1059797844",
+    "La BrigueOrt im Ar. Nice, Dep. Alpes-Maritimes | Frankreich | GND 4248429-7",
+    "NeuzenhofWohnplatz | Baden-Württemberg | GND 7828842-3"
+   ],
+   "status": ""
+  }
+ }
+}

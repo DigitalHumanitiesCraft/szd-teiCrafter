@@ -1,0 +1,127 @@
+{
+  "document": "o_szd.1222",
+  "proposals": "o_szd.1222.vorschlaege.json",
+  "producer": "llm-agent, claude-opus-5-5, Abgleich zweier unabhängiger Agentenprüfungen",
+  "decisions": [
+    {
+      "id": "o_szd.1222#r001",
+      "decision": "rejected",
+      "at": "2026-10-31T21:07:47.505Z"
+    },
+    {
+      "id": "o_szd.1222#r002",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:48.277Z"
+    },
+    {
+      "id": "o_szd.1222#r003",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:49.068Z"
+    },
+    {
+      "id": "o_szd.1222#r004",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:49.853Z"
+    },
+    {
+      "id": "o_szd.1222#r005",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:50.627Z"
+    },
+    {
+      "id": "o_szd.1222#r006",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:51.410Z"
+    },
+    {
+      "id": "o_szd.1222#r007",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:52.193Z"
+    },
+    {
+      "id": "o_szd.1222#r008",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:52.972Z"
+    },
+    {
+      "id": "o_szd.1222#r009",
+      "decision": "rejected",
+      "at": "2026-10-31T21:07:53.752Z"
+    },
+    {
+      "id": "o_szd.1222#r010",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:54.522Z"
+    },
+    {
+      "id": "o_szd.1222#r011",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:55.305Z"
+    },
+    {
+      "id": "o_szd.1222#r012",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:56.077Z"
+    },
+    {
+      "id": "o_szd.1222#r013",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:56.860Z"
+    },
+    {
+      "id": "o_szd.1222#r014",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:57.628Z"
+    },
+    {
+      "id": "o_szd.1222#r015",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:58.399Z"
+    },
+    {
+      "id": "o_szd.1222#r016",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:59.169Z"
+    },
+    {
+      "id": "o_szd.1222#r017",
+      "decision": "accepted",
+      "at": "2026-10-31T21:07:59.940Z"
+    },
+    {
+      "id": "o_szd.1222#r018",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:00.711Z"
+    },
+    {
+      "id": "o_szd.1222#r019",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:01.480Z"
+    },
+    {
+      "id": "o_szd.1222#r024",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:02.272Z"
+    },
+    {
+      "id": "o_szd.1222#r020",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:03.053Z"
+    },
+    {
+      "id": "o_szd.1222#r021",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:03.822Z"
+    },
+    {
+      "id": "o_szd.1222#r022",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:04.592Z"
+    },
+    {
+      "id": "o_szd.1222#r023",
+      "decision": "accepted",
+      "at": "2026-10-31T21:08:05.359Z"
+    }
+  ]
+}

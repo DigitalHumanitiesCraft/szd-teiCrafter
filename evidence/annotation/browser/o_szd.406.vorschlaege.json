@@ -1,0 +1,387 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.406",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, browser"
+  },
+  "derivedFrom": "o_szd.406.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.406#p001",
+      "text": "Düsseldorf",
+      "offset": {
+        "from": 1238,
+        "to": 1248
+      },
+      "context": {
+        "before": "p>\n        <lb/>Schnellenburg ",
+        "after": " 18.VI.1930\n      </p>\n      <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4013255-9 http://www.geonames.org/2934246"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p002",
+      "text": "18.VI.1930",
+      "offset": {
+        "from": 1249,
+        "to": 1259
+      },
+      "context": {
+        "before": "<lb/>Schnellenburg Düsseldorf ",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1930-06-18"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p003",
+      "text": "Rheinrestaurant Schnellenburg",
+      "offset": {
+        "from": 1368,
+        "to": 1397
+      },
+      "context": {
+        "before": "f_2\"/>\n      <p>\n        <lb/>",
+        "after": "\n        <lb/>Inh.: Franz Herr"
+      },
+      "element": "orgName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p004",
+      "text": "Franz Herriger",
+      "offset": {
+        "from": 1417,
+        "to": 1431
+      },
+      "context": {
+        "before": "nellenburg\n        <lb/>Inh.: ",
+        "after": ", Düsseldorf. Fernruf 301 20\n "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p005",
+      "text": "Düsseldorf",
+      "offset": {
+        "from": 1433,
+        "to": 1443
+      },
+      "context": {
+        "before": "   <lb/>Inh.: Franz Herriger, ",
+        "after": ". Fernruf 301 20\n        <lb/>"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4013255-9 http://www.geonames.org/2934246"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p006",
+      "text": "Hans Morth",
+      "offset": {
+        "from": 1682,
+        "to": 1692
+      },
+      "context": {
+        "before": " [?] [?] [?] [?]\n        <lb/>",
+        "after": ", [?] [?]\n        <lb/>[?] [?]"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p007",
+      "text": "Irene Spiess",
+      "offset": {
+        "from": 1765,
+        "to": 1777
+      },
+      "context": {
+        "before": "<lb/>[?] [?] [?]\n        <lb/>",
+        "after": ", W. [?] [?]\n        <lb/>Hied"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p008",
+      "text": "W.",
+      "offset": {
+        "from": 1779,
+        "to": 1781
+      },
+      "context": {
+        "before": "?]\n        <lb/>Irene Spiess, ",
+        "after": " [?] [?]\n        <lb/>Hiede el"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p009",
+      "text": "Hiede ell Vries",
+      "offset": {
+        "from": 1803,
+        "to": 1818
+      },
+      "context": {
+        "before": "iess, W. [?] [?]\n        <lb/>",
+        "after": ", Margot Engel\n        <lb/>H."
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p010",
+      "text": "Margot Engel",
+      "offset": {
+        "from": 1820,
+        "to": 1832
+      },
+      "context": {
+        "before": "        <lb/>Hiede ell Vries, ",
+        "after": "\n        <lb/>H. [?] [?] [?]\n "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p011",
+      "text": "H.",
+      "offset": {
+        "from": 1846,
+        "to": 1848
+      },
+      "context": {
+        "before": "es, Margot Engel\n        <lb/>",
+        "after": " [?] [?] [?]\n        <lb/>[?] "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p012",
+      "text": "Stephan Zweig",
+      "offset": {
+        "from": 1943,
+        "to": 1956
+      },
+      "context": {
+        "before": "      <lb/>Herrn\n        <lb/>",
+        "after": "\n        <lb/>Salzburg\n       "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p013",
+      "text": "Salzburg",
+      "offset": {
+        "from": 1970,
+        "to": 1978
+      },
+      "context": {
+        "before": "b/>Stephan Zweig\n        <lb/>",
+        "after": "\n        <lb/>Kapuzinergasse 5"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4076982-3 http://www.geonames.org/2766824"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p014",
+      "text": "Rheinrestaurant Schnellenburg",
+      "offset": {
+        "from": 2076,
+        "to": 2105
+      },
+      "context": {
+        "before": "f_3\"/>\n      <p>\n        <lb/>",
+        "after": "\n        <lb/>Inh.: Franz Herr"
+      },
+      "element": "orgName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p015",
+      "text": "Franz Herriger",
+      "offset": {
+        "from": 2125,
+        "to": 2139
+      },
+      "context": {
+        "before": "nellenburg\n        <lb/>Inh.: ",
+        "after": ", Düsseldorf. Fernruf 301 20\n "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p016",
+      "text": "Düsseldorf",
+      "offset": {
+        "from": 2141,
+        "to": 2151
+      },
+      "context": {
+        "before": "   <lb/>Inh.: Franz Herriger, ",
+        "after": ". Fernruf 301 20\n        <lb/>"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4013255-9 http://www.geonames.org/2934246"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p017",
+      "text": "Hans Morth",
+      "offset": {
+        "from": 2390,
+        "to": 2400
+      },
+      "context": {
+        "before": " [?] [?] [?] [?]\n        <lb/>",
+        "after": ", [?] [?]\n        <lb/>[?] [?]"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p018",
+      "text": "Irene Spiess",
+      "offset": {
+        "from": 2473,
+        "to": 2485
+      },
+      "context": {
+        "before": "<lb/>[?] [?] [?]\n        <lb/>",
+        "after": ", W. [?] [?]\n        <lb/>Hied"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p019",
+      "text": "W.",
+      "offset": {
+        "from": 2487,
+        "to": 2489
+      },
+      "context": {
+        "before": "?]\n        <lb/>Irene Spiess, ",
+        "after": " [?] [?]\n        <lb/>Hiede el"
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p020",
+      "text": "Hiede ell Vries",
+      "offset": {
+        "from": 2511,
+        "to": 2526
+      },
+      "context": {
+        "before": "iess, W. [?] [?]\n        <lb/>",
+        "after": ", Margot Engel\n        <lb/>H."
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p021",
+      "text": "Margot Engel",
+      "offset": {
+        "from": 2528,
+        "to": 2540
+      },
+      "context": {
+        "before": "        <lb/>Hiede ell Vries, ",
+        "after": "\n        <lb/>H. [?] [?] [?]\n "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p022",
+      "text": "H.",
+      "offset": {
+        "from": 2554,
+        "to": 2556
+      },
+      "context": {
+        "before": "es, Margot Engel\n        <lb/>",
+        "after": " [?] [?] [?]\n        <lb/>[?] "
+      },
+      "element": "persName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.406#p023",
+      "text": "Stephan Zweig",
+      "offset": {
+        "from": 2651,
+        "to": 2664
+      },
+      "context": {
+        "before": "      <lb/>Herrn\n        <lb/>",
+        "after": "\n        <lb/>Salzburg\n       "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.406#p024",
+      "text": "Salzburg",
+      "offset": {
+        "from": 2678,
+        "to": 2686
+      },
+      "context": {
+        "before": "b/>Stephan Zweig\n        <lb/>",
+        "after": "\n        <lb/>Kapuzinergasse 5"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4076982-3 http://www.geonames.org/2766824"
+      },
+      "status": "proposed"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+ok  o_szd.1079#v002 type-wrap 
+{
+ "openWorkBefore": "Keine offenen Stellen",
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "openWork": "Keine offenen Stellen",
+ "state": "Bereit zur Abnahme | ",
+ "diff": "1 Zeile entfernt, 1 hinzugefügt, an 1 Stelle.",
+ "diffRows": [
+  "hinzugefügt: 55+        <lb/><placeName ref=\"http://d-nb.info/gnd/63291-0 http://www.geonames.org/3077685\">Komotau</placeName>"
+ ],
+ "downloadName": "o_szd.1079.tei.xml"
+}

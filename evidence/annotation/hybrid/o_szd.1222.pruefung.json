@@ -1,0 +1,282 @@
+{
+  "cards": [
+    {
+      "line": 36,
+      "element": "orgName",
+      "inner": "Hotel Westminster",
+      "attrs": "ref=\"http://d-nb.info/gnd/1259093344\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 36,
+      "element": "placeName",
+      "inner": "Nizza",
+      "attrs": "ref=\"http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440\"",
+      "title": "Ort",
+      "detail": "GND 4075416-9 http://www.geonames.org/2990440",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 36,
+      "element": "date",
+      "inner": "4.Januar 1935",
+      "attrs": "when=\"1935-01-04\"",
+      "title": "Datum",
+      "detail": "@when 1935-01-04",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 39,
+      "element": "persName",
+      "inner": "Meingast",
+      "attrs": "ref=\"#SZDPER.1575\"",
+      "title": "Person",
+      "detail": "Meingast, Anna | 1881-05-13–1953-11-17 | SZDPER.1575",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 42,
+      "element": "date",
+      "inner": "10.",
+      "attrs": "when=\"1935-01-10\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1935-01-10",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 43,
+      "element": "placeName",
+      "inner": "New York",
+      "attrs": "ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\"",
+      "title": "Ort",
+      "detail": "GND 4042011-5 http://www.geonames.org/5128581",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 44,
+      "element": "orgName",
+      "inner": "Viking Press",
+      "attrs": "ref=\"http://d-nb.info/gnd/10102943-3\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 44,
+      "element": "placeName",
+      "inner": "New York",
+      "attrs": "ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\"",
+      "title": "Ort",
+      "detail": "GND 4042011-5 http://www.geonames.org/5128581",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 47,
+      "element": "placeName",
+      "inner": "New York",
+      "attrs": "ref=\"http://d-nb.info/gnd/4042011-5 http://www.geonames.org/5128581\"",
+      "title": "Ort",
+      "detail": "GND 4042011-5 http://www.geonames.org/5128581",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 50,
+      "element": "placeName",
+      "inner": "Amerika",
+      "attrs": "ref=\"http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001\"",
+      "title": "Ort",
+      "detail": "GND 4078704-7 http://www.geonames.org/6252001",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 56,
+      "element": "persName",
+      "inner": "Eugen Wolbe",
+      "attrs": "ref=\"http://d-nb.info/gnd/117458201\"",
+      "title": "Person",
+      "detail": "GND 117458201",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 56,
+      "element": "placeName",
+      "inner": "Berlin",
+      "attrs": "ref=\"http://d-nb.info/gnd/4005728-8 http://www.geonames.org/2950157\"",
+      "title": "Ort",
+      "detail": "GND 4005728-8 http://www.geonames.org/2950157",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 57,
+      "element": "persName",
+      "inner": "H~~amb~~[?] | Goetzfried",
+      "attrs": "",
+      "title": "Person",
+      "detail": "noch nicht verknüpft",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 58,
+      "element": "persName",
+      "inner": "Lob",
+      "attrs": "",
+      "title": "Person",
+      "detail": "noch nicht verknüpft",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 58,
+      "element": "placeName",
+      "inner": "Nice",
+      "attrs": "ref=\"http://d-nb.info/gnd/4075416-9 http://www.geonames.org/2990440\"",
+      "title": "Ort",
+      "detail": "GND 4075416-9 http://www.geonames.org/2990440",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 59,
+      "element": "orgName",
+      "inner": "Kultusgemeinde",
+      "attrs": "ref=\"http://d-nb.info/gnd/123152-2\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 61,
+      "element": "orgName",
+      "inner": "Postsparkasse",
+      "attrs": "ref=\"http://d-nb.info/gnd/2001451-X\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 65,
+      "element": "persName",
+      "inner": "Reichner",
+      "attrs": "ref=\"#SZDPER.2188\"",
+      "title": "Person",
+      "detail": "Reichner, Herbert | 1899-03-04–1971 | SZDPER.2188",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 68,
+      "element": "persName",
+      "inner": "Fuchs",
+      "attrs": "",
+      "title": "Person",
+      "detail": "noch nicht verknüpft",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 74,
+      "element": "date",
+      "inner": "Herbst",
+      "attrs": "notBefore=\"1935-09\" notAfter=\"1935-11\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@notBefore 1935-09 | @notAfter 1935-11",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 91,
+      "element": "persName",
+      "inner": "Stefan[?]",
+      "attrs": "ref=\"#SZDPER.1560\"",
+      "title": "Person",
+      "detail": "Zweig, Stefan | 1881-11-28–1942-02-23 | SZDPER.1560",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 95,
+      "element": "date",
+      "inner": "Februar",
+      "attrs": "when=\"1935-02\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@when 1935-02",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 99,
+      "element": "persName",
+      "inner": "Relgis",
+      "attrs": "ref=\"#SZDPER.1153\"",
+      "title": "Person",
+      "detail": "Relgis, Eugen | 1895–1987 | SZDPER.1153",
+      "note": "",
+      "change": true
+    }
+  ],
+  "f8": [
+    {
+      "line": 57,
+      "selected": "H~~amb~~[?]",
+      "note": "",
+      "suggested": "unclear"
+    },
+    {
+      "line": 57,
+      "selected": "~~amb~~",
+      "note": "",
+      "suggested": "del"
+    },
+    {
+      "line": 59,
+      "selected": "{sende ich selbst}",
+      "note": "",
+      "suggested": "add"
+    },
+    {
+      "line": 60,
+      "selected": "gleichwertig[?]",
+      "note": "",
+      "suggested": "unclear"
+    },
+    {
+      "line": 66,
+      "selected": "{wenn ich ihm meine Bücher gebe}",
+      "note": "",
+      "suggested": "add"
+    },
+    {
+      "line": 82,
+      "selected": "{damit all das von mir abfällt}",
+      "note": "",
+      "suggested": "add"
+    },
+    {
+      "line": 91,
+      "selected": "Stefan[?]",
+      "note": "",
+      "suggested": "unclear"
+    }
+  ],
+  "checks": {
+    "openWorkBefore": "7 offene Stellen",
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "openWork": "7 offene Stellen",
+    "state": "In Bearbeitung | 7 offene Stellen",
+    "diff": "Keine Änderungen seit dem Öffnen.",
+    "diffRows": []
+  },
+  "corrections": [],
+  "errors": []
+}

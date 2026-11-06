@@ -1,0 +1,35 @@
+ok  o_szd.1222#v023 menu+person-dialog 
+ok  o_szd.1222#v022 menu+date-dialog 
+ok  o_szd.1222#v021 menu+person-dialog 
+ok  o_szd.1222#v020 menu+date-dialog 
+ok  o_szd.1222#v019 typed (person without reference) 
+ok  o_szd.1222#v018 menu+person-dialog 
+ok  o_szd.1222#v017 typed (no orgName action) 
+ok  o_szd.1222#v016 typed (no orgName action) 
+ok  o_szd.1222#v015 menu+place-dialog 
+ok  o_szd.1222#v014 typed (person without reference) 
+ok  o_szd.1222#v013 typed (over a line break) 
+ok  o_szd.1222#v012 menu+place-dialog 
+ok  o_szd.1222#v011 menu+person-dialog 
+ok  o_szd.1222#v010 menu+place-dialog 
+ok  o_szd.1222#v009 menu+place-dialog 
+ok  o_szd.1222#v008 menu+place-dialog 
+ok  o_szd.1222#v007 typed (no orgName action) 
+ok  o_szd.1222#v006 menu+place-dialog 
+ok  o_szd.1222#v005 menu+date-dialog 
+ok  o_szd.1222#v004 menu+person-dialog 
+ok  o_szd.1222#v003 menu+date-dialog 
+ok  o_szd.1222#v002 menu+place-dialog 
+ok  o_szd.1222#v001 typed (no orgName action) 
+{
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "openWork": "7 offene Stellen",
+ "state": "In Bearbeitung | 7 offene Stellen",
+ "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "diff": "18 Zeilen entfernt, 18 hinzugefügt, an 4 Stellen.",
+ "downloadName": "o_szd.1222.tei.xml",
+ "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+ "errors": []
+}
+23/23 applied as proposed

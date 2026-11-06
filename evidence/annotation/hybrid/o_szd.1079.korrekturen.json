@@ -1,0 +1,13 @@
+[
+  {
+    "proposal": "o_szd.1079#v002",
+    "decision": "completed",
+    "reason": "Der Ortsdialog wies die GND-Kennung 63291-0 als ungültig zurück (fünf Ziffern vor dem Prüfzeichen); im Review in der XML-Ansicht getippt.",
+    "how": "type-wrap",
+    "find": "<lb/>Komotau",
+    "target": "Komotau",
+    "open": "<placeName ref=\"http://d-nb.info/gnd/63291-0 http://www.geonames.org/3077685\">",
+    "close": "</placeName>",
+    "expect": "<placeName ref=\"http://d-nb.info/gnd/63291-0 http://www.geonames.org/3077685\">Komotau</placeName>"
+  }
+]

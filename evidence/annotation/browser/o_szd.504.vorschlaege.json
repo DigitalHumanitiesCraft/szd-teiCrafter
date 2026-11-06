@@ -1,0 +1,148 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.504",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, browser"
+  },
+  "derivedFrom": "o_szd.504.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.504#p001",
+      "text": "23/11. 16",
+      "offset": {
+        "from": 1202,
+        "to": 1211
+      },
+      "context": {
+        "before": "f_1\"/>\n      <p>\n        <lb/>",
+        "after": "\n        <lb/>~~Aus Villa Igie"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1906-11-23",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p002",
+      "text": "Palermo",
+      "offset": {
+        "from": 1671,
+        "to": 1678
+      },
+      "context": {
+        "before": "f_2\"/>\n      <p>\n        <lb/>",
+        "after": ", G[ro]d Hotel Villa\n        <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4044402-8 http://www.geonames.org/2523920"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p003",
+      "text": "Genua",
+      "offset": {
+        "from": 1848,
+        "to": 1853
+      },
+      "context": {
+        "before": " neuen\n        <lb/>Herzog[?] ",
+        "after": " gewünscht und\n        <lb/>wi"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4020185-5 http://www.geonames.org/3176219"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p004",
+      "text": "Rom",
+      "offset": {
+        "from": 1981,
+        "to": 1984
+      },
+      "context": {
+        "before": "he Reise\n        <lb/>gemacht ",
+        "after": ", Neapel und bleibe\n        <l"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4050471-2 http://www.geonames.org/3169070"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p005",
+      "text": "Neapel",
+      "offset": {
+        "from": 1986,
+        "to": 1992
+      },
+      "context": {
+        "before": "ise\n        <lb/>gemacht Rom, ",
+        "after": " und bleibe\n        <lb/>nun ü"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4041476-0 http://www.geonames.org/3172394"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p006",
+      "text": "Palermo",
+      "offset": {
+        "from": 2040,
+        "to": 2047
+      },
+      "context": {
+        "before": "  <lb/>nun über den Winter in ",
+        "after": ".\n        <lb/>Laß doch hier v"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4044402-8 http://www.geonames.org/2523920"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p007",
+      "text": "Stefan Zweig",
+      "offset": {
+        "from": 2184,
+        "to": 2196
+      },
+      "context": {
+        "before": "  <p>\n        <lb/>Signore Dr ",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.504#p008",
+      "text": "Vienna",
+      "offset": {
+        "from": 2231,
+        "to": 2237
+      },
+      "context": {
+        "before": "  </p>\n      <p>\n        <lb/>",
+        "after": " I\n        <lb/>Rathausstrasse"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "status": "proposed"
+    }
+  ]
+}

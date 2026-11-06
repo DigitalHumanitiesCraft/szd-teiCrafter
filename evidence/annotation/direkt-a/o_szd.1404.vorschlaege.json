@@ -1,0 +1,266 @@
+{
+  "format": "teicrafter-proposals/0.2",
+  "document": "o_szd.1404",
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5, direkt-a"
+  },
+  "derivedFrom": "o_szd.1404.tei.xml",
+  "proposals": [
+    {
+      "id": "o_szd.1404#p001",
+      "text": "Saint-Avertin",
+      "offset": {
+        "from": 1116,
+        "to": 1129
+      },
+      "context": {
+        "before": "  <lb/>Grandcour\n        <lb/>",
+        "after": "\n        <lb/>Indre-et-Loire\n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4219878-1 http://www.geonames.org/2981512"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p002",
+      "text": "Indre-et-Loire",
+      "offset": {
+        "from": 1143,
+        "to": 1157
+      },
+      "context": {
+        "before": "b/>Saint-Avertin\n        <lb/>",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1312453885"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p003",
+      "text": "Saint-Avertin",
+      "offset": {
+        "from": 1192,
+        "to": 1205
+      },
+      "context": {
+        "before": "  </p>\n      <p>\n        <lb/>",
+        "after": ", le 10 Juillet 1939\n      </p"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4219878-1 http://www.geonames.org/2981512"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p004",
+      "text": "10 Juillet 1939",
+      "offset": {
+        "from": 1210,
+        "to": 1225
+      },
+      "context": {
+        "before": "       <lb/>Saint-Avertin, le ",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1939-07-10"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p005",
+      "text": "6 Juillet",
+      "offset": {
+        "from": 1345,
+        "to": 1354
+      },
+      "context": {
+        "before": "s de recevoir votre lettre du ",
+        "after": ". Je suis\n        <lb/>bien co"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1939-07-06",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p006",
+      "text": "Paris",
+      "offset": {
+        "from": 1521,
+        "to": 1526
+      },
+      "context": {
+        "before": " bientôt venir à\n        <lb/>",
+        "after": ". Nous serons, ma femme et moi"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4044660-8 http://www.geonames.org/2988507"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p007",
+      "text": "mois d'Octobre",
+      "offset": {
+        "from": 1673,
+        "to": 1687
+      },
+      "context": {
+        "before": "as lieu\n        <lb/>avant le ",
+        "after": ", car nous-mêmes serons absent"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1939-10",
+        "cert": "low"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p008",
+      "text": "Paris",
+      "offset": {
+        "from": 1735,
+        "to": 1740
+      },
+      "context": {
+        "before": "erons absents de\n        <lb/>",
+        "after": " jusqu'à cette époque.\n      <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4044660-8 http://www.geonames.org/2988507"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p009",
+      "text": "Felix Bloch\n        <lb/>Erben",
+      "offset": {
+        "from": 2174,
+        "to": 2204
+      },
+      "context": {
+        "before": "is complètement que mon agent ",
+        "after": " s'était permis sans m'en dire"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/504859-X"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p010",
+      "text": "Felix Bloch Erben",
+      "offset": {
+        "from": 2586,
+        "to": 2603
+      },
+      "context": {
+        "before": " droit de le prendre. C'est à ",
+        "after": " seul que\n        <lb/>devront"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/504859-X"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p011",
+      "text": "Amérique",
+      "offset": {
+        "from": 2927,
+        "to": 2935
+      },
+      "context": {
+        "before": "lité, le jour où quelqu'un en ",
+        "after": " essaye-\n        <lb/>rait de "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4078704-7 http://www.geonames.org/6252001"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p012",
+      "text": "France",
+      "offset": {
+        "from": 3229,
+        "to": 3235
+      },
+      "context": {
+        "before": "été qui va tourner le film en ",
+        "after": ",\n        <lb/>le jour où elle"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4018145-5 http://www.geonames.org/3017382"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p013",
+      "text": "agence Bloch",
+      "offset": {
+        "from": 3585,
+        "to": 3597
+      },
+      "context": {
+        "before": "u de temps par les soins de l'",
+        "after": " de la\n        <lb/>Société de"
+      },
+      "element": "orgName",
+      "attributes": {},
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1404#p014",
+      "text": "Société des Auteurs",
+      "offset": {
+        "from": 3617,
+        "to": 3636
+      },
+      "context": {
+        "before": "ence Bloch de la\n        <lb/>",
+        "after": ". f\n      </p>\n      <p>\n     "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/5158511-X"
+      },
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1404#p015",
+      "text": "Jules Romains",
+      "offset": {
+        "from": 3736,
+        "to": 3749
+      },
+      "context": {
+        "before": "  </p>\n      <p>\n        <lb/>",
+        "after": "\n      </p>\n      <p>\n        "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1193"
+      },
+      "status": "proposed"
+    }
+  ]
+}

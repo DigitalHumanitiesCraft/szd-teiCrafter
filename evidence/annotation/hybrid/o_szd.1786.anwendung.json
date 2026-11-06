@@ -1,0 +1,931 @@
+{
+  "checks": {
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "openWork": "Keine offenen Stellen",
+    "state": "Bereit zur Abnahme | ",
+    "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "diff": "59 Zeilen entfernt, 59 hinzugefügt, an 19 Stellen.",
+    "downloadName": "o_szd.1786.tei.xml",
+    "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+    "errors": []
+  },
+  "log": [
+    {
+      "id": "o_szd.1786#v001",
+      "line": 48,
+      "text": "H. WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "registerFirstHit": "Weisflog, HeinrichGND 116402873 | SZDPER.2226",
+      "written": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v002",
+      "line": 50,
+      "text": "WERNER WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "registerFirstHit": "",
+      "written": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v003",
+      "line": 53,
+      "text": "ARNOLD HAUSER",
+      "element": "persName",
+      "steps": [],
+      "path": "typed (person without reference)",
+      "written": "<persName>ARNOLD HAUSER</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v004",
+      "line": 55,
+      "text": "ZURICH",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">ZURICH</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">ZURICH</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v005",
+      "line": 58,
+      "text": "Weisflog",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2226\">Weisflog</persName>",
+      "registerFirstHit": "Weisflog, HeinrichGND 116402873 | SZDPER.2226",
+      "written": "<persName ref=\"#SZDPER.2226\">Weisflog</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v006",
+      "line": 58,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v007",
+      "line": 62,
+      "text": "ZURICH",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">ZURICH</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">ZURICH</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v008",
+      "line": 62,
+      "text": "10. Mai 1938",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1938-05-10",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "written": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v009",
+      "line": 66,
+      "text": "Stefan Z w e i g",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1560\">Stefan Z w e i g</persName>",
+      "registerFirstHit": "Zweig, Stefan1881-11-28–1942-02-23 | GND 118637479 | SZDPER.1560",
+      "written": "<persName ref=\"#SZDPER.1560\">Stefan Z w e i g</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v010",
+      "line": 68,
+      "text": "L o n d o n",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4074335-4\">L o n d o n</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">L o n d o n</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v011",
+      "line": 69,
+      "text": "E n g l a n d",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4014770-8\">E n g l a n d</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131\">E n g l a n d</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v012",
+      "line": 72,
+      "text": "Herbert Reichner",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "registerFirstHit": "Reichner, Herbert1899-03-04–1971 | GND 116402873 | SZDPER.2188",
+      "written": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v013",
+      "line": 73,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v014",
+      "line": 75,
+      "text": "4.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-04\">4.</date>",
+      "written": "<date when=\"1938-05-04\" cert=\"low\">4.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v015",
+      "line": 75,
+      "text": "5. ds.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-05\">5. ds.</date>",
+      "written": "<date when=\"1938-05-05\" cert=\"low\">5. ds.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v016",
+      "line": 77,
+      "text": "5. ds.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-05\">5. ds.</date>",
+      "written": "<date when=\"1938-05-05\" cert=\"low\">5. ds.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v017",
+      "line": 81,
+      "text": "5. ds.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-05\">5. ds.</date>",
+      "written": "<date when=\"1938-05-05\" cert=\"low\">5. ds.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v018",
+      "line": 91,
+      "text": "20. April a.c.",
+      "element": "date",
+      "steps": [
+        "cert typed"
+      ],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-04-20\">20. April a.c.</date>",
+      "written": "<date when=\"1938-04-20\" cert=\"low\">20. April a.c.</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v019",
+      "line": 96,
+      "text": "England",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4014770-8\">England</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131\">England</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v020",
+      "line": 97,
+      "text": "Werner D.Stauffacher",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "ok": false,
+      "error": "Error: menu closed: "
+    },
+    {
+      "id": "o_szd.1786#v021",
+      "line": 110,
+      "text": "Herbert Reichner",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "registerFirstHit": "Reichner, Herbert1899-03-04–1971 | GND 116402873 | SZDPER.2188",
+      "written": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v022",
+      "line": 111,
+      "text": "Verlag Herbert Reichner",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/10119809-7\">Verlag Herbert Reichner</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v023",
+      "line": 111,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v024",
+      "line": 117,
+      "text": "Herbert Reichner",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "registerFirstHit": "Reichner, Herbert1899-03-04–1971 | GND 116402873 | SZDPER.2188",
+      "written": "<persName ref=\"#SZDPER.2188\">Herbert Reichner</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v025",
+      "line": 119,
+      "text": "Leipzig",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4035206-7\">Leipzig</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4035206-7 http://www.geonames.org/2879139\">Leipzig</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v026",
+      "line": 119,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v027",
+      "line": 119,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v028",
+      "line": 120,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v029",
+      "line": 121,
+      "text": "1935",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1935",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1935\">1935</date>",
+      "written": "<date when=\"1935\">1935</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v030",
+      "line": 122,
+      "text": "Werner D.Stauffacher",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "ok": false,
+      "error": "Error: menu closed: "
+    },
+    {
+      "id": "o_szd.1786#v031",
+      "line": 126,
+      "text": "Schweiz",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4053881-3\">Schweiz</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4053881-3 http://www.geonames.org/2658434\">Schweiz</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v032",
+      "line": 136,
+      "text": "Schweizerische Vereins-Sortiment",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2021755-9\">Schweizerische Vereins-Sortiment</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v033",
+      "line": 136,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v034",
+      "line": 142,
+      "text": "H. WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "registerFirstHit": "Weisflog, HeinrichGND 116402873 | SZDPER.2226",
+      "written": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v035",
+      "line": 142,
+      "text": "WERNER WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "registerFirstHit": "",
+      "written": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v036",
+      "line": 143,
+      "text": "ZÜRICH",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">ZÜRICH</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">ZÜRICH</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v037",
+      "line": 144,
+      "text": "10. Mai 1938",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1938-05-10",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "written": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v038",
+      "line": 144,
+      "text": "Stefan Zweig",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "ok": false,
+      "error": "Error: menu closed: "
+    },
+    {
+      "id": "o_szd.1786#v039",
+      "line": 144,
+      "text": "London",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4074335-4\">London</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v040",
+      "line": 153,
+      "text": "Josef Geiringer",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.1891\">Josef Geiringer</persName>",
+      "registerFirstHit": "Geiringer, JosefSZDPER.1891",
+      "written": "<persName ref=\"#SZDPER.1891\">Josef Geiringer</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v041",
+      "line": 165,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v042",
+      "line": 171,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v043",
+      "line": 171,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v044",
+      "line": 177,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v045",
+      "line": 180,
+      "text": "Zürich",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">Zürich</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">Zürich</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v046",
+      "line": 184,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v047",
+      "line": 187,
+      "text": "London",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4074335-4\">London</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v048",
+      "line": 192,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v049",
+      "line": 201,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v050",
+      "line": 202,
+      "text": "deutschen Reiches",
+      "element": "placeName",
+      "steps": [],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/2008993-4\">deutschen Reiches</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/2008993-4\">deutschen Reiches</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v051",
+      "line": 203,
+      "text": "Schweizerischen Vereins-Sorti- | ment",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2021755-9\">Schweizerischen Vereins-Sorti-\n        <lb/>ment</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v052",
+      "line": 204,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v053",
+      "line": 207,
+      "text": "Schwei- | zerischen Vereins-Sortiment",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2021755-9\">Schwei-\n        <lb/>zerischen Vereins-Sortiment</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v054",
+      "line": 215,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v055",
+      "line": 217,
+      "text": "Herbert Reichner-Verlages",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/10119809-7\">Herbert Reichner-Verlages</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v056",
+      "line": 223,
+      "text": "H. WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "registerFirstHit": "Weisflog, HeinrichGND 116402873 | SZDPER.2226",
+      "written": "<persName ref=\"#SZDPER.2226\">H. WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v057",
+      "line": 223,
+      "text": "WERNER WEISFLOG",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "registerFirstHit": "",
+      "written": "<persName ref=\"http://d-nb.info/gnd/1214668852\">WERNER WEISFLOG</persName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v058",
+      "line": 224,
+      "text": "ZÜRICH",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4068038-1\">ZÜRICH</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896\">ZÜRICH</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v059",
+      "line": 225,
+      "text": "10. Mai 1938",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1938-05-10",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "written": "<date when=\"1938-05-10\">10. Mai 1938</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v060",
+      "line": 225,
+      "text": "Stefan Zweig",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "ok": false,
+      "error": "Error: menu closed: "
+    },
+    {
+      "id": "o_szd.1786#v061",
+      "line": 225,
+      "text": "London",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4074335-4\">London</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v062",
+      "line": 236,
+      "text": "Schweizerischen | Vereins-Sortiment",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2021755-9\">Schweizerischen\n        <lb/>Vereins-Sortiment</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v063",
+      "line": 243,
+      "text": "Home Office",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/35565-3\">Home Office</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v064",
+      "line": 244,
+      "text": "London",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4074335-4\">London</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743\">London</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v065",
+      "line": 250,
+      "text": "1. März 1938",
+      "element": "date",
+      "steps": [],
+      "path": "menu+date-dialog",
+      "proposedByDialog": {
+        "when": "1938-03-01",
+        "from": "",
+        "to": ""
+      },
+      "preview": "<date when=\"1938-03-01\">1. März 1938</date>",
+      "written": "<date when=\"1938-03-01\">1. März 1938</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v066",
+      "line": 251,
+      "text": "1.-10. März | 1938",
+      "element": "date",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<date from=\"1938-03-01\" to=\"1938-03-10\">1.-10. März\n        <lb/>1938</date>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v067",
+      "line": 258,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v068",
+      "line": 260,
+      "text": "Olten",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4043506-4\">Olten</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297\">Olten</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v069",
+      "line": 261,
+      "text": "Schweizerische Vereins-Sorti- | ment",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (over a line break)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/2021755-9\">Schweizerische Vereins-Sorti-\n        <lb/>ment</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v070",
+      "line": 277,
+      "text": "Gestapo",
+      "element": "orgName",
+      "steps": [],
+      "path": "typed (no orgName action)",
+      "written": "<orgName ref=\"http://d-nb.info/gnd/4757614-5\">Gestapo</orgName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v071",
+      "line": 277,
+      "text": "Wien",
+      "element": "placeName",
+      "steps": [
+        "geonames typed"
+      ],
+      "path": "menu+place-dialog",
+      "preview": "<placeName ref=\"http://d-nb.info/gnd/4066009-6\">Wien</placeName>",
+      "written": "<placeName ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\">Wien</placeName>",
+      "ok": true
+    },
+    {
+      "id": "o_szd.1786#v072",
+      "line": 298,
+      "text": "H. Weisflog",
+      "element": "persName",
+      "steps": [],
+      "path": "menu+person-dialog",
+      "preview": "<persName ref=\"#SZDPER.2226\">H. Weisflog</persName>",
+      "registerFirstHit": "Weisflog, HeinrichGND 116402873 | SZDPER.2226",
+      "written": "<persName ref=\"#SZDPER.2226\">H. Weisflog</persName>",
+      "ok": true
+    }
+  ]
+}

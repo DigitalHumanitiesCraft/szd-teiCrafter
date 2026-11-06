@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-10-31
+updated: 2026-11-06
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -54,13 +54,13 @@ Each milestone passes three checks in this order.
 
 ## Where to resume
 
-On 2026-10-31 four LLM agents annotated nine documents in the trial run (ADR-015), the editor was changed after their findings, and proposals became reviewable one by one (ADR-016). All nine annotated objects lie as proposal files in the trial run folder, those of the direct and browser agents converted from their annotated copies with `tools/proposals-from-copy.mjs`. The steps follow from there.
+On 2026-10-31 four LLM agents annotated nine documents in the trial run (ADR-015), the editor was changed after their findings, and proposals became reviewable one by one (ADR-016). All nine annotated objects lie as proposal files under `evidence/annotation/`, those of the direct and browser agents converted from their annotated copies with `tools/proposals-from-copy.mjs`. The steps follow from there.
 
 1. Operator review. The operator works through the proposals of the calibration letter `o_szd.1222` and of further letters in the editor and saves TEI and review log. The reviewed `o_szd.1222` becomes the reference annotation, the first verified by a person.
 2. Evaluation against the reference: precision, recall and correct links per entity type for each way of annotating, a second run of the browser and hybrid agents to measure what the editor changes removed, a run in which agents write proposal files only, with review time and acceptance rate from the review log, and the same task repeated and run on a smaller model for stability and cost.
 3. Lookup quality. The card of a GND-linked person shows name and dates from lobid, the register search matches whole words or name beginnings instead of substrings (`Rom` finds eleven persons today), a person hit that is also a work title is flagged, and the place ranking is measured again on the queries of the research of 2026-10-31.
 4. Register report. Which person, organisation and place occurs in which documents, with contradicting links of the same name.
-5. Refactoring with a measured need: one function that opens the dialog of an action instead of four branches in `js/app.js`, one helper for card placement and one for downloads, `js/person.js` renamed after what it holds, the annotation check of the trial run moved into `tools/`, and the browser check split per run with a local stand-in for the GAMS manifest, whose slow answers cost reruns.
+5. Refactoring with a measured need: one function that opens the dialog of an action instead of four branches in `js/app.js`, one helper for card placement and one for downloads, `js/person.js` renamed after what it holds, and the browser check split per run with a local stand-in for the GAMS manifest, whose slow answers cost reruns.
 6. The trial run, which doubles as the operator acceptance of S1 and S2, and an independent review of the interface added on 2026-10-31 (review mode, organisation action, date dialog) in both colour schemes and at 900 px.
 7. Action menu, documents dialog and actions dialog after the Human User's review, recorded verbatim in [design](design.md#requirements-from-the-human-user): standard icons, no visible key letters, the menu on one line, selections snapped to word boundaries, a definition for each state icon, „Sammlungen“ instead of „Collections“, and the actions dialog's labels, tooltips and primary button.
 8. Project ODD. When SZD-split provides it, pin its generated RELAX NG and action catalogue, add the schema as first entry of `source.schemas`, and add the drift check against `data/actions.json` (ADR-010, ADR-013, ADR-014). The rules of [annotation](annotation.md) become part of it, with Schematron where RELAX NG cannot express them.

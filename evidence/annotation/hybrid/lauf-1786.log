@@ -1,0 +1,84 @@
+ok  o_szd.1786#v072 menu+person-dialog 
+ok  o_szd.1786#v071 menu+place-dialog 
+ok  o_szd.1786#v070 typed (no orgName action) 
+ok  o_szd.1786#v069 typed (over a line break) 
+ok  o_szd.1786#v068 menu+place-dialog 
+ok  o_szd.1786#v067 menu+place-dialog 
+ok  o_szd.1786#v066 typed (over a line break) 
+ok  o_szd.1786#v065 menu+date-dialog 
+ok  o_szd.1786#v064 menu+place-dialog 
+ok  o_szd.1786#v063 typed (no orgName action) 
+ok  o_szd.1786#v062 typed (over a line break) 
+ok  o_szd.1786#v061 menu+place-dialog 
+ERR o_szd.1786#v060 menu+person-dialog Error: menu closed: 
+ok  o_szd.1786#v059 menu+date-dialog 
+ok  o_szd.1786#v058 menu+place-dialog 
+ok  o_szd.1786#v057 menu+person-dialog 
+ok  o_szd.1786#v056 menu+person-dialog 
+ok  o_szd.1786#v055 typed (no orgName action) 
+ok  o_szd.1786#v054 menu+place-dialog 
+ok  o_szd.1786#v053 typed (over a line break) 
+ok  o_szd.1786#v052 menu+place-dialog 
+ok  o_szd.1786#v051 typed (over a line break) 
+ok  o_szd.1786#v050 menu+place-dialog 
+ok  o_szd.1786#v049 menu+place-dialog 
+ok  o_szd.1786#v048 menu+place-dialog 
+ok  o_szd.1786#v047 menu+place-dialog 
+ok  o_szd.1786#v046 menu+place-dialog 
+ok  o_szd.1786#v045 menu+place-dialog 
+ok  o_szd.1786#v044 menu+place-dialog 
+ok  o_szd.1786#v043 menu+place-dialog 
+ok  o_szd.1786#v042 menu+place-dialog 
+ok  o_szd.1786#v041 menu+place-dialog 
+ok  o_szd.1786#v040 menu+person-dialog 
+ok  o_szd.1786#v039 menu+place-dialog 
+ERR o_szd.1786#v038 menu+person-dialog Error: menu closed: 
+ok  o_szd.1786#v037 menu+date-dialog 
+ok  o_szd.1786#v036 menu+place-dialog 
+ok  o_szd.1786#v035 menu+person-dialog 
+ok  o_szd.1786#v034 menu+person-dialog 
+ok  o_szd.1786#v033 menu+place-dialog 
+ok  o_szd.1786#v032 typed (no orgName action) 
+ok  o_szd.1786#v031 menu+place-dialog 
+ERR o_szd.1786#v030 menu+person-dialog Error: menu closed: 
+ok  o_szd.1786#v029 menu+date-dialog 
+ok  o_szd.1786#v028 menu+place-dialog 
+ok  o_szd.1786#v027 menu+place-dialog 
+ok  o_szd.1786#v026 menu+place-dialog 
+ok  o_szd.1786#v025 menu+place-dialog 
+ok  o_szd.1786#v024 menu+person-dialog 
+ok  o_szd.1786#v023 menu+place-dialog 
+ok  o_szd.1786#v022 typed (no orgName action) 
+ok  o_szd.1786#v021 menu+person-dialog 
+ERR o_szd.1786#v020 menu+person-dialog Error: menu closed: 
+ok  o_szd.1786#v019 menu+place-dialog 
+ok  o_szd.1786#v018 menu+date-dialog 
+ok  o_szd.1786#v017 menu+date-dialog 
+ok  o_szd.1786#v016 menu+date-dialog 
+ok  o_szd.1786#v015 menu+date-dialog 
+ok  o_szd.1786#v014 menu+date-dialog 
+ok  o_szd.1786#v013 menu+place-dialog 
+ok  o_szd.1786#v012 menu+person-dialog 
+ok  o_szd.1786#v011 menu+place-dialog 
+ok  o_szd.1786#v010 menu+place-dialog 
+ok  o_szd.1786#v009 menu+person-dialog 
+ok  o_szd.1786#v008 menu+date-dialog 
+ok  o_szd.1786#v007 menu+place-dialog 
+ok  o_szd.1786#v006 menu+place-dialog 
+ok  o_szd.1786#v005 menu+person-dialog 
+ok  o_szd.1786#v004 menu+place-dialog 
+ok  o_szd.1786#v003 typed (person without reference) 
+ok  o_szd.1786#v002 menu+person-dialog 
+ok  o_szd.1786#v001 menu+person-dialog 
+{
+ "wellFormed": "Wohlgeformt",
+ "valid": "TEI-konform",
+ "openWork": "Keine offenen Stellen",
+ "state": "Bereit zur Abnahme | ",
+ "status": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+ "diff": "59 Zeilen entfernt, 59 hinzugefügt, an 19 Stellen.",
+ "downloadName": "o_szd.1786.tei.xml",
+ "saveState": "Als Download übergeben, Ankunft nicht bestätigt",
+ "errors": []
+}
+68/72 applied as proposed

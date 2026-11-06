@@ -1,0 +1,25 @@
+{"kind":"place","text":"Düsseldorf","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"date","text":"18.VI.1930","ok":true,"wf":"Wohlgeformt","actions":2}
+{"kind":"org","text":"Rheinrestaurant Schnellenburg","ok":true,"wf":"Fehler Zeile 74","actions":5}
+{"kind":"person","text":"Franz Herriger","ok":true,"wf":"Fehler Zeile 74","actions":9}
+{"kind":"place","text":"Düsseldorf","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"person","text":"Hans Morth","ok":true,"wf":"Fehler Zeile 87","actions":9}
+{"kind":"personTyped","text":"W.","ok":true,"wf":"Fehler Zeile 87","actions":5}
+{"kind":"person","text":"Irene Spiess","ok":true,"wf":"Fehler Zeile 87","actions":9}
+{"kind":"person","text":"Hiede ell Vries","ok":true,"wf":"Fehler Zeile 87","actions":9}
+{"kind":"person","text":"Margot Engel","ok":true,"wf":"Fehler Zeile 87","actions":9}
+{"kind":"personTyped","text":"H.","ok":true,"wf":"Fehler Zeile 87","actions":5}
+{"kind":"person","text":"Stephan Zweig","ok":false,"error":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#register-results .result, #person-results .result').filter({ hasText: 'SZDPER.1560' }).first()\u001b[22m\n","wf":"Wohlgeformt","actions":4}
+{"kind":"place","text":"Salzburg","ok":false,"error":"Error: selection is \"Stephan Zweig\", wanted \"Salzburg\"","wf":"Wohlgeformt","actions":1}
+{"kind":"org","text":"Rheinrestaurant Schnellenburg","ok":true,"wf":"Fehler Zeile 49","actions":5}
+{"kind":"person","text":"Franz Herriger","ok":true,"wf":"Fehler Zeile 49","actions":9}
+{"kind":"place","text":"Düsseldorf","ok":true,"wf":"Wohlgeformt","actions":7}
+{"kind":"person","text":"Hans Morth","ok":true,"wf":"Fehler Zeile 62","actions":8}
+{"kind":"personTyped","text":"W.","ok":true,"wf":"Fehler Zeile 62","actions":5}
+{"kind":"person","text":"Irene Spiess","ok":true,"wf":"Fehler Zeile 62","actions":8}
+{"kind":"person","text":"Hiede ell Vries","ok":true,"wf":"Fehler Zeile 62","actions":8}
+{"kind":"person","text":"Margot Engel","ok":true,"wf":"Fehler Zeile 62","actions":8}
+{"kind":"personTyped","text":"H.","ok":true,"wf":"Fehler Zeile 62","actions":5}
+{"kind":"person","text":"Stephan Zweig","ok":false,"error":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#register-results .result, #person-results .result').filter({ hasText: 'SZDPER.1560' }).first()\u001b[22m\n","wf":"Wohlgeformt","actions":4}
+{"kind":"place","text":"Salzburg","ok":false,"error":"Error: selection is \"Stephan Zweig\", wanted \"Salzburg\"","wf":"Wohlgeformt","actions":1}
+{"id":"o_szd.406","work":"70 offene Stellen","valid":"TEI-konform","state":"In Bearbeitung | 70 offene Stellen","xmlStatus":"Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.","suggested":"o_szd.406.tei.xml","actions":152,"seconds":183}

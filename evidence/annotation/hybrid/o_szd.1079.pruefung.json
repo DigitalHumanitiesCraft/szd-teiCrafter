@@ -1,0 +1,190 @@
+{
+  "cards": [
+    {
+      "line": 51,
+      "element": "persName",
+      "inner": "Max Fleischer",
+      "attrs": "ref=\"#SZDPER.403\"",
+      "title": "Person",
+      "detail": "Fleischer, Max | 1880-01-31–1941 | SZDPER.403",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 56,
+      "element": "placeName",
+      "inner": "Böhmen",
+      "attrs": "ref=\"http://d-nb.info/gnd/4007467-5\"",
+      "title": "Ort",
+      "detail": "GND 4007467-5",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 60,
+      "element": "persName",
+      "inner": "STEFAN ZWEIG",
+      "attrs": "ref=\"#SZDPER.1560\"",
+      "title": "Person",
+      "detail": "Zweig, Stefan | 1881-11-28–1942-02-23 | SZDPER.1560",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 64,
+      "element": "persName",
+      "inner": "Fleischer",
+      "attrs": "ref=\"#SZDPER.403\"",
+      "title": "Person",
+      "detail": "Fleischer, Max | 1880-01-31–1941 | SZDPER.403",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 69,
+      "element": "persName",
+      "inner": "Donath",
+      "attrs": "ref=\"#SZDPER.1860\"",
+      "title": "Person",
+      "detail": "Donath, Adolph | SZDPER.1860",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 74,
+      "element": "persName",
+      "inner": "Donath",
+      "attrs": "ref=\"#SZDPER.1860\"",
+      "title": "Person",
+      "detail": "Donath, Adolph | SZDPER.1860",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 75,
+      "element": "placeName",
+      "inner": "Karlsbad",
+      "attrs": "ref=\"http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803\"",
+      "title": "Ort",
+      "detail": "GND 4029705-6 http://www.geonames.org/3073803",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 77,
+      "element": "placeName",
+      "inner": "Marienbad",
+      "attrs": "ref=\"http://d-nb.info/gnd/4037541-9 http://www.geonames.org/3071024\"",
+      "title": "Ort",
+      "detail": "GND 4037541-9 http://www.geonames.org/3071024",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 79,
+      "element": "placeName",
+      "inner": "Karlsbad",
+      "attrs": "ref=\"http://d-nb.info/gnd/4029705-6 http://www.geonames.org/3073803\"",
+      "title": "Ort",
+      "detail": "GND 4029705-6 http://www.geonames.org/3073803",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 83,
+      "element": "persName",
+      "inner": "Franz | Evers",
+      "attrs": "ref=\"#SZDPER.373\"",
+      "title": "Person",
+      "detail": "Evers, Franz | 1871-07-10–1947-09-14 | SZDPER.373",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 92,
+      "element": "placeName",
+      "inner": "Wien",
+      "attrs": "ref=\"http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367\"",
+      "title": "Ort",
+      "detail": "GND 4066009-6 http://www.geonames.org/2761367",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 100,
+      "element": "orgName",
+      "inner": "Schuster &amp; Löffler",
+      "attrs": "ref=\"http://d-nb.info/gnd/5325296-2\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 101,
+      "element": "date",
+      "inner": "dieser | Woche",
+      "attrs": "notBefore=\"1901-05-20\" notAfter=\"1901-05-26\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@notBefore 1901-05-20 | @notAfter 1901-05-26",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 107,
+      "element": "persName",
+      "inner": "Stefan Zweig",
+      "attrs": "ref=\"#SZDPER.1560\"",
+      "title": "Person",
+      "detail": "Zweig, Stefan | 1881-11-28–1942-02-23 | SZDPER.1560",
+      "note": "",
+      "change": true
+    },
+    {
+      "line": 113,
+      "element": "orgName",
+      "inner": "Schuster &amp; Löffler",
+      "attrs": "ref=\"http://d-nb.info/gnd/5325296-2\"",
+      "title": null,
+      "detail": "keine Karte"
+    },
+    {
+      "line": 114,
+      "element": "date",
+      "inner": "dieser | Woche",
+      "attrs": "notBefore=\"1901-05-20\" notAfter=\"1901-05-26\" cert=\"low\"",
+      "title": "Datum",
+      "detail": "@notBefore 1901-05-20 | @notAfter 1901-05-26",
+      "note": "Weitere Attribute (@cert) stehen in der XML-Ansicht.",
+      "change": true
+    },
+    {
+      "line": 120,
+      "element": "persName",
+      "inner": "Stefan Zweig",
+      "attrs": "ref=\"#SZDPER.1560\"",
+      "title": "Person",
+      "detail": "Zweig, Stefan | 1881-11-28–1942-02-23 | SZDPER.1560",
+      "note": "",
+      "change": true
+    }
+  ],
+  "f8": [
+    {
+      "line": 44,
+      "selected": "",
+      "note": "",
+      "suggested": null
+    }
+  ],
+  "checks": {
+    "openWorkBefore": "Keine offenen Stellen",
+    "wellFormed": "Wohlgeformt",
+    "valid": "TEI-konform",
+    "validStatus": "Gültig gegen TEI All (P5 4.11.0), das Rückfallschema, das nur wenig einschränkt. Ein Projektschema ist noch nicht hinterlegt.",
+    "openWork": "Keine offenen Stellen",
+    "state": "Bereit zur Abnahme | ",
+    "diff": "Keine Änderungen seit dem Öffnen.",
+    "diffRows": []
+  },
+  "corrections": [],
+  "errors": []
+}

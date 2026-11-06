@@ -1,0 +1,42 @@
+[
+  {
+    "proposal": "o_szd.1786#v020",
+    "decision": "completed",
+    "reason": "Im Anwendungslauf schloss sich das Menü (Auswahl am Ende einer langen umbrochenen Zeile); im Review erneut über das Menü angewendet.",
+    "how": "menu-person",
+    "find": "Herr Dr. Werner D.Stauffacher,",
+    "target": "Werner D.Stauffacher",
+    "value": "SZDPER.2206",
+    "expect": "Herr Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>,"
+  },
+  {
+    "proposal": "o_szd.1786#v030",
+    "decision": "completed",
+    "reason": "wie v020",
+    "how": "menu-person",
+    "find": "Herrn Dr. Werner D.Stauffacher",
+    "target": "Werner D.Stauffacher",
+    "value": "SZDPER.2206",
+    "expect": "Herrn Dr. <persName ref=\"#SZDPER.2206\">Werner D.Stauffacher</persName>"
+  },
+  {
+    "proposal": "o_szd.1786#v038",
+    "decision": "completed",
+    "reason": "wie v020",
+    "how": "menu-person",
+    "find": "2. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. Stefan Zweig",
+    "target": "Stefan Zweig",
+    "value": "SZDPER.1560",
+    "expect": "1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>, <placeName"
+  },
+  {
+    "proposal": "o_szd.1786#v060",
+    "decision": "completed",
+    "reason": "wie v020",
+    "how": "menu-person",
+    "find": "3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. Stefan Zweig",
+    "target": "Stefan Zweig",
+    "value": "SZDPER.1560",
+    "expect": "3. BLATT zum BRIEF vom <date when=\"1938-05-10\">10. Mai 1938</date> an Herrn Dr. <persName ref=\"#SZDPER.1560\">Stefan Zweig</persName>"
+  }
+]

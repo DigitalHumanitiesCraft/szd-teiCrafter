@@ -1,0 +1,2269 @@
+{
+  "format": "teicrafter-proposals/0.1",
+  "document": "o_szd.1786",
+  "source": {
+    "path": "data/korrespondenzen/o_szd.1786.tei.xml",
+    "sha256": "79224fb69e1ff0ba7a916e3231ec89b6992c8a5b3f65b031ebe3b4d039e4aa7b",
+    "lineEnding": "LF",
+    "offsets": "UTF-16 code units in the file as read, LF line breaks"
+  },
+  "producer": {
+    "kind": "llm-agent",
+    "model": "claude-opus-5-5",
+    "revised": false,
+    "created": "2026-10-31",
+    "rules": "szd-teiCrafter/knowledge/annotation.md"
+  },
+  "letterDate": {
+    "value": "1938-05-10",
+    "basis": "teiHeader/titleStmt/title"
+  },
+  "proposals": [
+    {
+      "id": "o_szd.1786#v001",
+      "line": 48,
+      "text": "H. WEISFLOG",
+      "shown": "H. WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 1537,
+        "to": 1548
+      },
+      "context": {
+        "before": "    <p>\n        <lb/>Dr ",
+        "after": "\n        <lb/>UND\n      "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2226"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2226",
+          "label": "Weisflog, Heinrich"
+        }
+      ],
+      "doubt": "Der Index führt bei SZDPER.2226 die GND 116402873, die zu Herbert Reichner gehört; vermutlich ein Indexfehler. Kandidat in der GND: Weisflog, Heinrich-Julius (1872–1939), Zürcher Jurist, 1051890500.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v002",
+      "line": 50,
+      "text": "WERNER WEISFLOG",
+      "shown": "WERNER WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 1582,
+        "to": 1597
+      },
+      "context": {
+        "before": "lb/>UND\n        <lb/>Dr ",
+        "after": "\n        <lb/>RECHTSANWÄ"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1214668852"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "1214668852",
+          "label": "Weisflog, Werner (1905), Jurist",
+          "source": "https://lobid.org/gnd/1214668852.json"
+        }
+      ],
+      "doubt": "GND-Satz ohne Ort; Zuordnung nur über Name, Beruf und Zeit plausibel.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v003",
+      "line": 53,
+      "text": "ARNOLD HAUSER",
+      "shown": "ARNOLD HAUSER",
+      "occurrence": 1,
+      "offset": {
+        "from": 1677,
+        "to": 1690
+      },
+      "context": {
+        "before": "beiter:\n        <lb/>Dr ",
+        "after": "\n        <lb/>Rechtsanwa"
+      },
+      "element": "persName",
+      "attributes": {},
+      "basis": [
+        {
+          "kind": "none",
+          "label": "nicht identifiziert"
+        }
+      ],
+      "doubt": "In der GND nur Hauser, Arnold (1902) ohne Angaben (1089411294); der Kunsthistoriker 118547011 ist ein anderer.",
+      "status": "proposed-open"
+    },
+    {
+      "id": "o_szd.1786#v004",
+      "line": 55,
+      "text": "ZURICH",
+      "shown": "ZURICH",
+      "occurrence": 1,
+      "offset": {
+        "from": 1730,
+        "to": 1736
+      },
+      "context": {
+        "before": "chtsanwalt\n        <lb/>",
+        "after": " 1\n        <lb/>Talacker"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v005",
+      "line": 58,
+      "text": "Weisflog",
+      "shown": "Weisflog",
+      "occurrence": 1,
+      "offset": {
+        "from": 1832,
+        "to": 1840
+      },
+      "context": {
+        "before": "b/>Telegr.-Adresse: Dr. ",
+        "after": ", Zürich\n        <lb/>Po"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2226"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2226",
+          "label": "Weisflog, Heinrich"
+        }
+      ],
+      "doubt": "Teil der Telegrammadresse „Dr. Weisflog, Zürich“; dieselbe Indexfrage wie bei H. WEISFLOG.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v006",
+      "line": 58,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 1842,
+        "to": 1848
+      },
+      "context": {
+        "before": "-Adresse: Dr. Weisflog, ",
+        "after": "\n        <lb/>Postcheck-"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v007",
+      "line": 62,
+      "text": "ZURICH",
+      "shown": "ZURICH",
+      "occurrence": 1,
+      "offset": {
+        "from": 1933,
+        "to": 1939
+      },
+      "context": {
+        "before": "\n      <p>\n        <lb/>",
+        "after": ", den 10. Mai 1938.\n    "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v008",
+      "line": 62,
+      "text": "10. Mai 1938",
+      "shown": "10. Mai 1938",
+      "occurrence": 1,
+      "offset": {
+        "from": 1945,
+        "to": 1957
+      },
+      "context": {
+        "before": "       <lb/>ZURICH, den ",
+        "after": ".\n      </p>\n      <p>\n "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-10"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Datumszeile"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v009",
+      "line": 66,
+      "text": "Stefan Z w e i g",
+      "shown": "Stefan Z w e i g",
+      "occurrence": 1,
+      "offset": {
+        "from": 2016,
+        "to": 2032
+      },
+      "context": {
+        "before": ">Herrn\n        <lb/>Dr. ",
+        "after": ",\n        <lb/>49, Halla"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v010",
+      "line": 68,
+      "text": "L o n d o n",
+      "shown": "L o n d o n",
+      "occurrence": 1,
+      "offset": {
+        "from": 2079,
+        "to": 2090
+      },
+      "context": {
+        "before": "am Street,\n        <lb/>",
+        "after": " W. 1.\n        <lb/>E n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4074335-4",
+          "label": "London",
+          "source": "https://lobid.org/gnd/4074335-4.json",
+          "geonames": "https://sws.geonames.org/2643743",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v011",
+      "line": 69,
+      "text": "E n g l a n d",
+      "shown": "E n g l a n d",
+      "occurrence": 1,
+      "offset": {
+        "from": 2110,
+        "to": 2123
+      },
+      "context": {
+        "before": " o n W. 1.\n        <lb/>",
+        "after": ".\n      </p>\n      <p>\n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4014770-8",
+          "label": "England",
+          "source": "https://lobid.org/gnd/4014770-8.json",
+          "geonames": "https://sws.geonames.org/6269131",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v012",
+      "line": 72,
+      "text": "Herbert Reichner",
+      "shown": "Herbert Reichner",
+      "occurrence": 1,
+      "offset": {
+        "from": 2176,
+        "to": 2192
+      },
+      "context": {
+        "before": "  <lb/>Namens des Herrn ",
+        "after": ", Alleininhabers des\n   "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2188",
+          "label": "Reichner, Herbert (1899-03-04–1971)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v013",
+      "line": 73,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 2270,
+        "to": 2276
+      },
+      "context": {
+        "before": "es, handelsregisterlich ",
+        "after": " 1, St. Peter-\n        <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v014",
+      "line": 75,
+      "text": "4.",
+      "shown": "4.",
+      "occurrence": 1,
+      "offset": {
+        "from": 2403,
+        "to": 2405
+      },
+      "context": {
+        "before": ">beiden Zuschriften vom ",
+        "after": " und 5. ds. an den Unter"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-04",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„vom 4. und 5. ds.“: Tag dieses Monats, Monat und Jahr aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v015",
+      "line": 75,
+      "text": "5. ds.",
+      "shown": "5. ds.",
+      "occurrence": 1,
+      "offset": {
+        "from": 2410,
+        "to": 2416
+      },
+      "context": {
+        "before": " Zuschriften vom 4. und ",
+        "after": " an den Unterzeichneten,"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-05",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„ds.“ = dieses Monats, aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v016",
+      "line": 77,
+      "text": "5. ds.",
+      "shown": "5. ds.",
+      "occurrence": 1,
+      "offset": {
+        "from": 2565,
+        "to": 2571
+      },
+      "context": {
+        "before": "richteten Zuschrift vom ",
+        "after": "\n        <lb/>Hiemit ges"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-05",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„ds.“ = dieses Monats, aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v017",
+      "line": 81,
+      "text": "5. ds.",
+      "shown": "5. ds.",
+      "occurrence": 1,
+      "offset": {
+        "from": 2798,
+        "to": 2804
+      },
+      "context": {
+        "before": "essen Ihr Schreiben vom ",
+        "after": " an meinen Klienten\n    "
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-05",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„ds.“ = dieses Monats, aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v018",
+      "line": 91,
+      "text": "20. April a.c.",
+      "shown": "20. April a.c.",
+      "occurrence": 1,
+      "offset": {
+        "from": 3462,
+        "to": 3476
+      },
+      "context": {
+        "before": "digung vom\n        <lb/>",
+        "after": " das \"Verlagseigentum an"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-04-20",
+        "cert": "low"
+      },
+      "basis": [
+        {
+          "kind": "inference",
+          "label": "„a.c.“ = anno currente, Jahr aus dem Briefdatum"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v019",
+      "line": 96,
+      "text": "England",
+      "shown": "England",
+      "occurrence": 1,
+      "offset": {
+        "from": 3869,
+        "to": 3876
+      },
+      "context": {
+        "before": "ass Sie den Prozess von ",
+        "after": " aus führen. Wie ich\n   "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4014770-8 http://www.geonames.org/6269131"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4014770-8",
+          "label": "England",
+          "source": "https://lobid.org/gnd/4014770-8.json",
+          "geonames": "https://sws.geonames.org/6269131",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v020",
+      "line": 97,
+      "text": "Werner D.Stauffacher",
+      "shown": "Werner D.Stauffacher",
+      "occurrence": 1,
+      "offset": {
+        "from": 3949,
+        "to": 3969
+      },
+      "context": {
+        "before": "iesiger Anwalt Herr Dr. ",
+        "after": ",\n        <lb/>der Sie i"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2206"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2206",
+          "label": "Stauffacher, Werner"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v021",
+      "line": 110,
+      "text": "Herbert Reichner",
+      "shown": "Herbert Reichner",
+      "occurrence": 1,
+      "offset": {
+        "from": 4645,
+        "to": 4661
+      },
+      "context": {
+        "before": "erträge nicht mit Herrn ",
+        "after": " persön-\n        <lb/>li"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2188",
+          "label": "Reichner, Herbert (1899-03-04–1971)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v022",
+      "line": 111,
+      "text": "Verlag Herbert Reichner",
+      "shown": "Verlag Herbert Reichner",
+      "occurrence": 1,
+      "offset": {
+        "from": 4706,
+        "to": 4729
+      },
+      "context": {
+        "before": ">lich, sondern mit dem \"",
+        "after": ", Wien\"abgeschlossen\n   "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/10119809-7"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.24",
+          "label": "Herbert-Reichner-Verlag",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "10119809-7",
+          "label": "Herbert-Reichner-Verlag",
+          "source": "https://lobid.org/gnd/10119809-7.json"
+        }
+      ],
+      "doubt": "Zitierte Firmenbezeichnung; die eingeschlossene Personennennung wird nicht eigens markiert.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v023",
+      "line": 111,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 4731,
+        "to": 4735
+      },
+      "context": {
+        "before": "erlag Herbert Reichner, ",
+        "after": "\"abgeschlossen\n        <"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v024",
+      "line": 117,
+      "text": "Herbert Reichner",
+      "shown": "Herbert Reichner",
+      "occurrence": 1,
+      "offset": {
+        "from": 5173,
+        "to": 5189
+      },
+      "context": {
+        "before": "rson, sondern mit Herrn ",
+        "after": ", als\n        <lb/>Einze"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2188"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2188",
+          "label": "Reichner, Herbert (1899-03-04–1971)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v025",
+      "line": 119,
+      "text": "Leipzig",
+      "shown": "Leipzig",
+      "occurrence": 1,
+      "offset": {
+        "from": 5312,
+        "to": 5319
+      },
+      "context": {
+        "before": "en Verträgen drei Orte (",
+        "after": ", Wien, Zürich) und als\n"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4035206-7 http://www.geonames.org/2879139"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4035206-7",
+          "label": "Leipzig",
+          "source": "https://lobid.org/gnd/4035206-7.json",
+          "geonames": "https://sws.geonames.org/2879139",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v026",
+      "line": 119,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 5321,
+        "to": 5325
+      },
+      "context": {
+        "before": "gen drei Orte (Leipzig, ",
+        "after": ", Zürich) und als\n      "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v027",
+      "line": 119,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 5327,
+        "to": 5333
+      },
+      "context": {
+        "before": "ei Orte (Leipzig, Wien, ",
+        "after": ") und als\n        <lb/>H"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v028",
+      "line": 120,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 5366,
+        "to": 5370
+      },
+      "context": {
+        "before": "\n        <lb/>Hauptsitz ",
+        "after": " bezeichnet. Die Zürcher"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v029",
+      "line": 121,
+      "text": "1935",
+      "shown": "1935",
+      "occurrence": 1,
+      "offset": {
+        "from": 5436,
+        "to": 5440
+      },
+      "context": {
+        "before": " be-\n        <lb/>reits ",
+        "after": " auf Ihren eigenen, ausd"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1935"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Jahreszahl"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v030",
+      "line": 122,
+      "text": "Werner D.Stauffacher",
+      "shown": "Werner D.Stauffacher",
+      "occurrence": 1,
+      "offset": {
+        "from": 5548,
+        "to": 5568
+      },
+      "context": {
+        "before": "n-Inhaber und Herrn Dr. ",
+        "after": "\n        <lb/>als Prokur"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2206"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2206",
+          "label": "Stauffacher, Werner"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v031",
+      "line": 126,
+      "text": "Schweiz",
+      "shown": "Schweiz",
+      "occurrence": 1,
+      "offset": {
+        "from": 5820,
+        "to": 5827
+      },
+      "context": {
+        "before": "      <lb/>firma in der ",
+        "after": " eine \"Konzession\" notwe"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4053881-3 http://www.geonames.org/2658434"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4053881-3",
+          "label": "Schweiz",
+          "source": "https://lobid.org/gnd/4053881-3.json",
+          "geonames": "https://sws.geonames.org/2658434",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v032",
+      "line": 136,
+      "text": "Schweizerische Vereins-Sortiment",
+      "shown": "Schweizerische Vereins-Sortiment",
+      "occurrence": 1,
+      "offset": {
+        "from": 6567,
+        "to": 6599
+      },
+      "context": {
+        "before": "        <lb/>Klient das ",
+        "after": ", Olten mit der\n        "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2021755-9"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.41",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "2021755-9",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://lobid.org/gnd/2021755-9.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v033",
+      "line": 136,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 6601,
+        "to": 6606
+      },
+      "context": {
+        "before": "sche Vereins-Sortiment, ",
+        "after": " mit der\n        <lb/>Au"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v034",
+      "line": 142,
+      "text": "H. WEISFLOG",
+      "shown": "H. WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 6794,
+        "to": 6805
+      },
+      "context": {
+        "before": "   <p>\n        <lb/>Dr. ",
+        "after": " und Dr. WERNER WEISFLOG"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2226"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2226",
+          "label": "Weisflog, Heinrich"
+        }
+      ],
+      "doubt": "Der Index führt bei SZDPER.2226 die GND 116402873, die zu Herbert Reichner gehört; vermutlich ein Indexfehler. Kandidat in der GND: Weisflog, Heinrich-Julius (1872–1939), Zürcher Jurist, 1051890500.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v035",
+      "line": 142,
+      "text": "WERNER WEISFLOG",
+      "shown": "WERNER WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 6814,
+        "to": 6829
+      },
+      "context": {
+        "before": "Dr. H. WEISFLOG und Dr. ",
+        "after": "\n        <lb/>ZÜRICH\n   "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1214668852"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "1214668852",
+          "label": "Weisflog, Werner (1905), Jurist",
+          "source": "https://lobid.org/gnd/1214668852.json"
+        }
+      ],
+      "doubt": "GND-Satz ohne Ort; Zuordnung nur über Name, Beruf und Zeit plausibel.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v036",
+      "line": 143,
+      "text": "ZÜRICH",
+      "shown": "ZÜRICH",
+      "occurrence": 1,
+      "offset": {
+        "from": 6843,
+        "to": 6849
+      },
+      "context": {
+        "before": "R WEISFLOG\n        <lb/>",
+        "after": "\n        <lb/>2. BLATT z"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v037",
+      "line": 144,
+      "text": "10. Mai 1938",
+      "shown": "10. Mai 1938",
+      "occurrence": 1,
+      "offset": {
+        "from": 6886,
+        "to": 6898
+      },
+      "context": {
+        "before": ">2. BLATT zum BRIEF vom ",
+        "after": " an Herrn Dr. Stefan Zwe"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-10"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Folgeblattkopf"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v038",
+      "line": 144,
+      "text": "Stefan Zweig",
+      "shown": "Stefan Zweig",
+      "occurrence": 1,
+      "offset": {
+        "from": 6912,
+        "to": 6924
+      },
+      "context": {
+        "before": ". Mai 1938 an Herrn Dr. ",
+        "after": ", London.\n      </p>\n   "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v039",
+      "line": 144,
+      "text": "London",
+      "shown": "London",
+      "occurrence": 1,
+      "offset": {
+        "from": 6926,
+        "to": 6932
+      },
+      "context": {
+        "before": "Herrn Dr. Stefan Zweig, ",
+        "after": ".\n      </p>\n      <p>\n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4074335-4",
+          "label": "London",
+          "source": "https://lobid.org/gnd/4074335-4.json",
+          "geonames": "https://sws.geonames.org/2643743",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v040",
+      "line": 153,
+      "text": "Josef Geiringer",
+      "shown": "Josef Geiringer",
+      "occurrence": 1,
+      "offset": {
+        "from": 7417,
+        "to": 7432
+      },
+      "context": {
+        "before": " <lb/>Anwalt, Herrn Dr. ",
+        "after": ", den schriftlichen Wuns"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1891"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1891",
+          "label": "Geiringer, Josef"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v041",
+      "line": 165,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 8322,
+        "to": 8326
+      },
+      "context": {
+        "before": "t seinen Angehörigen in ",
+        "after": " Schwierig-\n        <lb/"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v042",
+      "line": 171,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 8741,
+        "to": 8747
+      },
+      "context": {
+        "before": "  <lb/>Peterstrasse 18, ",
+        "after": " 1, oder Hauptpostlagern"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v043",
+      "line": 171,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 2,
+      "offset": {
+        "from": 8773,
+        "to": 8779
+      },
+      "context": {
+        "before": ", oder Hauptpostlagernd ",
+        "after": " rich-\n        <lb/>ten,"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v044",
+      "line": 177,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 9184,
+        "to": 9190
+      },
+      "context": {
+        "before": "sönlichen Wohnsitz nach ",
+        "after": "\n        <lb/>verlegt, s"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v045",
+      "line": 180,
+      "text": "Zürich",
+      "shown": "Zürich",
+      "occurrence": 1,
+      "offset": {
+        "from": 9368,
+        "to": 9374
+      },
+      "context": {
+        "before": "   <lb/>ist bekanntlich ",
+        "after": " ebenfalls als Verlagssi"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v046",
+      "line": 184,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 9494,
+        "to": 9498
+      },
+      "context": {
+        "before": "     <lb/>während darin ",
+        "after": " als Hauptsitz figuriert"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v047",
+      "line": 187,
+      "text": "London",
+      "shown": "London",
+      "occurrence": 1,
+      "offset": {
+        "from": 9718,
+        "to": 9724
+      },
+      "context": {
+        "before": "    <lb/>denselben nach ",
+        "after": " zu verlegen, ohne dass "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4074335-4",
+          "label": "London",
+          "source": "https://lobid.org/gnd/4074335-4.json",
+          "geonames": "https://sws.geonames.org/2643743",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v048",
+      "line": 192,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 10089,
+        "to": 10093
+      },
+      "context": {
+        "before": " war, gibt Ihnen die in ",
+        "after": " angeordnete\n        <lb"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v049",
+      "line": 201,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 10749,
+        "to": 10754
+      },
+      "context": {
+        "before": "och zu diesem Zwecke in ",
+        "after": " ein Lager zur Belieferu"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v050",
+      "line": 202,
+      "text": "deutschen Reiches",
+      "shown": "deutschen Reiches",
+      "occurrence": 1,
+      "offset": {
+        "from": 10834,
+        "to": 10851
+      },
+      "context": {
+        "before": "hhandels ausserhalb des ",
+        "after": " ange-\n        <lb/>legt"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2008993-4"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "2008993-4",
+          "label": "Deutsches Reich",
+          "source": "https://lobid.org/gnd/2008993-4.json",
+          "geonames": null
+        }
+      ],
+      "doubt": "Flektierte Nennung mit Adjektiv; das GND-Land Deutsches Reich hat keinen GeoNames-Link.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v051",
+      "line": 203,
+      "text": "Schweizerischen Vereins-Sorti-\n        <lb/>ment",
+      "shown": "Schweizerischen Vereins-Sorti- | ment",
+      "occurrence": 1,
+      "offset": {
+        "from": 10903,
+        "to": 10951
+      },
+      "context": {
+        "before": "e beiliegende Karte des ",
+        "after": ", Olten, zeigt Ihnen, da"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2021755-9"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.41",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "2021755-9",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://lobid.org/gnd/2021755-9.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v052",
+      "line": 204,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 10953,
+        "to": 10958
+      },
+      "context": {
+        "before": "rti-\n        <lb/>ment, ",
+        "after": ", zeigt Ihnen, dass der "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v053",
+      "line": 207,
+      "text": "Schwei-\n        <lb/>zerischen Vereins-Sortiment",
+      "shown": "Schwei- | zerischen Vereins-Sortiment",
+      "occurrence": 1,
+      "offset": {
+        "from": 11227,
+        "to": 11275
+      },
+      "context": {
+        "before": "ist durch Zirkulare des ",
+        "after": " samt Bestellkarten (vgl"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2021755-9"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.41",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "2021755-9",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://lobid.org/gnd/2021755-9.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v054",
+      "line": 215,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 11813,
+        "to": 11818
+      },
+      "context": {
+        "before": " von meinem Klienten in ",
+        "after": " eingelagerten Bücher\n  "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v055",
+      "line": 217,
+      "text": "Herbert Reichner-Verlages",
+      "shown": "Herbert Reichner-Verlages",
+      "occurrence": 1,
+      "offset": {
+        "from": 11963,
+        "to": 11988
+      },
+      "context": {
+        "before": "sich \"Büchervorräte des ",
+        "after": " zu\n        <lb/>seinen "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/10119809-7"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.24",
+          "label": "Herbert-Reichner-Verlag",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "10119809-7",
+          "label": "Herbert-Reichner-Verlag",
+          "source": "https://lobid.org/gnd/10119809-7.json"
+        }
+      ],
+      "doubt": "Kompositum mit Personenname; als Körperschaft markiert.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v056",
+      "line": 223,
+      "text": "H. WEISFLOG",
+      "shown": "H. WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 12219,
+        "to": 12230
+      },
+      "context": {
+        "before": "   <p>\n        <lb/>Dr. ",
+        "after": " und Dr. WERNER WEISFLOG"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2226"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2226",
+          "label": "Weisflog, Heinrich"
+        }
+      ],
+      "doubt": "Der Index führt bei SZDPER.2226 die GND 116402873, die zu Herbert Reichner gehört; vermutlich ein Indexfehler. Kandidat in der GND: Weisflog, Heinrich-Julius (1872–1939), Zürcher Jurist, 1051890500.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v057",
+      "line": 223,
+      "text": "WERNER WEISFLOG",
+      "shown": "WERNER WEISFLOG",
+      "occurrence": 1,
+      "offset": {
+        "from": 12239,
+        "to": 12254
+      },
+      "context": {
+        "before": "Dr. H. WEISFLOG und Dr. ",
+        "after": "\n        <lb/>ZÜRICH\n   "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/1214668852"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "1214668852",
+          "label": "Weisflog, Werner (1905), Jurist",
+          "source": "https://lobid.org/gnd/1214668852.json"
+        }
+      ],
+      "doubt": "GND-Satz ohne Ort; Zuordnung nur über Name, Beruf und Zeit plausibel.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v058",
+      "line": 224,
+      "text": "ZÜRICH",
+      "shown": "ZÜRICH",
+      "occurrence": 1,
+      "offset": {
+        "from": 12268,
+        "to": 12274
+      },
+      "context": {
+        "before": "R WEISFLOG\n        <lb/>",
+        "after": "\n        <lb/>3. BLATT z"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4068038-1 http://www.geonames.org/2657896"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4068038-1",
+          "label": "Zürich",
+          "source": "https://lobid.org/gnd/4068038-1.json",
+          "geonames": "https://sws.geonames.org/2657896",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v059",
+      "line": 225,
+      "text": "10. Mai 1938",
+      "shown": "10. Mai 1938",
+      "occurrence": 1,
+      "offset": {
+        "from": 12311,
+        "to": 12323
+      },
+      "context": {
+        "before": ">3. BLATT zum BRIEF vom ",
+        "after": " an Herrn Dr. Stefan Zwe"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-05-10"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Folgeblattkopf"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v060",
+      "line": 225,
+      "text": "Stefan Zweig",
+      "shown": "Stefan Zweig",
+      "occurrence": 1,
+      "offset": {
+        "from": 12337,
+        "to": 12349
+      },
+      "context": {
+        "before": ". Mai 1938 an Herrn Dr. ",
+        "after": ", London.\n      </p>\n   "
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.1560"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.1560",
+          "label": "Zweig, Stefan (1881-11-28–1942-02-23)"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v061",
+      "line": 225,
+      "text": "London",
+      "shown": "London",
+      "occurrence": 1,
+      "offset": {
+        "from": 12351,
+        "to": 12357
+      },
+      "context": {
+        "before": "Herrn Dr. Stefan Zweig, ",
+        "after": ".\n      </p>\n      <p>\n "
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4074335-4",
+          "label": "London",
+          "source": "https://lobid.org/gnd/4074335-4.json",
+          "geonames": "https://sws.geonames.org/2643743",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v062",
+      "line": 236,
+      "text": "Schweizerischen\n        <lb/>Vereins-Sortiment",
+      "shown": "Schweizerischen | Vereins-Sortiment",
+      "occurrence": 1,
+      "offset": {
+        "from": 13034,
+        "to": 13080
+      },
+      "context": {
+        "before": "ngen auch gegenüber dem ",
+        "after": " als irrtümlich erfolgt "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2021755-9"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.41",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "2021755-9",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://lobid.org/gnd/2021755-9.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v063",
+      "line": 243,
+      "text": "Home Office",
+      "shown": "Home Office",
+      "occurrence": 1,
+      "offset": {
+        "from": 13559,
+        "to": 13570
+      },
+      "context": {
+        "before": " mir denn auch vor, dem ",
+        "after": "\n        <lb/>London dur"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/35565-3"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.23",
+          "label": "Großbritannien. Home Office",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "35565-3",
+          "label": "Großbritannien. Home Office",
+          "source": "https://lobid.org/gnd/35565-3.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v064",
+      "line": 244,
+      "text": "London",
+      "shown": "London",
+      "occurrence": 1,
+      "offset": {
+        "from": 13584,
+        "to": 13590
+      },
+      "context": {
+        "before": "ome Office\n        <lb/>",
+        "after": " durch Vermittlung der h"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4074335-4 http://www.geonames.org/2643743"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4074335-4",
+          "label": "London",
+          "source": "https://lobid.org/gnd/4074335-4.json",
+          "geonames": "https://sws.geonames.org/2643743",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v065",
+      "line": 250,
+      "text": "1. März 1938",
+      "shown": "1. März 1938",
+      "occurrence": 1,
+      "offset": {
+        "from": 14036,
+        "to": 14048
+      },
+      "context": {
+        "before": "lichen\n        <lb/>bis ",
+        "after": " ausgelieferten Exemplar"
+      },
+      "element": "date",
+      "attributes": {
+        "when": "1938-03-01"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Datum im Text"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v066",
+      "line": 251,
+      "text": "1.-10. März\n        <lb/>1938",
+      "shown": "1.-10. März | 1938",
+      "occurrence": 1,
+      "offset": {
+        "from": 14156,
+        "to": 14185
+      },
+      "context": {
+        "before": " sind lediglich die vom ",
+        "after": " ausgelieferten Exempare"
+      },
+      "element": "date",
+      "attributes": {
+        "from": "1938-03-01",
+        "to": "1938-03-10"
+      },
+      "basis": [
+        {
+          "kind": "text",
+          "label": "Zeitraum im Text"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v067",
+      "line": 258,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 14584,
+        "to": 14589
+      },
+      "context": {
+        "before": "m\n        <lb/>Lager in ",
+        "after": " im Auslande weitere Büc"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v068",
+      "line": 260,
+      "text": "Olten",
+      "shown": "Olten",
+      "occurrence": 1,
+      "offset": {
+        "from": 14732,
+        "to": 14737
+      },
+      "context": {
+        "before": "st. Die\n        <lb/>in ",
+        "after": " lagernden 4086 Bände Ih"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4043506-4 http://www.geonames.org/2659297"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4043506-4",
+          "label": "Olten",
+          "source": "https://lobid.org/gnd/4043506-4.json",
+          "geonames": "https://sws.geonames.org/2659297",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v069",
+      "line": 261,
+      "text": "Schweizerische Vereins-Sorti-\n        <lb/>ment",
+      "shown": "Schweizerische Vereins-Sorti- | ment",
+      "occurrence": 1,
+      "offset": {
+        "from": 14841,
+        "to": 14888
+      },
+      "context": {
+        "before": "f honorarpflichtig. Das ",
+        "after": " hat Ihnen auf Veranlass"
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/2021755-9"
+      },
+      "basis": [
+        {
+          "kind": "orgIndex",
+          "id": "SZDORG.41",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE"
+        },
+        {
+          "kind": "gnd",
+          "id": "2021755-9",
+          "label": "Schweizerisches Vereinssortiment (Firma), Olten",
+          "source": "https://lobid.org/gnd/2021755-9.json"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v070",
+      "line": 277,
+      "text": "Gestapo",
+      "shown": "Gestapo",
+      "occurrence": 1,
+      "offset": {
+        "from": 15854,
+        "to": 15861
+      },
+      "context": {
+        "before": "afür persönlich bei der ",
+        "after": " in Wien verwenden\n     "
+      },
+      "element": "orgName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4757614-5"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4757614-5",
+          "label": "Deutsches Reich. Geheime Staatspolizei. Staatspolizeileitstelle Wien",
+          "source": "https://lobid.org/gnd/4757614-5.json"
+        }
+      ],
+      "doubt": "„Gestapo in Wien“ als Wiener Leitstelle gelesen; alternativ 2029665-4 Deutsches Reich. Geheime Staatspolizei.",
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v071",
+      "line": 277,
+      "text": "Wien",
+      "shown": "Wien",
+      "occurrence": 1,
+      "offset": {
+        "from": 15865,
+        "to": 15869
+      },
+      "context": {
+        "before": "lich bei der Gestapo in ",
+        "after": " verwenden\n        <lb/>"
+      },
+      "element": "placeName",
+      "attributes": {
+        "ref": "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367"
+      },
+      "basis": [
+        {
+          "kind": "gnd",
+          "id": "4066009-6",
+          "label": "Wien",
+          "source": "https://lobid.org/gnd/4066009-6.json",
+          "geonames": "https://sws.geonames.org/2761367",
+          "geonamesFrom": "sameAs of the GND record"
+        }
+      ],
+      "doubt": null,
+      "status": "proposed"
+    },
+    {
+      "id": "o_szd.1786#v072",
+      "line": 298,
+      "text": "H. Weisflog",
+      "shown": "H. Weisflog",
+      "occurrence": 1,
+      "offset": {
+        "from": 17043,
+        "to": 17054
+      },
+      "context": {
+        "before": "   <p>\n        <lb/>Dr. ",
+        "after": "\n      </p>\n      </div>"
+      },
+      "element": "persName",
+      "attributes": {
+        "ref": "#SZDPER.2226"
+      },
+      "basis": [
+        {
+          "kind": "register",
+          "id": "SZDPER.2226",
+          "label": "Weisflog, Heinrich"
+        }
+      ],
+      "doubt": "Der Index führt bei SZDPER.2226 die GND 116402873, die zu Herbert Reichner gehört; vermutlich ein Indexfehler. Kandidat in der GND: Weisflog, Heinrich-Julius (1872–1939), Zürcher Jurist, 1051890500.",
+      "status": "proposed"
+    }
+  ],
+  "notMarked": [
+    {
+      "line": 56,
+      "text": "Talacker No. 48",
+      "reason": "Straßenadresse."
+    },
+    {
+      "line": 67,
+      "text": "Hallam Street",
+      "reason": "Straßenadresse."
+    },
+    {
+      "line": 73,
+      "text": "St. Peter-strasse 18",
+      "reason": "Straßenadresse."
+    },
+    {
+      "line": 120,
+      "text": "Zürcher",
+      "reason": "Adjektiv."
+    },
+    {
+      "line": 123,
+      "text": "Schweizerische Handelsregister",
+      "reason": "Öffentliches Register, keine handelnde Körperschaft."
+    },
+    {
+      "line": 124,
+      "text": "Schweizerischen Handelsamtsblatt",
+      "reason": "Periodikum, Werkstufe."
+    },
+    {
+      "line": 152,
+      "text": "Wiener",
+      "reason": "Adjektiv."
+    },
+    {
+      "line": 171,
+      "text": "Peterstrasse 18",
+      "reason": "Straßenadresse."
+    },
+    {
+      "line": 191,
+      "text": "Schweizerischen Handelsregister",
+      "reason": "Öffentliches Register, keine handelnde Körperschaft."
+    },
+    {
+      "line": 196,
+      "text": "Wiener-Niederlassung",
+      "reason": "Adjektivisches Kompositum."
+    },
+    {
+      "line": 230,
+      "text": "zürcherischen Strafgesetzbuche",
+      "reason": "Gesetz, Adjektiv."
+    },
+    {
+      "line": 244,
+      "text": "hiesigen Gesandtschaft",
+      "reason": "Gattungsbezeichnung ohne Namen."
+    },
+    {
+      "line": 254,
+      "text": "Castellio gegen Calvin",
+      "reason": "Werktitel."
+    },
+    {
+      "line": 274,
+      "text": "Wiener Niederlassung",
+      "reason": "Adjektiv."
+    },
+    {
+      "line": 282,
+      "text": "schweizerisch-englischen Auslieferungsvertrage",
+      "reason": "Vertrag, Adjektiv."
+    }
+  ]
+}
