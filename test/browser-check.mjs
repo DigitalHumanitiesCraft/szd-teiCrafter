@@ -537,6 +537,51 @@ const LOBID_FIXTURE = {
   check("no console errors (CRLF run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 
+// Pseudonymous editor (ADR-018): with a code set, saving declares it and
+// records the day's work once; everything else of the file stays as it was.
+{
+  const { page, errors } = await open({}, () => {
+    window.__writes = [];
+    const handle = {
+      name: "o_szd.1222.tei.xml",
+      getFile: async () => new File([window.__writes.at(-1) ?? (await (await fetch("data/o_szd.1222.tei.xml")).text())], "o_szd.1222.tei.xml", { lastModified: 1761800000000 + window.__writes.length }),
+      createWritable: async () => ({ write: async (t) => window.__writes.push(t), close: async () => {} }),
+    };
+    window.showOpenFilePicker = async () => [handle];
+  });
+  check("without a code the editor button asks for one", (await label(page, "#editor-label")) === "Kürzel setzen");
+  await page.click("#editor-button");
+  await page.fill("#editor-code", "Max Mustermann");
+  await page.click("#editor-dialog button[value='set']");
+  check("a code with a space is refused", (await page.isVisible("#editor-dialog")) && (await label(page, "#editor-error")).length > 0);
+  await page.fill("#editor-code", "E01");
+  await page.click("#editor-dialog button[value='set']");
+  check("the code is shown in the header", (await label(page, "#editor-label")) === "Kürzel E01");
+  await page.click("#tei-open");
+  await page.waitForTimeout(800);
+  await page.click("#tei-save");
+  await page.waitForTimeout(500);
+  await page.click("#tei-save");
+  await page.waitForTimeout(500);
+  const [first, second] = (await page.evaluate(() => window.__writes)).map(lf);
+  const original = lf(ORIGINAL);
+  const declared = '<respStmt xml:id="editor-E01"><resp>Edited in teiCrafter SZD under a pseudonym</resp><name>E01</name></respStmt>';
+  const recorded = /<change when="\d{4}-\d{2}-\d{2}" who="#editor-E01">Bearbeitet im teiCrafter SZD\.<\/change>/;
+  check("saving declares the pseudonym in titleStmt and records the day in revisionDesc", first.includes(declared) && recorded.test(first), (await label(page, "#xml-status")));
+  // The expected file is the original with exactly these two edits.
+  const { declarationEdits } = await import("../docs/js/proposals.js");
+  const { workChangeEdits } = await import("../docs/js/state.js");
+  const date = /<change when="([^"]+)" who="#editor-E01"/.exec(first)?.[1] ?? "";
+  let expected = original;
+  const edits = [...declarationEdits(original, [{ id: "editor-E01", xml: declared }]), ...workChangeEdits(original, { date, who: "editor-E01", note: "Bearbeitet im teiCrafter SZD." })].sort((x, y) => y.from - x.from);
+  for (const e of edits) expected = `${expected.slice(0, e.from)}${e.insert}${expected.slice(e.to)}`;
+  check("nothing else of the file changes", first === expected);
+  check("a second save on the same day adds nothing", second === first);
+  check("the saved file stays valid against TEI All", (await validate(page)) === "TEI-konform");
+  check("no console errors (pseudonym run)", errors.length === 0, errors.slice(0, 3).join(" | "));
+  await page.context().close();
+}
+
 // Run 4: work through every HTR marker with F8 and Enter, then compare the
 // saved file with the original transformed by the same rules, earliest marker
 // first, so the check proves that the interface applied exactly these edits.
@@ -1621,7 +1666,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
     }),
   );
   await page.keyboard.press("Escape");
-  check("the badge and counter explain their terms", (await page.getAttribute("#doc-state", "data-tip")).startsWith("Arbeitsstand: ") && (await page.getAttribute("#work-button", "data-tip")).startsWith("Offene Stelle: "));
+  check("the badge and counter explain their terms", (await page.getAttribute("#doc-state", "data-tip")).startsWith("Arbeitsstand: ") && (await page.getAttribute("#work-button", "data-tip")).startsWith("F8 springt zur nächsten offenen Stelle."));
   check("no console errors (documents dialog run)", errors.length === 0, errors.slice(0, 3).join(" | "));
 }
 

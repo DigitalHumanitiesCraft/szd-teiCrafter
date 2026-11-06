@@ -22,7 +22,7 @@ import { schemaChecker } from "./schema.js";
 import { createSettings } from "./settings.js";
 import { openWorkFor, source } from "./source.js";
 import { attachSplit } from "./split.js";
-import { acceptanceEdits, openSpots, withdrawalEdits, workingState } from "./state.js";
+import { acceptanceEdits, openSpots, withdrawalEdits, workChangeEdits, workingState } from "./state.js";
 import { documentFacts, pageAtOffset, parseXml } from "./tei.js";
 import { attributeOf, hasLineBreaks, textView } from "./textview.js";
 import { $, setStatus } from "./ui.js";
@@ -111,7 +111,7 @@ function applyActions(list) {
   actions = list;
   openWork = openWorkFor(list);
   // The counter names what this edition counts as open work.
-  workButton.dataset.tip = `${concepts.openSpot} Hier: ${openWork.map((d) => d.label).join(", ")}. F8 springt zur nächsten.`;
+  workButton.dataset.tip = `F8 springt zur nächsten offenen Stelle. Offen zählen hier: ${openWork.map((d) => d.label).join(", ")}.`;
   const refused = list.filter((a) => a.refused);
   $("actions-button").dataset.tip = refused.length ? `${concepts.action} ${refused.length === 1 ? "Eine Aktion ist" : `${refused.length} Aktionen sind`} nicht geladen.` : concepts.action;
   $("actions-button").toggleAttribute("data-refused", refused.length > 0);
@@ -221,6 +221,42 @@ attachSplit({ workspace: $("workspace"), splitter: $("splitter"), hide: $("facs-
 const report = (/** @type {"ok" | "error"} */ state, /** @type {string} */ message) => setStatus(xmlStatus, state, message);
 const stale = (/** @type {string} */ message) => report("error", message);
 
+// The pseudonymous editor (ADR-018). The code becomes part of an xml:id, so
+// only a short NCName-safe code is accepted; the hint asks for no real name.
+const PSEUDONYM = /^[A-Za-z][A-Za-z0-9_-]{0,15}$/;
+let pseudonym = PSEUDONYM.test(remembered("pseudonym") ?? "") ? /** @type {string} */ (remembered("pseudonym")) : "";
+
+function showPseudonym() {
+  $("editor-label").textContent = pseudonym ? `Kürzel ${pseudonym}` : "Kürzel setzen";
+  $("editor-button").toggleAttribute("data-missing", !pseudonym);
+}
+showPseudonym();
+$("editor-button").addEventListener("click", () => {
+  $("editor-code").value = pseudonym;
+  $("editor-error").textContent = "";
+  $("editor-dialog").showModal();
+});
+$("editor-form").addEventListener("submit", (/** @type {SubmitEvent} */ e) => {
+  if (/** @type {HTMLButtonElement | null} */ (e.submitter)?.value !== "set") return;
+  const code = $("editor-code").value.trim();
+  if (!PSEUDONYM.test(code)) {
+    e.preventDefault();
+    $("editor-error").textContent = "Bitte ein Kürzel aus Buchstaben und Ziffern, höchstens 16 Zeichen, beginnend mit einem Buchstaben.";
+    return;
+  }
+  pseudonym = code;
+  remember("pseudonym", code);
+  showPseudonym();
+});
+
+/** Edits that declare the pseudonymous editor and record today's work, empty without a code. */
+function workRecordEdits(/** @type {string} */ text) {
+  if (!pseudonym) return [];
+  const { id, xml, note } = source.editorRecord;
+  const edits = [...declarationEdits(text, [{ id: id(pseudonym), xml: xml(pseudonym) }]), ...workChangeEdits(text, { date: localDate(), who: id(pseudonym), note })];
+  return edits.sort((a, b) => a.from - b.from);
+}
+
 const files = createFiles({
   editor,
   fallbackName: "dokument.tei.xml",
@@ -232,14 +268,26 @@ const files = createFiles({
   beforeSave() {
     clearTimeout(checkTimer);
     checkSource();
-    if (docStatus !== "approved" || acceptedText === null || editor.text === acceptedText) return "";
-    const edits = withdrawalEdits(editor.docText());
-    if (!edits.length) return "";
-    editor.dispatch({ changes: edits });
-    acceptedText = null;
-    clearTimeout(checkTimer);
-    checkSource();
-    return "Die Abnahme ist zurückgenommen, weil der Text seither geändert wurde.";
+    const notes = [];
+    if (docStatus === "approved" && acceptedText !== null && editor.text !== acceptedText) {
+      const edits = withdrawalEdits(editor.docText());
+      if (edits.length) {
+        editor.dispatch({ changes: edits });
+        acceptedText = null;
+        notes.push("Die Abnahme ist zurückgenommen, weil der Text seither geändert wurde.");
+      }
+    }
+    // The editor's pseudonym and today's work go into the file it is saved to.
+    const record = workRecordEdits(editor.docText());
+    if (record.length) {
+      editor.dispatch({ changes: record });
+      notes.push(`Bearbeitung als ${pseudonym} vermerkt.`);
+    }
+    if (notes.length) {
+      clearTimeout(checkTimer);
+      checkSource();
+    }
+    return notes.join(" ");
   },
   // The confirmation names the state the file was saved in (ADR-008).
   stateNote() {
@@ -465,7 +513,7 @@ validButton.addEventListener("click", runValidation);
 
 // Working state and acceptance. Saving stays possible in every state (ADR-008).
 
-$("doc-state").dataset.tip = `${concepts.workingState} ${concepts.acceptance}`;
+$("doc-state").dataset.tip = `${concepts.workingState} Abnehmen geht, wenn das Dokument gültig ist und nichts mehr offen ist.`;
 
 function updateDocState() {
   const facts = workingState({
@@ -499,7 +547,7 @@ $("accept").addEventListener("click", async () => {
     report("error", `Nicht abgenommen: ${before.label}${before.detail ? `, ${before.detail}` : ""}.`);
     return;
   }
-  const edits = acceptanceEdits(editor.docText(), { date: localDate(), note: `Abgenommen im ${source.product}.` });
+  const edits = acceptanceEdits(editor.docText(), { date: localDate(), note: `Abgenommen im ${source.product}.`, who: pseudonym ? source.editorRecord.id(pseudonym) : undefined });
   if (!edits.length) {
     report("error", "Nicht abgenommen: Das Dokument hat keinen teiHeader, in dem die Abnahme stehen könnte.");
     return;

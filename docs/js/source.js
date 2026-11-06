@@ -142,6 +142,18 @@ export const source = {
   },
 
   /**
+   * The pseudonymous editor (ADR-018): a short code chosen per browser, never
+   * a real name, declared in titleStmt and named in one change per day.
+   */
+  editorRecord: {
+    /** @param {string} code */
+    id: (code) => `editor-${code}`,
+    /** @param {string} code */
+    xml: (code) => `<respStmt xml:id="editor-${code}"><resp>Edited in teiCrafter SZD under a pseudonym</resp><name>${code}</name></respStmt>`,
+    note: "Bearbeitet im teiCrafter SZD.",
+  },
+
+  /**
    * Review of outside proposals (js/proposals.js, knowledge/annotation.md):
    * the roles an accepted proposal names in @resp, declared in titleStmt on
    * its first acceptance, and the identifier a proposal file must name.

@@ -31,7 +31,7 @@
     <symbol id="i-diff" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 9.5h6M12 6.5v6M9 16.5h6"/></symbol>
     <symbol id="i-docs" viewBox="0 0 24 24"><path d="M8 3h9l3 3v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M4 7v13a1 1 0 0 0 1 1h11"/><path d="M10 9h7M10 13h7"/></symbol>
     <symbol id="i-org" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-6h6v6"/></symbol>
-    <symbol id="i-proposal" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-proposal" viewBox="0 0 24 24"><path d="M10 3.5 11.7 8.3 16.5 10l-4.8 1.7L10 16.5 8.3 11.7 3.5 10l4.8-1.7z"/><path d="M18 14l.8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z"/><path d="M18 3v3M16.5 4.5h3"/></symbol>
     <symbol id="i-log" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h4"/></symbol>
     <symbol id="i-place" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
     <symbol id="i-date" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
@@ -63,12 +63,15 @@
         <svg class="icon"><use href="#i-open"/></svg>
       </button>
       <input id="tei-file" type="file" accept=".xml,application/xml,text/xml" hidden>
-      <button id="proposals-button" class="icon-button" type="button" aria-label="Vorschläge laden" data-tip="Vorschläge eines Agenten laden. Sie erscheinen violett und werden einzeln angenommen oder abgelehnt.">
+      <button id="proposals-button" class="icon-button" type="button" aria-label="KI-Vorschläge laden" data-tip="KI-Vorschläge laden. Sie erscheinen violett und werden einzeln angenommen oder abgelehnt.">
         <svg class="icon"><use href="#i-proposal"/></svg>
       </button>
       <input id="proposals-file" type="file" accept=".json,application/json" hidden>
-      <button id="proposals-log" class="icon-button" type="button" aria-label="Prüfprotokoll speichern" data-tip="Prüfprotokoll speichern: welche Vorschläge angenommen, geändert oder abgelehnt wurden" hidden>
+      <button id="proposals-log" class="icon-button" type="button" aria-label="Prüfprotokoll speichern" data-tip="Prüfprotokoll speichern: welche Vorschläge angenommen, geändert oder abgelehnt wurden." hidden>
         <svg class="icon"><use href="#i-log"/></svg>
+      </button>
+      <button id="editor-button" type="button" aria-haspopup="dialog" data-tip="Kürzel für die Bearbeitung. Es steht pseudonym in jeder Datei, die du speicherst.">
+        <svg class="icon"><use href="#i-person"/></svg><span id="editor-label">Kürzel setzen</span>
       </button>
       <button id="tei-save" class="save-button" type="button" data-tip="TEI speichern (Strg+S)">
         <svg class="icon"><use href="#i-save"/></svg><span>Speichern</span>
@@ -101,7 +104,7 @@
           <svg class="icon"><use href="#i-validate"/></svg><span id="valid-label" class="label">Validieren</span>
         </button>
         <button id="work-button" class="check" type="button" data-tip="Nächste offene Stelle (F8)">
-          <svg class="icon"><use href="#i-task"/></svg><span id="work-label" class="label">offene Stellen</span>
+          <svg class="icon"><use href="#i-task"/></svg><span id="work-label" class="label">offene Stellen</span><kbd class="key" aria-hidden="true">F8</kbd>
         </button>
         <span class="toolbar-gap"></span>
         <button id="diff-button" class="icon-button" type="button" aria-haspopup="dialog" aria-label="Änderungen seit dem Öffnen" data-tip="Änderungen seit dem Öffnen">
@@ -359,6 +362,20 @@
       <div id="diff-body" class="diff-body"></div>
       <div class="toolbar dialog-actions">
         <button type="submit" class="primary">Schließen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="editor-dialog" class="ask-dialog" aria-labelledby="editor-title">
+    <form id="editor-form" method="dialog">
+      <h2 id="editor-title">Kürzel für die Bearbeitung</h2>
+      <p>Das Kürzel steht pseudonym in jeder Datei, die du speicherst: als Zuständigkeit im Kopf und mit dem Datum im revisionDesc. Bitte keinen Klarnamen verwenden, sondern ein Kürzel, das nur das Projektteam einer Person zuordnen kann, etwa E01.</p>
+      <label for="editor-code">Kürzel</label>
+      <input id="editor-code" type="text" autocomplete="off" spellcheck="false" maxlength="16">
+      <p id="editor-error" class="status" data-state="error" role="alert"></p>
+      <div class="toolbar dialog-actions">
+        <button type="submit" value="">Abbrechen</button>
+        <button type="submit" value="set" class="primary">Übernehmen</button>
       </div>
     </form>
   </dialog>

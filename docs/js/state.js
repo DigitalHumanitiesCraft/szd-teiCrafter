@@ -103,39 +103,66 @@ export function workingState({ wellFormed, valid, open, status, changedSinceAcce
  * to `text` and the edits are ordered from the end, so they can be applied
  * one after another. Empty when the header is missing.
  * @param {string} text with LF line breaks
- * @param {{ date: string, note: string }} change
+ * @param {{ date: string, note: string, who?: string }} change who is the
+ *   xml:id of the pseudonymous editor, when one is set
  * @returns {{ from: number, to: number, insert: string }[]}
  */
-export function acceptanceEdits(text, { date, note }) {
-  const change = `<change when="${date}" status="approved">${note}</change>`;
+export function acceptanceEdits(text, { date, note, who }) {
+  const by = who ? ` who="#${who}"` : "";
+  return changeEdits(text, `<change when="${date}" status="approved"${by}>${note}</change>`, "approved");
+}
+
+/**
+ * Text edits recording that a pseudonymous editor worked on the document on a
+ * day: one change per editor and day in the revisionDesc, placed as an
+ * acceptance is, so saving again on the same day adds nothing. The working
+ * state in revisionDesc/@status stays as it is. Empty when the change exists
+ * or the header is missing.
+ * @param {string} text with LF line breaks
+ * @param {{ date: string, who: string, note: string }} change who is an xml:id
+ * @returns {{ from: number, to: number, insert: string }[]}
+ */
+export function workChangeEdits(text, { date, who, note }) {
+  const markup = blank(text, nonMarkup(text));
+  const quoted = (/** @type {string} */ v) => `\\s*=\\s*["']${v.replace(/[.#-]/g, "\\$&")}["']`;
+  const same = new RegExp(`<change\\b(?=[^>]*\\bwhen${quoted(date)})(?=[^>]*\\bwho${quoted(`#${who}`)})`);
+  if (same.test(markup)) return [];
+  return changeEdits(text, `<change when="${date}" who="#${who}">${note}</change>`, null);
+}
+
+/**
+ * Inserts one change element into the revisionDesc, creating it at the end of
+ * the header when it is missing, and sets its status when one is given.
+ * @param {string} text @param {string} change @param {string | null} status
+ */
+function changeEdits(text, change, status) {
   // Only markup counts: comments and the like are blanked, offsets stay.
   const markup = blank(text, nonMarkup(text));
   // Attribute-aware, so a ">" inside a quoted value does not end the tag.
   const open = /<revisionDesc(?=[\s/>])((?:[^>"']|"[^"]*"|'[^']*')*?)(\/?)>/.exec(markup);
   if (open) {
     const attrs = text.slice(open.index + "<revisionDesc".length, open.index + "<revisionDesc".length + open[1].length);
-    const status = /(\s)status\s*=\s*(?:"[^"]*"|'[^']*')/;
-    const approved = status.test(attrs) ? attrs.replace(status, '$1status="approved"') : `${attrs.trimEnd()} status="approved"`;
+    const pattern = /(\s)status\s*=\s*(?:"[^"]*"|'[^']*')/;
+    const withStatus = status === null ? attrs : pattern.test(attrs) ? attrs.replace(pattern, `$1status="${status}"`) : `${attrs.trimEnd()} status="${status}"`;
     const indent = /[ \t]*$/.exec(text.slice(0, open.index))?.[0] ?? "";
     // An empty <revisionDesc/> becomes an element holding the change.
     if (open[2]) {
-      return [{ from: open.index, to: open.index + open[0].length, insert: `<revisionDesc${approved.trimEnd()}>\n${indent}  ${change}\n${indent}</revisionDesc>` }];
+      return [{ from: open.index, to: open.index + open[0].length, insert: `<revisionDesc${withStatus.trimEnd()}>\n${indent}  ${change}\n${indent}</revisionDesc>` }];
     }
     const close = markup.indexOf("</revisionDesc>", open.index);
     if (close < 0) return [];
     const list = markup.lastIndexOf("</listChange>", close);
     const at = list > open.index ? list : close;
     const before = /[ \t]*$/.exec(text.slice(0, at))?.[0] ?? "";
-    return [
-      { from: at, to: at, insert: `  ${change}\n${before}` },
-      { from: open.index, to: open.index + open[0].length, insert: `<revisionDesc${approved}>` },
-    ];
+    const edits = [{ from: at, to: at, insert: `  ${change}\n${before}` }];
+    if (withStatus !== attrs) edits.push({ from: open.index, to: open.index + open[0].length, insert: `<revisionDesc${withStatus}>` });
+    return edits;
   }
   const end = markup.indexOf("</teiHeader>");
   if (end < 0) return [];
   const lineStart = text.lastIndexOf("\n", end) + 1;
   const indent = /^[ \t]*/.exec(text.slice(lineStart))?.[0] ?? "";
-  const element = `<revisionDesc status="approved">\n${indent}    ${change}\n${indent}  </revisionDesc>`;
+  const element = `<revisionDesc${status === null ? "" : ` status="${status}"`}>\n${indent}    ${change}\n${indent}  </revisionDesc>`;
   // revisionDesc is the last child of the header, so it goes right before the
   // closing tag, on a line of its own when that tag shares its line with content.
   if (/^[ \t]*$/.test(text.slice(lineStart, end))) return [{ from: lineStart, to: lineStart, insert: `${indent}  ${element}\n` }];

@@ -7,7 +7,7 @@ import { test } from "node:test";
 import { readFileSync } from "node:fs";
 import { loadActions } from "../../docs/js/actions.js";
 import { openWorkFor } from "../../docs/js/source.js";
-import { acceptanceEdits, openSpots, storedStatus, withdrawalEdits } from "../../docs/js/state.js";
+import { acceptanceEdits, openSpots, storedStatus, withdrawalEdits, workChangeEdits } from "../../docs/js/state.js";
 
 const CHANGE = { date: "2026-10-30", note: "ok" };
 const APPROVING = '<change when="2026-10-30" status="approved">ok</change>';
@@ -129,4 +129,37 @@ test("marks without their reference or date value are open spots, outside the he
   const doc = `<TEI><teiHeader><date>1935</date></teiHeader><text><body><p>Herr <persName>Fuchs</persName>, <persName ref="#SZDPER.2188">Reichner</persName>, <orgName ref=" ">Verlag</orgName>, <placeName ref="http://www.geonames.org/2761367">Wien</placeName>, <date when="1935-01-04">4.Januar</date>, <date cert="low">am 10.</date></p></body></text></TEI>`;
   const unlinked = openSpots(doc, openWork).filter((s) => s.key === "unlinked").map((s) => doc.slice(s.from, s.to));
   assert.deepEqual(unlinked, ["Fuchs", "Verlag", "am 10."]);
+});
+
+const WORK = { date: "2026-11-06", who: "editor-E01", note: "Bearbeitet." };
+const WORKED = '<change when="2026-11-06" who="#editor-E01">Bearbeitet.</change>';
+/** Applies the work record edits in the given order. @param {string} text */
+function record(text) {
+  let out = text;
+  for (const e of workChangeEdits(text, WORK)) out = `${out.slice(0, e.from)}${e.insert}${out.slice(e.to)}`;
+  return out;
+}
+
+test("a work record adds a change and leaves the working state as it is", () => {
+  assert.equal(
+    record(header('    <revisionDesc status="draft">\n      <change when="2026-10-01">x</change>\n    </revisionDesc>\n')),
+    header(`    <revisionDesc status="draft">\n      <change when="2026-10-01">x</change>\n      ${WORKED}\n    </revisionDesc>\n`),
+  );
+});
+
+test("a work record creates a revisionDesc without a status when there is none", () => {
+  assert.equal(record(header("    <fileDesc/>\n")), header(`    <fileDesc/>\n    <revisionDesc>\n      ${WORKED}\n    </revisionDesc>\n`));
+});
+
+test("a second save on the same day by the same editor adds nothing", () => {
+  const once = record(header('    <revisionDesc status="draft"/>\n'));
+  assert.equal(record(once), once);
+  assert.notEqual(workChangeEdits(once, { ...WORK, who: "editor-E02" }).length, 0);
+  assert.notEqual(workChangeEdits(once, { ...WORK, date: "2026-11-07" }).length, 0);
+});
+
+test("an acceptance names the pseudonymous editor when one is set", () => {
+  let out = header('    <revisionDesc status="draft"/>\n');
+  for (const e of acceptanceEdits(out, { ...CHANGE, who: "editor-E01" })) out = `${out.slice(0, e.from)}${e.insert}${out.slice(e.to)}`;
+  assert.match(out, /<change when="2026-10-30" status="approved" who="#editor-E01">ok<\/change>/);
 });

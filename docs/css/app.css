@@ -254,6 +254,19 @@
   @media (prefers-reduced-motion: reduce) { [data-tip]::after { transition: none; } }
   /* Check buttons sit at the left edge, so their longer tips open to the right and wrap. */
   .check[data-tip] { position: relative; }
+  /* Header tips anchor at their button and wrap, so a longer one stays on screen. */
+  .header-tools [data-tip] { position: relative; }
+  .header-tools [data-tip]::after { inline-size: max-content; max-inline-size: 20rem; white-space: normal; }
+  /* The key that steps through open spots, shown where the count is. */
+  .key {
+    padding-inline: 0.3rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--muted);
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
   .check[data-tip]::after { inset-inline: 0 auto; inline-size: max-content; max-inline-size: 22rem; white-space: normal; font-weight: 400; }
 
   /* Check buttons carry their state in icon shape and label, colour adds to it. */
@@ -573,7 +586,7 @@
     & code { font-size: 0.85em; }
   }
   .doc-state[data-tip] { position: relative; }
-  .doc-state[data-tip]::after { inset-inline: 0 auto; inline-size: max-content; max-inline-size: min(24rem, calc(100vi - 2rem)); white-space: normal; font-weight: 400; color: var(--bg); }
+  .doc-state[data-tip]::after { inset-inline: auto 0; inline-size: max-content; max-inline-size: min(24rem, calc(100vi - 2rem)); white-space: normal; font-weight: 400; color: var(--bg); }
 
   .page-short { display: none; }
   /* A narrow pane keeps one toolbar row: check buttons fall back to icon and
@@ -597,6 +610,10 @@
      tooltip, while the open-spot counter keeps its words longest. */
   @container (width < 48rem) {
     .zoom-label { display: none; }
+  }
+  /* The key hint gives way before any label; the tooltip still names F8. */
+  @container (width < 40rem) {
+    .check .key { display: none; }
   }
   @container (width < 46rem) {
     /* A document in the text view is always well-formed, so that label goes too. */
@@ -641,6 +658,9 @@
   .start-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
   .start-hint { color: var(--muted); font-size: 0.875rem; }
   body[data-empty] :is(#workspace, #doc-state, #tei-save, #proposals-button, #proposals-log) { display: none; }
+  /* Without a code saving records no editor, so the button asks for one. */
+  #editor-button[data-missing] { border-color: var(--orange); }
+  #editor-dialog input { display: block; inline-size: 100%; margin-block: var(--space-1) var(--space-2); }
 }
 
 @layer utilities {

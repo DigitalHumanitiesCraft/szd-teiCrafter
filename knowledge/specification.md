@@ -366,3 +366,13 @@ Choice. Operator, 2026-11-06. The application lives in `docs/`, namely `docs/ind
 Rationale. GitHub Pages publishes either the root or `docs/` of a branch, so the second choice keeps the published site to what a reader of the editor needs, and internal notes, review evidence and working material are never served as pages.
 
 Effect. ADR-001 holds inside `docs/`, which is served as the site root, so paths inside the application stay relative to it, such as `data/o_szd.1222.tei.xml` in the source configuration. Tools and tests stay at the root and address the application files under `docs/`. Research data under `docs/data/` keeps its exemption from line-ending conversion (ADR-004).
+
+### ADR-018 A pseudonymous editor is recorded in the file on saving
+
+Context. The operator asked on 2026-11-06 that a saved document shows who worked on it, pseudonymised. Git records the committer, but under the identity configured in each Git client, which is often a real name, and only for whole commits.
+
+Choice. Operator request, form chosen in the session of 2026-11-06. Each browser holds a short code chosen by its user, such as `E01`, entered through the „Kürzel“ button in the header and never a real name; the mapping from code to person stays with the project team. With a code set, saving declares it once as `<respStmt xml:id="editor-E01">` in `titleStmt` and adds one `<change when="…" who="#editor-E01">` per editor and day to `revisionDesc`, and an acceptance names the same `@who`. Without a code nothing is recorded. The working state in `revisionDesc/@status` is untouched by the work record (ADR-011).
+
+Rationale. The record travels with the file into Git and into the edition, independent of the Git client, and the day granularity keeps the history readable while the Git diff shows what changed. A code restricted to letters, digits, hyphen and underscore is a valid part of an `xml:id` and cannot carry markup.
+
+Effect. The declaration text and the identifier prefix live in `editorRecord` of `docs/js/source.js`, the edits in `workChangeEdits` of `docs/js/state.js`, and the browser check proves that saving changes nothing else and that a second save on the same day adds nothing. Who is behind a code, and whether a code is recorded per annotation as well, stay with the project. Git commits keep the identity of the Git client; a pseudonymous Git identity is a setting in that client.

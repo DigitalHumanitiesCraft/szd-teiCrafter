@@ -48,15 +48,18 @@ exchanges the results by commit and push.
 1. Clone the repository and serve its `docs/` folder, for instance with
    `python -m http.server 8000 --directory docs` in the repository root, then
    open http://localhost:8000/ in Chrome or Edge.
-2. Find a document with the document list. To save into your clone, open the file itself with
+2. Set your code with the „Kürzel“ button, a short pseudonym such as `E01` that the project
+   team maps to you, never your real name. Each save then records it with the date in the file
+   (ADR-018 in `knowledge/specification.md`).
+3. Find a document with the document list. To save into your clone, open the file itself with
    the open button from `docs/data/<collection>/` of your clone; a document chosen from the list is
    saved by download or to a chosen file.
-3. Edit and annotate. Save with Ctrl+S at any point, also in an unfinished state; the status line
+4. Edit and annotate. Save with Ctrl+S at any point, also in an unfinished state; the status line
    names the state the file was saved in.
-4. Check your changes with `git diff`, commit them with a message naming the document, and push.
+5. Check your changes with `git diff`, commit them with a message naming the document, and push.
    Pull before you start the next document, so that a colleague's commits arrive first. If a pull
    changed the file you have open, the editor asks before overwriting it.
-5. When a document is free of open spots and valid, accept it and save. After commits that change
+6. When a document is free of open spots and valid, accept it and save. After commits that change
    a document's state, rebuild the document list with `node tools/build-document-index.mjs` and
    commit `docs/data/index.json` with them.
 
