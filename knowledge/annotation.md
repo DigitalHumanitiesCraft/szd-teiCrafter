@@ -50,7 +50,7 @@ A name or date broken across lines is marked as one element containing the `lb`.
 
 ## Producer
 
-Who produced an annotation is part of its evidence. An LLM agent delivers its annotations as a proposal file beside the working copy, never as markup in `data/`, and a person decides each proposal in the editor (ADR-016). The encoding follows the provenance contract of zbz-ocr-tei (decision E131 there): `@resp` names the activities that produced a mark as pointers to `respStmt` declarations in `titleStmt`, and `@cert` keeps its meaning of an inferred date.
+Who produced an annotation is part of its evidence. An LLM agent delivers its annotations as a proposal file beside the working copy, never as markup in `docs/data/`, and a person decides each proposal in the editor (ADR-016). The encoding follows the provenance contract of zbz-ocr-tei (decision E131 there): `@resp` names the activities that produced a mark as pointers to `respStmt` declarations in `titleStmt`, and `@cert` keeps its meaning of an inferred date.
 
 ```xml
 <!-- proposed by an agent and accepted by a person -->

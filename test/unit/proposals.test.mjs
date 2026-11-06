@@ -5,13 +5,13 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { EditorState } from "../../vendor/codemirror/codemirror.js";
-import { loadActions } from "../../js/actions.js";
-import { declarationEdits, dropProposal, proposalField, readProposals, setProposals } from "../../js/proposals.js";
-import { source } from "../../js/source.js";
+import { EditorState } from "../../docs/vendor/codemirror/codemirror.js";
+import { loadActions } from "../../docs/js/actions.js";
+import { declarationEdits, dropProposal, proposalField, readProposals, setProposals } from "../../docs/js/proposals.js";
+import { source } from "../../docs/js/source.js";
 
-const LETTER = readFileSync(new URL("../../data/o_szd.1222.tei.xml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
-const actions = loadActions(JSON.parse(readFileSync(new URL("../../data/actions.json", import.meta.url), "utf8")));
+const LETTER = readFileSync(new URL("../../docs/data/o_szd.1222.tei.xml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
+const actions = loadActions(JSON.parse(readFileSync(new URL("../../docs/data/actions.json", import.meta.url), "utf8")));
 const read = (/** @type {any[]} */ proposals, document = "o_szd.1222") => readProposals({ document, proposals }, LETTER, { documentId: "o_szd.1222", actions });
 
 test("proposals are placed at their offsets, by context or by occurrence", () => {

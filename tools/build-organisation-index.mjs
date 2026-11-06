@@ -1,14 +1,14 @@
-// Builds data/register/szd-organisations.json from the organisation index of
+// Builds docs/data/register/szd-organisations.json from the organisation index of
 // Stefan Zweig Digital (GAMS object o:szd.organisation, CC BY 4.0), the
 // counterpart of tools/build-person-index.mjs.
 //
 // Run: node tools/build-organisation-index.mjs   (needs network access to GAMS)
 
 import { mkdirSync, writeFileSync } from "node:fs";
-import { fold } from "../js/register.js";
+import { fold } from "../docs/js/register.js";
 
 const SOURCE = "https://gams.uni-graz.at/o:szd.organisation/TEI_SOURCE";
-const OUT = new URL("../data/register/szd-organisations.json", import.meta.url);
+const OUT = new URL("../docs/data/register/szd-organisations.json", import.meta.url);
 
 const text = (s) => (s ?? "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'");

@@ -63,13 +63,13 @@ The agent run of 2026-10-31 compared the last two (ADR-015). On the calibration 
 - Encoding: TEI P5, validated against the strictest available schema, the project schema generated from the ODD once it exists and TEI All 4.11.0 as the fallback.
 - Facsimiles: IIIF Presentation API 2 and 3 for manifests, IIIF Image API for deep zoom.
 - Persons: entries of the Stefan Zweig Digital person index in `persName/@ref`, GND URIs for persons outside it.
-- Versioning and exchange: Git, with research data under `data/` kept byte-exact (no line-ending conversion).
+- Versioning and exchange: Git, with research data under `docs/data/` kept byte-exact (no line-ending conversion).
 
 Each standard keeps the edited files usable outside the editor. A file saved by the editor stays plain TEI that any XML tool reads, and the facsimile and person links resolve without it.
 
 ## Technical realisation
 
-The editor is a static web page without a build step. Generic modules handle the code editor (CodeMirror 6, vendored as one bundle), TEI reading, IIIF resolution, the facsimile viewer (OpenSeadragon), validation (libxml2 compiled to WebAssembly) and GND search. Everything specific to Stefan Zweig Digital sits in the source configuration `js/source.js`. The reasons for this cut are recorded in [specification](specification.md#decisions).
+The editor is a static web page without a build step. Generic modules handle the code editor (CodeMirror 6, vendored as one bundle), TEI reading, IIIF resolution, the facsimile viewer (OpenSeadragon), validation (libxml2 compiled to WebAssembly) and GND search. Everything specific to Stefan Zweig Digital sits in the source configuration `docs/js/source.js`. The reasons for this cut are recorded in [specification](specification.md#decisions).
 
 ## Scope of functions
 
@@ -90,4 +90,4 @@ The constitutive terms, derivation and source configuration among them, are defi
 
 ## Licence
 
-Code is under MIT (`LICENSE`). The TEI documents are CC BY 4.0 with attribution to Stefan Zweig Digital, Literaturarchiv Salzburg (`data/NOTICE.md`, `data/IMPORT.md`). Vendored libraries and the TEI schema keep their own licences, each documented in its `NOTICE.md`.
+Code is under MIT (`LICENSE`). The TEI documents are CC BY 4.0 with attribution to Stefan Zweig Digital, Literaturarchiv Salzburg (`docs/data/NOTICE.md`, `docs/data/IMPORT.md`). Vendored libraries and the TEI schema keep their own licences, each documented in its `NOTICE.md`.

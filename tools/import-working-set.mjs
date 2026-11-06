@@ -16,12 +16,14 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { source } from "../js/source.js";
+import { source } from "../docs/js/source.js";
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = resolve(process.argv[2] ?? join(REPO, "..", "szd-htr"));
 const LIST = join(REPO, "tools", "working-set.json");
-const RECORD = join(REPO, "data", "IMPORT.md");
+// Target paths are relative to the application root docs/.
+const APP = join(REPO, "docs");
+const RECORD = join(APP, "data", "IMPORT.md");
 // The collections are the folders js/source.js names.
 const COLLECTIONS = new Set(source.collections.map((c) => c.key));
 const OBJECT_ID = /^o_szd\.\d+$/;
@@ -64,7 +66,7 @@ for (const doc of documents) {
     failed.push(`${doc.objectId}: target "${file}" is not a TEI file under data/`);
     continue;
   }
-  const target = join(REPO, file);
+  const target = join(APP, file);
   // A document that cannot be read this time keeps its earlier provenance row.
   const keepRow = () => previous.has(file) && rows.push(previous.get(file));
   if (!existsSync(source)) {

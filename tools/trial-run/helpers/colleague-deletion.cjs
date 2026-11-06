@@ -4,7 +4,7 @@
 
 const fs = require("node:fs");
 
-const file = "data/korrespondenzen/o_szd.504.tei.xml";
+const file = "docs/data/korrespondenzen/o_szd.504.tei.xml";
 const marker = "~~Aus Villa Igiea mir~~";
 const text = fs.readFileSync(file, "utf8");
 if (!text.includes(marker)) {

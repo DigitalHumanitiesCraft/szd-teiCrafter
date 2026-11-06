@@ -4,16 +4,16 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { checkAgainstSchema, lineBreakPattern, loadActions, markerDetectors, serializeRegistry, stripMarker, withAttributes, wrap } from "../../js/actions.js";
-import { dateContext, isIsoDate, parseDate } from "../../js/dates.js";
-import { schemaChecker } from "../../js/schema.js";
-import { source } from "../../js/source.js";
+import { checkAgainstSchema, lineBreakPattern, loadActions, markerDetectors, serializeRegistry, stripMarker, withAttributes, wrap } from "../../docs/js/actions.js";
+import { dateContext, isIsoDate, parseDate } from "../../docs/js/dates.js";
+import { schemaChecker } from "../../docs/js/schema.js";
+import { source } from "../../docs/js/source.js";
 
-const FILE = new URL("../../data/actions.json", import.meta.url);
+const FILE = new URL("../../docs/data/actions.json", import.meta.url);
 const text = readFileSync(FILE, "utf8");
 const registry = JSON.parse(text);
 const byId = (/** @type {string} */ id) => registry.actions.find((/** @type {any} */ a) => a.id === id);
-const problem = schemaChecker(readFileSync(new URL(`../../${source.schemas.at(-1).url}`, import.meta.url), "utf8"));
+const problem = schemaChecker(readFileSync(new URL(`../../docs/${source.schemas.at(-1).url}`, import.meta.url), "utf8"));
 
 test("the registry loads, and the schema knows every action", () => {
   const actions = checkAgainstSchema(loadActions(registry), problem);

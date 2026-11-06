@@ -4,15 +4,15 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { loadActions } from "../../js/actions.js";
-import { sameLineBreaks } from "../../js/editor.js";
-import { openWorkFor, source } from "../../js/source.js";
-import { openSpots } from "../../js/state.js";
-import { hasLineBreaks, plainText, REFUSED, textView } from "../../js/textview.js";
-import { EditorState, history } from "../../vendor/codemirror/codemirror.js";
+import { loadActions } from "../../docs/js/actions.js";
+import { sameLineBreaks } from "../../docs/js/editor.js";
+import { openWorkFor, source } from "../../docs/js/source.js";
+import { openSpots } from "../../docs/js/state.js";
+import { hasLineBreaks, plainText, REFUSED, textView } from "../../docs/js/textview.js";
+import { EditorState, history } from "../../docs/vendor/codemirror/codemirror.js";
 
-const LETTER = readFileSync(new URL("../../data/o_szd.1222.tei.xml", import.meta.url), "utf8");
-const openWork = openWorkFor(loadActions(JSON.parse(readFileSync(new URL("../../data/actions.json", import.meta.url), "utf8"))));
+const LETTER = readFileSync(new URL("../../docs/data/o_szd.1222.tei.xml", import.meta.url), "utf8");
+const openWork = openWorkFor(loadActions(JSON.parse(readFileSync(new URL("../../docs/data/actions.json", import.meta.url), "utf8"))));
 const refusals = [];
 const hooks = { openWork: (/** @type {string} */ t) => openSpots(t, openWork), onRefuse: (/** @type {string} */ m) => refusals.push(m), onPage: () => {}, onMarkKey: () => {} };
 

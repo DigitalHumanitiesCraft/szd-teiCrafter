@@ -43,18 +43,19 @@ The action layer is [CLAUDE.md](../CLAUDE.md) in the repository root.
 
 ## Storage zones
 
+- `docs/` holds the application and is the GitHub Pages root, so only the application is served, never `knowledge/`, `evidence/`, `tools/` or `test/`. `docs/.nojekyll` keeps Pages from rendering Markdown.
 - `knowledge/` holds these documents.
-- `data/` holds the research data, the TEI files edited with the tool in one folder per collection, with their provenance in `data/IMPORT.md`, the generated document index and the person index, each third-party object with a `NOTICE.md`.
+- `docs/data/` holds the research data, the TEI files edited with the tool in one folder per collection, with their provenance in `docs/data/IMPORT.md`, the generated document index and the person index, each third-party object with a `NOTICE.md`.
 - `tools/` holds the Node scripts that import the working set and build the document and person indexes, the check of agent-annotated copies, and under `tools/trial-run/` the scripts and guide of the local trial run, whose sandbox lies in the ignored folder `trial-run/`.
 - `evidence/` holds the frozen results of the agent runs and of the reviews, each folder with a checksum manifest, see `evidence/README.md`.
-- `vendor/` and `schemas/` hold vendored third-party code and the TEI schema, each with its `NOTICE.md`.
+- `docs/vendor/` and `docs/schemas/` hold vendored third-party code and the TEI schema, each with its `NOTICE.md`.
 - `test/` holds the browser check and its only dependency.
 
 ## Reading paths
 
 - Session start: INDEX → [handoff](handoff.md) → [plan](plan.md) → the document for the task.
 - Changing editor behaviour: [specification](specification.md#decisions) → [design](design.md) → [testing](testing.md).
-- Deriving an editor for another edition: [specification](specification.md#adr-002-generic-modules-and-one-source-configuration) → [project](project.md#technical-realisation) → `js/source.js`.
+- Deriving an editor for another edition: [specification](specification.md#adr-002-generic-modules-and-one-source-configuration) → [project](project.md#technical-realisation) → `docs/js/source.js`.
 
 ## Convention
 
@@ -64,7 +65,7 @@ This knowledge base follows the Promptotyping Documents convention, mirrored at 
 
 ### Action registry
 
-The file `data/actions.json`, which lists the annotation actions of the edition with element, attributes, dialog, views and the HTR marker each resolves. The menu, the dialogs, the open-work count and the settings view „Aktionen“ read it, see ADR-013 in the specification.
+The file `docs/data/actions.json`, which lists the annotation actions of the edition with element, attributes, dialog, views and the HTR marker each resolves. The menu, the dialogs, the open-work count and the settings view „Aktionen“ read it, see ADR-013 in the specification.
 
 ### Agentic layer
 
@@ -72,7 +73,7 @@ LLM agents started from a coding harness that work on the repository's files in 
 
 ### Collection
 
-A group of documents of the Stefan Zweig Digital holdings with a common TEI profile, namely correspondence, life documents, works and essay files, kept as a folder under `data/`.
+A group of documents of the Stefan Zweig Digital holdings with a common TEI profile, namely correspondence, life documents, works and essay files, kept as a folder under `docs/data/`.
 
 ### Derivation
 
@@ -80,7 +81,7 @@ An editor built for one edition from the generic teiCrafter modules plus a sourc
 
 ### Document index
 
-The generated list `data/index.json` of the documents per collection with title, pages, open spots and working state, from which the editor builds its document list without reading every file. `tools/build-document-index.mjs` rebuilds it, see [data](data.md#sources).
+The generated list `docs/data/index.json` of the documents per collection with title, pages, open spots and working state, from which the editor builds its document list without reading every file. `tools/build-document-index.mjs` rebuilds it, see [data](data.md#sources).
 
 ### GAMS
 
@@ -108,7 +109,7 @@ The schemas of the source configuration, ordered strictest first, against which 
 
 ### Source configuration
 
-The file `js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, the collections, the text view settings, the person and place references, the path of the action registry and the schema list.
+The file `docs/js/source.js`. It holds everything specific to one edition, such as where facsimiles come from, the collections, the text view settings, the person and place references, the path of the action registry and the schema list.
 
 ### SZD
 
@@ -120,7 +121,7 @@ The presentation of the open document without visible markup, on the same editor
 
 ### Working set
 
-The selection of documents imported from szd-htr into this repository, about ten per collection chosen for the variety of their TEI profiles, listed with reasons in `tools/working-set.json` and with provenance in `data/IMPORT.md`. From the import on, this repository is authoritative for their transcription body and SZD-split for their header and catalogue description, see ADR-010 in the specification.
+The selection of documents imported from szd-htr into this repository, about ten per collection chosen for the variety of their TEI profiles, listed with reasons in `tools/working-set.json` and with provenance in `docs/data/IMPORT.md`. From the import on, this repository is authoritative for their transcription body and SZD-split for their header and catalogue description, see ADR-010 in the specification.
 
 ### Working state
 

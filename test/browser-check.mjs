@@ -11,13 +11,13 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
-const ORIGINAL = readFileSync(new URL("../data/o_szd.1222.tei.xml", import.meta.url), "utf8");
-const INDEX = JSON.parse(readFileSync(new URL("../data/index.json", import.meta.url), "utf8"));
+const ORIGINAL = readFileSync(new URL("../docs/data/o_szd.1222.tei.xml", import.meta.url), "utf8");
+const INDEX = JSON.parse(readFileSync(new URL("../docs/data/index.json", import.meta.url), "utf8"));
 const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
 const REICHNER = ALL_DOCS.find((d) => d.objectId === "o_szd.1750");
-const REICHNER_TEXT = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
+const REICHNER_TEXT = readFileSync(new URL(`../docs/${REICHNER.path}`, import.meta.url), "utf8").replace(/\r\n/g, "\n");
 const lf = (text) => text.replace(/\r\n/g, "\n");
-const ACTIONS_TEXT = readFileSync(new URL("../data/actions.json", import.meta.url), "utf8");
+const ACTIONS_TEXT = readFileSync(new URL("../docs/data/actions.json", import.meta.url), "utf8");
 const ACTIONS = JSON.parse(ACTIONS_TEXT).actions;
 const results = [];
 // A run that throws still shows the checks it reached.
@@ -32,7 +32,7 @@ const shot = (page, name) => SHOTS_DIR && page.screenshot({ path: join(SHOTS_DIR
 
 // The line comparison itself, independent of the interface.
 {
-  const { lineDiff, conflictMarkers } = await import("../js/diff.js");
+  const { lineDiff, conflictMarkers } = await import("../docs/js/diff.js");
   const marks = (d) => d.map((l) => `${l.kind === "same" ? " " : l.kind === "del" ? "-" : "+"}${l.text}`).join(",");
   check("line diff finds replaced, removed and added lines", marks(lineDiff("a\nb\nc\nd\ne", "a\nB\nc\ne\nf")) === " a,-b,+B, c,-d, e,+f");
   check("line diff of equal texts has no changes", lineDiff("x\r\ny", "x\r\ny").every((l) => l.kind === "same"));
@@ -380,7 +380,7 @@ const LOBID_FIXTURE = {
   check("edge button brings it back", await page.isVisible("#image-pane"));
 
   // The fallback file input is cleared after each choice, so choosing the same file again opens it again.
-  const reichner = new URL(`../${REICHNER.path}`, import.meta.url);
+  const reichner = new URL(`../docs/${REICHNER.path}`, import.meta.url);
   await page.setInputFiles("#tei-file", fileURLToPath(reichner));
   await page.waitForFunction(() => document.getElementById("doc-meta").textContent.startsWith("o_szd.1750.tei.xml"), null, { timeout: 10000 });
   check("the file input is cleared after opening", (await page.inputValue("#tei-file")) === "");
@@ -512,7 +512,7 @@ const LOBID_FIXTURE = {
 // saved file with the original transformed by the same rules, earliest marker
 // first, so the check proves that the interface applied exactly these edits.
 {
-  const { stripMarker, wrap } = await import("../js/actions.js");
+  const { stripMarker, wrap } = await import("../docs/js/actions.js");
   let expected = ORIGINAL;
   for (;;) {
     const spots = ACTIONS.filter((a) => a.resolves)
@@ -838,7 +838,7 @@ async function chooseDocument(page, objectId) {
 // endings, and state that must not survive a document switch. Stubbed file
 // handles serve the files below and log every disk access.
 {
-  const raw = readFileSync(new URL(`../${REICHNER.path}`, import.meta.url), "utf8");
+  const raw = readFileSync(new URL(`../docs/${REICHNER.path}`, import.meta.url), "utf8");
   const approved = REICHNER_TEXT.replace(/\n([ \t]*)<\/teiHeader>/, (_, indent) =>
     `\n${indent}  <revisionDesc status="approved">\n${indent}    <change when="2026-10-01" status="approved">ok</change>\n${indent}  </revisionDesc>\n${indent}</teiHeader>`,
   );
@@ -1439,7 +1439,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
 // a proposal that claims a review is refused, and the log names each decision.
 {
   const { page, errors } = await open({ colorScheme: "light" });
-  const { source } = await import("../js/source.js");
+  const { source } = await import("../docs/js/source.js");
   const { producer, reviewer } = source.review;
   const file = {
     format: "teicrafter-proposals/0.2",
@@ -1618,7 +1618,7 @@ const timings = [];
     await page.waitForTimeout(350);
     const wf = await label(page, "#wf-label");
     const title = (await label(page, "#doc-title")).replace(/\s+/g, " ");
-    timings.push({ id: d.objectId, kb: Math.round(Buffer.byteLength(readFileSync(new URL(`../${d.path}`, import.meta.url))) / 1024), load, typing });
+    timings.push({ id: d.objectId, kb: Math.round(Buffer.byteLength(readFileSync(new URL(`../docs/${d.path}`, import.meta.url))) / 1024), load, typing });
     if (wf !== "Wohlgeformt" || errors.length > before || (await label(page, "#save-state")) || title !== d.title) {
       problems.push(`${d.objectId}: ${wf}, ${errors.slice(before).join(" ") || "no errors"}, title "${title}"`);
     }

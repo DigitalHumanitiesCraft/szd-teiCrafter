@@ -4,7 +4,7 @@
 
 # Research data stays byte-exact: Git converts no line endings in it, and the
 # editor saves with the line endings it found, so a commit shows only edits.
-data/** -text
+docs/data/** -text
 
 # Evidence is frozen and checked against SHA-256 manifests, so it stays byte-exact too.
 evidence/** -text

@@ -1,4 +1,4 @@
-// Builds data/index.json, the document list the editor offers, from the
+// Builds docs/data/index.json, the document list the editor offers, from the
 // working set (tools/working-set.json) and each TEI file, grouped by the
 // collections of js/source.js: title, pages, open work as js/source.js and
 // data/actions.json define it, and the working state of revisionDesc
@@ -10,12 +10,14 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import { loadActions } from "../js/actions.js";
-import { openWorkFor, source } from "../js/source.js";
-import { openSpots, storedStatus } from "../js/state.js";
+import { loadActions } from "../docs/js/actions.js";
+import { openWorkFor, source } from "../docs/js/source.js";
+import { openSpots, storedStatus } from "../docs/js/state.js";
 
+// Paths in the working set and the index are relative to the application root docs/.
 const ROOT = new URL("../", import.meta.url);
-export const INDEX_FILE = new URL("data/index.json", ROOT);
+const APP = new URL("docs/", ROOT);
+export const INDEX_FILE = new URL("data/index.json", APP);
 
 const OBJECT_ID = /^o_szd\.\d+$/;
 
@@ -49,12 +51,12 @@ export async function buildIndex() {
   const set = JSON.parse(await readFile(new URL("tools/working-set.json", ROOT), "utf8"));
   const collections = source.collections.map(({ key, label }) => ({ key, label, documents: [] }));
   // Open work as the editor counts it, from the same action registry.
-  const openWork = openWorkFor(loadActions(JSON.parse(await readFile(new URL(source.actions, ROOT), "utf8"))));
+  const openWork = openWorkFor(loadActions(JSON.parse(await readFile(new URL(source.actions, APP), "utf8"))));
   for (const d of set.documents) {
     const collection = collections.find((c) => c.key === d.collection);
     if (!collection) throw new Error(`Unknown collection ${d.collection} for ${d.objectId}`);
     const path = documentPath(d);
-    const xml = await readFile(new URL(path, ROOT), "utf8");
+    const xml = await readFile(new URL(path, APP), "utf8");
     // The first title is the document title of the szd-htr conversion.
     const raw = /<title\b[^>]*>([\s\S]*?)<\/title>/.exec(xml)?.[1];
     const title = raw ? titleText(raw) : d.objectId;
@@ -72,5 +74,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
   const text = await buildIndex();
   await writeFile(INDEX_FILE, text);
   const { collections } = JSON.parse(text);
-  console.log(`data/index.json: ${collections.map((c) => `${c.key} ${c.documents.length}`).join(", ")}`);
+  console.log(`docs/data/index.json: ${collections.map((c) => `${c.key} ${c.documents.length}`).join(", ")}`);
 }

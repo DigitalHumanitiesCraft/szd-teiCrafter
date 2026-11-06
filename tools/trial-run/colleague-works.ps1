@@ -13,7 +13,7 @@ try {
     if ($LASTEXITCODE -eq 2) { exit 0 }
     if ($LASTEXITCODE) { throw "Bearbeitung fehlgeschlagen." }
     node tools/build-document-index.mjs | Out-Null
-    git add data/korrespondenzen/o_szd.504.tei.xml data/index.json
+    git add docs/data/korrespondenzen/o_szd.504.tei.xml docs/data/index.json
     git commit --quiet -m "Resolve the first deletion in o_szd.504"
     git push --quiet
     Write-Host "Die Kollegin hat o_szd.504 bearbeitet und auf den Server geschoben:"

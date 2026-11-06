@@ -4,9 +4,9 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { searchRegister } from "../../js/register.js";
+import { searchRegister } from "../../docs/js/register.js";
 
-const INDEX = readFileSync(new URL("../../data/register/szd-persons.json", import.meta.url), "utf8");
+const INDEX = readFileSync(new URL("../../docs/data/register/szd-persons.json", import.meta.url), "utf8");
 globalThis.fetch = /** @type {any} */ (async () => new Response(INDEX, { status: 200 }));
 
 test("names beginning with the query come first", async () => {
@@ -24,7 +24,7 @@ test("forms of address are ignored", async () => {
 });
 
 test("person references use the form of the holdings and read the older full URI", async () => {
-  const { source } = await import("../../js/source.js");
+  const { source } = await import("../../docs/js/source.js");
   assert.equal(source.person.registerRef("SZDPER.2188"), "#SZDPER.2188");
   assert.equal(source.person.registerIdOf("#SZDPER.2188"), "SZDPER.2188");
   assert.equal(source.person.registerIdOf("https://gams.uni-graz.at/o:szd.personen#SZDPER.2188"), "SZDPER.2188");
@@ -32,7 +32,7 @@ test("person references use the form of the holdings and read the older full URI
 });
 
 test("place references hold the GND and GeoNames, organisations their index URI or GND", async () => {
-  const { source } = await import("../../js/source.js");
+  const { source } = await import("../../docs/js/source.js");
   const ref = source.place.ref("4066009-6", "2761367");
   assert.equal(ref, "http://d-nb.info/gnd/4066009-6 http://www.geonames.org/2761367");
   assert.equal(source.place.gndOf(ref), "4066009-6");

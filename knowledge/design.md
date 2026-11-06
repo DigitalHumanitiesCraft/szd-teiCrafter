@@ -31,11 +31,11 @@ Source and facsimile are the content, and everything else is a control serving t
 
 ## Design system
 
-- Tokens: custom properties on `:root` in `css/app.css`, colours in `oklch()`, light and dark mode through `light-dark()`. Blue carries element names and the accent, orange carries attribute names. Violet marks what an outside producer proposed and nobody has decided yet, always with a dashed outline and the label „KI-Vorschlag, ungeprüft“ on its card, so the meaning does not rest on colour.
-- Editor colours: the CodeMirror theme in `js/editor.js` consumes the same tokens, because CodeMirror's base styles would override layered CSS.
-- Icons: one inline SVG sprite in `index.html`, stroke icons in `currentColor`, each with an accessible name and a tooltip that appears on hover and on keyboard focus, not after a pointer click.
+- Tokens: custom properties on `:root` in `docs/css/app.css`, colours in `oklch()`, light and dark mode through `light-dark()`. Blue carries element names and the accent, orange carries attribute names. Violet marks what an outside producer proposed and nobody has decided yet, always with a dashed outline and the label „KI-Vorschlag, ungeprüft“ on its card, so the meaning does not rest on colour.
+- Editor colours: the CodeMirror theme in `docs/js/editor.js` consumes the same tokens, because CodeMirror's base styles would override layered CSS.
+- Icons: one inline SVG sprite in `docs/index.html`, stroke icons in `currentColor`, each with an accessible name and a tooltip that appears on hover and on keyboard focus, not after a pointer click.
 - Text face: `--font-text`, a book serif for the text view, while controls keep the system face and the XML view the code face.
-- Terms: the tooltips that define Collection, Arbeitsstand, offene Stelle, Abnahme, Aktion, the two views and the two layouts come from `js/concepts.js`, so the header badge, the counter and the dialogs use the same words.
+- Terms: the tooltips that define Collection, Arbeitsstand, offene Stelle, Abnahme, Aktion, the two views and the two layouts come from `docs/js/concepts.js`, so the header badge, the counter and the dialogs use the same words.
 - Layout: two panes in a grid whose split is a custom property set by the separator, stacked below a narrow width.
 
 ## Interaction patterns

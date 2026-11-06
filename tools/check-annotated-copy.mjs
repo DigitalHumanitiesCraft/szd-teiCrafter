@@ -1,4 +1,4 @@
-// Checks an annotated working copy against the original in data/
+// Checks an annotated working copy against the original in docs/data/
 // and against the editor, the same yardstick for every way of annotating.
 //
 //   node tools/check-annotated-copy.mjs <annotated file> [more files]
@@ -20,7 +20,7 @@ const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
 const MARKUP = /<\/?(?:persName|placeName|orgName|date)\b[^>]*>/g;
 
 function originalOf(/** @type {string} */ name) {
-  const data = new URL("data/", REPO);
+  const data = new URL("docs/data/", REPO);
   for (const dir of ["", ...readdirSync(data, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name + "/")]) {
     const file = new URL(dir + name, data);
     if (existsSync(file)) return readFileSync(file, "utf8");

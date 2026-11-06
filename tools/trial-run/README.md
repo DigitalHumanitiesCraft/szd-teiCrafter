@@ -20,12 +20,12 @@ Alle Befehle unten laufen in PowerShell im Wurzelordner des Repositorys. Befehle
 
 ## 1. Daten hineingeben
 
-Neue Dokumente kommen aus der szd-htr-Pipeline. Das Skript trägt den Brief in die Auswahlliste ein, kopiert ihn byte-genau, vermerkt Herkunft und Prüfsumme in `data/IMPORT.md` und baut die Dokumentliste neu.
+Neue Dokumente kommen aus der szd-htr-Pipeline. Das Skript trägt den Brief in die Auswahlliste ein, kopiert ihn byte-genau, vermerkt Herkunft und Prüfsumme in `docs/data/IMPORT.md` und baut die Dokumentliste neu.
 
 ```
 .\tools\trial-run\import-document.ps1 -ObjektId o_szd.1207 -Sammlung korrespondenzen -Grund "Letter for the trial run"
 git -C trial-run\ich status
-git -C trial-run\ich add data tools/working-set.json
+git -C trial-run\ich add docs/data tools/working-set.json
 git -C trial-run\ich commit -m "Import o_szd.1207 for the trial run"
 ```
 
@@ -39,7 +39,7 @@ git -C trial-run\ich commit -m "Import o_szd.1207 for the trial run"
 
 Der Browser öffnet den Editor. Das Fenster mit dem Befehl bleibt offen, solange du arbeitest, und Strg+C beendet den Editor.
 
-Damit das Speichern in deine Arbeitskopie zurückschreibt, öffnest du die Datei selbst über den Ordner-Knopf oben rechts, hier `trial-run\ich\data\korrespondenzen\o_szd.1207.tei.xml`. Über die Dokumentliste geöffnete Briefe speichert der Browser nur als Download.
+Damit das Speichern in deine Arbeitskopie zurückschreibt, öffnest du die Datei selbst über den Ordner-Knopf oben rechts, hier `trial-run\ich\docs\data\korrespondenzen\o_szd.1207.tei.xml`. Über die Dokumentliste geöffnete Briefe speichert der Browser nur als Download.
 
 ## 3. Bearbeiten
 
@@ -62,7 +62,7 @@ Der Vergleichs-Knopf in der Werkzeugleiste zeigt die Änderungen seit dem Öffne
 
 ```
 git -C trial-run\ich diff
-git -C trial-run\ich add data/korrespondenzen/o_szd.1207.tei.xml
+git -C trial-run\ich add docs/data/korrespondenzen/o_szd.1207.tei.xml
 git -C trial-run\ich commit -m "Annotate persons in o_szd.1207"
 ```
 
@@ -83,7 +83,7 @@ git -C trial-run\ich push
 git -C trial-run\ich log --oneline -5
 ```
 
-Git führt beide Arbeiten zusammen, weil ihr an verschiedenen Briefen gearbeitet habt. Nach einem Neuladen der Seite zeigt die Dokumentliste in deinem Editor auch ihren Brief `o_szd.504` mit einer offenen Stelle weniger. Nach einer Abnahme oder einem Import baust du die Dokumentliste mit `node tools/build-document-index.mjs` in `trial-run\ich` neu und committest `data/index.json` mit.
+Git führt beide Arbeiten zusammen, weil ihr an verschiedenen Briefen gearbeitet habt. Nach einem Neuladen der Seite zeigt die Dokumentliste in deinem Editor auch ihren Brief `o_szd.504` mit einer offenen Stelle weniger. Nach einer Abnahme oder einem Import baust du die Dokumentliste mit `node tools/build-document-index.mjs` in `trial-run\ich` neu und committest `docs/data/index.json` mit.
 
 ## 7. Wohin die Daten am Ende gehen
 

@@ -5,9 +5,9 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readFileSync } from "node:fs";
-import { loadActions } from "../../js/actions.js";
-import { openWorkFor } from "../../js/source.js";
-import { acceptanceEdits, openSpots, storedStatus, withdrawalEdits } from "../../js/state.js";
+import { loadActions } from "../../docs/js/actions.js";
+import { openWorkFor } from "../../docs/js/source.js";
+import { acceptanceEdits, openSpots, storedStatus, withdrawalEdits } from "../../docs/js/state.js";
 
 const CHANGE = { date: "2026-10-30", note: "ok" };
 const APPROVING = '<change when="2026-10-30" status="approved">ok</change>';
@@ -69,7 +69,7 @@ test("acceptance without a header changes nothing", () => {
   assert.deepEqual(acceptanceEdits("<TEI><text/></TEI>", CHANGE), []);
 });
 
-const openWork = openWorkFor(loadActions(JSON.parse(readFileSync(new URL("../../data/actions.json", import.meta.url), "utf8"))));
+const openWork = openWorkFor(loadActions(JSON.parse(readFileSync(new URL("../../docs/data/actions.json", import.meta.url), "utf8"))));
 const kinds = (/** @type {string} */ text) => openSpots(text, openWork).map((s) => `${s.key}:${text.slice(s.from, s.to)}`);
 const doc = (/** @type {string} */ body) => `<TEI><teiHeader><title>Briefregister [I] [?]</title></teiHeader><text><body><p>${body}</p></body></text></TEI>`;
 

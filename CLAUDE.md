@@ -22,7 +22,7 @@ Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, t
 
 - Handoff: read `knowledge/handoff.md` at session start, verify source and target of every point used, integrate durable content first, write the journal entry, then remove the point.
 - Journal: one entry per coherent transition with the fields that have content. Status, open tasks and detailed results belong in their own documents.
-- Keep edition specifics in `js/source.js` and the annotation actions in `data/actions.json`. A generic module that needs to know about Stefan Zweig Digital is a design error, report it.
+- Keep edition specifics in `docs/js/source.js` and the annotation actions in `docs/data/actions.json`. A generic module that needs to know about Stefan Zweig Digital is a design error, report it.
 - Place a change in the module that owns it. The module map in ADR-002 of `knowledge/specification.md` is the one list of module responsibilities; update it when a responsibility moves.
 - Edits the application makes go through `editor.replace` or `editor.dispatch`, which mark them as application edits. The text view refuses every other command that changes the text unless it is typing, pasting, dropping, replacing or deleting.
 - Never alter research data beyond the requested edit. Saving must keep every untouched byte, and the browser check proves it.
@@ -36,7 +36,7 @@ Value source: `knowledge/design.md`. Binding:
 - Keep a state that limits the next action visible where it applies until resolved.
 - Disable an unavailable action and show its reason beside it.
 - Never let colour carry meaning alone, and keep every action reachable by keyboard.
-- Set colours inside the editor through the CodeMirror theme in `js/editor.js`.
+- Set colours inside the editor through the CodeMirror theme in `docs/js/editor.js`.
 
 ## Scope
 
@@ -52,21 +52,21 @@ Check available tools, runtimes and network access before dependent steps, and n
 
 ### Commands
 
-- Serve: `python -m http.server 8000` in the repository root.
+- Serve: `python -m http.server 8000 --directory docs` in the repository root. `docs/` is the application and the GitHub Pages root; nothing outside it is served.
 - Syntax: `node --check js/<module>.js` for every changed module.
-- Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour. It takes about three minutes and fails first when `data/index.json` is stale.
+- Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour. It takes about three minutes and fails first when `docs/data/index.json` is stale.
 - Size check: `npm run size` in `test/` with the server running, after a change that affects checking, validation or the text view; it is the source of the limits in NFR-05.
 - Trial run: `tools/trial-run/setup.ps1` builds a local team sandbox under the ignored `trial-run/`, the guide is `tools/trial-run/README.md`.
 - Agent copies: `node tools/check-annotated-copy.mjs <file>` with the server running checks an annotated copy against its original.
-- CodeMirror bundle: rebuild per `vendor/codemirror/NOTICE.md`.
-- Registers: `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild `data/register/szd-persons.json` and `szd-organisations.json` from GAMS.
-- Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `data/IMPORT.md`. It keeps files corrected here.
+- CodeMirror bundle: rebuild per `docs/vendor/codemirror/NOTICE.md`.
+- Registers: `node tools/build-person-index.mjs` and `node tools/build-organisation-index.mjs` rebuild `docs/data/register/szd-persons.json` and `szd-organisations.json` from GAMS.
+- Working set: `node tools/import-working-set.mjs [szd-htr clone]` imports `tools/working-set.json` and records provenance in `docs/data/IMPORT.md`. It keeps files corrected here.
 - Proposals from an annotated copy: `node tools/proposals-from-copy.mjs <copy> --producer "llm-agent, model"` writes a proposal file beside the copy for review in the editor (ADR-016).
-- Document index: `node tools/build-document-index.mjs` rebuilds `data/index.json` after an import or a commit that changes a document's state.
+- Document index: `node tools/build-document-index.mjs` rebuilds `docs/data/index.json` after an import or a commit that changes a document's state.
 
 ### Conventions
 
-- Native ES modules, JSDoc for central shapes, design tokens in `css/app.css`, no inline styles except data-driven values.
+- Native ES modules, JSDoc for central shapes, design tokens in `docs/css/app.css`, no inline styles except data-driven values.
 - Git: work on main, stage files by explicit path, English imperative commit messages.
 
 ### Security

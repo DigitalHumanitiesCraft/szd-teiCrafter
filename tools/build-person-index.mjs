@@ -1,4 +1,4 @@
-// Builds data/register/szd-persons.json from the person index of Stefan Zweig
+// Builds docs/data/register/szd-persons.json from the person index of Stefan Zweig
 // Digital (GAMS object o:szd.personen, CC BY 4.0), so the editor searches a
 // small prebuilt list instead of parsing the TEI at runtime.
 //
@@ -9,10 +9,10 @@
 // without a name, which the script reports instead of writing them.
 
 import { mkdirSync, writeFileSync } from "node:fs";
-import { fold } from "../js/register.js";
+import { fold } from "../docs/js/register.js";
 
 const SOURCE = "https://gams.uni-graz.at/o:szd.personen/TEI_SOURCE";
-const OUT = new URL("../data/register/szd-persons.json", import.meta.url);
+const OUT = new URL("../docs/data/register/szd-persons.json", import.meta.url);
 
 const text = (s) => (s ?? "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'");

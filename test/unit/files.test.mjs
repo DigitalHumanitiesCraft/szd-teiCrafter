@@ -3,7 +3,7 @@
 
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { decodeXml, encodeXml, guardedWrite } from "../../js/files.js";
+import { decodeXml, encodeXml, guardedWrite } from "../../docs/js/files.js";
 
 const utf8 = (/** @type {string} */ s) => new TextEncoder().encode(s);
 const XML = '<?xml version="1.0" encoding="UTF-8"?>\r\n<TEI>Grüße, Zweig</TEI>\n';

@@ -12,7 +12,7 @@ import { readFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
-const SOURCE = readFileSync(new URL("../data/werke/o_szd.273.tei.xml", import.meta.url), "utf8");
+const SOURCE = readFileSync(new URL("../docs/data/werke/o_szd.273.tei.xml", import.meta.url), "utf8");
 const sizes = (process.argv.length > 2 ? process.argv.slice(2) : ["0.3", "1", "5", "20"]).map(Number);
 
 /** The source with its body repeated until the text reaches about `mb` megabytes. */

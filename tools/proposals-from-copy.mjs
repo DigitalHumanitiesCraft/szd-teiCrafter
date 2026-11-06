@@ -22,7 +22,7 @@ const out = option("--out");
 const [copyPath] = args;
 if (!copyPath) throw new Error("Usage: node tools/proposals-from-copy.mjs <annotated copy> [--producer text] [--out file]");
 
-const data = new URL("../data/", import.meta.url);
+const data = new URL("../docs/data/", import.meta.url);
 const name = basename(copyPath);
 const dir = ["", ...readdirSync(data, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => `${d.name}/`)].find((d) => existsSync(new URL(d + name, data)));
 if (dir === undefined) throw new Error(`No original for ${name} under data/`);

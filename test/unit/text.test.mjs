@@ -2,12 +2,12 @@
 
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { conflictMarkers, hunks, jumpLine, lineDiff } from "../../js/diff.js";
-import { lineEndings, sameLineBreaks } from "../../js/editor.js";
-import { isGndId } from "../../js/gnd.js";
-import { labelText } from "../../js/iiif.js";
+import { conflictMarkers, hunks, jumpLine, lineDiff } from "../../docs/js/diff.js";
+import { lineEndings, sameLineBreaks } from "../../docs/js/editor.js";
+import { isGndId } from "../../docs/js/gnd.js";
+import { labelText } from "../../docs/js/iiif.js";
 import { documentPath } from "../../tools/build-document-index.mjs";
-import { EditorState, history, historyKeymap } from "../../vendor/codemirror/codemirror.js";
+import { EditorState, history, historyKeymap } from "../../docs/vendor/codemirror/codemirror.js";
 
 test("the separator is the majority line ending, and mixing is reported", () => {
   assert.deepEqual(lineEndings("a\r\nb\nc\r\nd"), { separator: "\r\n", crlf: 2, lf: 1, cr: 0, mixed: true });
