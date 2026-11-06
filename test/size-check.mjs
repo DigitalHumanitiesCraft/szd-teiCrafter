@@ -12,6 +12,8 @@ import { readFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
+// The editor starts empty; the checks open the example letter through ?doc=.
+const START_URL = new URL("?doc=data/o_szd.1222.tei.xml", BASE_URL).href;
 const SOURCE = readFileSync(new URL("../docs/data/werke/o_szd.273.tei.xml", import.meta.url), "utf8");
 const sizes = (process.argv.length > 2 ? process.argv.slice(2) : ["0.3", "1", "5", "20"]).map(Number);
 
@@ -44,7 +46,7 @@ for (const mb of sizes) {
   const page = await ctx.newPage();
   const row = { MB: (text.length / 1e6).toFixed(1) };
   try {
-    await page.goto(BASE_URL);
+    await page.goto(START_URL);
     await page.waitForFunction(() => document.getElementById("doc-meta").textContent.length > 0 && document.getElementById("wf-label").textContent === "Wohlgeformt", null, { timeout: 300000 });
     const validate = async () => {
       const t = Date.now();

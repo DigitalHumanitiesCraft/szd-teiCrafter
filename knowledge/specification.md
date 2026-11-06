@@ -29,7 +29,7 @@ The editor serves one task chain, opening a document of the Stefan Zweig Digital
 
 ### Functional requirements
 
-- FR-01: The editor opens a TEI file in UTF-8 and shows its source with XML highlighting, line numbers and folding. Each opened document starts with its own undo history. Acceptance criterion: the example letter loads on start, a file opened through the open action replaces it, undo after opening another document leaves that document unchanged, and a file that is not UTF-8 or declares another encoding is refused with a message while the open document stays.
+- FR-01: The editor opens a TEI file in UTF-8 and shows its source with XML highlighting, line numbers and folding. Each opened document starts with its own undo history. The editor starts without a document and offers opening a TEI file or choosing one from the document list; until a document is open, saving, proposals and the working state are out of reach (operator, 2026-11-06). The parameter `?doc=` opens a TEI file under `data/` directly. Acceptance criterion: the start shows no document and no error, `?doc=data/o_szd.1222.tei.xml` opens the example letter, a file opened through the open action replaces it, undo after opening another document leaves that document unchanged, and a file that is not UTF-8 or declares another encoding is refused with a message while the open document stays.
 - FR-02: Well-formedness is checked while typing. Acceptance criterion: a malformed position is underlined in the text, the check button names the line, and activating it moves the caret there.
 - FR-03: The document can be validated against the strictest configured schema that loads, with TEI All as the fallback, in a worker that prepares the schema at start (ADR-014), so the interface stays responsive while it compiles. A valid result names the schema, and a fallback result says that it constrains little. Acceptance criterion: the first validation of a session leaves the editor responsive, each schema error is listed with a line link and underlined in the text, and any later edit marks the result as outdated. The result belongs to the exact text it ran on, so undoing back to that text shows it again, and a check pending from typing does not discard it.
 - FR-04: The facsimile loads from a IIIF Presentation manifest (v2 or v3), a IIIF Image API service or a plain image URL, and for SZD objects the manifest is derived from the TEI. Acceptance criterion: the example letter shows its GAMS images without user input.
@@ -285,7 +285,7 @@ Choice. Operator, 2026-10-30: the SZD editor is developed as the real editor for
 
 Rationale. One source configuration per edition keeps ADR-002 intact, and the differing TEI profiles of the holdings already test the collection model.
 
-Effect. Each collection is one folder under `docs/data/` (`korrespondenzen`, `lebensdokumente`, `werke`, `aufsatzablage`), and the document list groups by it. The example letter `o_szd.1222` stays at the root of `docs/data/` as the start document, and the working set records it under correspondence.
+Effect. Each collection is one folder under `docs/data/` (`korrespondenzen`, `lebensdokumente`, `werke`, `aufsatzablage`), and the document list groups by it. The example letter `o_szd.1222` stays at the root of `docs/data/`, where the checks open it through `?doc=`, and the working set records it under correspondence.
 
 ### ADR-010 Authority by part, starting from a working set
 

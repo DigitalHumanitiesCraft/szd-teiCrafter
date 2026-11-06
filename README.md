@@ -10,7 +10,8 @@ exchanges the results by commit and push.
 
 - Lists the documents of the repository by collection (correspondence, life documents, works,
   essay files) in a searchable dialog with title, object id, shelf mark, pages, open spots and
-  working state. The example letter `docs/data/o_szd.1222.tei.xml` loads on start, and an opened
+  working state. The editor starts empty and offers to open a TEI file or a document of the
+  list; `?doc=data/o_szd.1222.tei.xml` opens the example letter directly. An opened
   document starts at its first page break.
 - Edits TEI in a CodeMirror 6 code editor with highlighting, folding, search, element
   suggestions, code zoom and line wrapping, or in a text view of the same document that hides

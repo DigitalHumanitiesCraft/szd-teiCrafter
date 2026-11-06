@@ -339,6 +339,8 @@ export function createFiles({ editor, fallbackName, report, onOpened, beforeSave
   }
 
   async function save() {
+    // Nothing is open before the first document, so there is nothing to save.
+    if (generation === 0) return;
     // A second Ctrl+S while the question is open must not ask twice.
     if (saving) return;
     saving = true;

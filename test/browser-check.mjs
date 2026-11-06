@@ -11,6 +11,8 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
+// The editor starts empty; the checks open the example letter through ?doc=.
+const START_URL = new URL("?doc=data/o_szd.1222.tei.xml", BASE_URL).href;
 const ORIGINAL = readFileSync(new URL("../docs/data/o_szd.1222.tei.xml", import.meta.url), "utf8");
 const INDEX = JSON.parse(readFileSync(new URL("../docs/data/index.json", import.meta.url), "utf8"));
 const ALL_DOCS = INDEX.collections.flatMap((c) => c.documents);
@@ -84,7 +86,7 @@ async function open(contextOptions, initScript, initArg) {
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e)));
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
-  await page.goto(BASE_URL);
+  await page.goto(START_URL);
   try {
     await page.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
   } catch (err) {
@@ -205,6 +207,33 @@ const LOBID_FIXTURE = {
     { gndIdentifier: "1004", preferredName: "Wolbe, Eugen", dateOfBirth: ["1873"], dateOfDeath: ["1938"] },
   ],
 };
+
+// Empty start: without ?doc= no document is open, only opening one is offered,
+// and Ctrl+S has nothing to save.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  let downloads = 0;
+  page.on("download", () => downloads++);
+  await page.goto(BASE_URL);
+  await page.waitForTimeout(1500);
+  check("the editor starts without a document and offers to open one", (await page.isVisible("#start")) && (await page.isVisible("#start-open")) && (await page.isVisible("#start-docs")));
+  check("nothing that acts on a document is shown before one is open", !(await page.isVisible("#workspace")) && !(await page.isVisible("#tei-save")) && !(await page.isVisible("#doc-state")));
+  await page.keyboard.press("Control+s");
+  await page.waitForTimeout(500);
+  check("Ctrl+S saves nothing before a document is open", downloads === 0);
+  await page.click("#start-docs");
+  check("the start offers the document list", await page.isVisible("#docs-dialog"));
+  await page.keyboard.press("Escape");
+  await page.goto(new URL("?doc=../index.html", BASE_URL).href);
+  await page.waitForTimeout(800);
+  check("?doc= outside data/ is ignored and the start stays empty", await page.isVisible("#start"));
+  check("no console errors (empty start)", errors.length === 0, errors.slice(0, 3).join(" | "));
+  await ctx.close();
+}
 
 // Run 1: download path, as in browsers without the File System Access API.
 {
@@ -1418,7 +1447,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await openFile("a");
   await page.click("#view-text");
   const again = await page.context().newPage();
-  await again.goto(BASE_URL);
+  await again.goto(START_URL);
   await again.waitForFunction(() => document.getElementById("page-label").textContent.includes("von"), null, { timeout: 30000 });
   await again.waitForTimeout(500);
   check("the text view is remembered per browser", (await again.getAttribute("#view-text", "aria-pressed")) === "true");
@@ -1549,7 +1578,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   extra.actions.push({ ...extra.actions[3], id: "foo", key: "f", label: "Unbekannt", element: "foobar" });
   await ctx.route("**/data/actions.json", (route) => route.fulfill({ body: JSON.stringify(extra), contentType: "application/json" }));
   const other = await ctx.newPage();
-  await other.goto(BASE_URL);
+  await other.goto(START_URL);
   await other.waitForTimeout(2500);
   await other.click("#actions-button");
   check(

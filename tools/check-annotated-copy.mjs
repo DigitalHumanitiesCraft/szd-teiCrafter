@@ -17,6 +17,8 @@ import { pathToFileURL } from "node:url";
 const REPO = new URL("../", import.meta.url);
 const { chromium } = await import(pathToFileURL(join(REPO.pathname.replace(/^\/(\w:)/, "$1"), "test/node_modules/playwright/index.mjs")).href);
 const BASE_URL = process.env.BASE_URL ?? "http://127.0.0.1:8000/";
+// The editor starts empty; the checks open the example letter through ?doc=.
+const START_URL = new URL("?doc=data/o_szd.1222.tei.xml", BASE_URL).href;
 const MARKUP = /<\/?(?:persName|placeName|orgName|date)\b[^>]*>/g;
 
 function originalOf(/** @type {string} */ name) {
@@ -62,7 +64,7 @@ for (const path of process.argv.slice(2)) {
   await ctx.route("**/gams.uni-graz.at/**", (r) => r.abort());
   const page = await ctx.newPage();
   try {
-    await page.goto(BASE_URL);
+    await page.goto(START_URL);
     await page.waitForFunction(() => document.getElementById("doc-meta").textContent.length > 0 && document.getElementById("wf-label").textContent !== "", null, { timeout: 60000 });
     row.wellFormed = await page.textContent("#wf-label");
     await page.click("#valid-button");

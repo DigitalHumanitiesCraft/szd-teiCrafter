@@ -19,7 +19,6 @@ export const source = {
   /** Product name for the title fallback, the acceptance note and browser storage. */
   product: "teiCrafter SZD",
   storageKey: "teicrafter-szd",
-  defaultDocument: "data/o_szd.1222.tei.xml",
   /** The document list by collection, built by tools/build-document-index.mjs. */
   documents: "data/index.json",
 

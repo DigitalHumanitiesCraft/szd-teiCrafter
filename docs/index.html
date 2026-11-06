@@ -70,11 +70,21 @@
       <button id="proposals-log" class="icon-button" type="button" aria-label="Prüfprotokoll speichern" data-tip="Prüfprotokoll speichern: welche Vorschläge angenommen, geändert oder abgelehnt wurden" hidden>
         <svg class="icon"><use href="#i-log"/></svg>
       </button>
-      <button id="tei-save" class="icon-button" type="button" aria-label="TEI speichern" data-tip="TEI speichern (Strg+S)">
-        <svg class="icon"><use href="#i-save"/></svg>
+      <button id="tei-save" class="save-button" type="button" data-tip="TEI speichern (Strg+S)">
+        <svg class="icon"><use href="#i-save"/></svg><span>Speichern</span>
       </button>
     </div>
   </header>
+
+  <section id="start" class="start-panel" aria-labelledby="start-heading" hidden>
+    <h2 id="start-heading">Kein Dokument geöffnet</h2>
+    <p>Öffne eine TEI-Datei von deinem Rechner oder wähle ein Dokument aus den Sammlungen.</p>
+    <div class="start-actions">
+      <button id="start-open" type="button" class="primary"><svg class="icon"><use href="#i-open"/></svg>TEI-Datei öffnen</button>
+      <button id="start-docs" type="button"><svg class="icon"><use href="#i-docs"/></svg>Dokumente</button>
+    </div>
+    <p class="start-hint">Zum Speichern in die Datei selbst eine Datei aus deiner Arbeitskopie öffnen. Ein Dokument aus der Liste wird beim Speichern als Download übergeben.</p>
+  </section>
 
   <main id="workspace" class="workspace">
     <section class="pane pane-text" aria-labelledby="text-heading">

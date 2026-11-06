@@ -223,7 +223,7 @@ const stale = (/** @type {string} */ message) => report("error", message);
 
 const files = createFiles({
   editor,
-  fallbackName: source.defaultDocument.split("/").pop() ?? "dokument.tei.xml",
+  fallbackName: "dokument.tei.xml",
   report,
   onOpened: documentOpened,
   // Run the pending check now, so it cannot overwrite the save confirmation.
@@ -572,7 +572,7 @@ function nextOpenSpot() {
 
 workButton.addEventListener("click", nextOpenSpot);
 document.addEventListener("keydown", (e) => {
-  if (e.key === "F8" && !e.defaultPrevented && !document.querySelector("dialog[open]")) {
+  if (e.key === "F8" && !e.defaultPrevented && !document.querySelector("dialog[open]") && !("empty" in document.body.dataset)) {
     e.preventDefault();
     nextOpenSpot();
   }
@@ -767,6 +767,8 @@ for (const [id, value] of /** @type {const} */ ([["layout-lines", "lines"], ["la
 // Opening a document
 
 function documentOpened() {
+  delete document.body.dataset.empty;
+  $("start").hidden = true;
   // The check below covers the new text; the one the edit scheduled is redundant.
   clearTimeout(checkTimer);
   review.reset();
@@ -876,4 +878,14 @@ $("diff-button").addEventListener("click", () =>
   showChanges({ before: files.savedText, after: editor.text, since: files.savedBy, jumpTo: (line) => editor.jumpTo(line, 1) }),
 );
 
-files.load(source.defaultDocument);
+// The editor starts empty and offers to open a document. ?doc= opens a
+// document of this site directly, for links and for the browser check; only
+// a TEI file under data/ is accepted, so the parameter cannot reach elsewhere.
+const requested = new URLSearchParams(location.search).get("doc");
+if (requested && /^data\/[\w./-]+\.tei\.xml$/.test(requested) && !requested.includes("..")) files.load(requested);
+else {
+  document.body.dataset.empty = "";
+  $("start").hidden = false;
+}
+$("start-open").addEventListener("click", () => $("tei-open").click());
+$("start-docs").addEventListener("click", () => $("docs-button").click());
