@@ -1507,7 +1507,9 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
       createWritable: async () => ({ write: async (t) => window.__registry.push(t), close: async () => {} }),
     };
     const data = { name: "data", getFileHandle: async (n) => (n === "actions.json" ? file : Promise.reject(new Error("missing"))) };
-    const root = { name: "szd-teiCrafter", getDirectoryHandle: async (n) => (n === "data" ? data : Promise.reject(new Error("missing"))) };
+    // The repository root as picked: the application and its data lie under docs/.
+    const docs = { name: "docs", getDirectoryHandle: async (n) => (n === "data" ? data : Promise.reject(new Error("missing"))) };
+    const root = { name: "szd-teiCrafter", getDirectoryHandle: async (n) => (n === "docs" ? docs : Promise.reject(new Error("missing"))) };
     window.showDirectoryPicker = async () => root;
   }, ACTIONS_TEXT);
   check("the menu offers every action of the registry", (await page.locator("#actions-items button").count()) === ACTIONS.length);
@@ -1516,6 +1518,7 @@ const shownText = (page) => page.evaluate(() => document.querySelector(".cm-cont
   await shot(page, "actions-settings-light");
   await page.click("#actions-folder");
   await page.waitForTimeout(200);
+  check("the repository root is accepted and the registry found under docs/", (await label(page, "#actions-status")).includes("docs/data/actions.json"), await label(page, "#actions-status"));
   await page.locator(".action-row", { has: page.locator("input[aria-label='Bezeichnung von del']") }).locator("input[type='checkbox']").uncheck();
   check("switching an action off removes it from the menu", (await page.locator("#actions-items [data-action='del']").count()) === 0);
   await page.click("#actions-save");

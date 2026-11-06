@@ -149,15 +149,32 @@ export function createSettings({ path, load, onChange }) {
     }
   }
 
+  /** Whether the registry file lies at the configured path under a folder. */
+  async function holdsRegistry(/** @type {any} */ dir) {
+    const parts = path.split("/");
+    try {
+      for (const p of parts.slice(0, -1)) dir = await dir.getDirectoryHandle(p);
+      await dir.getFileHandle(/** @type {string} */ (parts.at(-1)));
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   $("actions-folder").addEventListener("click", async () => {
     try {
       const picked = await /** @type {any} */ (window).showDirectoryPicker({ mode: "readwrite" });
-      let dir = picked;
-      const parts = path.split("/");
-      for (const p of parts.slice(0, -1)) dir = await dir.getDirectoryHandle(p);
-      await dir.getFileHandle(/** @type {string} */ (parts.at(-1)));
-      folder = picked;
-      setStatus(status, "ok", `Repository-Ordner ${picked.name} gewählt; Speichern schreibt ${path}.`);
+      // The path is relative to the application folder. A repository that
+      // serves the application from docs/ (as for GitHub Pages) is accepted at its root.
+      let app = picked;
+      let shown = path;
+      if (!(await holdsRegistry(picked))) {
+        app = await picked.getDirectoryHandle("docs");
+        shown = `docs/${path}`;
+        if (!(await holdsRegistry(app))) throw new Error("missing");
+      }
+      folder = app;
+      setStatus(status, "ok", `Repository-Ordner ${picked.name} gewählt; Speichern schreibt ${shown}.`);
       updateState();
     } catch (err) {
       if (/** @type {any} */ (err)?.name === "AbortError") return;
