@@ -93,6 +93,15 @@
           "pages": 2,
           "open": 2,
           "status": "draft"
+        },
+        {
+          "path": "data/korrespondenzen/o_szd.1207.tei.xml",
+          "objectId": "o_szd.1207",
+          "shelfmark": "",
+          "title": "Brief an Anna Meingast vom 30. Juni 1934, SZ-SAM/B7.37",
+          "pages": 2,
+          "open": 3,
+          "status": "draft"
         }
       ]
     },

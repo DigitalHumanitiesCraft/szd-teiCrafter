@@ -60,3 +60,4 @@ no corrections back.
 | `o_szd.2414` | aufsatzablage | `data/aufsatzablage/o_szd.2414.tei.xml` | copied | `fd9f92498e72` | no | 2026-10-30 | `f15a174be420ed855a9436bb00f4b2f90725fefabe995a71bdc0847dd6a9d869` |
 | `o_szd.2296` | aufsatzablage | `data/aufsatzablage/o_szd.2296.tei.xml` | copied | `fd9f92498e72` | no | 2026-10-30 | `0f897f53581d207a1176523cc9295d1e2b599b640f301f55e9517362ae7034a5` |
 | `o_szd.2412` | aufsatzablage | `data/aufsatzablage/o_szd.2412.tei.xml` | copied | `fd9f92498e72` | no | 2026-10-30 | `1658c8afddb7590453593130ec796cdcdfb515e4aeafa83efb07e1ea36178af8` |
+| `o_szd.1207` | korrespondenzen | `data/korrespondenzen/o_szd.1207.tei.xml` | copied | `f23ee92db5ab` | no | 2026-11-06 | `f1f973a2ed54a1d8ed1f84e3207f872af4a4b4d43b4016b5a01a0d0ac1320535` |

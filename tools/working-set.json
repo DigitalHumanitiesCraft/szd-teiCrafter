@@ -47,6 +47,7 @@
     { "objectId": "o_szd.2325", "collection": "aufsatzablage", "reason": "Longest essay text, a printed offprint of 45 pages without markers." },
     { "objectId": "o_szd.2414", "collection": "aufsatzablage", "reason": "French printed clipping with handwritten annotations." },
     { "objectId": "o_szd.2296", "collection": "aufsatzablage", "reason": "Proof sheet with minimal handwriting, no markers." },
-    { "objectId": "o_szd.2412", "collection": "aufsatzablage", "reason": "Handwritten manuscript of a few lines over seven mostly blank pages, no standOff." }
+    { "objectId": "o_szd.2412", "collection": "aufsatzablage", "reason": "Handwritten manuscript of a few lines over seven mostly blank pages, no standOff." },
+    { "objectId": "o_szd.1207", "collection": "korrespondenzen", "reason": "Letter for the demo run, opened from a local file" }
   ]
 }

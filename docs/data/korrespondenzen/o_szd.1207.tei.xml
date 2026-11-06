@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Brief an Anna Meingast vom 30. Juni 1934, SZ-SAM/B7.37</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Machine-generated TEI from szd-htr Page-JSON (gemini-3.1-flash-lite-preview). Structure unreviewed; transcription unreviewed. Rights: CC-BY.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <idno type="objectId">o_szd.1207</idno>
+          </msIdentifier>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage><language ident="de"/></langUsage>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="surf_1">
+      <graphic url="https://gams.uni-graz.at/o:szd.1207/IMG.1"/>
+    </surface>
+    <surface xml:id="surf_2">
+      <graphic url="https://gams.uni-graz.at/o:szd.1207/IMG.2"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <div type="document" n="o_szd.1207">
+      <pb n="1" facs="#surf_1"/>
+      <p>
+        <lb/>11 Portland Place                                London, den 30.Juni 1934.
+      </p>
+      <p>
+        <lb/>Liebe Frau Meingast!
+      </p>
+      <p>
+        <lb/>Ich schulde Ihnen schon lange einen Brief, in dem ich
+        <lb/>Ihnen meine nächsten Dispositionen mitteile. Ich sehe also
+        <lb/>ungefähr Folgendes vor. Bis Ende Juli werde ich noch hier
+        <lb/>bleiben müssen, im August tauche ich kurz in Salzburg auf
+        <lb/>und gehe dann nach Gastein oder nach Wien und {dort} beginnt
+        <lb/>{auf S. habe ich keine Lust} schon Kapitel für Kapitel die endgültige Form der Arbeit.
+        <lb/>Sie werden unbarmherzig eingespannt werden, damit wir, ehe
+        <lb/>ich nach Amerika gehe, das Buch in einer tadellosen äusse-
+        <lb/>ren Form fertig haben. Es wird sich sogar die Notwendigkeit
+        <lb/>ergeben, es zwei oder drei Mal zu schreiben oder (vielleicht
+        <lb/>erkundigen Sie sich inzwischen und üben diese Form) es der-
+        <lb/>art zu vervielfältigen, dass ich mindestens zwölf Exemplare
+        <lb/>zur Verfügung habe, damit ich die wichtigsten Sprachen "be-
+        <lb/>dienen" kann. Wegen des deutschen Verlags ist ja noch nichts
+        <lb/>beschlossen.
+      </p>
+      <p>
+        <lb/>Ich weiss nicht, ob Ihnen meine Frau mitgeteilt hat,
+        <lb/>welche entscheidenden Veränderungen in der äusseren Lebens-
+        <lb/>form ich zu treffen genötigt bin. Ich werde das Haus in Salz-
+        <lb/>burg nicht länger halten können, da ich nach Amerika muss und
+        <lb/>auch sonst mich ganz umzustellen genötigt bin. Die Töchter
+        <lb/>meiner Frau sind weg und für mich allein dieses nicht gerade
+      </p>
+      <pb n="2" facs="#surf_2"/>
+      <p>
+        <lb/>bequeme Haus eine bedrückende Last. Ich hoffe, es wird
+        <lb/>immerhin möglich sein, es erträglich zu verkaufen. Ihret-
+        <lb/>wegen machen Sie sich bitte keine Sorgen, wir werden schon
+        <lb/>einen Modus finden. Erstlich werden ich doch immer in der
+        <lb/>oesterreichischen Zeit, sei es in Wien oder sonst mit Ih-
+        <lb/>nen zusammenarbeiten und dann werden Sie ja noch die Kor-
+        <lb/>respondenz längere Zeit für mich dort weiterführen müssen.
+        <lb/>Ich kann mich jetzt mit den Einzelheiten nicht befassen,
+        <lb/>ebensowenig wie mit meinen deutschen Verlagsangelegenheiten,
+        <lb/>die ganz im Unsicheren sind. Für mich ist das Wichtigste
+        <lb/>jetzt, das Buch fertig zu machen. Dies ist meine Sorge und {es}
+        <lb/>wird auch bald Ihre Mühe sein.
+      </p>
+      <p>
+        <lb/>Mit den besten Grüssen Ihr
+      </p>
+      <p>
+        <lb/>Stefan Zweig
+      </p>
+      </div>
+    </body>
+  </text>
+</TEI>
