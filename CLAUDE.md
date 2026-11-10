@@ -53,7 +53,7 @@ Check available tools, runtimes and network access before dependent steps, and n
 ### Commands
 
 - Serve: `python -m http.server 8000 --directory docs` in the repository root. `docs/` is the application and the GitHub Pages root; nothing outside it is served.
-- Syntax: `node --check js/<module>.js` for every changed module.
+- Syntax: `node --check docs/js/<module>.js` for every changed module.
 - Browser check: `npm run check` in `test/` with the server running, required before each commit that changes behaviour. It takes about three minutes and fails first when `docs/data/index.json` is stale.
 - Size check: `npm run size` in `test/` with the server running, after a change that affects checking, validation or the text view; it is the source of the limits in NFR-05.
 - Trial run: `tools/trial-run/setup.ps1` builds a local team sandbox under the ignored `trial-run/`, the guide is `tools/trial-run/README.md`.

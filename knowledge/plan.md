@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-11-06
+updated: 2026-11-10
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -144,16 +144,14 @@ Open:
 
 - Deliverable: the public repository `DigitalHumanitiesCraft/szd-teiCrafter` served with GitHub Pages from the `docs/` folder, and a partner working through Git.
 - Operator acceptance: the partner's commits arrive and are correct.
-- Status: pending.
+- Status: in progress.
 
-Built: the remote repository exists and is private. On 2026-11-06 the operator decided that it becomes public and is served with GitHub Pages from `docs/`, and the application moved there (`docs/index.html`, `docs/css/`, `docs/js/`, `docs/data/`, `docs/schemas/`, `docs/vendor/`), while `tools/`, `test/`, `knowledge/` and `evidence/` stay at the root.
-
-Open:
+Built: on 2026-11-06 the operator decided that the repository becomes public and is served with GitHub Pages from `docs/`, and the application moved there (`docs/index.html`, `docs/css/`, `docs/js/`, `docs/data/`, `docs/schemas/`, `docs/vendor/`), while `tools/`, `test/`, `knowledge/` and `evidence/` stay at the root (ADR-017). The repository is public, and GitHub Pages serves `docs/` of `main` at https://dhcraft.org/szd-teiCrafter/, as checked on 2026-11-10.
 
 - Public delivery of the transcriptions and registers under `docs/data/` is covered by CC BY 4.0, as `docs/data/IMPORT.md`, `docs/data/NOTICE.md` and `docs/data/register/NOTICE.md` record with attribution to Stefan Zweig Digital.
 - Facsimile images are only loaded live from GAMS and never delivered with the site or committed, which is also why screenshots of the evidence stay out of Git.
-- The operator makes the repository public and enables Pages.
-- A project partner works on a set of documents through clone, edit, commit and push.
+
+Open: a project partner works on a set of documents through clone, edit, commit and push.
 
 ### S6 Derivation contract in the base
 

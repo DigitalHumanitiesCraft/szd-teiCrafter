@@ -9,7 +9,7 @@ method:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-11-06
+updated: 2026-11-10
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 template:
@@ -23,6 +23,13 @@ related: [project, specification, handoff]
 # Journal
 
 ## Entries
+
+### 2026-11-10 Publication state checked against the plan
+
+- Trigger: repository maintenance across the operator's active repositories.
+- Found: the repository is public and GitHub Pages serves `docs/` of `main` at https://dhcraft.org/szd-teiCrafter/, built from `b623fd2`, while milestone S5 still listed both as open. The served folder holds only the application, its vendored libraries, the TEI schema and the CC BY data with their notices, and `knowledge/plan.md` answers 404 on the site. The trial run folder `szd-teiCrafter-probelauf` no longer exists beside the repository.
+- Changed: S5 records publication as done and keeps the partner trial open. The syntax command in `CLAUDE.md` names `docs/js/`.
+- Evidence: unit tests (`npm run unit`) and the browser check (`node browser-check.mjs` with `docs/` served) pass, `node --check` passes on every module and tool, and both evidence manifests verify with `sha256sum -c`.
 
 ### 2026-11-06 Journal compacted
 
