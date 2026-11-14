@@ -18,7 +18,7 @@ template:
   version: 0.4
   url: https://dhcraft.org/Promptotyping/promptotyping-document/index
   alias: https://dhcraft.org/Promptotyping/#promptotyping-document-index
-related: [project, specification, data, design, testing, plan, handoff, journal]
+related: [project, specification, data, design, testing, plan, journal]
 ---
 
 # Index
@@ -36,8 +36,7 @@ This knowledge base describes teiCrafter SZD, a browser editor for TEI documents
 | [design](design.md) | Design | How does the interface look and behave? | when the design system or an interaction pattern changes |
 | [testing](testing.md) | Quality Assurance | What is checked, how, and what stays unchecked? | when a check is added or its scope changes |
 | [plan](plan.md) | Planning | What comes next, in which order? | when a step is accepted, done or reordered |
-| [handoff](handoff.md) | Handoff | Which received inputs await integration? | when an input arrives or is processed |
-| [journal](journal.md) | Provenance | What was decided, corrected or changed, and why? | after each coherent transition |
+| [journal](journal.md) | Provenance and open points | What is open, and what was decided, corrected or changed, and why? | at session start and after each coherent transition |
 
 The action layer is [CLAUDE.md](../CLAUDE.md) in the repository root.
 
@@ -53,7 +52,7 @@ The action layer is [CLAUDE.md](../CLAUDE.md) in the repository root.
 
 ## Reading paths
 
-- Session start: INDEX → [handoff](handoff.md) → [plan](plan.md) → the document for the task.
+- Session start: INDEX → [journal](journal.md#open) → [plan](plan.md) → the document for the task.
 - Changing editor behaviour: [specification](specification.md#decisions) → [design](design.md) → [testing](testing.md).
 - Deriving an editor for another edition: [specification](specification.md#adr-002-generic-modules-and-one-source-configuration) → [project](project.md#technical-realisation) → `docs/js/source.js`.
 

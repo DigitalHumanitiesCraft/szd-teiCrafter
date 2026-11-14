@@ -6,7 +6,7 @@ teiCrafter SZD is a browser editor for TEI documents of the Stefan Zweig Digital
 
 ## Knowledge base
 
-Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, then the documents relevant to the task. Consult `knowledge/journal.md` when the origin or reason of a decision is needed.
+Read `knowledge/INDEX.md` at every session start, then the beginning of `knowledge/journal.md` (`## Open`), then the documents relevant to the task. Consult `knowledge/journal.md` when the origin or reason of a decision is needed.
 
 | Task | Read first |
 |---|---|
@@ -16,11 +16,11 @@ Read `knowledge/INDEX.md` at every session start, then `knowledge/handoff.md`, t
 | Interface | `knowledge/design.md` |
 | Checks | `knowledge/testing.md` |
 | Next steps | `knowledge/plan.md` |
-| Received input | `knowledge/handoff.md` |
+| Open points | `knowledge/journal.md`, section `## Open` |
 
 ## Working rules
 
-- Handoff: read `knowledge/handoff.md` at session start, verify source and target of every point used, integrate durable content first, write the journal entry, then remove the point.
+- Open points: read `## Open` at the top of `knowledge/journal.md` at session start, verify source and target of every point used, integrate durable content first, then remove the point from `## Open`.
 - Journal: one entry per coherent transition with the fields that have content. Status, open tasks and detailed results belong in their own documents.
 - Keep edition specifics in `docs/js/source.js` and the annotation actions in `docs/data/actions.json`. A generic module that needs to know about Stefan Zweig Digital is a design error, report it.
 - Place a change in the module that owns it. The module map in ADR-002 of `knowledge/specification.md` is the one list of module responsibilities; update it when a responsibility moves.

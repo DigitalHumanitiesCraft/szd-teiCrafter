@@ -17,12 +17,24 @@ template:
   version: 0.6
   url: https://dhcraft.org/Promptotyping/promptotyping-document/journal
   alias: https://dhcraft.org/Promptotyping/#promptotyping-document-journal
-related: [project, specification, handoff]
+related: [project, specification]
 ---
 
 # Journal
 
+## Open
+
+Nothing open.
+
 ## Entries
+
+### 2026-11-14 Handoff file dissolved into the journal
+
+- Trigger: operator decision of 2026-11-14 that a Promptotyping repository no longer keeps `knowledge/handoff.md`.
+- Found: the handoff file held no open point. The statements in `plan.md` about the handoffs of the teiCrafter base and the Wenzelsbibel derivation concern other repositories and stay.
+- Decided: nothing was carried over, `## Open` reads `Nothing open.`. The journal begins with `## Open`, which holds what the next session needs to continue.
+- Changed: `handoff.md` removed, CLAUDE.md and INDEX read the beginning of the journal instead.
+- Evidence: operator decision of 2026-11-14.
 
 ### 2026-11-10 Publication state checked against the plan
 
