@@ -6,7 +6,7 @@ project:
 status: draft
 language: en
 created: 2026-10-30
-updated: 2026-10-31
+updated: 2026-11-16
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 method:
@@ -57,6 +57,16 @@ The editor is also a case for the operator's research on agent-based edition wor
 | Agent directly in TEI | agent | agent | shared check, then a person |
 
 The agent run of 2026-10-31 compared the last two (ADR-015). On the calibration letter four agents agreed on all but three marks, which shows stability under one model, rule set and source set, not correctness. A person's review of the proposals (ADR-016) is the next evidence, and an agent run on the Hersch data with review in its curation frontend would carry the comparison back to the original experiment, subject to the co-author's consent.
+
+## What the project has learned
+
+- Agreement among several agents that run on the same LLM shows that a result is stable under that LLM, rule set and source set. Whether the result is correct is decided by a person who reads it against the facsimile, and acceptance records that judgement ([ADR-006](specification.md#adr-006-definition-of-done-and-two-working-states), [ADR-015](specification.md#adr-015-an-agentic-layer-beside-the-editor)). The LLM agent of the working session drew this from the run of 2026-10-31, in which four LLM agents agreed on all but three marks of the calibration letter `o_szd.1222`, and two LLM checks that agreed on every merged item both found a mark none of the four runs had proposed, so the journal records their agreement as machine evidence that accepts nothing ([journal](journal.md#2026-10-31-agent-annotation-run-and-the-editor-changes-it-called-for), [journal](journal.md#2026-10-31-neutral-check-of-the-calibration-letter), [ADR-016](specification.md#adr-016-proposals-are-reviewed-one-by-one-with-the-review-recorded-in-resp)).
+- An agent needs no integration of its own in an editing tool when it works through the interface a person has, the files in Git, the rules in the knowledge base and the machine checks that run outside the browser ([ADR-015](specification.md#adr-015-an-agentic-layer-beside-the-editor), Rationale). The four LLM agents of 2026-10-31 worked this way, some editing the TEI directly and some driving the editor headless, and the gaps all of them met in the editor were then closed in the editor itself ([journal](journal.md#2026-10-31-agent-annotation-run-and-the-editor-changes-it-called-for)). The operator named these agents an optional agentic layer beside the editor, and the working session recorded the rationale in ADR-015.
+- A hit in a person register does not by itself decide that a passage names a person. The person index of Stefan Zweig Digital lists names that also stand for Zweig's works, such as `Erasmus` and `Maria Stuart`, and its substring search finds persons for place names and common words such as `Rom` and `August` ([data](data.md#limits)). The persons rule in [annotation](annotation.md#persons) draws the consequence for names of works, which wait for the works stage, and neither document records who found these cases.
+
+### Shared with sibling projects
+
+Two sibling projects drew the same core lesson independently of this one, namely that a result which looks consistent can still be wrong and that only an independent check at the source or by a person shows it. In Klawiter-Rescue (`chpollin/klawiter-rescue`) a value stood in its source and still came from the wrong passage, unnoticed by single tests, and agent judgements have since counted only as proposals. In CorrespExplorer (`DigitalHumanitiesCraft/CorrespExplorer`) views that looked plausible hid reading errors of the parser, which only an independent recount at the source uncovered. These statements about the two projects come from a reading of their knowledge folders on 2026-11-16 and have not been checked here.
 
 ## Standards
 

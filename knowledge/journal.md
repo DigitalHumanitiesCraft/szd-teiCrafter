@@ -9,7 +9,7 @@ method:
 status: active
 language: en
 created: 2026-10-30
-updated: 2026-11-10
+updated: 2026-11-16
 authors: [Christopher Pollin]
 generated-with: Claude Code (Claude Opus 5.5)
 template:
@@ -24,9 +24,19 @@ related: [project, specification]
 
 ## Open
 
-Nothing open.
+- The project is called „the first lean derivation“ of teiCrafter in [project](project.md) and [INDEX](INDEX.md), while project.md calls the Wenzelsbibel editor „the first, larger derivation“. Which derivation counts as the first is ambiguous and needs one wording.
+- ADR-018, the pseudonymous editor recorded on saving, chosen in the session of 2026-11-06, has no journal entry. The transition is to be recorded from its commits.
 
 ## Entries
+
+### 2026-11-16 Lessons recorded in the project document
+
+- Trigger: an outside reader of the whole knowledge base found that the project's lessons stood nowhere as lessons, only scattered across „Research use“, the journal and the rationales of the decisions, and that two sibling projects had drawn the same core lesson without any knowledge folder naming the others.
+- Found: four candidate lessons were checked against their places. Agreement of agents on one LLM shows stability and a person decides correctness (project.md, the journal entries of 2026-10-31 on the agent run and the neutral check, ADR-006, ADR-015, ADR-016), an agent needs no integration of its own when it has a person's interface (ADR-015), a schema-valid document may hold open work because the HTR markers are plain text (data.md, Limits), and a register hit alone does not decide that a name means a person (data.md, Limits, and annotation.md, Persons). All four hold at their places.
+- Decided: the first, second and fourth lessons entered as a section `What the project has learned` in [project](project.md#what-the-project-has-learned), because the convention of the folder has no document of its own for lessons, with a paragraph on the sibling projects Klawiter-Rescue and CorrespExplorer marked as taken from a reading of their knowledge folders on 2026-11-16 and not checked here. The third lesson is left out of the section, since it rests on one sentence in data.md, while the fourth is stated in two documents.
+- Rejected: an open point on `tools/trial-run/` in step 6 of the plan's „Where to resume“, reported by the reader as a location the journal has since changed. The journal entry of 2026-11-06 moved the trial run to `tools/trial-run/`, the folder exists there, and the plan names that place.
+- Changed: project.md, the two open points above.
+- Evidence: the cited passages of project.md, journal.md, specification.md, data.md and annotation.md, read in full on 2026-11-16, and the scripts under `tools/trial-run/` in the working tree.
 
 ### 2026-11-14 Handoff file dissolved into the journal
 
